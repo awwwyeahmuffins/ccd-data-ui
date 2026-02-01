@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Functionality Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .test-section {
+      margin: 20px 0;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .test-section h2 {
+      margin-top: 0;
+    }
+    .pass { color: green; }
+    .fail { color: red; }
+    .warning { color: orange; }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    #results {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Collin County Election Data - UI Functionality Test</h1>
+  
+  <div class="test-section">
+    <h2>Test 1: Data Loading</h2>
+    <button onclick="testDataLoading()">Test Data Loading</button>
+    <div id="data-loading-results"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>Test 2: Election View - Data Accuracy</h2>
+    <button onclick="testElectionDataAccuracy()">Test Election Data</button>
+    <div id="election-data-results"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>Test 3: Slider Calculations</h2>
+    <button onclick="testSliderCalculations()">Test Slider Math</button>
+    <div id="slider-results"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>Test 4: Toggle Functionality</h2>
+    <button onclick="testToggles()">Test Toggles</button>
+    <div id="toggle-results"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>Test 5: View Switching</h2>
+    <button onclick="testViewSwitching()">Test View Switching</button>
+    <div id="view-results"></div>
+  </div>
+  
+  <div id="results"></div>
+  
+  <script type="module">
+    // Import the actual modules from the app
+    import { loadElectionData, listElectionCSVs, loadAllData } from './js/dataLoader.js';
+    import { calculateAdjustedVotes } from './js/turnoutSimulator.js';
+    
+    window.testDataLoading = async function() {
+      const resultsDiv = document.getElementById('data-loading-results');
+      resultsDiv.innerHTML = '<p>Testing...</p>';
+      
+      try {
+        // Test 1: Load elections manifest
+        const manifest = await fetch('data/elections.json').then(r => r.json());
+        resultsDiv.innerHTML += `<p class="pass">✅ Loaded ${manifest.length} elections from manifest</p>`;
+        
+        // Test 2: Load a sample election
+        if (manifest.length > 0) {
+          const sampleElection = manifest[0];
+          const electionData = await loadElectionData(sampleElection.filename);
+          resultsDiv.innerHTML += `<p class="pass">✅ Loaded ${electionData.length} precincts from ${sampleElection.filename}</p>`;
+          
+          // Verify structure
+          if (electionData.length > 0) {
+            const firstRow = electionData[0];
+            const hasPrecinctCode = 'PRECINCT CODE' in firstRow;
+            const hasPrecinctName = 'PRECINCT NAME' in firstRow;
+            
+            if (hasPrecinctCode && hasPrecinctName) {
+              resultsDiv.innerHTML += `<p class="pass">✅ CSV structure is valid</p>`;
+            } else {
+              resultsDiv.innerHTML += `<p class="fail">❌ Missing required columns</p>`;
+            }
+          }
+        }
+        
+        // Test 3: Load all base data
+        const allData = await loadAllData();
+        resultsDiv.innerHTML += `<p class="pass">✅ Loaded GeoJSON with ${allData.geojson.features.length} features</p>`;
+        resultsDiv.innerHTML += `<p class="pass">✅ Loaded DNC data for ${Object.keys(allData.dncLookup).length} precincts</p>`;
+        resultsDiv.innerHTML += `<p class="pass">✅ Loaded Racial data for ${Object.keys(allData.racialLookup).length} precincts</p>`;
+        
+      } catch (error) {
+        resultsDiv.innerHTML += `<p class="fail">❌ Error: ${error.message}</p>`;
+      }
+    };
+    
+    window.testElectionDataAccuracy = async function() {
+      const resultsDiv = document.getElementById('election-data-results');
+      resultsDiv.innerHTML = '<p>Testing...</p>';
+      
+      try {
+        const manifest = await fetch('data/elections.json').then(r => r.json());
+        
+        // Test a 2024 election
+        const election2024 = manifest.find(e => e.year === 2024 && e.filename.includes('President'));
+        
+        if (!election2024) {
+          resultsDiv.innerHTML += `<p class="warning">⚠️ No 2024 President election found</p>`;
+          return;
+        }
+        
+        const electionData = await loadElectionData(election2024.filename);
+        resultsDiv.innerHTML += `<p class="pass">✅ Testing ${election2024.filename}</p>`;
+        
+        // Verify vote totals
+        let totalVotes = 0;
+        let precinctsWithVotes = 0;
+        
+        electionData.forEach(row => {
+          const ballotsCast = parseInt(row['BALLOTS CAST TOTAL']) || 0;
+          if (ballotsCast > 0) {
+            precinctsWithVotes++;
+            totalVotes += ballotsCast;
+          }
+        });
+        
+        resultsDiv.innerHTML += `<p class="pass">✅ Found ${precinctsWithVotes} precincts with votes</p>`;
+        resultsDiv.innerHTML += `<p class="pass">✅ Total ballots cast: ${totalVotes.toLocaleString()}</p>`;
+        
+        // Check candidate vote totals
+        const firstRow = electionData[0];
+        const candidateColumns = Object.keys(firstRow).filter(key => {
+          const value = firstRow[key];
+          return !isNaN(Number(value)) && value !== '' && 
+                 !['PRECINCT CODE', 'COUNTY NUMBER', 'REGISTERED VOTERS TOTAL', 
+                    'BALLOTS CAST TOTAL', 'BALLOTS CAST BLANK'].includes(key);
+        });
+        
+        resultsDiv.innerHTML += `<p class="pass">✅ Found ${candidateColumns.length} candidate/vote columns</p>`;
+        
+        // Verify vote totals match ballots cast for a sample precinct
+        let matchingPrecincts = 0;
+        let sampleChecked = 0;
+        
+        electionData.slice(0, 10).forEach(row => {
+          const ballotsCast = parseInt(row['BALLOTS CAST TOTAL']) || 0;
+          let candidateVotes = 0;
+          
+          candidateColumns.forEach(col => {
+            candidateVotes += parseInt(row[col]) || 0;
+          });
+          
+          // Allow some variance for write-ins, over/under votes
+          if (Math.abs(ballotsCast - candidateVotes) < ballotsCast * 0.1) {
+            matchingPrecincts++;
+          }
+          sampleChecked++;
+        });
+        
+        if (matchingPrecincts === sampleChecked) {
+          resultsDiv.innerHTML += `<p class="pass">✅ Vote totals match ballots cast (sample check)</p>`;
+        } else {
+          resultsDiv.innerHTML += `<p class="warning">⚠️ ${matchingPrecincts}/${sampleChecked} precincts have matching vote totals</p>`;
+        }
+        
+      } catch (error) {
+        resultsDiv.innerHTML += `<p class="fail">❌ Error: ${error.message}</p>`;
+      }
+    };
+    
+    window.testSliderCalculations = function() {
+      const resultsDiv = document.getElementById('slider-results');
+      resultsDiv.innerHTML = '<p>Testing...</p>';
+      
+      // Test turnout multiplier calculations
+      const testCases = [
+        { registration: 1000, voteShare: 0.6, multiplier: 1.0, expected: 600 },
+        { registration: 1000, voteShare: 0.6, multiplier: 0.8, expected: 480 },
+        { registration: 1000, voteShare: 0.6, multiplier: 0.5, expected: 300 },
+        { registration: 1000, voteShare: 0.6, multiplier: 0.3, expected: 300 }, // Clamped
+        { registration: 1000, voteShare: 0.6, multiplier: 1.2, expected: 600 }, // Clamped
+      ];
+      
+      let passed = 0;
+      let failed = 0;
+      
+      testCases.forEach((testCase, idx) => {
+        const result = calculateAdjustedVotes(
+          testCase.registration,
+          testCase.voteShare,
+          testCase.multiplier
+        );
+        
+        if (result === testCase.expected) {
+          passed++;
+          resultsDiv.innerHTML += `<p class="pass">✅ Test ${idx + 1}: multiplier=${testCase.multiplier}, result=${result} (expected ${testCase.expected})</p>`;
+        } else {
+          failed++;
+          resultsDiv.innerHTML += `<p class="fail">❌ Test ${idx + 1}: Expected ${testCase.expected}, got ${result}</p>`;
+        }
+      });
+      
+      resultsDiv.innerHTML += `<p><strong>Summary: ${passed} passed, ${failed} failed</strong></p>`;
+    };
+    
+    window.testToggles = function() {
+      const resultsDiv = document.getElementById('toggle-results');
+      resultsDiv.innerHTML = '<p>Testing toggle functionality...</p>';
+      
+      // Check if view toggle buttons exist
+      const demBtn = document.getElementById('view-dem-btn');
+      const electBtn = document.getElementById('view-elect-btn');
+      const turnoutBtn = document.getElementById('view-turnout-btn');
+      
+      if (demBtn && electBtn && turnoutBtn) {
+        resultsDiv.innerHTML += `<p class="pass">✅ All view toggle buttons found</p>`;
+        
+        // Check ARIA attributes
+        if (demBtn.hasAttribute('aria-pressed')) {
+          resultsDiv.innerHTML += `<p class="pass">✅ View buttons have aria-pressed attributes</p>`;
+        } else {
+          resultsDiv.innerHTML += `<p class="fail">❌ View buttons missing aria-pressed attributes</p>`;
+        }
+      } else {
+        resultsDiv.innerHTML += `<p class="fail">❌ View toggle buttons not found (test must run in main app context)</p>`;
+      }
+    };
+    
+    window.testViewSwitching = function() {
+      const resultsDiv = document.getElementById('view-results');
+      resultsDiv.innerHTML = '<p>Testing view switching...</p>';
+      
+      // Check URL hash parsing
+      const hash = window.location.hash;
+      if (hash) {
+        resultsDiv.innerHTML += `<p class="pass">✅ URL hash detected: ${hash}</p>`;
+        
+        // Parse view from hash
+        const viewMatch = hash.match(/view=(\w+)/);
+        if (viewMatch) {
+          const view = viewMatch[1];
+          resultsDiv.innerHTML += `<p class="pass">✅ Current view: ${view}</p>`;
+        }
+      } else {
+        resultsDiv.innerHTML += `<p class="warning">⚠️ No URL hash (test must run in main app context)</p>`;
+      }
+    };
+  </script>
+</body>
+</html>

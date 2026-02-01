@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print Styles Test - Collin County Elections</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Test page specific styles */
+    .test-instructions {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px;
+      max-width: 600px;
+    }
+    
+    .test-instructions h2 {
+      margin: 0 0 12px 0;
+      color: #856404;
+      font-size: 1.1em;
+    }
+    
+    .test-instructions ol {
+      margin: 0;
+      padding-left: 24px;
+      color: #856404;
+    }
+    
+    .test-instructions li {
+      margin-bottom: 8px;
+    }
+    
+    .test-instructions kbd {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: monospace;
+    }
+    
+    /* Screen-only indicator */
+    .screen-only-notice {
+      display: block;
+      background: #e3f2fd;
+      color: #1565c0;
+      padding: 8px 16px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+    
+    @media print {
+      .test-instructions,
+      .screen-only-notice {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body style="overflow: auto; height: auto;">
+  <!-- Screen-only notice -->
+  <div class="screen-only-notice">
+    This notice and the instructions box will NOT appear when printed.
+  </div>
+  
+  <!-- Test instructions (won't print) -->
+  <div class="test-instructions">
+    <h2>Print Styles Test Instructions</h2>
+    <ol>
+      <li>Press <kbd>Ctrl</kbd>+<kbd>P</kbd> (Windows) or <kbd>Cmd</kbd>+<kbd>P</kbd> (Mac) to open Print Preview</li>
+      <li>Verify the following in the print preview:
+        <ul>
+          <li>This instruction box is hidden</li>
+          <li>Header bar and navigation are hidden</li>
+          <li>Map section is hidden (data only prints)</li>
+          <li>Cards have borders instead of shadows</li>
+          <li>Text is readable in black</li>
+          <li>Party colors are preserved</li>
+          <li>Tables are formatted with borders</li>
+        </ul>
+      </li>
+      <li>Check page breaks don't split cards or tables</li>
+    </ol>
+  </div>
+  
+  <!-- Simulated header (should be hidden in print) -->
+  <header id="header-bar" role="banner">
+    <nav class="view-buttons" aria-label="View selection">
+      <button class="view-btn active">Demographics</button>
+      <button class="view-btn">Election Forecast</button>
+      <button class="view-btn">Turnout Analysis</button>
+    </nav>
+    <div class="spacer"></div>
+    <div class="header-actions">
+      <button class="copy-link-btn">
+        <span>Share</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main content area -->
+  <div id="main-container" style="height: auto; display: block;">
+    <!-- Sidebar content -->
+    <div id="sidebar" style="position: static; width: 100%; flex: none; height: auto; overflow: visible;">
+      <div id="sidebar-content">
+        <!-- Print header (only shows in print) -->
+        <div class="print-header" style="display: none;">
+          Collin County Election Data - Printed Report
+        </div>
+        
+        <h2>Election Results Summary</h2>
+        
+        <!-- Race Summary Card -->
+        <div class="race-summary">
+          <h3>County-Wide Summary</h3>
+          <p class="race-name">2024 Presidential Election</p>
+          
+          <div class="summary-stats">
+            <div class="stat-item">
+              <span class="stat-label">Winner</span>
+              <span class="stat-value winner-rep">Donald Trump</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Margin</span>
+              <span class="stat-value">+12.4%</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Turnout</span>
+              <span class="stat-value">68.7%</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Total Votes</span>
+              <span class="stat-value">543,210</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Candidate Results -->
+        <div class="data-card">
+          <h3>Candidate Results</h3>
+          <ul class="candidate-results">
+            <li class="candidate-result party-rep">
+              <span class="candidate-name">REP Donald Trump</span>
+              <span class="candidate-votes">305,432 (56.2%)</span>
+            </li>
+            <li class="candidate-result party-dem">
+              <span class="candidate-name">DEM Kamala Harris</span>
+              <span class="candidate-votes">237,778 (43.8%)</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Comparison Table -->
+        <div class="data-card">
+          <h3>Vote Comparison</h3>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Original</th>
+                <th>Simulated</th>
+                <th>Change</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="rep">
+                <td>Republican Votes</td>
+                <td>305,432</td>
+                <td>310,500</td>
+                <td class="positive">+5,068</td>
+              </tr>
+              <tr class="dem">
+                <td>Democrat Votes</td>
+                <td>237,778</td>
+                <td>240,200</td>
+                <td class="positive">+2,422</td>
+              </tr>
+              <tr>
+                <td>Total Turnout</td>
+                <td>68.7%</td>
+                <td>71.2%</td>
+                <td class="positive">+2.5%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Precinct Details -->
+        <div class="precinct-details-card">
+          <hr>
+          <h3>Precinct 101</h3>
+          
+          <div class="turnout-highlight" style="background: linear-gradient(135deg, rgba(39, 174, 96, 0.13), rgba(39, 174, 96, 0.27));">
+            <div class="turnout-value" style="color: rgb(39, 174, 96);">72.5%</div>
+            <div class="turnout-label">Turnout Rate</div>
+          </div>
+          
+          <div class="precinct-stats">
+            <div class="precinct-stat">
+              <span class="stat-value">3,245</span>
+              <span class="stat-label">Ballots Cast</span>
+            </div>
+            <div class="precinct-stat">
+              <span class="stat-value">4,476</span>
+              <span class="stat-label">Registered</span>
+            </div>
+            <div class="precinct-stat">
+              <span class="stat-value">#15</span>
+              <span class="stat-label">County Rank</span>
+            </div>
+          </div>
+          
+          <p class="gotv-note">
+            <strong>High Engagement:</strong> This precinct has excellent turnout.
+          </p>
+        </div>
+        
+        <!-- Print footer (only shows in print) -->
+        <div class="print-footer" style="display: none;">
+          Generated from Collin County Election Data App • collin-elections.example.com
+        </div>
+      </div>
+    </div>
+    
+    <!-- Map area (should be hidden in print) -->
+    <div id="map" style="display: none;">
+      <p>Map would be here (hidden in print)</p>
+    </div>
+  </div>
+  
+  <!-- Toast container (should be hidden in print) -->
+  <div class="toast-container">
+    <div class="toast success">
+      This toast will not appear in print
+    </div>
+  </div>
+</body>
+</html>

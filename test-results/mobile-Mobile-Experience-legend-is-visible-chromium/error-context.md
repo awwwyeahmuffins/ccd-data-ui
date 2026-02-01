@@ -1,0 +1,722 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to map" [ref=e2]:
+    - /url: "#map"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5] [cursor=pointer]:
+        - generic [ref=e6]: CC
+        - generic [ref=e7]: Collin County Elections
+      - generic [ref=e8]:
+        - button "Hide" [ref=e9] [cursor=pointer]
+        - button "⌘K" [ref=e10] [cursor=pointer]
+        - button "Browse" [ref=e11] [cursor=pointer]
+  - application "Interactive precinct map" [ref=e13]:
+    - generic:
+      - generic:
+        - img
+    - generic:
+      - generic [ref=e265]:
+        - button "Zoom in" [ref=e266]: +
+        - button "Zoom out" [ref=e267]: −
+      - generic [ref=e269]:
+        - generic [ref=e270]: Party Lean
+        - generic [ref=e271]:
+          - generic [ref=e274]: Republican
+          - generic [ref=e277]: Democrat
+          - generic [ref=e280]: Moderate
+        - generic [ref=e281]: Color intensity = strength
+      - generic [ref=e282]:
+        - link "Leaflet" [ref=e283]:
+          - /url: https://leafletjs.com
+          - img
+          - text: Leaflet
+        - text: "| © OpenStreetMap contributors"
+  - button "Open election browser" [ref=e284] [cursor=pointer]:
+    - img [ref=e285]
+  - complementary:
+    - generic:
+      - heading [level=2]: Browse Elections
+      - button:
+        - img
+    - generic:
+      - textbox:
+        - /placeholder: Search races...
+      - generic:
+        - button: All (211)
+        - button: "2024"
+        - button: "2022"
+        - button: Federal
+        - button: State
+        - button: County
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic: Federal
+            - generic: 8 races
+          - generic:
+            - generic:
+              - generic: President Vice President (2024)
+              - generic: "2024"
+            - generic:
+              - generic: United States Representative District 3 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: United States Representative District 32 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: United States Representative District 4 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: United States Senator (2024)
+              - generic: "2024"
+            - generic:
+              - generic: U. S. Representative District 3
+            - generic:
+              - generic: U. S. Representative, District 32
+            - generic:
+              - generic: U. S. Representative, District 4
+        - generic:
+          - generic:
+            - generic:
+              - generic: State
+            - generic: 39 races
+          - generic:
+            - generic:
+              - generic: Chief Justice 5th Court of Appeals District (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Judge Court of Criminal Appeals Place 7 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Judge Court of Criminal Appeals Place 8 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Justice 5th Court of Appeals District Place 10 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Justice 5th Court of Appeals District Place 11 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Justice 5th Court of Appeals District Place 12 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Justice 5th Court of Appeals District Place 13 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Justice 5th Court of Appeals District Place 2 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Justice 5th Court of Appeals District Place 5 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Justice 5th Court of Appeals District Place 9 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Justice Supreme Court Place 2 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Justice Supreme Court Place 4 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Justice Supreme Court Place 6 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Member State Board of Education District 12 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Presiding Judge Court of Criminal Appeals (2024)
+              - generic: "2024"
+            - generic:
+              - generic: State Representative District 89 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: State Senator District 30 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Attorney General (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Commissioner of Agriculture (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Commissioner of the General Land Office (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Comptroller of Public Accounts (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Governor (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Judge Court of Criminal Appeals Place 5 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Judge Court of Criminal Appeals Place 6 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Justice 5th Court of Appeals District Place 4 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Justice 5th Court of Appeals District Place 7 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Justice Supreme Court Place 3 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Justice Supreme Court Place 5 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Justice Supreme Court Place 9 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Lieutenant Governor (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Member State Board of Education District 12 CCD (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Railroad Commissioner (2022)
+              - generic: "2022"
+            - generic:
+              - generic: State Representative District 33 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: State Representative District 61 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: State Representative District 66 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: State Representative District 67 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: State Representative District 70 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: State Senator District 2 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: State Senator District 8 (2022)
+              - generic: "2022"
+        - generic:
+          - generic:
+            - generic:
+              - generic: County
+            - generic: 27 races
+          - generic:
+            - generic:
+              - generic: Constable Precinct No 1 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Constable Precinct No 2 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Constable Precinct No 3 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Constable Precinct No 4 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: County Commissioner Precinct No 1 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: County Commissioner Precinct No 3 (2024)
+              - generic: "2024"
+            - generic:
+              - generic: County Tax Assessor-Collector (2024)
+              - generic: "2024"
+            - generic:
+              - generic: District Judge 199th Judicial District (2024)
+              - generic: "2024"
+            - generic:
+              - generic: District Judge 380th Judicial District (2024)
+              - generic: "2024"
+            - generic:
+              - generic: District Judge 401st Judicial District (2024)
+              - generic: "2024"
+            - generic:
+              - generic: District Judge 416th Judicial District (2024)
+              - generic: "2024"
+            - generic:
+              - generic: District Judge 468th Judicial District (2024)
+              - generic: "2024"
+            - generic:
+              - generic: District Judge 469th Judicial District (2024)
+              - generic: "2024"
+            - generic:
+              - generic: District Judge 470th Judicial District (2024)
+              - generic: "2024"
+            - generic:
+              - generic: District Judge 471st Judicial District (2024)
+              - generic: "2024"
+            - generic:
+              - generic: District Judge 493rd Judicial District (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Judge County Probate Court Unexpired Term (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Sheriff (2024)
+              - generic: "2024"
+            - generic:
+              - generic: County Commissioner Precinct 4 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: County Judge CCD (2022)
+              - generic: "2022"
+            - generic:
+              - generic: District Clerk CCD (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Justice of the Peace Precinct 2 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Justice of the Peace Precinct 3 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Justice of the Peace Precinct 4 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: U S Representative District 3 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: U S Representative District 32 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: U S Representative District 4 (2022)
+              - generic: "2022"
+        - generic:
+          - generic:
+            - generic:
+              - generic: City
+            - generic: 69 races
+          - generic:
+            - generic:
+              - generic: City Council Place 1 City of Lavon (2024)
+              - generic: "2024"
+            - generic:
+              - generic: City Council Place 3 City of Lavon (2024)
+              - generic: "2024"
+            - generic:
+              - generic: City Council Place 5 City of Lavon (2024)
+              - generic: "2024"
+            - generic:
+              - generic: City Council Ward 1 City of Lowry Crossing (2024)
+              - generic: "2024"
+            - generic:
+              - generic: City Council Ward 2 City of Lowry Crossing (2024)
+              - generic: "2024"
+            - generic:
+              - generic: City Council Ward 3 City of Lowry Crossing (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Mayor At Large City of Princeton (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Seat No 1 At Large City of Princeton (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Seat No 2 At Large City of Princeton (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Carrollton City of - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Carrollton City of - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Carrollton City of - Proposition C (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Carrollton City of - Proposition D (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Carrollton City of - Proposition E (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Celina City of - Local Option Election (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Dallas City of - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Lavon City of - Council Place 5 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Lavon City of - Home Rule Charter (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Lowry Crossing City of - Ward 3 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: McKinney City of - Local Option Election (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition C (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition D (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition E (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition F (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition G (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition H (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition I (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition J (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition K (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition L (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition M (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition N (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Murphy City of - Proposition O (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Princeton City of - Home-Rule Charter (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition C (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition D (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition E (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition F (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition G (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition H (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition I (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition J (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition K (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition L (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition M (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition N (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition O (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition P (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition Q (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition R (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition S (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition T (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition U (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition V (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Sachse City of - Proposition W (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Weston City of - Alderman City Council (2022)
+              - generic: "2022"
+            - generic:
+              - generic: City Council, Place 1 – City of Lavon
+            - generic:
+              - generic: City Council, Place 3 – City of Lavon
+            - generic:
+              - generic: City Council, Place 5 – City of Lavon
+            - generic:
+              - generic: City Council, Ward 1 – City of Lowry Crossing
+            - generic:
+              - generic: City Council, Ward 2 – City of Lowry Crossing
+            - generic:
+              - generic: City Council, Ward 3 – City of Lowry Crossing
+            - generic:
+              - generic: Mayor – At Large – City of Princeton
+            - generic:
+              - generic: Seat No. 1 – At Large – City of Princeton
+            - generic:
+              - generic: Seat No. 2 – At Large – City of Princeton
+        - generic:
+          - generic:
+            - generic:
+              - generic: ISD
+            - generic: 18 races
+          - generic:
+            - generic:
+              - generic: For School Trustee - Bland ISD (2024)
+              - generic: "2024"
+            - generic:
+              - generic: For School Trustee - Princeton ISD (2024)
+              - generic: "2024"
+            - generic:
+              - generic: Anna ISD - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Anna ISD - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Leonard ISD - Propositon A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Lovejoy ISD - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Plano ISD - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Plano ISD - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Plano ISD - Proposition C (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Plano ISD - Proposition D (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Plano ISD - Proposition E (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Princeton ISD - Trustees (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Trenton ISD - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Trenton ISD - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Wylie ISD - Trustee Place 1 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Wylie ISD - Trustee Place 2 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Wylie ISD - Trustee Place 5 (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Wylie ISD - Trustee Place 6 (2022)
+              - generic: "2022"
+        - generic:
+          - generic:
+            - generic:
+              - generic: MUD
+            - generic: 50 races
+          - generic:
+            - generic:
+              - generic: Collin County MUD No 5 - Directors (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Collin County MUD No 5 - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Collin County MUD No 5 - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Collin County MUD No 5 - Proposition C (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Collin County MUD No 5 - Proposition D (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Collin County MUD No 5 - Proposition E (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Collin County MUD No 5 - Proposition F (2022)
+              - generic: "2022"
+            - generic:
+              - generic: East Collin County MUD No 1 - Directors (2022)
+              - generic: "2022"
+            - generic:
+              - generic: East Collin County MUD No 1 - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: East Collin County MUD No 1 - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: East Collin County MUD No 1 - Proposition C (2022)
+              - generic: "2022"
+            - generic:
+              - generic: East Collin County MUD No 1 - Proposition D (2022)
+              - generic: "2022"
+            - generic:
+              - generic: East Collin County MUD No 1 - Proposition E (2022)
+              - generic: "2022"
+            - generic:
+              - generic: East Collin County MUD No 1 - Proposition F (2022)
+              - generic: "2022"
+            - generic:
+              - generic: East Collin County MUD No 1 - Proposition G (2022)
+              - generic: "2022"
+            - generic:
+              - generic: East Collin County MUD No 1 - Proposition H (2022)
+              - generic: "2022"
+            - generic:
+              - generic: East Collin County MUD No 1 - Proposition I (2022)
+              - generic: "2022"
+            - generic:
+              - generic: East Collin County MUD No 1 - Proposition J (2022)
+              - generic: "2022"
+            - generic:
+              - generic: North Collin County MUD No 1 - Directors (2022)
+              - generic: "2022"
+            - generic:
+              - generic: North Collin County MUD No 1 - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: North Collin County MUD No 1 - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: North Collin County MUD No 1 - Proposition C (2022)
+              - generic: "2022"
+            - generic:
+              - generic: North Collin County MUD No 1 - Proposition D (2022)
+              - generic: "2022"
+            - generic:
+              - generic: North Collin County MUD No 1 - Proposition E (2022)
+              - generic: "2022"
+            - generic:
+              - generic: North Collin County MUD No 1 - Proposition F (2022)
+              - generic: "2022"
+            - generic:
+              - generic: North Parkway MMD No 1 - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: North Parkway MMD No 1 - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: North Parkway MMD No 1 - Proposition C (2022)
+              - generic: "2022"
+            - generic:
+              - generic: North Parkway MMD No 1 - Proposition D (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Raintree MUD No 1 of Collin County - Directors (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Raintree MUD No 1 of Collin County - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Raintree MUD No 1 of Collin County - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Raintree MUD No 1 of Collin County - Proposition C (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Raintree MUD No 1 of Collin County - Proposition D (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Raintree MUD No 1 of Collin County - Proposition E (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Raintree MUD No 1 of Collin County - Proposition F (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Riverfield MUD No 1 - Directors (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Riverfield MUD No 1 - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Riverfield MUD No 1 - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Riverfield MUD No 1 - Proposition C (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Riverfield MUD No 1 - Proposition D (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Riverfield MUD No 1 - Proposition E (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Riverfield MUD No 1 - Proposition F (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Van Alstyne MUD 3 - Directors (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Van Alstyne MUD 3 - Proposition A (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Van Alstyne MUD 3 - Proposition B (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Van Alstyne MUD 3 - Proposition C (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Van Alstyne MUD 3 - Proposition D (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Van Alstyne MUD 3 - Proposition E (2022)
+              - generic: "2022"
+            - generic:
+              - generic: Van Alstyne MUD 3 - Proposition F (2022)
+              - generic: "2022"
+  - region "Selected race information":
+    - generic: Governor
+    - generic: 2024 • State Election
+    - generic:
+      - generic:
+        - generic: Precincts
+        - generic: "330"
+      - generic:
+        - generic: Candidates
+        - generic: "2"
+```

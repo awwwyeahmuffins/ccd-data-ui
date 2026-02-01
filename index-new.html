@@ -1,0 +1,2400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collin County Elections — Redesigned</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    /* =============================================================================
+       RADICAL NEW DESIGN SYSTEM - Democrat Blue Theme
+       ============================================================================= */
+    
+    :root {
+      /* Democrat Blue Palette */
+      --primary: #0057B7;
+      --primary-hover: #0068D9;
+      --primary-light: #E3F2FD;
+      --primary-dark: #003D82;
+      --secondary: #00AEF3;
+      --accent: #1976D2;
+      
+      /* Party Colors for Map */
+      --dem-color: #00AEF3;
+      --rep-color: #E81B23;
+      --mod-color: #800080;
+      --text-primary: #222222;
+      --text-secondary: #717171;
+      --text-muted: #B0B0B0;
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F7F7F7;
+      --bg-overlay: rgba(0, 0, 0, 0.4);
+      --border: #DDDDDD;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 2px 16px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.16);
+      --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.2);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+    }
+
+    /* =============================================================================
+       MINIMALIST HEADER - Collapsible, Floating
+       ============================================================================= */
+    
+    #app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+      transform: translateY(0);
+    }
+
+    #app-header.collapsed {
+      transform: translateY(-100%);
+    }
+
+    .header-content {
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .header-brand-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-btn {
+      padding: 10px 20px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      color: var(--text-primary);
+    }
+
+    .header-btn:hover {
+      background: var(--bg-secondary);
+    }
+
+    .header-btn.primary {
+      background: var(--primary);
+      color: white;
+    }
+    .header-btn.forecast-btn {
+      background: var(--success, #2da44e);
+      color: white;
+    }
+    .header-btn.forecast-btn:hover {
+      background: var(--success-hover, #238636);
+    }
+    .forecast-btn-icon { margin-right: 4px; }
+    @media (max-width: 640px) {
+      .forecast-btn-text { display: none; }
+    }
+
+    .header-btn.primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* View Mode Buttons */
+    .view-mode-buttons {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-secondary);
+      padding: 4px;
+      border-radius: var(--radius-full);
+    }
+
+    .view-mode-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      color: var(--text-secondary);
+    }
+
+    .view-mode-btn:hover {
+      color: var(--text-primary);
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .view-mode-btn.active {
+      background: var(--bg-primary);
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .view-icon {
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .view-label {
+        display: none;
+      }
+      .view-mode-btn {
+        padding: 8px 12px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .view-mode-buttons {
+        display: none;
+      }
+    }
+
+    /* =============================================================================
+       COMMAND PALETTE - Cmd+K Interface (Spotlight-style)
+       ============================================================================= */
+    
+    #command-palette {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 20000;
+      background: var(--bg-overlay);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 10vh;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    #command-palette.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .command-palette-container {
+      width: 100%;
+      max-width: 640px;
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      transform: translateY(-20px) scale(0.95);
+      transition: transform 0.2s ease;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #command-palette.active .command-palette-container {
+      transform: translateY(0) scale(1);
+    }
+
+    .command-palette-input {
+      width: 100%;
+      padding: 20px 24px;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      font-size: 18px;
+      font-weight: 500;
+      background: transparent;
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .command-palette-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .command-palette-results {
+      flex: 1;
+      overflow-y: auto;
+      max-height: calc(80vh - 80px);
+      padding: 8px;
+    }
+
+    .command-item {
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .command-item:hover,
+    .command-item.selected {
+      background: var(--bg-secondary);
+    }
+
+    .command-item-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .command-item-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .command-item-title {
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .command-item-subtitle {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .command-item-shortcut {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-secondary);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      font-family: 'Monaco', 'Menlo', monospace;
+    }
+
+    /* =============================================================================
+       FULL-SCREEN MAP CONTAINER
+       ============================================================================= */
+    
+    #map-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      background: var(--primary-light);
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* =============================================================================
+       FLOATING ACTION BUTTON - Main Entry Point
+       ============================================================================= */
+    
+    #fab {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 1000;
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-full);
+      background: var(--primary);
+      color: white;
+      border: none;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      transition: var(--transition);
+      transform: scale(1);
+    }
+
+    #fab:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-xl);
+    }
+
+    #fab:active {
+      transform: scale(0.95);
+    }
+
+    #fab.active {
+      transform: rotate(45deg) scale(1.1);
+      background: var(--secondary);
+    }
+
+    /* =============================================================================
+       ELECTION BROWSER PANEL - Slides in from right
+       ============================================================================= */
+    
+    #election-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 480px;
+      max-width: 90vw;
+      z-index: 5000;
+      background: var(--bg-primary);
+      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #election-panel.active {
+      transform: translateX(0);
+    }
+
+    .panel-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .panel-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .panel-close {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+    }
+
+    .panel-close:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    .panel-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    /* Search in Panel */
+    .panel-search {
+      width: 100%;
+      padding: 16px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 16px;
+      margin-bottom: 24px;
+      transition: var(--transition-fast);
+      background: var(--bg-primary);
+    }
+
+    .panel-search:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    /* Filter Chips */
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .filter-chip {
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      color: var(--text-primary);
+    }
+
+    .filter-chip:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .filter-chip.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Recently Viewed Section */
+    .recent-section {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .recent-item {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: var(--bg-secondary);
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      border: 2px solid transparent;
+    }
+
+    .recent-item:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .recent-item-title {
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .recent-item-meta {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Election Groups */
+    .election-group {
+      margin-bottom: 32px;
+    }
+
+    .group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .group-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .group-count {
+      font-size: 12px;
+      color: var(--text-secondary);
+      background: var(--bg-secondary);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .group-toggle {
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: var(--bg-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+    }
+
+    .group-toggle:hover {
+      background: var(--border);
+    }
+
+    .election-list {
+      display: none;
+      padding-left: 16px;
+    }
+
+    .election-group.expanded .election-list {
+      display: block;
+    }
+
+    .election-item {
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      margin-bottom: 4px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .election-item:hover {
+      background: var(--bg-secondary);
+    }
+    .election-item.selected,
+    .recent-item.selected {
+      background: rgba(0, 112, 210, 0.12);
+      border-left: 3px solid var(--primary);
+    }
+
+    .forecast-section {
+      background: var(--bg-elevated, #f8f9fa);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin-bottom: 16px;
+      border: 1px solid var(--primary);
+    }
+    .forecast-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color, #eee);
+    }
+    .forecast-election {
+      font-size: 13px;
+    }
+    .forecast-label {
+      color: var(--text-secondary);
+      margin-right: 4px;
+    }
+    .clear-election-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 16px;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .clear-election-btn:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+    .forecast-section .slider-group { margin-bottom: 12px; }
+    .forecast-section .slider-group label { display: flex; justify-content: space-between; font-size: 13px; }
+    .forecast-section .turnout-slider { width: 100%; }
+    .forecast-section #simulation-summary { margin-top: 12px; font-size: 13px; }
+    .forecast-section #reset-turnout { margin-top: 8px; padding: 6px 12px; font-size: 12px; cursor: pointer; }
+
+    .election-item-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .election-item-year {
+      font-size: 12px;
+      color: var(--text-secondary);
+      background: var(--bg-secondary);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 64px 24px;
+      color: var(--text-secondary);
+    }
+
+    .empty-state-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+      opacity: 0.3;
+    }
+
+    .empty-state-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .empty-state-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* =============================================================================
+       FLOATING INFO CARD - Shows selected race info
+       ============================================================================= */
+    
+    #info-card {
+      position: fixed;
+      bottom: 112px;
+      right: 32px;
+      left: auto;
+      z-index: 2000;
+      width: 360px;
+      max-width: calc(100vw - 64px);
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      padding: 24px;
+      transition: left 0.3s ease, right 0.3s ease;
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    #info-card.visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    /* Move info card to left when panel is open */
+    #election-panel.active ~ #info-card,
+    body:has(#election-panel.active) #info-card {
+      right: auto;
+      left: 16px;
+      bottom: 200px;
+      width: 280px;
+      max-width: 280px;
+      padding: 16px;
+      font-size: 12px;
+    }
+    
+    #election-panel.active ~ #info-card .info-card-title,
+    body:has(#election-panel.active) #info-card .info-card-title {
+      font-size: 16px;
+    }
+    
+    #election-panel.active ~ #info-card .info-card-meta,
+    body:has(#election-panel.active) #info-card .info-card-meta {
+      font-size: 12px;
+    }
+    
+    #election-panel.active ~ #info-card .stat-item,
+    body:has(#election-panel.active) #info-card .stat-item {
+      padding: 8px;
+    }
+    
+    #election-panel.active ~ #info-card .stat-label,
+    body:has(#election-panel.active) #info-card .stat-label {
+      font-size: 10px;
+    }
+    
+    #election-panel.active ~ #info-card .stat-value,
+    body:has(#election-panel.active) #info-card .stat-value {
+      font-size: 14px;
+    }
+    
+    #election-panel.active ~ #info-card .info-card-demographics,
+    body:has(#election-panel.active) #info-card .info-card-demographics {
+      font-size: 11px;
+    }
+
+    .info-card-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .info-card-meta {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .info-card-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat-item {
+      padding: 12px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+    }
+
+    .info-card-demographics {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color, #eee);
+      font-size: 13px;
+    }
+    .info-card-demographics:empty {
+      display: none;
+    }
+    .info-card-demographics .demo-section-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+    }
+    .info-card-demographics .demo-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+    }
+    .info-card-demographics .demo-row span:first-child { margin-right: 8px; }
+    .info-card-demographics .demo-row span:last-child { font-weight: 500; }
+
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* =============================================================================
+       MOBILE RESPONSIVE
+       ============================================================================= */
+    
+    @media (max-width: 768px) {
+      #election-panel {
+        width: 100vw;
+        max-width: 100vw;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      }
+
+      #fab {
+        bottom: 24px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+      }
+
+      #info-card {
+        right: 16px;
+        left: 16px;
+        width: auto;
+        bottom: 96px;
+      }
+      
+      /* Hide info card on mobile when panel is open (no room) */
+      #election-panel.active ~ #info-card {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .header-content {
+        padding: 12px 16px;
+      }
+
+      .header-brand {
+        font-size: 16px;
+      }
+
+      .header-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+    }
+
+    /* =============================================================================
+       ANIMATIONS
+       ============================================================================= */
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .slide-in-right {
+      animation: slideInRight 0.3s ease forwards;
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* =============================================================================
+       ACCESSIBILITY - Skip Link
+       ============================================================================= */
+    
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary);
+      color: white;
+      padding: 8px 16px;
+      z-index: 99999;
+      text-decoration: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      font-weight: 500;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Focus visible for better keyboard navigation */
+    :focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* =============================================================================
+       LOADING STATES
+       ============================================================================= */
+    
+    .loading-spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    .skeleton {
+      background: linear-gradient(90deg, var(--bg-secondary) 25%, #e8e8e8 50%, var(--bg-secondary) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+      border-radius: var(--radius-sm);
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Error State */
+    .error-state {
+      text-align: center;
+      padding: 32px;
+      color: var(--text-secondary);
+    }
+
+    .error-state-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .error-state-message {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .error-state-retry {
+      padding: 8px 16px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .error-state-retry:hover {
+      background: var(--primary-hover);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#map" class="skip-link">Skip to map</a>
+
+  <!-- Minimalist Collapsible Header -->
+  <header id="app-header" role="banner">
+    <div class="header-content">
+      <div class="header-brand">
+        <div class="header-brand-icon">CC</div>
+        <span>Collin County Elections</span>
+      </div>
+      
+      <!-- View Mode Buttons -->
+      <nav class="view-mode-buttons" role="tablist" aria-label="View selection">
+        <button class="view-mode-btn active" data-view="demographics" role="tab" aria-selected="true">
+          <span class="view-icon">📊</span>
+          <span class="view-label">Demographics</span>
+        </button>
+        <button class="view-mode-btn" data-view="election" role="tab" aria-selected="false">
+          <span class="view-icon">🗳️</span>
+          <span class="view-label">Elections</span>
+        </button>
+        <button class="view-mode-btn" data-view="turnout" role="tab" aria-selected="false">
+          <span class="view-icon">📈</span>
+          <span class="view-label">Turnout</span>
+        </button>
+      </nav>
+      
+      <div class="header-actions">
+        <button class="header-btn" id="toggle-header">Hide</button>
+        <button class="header-btn" id="cmd-k-trigger">⌘K</button>
+        <button class="header-btn primary" id="open-panel-btn">Browse</button>
+        <button class="header-btn forecast-btn" id="forecast-btn" style="display: none;" title="Open forecast panel">
+          <span class="forecast-btn-icon">📊</span>
+          <span class="forecast-btn-text">Forecast</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Command Palette (Cmd+K) -->
+  <div id="command-palette" role="dialog" aria-label="Command palette" aria-hidden="true">
+    <div class="command-palette-container">
+      <input 
+        type="text" 
+        class="command-palette-input" 
+        placeholder="Search elections, views, or commands..."
+        id="command-input"
+        autocomplete="off"
+      />
+      <div class="command-palette-results" id="command-results">
+        <!-- Populated dynamically -->
+        <div class="command-item selected">
+          <div class="command-item-icon">🔍</div>
+          <div class="command-item-content">
+            <div class="command-item-title">Search Elections</div>
+            <div class="command-item-subtitle">Find any race by name</div>
+          </div>
+          <div class="command-item-shortcut">⌘K</div>
+        </div>
+        <div class="command-item">
+          <div class="command-item-icon">📊</div>
+          <div class="command-item-content">
+            <div class="command-item-title">Demographics View</div>
+            <div class="command-item-subtitle">View demographic data</div>
+          </div>
+        </div>
+        <div class="command-item">
+          <div class="command-item-icon">🗳️</div>
+          <div class="command-item-content">
+            <div class="command-item-title">Election Forecast</div>
+            <div class="command-item-subtitle">Browse election results</div>
+          </div>
+        </div>
+        <div class="command-item">
+          <div class="command-item-icon">📈</div>
+          <div class="command-item-content">
+            <div class="command-item-title">Turnout Analysis</div>
+            <div class="command-item-subtitle">Analyze voter turnout</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-Screen Map -->
+  <div id="map-container">
+    <div id="map" role="application" aria-label="Interactive precinct map"></div>
+  </div>
+
+  <!-- Floating Action Button -->
+  <button id="fab" aria-label="Open election browser" title="Browse Elections">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+    </svg>
+  </button>
+
+  <!-- Election Browser Panel (Slides from Right) -->
+  <aside id="election-panel" role="complementary" aria-label="Election browser" aria-hidden="true">
+    <div class="panel-header">
+      <h2 class="panel-title">Browse Elections</h2>
+      <button class="panel-close" id="close-panel" aria-label="Close panel">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="panel-content">
+      <!-- Search -->
+      <input 
+        type="text" 
+        class="panel-search" 
+        placeholder="Search races..."
+        id="panel-search-input"
+      />
+
+      <!-- Filter Chips -->
+      <div class="filter-chips">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="2024">2024</button>
+        <button class="filter-chip" data-filter="2022">2022</button>
+        <button class="filter-chip" data-filter="federal">Federal</button>
+        <button class="filter-chip" data-filter="state">State</button>
+        <button class="filter-chip" data-filter="county">County</button>
+      </div>
+
+      <!-- Recently Viewed -->
+      <div class="recent-section">
+        <div class="section-title">Recently Viewed</div>
+        <div class="recent-item">
+          <div class="recent-item-title">Governor</div>
+          <div class="recent-item-meta">2024 • State</div>
+        </div>
+        <div class="recent-item">
+          <div class="recent-item-title">US Senator</div>
+          <div class="recent-item-meta">2024 • Federal</div>
+        </div>
+      </div>
+
+      <!-- Election Groups -->
+      <div class="election-group expanded">
+        <div class="group-header">
+          <div>
+            <div class="group-title">Federal</div>
+          </div>
+          <div class="group-count">3 races</div>
+        </div>
+        <div class="election-list">
+          <div class="election-item">
+            <span class="election-item-name">President</span>
+            <span class="election-item-year">2024</span>
+          </div>
+          <div class="election-item">
+            <span class="election-item-name">US Senator</span>
+            <span class="election-item-year">2024</span>
+          </div>
+          <div class="election-item">
+            <span class="election-item-name">US Representative District 3</span>
+            <span class="election-item-year">2024</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="election-group">
+        <div class="group-header">
+          <div>
+            <div class="group-title">State</div>
+          </div>
+          <div class="group-count">45 races</div>
+        </div>
+        <div class="election-list">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Empty State (hidden by default) -->
+      <div class="empty-state" id="empty-state" style="display: none;">
+        <div class="empty-state-icon">🔍</div>
+        <div class="empty-state-title">No races found</div>
+        <div class="empty-state-text">Try adjusting your filters or search query</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Floating Info Card -->
+  <div id="info-card" role="region" aria-label="Selected race information">
+    <div class="info-card-title">Governor</div>
+    <div class="info-card-meta">2024 • State Election</div>
+    <div class="info-card-stats"></div>
+    <div class="info-card-demographics" aria-label="Precinct demographics"></div>
+  </div>
+
+  <!-- External Libraries -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
+  <!-- App Logic -->
+  <script type="module">
+    // ==========================================================================
+    // IMPORTS - Existing Modules
+    // ==========================================================================
+    import { initMap } from "./js/mapInitializer.js";
+    import { loadAllData, listElectionCSVs, loadElectionData } from "./js/dataLoader.js";
+    import { PARTY_COLORS, MAP_CONFIG, PRECINCT_STYLE, PARTY_STRENGTH_COLORS } from "./js/constants.js";
+    import { 
+      ELECTION_CATEGORIES, 
+      CATEGORY_ORDER, 
+      categorizeElection,
+      filterByCategory,
+      filterByYear,
+      searchElections,
+      formatElectionName
+    } from "./js/electionFilters.js";
+    import { groupElectionsByFamily, sortFamilies } from "./js/raceGrouping.js";
+    import { parseURLHash, buildURLHash, getShareableURL, copyToClipboard } from "./js/urlStateManager.js";
+    import { buildRacialChartData, buildPartyChartData, formatPct, debounce } from "./js/utils.js";
+    import { getCandidateColumns } from "./js/electionSchema.js";
+    import {
+      createSliderState,
+      createVoterFlipState,
+      runFullSimulation,
+      generateSimulatorControlsHTML,
+      generateSimulationResultsHTML
+    } from "./js/turnoutSimulator.js";
+
+    // ==========================================================================
+    // STATE MANAGEMENT
+    // ==========================================================================
+    const state = {
+      map: null,
+      geojsonLayer: null,
+      geojsonData: null,
+      dncLookup: null,
+      racialLookup: null,
+      elections: [],
+      filteredElections: [],
+      currentElection: null,
+      currentElectionData: null,
+      selectedPrecinct: null,
+      selectedLayer: null,
+      recentlyViewed: [],
+      viewMode: 'demographics', // 'demographics' | 'election' | 'turnout'
+      simulationResult: null,
+      sliderState: null,
+      voterFlipState: null,
+      dncDataByPrecinct: null,
+      simulationCandidates: null,
+      filters: {
+        search: '',
+        year: null,
+        category: 'All'
+      },
+      commandSelectedIndex: 0,
+      commands: []
+    };
+
+    // ==========================================================================
+    // MAP INITIALIZATION
+    // ==========================================================================
+    async function initializeMap() {
+      // Initialize map with existing config
+      state.map = initMap({ 
+        center: MAP_CONFIG.center, 
+        zoom: MAP_CONFIG.zoom,
+        containerId: 'map'
+      });
+
+      // Load all base data (GeoJSON + DNC + Racial)
+      try {
+        const { geojson, dncLookup, racialLookup } = await loadAllData();
+        state.geojsonData = geojson;
+        state.dncLookup = dncLookup;
+        state.racialLookup = racialLookup;
+
+        // Add GeoJSON layer with default party lean coloring
+        renderDemographicsMap();
+        
+        // Add map legend
+        addMapLegend();
+        
+        console.log('✅ Map initialized with', geojson.features.length, 'precincts');
+      } catch (error) {
+        console.error('❌ Failed to load map data:', error);
+        showError('Failed to load map data. Please refresh the page.');
+      }
+    }
+
+    // Render demographics map (party lean coloring)
+    function renderDemographicsMap() {
+      if (state.geojsonLayer) {
+        state.map.removeLayer(state.geojsonLayer);
+      }
+
+      state.geojsonLayer = L.geoJSON(state.geojsonData, {
+        style: (feature) => getPartyLeanStyle(feature),
+        onEachFeature: (feature, layer) => {
+          // Hover effects
+          layer.on('mouseover', () => {
+            layer.setStyle({ weight: PRECINCT_STYLE.default.weight + 1 });
+            layer.bringToFront();
+          });
+          layer.on('mouseout', () => {
+            if (state.selectedLayer !== layer) {
+              layer.setStyle({ weight: PRECINCT_STYLE.default.weight });
+            }
+          });
+          // Click handler
+          layer.on('click', () => handlePrecinctClick(feature, layer));
+        }
+      }).addTo(state.map);
+    }
+
+    // Get style based on party lean (DNC data)
+    function getPartyLeanStyle(feature) {
+      const props = feature.properties;
+      const party = props.winningParty;
+      const strength = props.partyStrength || 1;
+
+      if (!party || !PARTY_STRENGTH_COLORS[party]) {
+        return {
+          ...PRECINCT_STYLE.default,
+          fillColor: '#cccccc'
+        };
+      }
+
+      const strengthColors = PARTY_STRENGTH_COLORS[party];
+      const fillColor = strengthColors[strength] || strengthColors.default;
+
+      return {
+        ...PRECINCT_STYLE.default,
+        fillColor
+      };
+    }
+
+    // ==========================================================================
+    // VIEW MODE SWITCHING
+    // ==========================================================================
+    function setViewMode(mode) {
+      state.viewMode = mode;
+      
+      // Update button states
+      document.querySelectorAll('.view-mode-btn').forEach(btn => {
+        const isActive = btn.dataset.view === mode;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive);
+      });
+
+      // Render the appropriate view
+      switch (mode) {
+        case 'demographics':
+          renderDemographicsMap();
+          hideInfoCard();
+          break;
+        case 'election':
+          if (state.currentElectionData) {
+            renderElectionMap(state.currentElectionData);
+            if (state.simulationResult) updateMapForSimulation();
+          } else {
+            // No election selected - show message
+            showNotification('Select an election from the panel first');
+          }
+          break;
+        case 'turnout':
+          renderTurnoutMap();
+          break;
+      }
+    }
+
+    // Render turnout map (voter turnout by precinct)
+    function renderTurnoutMap() {
+      if (!state.geojsonLayer) return;
+
+      // If we have election data, use its turnout; otherwise use DNC data
+      const electionData = state.currentElectionData;
+      const electionByPrecinct = {};
+      
+      if (electionData) {
+        electionData.forEach(row => {
+          const precinctCode = row['PRECINCT CODE'] || row.Precinct || row.precinct || row.PRECINCT;
+          if (precinctCode) {
+            electionByPrecinct[String(precinctCode)] = row;
+          }
+        });
+      }
+
+      state.geojsonLayer.eachLayer(layer => {
+        const props = layer.feature.properties;
+        const precinctCode = String(props.PRECINCT);
+        const electionRow = electionByPrecinct[precinctCode];
+        
+        // Calculate turnout percentage
+        let turnout = 0;
+        const ballotsCast = electionRow?.['BALLOTS CAST TOTAL'] || electionRow?.['Total Votes'];
+        const registeredVoters = electionRow?.['REGISTERED VOTERS TOTAL'] || electionRow?.['Registered Voters'];
+        if (electionRow && ballotsCast && registeredVoters) {
+          turnout = (parseInt(ballotsCast) / parseInt(registeredVoters)) * 100;
+        } else if (props.registeredVoters && props.registeredVoters > 0) {
+          // Fallback to DNC data
+          turnout = (props.totalVotes || 0) / props.registeredVoters * 100;
+        }
+
+        // Color by turnout level
+        let fillColor = '#cccccc';
+        if (turnout > 0) {
+          if (turnout >= 70) fillColor = '#1a5f2a';
+          else if (turnout >= 60) fillColor = '#2e8b3e';
+          else if (turnout >= 50) fillColor = '#4caf50';
+          else if (turnout >= 40) fillColor = '#81c784';
+          else if (turnout >= 30) fillColor = '#c8e6c9';
+          else fillColor = '#e8f5e9';
+        }
+
+        layer.setStyle({
+          fillColor,
+          fillOpacity: 0.7,
+          weight: 1,
+          color: '#444'
+        });
+      });
+    }
+
+    function showNotification(message) {
+      // Simple notification - could be enhanced with a toast component
+      console.log('📢', message);
+      // For now, just alert - could be replaced with a nicer toast
+      // alert(message);
+    }
+
+    // Initialize view mode button listeners
+    function initViewModeButtons() {
+      document.querySelectorAll('.view-mode-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const mode = btn.dataset.view;
+          setViewMode(mode);
+        });
+      });
+    }
+
+    // Handle precinct click
+    function handlePrecinctClick(feature, layer) {
+      // Deselect previous
+      if (state.selectedLayer) {
+        state.selectedLayer.setStyle({ weight: PRECINCT_STYLE.default.weight });
+      }
+
+      // Select new
+      state.selectedPrecinct = feature.properties;
+      state.selectedLayer = layer;
+      layer.setStyle(PRECINCT_STYLE.selected);
+      layer.bringToFront();
+
+      // Update info card
+      updateInfoCard(feature.properties);
+    }
+
+    // Add map legend
+    function addMapLegend() {
+      const legend = L.control({ position: 'bottomleft' });
+      legend.onAdd = function() {
+        const div = L.DomUtil.create('div', 'map-legend-leaflet');
+        div.innerHTML = `
+          <div style="background: white; padding: 12px 16px; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,0.12);">
+            <div style="font-weight: 600; margin-bottom: 8px; font-size: 13px;">Party Lean</div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PARTY_COLORS.Rep};"></span>
+                <span style="font-size: 12px;">Republican</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PARTY_COLORS.Dem};"></span>
+                <span style="font-size: 12px;">Democrat</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PARTY_COLORS.Mod};"></span>
+                <span style="font-size: 12px;">Moderate</span>
+              </div>
+            </div>
+            <div style="font-size: 10px; color: #717171; margin-top: 8px;">Color intensity = strength</div>
+          </div>
+        `;
+        return div;
+      };
+      legend.addTo(state.map);
+    }
+
+    // ==========================================================================
+    // ELECTION DATA LOADING
+    // ==========================================================================
+    async function loadElections() {
+      try {
+        state.elections = await listElectionCSVs();
+        state.filteredElections = [...state.elections];
+        renderElectionPanel();
+        buildCommands();
+        console.log('✅ Loaded', state.elections.length, 'elections');
+      } catch (error) {
+        console.error('❌ Failed to load elections:', error);
+        showError('Failed to load elections list.');
+      }
+    }
+
+    // ==========================================================================
+    // ELECTION PANEL RENDERING
+    // ==========================================================================
+    function renderElectionPanel() {
+      const panelContent = document.querySelector('.panel-content');
+      if (!panelContent) return;
+
+      // Apply filters
+      let filtered = state.elections;
+      
+      if (state.filters.category && state.filters.category !== 'All') {
+        filtered = filterByCategory(filtered, state.filters.category);
+      }
+      
+      if (state.filters.year) {
+        filtered = filterByYear(filtered, state.filters.year);
+      }
+      
+      if (state.filters.search) {
+        filtered = searchElections(filtered, state.filters.search);
+      }
+      
+      state.filteredElections = filtered;
+
+      // Group by category
+      const grouped = {};
+      CATEGORY_ORDER.forEach(cat => {
+        if (cat !== 'All') {
+          grouped[cat] = filterByCategory(filtered, cat);
+        }
+      });
+
+      // Build HTML
+      let html = `
+        <input 
+          type="text" 
+          class="panel-search" 
+          placeholder="Search races..."
+          id="panel-search-input"
+          value="${state.filters.search}"
+        />
+        <div class="filter-chips" id="filter-chips">
+          ${renderFilterChips()}
+        </div>
+        ${state.currentElection ? `
+          <div id="forecast-section" class="forecast-section active">
+            <div class="forecast-header">
+              <div class="forecast-election">
+                <span class="forecast-label">Forecasting:</span>
+                <strong>${state.currentElection.displayName || formatElectionName(state.currentElection.filename)}</strong>
+              </div>
+              <button id="clear-election-btn" class="clear-election-btn" title="Clear selection">✕</button>
+            </div>
+            <div id="turnout-simulator-container"></div>
+            <div id="simulation-summary"></div>
+          </div>
+        ` : ''}
+        ${renderRecentlyViewed()}
+        <div id="election-groups">
+          ${renderElectionGroups(grouped)}
+        </div>
+        ${filtered.length === 0 ? renderEmptyState() : ''}
+      `;
+
+      panelContent.innerHTML = html;
+
+      // Re-attach event listeners
+      attachPanelEventListeners();
+      if (state.currentElection && state.currentElectionData) {
+        renderForecastSection();
+      }
+    }
+
+    function renderFilterChips() {
+      const years = [...new Set(state.elections.map(e => e.year).filter(y => y))].sort((a, b) => b - a);
+      
+      return `
+        <button class="filter-chip ${state.filters.category === 'All' && !state.filters.year ? 'active' : ''}" data-filter="all">All (${state.elections.length})</button>
+        ${years.slice(0, 3).map(year => `
+          <button class="filter-chip ${state.filters.year === year ? 'active' : ''}" data-filter="year-${year}">${year}</button>
+        `).join('')}
+        ${CATEGORY_ORDER.filter(c => c !== 'All').slice(0, 3).map(cat => {
+          const count = filterByCategory(state.elections, cat).length;
+          return count > 0 ? `
+            <button class="filter-chip ${state.filters.category === cat ? 'active' : ''}" data-filter="cat-${cat}">${cat}</button>
+          ` : '';
+        }).join('')}
+      `;
+    }
+
+    function renderRecentlyViewed() {
+      if (state.recentlyViewed.length === 0) return '';
+      
+      return `
+        <div class="recent-section">
+          <div class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+            <span>Recently Viewed</span>
+            <button id="clear-recent" style="background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 11px;">Clear</button>
+          </div>
+          ${state.recentlyViewed.map(entry => `
+            <div class="recent-item ${state.currentElection?.filename === entry.filename ? 'selected' : ''}" data-filename="${entry.filename}">
+              <div class="recent-item-title">${entry.displayName || formatElectionName(entry.filename)}</div>
+              <div class="recent-item-meta">${entry.year || ''} • ${entry.category || 'Election'}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function renderElectionGroups(grouped) {
+      return CATEGORY_ORDER.filter(cat => cat !== 'All').map(category => {
+        const elections = grouped[category] || [];
+        if (elections.length === 0) return '';
+        
+        return `
+          <div class="election-group expanded" data-category="${category}">
+            <div class="group-header">
+              <div>
+                <div class="group-title">${category}</div>
+              </div>
+              <div class="group-count">${elections.length} races</div>
+            </div>
+            <div class="election-list">
+              ${elections.map(entry => `
+                <div class="election-item ${state.currentElection?.filename === entry.filename ? 'selected' : ''}" data-filename="${entry.filename}">
+                  <span class="election-item-name">${entry.displayName || formatElectionName(entry.filename)}</span>
+                  <span class="election-item-year">${entry.year || ''}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderEmptyState() {
+      return `
+        <div class="empty-state">
+          <div class="empty-state-icon">🔍</div>
+          <div class="empty-state-title">No races found</div>
+          <div class="empty-state-text">Try adjusting your filters or search query</div>
+        </div>
+      `;
+    }
+
+    function attachPanelEventListeners() {
+      // Search input
+      const searchInput = document.getElementById('panel-search-input');
+      if (searchInput) {
+        let debounceTimer;
+        searchInput.addEventListener('input', (e) => {
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(() => {
+            state.filters.search = e.target.value;
+            renderElectionPanel();
+          }, 300);
+        });
+      }
+
+      // Filter chips
+      document.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          const filter = chip.dataset.filter;
+          if (filter === 'all') {
+            state.filters.year = null;
+            state.filters.category = 'All';
+          } else if (filter.startsWith('year-')) {
+            state.filters.year = parseInt(filter.replace('year-', ''));
+            state.filters.category = 'All';
+          } else if (filter.startsWith('cat-')) {
+            state.filters.category = filter.replace('cat-', '');
+            state.filters.year = null;
+          }
+          renderElectionPanel();
+        });
+      });
+
+      // Election items
+      document.querySelectorAll('.election-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const filename = item.dataset.filename;
+          const entry = state.elections.find(e => e.filename === filename);
+          if (entry) {
+            selectElection(entry);
+          }
+        });
+      });
+
+      // Recent items
+      document.querySelectorAll('.recent-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const filename = item.dataset.filename;
+          const entry = state.elections.find(e => e.filename === filename);
+          if (entry) {
+            selectElection(entry);
+          }
+        });
+      });
+
+      // Clear recent
+      const clearRecentBtn = document.getElementById('clear-recent');
+      if (clearRecentBtn) {
+        clearRecentBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          state.recentlyViewed = [];
+          saveRecentlyViewed();
+          renderElectionPanel();
+        });
+      }
+
+      // Clear election (in forecast section)
+      const clearElectionBtn = document.getElementById('clear-election-btn');
+      if (clearElectionBtn) {
+        clearElectionBtn.addEventListener('click', () => {
+          state.currentElection = null;
+          state.currentElectionData = null;
+          state.simulationResult = null;
+          state.sliderState = null;
+          state.voterFlipState = null;
+          setViewMode('demographics');
+          hideInfoCard();
+          renderElectionPanel();
+          updateURLState();
+          updateForecastButton();
+        });
+      }
+
+      // Group headers
+      document.querySelectorAll('.group-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const group = header.closest('.election-group');
+          group.classList.toggle('expanded');
+        });
+      });
+    }
+
+    // ==========================================================================
+    // ELECTION SELECTION & MAP RENDERING
+    // ==========================================================================
+    async function selectElection(entry) {
+      try {
+        state.currentElection = entry;
+        
+        // Load election data
+        const electionData = await loadElectionData(entry);
+        state.currentElectionData = electionData;
+
+        // Build DNC lookup for simulator (precinct code -> { Precinct, Rep, Mod, Dem, Total })
+        state.dncDataByPrecinct = {};
+        if (state.dncLookup) {
+          Object.entries(state.dncLookup).forEach(([code, row]) => {
+            state.dncDataByPrecinct[code] = {
+              Precinct: row.precinct,
+              Rep: row.rep,
+              Mod: row.mod,
+              Dem: row.dem,
+              Total: (row.rep ?? 0) + (row.mod ?? 0) + (row.dem ?? 0)
+            };
+          });
+        }
+
+        // Build candidate list from election CSV (vote columns only)
+        const headers = electionData[0] ? Object.keys(electionData[0]) : [];
+        const candidateCols = getCandidateColumns(headers);
+        state.simulationCandidates = candidateCols.filter(col => {
+          const val = electionData[0][col];
+          return val !== '' && !isNaN(Number(val));
+        });
+
+        // Create or reset simulator state
+        state.sliderState = createSliderState({ Rep: 1.0, Dem: 1.0, Mod: 1.0 }, { minValue: 0.5, maxValue: 1.5 });
+        state.voterFlipState = createVoterFlipState();
+        state.simulationResult = null;
+
+        // Add to recently viewed
+        addToRecentlyViewed(entry);
+
+        // Switch to election view mode and update map
+        setViewMode('election');
+
+        // Update info card
+        updateInfoCardForElection(entry, electionData);
+
+        // Re-render panel so forecast section shows and populate simulator
+        renderElectionPanel();
+
+        // Close panel on mobile
+        if (window.innerWidth < 768) {
+          togglePanel();
+        }
+
+        // Update URL state
+        updateURLState();
+
+        // Show forecast button in header
+        updateForecastButton();
+
+        console.log('✅ Loaded election:', entry.displayName || entry.filename);
+      } catch (error) {
+        console.error('❌ Failed to load election:', error);
+        showError('Failed to load election data.');
+      }
+    }
+
+    function renderElectionMap(electionData) {
+      if (!state.geojsonLayer) return;
+
+      // Build lookup by precinct
+      const electionByPrecinct = {};
+      electionData.forEach(row => {
+        // Support various column names for precinct
+        const precinctCode = row['PRECINCT CODE'] || row.Precinct || row.precinct || row.PRECINCT;
+        if (precinctCode) {
+          electionByPrecinct[String(precinctCode)] = row;
+        }
+      });
+
+      // Update each feature's style
+      state.geojsonLayer.eachLayer(layer => {
+        const props = layer.feature.properties;
+        const precinctCode = String(props.PRECINCT);
+        const electionRow = electionByPrecinct[precinctCode];
+
+        if (electionRow) {
+          const winningParty = electionRow['Winning Party'] || electionRow.winningParty;
+          const color = PARTY_COLORS[winningParty] || PARTY_COLORS.default;
+          
+          layer.setStyle({
+            fillColor: color,
+            fillOpacity: 0.7,
+            weight: 1,
+            color: '#444'
+          });
+        } else {
+          // Precinct not in this race
+          layer.setStyle(PRECINCT_STYLE.notInRace);
+        }
+      });
+    }
+
+    // ==========================================================================
+    // FORECAST (TURNOUT SIMULATOR)
+    // ==========================================================================
+    function renderForecastSection() {
+      const container = document.getElementById('turnout-simulator-container');
+      const summaryDiv = document.getElementById('simulation-summary');
+      if (!container || !state.currentElectionData || !state.dncDataByPrecinct || !state.simulationCandidates?.length) return;
+
+      const turnoutValues = state.sliderState ? state.sliderState.getAll() : { Rep: 1.0, Dem: 1.0, Mod: 1.0 };
+      const flipRates = state.voterFlipState ? state.voterFlipState.getAll() : {};
+      container.innerHTML = generateSimulatorControlsHTML(turnoutValues, flipRates, { showVoterFlip: true });
+
+      // Attach slider listeners
+      document.querySelectorAll('.turnout-slider').forEach(slider => {
+        slider.addEventListener('input', (e) => {
+          const party = e.target.dataset.party;
+          const value = Number(e.target.value) / 100;
+          state.sliderState.setValue(party, value);
+          debouncedRunSimulation();
+        });
+      });
+      document.querySelectorAll('.flip-slider').forEach(slider => {
+        slider.addEventListener('input', (e) => {
+          const flipKey = e.target.dataset.flip;
+          const value = Number(e.target.value) / 100;
+          state.voterFlipState.setRate(flipKey, value);
+          debouncedRunSimulation();
+        });
+      });
+      const resetBtn = document.getElementById('reset-turnout');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          state.sliderState.reset();
+          state.voterFlipState.reset();
+          document.querySelectorAll('.turnout-slider').forEach(s => { s.value = 100; });
+          document.querySelectorAll('.flip-slider').forEach(s => { s.value = 0; });
+          ['rep', 'dem', 'mod'].forEach(party => {
+            const el = document.getElementById(`${party}-value`);
+            if (el) el.textContent = '100%';
+          });
+          renderForecastSection();
+        });
+      }
+
+      runSimulation();
+    }
+
+    const debouncedRunSimulation = debounce(() => runSimulation(), 100);
+
+    function runSimulation() {
+      if (!state.currentElectionData || !state.dncDataByPrecinct || !state.simulationCandidates?.length) return;
+      const turnoutMultipliers = state.sliderState ? state.sliderState.getAll() : { Rep: 1.0, Dem: 1.0, Mod: 1.0 };
+      const voterFlipRates = state.voterFlipState ? state.voterFlipState.getAll() : {};
+      state.simulationResult = runFullSimulation(
+        state.currentElectionData,
+        state.dncDataByPrecinct,
+        state.simulationCandidates,
+        turnoutMultipliers,
+        { voterFlipRates }
+      );
+
+      const summaryDiv = document.getElementById('simulation-summary');
+      if (summaryDiv && state.simulationResult) {
+        summaryDiv.innerHTML = generateSimulationResultsHTML(
+          state.simulationResult.originalSummary,
+          state.simulationResult.simulatedSummary,
+          state.simulationResult.flippedPrecincts,
+          state.simulationResult.countyFlipped
+        );
+      }
+
+      if (state.simulationResult && Object.keys(state.simulationResult.precinctResults || {}).length > 0) {
+        updateMapForSimulation();
+      }
+    }
+
+    function updateMapForSimulation() {
+      if (!state.geojsonLayer || !state.simulationResult) return;
+      const flippedSet = new Set(state.simulationResult.flippedPrecincts || []);
+      const results = state.simulationResult.precinctResults || {};
+
+      state.geojsonLayer.eachLayer(layer => {
+        const code = String(layer.feature.properties.PRECINCT);
+        const result = results[code];
+        if (!result) {
+          layer.setStyle(PRECINCT_STYLE.notInRace);
+          return;
+        }
+        const rawParty = result.winner?.party || (result.winner?.name && result.winner.name.split(' ')[0]);
+        const partyKey = rawParty ? (rawParty.charAt(0).toUpperCase() + rawParty.slice(1).toLowerCase()) : null;
+        const color = (partyKey && PARTY_COLORS[partyKey]) || PARTY_COLORS.default;
+        const isFlipped = flippedSet.has(code);
+        layer.setStyle({
+          fillColor: color,
+          fillOpacity: 0.7,
+          weight: isFlipped ? 3 : 1,
+          color: isFlipped ? '#000' : '#444'
+        });
+      });
+    }
+
+    // ==========================================================================
+    // RECENTLY VIEWED
+    // ==========================================================================
+    function loadRecentlyViewed() {
+      try {
+        const saved = localStorage.getItem('ccd_recently_viewed');
+        if (saved) {
+          state.recentlyViewed = JSON.parse(saved);
+          // Validate against current elections
+          state.recentlyViewed = state.recentlyViewed.filter(entry => 
+            state.elections.some(e => e.filename === entry.filename)
+          );
+        }
+      } catch (e) {
+        state.recentlyViewed = [];
+      }
+    }
+
+    function saveRecentlyViewed() {
+      try {
+        localStorage.setItem('ccd_recently_viewed', JSON.stringify(state.recentlyViewed));
+      } catch (e) {
+        console.warn('Failed to save recently viewed');
+      }
+    }
+
+    function addToRecentlyViewed(entry) {
+      // Remove if already exists
+      state.recentlyViewed = state.recentlyViewed.filter(e => e.filename !== entry.filename);
+      // Add to front
+      state.recentlyViewed.unshift(entry);
+      // Keep max 5
+      if (state.recentlyViewed.length > 5) {
+        state.recentlyViewed = state.recentlyViewed.slice(0, 5);
+      }
+      saveRecentlyViewed();
+      renderElectionPanel();
+    }
+
+    // ==========================================================================
+    // INFO CARD
+    // ==========================================================================
+    const infoCard = document.getElementById('info-card');
+
+    function updateInfoCard(precinctProps) {
+      if (!precinctProps) return;
+
+      const title = `Precinct ${precinctProps.PRECINCT}`;
+      const party = precinctProps.winningParty || 'N/A';
+      const strength = precinctProps.partyStrength || 'N/A';
+
+      document.querySelector('.info-card-title').textContent = title;
+      document.querySelector('.info-card-meta').textContent = `${party} • Strength ${strength}`;
+      
+      document.querySelector('.info-card-stats').innerHTML = `
+        <div class="stat-item">
+          <div class="stat-label">Rep</div>
+          <div class="stat-value">${precinctProps.rep?.toLocaleString() ?? 'N/A'}</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Mod</div>
+          <div class="stat-value">${precinctProps.mod?.toLocaleString() ?? 'N/A'}</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Dem</div>
+          <div class="stat-value">${precinctProps.dem?.toLocaleString() ?? 'N/A'}</div>
+        </div>
+      `;
+
+      const demoEl = document.querySelector('.info-card-demographics');
+      const racialData = buildRacialChartData(precinctProps);
+      const partyData = buildPartyChartData(precinctProps);
+      let demoHtml = '';
+
+      if (partyData.length > 0) {
+        const total = (precinctProps.rep ?? 0) + (precinctProps.mod ?? 0) + (precinctProps.dem ?? 0);
+        const pct = (label) => {
+          if (precinctProps.repShare != null) {
+            if (label === 'Rep') return formatPct(precinctProps.repShare);
+            if (label === 'Dem') return formatPct(precinctProps.demShare);
+            return formatPct(precinctProps.modShare);
+          }
+          const val = label === 'Rep' ? precinctProps.rep : label === 'Dem' ? precinctProps.dem : precinctProps.mod;
+          return total > 0 ? ((val ?? 0) / total * 100).toFixed(1) + '%' : '0%';
+        };
+        demoHtml += '<div class="demo-section-title">Party share</div>';
+        partyData.forEach(d => {
+          demoHtml += `<div class="demo-row"><span>${d.label}</span><span>${pct(d.label)}</span></div>`;
+        });
+      }
+      if (racialData.length > 0) {
+        const total = racialData.reduce((s, d) => s + d.value, 0);
+        demoHtml += '<div class="demo-section-title" style="margin-top:12px">Racial demographics</div>';
+        racialData.forEach(d => {
+          const pct = total > 0 ? ((d.value / total) * 100).toFixed(1) + '%' : '0%';
+          demoHtml += `<div class="demo-row"><span>${d.label}</span><span>${d.value.toLocaleString()} (${pct})</span></div>`;
+        });
+      }
+      demoEl.innerHTML = demoHtml;
+
+      infoCard.classList.add('visible');
+    }
+
+    function updateInfoCardForElection(entry, electionData) {
+      document.querySelector('.info-card-title').textContent = entry.displayName || formatElectionName(entry.filename);
+      document.querySelector('.info-card-meta').textContent = `${entry.year || ''} • ${entry.category || 'Election'}`;
+      
+      // Calculate stats
+      const precinctCount = electionData.length;
+      const candidates = new Set();
+      electionData.forEach(row => {
+        Object.keys(row).forEach(key => {
+          if (!['Precinct', 'precinct', 'PRECINCT', 'Winning Party', 'winningParty', 'Total Votes', 'totalVotes'].includes(key)) {
+            if (row[key] && !isNaN(parseInt(row[key]))) {
+              candidates.add(key);
+            }
+          }
+        });
+      });
+
+      document.querySelector('.info-card-stats').innerHTML = `
+        <div class="stat-item">
+          <div class="stat-label">Precincts</div>
+          <div class="stat-value">${precinctCount}</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-label">Candidates</div>
+          <div class="stat-value">${candidates.size}</div>
+        </div>
+      `;
+      document.querySelector('.info-card-demographics').innerHTML = '';
+
+      infoCard.classList.add('visible');
+    }
+
+    function hideInfoCard() {
+      infoCard.classList.remove('visible');
+    }
+
+    // ==========================================================================
+    // COMMAND PALETTE
+    // ==========================================================================
+    const commandPalette = document.getElementById('command-palette');
+    const commandInput = document.getElementById('command-input');
+    const commandResults = document.getElementById('command-results');
+    const cmdKTrigger = document.getElementById('cmd-k-trigger');
+
+    function buildCommands() {
+      state.commands = [
+        // View commands
+        { type: 'view', title: 'Demographics View', subtitle: 'Show party lean by precinct', icon: '📊', action: () => setViewMode('demographics') },
+        { type: 'view', title: 'Election View', subtitle: 'Show selected election results', icon: '🗳️', action: () => setViewMode('election') },
+        { type: 'view', title: 'Turnout View', subtitle: 'Show voter turnout by precinct', icon: '📈', action: () => setViewMode('turnout') },
+        { type: 'view', title: 'Reset Map', subtitle: 'Clear selection and reset view', icon: '🗺️', action: () => { state.map.setView(MAP_CONFIG.center, MAP_CONFIG.zoom); setViewMode('demographics'); } },
+        
+        // Actions
+        { type: 'action', title: 'Toggle Header', subtitle: 'Show or hide the header bar', icon: '📐', action: toggleHeader },
+        { type: 'action', title: 'Open Election Panel', subtitle: 'Browse all elections', icon: '🗳️', action: () => { if (!electionPanel.classList.contains('active')) togglePanel(); } },
+        
+        // ALL Elections (searchable)
+        ...state.elections.map(entry => ({
+          type: 'election',
+          title: entry.displayName || formatElectionName(entry.filename),
+          subtitle: `${entry.year || ''} • ${entry.category || 'Election'}`,
+          icon: getCategoryIcon(entry.category),
+          action: () => selectElection(entry),
+          filename: entry.filename
+        }))
+      ];
+    }
+
+    function getCategoryIcon(category) {
+      const icons = {
+        'Federal': '🏛️',
+        'State': '⚖️',
+        'County': '🏢',
+        'City': '🏙️',
+        'ISD': '🏫',
+        'MUD': '💧'
+      };
+      return icons[category] || '📋';
+    }
+
+    function filterCommands(query) {
+      if (!query) return state.commands.slice(0, 10);
+      
+      const lowerQuery = query.toLowerCase();
+      return state.commands.filter(cmd => 
+        cmd.title.toLowerCase().includes(lowerQuery) ||
+        cmd.subtitle.toLowerCase().includes(lowerQuery)
+      ).slice(0, 10);
+    }
+
+    function renderCommands(commands) {
+      if (!commandResults) return;
+      
+      if (commands.length === 0) {
+        commandResults.innerHTML = `
+          <div class="command-item" style="opacity: 0.5; cursor: default;">
+            <div class="command-item-icon">🔍</div>
+            <div class="command-item-content">
+              <div class="command-item-title">No results found</div>
+              <div class="command-item-subtitle">Try a different search term</div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      commandResults.innerHTML = commands.map((cmd, idx) => `
+        <div class="command-item ${idx === state.commandSelectedIndex ? 'selected' : ''}" data-index="${idx}">
+          <div class="command-item-icon">${cmd.icon}</div>
+          <div class="command-item-content">
+            <div class="command-item-title">${cmd.title}</div>
+            <div class="command-item-subtitle">${cmd.subtitle}</div>
+          </div>
+        </div>
+      `).join('');
+
+      // Attach click handlers
+      commandResults.querySelectorAll('.command-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const idx = parseInt(item.dataset.index);
+          const cmd = filterCommands(commandInput.value)[idx];
+          if (cmd) {
+            cmd.action();
+            closeCommandPalette();
+          }
+        });
+      });
+    }
+
+    function openCommandPalette() {
+      commandPalette.classList.add('active');
+      commandPalette.setAttribute('aria-hidden', 'false');
+      commandInput.focus();
+      state.commandSelectedIndex = 0;
+      renderCommands(filterCommands(''));
+    }
+
+    function closeCommandPalette() {
+      commandPalette.classList.remove('active');
+      commandPalette.setAttribute('aria-hidden', 'true');
+      commandInput.value = '';
+    }
+
+    commandInput.addEventListener('input', (e) => {
+      state.commandSelectedIndex = 0;
+      renderCommands(filterCommands(e.target.value));
+    });
+
+    commandInput.addEventListener('keydown', (e) => {
+      const commands = filterCommands(commandInput.value);
+      
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        state.commandSelectedIndex = Math.min(state.commandSelectedIndex + 1, commands.length - 1);
+        renderCommands(commands);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        state.commandSelectedIndex = Math.max(state.commandSelectedIndex - 1, 0);
+        renderCommands(commands);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        const cmd = commands[state.commandSelectedIndex];
+        if (cmd) {
+          cmd.action();
+          closeCommandPalette();
+        }
+      }
+    });
+
+    // Global keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      // Cmd+K or Ctrl+K to open command palette
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        if (commandPalette.classList.contains('active')) {
+          closeCommandPalette();
+        } else {
+          openCommandPalette();
+        }
+        return;
+      }
+      
+      // Escape to close modals
+      if (e.key === 'Escape') {
+        if (commandPalette.classList.contains('active')) {
+          closeCommandPalette();
+        } else if (electionPanel.classList.contains('active')) {
+          togglePanel();
+        }
+      }
+    });
+
+    cmdKTrigger.addEventListener('click', openCommandPalette);
+
+    // Click outside to close
+    commandPalette.addEventListener('click', (e) => {
+      if (e.target === commandPalette) {
+        closeCommandPalette();
+      }
+    });
+
+    // ==========================================================================
+    // ELECTION PANEL TOGGLE
+    // ==========================================================================
+    const fab = document.getElementById('fab');
+    const electionPanel = document.getElementById('election-panel');
+    const closePanelBtn = document.getElementById('close-panel');
+    const openPanelBtn = document.getElementById('open-panel-btn');
+
+    function togglePanel() {
+      const isActive = electionPanel.classList.contains('active');
+      if (isActive) {
+        electionPanel.classList.remove('active');
+        electionPanel.setAttribute('aria-hidden', 'true');
+        fab.classList.remove('active');
+      } else {
+        electionPanel.classList.add('active');
+        electionPanel.setAttribute('aria-hidden', 'false');
+        fab.classList.add('active');
+        // Refresh panel content
+        renderElectionPanel();
+      }
+    }
+
+    fab.addEventListener('click', togglePanel);
+    openPanelBtn.addEventListener('click', togglePanel);
+    closePanelBtn.addEventListener('click', togglePanel);
+    
+    const forecastBtn = document.getElementById('forecast-btn');
+    forecastBtn.addEventListener('click', togglePanel);
+    
+    function updateForecastButton() {
+      if (state.currentElection) {
+        forecastBtn.style.display = 'flex';
+        forecastBtn.querySelector('.forecast-btn-text').textContent = 'Forecast';
+      } else {
+        forecastBtn.style.display = 'none';
+      }
+    }
+
+    // ==========================================================================
+    // HEADER TOGGLE
+    // ==========================================================================
+    const appHeader = document.getElementById('app-header');
+    const toggleHeaderBtn = document.getElementById('toggle-header');
+    let headerVisible = true;
+
+    function toggleHeader() {
+      headerVisible = !headerVisible;
+      if (headerVisible) {
+        appHeader.classList.remove('collapsed');
+        toggleHeaderBtn.textContent = 'Hide';
+      } else {
+        appHeader.classList.add('collapsed');
+        toggleHeaderBtn.textContent = 'Show';
+      }
+    }
+
+    toggleHeaderBtn.addEventListener('click', toggleHeader);
+
+    // ==========================================================================
+    // ERROR HANDLING
+    // ==========================================================================
+    function showError(message) {
+      console.error(message);
+      // Could add toast notification here
+    }
+
+    // ==========================================================================
+    // URL STATE MANAGEMENT
+    // ==========================================================================
+    function updateURLState() {
+      const urlState = {};
+      if (state.currentElection) {
+        urlState.race = state.currentElection.filename;
+      }
+      const hash = buildURLHash(urlState);
+      if (hash) {
+        history.replaceState(urlState, '', `#${hash}`);
+      }
+    }
+
+    function restoreFromURL() {
+      const urlState = parseURLHash(window.location.hash);
+      if (urlState.race) {
+        const entry = state.elections?.find(e => e.filename === urlState.race);
+        if (entry) {
+          selectElection(entry);
+        }
+      }
+    }
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', () => {
+      restoreFromURL();
+    });
+
+    // ==========================================================================
+    // INITIALIZATION
+    // ==========================================================================
+    async function init() {
+      console.log('🚀 Initializing Collin County Elections...');
+      
+      await initializeMap();
+      await loadElections();
+      loadRecentlyViewed();
+      initViewModeButtons();
+      
+      // Restore state from URL
+      restoreFromURL();
+      updateForecastButton();
+      
+      console.log('✅ App initialized');
+      console.log('💡 Press Cmd+K (or Ctrl+K) to open command palette');
+      console.log('🗳️ Click the FAB (bottom right) to browse elections');
+    }
+
+    // Start the app
+    init();
+  </script>
+</body>
+</html>

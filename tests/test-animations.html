@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workstream 6: Micro-interactions Test Suite</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Test-specific styles */
+    .test-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    
+    h1 { color: #002f6c; margin-bottom: 8px; }
+    h2 { 
+      color: #004aad; 
+      margin-top: 32px; 
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+    
+    .test-section {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    
+    .test-description {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 16px;
+      padding: 12px;
+      background: #fff;
+      border-left: 4px solid #004aad;
+      border-radius: 4px;
+    }
+    
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+    }
+    
+    .test-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .test-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #004aad;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      margin: 8px;
+    }
+    
+    .test-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .test-list li {
+      padding: 12px 16px;
+      background: #fff;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      border-left: 4px solid #004aad;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: 600;
+    }
+    
+    .status-pass { background: #d4edda; color: #155724; }
+    .status-pending { background: #fff3cd; color: #856404; }
+    
+    .trigger-btn {
+      margin-top: 16px;
+      padding: 8px 16px;
+      background: #6c757d;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    /* Checklist styling */
+    .checklist {
+      margin-top: 24px;
+      padding: 16px;
+      background: #e8f4f8;
+      border-radius: 8px;
+    }
+    
+    .checklist h3 {
+      margin: 0 0 12px 0;
+      color: #002f6c;
+    }
+    
+    .checklist ul {
+      margin: 0;
+      padding-left: 24px;
+    }
+    
+    .checklist li {
+      margin-bottom: 8px;
+      color: #333;
+    }
+  </style>
+</head>
+<body style="background: #f0f4f8; min-height: 100vh; overflow: auto;">
+  <div class="test-container">
+    <h1>Workstream 6: Micro-interactions Test Suite</h1>
+    <p style="color: #666; margin-bottom: 32px;">
+      Visual verification tests for CSS animations and transitions.
+      Each section tests a specific micro-interaction feature.
+    </p>
+
+    <!-- ============================================ -->
+    <!-- TEST 1: Transition Utilities -->
+    <!-- ============================================ -->
+    <h2>1. Transition Utilities</h2>
+    <div class="test-section">
+      <div class="test-description">
+        <strong>Expected:</strong> Each card should change background color on hover.
+        The transition speed should be visibly different: fast (0.15s), medium (0.25s), slow (0.4s).
+      </div>
+      
+      <div class="test-grid">
+        <div class="test-card transition-fast" style="cursor: pointer;" 
+             onmouseenter="this.style.background='#e3f2fd'" 
+             onmouseleave="this.style.background='#fff'">
+          <strong>Fast</strong>
+          <p style="font-size: 0.85em; color: #666;">0.15s ease</p>
+          <span class="status-badge status-pending">Hover to test</span>
+        </div>
+        
+        <div class="test-card transition-medium" style="cursor: pointer;"
+             onmouseenter="this.style.background='#e8f5e9'" 
+             onmouseleave="this.style.background='#fff'">
+          <strong>Medium</strong>
+          <p style="font-size: 0.85em; color: #666;">0.25s ease</p>
+          <span class="status-badge status-pending">Hover to test</span>
+        </div>
+        
+        <div class="test-card transition-slow" style="cursor: pointer;"
+             onmouseenter="this.style.background='#fff3e0'" 
+             onmouseleave="this.style.background='#fff'">
+          <strong>Slow</strong>
+          <p style="font-size: 0.85em; color: #666;">0.4s ease</p>
+          <span class="status-badge status-pending">Hover to test</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- TEST 2: Hover Lift Effect -->
+    <!-- ============================================ -->
+    <h2>2. Hover Lift Effect</h2>
+    <div class="test-section">
+      <div class="test-description">
+        <strong>Expected:</strong> Cards should lift up (translateY -2px) and gain a shadow on hover.
+        The lift should feel smooth and natural.
+      </div>
+      
+      <div class="test-grid">
+        <div class="test-card hover-lift" style="cursor: pointer;">
+          <strong>Lift Card 1</strong>
+          <p style="font-size: 0.85em; color: #666;">Hover me!</p>
+        </div>
+        
+        <div class="test-card hover-lift" style="cursor: pointer;">
+          <strong>Lift Card 2</strong>
+          <p style="font-size: 0.85em; color: #666;">Hover me!</p>
+        </div>
+        
+        <div class="test-card hover-lift" style="cursor: pointer;">
+          <strong>Lift Card 3</strong>
+          <p style="font-size: 0.85em; color: #666;">Hover me!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- TEST 3: Press Effect -->
+    <!-- ============================================ -->
+    <h2>3. Press Effect</h2>
+    <div class="test-section">
+      <div class="test-description">
+        <strong>Expected:</strong> Buttons should scale down slightly (scale 0.98) when clicked/pressed.
+        This gives tactile feedback for button presses.
+      </div>
+      
+      <div style="text-align: center;">
+        <button class="test-button press-effect">
+          Press Me (Default)
+        </button>
+        
+        <button class="test-button press-effect hover-lift">
+          Press + Lift Combined
+        </button>
+        
+        <button class="test-button press-effect" style="background: #28a745;">
+          Press Effect (Green)
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- TEST 4: Fade-In Animation -->
+    <!-- ============================================ -->
+    <h2>4. Fade-In Animation</h2>
+    <div class="test-section">
+      <div class="test-description">
+        <strong>Expected:</strong> Click the button to add content that fades in from below (opacity 0 → 1, translateY 8px → 0).
+        Animation should take 0.3s.
+      </div>
+      
+      <div id="fade-in-container" style="min-height: 100px; background: #fff; border-radius: 8px; padding: 20px;">
+        <p style="color: #888; text-align: center;">Content will appear here...</p>
+      </div>
+      
+      <button class="trigger-btn" onclick="testFadeIn()">
+        Trigger Fade-In
+      </button>
+      <button class="trigger-btn" onclick="resetFadeIn()">
+        Reset
+      </button>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- TEST 5: Staggered List Animation -->
+    <!-- ============================================ -->
+    <h2>5. Staggered List Animation</h2>
+    <div class="test-section">
+      <div class="test-description">
+        <strong>Expected:</strong> Click the button to show a list where each item fades in
+        with a slight delay (0.05s, 0.1s, 0.15s, etc.), creating a cascade effect.
+      </div>
+      
+      <div id="stagger-container" style="min-height: 200px; background: #fff; border-radius: 8px; padding: 20px;">
+        <p style="color: #888; text-align: center;">Staggered list will appear here...</p>
+      </div>
+      
+      <button class="trigger-btn" onclick="testStagger()">
+        Trigger Staggered Animation
+      </button>
+      <button class="trigger-btn" onclick="resetStagger()">
+        Reset
+      </button>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- TEST 6: Combined Effects -->
+    <!-- ============================================ -->
+    <h2>6. Combined Effects (Integration Test)</h2>
+    <div class="test-section">
+      <div class="test-description">
+        <strong>Expected:</strong> These cards combine multiple effects: fade-in on load, 
+        hover-lift on hover, and press effect on click. All should work smoothly together.
+      </div>
+      
+      <div id="combined-container" style="min-height: 150px;">
+        <p style="color: #888; text-align: center;">Combined effects will appear here...</p>
+      </div>
+      
+      <button class="trigger-btn" onclick="testCombined()">
+        Test Combined Effects
+      </button>
+      <button class="trigger-btn" onclick="resetCombined()">
+        Reset
+      </button>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- Verification Checklist -->
+    <!-- ============================================ -->
+    <div class="checklist">
+      <h3>✓ Verification Checklist</h3>
+      <ul>
+        <li><strong>Transition Utilities:</strong> Different speeds are visually distinguishable</li>
+        <li><strong>Hover Lift:</strong> Cards lift up smoothly with shadow on hover</li>
+        <li><strong>Press Effect:</strong> Buttons scale down on mousedown/active state</li>
+        <li><strong>Fade-In:</strong> Content fades in from below over 0.3s</li>
+        <li><strong>Stagger Animation:</strong> List items appear in sequence with visible delay</li>
+        <li><strong>Combined:</strong> Multiple effects work together without conflicts</li>
+        <li><strong>Performance:</strong> Animations feel smooth (60fps) without jank</li>
+        <li><strong>Accessibility:</strong> Respects prefers-reduced-motion media query</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Test helper functions
+    function testFadeIn() {
+      const container = document.getElementById('fade-in-container');
+      container.innerHTML = `
+        <div class="fade-in" style="padding: 20px; background: #e3f2fd; border-radius: 8px; text-align: center;">
+          <h3 style="margin: 0 0 8px 0; color: #1565c0;">Success!</h3>
+          <p style="margin: 0; color: #1976d2;">This content faded in smoothly.</p>
+        </div>
+      `;
+    }
+    
+    function resetFadeIn() {
+      const container = document.getElementById('fade-in-container');
+      container.innerHTML = '<p style="color: #888; text-align: center;">Content will appear here...</p>';
+    }
+    
+    function testStagger() {
+      const container = document.getElementById('stagger-container');
+      const items = ['First item', 'Second item', 'Third item', 'Fourth item', 'Fifth item'];
+      
+      container.innerHTML = `
+        <ul class="test-list">
+          ${items.map((item, i) => `
+            <li class="stagger-item" style="animation-delay: ${(i + 1) * 0.05}s;">
+              ${item} (delay: ${((i + 1) * 0.05).toFixed(2)}s)
+            </li>
+          `).join('')}
+        </ul>
+      `;
+    }
+    
+    function resetStagger() {
+      const container = document.getElementById('stagger-container');
+      container.innerHTML = '<p style="color: #888; text-align: center;">Staggered list will appear here...</p>';
+    }
+    
+    function testCombined() {
+      const container = document.getElementById('combined-container');
+      container.innerHTML = `
+        <div class="test-grid">
+          <div class="test-card hover-lift press-effect fade-in stagger-item" style="cursor: pointer; animation-delay: 0.05s;">
+            <strong>Card 1</strong>
+            <p style="font-size: 0.85em; color: #666;">Hover + Press + Fade</p>
+          </div>
+          <div class="test-card hover-lift press-effect fade-in stagger-item" style="cursor: pointer; animation-delay: 0.1s;">
+            <strong>Card 2</strong>
+            <p style="font-size: 0.85em; color: #666;">Hover + Press + Fade</p>
+          </div>
+          <div class="test-card hover-lift press-effect fade-in stagger-item" style="cursor: pointer; animation-delay: 0.15s;">
+            <strong>Card 3</strong>
+            <p style="font-size: 0.85em; color: #666;">Hover + Press + Fade</p>
+          </div>
+        </div>
+      `;
+    }
+    
+    function resetCombined() {
+      const container = document.getElementById('combined-container');
+      container.innerHTML = '<p style="color: #888; text-align: center;">Combined effects will appear here...</p>';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,6462 @@
+/* =============================================================================
+   0) CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================================================= */
+:root {
+  /* Brand Colors */
+  --color-primary: #004aad;
+  --color-primary-dark: #002d6a;
+  --color-primary-light: #3373c4;
+  
+  /* Party Colors */
+  --color-rep: #E81B23;
+  --color-rep-light: #fc9a9a;
+  --color-rep-dark: #630202;
+  --color-dem: #00AEF3;
+  --color-dem-light: #D6EAF8;
+  --color-dem-dark: #27408B;
+  --color-mod: #800080;
+  --color-mod-light: #DDCCFF;
+  --color-mod-dark: #5E2A7E;
+  
+  /* Semantic Colors */
+  --color-success: #28a745;
+  --color-warning: #FFC800;
+  --color-error: #dc3545;
+  --color-info: #004aad;
+  
+  /* Neutral Colors */
+  --color-text-primary: #1f1f1f;
+  --color-text-secondary: #444;
+  --color-text-muted: #666;
+  --color-text-light: #888;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #f0f4f8;
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-light: rgba(0, 0, 0, 0.05);
+  
+  /* Spacing Scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.16);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.4s ease;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 100;
+  --z-sidebar: 500;
+  --z-overlay: 499;
+  --z-header: 1000;
+  --z-toast: 9999;
+}
+
+/* =============================================================================
+   1) RESET + BOX-SIZING
+   ============================================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =============================================================================
+   2) <html> and <body> fill the viewport and stack vertically
+   ============================================================================= */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;     /* header on top, main-container below */
+  overflow: hidden;           /* prevent accidental page‐level scrolling */
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  color: #1f1f1f;
+  background-color: #f0f4f8;
+}
+
+/* =============================================================================
+   3) HEADER BAR (full-width, sticky at top)
+   ============================================================================= */
+#header-bar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-xl);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-bg-primary);
+  box-shadow: var(--shadow-md);
+}
+
+/* Logo or title on the left side of the header */
+#header-bar .logo {
+  font-size: 1.4em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Container for view toggle buttons */
+#header-bar .view-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* View toggle buttons - Enhanced with pill shape and smooth transitions */
+.view-btn {
+  background: transparent;
+  border: 2px solid var(--color-bg-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-sm) 18px;
+  font-size: 1em;
+  color: var(--color-bg-primary);
+  cursor: pointer;
+  transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Highlight the active view button - Enhanced with lift effect */
+.view-btn.active {
+  background-color: #ffffff;
+  color: #004aad;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Hover state */
+.view-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Active state pressed effect */
+.view-btn:active {
+  transform: translateY(0);
+}
+
+/* Focus state for accessibility */
+.view-btn:focus-visible {
+  outline: 3px solid #FFC800;
+  outline-offset: 2px;
+}
+
+/* =============================================================================
+   4) MAIN-CONTAINER (below header): sidebar + map
+   ============================================================================= */
+#main-container {
+  display: flex;
+  flex: 1;                                 /* fill all vertical space below header */
+  height: calc(100vh - 60px);              /* subtract header height (~60px) */
+  overflow: hidden;
+}
+
+/* =============================================================================
+   5) SIDEBAR (left, 30% width of main-container)
+   ============================================================================= */
+#sidebar {
+  flex: 0 0 30%;
+  height: 100%;
+  background-color: #ffffff;
+  overflow-y: auto;
+  padding: 24px;
+  color: #333;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* Rounded container inside sidebar for content */
+#sidebar .content-wrapper {
+  background-color: #fafafb;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom scrollbar for sidebar */
+#sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+}
+#sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+#sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+#sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 4px;
+  border: 1px solid rgba(100, 100, 100, 0.2);
+}
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 0.6);
+}
+
+/* Sidebar headings and text */
+#sidebar h2 {
+  font-size: 1.6em;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #002f6c;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 8px;
+}
+
+#sidebar h3 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #002f6c;
+  line-height: 1.3;
+}
+
+#sidebar p {
+  margin: 12px 0;
+  line-height: 1.6;
+  font-size: 1em;
+  color: #444;
+}
+
+#sidebar ul {
+  margin: 8px 0 16px 20px;
+  padding-left: 0;
+  list-style-type: disc;
+  line-height: 1.6;
+}
+
+#sidebar li {
+  margin-bottom: 8px;
+  font-size: 1em;
+  color: #444;
+}
+
+/* Form elements inside sidebar (dropdowns, sliders, etc.) */
+#sidebar label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+#sidebar select,
+#sidebar input[type="range"],
+#sidebar input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font-size: 1em;
+  margin-bottom: 16px;
+  color: #333;
+  transition: border-color 0.2s ease;
+}
+
+#sidebar select:focus,
+#sidebar input[type="range"]:focus,
+#sidebar input[type="number"]:focus {
+  outline: none;
+  border-color: #004aad;
+}
+
+/* Buttons and links inside sidebar */
+#sidebar button,
+#sidebar a {
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  background: #004aad;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+#sidebar button:hover,
+#sidebar a:hover {
+  background: #00337a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide election‐view controls when in Demographics view */
+body.dem-view #year-select,
+body.dem-view label[for="year-select"],
+body.dem-view #mod-to-dem-slider,
+body.dem-view label[for="mod-to-dem-slider"],
+body.dem-view #mod-to-dem-val {
+  display: none;
+}
+
+/* Slider value display */
+#mod-to-dem-val {
+  min-width: 30px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* =============================================================================
+   6) MAP (right, 70% width of main-container)
+   ============================================================================= */
+#map {
+  flex: 0 0 70%;
+  height: 100%;
+  position: relative;
+}
+
+/* =============================================================================
+   7) LEAFLET / TOOLTIP TWEAKS - Enhanced (Workstream 3)
+   ============================================================================= */
+:focus.leaflet-interactive {
+  outline: none;
+}
+
+/* Enhanced tooltip with better contrast and modern styling */
+.leaflet-tooltip {
+  font-size: 1em;
+  line-height: 1.5;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(33, 33, 33, 0.95);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  font-weight: 500;
+  max-width: 280px;
+}
+
+/* Remove default Leaflet tooltip arrow styling */
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+  border-top-color: rgba(33, 33, 33, 0.95);
+}
+
+/* Tooltip title styling */
+.leaflet-tooltip strong,
+.leaflet-tooltip b {
+  display: block;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Tooltip content rows */
+.leaflet-tooltip .tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+  font-size: 0.95em;
+}
+
+.leaflet-tooltip .tooltip-label {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+.leaflet-tooltip .tooltip-value {
+  color: #fff;
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+/* Large tooltip variant */
+.big-tooltip {
+  font-size: 1.1em;
+  padding: 12px 16px;
+  max-width: 320px;
+}
+
+/* Compact tooltip for dense views */
+.compact-tooltip {
+  font-size: 0.9em;
+  padding: 8px 12px;
+  max-width: 240px;
+}
+
+/* Winner highlight in tooltip */
+.leaflet-tooltip .winner-highlight {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.leaflet-tooltip .winner-highlight.rep {
+  background: rgba(232, 27, 35, 0.9);
+}
+
+.leaflet-tooltip .winner-highlight.dem {
+  background: rgba(0, 174, 243, 0.9);
+}
+
+.leaflet-tooltip .winner-highlight.mod {
+  background: rgba(128, 0, 128, 0.9);
+}
+
+/* Flipped indicator in tooltip */
+.leaflet-tooltip .flipped-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  background: rgba(255, 215, 0, 0.9);
+  color: #333;
+  font-size: 0.8em;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Turnout percentage indicator */
+.leaflet-tooltip .turnout-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-top: 4px;
+}
+
+.leaflet-tooltip .turnout-badge.low {
+  background: rgba(231, 76, 60, 0.9);
+}
+
+.leaflet-tooltip .turnout-badge.medium {
+  background: rgba(241, 196, 15, 0.9);
+  color: #333;
+}
+
+.leaflet-tooltip .turnout-badge.high {
+  background: rgba(39, 174, 96, 0.9);
+}
+
+/* Enhance marker and polygon hover states */
+.leaflet-interactive:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+/* Transition for smoother hover effect */
+.leaflet-interactive {
+  transition: filter 0.15s ease;
+}
+
+/* Flipped precinct border styling */
+.leaflet-interactive.flipped-precinct {
+  stroke-dasharray: 8, 4;
+  stroke: #FFD700 !important;
+  stroke-width: 3px !important;
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.6));
+}
+
+/* High contrast mode for tooltips */
+@media (prefers-contrast: high) {
+  .leaflet-tooltip {
+    background: #000;
+    border: 2px solid #fff;
+  }
+  
+  .leaflet-tooltip strong {
+    border-bottom-color: #fff;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* Mini Bar Chart in Tooltips (Phase 2 WS3) */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+.tooltip-mini-chart {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 8px 0;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-mini-chart .mini-bar {
+  height: 100%;
+  transition: width 0.3s ease;
+  min-width: 2px;
+}
+
+.tooltip-mini-chart .mini-bar.rep {
+  background: linear-gradient(180deg, #ff5252, #E81B23);
+}
+
+.tooltip-mini-chart .mini-bar.dem {
+  background: linear-gradient(180deg, #4fc3f7, #00AEF3);
+}
+
+.tooltip-mini-chart .mini-bar.mod {
+  background: linear-gradient(180deg, #ba68c8, #800080);
+}
+
+/* For/Against in propositions */
+.tooltip-mini-chart .mini-bar.for {
+  background: linear-gradient(180deg, #66bb6a, #2ECC71);
+}
+
+.tooltip-mini-chart .mini-bar.against {
+  background: linear-gradient(180deg, #ef5350, #E74C3C);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* Comparison Indicators in Tooltips (Phase 2 WS3) */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* Positive change indicator (above average) */
+.leaflet-tooltip .positive {
+  color: #4ade80;
+  font-weight: 700;
+}
+
+/* Negative change indicator (below average) */
+.leaflet-tooltip .negative {
+  color: #f87171;
+  font-weight: 700;
+}
+
+/* Neutral/unchanged indicator */
+.leaflet-tooltip .neutral {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Comparison arrow icons (optional enhancement) */
+.leaflet-tooltip .positive::before {
+  content: '▲ ';
+  font-size: 0.7em;
+  vertical-align: middle;
+}
+
+.leaflet-tooltip .negative::before {
+  content: '▼ ';
+  font-size: 0.7em;
+  vertical-align: middle;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* Enhanced Tooltip Layout (Phase 2 WS3) */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* Structured row layout for tooltip content */
+.leaflet-tooltip .tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 0;
+  font-size: 0.95em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.leaflet-tooltip .tooltip-row:last-of-type {
+  border-bottom: none;
+}
+
+.leaflet-tooltip .tooltip-label {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+.leaflet-tooltip .tooltip-value {
+  color: #fff;
+  font-weight: 600;
+  margin-left: 12px;
+  text-align: right;
+}
+
+/* Tooltip section divider */
+.leaflet-tooltip .tooltip-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 6px 0;
+}
+
+/* =============================================================================
+   8) OPTIONAL: Pie-chart container styling if you embed canvases
+   ============================================================================= */
+#sidebar #pie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+}
+
+#sidebar canvas {
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.pie-wrapper {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  margin: 0 auto;
+}
+
+.pie-wrapper canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* =============================================================================
+   9) RESPONSIVE ADJUSTMENTS FOR SMALL SCREENS
+   ============================================================================= */
+@media (max-width: 800px) {
+  #main-container {
+    flex-direction: column;
+    height: calc(100vh - 60px);
+  }
+  #sidebar {
+    flex: 0 0 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+    border-radius: 0;
+  }
+  #map {
+    flex: 1 1 auto;
+  }
+  #sidebar h2 {
+    text-align: center;
+  }
+}
+
+/* =============================================================================
+   10) ELECTION FILTERS - Category Tabs + Search Box
+   ============================================================================= */
+
+/* Container for all filter controls */
+.election-filters {
+  margin-bottom: 16px;
+}
+
+/* Search box container */
+.search-container {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.election-search-input {
+  width: 100%;
+  padding: 10px 36px 10px 12px;
+  font-size: 0.95em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #333;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.election-search-input:focus {
+  outline: none;
+  border-color: #004aad;
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.1);
+}
+
+.election-search-input::placeholder {
+  color: #999;
+}
+
+/* Clear search button */
+.clear-search-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #666;
+  font-size: 1.4em;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.clear-search-btn:hover {
+  color: #333;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.clear-search-btn.hidden {
+  display: none;
+}
+
+/* YEAR FILTER: Year filter container */
+.year-filter-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.year-filter-label {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #555;
+  white-space: nowrap;
+}
+
+.year-filter-select {
+  flex: 0 0 auto;
+  min-width: 120px;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.year-filter-select:hover {
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.year-filter-select:focus {
+  outline: none;
+  border-color: #004aad;
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.1);
+}
+
+/* Category tabs container */
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+/* Individual category tab */
+.category-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #555;
+  background-color: #f0f4f8;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.category-tab:hover {
+  background-color: #e8ecf1;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.category-tab:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #FFC800;
+}
+
+.category-tab.active {
+  background-color: #004aad;
+  color: #ffffff;
+  border-color: #004aad;
+}
+
+.category-tab.active:hover {
+  background-color: #00337a;
+}
+
+/* Count badge inside tab */
+.tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  font-size: 0.8em;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.category-tab.active .tab-count {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Results count text */
+.filter-results-count {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.filter-results-count strong {
+  color: #333;
+}
+
+/* Election select row: label above, dropdown + Export aligned */
+.election-select-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.election-select-row label {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #333;
+  display: block;
+}
+
+.election-select-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.election-select-controls #election-select {
+  flex: 1;
+  min-width: 0;
+  min-height: 38px;
+}
+
+.election-select-controls .export-dropdown-btn {
+  flex-shrink: 0;
+  min-height: 38px;
+  box-sizing: border-box;
+}
+
+/* Search highlight in dropdown options */
+.election-option mark {
+  background-color: #FFC800;
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* No results state */
+.no-results-message {
+  padding: 24px 16px;
+  text-align: center;
+  color: #666;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+
+.no-results-message h4 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 1em;
+}
+
+.no-results-message p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+/* TRENDS: Compare block styles */
+.trend-compare-block {
+  margin: 20px 0;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.trend-compare-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.trend-compare-header h3 {
+  margin: 0;
+  font-size: 1em;
+  font-weight: 600;
+  color: #333;
+}
+
+.trend-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.trend-toggle-checkbox {
+  display: none;
+}
+
+.trend-toggle-slider {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 24px;
+  transition: background-color 0.3s ease;
+}
+
+.trend-toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: white;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.trend-toggle-checkbox:checked + .trend-toggle-slider {
+  background-color: #004aad;
+}
+
+.trend-toggle-checkbox:checked + .trend-toggle-slider::before {
+  transform: translateX(20px);
+}
+
+.trend-toggle-text {
+  font-size: 0.9em;
+  color: #333;
+  font-weight: 500;
+}
+
+.trend-compare-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trend-compare-controls label {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #333;
+}
+
+.trend-second-select {
+  width: 100%;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: white;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.trend-second-select:focus {
+  outline: 2px solid #004aad;
+  outline-offset: 2px;
+}
+
+.trend-legend {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.trend-legend.hidden {
+  display: none;
+}
+
+.trend-legend-title {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.trend-legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trend-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85em;
+  color: #555;
+}
+
+.trend-legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.trend-legend-flipped {
+  background: linear-gradient(45deg, #FFD700 25%, transparent 25%, transparent 75%, #FFD700 75%),
+              linear-gradient(45deg, #FFD700 25%, transparent 25%, transparent 75%, #FFD700 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  border-color: #FFD700;
+}
+
+.trend-error {
+  margin-top: 12px;
+  padding: 10px;
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: 6px;
+  color: #c33;
+  font-size: 0.85em;
+}
+
+.trend-error.hidden {
+  display: none;
+}
+
+/* TRENDS: Trend comparison section in sidebar */
+.trend-comparison-section {
+  margin-top: 16px;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.trend-comparison-section h4 {
+  margin: 0 0 12px 0;
+  font-size: 1em;
+  font-weight: 600;
+  color: #333;
+}
+
+.trend-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.trend-year-column {
+  padding: 12px;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.trend-year-header {
+  font-weight: 600;
+  font-size: 0.95em;
+  color: #004aad;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #004aad;
+}
+
+.trend-year-column p {
+  margin: 6px 0;
+  font-size: 0.85em;
+  color: #555;
+}
+
+.trend-year-column strong {
+  color: #333;
+}
+
+.trend-delta {
+  padding: 10px;
+  background-color: white;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.95em;
+}
+
+.trend-delta strong {
+  color: #333;
+  margin-right: 8px;
+}
+
+.trend-positive {
+  color: #004aad;
+  font-weight: 600;
+}
+
+.trend-negative {
+  color: #E81B23;
+  font-weight: 600;
+}
+
+.trend-flipped-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: #FFD700;
+  color: #333;
+  border-radius: 4px;
+  font-size: 0.75em;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.trend-flipped-text {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85em;
+  color: #666;
+  font-style: italic;
+}
+
+.trend-no-data {
+  color: #666;
+  font-size: 0.9em;
+  text-align: center;
+  padding: 12px;
+  background-color: white;
+  border-radius: 6px;
+}
+
+/* Loading state for filters */
+.election-filters.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* =============================================================================
+   11) RESPONSIVE ADJUSTMENTS FOR ELECTION FILTERS
+   ============================================================================= */
+@media (max-width: 800px) {
+  .category-tabs {
+    justify-content: center;
+  }
+  
+  .category-tab {
+    font-size: 0.8em;
+    padding: 5px 10px;
+  }
+  
+  .tab-count {
+    min-width: 18px;
+    height: 18px;
+    font-size: 0.75em;
+  }
+}
+
+/* Compact mode for very small widths */
+@media (max-width: 500px) {
+  .category-tabs {
+    gap: 4px;
+  }
+  
+  .category-tab {
+    padding: 4px 8px;
+    font-size: 0.75em;
+  }
+}
+
+/* =============================================================================
+   12) TURNOUT SIMULATOR
+   ============================================================================= */
+
+.turnout-simulator {
+  background-color: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.turnout-simulator h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1em;
+  color: #002f6c;
+}
+
+.turnout-simulator .simulator-description {
+  margin: 0 0 16px 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Slider group container */
+.slider-group {
+  margin-bottom: 14px;
+}
+
+.slider-group label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.slider-group .party-label {
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.slider-group .party-label.rep {
+  background-color: rgba(232, 27, 35, 0.15);
+  color: #b01419;
+}
+
+.slider-group .party-label.dem {
+  background-color: rgba(0, 174, 243, 0.15);
+  color: #0085bb;
+}
+
+.slider-group .party-label.mod {
+  background-color: rgba(128, 0, 128, 0.15);
+  color: #6a006a;
+}
+
+.slider-group .slider-value {
+  font-weight: 600;
+  font-size: 0.95em;
+  color: #333;
+  min-width: 45px;
+  text-align: right;
+}
+
+/* Custom slider styling */
+.turnout-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #ddd;
+  outline: none;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.turnout-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease;
+}
+
+.turnout-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.turnout-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Party-specific slider colors */
+.rep-slider::-webkit-slider-thumb {
+  background: #E81B23;
+}
+.rep-slider::-moz-range-thumb {
+  background: #E81B23;
+}
+.rep-slider {
+  background: linear-gradient(to right, #fcc, #E81B23);
+}
+
+.dem-slider::-webkit-slider-thumb {
+  background: #00AEF3;
+}
+.dem-slider::-moz-range-thumb {
+  background: #00AEF3;
+}
+.dem-slider {
+  background: linear-gradient(to right, #cef, #00AEF3);
+}
+
+.mod-slider::-webkit-slider-thumb {
+  background: #800080;
+}
+.mod-slider::-moz-range-thumb {
+  background: #800080;
+}
+.mod-slider {
+  background: linear-gradient(to right, #e8cfe8, #800080);
+}
+
+/* Reset button */
+.turnout-simulator .reset-btn {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  background: #6c757d;
+  margin-top: 8px;
+}
+
+.turnout-simulator .reset-btn:hover {
+  background: #5a6268;
+}
+
+/* Simulation summary section */
+.simulation-summary {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================================================
+   13) SIMULATION RESULTS DISPLAY
+   ============================================================================= */
+
+.simulation-results {
+  margin-top: 12px;
+}
+
+.simulation-results h4 {
+  margin: 0 0 10px 0;
+  font-size: 1em;
+  color: #333;
+}
+
+/* County winner change alert */
+.winner-change {
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  border-left: 4px solid #ffc107;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.winner-change.alert strong {
+  display: block;
+  color: #856404;
+  margin-bottom: 4px;
+  font-size: 0.95em;
+}
+
+.winner-change.alert p {
+  margin: 0;
+  color: #856404;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+/* County flipped state - add visual emphasis */
+.simulation-results.county-flipped {
+  background-color: #fff8e1;
+  border-radius: 6px;
+  padding: 12px;
+  border: 1px solid #ffe082;
+}
+
+/* Comparison table */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin-bottom: 16px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.comparison-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.85em;
+  text-transform: uppercase;
+}
+
+.comparison-table td {
+  color: #444;
+}
+
+.comparison-table td:last-child {
+  font-weight: 600;
+}
+
+.comparison-table td.positive {
+  color: #28a745;
+}
+
+.comparison-table td.negative {
+  color: #dc3545;
+}
+
+/* Flipped precincts section */
+.flipped-precincts {
+  background-color: #f0f4f8;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.flipped-precincts h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flipped-precincts .flip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  background-color: #004aad;
+  color: #fff;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+.flipped-precincts .flip-list {
+  margin: 8px 0 0 0;
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.5;
+}
+
+.flipped-precincts .no-flips {
+  margin: 8px 0 0 0;
+  font-size: 0.9em;
+  color: #666;
+  font-style: italic;
+}
+
+/* Flipped badge for precinct details */
+.flipped-badge {
+  display: inline-block;
+  background-color: #FFD700;
+  color: #333;
+  font-size: 0.7em;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Winner change text in precinct details */
+.winner-change-text {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+/* Candidate results positive/negative indicators */
+.candidate-results .positive {
+  color: #28a745;
+  font-size: 0.9em;
+}
+
+.candidate-results .negative {
+  color: #dc3545;
+  font-size: 0.9em;
+}
+
+/* No data state */
+.simulation-results .no-data {
+  color: #666;
+  font-style: italic;
+  padding: 16px;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* =============================================================================
+   14) FLIPPED PRECINCT HIGHLIGHTING ON MAP
+   ============================================================================= */
+
+/* Add a pulsing animation for flipped precincts */
+@keyframes precinct-flip-pulse {
+  0%, 100% {
+    stroke-width: 3;
+    stroke-opacity: 1;
+  }
+  50% {
+    stroke-width: 5;
+    stroke-opacity: 0.7;
+  }
+}
+
+/* Flipped precincts get special border styling via Leaflet - handled in JS */
+
+/* Legend entry for flipped precincts */
+.legend-flipped {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+}
+
+.legend-flipped::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 3px dashed #FFD700;
+  background-color: rgba(255, 215, 0, 0.3);
+  border-radius: 2px;
+}
+
+/* =============================================================================
+   TURNOUT SIMULATOR ENHANCEMENTS (Extended Range + Voter Flip)
+   ============================================================================= */
+
+/* Simulator sections */
+.simulator-section {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.simulator-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 12px;
+}
+
+.simulator-section .section-title {
+  margin: 0 0 4px 0;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.simulator-section .section-hint {
+  margin: 0 0 12px 0;
+  font-size: 0.8em;
+  color: #666;
+  font-style: italic;
+}
+
+/* Slider markers for extended range */
+.slider-markers {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7em;
+  color: #888;
+  margin-top: 2px;
+  padding: 0 2px;
+}
+
+.slider-markers .baseline-marker {
+  font-weight: 600;
+  color: #004aad;
+}
+
+/* Extended slider background gradient (50-100-150) */
+.turnout-slider {
+  background: linear-gradient(to right, 
+    #ffcccc 0%, 
+    #f5f5f5 50%, 
+    #ccffcc 100%) !important;
+}
+
+/* Override party slider backgrounds for extended range */
+.rep-slider {
+  background: linear-gradient(to right, 
+    #ffe0e0 0%, 
+    #E81B23 50%, 
+    #8B0000 100%) !important;
+}
+
+.dem-slider {
+  background: linear-gradient(to right, 
+    #e0f4ff 0%, 
+    #00AEF3 50%, 
+    #004080 100%) !important;
+}
+
+.mod-slider {
+  background: linear-gradient(to right, 
+    #f0e0f0 0%, 
+    #800080 50%, 
+    #400040 100%) !important;
+}
+
+/* Voter Flip Section */
+.voter-flip-section {
+  background-color: rgba(0, 0, 0, 0.02);
+  margin: 0 -16px;
+  padding: 12px 16px;
+  border-radius: 0;
+}
+
+.voter-flip-section .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 0;
+}
+
+.voter-flip-section .section-header:hover {
+  opacity: 0.8;
+}
+
+.voter-flip-section .collapse-icon {
+  transition: transform 0.2s ease;
+}
+
+.voter-flip-section .section-header.collapsed .collapse-icon {
+  transform: rotate(-90deg);
+}
+
+.voter-flip-section .section-content {
+  max-height: 300px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.voter-flip-section .section-content.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.voter-flip-section .section-badge {
+  font-size: 0.7em;
+  font-weight: 600;
+  padding: 2px 8px;
+  background-color: #ffc107;
+  color: #333;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Flip controls grid */
+.flip-controls-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.flip-control {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.flip-control label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 0.85em;
+}
+
+.flip-control .flip-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.flip-control .flip-value {
+  font-weight: 600;
+  color: #004aad;
+  min-width: 35px;
+  text-align: right;
+}
+
+/* Flip slider styling */
+.flip-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #e0e0e0 0%, #ffc107 50%, #ff6b35 100%);
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+.flip-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #004aad;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease;
+}
+
+.flip-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.flip-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #004aad;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Simulator actions */
+.simulator-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.simulator-actions .reset-btn {
+  flex: 1;
+}
+
+/* Assumptions section */
+.simulator-assumptions {
+  margin-top: 16px;
+  font-size: 0.85em;
+}
+
+.simulator-assumptions details {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.simulator-assumptions summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: #666;
+  user-select: none;
+  padding: 4px 0;
+}
+
+.simulator-assumptions summary:hover {
+  color: #333;
+}
+
+.simulator-assumptions ul {
+  margin: 8px 0 0 16px;
+  padding: 0;
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.6;
+}
+
+.simulator-assumptions li {
+  margin-bottom: 4px;
+}
+
+.simulator-assumptions li strong {
+  color: #333;
+}
+
+/* =============================================================================
+   15) RESPONSIVE ADJUSTMENTS FOR TURNOUT SIMULATOR
+   ============================================================================= */
+
+@media (max-width: 800px) {
+  .turnout-simulator {
+    padding: 12px;
+  }
+  
+  .slider-group .party-label {
+    font-size: 0.85em;
+    padding: 2px 6px;
+  }
+  
+  .comparison-table {
+    font-size: 0.85em;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 6px 8px;
+  }
+  
+  .flip-controls-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .voter-flip-section {
+    margin: 0 -12px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .slider-markers {
+    font-size: 0.65em;
+  }
+  
+  .flip-control {
+    padding: 8px 10px;
+  }
+  
+  .flip-control label {
+    font-size: 0.8em;
+  }
+}
+
+/* =============================================================================
+   12) RACE ANALYTICS - County-Wide Summary (Workstream 3)
+   ============================================================================= */
+
+/* Race Summary Container */
+.race-summary {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.race-summary h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #002f6c;
+}
+
+.race-summary .race-name {
+  margin: 0 0 16px 0;
+  font-size: 0.95em;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Summary Statistics Grid */
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.stat-label {
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Winner color classes */
+.stat-value.winner-rep {
+  color: #E81B23;
+}
+
+.stat-value.winner-dem {
+  color: #00AEF3;
+}
+
+.stat-value.winner-lib {
+  color: #FFC800;
+}
+
+.stat-value.winner-grn {
+  color: #17AA5C;
+}
+
+.stat-value.winner-ind {
+  color: #9B59B6;
+}
+
+/* Vote Share Chart Container */
+.vote-share-chart {
+  height: 200px;
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.vote-share-chart canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* =============================================================================
+   13) MARGIN HEATMAP TOGGLE (Workstream 3)
+   ============================================================================= */
+
+.margin-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin: 12px 0;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 24px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: #004aad;
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+.toggle-switch input:focus + .toggle-slider {
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.2);
+}
+
+/* Toggle Labels */
+.toggle-label {
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #333;
+}
+
+.toggle-hint {
+  font-size: 0.8em;
+  color: #888;
+  margin-left: auto;
+}
+
+/* =============================================================================
+   14) CANDIDATE RESULTS LIST (Workstream 3)
+   ============================================================================= */
+
+.candidate-results {
+  list-style: none;
+  margin: 12px 0 0 0;
+  padding: 0;
+}
+
+.candidate-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border-left: 4px solid #888;
+  transition: background-color 0.2s ease;
+}
+
+.candidate-result:hover {
+  background-color: #f0f4f8;
+}
+
+/* Party-specific border colors */
+.candidate-result.party-rep {
+  border-left-color: #E81B23;
+}
+
+.candidate-result.party-dem {
+  border-left-color: #00AEF3;
+}
+
+.candidate-result.party-lib {
+  border-left-color: #FFC800;
+}
+
+.candidate-result.party-grn {
+  border-left-color: #17AA5C;
+}
+
+.candidate-result.party-ind {
+  border-left-color: #9B59B6;
+}
+
+.candidate-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.candidate-votes {
+  font-weight: 600;
+  color: #555;
+  font-size: 0.95em;
+}
+
+/* =============================================================================
+   15) LOADING & ERROR STATES (Workstream 3)
+   ============================================================================= */
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 74, 173, 0.1);
+  border-top-color: #004aad;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+.loading-spinner.small {
+  width: 24px;
+  height: 24px;
+  border-width: 2px;
+  margin: 10px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-state {
+  text-align: center;
+  padding: 24px;
+  background-color: #fff5f5;
+  border: 1px solid rgba(231, 76, 60, 0.2);
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.error-state h3 {
+  color: #e74c3c;
+  margin: 0 0 8px 0;
+}
+
+.error-state p {
+  color: #666;
+  margin: 0 0 16px 0;
+}
+
+.retry-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.retry-btn:hover {
+  background-color: #c0392b;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 16px;
+  color: #666;
+}
+
+.instruction-text {
+  font-size: 0.9em;
+  color: #666;
+  font-style: italic;
+  margin: 8px 0;
+}
+
+/* =============================================================================
+   16) RESPONSIVE ADJUSTMENTS FOR RACE ANALYTICS
+   ============================================================================= */
+
+@media (max-width: 800px) {
+  .summary-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .margin-toggle-container {
+    flex-wrap: wrap;
+  }
+  
+  .toggle-hint {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 8px;
+  }
+  
+  .vote-share-chart {
+    height: 180px;
+  }
+}
+
+@media (max-width: 500px) {
+  .race-summary {
+    padding: 16px;
+  }
+  
+  .stat-item {
+    padding: 10px;
+  }
+  
+  .stat-value {
+    font-size: 1em;
+  }
+}
+
+/* =============================================================================
+   12) HEADER ACTIONS (Copy Link, Export buttons)
+   ============================================================================= */
+
+/* Spacer to push actions to the right */
+.spacer {
+  flex: 1;
+}
+
+/* Container for header action buttons */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Copy link button */
+.copy-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.copy-link-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.copy-link-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #FFC800;
+}
+
+.copy-link-btn.copied {
+  background: rgba(40, 167, 69, 0.9);
+  border-color: rgba(40, 167, 69, 1);
+}
+
+.copy-link-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* =============================================================================
+   13) EXPORT DROPDOWN
+   ============================================================================= */
+
+.export-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.export-dropdown-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.95em;
+  font-weight: 500;
+  color: #ffffff;
+  background: #004aad;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.export-dropdown-btn:hover {
+  background: #00337a;
+}
+
+.export-dropdown-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #FFC800;
+}
+
+.export-dropdown-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.export-dropdown-btn .dropdown-arrow {
+  width: 12px;
+  height: 12px;
+  margin-left: 2px;
+  transition: transform 0.2s ease;
+}
+
+.export-dropdown.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.export-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  min-width: 220px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+}
+
+.export-dropdown.open .export-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.export-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 0.9em;
+  color: #333;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s ease;
+}
+
+.export-option:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.export-option:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+.export-option:hover:not(:disabled) {
+  background: #f0f4f8;
+}
+
+.export-option:focus {
+  outline: none;
+  background: #e8ecf1;
+}
+
+.export-option:disabled {
+  color: #999;
+  cursor: not-allowed;
+}
+
+.export-option svg {
+  width: 14px;
+  height: 14px;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.export-option:disabled svg {
+  color: #ccc;
+}
+
+/* =============================================================================
+   14) TOAST NOTIFICATIONS
+   ============================================================================= */
+
+.toast-container {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: #333;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 0.95em;
+  animation: toast-in 0.3s ease;
+}
+
+.toast.success {
+  background: #28a745;
+}
+
+.toast.error {
+  background: #dc3545;
+}
+
+.toast.info {
+  background: #004aad;
+}
+
+.toast svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.toast.fade-out {
+  animation: toast-out 0.3s ease forwards;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* =============================================================================
+   15) HEADER BRAND STYLING
+   ============================================================================= */
+
+/* Left section: title + view buttons grouped with controlled spacing */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-logo {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.header-title {
+  font-size: 1.3em;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+/* Mobile toggle button */
+.mobile-toggle {
+  display: none;
+  padding: 8px 14px;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.mobile-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Screen reader only - skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #004aad;
+  color: white;
+  padding: 8px 16px;
+  z-index: 9999;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* SR-only class for labels */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =============================================================================
+   16) RESPONSIVE ADJUSTMENTS FOR HEADER ACTIONS
+   ============================================================================= */
+
+@media (max-width: 800px) {
+  .mobile-toggle {
+    display: block;
+  }
+  
+  .copy-link-btn span {
+    display: none;
+  }
+  
+  .copy-link-btn {
+    padding: 8px 10px;
+  }
+  
+  #sidebar {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
+    flex: none;
+    height: auto;
+  }
+  
+  #sidebar.visible {
+    display: block;
+  }
+  
+  #map {
+    flex: 1;
+    width: 100%;
+  }
+  
+  .header-actions {
+    gap: 6px;
+  }
+  
+  .export-dropdown-menu {
+    right: -20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-brand {
+    gap: 8px;
+  }
+  
+  .header-title {
+    font-size: 1.1em;
+  }
+  
+  .view-btn {
+    padding: 6px 10px;
+    font-size: 0.85em;
+  }
+}
+
+/* =============================================================================
+   17) PRECINCT DEEP DIVE - VOTING HISTORY (Workstream 4)
+   ============================================================================= */
+
+/* Precinct detail tabs */
+.precinct-detail-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.precinct-detail-tab {
+  padding: 10px 16px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #666;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.precinct-detail-tab:hover {
+  color: #333;
+  background-color: rgba(0, 74, 173, 0.05);
+}
+
+.precinct-detail-tab.active {
+  color: #004aad;
+  border-bottom-color: #004aad;
+}
+
+.precinct-detail-tab:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px rgba(0, 74, 173, 0.2);
+}
+
+/* Tab content panels */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Voting History styles */
+.voting-history {
+  padding: 12px 0;
+}
+
+.party-record {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.party-win {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 0.9em;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.party-win.rep {
+  background-color: rgba(232, 27, 35, 0.15);
+  color: #b01419;
+}
+
+.party-win.dem {
+  background-color: rgba(0, 174, 243, 0.15);
+  color: #0085bb;
+}
+
+.party-win.other {
+  background-color: rgba(128, 128, 128, 0.15);
+  color: #555;
+}
+
+/* History category sections */
+.history-category {
+  margin-bottom: 16px;
+}
+
+.history-category .category-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px 0;
+  padding: 8px 12px;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #002f6c;
+  background-color: #f0f4f8;
+  border-radius: 6px;
+  border-left: 4px solid #004aad;
+}
+
+.history-category .race-count {
+  font-weight: 400;
+  color: #666;
+}
+
+.race-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.race-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  border-left: 3px solid #888;
+  transition: background-color 0.15s ease;
+}
+
+.race-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Party-colored borders */
+.race-item.rep {
+  border-left-color: #E81B23;
+}
+
+.race-item.dem {
+  border-left-color: #00AEF3;
+}
+
+.race-item.for {
+  border-left-color: #2ECC71;
+}
+
+.race-item.against {
+  border-left-color: #E74C3C;
+}
+
+.race-item .race-name {
+  font-size: 0.9em;
+  color: #333;
+  font-weight: 500;
+}
+
+.race-item .race-winner {
+  font-size: 0.85em;
+  color: #555;
+  font-weight: 600;
+}
+
+.race-item .race-turnout {
+  font-size: 0.8em;
+  color: #888;
+}
+
+/* =============================================================================
+   18) PRECINCT COMPARISON (Workstream 4 - Feature 4B)
+   ============================================================================= */
+
+/* Compare button */
+.compare-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #004aad;
+  background: rgba(0, 74, 173, 0.1);
+  border: 1px solid rgba(0, 74, 173, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.compare-btn:hover {
+  background: rgba(0, 74, 173, 0.15);
+  border-color: rgba(0, 74, 173, 0.5);
+}
+
+.compare-btn.active {
+  background: #004aad;
+  color: #fff;
+  border-color: #004aad;
+}
+
+.compare-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Comparison mode banner */
+.comparison-mode-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #fff3cd 0%, #fff8e1 100%);
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+}
+
+.comparison-mode-banner .banner-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+  font-weight: 500;
+  color: #856404;
+}
+
+.comparison-mode-banner .banner-text svg {
+  width: 18px;
+  height: 18px;
+  color: #ffc107;
+}
+
+.cancel-compare-btn {
+  padding: 6px 12px;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #856404;
+  background: rgba(255, 193, 7, 0.3);
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-compare-btn:hover {
+  background: rgba(255, 193, 7, 0.5);
+}
+
+/* Comparison panel */
+.comparison-panel {
+  background-color: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.comparison-title {
+  margin: 0 0 16px 0;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #002f6c;
+  text-align: center;
+}
+
+.comparison-section {
+  margin-bottom: 20px;
+}
+
+.comparison-section:last-child {
+  margin-bottom: 0;
+}
+
+.comparison-section h5 {
+  margin: 0 0 12px 0;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: #333;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Comparison table (reuse existing but extend) */
+.comparison-panel .comparison-table {
+  font-size: 0.85em;
+  margin-bottom: 12px;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.comparison-panel .comparison-table tr.rep td:first-child {
+  border-left: 3px solid #E81B23;
+}
+
+.comparison-panel .comparison-table tr.mod td:first-child {
+  border-left: 3px solid #800080;
+}
+
+.comparison-panel .comparison-table tr.dem td:first-child {
+  border-left: 3px solid #00AEF3;
+}
+
+/* Same/Different winner indicator */
+.same-winner-indicator {
+  margin: 12px 0 0 0;
+  padding: 10px 14px;
+  font-size: 0.9em;
+  font-weight: 600;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.same-winner-indicator.same {
+  background-color: rgba(40, 167, 69, 0.15);
+  color: #155724;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.same-winner-indicator.different {
+  background-color: rgba(220, 53, 69, 0.15);
+  color: #721c24;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.no-participation {
+  font-style: italic;
+  color: #666;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* Loading state for voting history */
+.voting-history-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  color: #666;
+}
+
+.voting-history-loading .loading-spinner {
+  margin-bottom: 12px;
+}
+
+/* =============================================================================
+   19) RESPONSIVE ADJUSTMENTS FOR PRECINCT DEEP DIVE
+   ============================================================================= */
+
+@media (max-width: 800px) {
+  .precinct-detail-tabs {
+    flex-wrap: wrap;
+  }
+  
+  .precinct-detail-tab {
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 0.85em;
+  }
+  
+  .race-item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  
+  .race-item .race-winner,
+  .race-item .race-turnout {
+    font-size: 0.8em;
+  }
+  
+  .party-record {
+    justify-content: center;
+  }
+  
+  .comparison-panel {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .precinct-detail-tab {
+    font-size: 0.8em;
+    padding: 6px 10px;
+  }
+  
+  .party-win {
+    padding: 4px 10px;
+    font-size: 0.85em;
+  }
+  
+  .history-category .category-header {
+    font-size: 0.9em;
+    padding: 6px 10px;
+  }
+}
+
+/* =============================================================================
+   17) MAP LEGEND - Enhanced (Workstream 3)
+   ============================================================================= */
+
+/* Main legend container with glassmorphism effect */
+.map-legend {
+  position: absolute;
+  bottom: 24px;
+  right: 12px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  min-width: 160px;
+  max-width: 220px;
+  transition: all 0.3s ease;
+}
+
+.map-legend:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+}
+
+/* Simulation active state */
+.map-legend.simulation-active {
+  border-color: rgba(255, 215, 0, 0.5);
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.2);
+}
+
+/* Legend title */
+.legend-title {
+  font-size: 0.95em;
+  font-weight: 700;
+  color: #002f6c;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(0, 74, 173, 0.15);
+  letter-spacing: 0.3px;
+}
+
+/* Legend subtitle for simulation section */
+.legend-subtitle {
+  font-size: 0.8em;
+  font-weight: 600;
+  color: #856404;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Legend items container */
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Individual legend item */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.15s ease;
+}
+
+.legend-item:hover {
+  transform: translateX(2px);
+}
+
+/* Legend swatch (color indicator) */
+.legend-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Party color swatches with gradients */
+.legend-swatch-rep {
+  background: linear-gradient(135deg, #fc9a9a, #d13636, #630202);
+}
+
+.legend-swatch-dem {
+  background: linear-gradient(135deg, #D6EAF8, #6D9EEB, #27408B);
+}
+
+.legend-swatch-mod {
+  background: linear-gradient(135deg, #DDCCFF, #B19CD9, #5E2A7E);
+}
+
+/* Turnout color swatches */
+.legend-swatch-low-turnout {
+  background: rgb(231, 76, 60);
+}
+
+.legend-swatch-medium-turnout {
+  background: rgb(241, 196, 15);
+}
+
+.legend-swatch-high-turnout {
+  background: rgb(39, 174, 96);
+}
+
+/* No data swatch */
+.legend-swatch-no-data {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+}
+
+/* Flipped precinct swatch with animated dashed border */
+.legend-swatch-flipped {
+  background: rgba(255, 215, 0, 0.3);
+  border: 3px dashed #FFD700;
+  animation: flipped-pulse 2s ease-in-out infinite;
+}
+
+@keyframes flipped-pulse {
+  0%, 100% {
+    border-color: #FFD700;
+    opacity: 1;
+  }
+  50% {
+    border-color: #FFA500;
+    opacity: 0.8;
+  }
+}
+
+/* Legend label text */
+.legend-label {
+  font-size: 0.85em;
+  color: #444;
+  font-weight: 500;
+  flex: 1;
+}
+
+/* Legend count badge */
+.legend-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  background: #004aad;
+  color: #fff;
+  font-size: 0.75em;
+  font-weight: 700;
+  border-radius: 11px;
+}
+
+/* Legend note text */
+.legend-note {
+  margin: 10px 0 0 0;
+  font-size: 0.75em;
+  color: #888;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* Divider between sections */
+.legend-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1), transparent);
+  margin: 12px 0;
+}
+
+/* Simulation section styling */
+.legend-simulation-section {
+  background: rgba(255, 243, 205, 0.5);
+  margin: 0 -10px -6px;
+  padding: 10px;
+  border-radius: 0 0 8px 8px;
+}
+
+.legend-flipped-item {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* Turnout gradient bar (enhanced) */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+.legend-gradient-container {
+  margin: 8px 0 12px;
+}
+
+.legend-gradient-bar {
+  height: 14px;
+  border-radius: 7px;
+  background: linear-gradient(to right, 
+    rgb(231, 76, 60) 0%, 
+    rgb(241, 196, 15) 50%, 
+    rgb(39, 174, 96) 100%);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.legend-gradient-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 0.72em;
+  font-weight: 600;
+  color: #666;
+}
+
+/* Legacy gradient bar styles for backward compatibility */
+.legend-gradient {
+  margin: 8px 0;
+}
+
+.gradient-bar {
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(to right, 
+    rgb(231, 76, 60) 0%, 
+    rgb(241, 196, 15) 50%, 
+    rgb(39, 174, 96) 100%);
+}
+
+.gradient-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 0.7em;
+  color: #666;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* Responsive legend adjustments */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 800px) {
+  .map-legend {
+    bottom: 16px;
+    right: 8px;
+    padding: 12px 14px;
+    min-width: 140px;
+    max-width: 180px;
+    border-radius: 10px;
+  }
+  
+  .legend-title {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+  
+  .legend-swatch {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .legend-label {
+    font-size: 0.8em;
+  }
+  
+  .legend-gradient-bar {
+    height: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .map-legend {
+    bottom: 12px;
+    right: 6px;
+    padding: 10px 12px;
+    min-width: 120px;
+    max-width: 160px;
+  }
+  
+  .legend-items {
+    gap: 6px;
+  }
+  
+  .legend-item {
+    gap: 8px;
+  }
+  
+  .legend-swatch {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .legend-label {
+    font-size: 0.75em;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/* High contrast mode support */
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+@media (prefers-contrast: high) {
+  .map-legend {
+    background: #ffffff;
+    border: 2px solid #000;
+  }
+  
+  .legend-swatch {
+    border: 2px solid #000;
+  }
+  
+  .legend-label {
+    color: #000;
+    font-weight: 600;
+  }
+}
+
+/* =============================================================================
+   18) DATA CARDS (Generic card component)
+   ============================================================================= */
+
+.data-card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-fast);
+}
+
+.data-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.data-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.data-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.data-card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.data-card-icon.blue {
+  background: rgba(0, 74, 173, 0.1);
+  color: #004aad;
+}
+
+.data-card-icon.green {
+  background: rgba(39, 174, 96, 0.1);
+  color: #27ae60;
+}
+
+.data-card-icon.purple {
+  background: rgba(155, 89, 182, 0.1);
+  color: #9b59b6;
+}
+
+.data-card-icon.red {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+}
+
+.data-card-title {
+  margin: 0 0 2px 0;
+  font-size: 1em;
+  font-weight: 600;
+  color: #333;
+}
+
+.data-card-subtitle {
+  margin: 0;
+  font-size: 0.85em;
+  color: #888;
+}
+
+/* =============================================================================
+   19) TURNOUT VIEW - Summary Stats
+   ============================================================================= */
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.summary-stat {
+  text-align: center;
+  padding: 12px 8px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.summary-value {
+  display: block;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #002f6c;
+  line-height: 1.2;
+}
+
+.summary-label {
+  display: block;
+  font-size: 0.75em;
+  color: #666;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.turnout-range {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: #f0f4f8;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.range-label {
+  color: #666;
+}
+
+.range-value {
+  font-weight: 600;
+  color: #333;
+}
+
+/* =============================================================================
+   20) TURNOUT VIEW - Leaderboard
+   ============================================================================= */
+
+.leaderboard-toggle {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+  background: #f0f4f8;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: #666;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+  color: #333;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.toggle-btn.active {
+  color: #ffffff;
+  background: #004aad;
+}
+
+.leaderboard-list {
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 100, 100, 0.3) transparent;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.leaderboard-item:hover {
+  background: #f0f4f8;
+}
+
+.leaderboard-item:focus {
+  outline: none;
+  background: #e8ecf1;
+  box-shadow: 0 0 0 2px #FFC800;
+}
+
+.leaderboard-rank {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #888;
+  min-width: 32px;
+}
+
+.leaderboard-name {
+  flex: 1;
+  font-size: 0.9em;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leaderboard-turnout {
+  font-size: 0.95em;
+  font-weight: 700;
+  min-width: 50px;
+  text-align: right;
+}
+
+/* =============================================================================
+   21) TURNOUT VIEW - Precinct Details
+   ============================================================================= */
+
+.precinct-details-card {
+  margin-top: 16px;
+}
+
+.precinct-details-card hr {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0 0 16px 0;
+}
+
+.turnout-highlight {
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.turnout-value {
+  font-size: 2.5em;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.turnout-label {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.precinct-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.precinct-stat {
+  text-align: center;
+  padding: 12px 8px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.precinct-stat .stat-value {
+  display: block;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #333;
+}
+
+.precinct-stat .stat-label {
+  display: block;
+  font-size: 0.7em;
+  color: #666;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.gotv-note {
+  padding: 12px 14px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #004aad;
+  font-size: 0.9em;
+  line-height: 1.5;
+  color: #444;
+}
+
+.gotv-note strong {
+  color: #002f6c;
+}
+
+/* =============================================================================
+   22) LOADING AND ERROR STATES
+   ============================================================================= */
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 74, 173, 0.2);
+  border-top-color: #004aad;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 16px;
+}
+
+.loading-spinner.small {
+  width: 24px;
+  height: 24px;
+  border-width: 2px;
+}
+
+.loading-spinner.large {
+  width: 56px;
+  height: 56px;
+  border-width: 4px;
+}
+
+/* -----------------------------------------------------------------------------
+   22.1) Skeleton Loading Placeholders (Workstream 4)
+   Shimmer animation for content loading states
+   ----------------------------------------------------------------------------- */
+
+/* Base skeleton styles */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Skeleton text variants */
+.skeleton-text {
+  height: 16px;
+  margin: 8px 0;
+}
+
+.skeleton-title {
+  height: 24px;
+  margin: 8px 0 16px 0;
+}
+
+/* Skeleton card */
+.skeleton-card {
+  height: 120px;
+  border-radius: 12px;
+  margin: 12px 0;
+}
+
+/* Skeleton stat grid */
+.skeleton-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.skeleton-stat-item {
+  text-align: center;
+  padding: 12px 8px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.skeleton-stat-value {
+  height: 28px;
+  width: 60%;
+  margin: 0 auto 8px auto;
+}
+
+.skeleton-stat-label {
+  height: 12px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Skeleton list */
+.skeleton-list {
+  margin: 12px 0;
+}
+
+.skeleton-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.skeleton-list-rank {
+  width: 28px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.skeleton-list-content {
+  flex: 1;
+  height: 16px;
+}
+
+.skeleton-list-value {
+  width: 50px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Sidebar skeleton container */
+.sidebar-skeleton {
+  padding: 16px;
+}
+
+.skeleton-loading {
+  pointer-events: none;
+}
+
+/* Precinct details skeleton */
+.precinct-skeleton {
+  margin-top: 16px;
+}
+
+/* -----------------------------------------------------------------------------
+   22.2) Content Fade-in Animations (Workstream 4)
+   Smooth transitions when loading completes
+   ----------------------------------------------------------------------------- */
+
+/* Content fade-in */
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered list animation */
+.stagger-item {
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.05s; }
+.stagger-item:nth-child(2) { animation-delay: 0.1s; }
+.stagger-item:nth-child(3) { animation-delay: 0.15s; }
+.stagger-item:nth-child(4) { animation-delay: 0.2s; }
+.stagger-item:nth-child(5) { animation-delay: 0.25s; }
+.stagger-item:nth-child(6) { animation-delay: 0.3s; }
+.stagger-item:nth-child(7) { animation-delay: 0.35s; }
+.stagger-item:nth-child(8) { animation-delay: 0.4s; }
+.stagger-item:nth-child(9) { animation-delay: 0.45s; }
+.stagger-item:nth-child(10) { animation-delay: 0.5s; }
+
+/* Content reveal animation (for sections) */
+.content-reveal {
+  animation: contentReveal 0.4s ease-out forwards;
+}
+
+@keyframes contentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Pulse animation for loading indicators */
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background: #e0e0e0;
+  }
+  
+  .fade-in,
+  .stagger-item,
+  .content-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .loading-spinner {
+    animation-duration: 1.5s;
+  }
+  
+  .pulse {
+    animation: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   22.3) Progress Indicators (Workstream 4)
+   ----------------------------------------------------------------------------- */
+
+.progress-bar {
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #004aad 0%, #0066cc 100%);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.progress-bar-indeterminate .progress-bar-fill {
+  width: 30%;
+  animation: progressIndeterminate 1.5s ease-in-out infinite;
+}
+
+@keyframes progressIndeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+/* Inline loading text */
+.loading-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.loading-text .loading-spinner {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  margin: 0;
+}
+
+.error-state {
+  text-align: center;
+  padding: 24px;
+  background: #fef2f2;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+}
+
+.error-state h3 {
+  color: #dc2626;
+  margin: 0 0 8px 0;
+}
+
+.error-state p {
+  color: #666;
+  margin: 0 0 16px 0;
+}
+
+.retry-btn {
+  padding: 8px 16px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.retry-btn:hover {
+  background: #b91c1c;
+}
+
+.empty-state, .no-data {
+  text-align: center;
+  padding: 24px;
+  color: #666;
+}
+
+/* =============================================================================
+   23) STAT CARDS (Demographics view)
+   ============================================================================= */
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.stat-card .stat-value {
+  display: block;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #002f6c;
+}
+
+.stat-card .stat-label {
+  display: block;
+  font-size: 0.75em;
+  color: #666;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* =============================================================================
+   24) INITIAL STATE CARD
+   ============================================================================= */
+
+.initial-state {
+  text-align: center;
+  padding: 32px 24px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e8ecf1 100%);
+  border-radius: 12px;
+  margin-top: 16px;
+}
+
+.initial-state-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background: rgba(0, 74, 173, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.initial-state-icon svg {
+  width: 32px;
+  height: 32px;
+  color: #004aad;
+}
+
+.initial-state h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.initial-state p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* =============================================================================
+   25) CANDIDATE RESULTS LIST
+   ============================================================================= */
+
+.candidate-results {
+  list-style: none;
+  margin: 12px 0;
+  padding: 0;
+}
+
+.candidate-results li {
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 0.9em;
+}
+
+/* =============================================================================
+   26) INSTRUCTION TEXT
+   ============================================================================= */
+
+.instruction-text {
+  text-align: center;
+  padding: 16px;
+  color: #888;
+  font-style: italic;
+}
+
+/* =============================================================================
+   27) UI CARD SYSTEM (Workstream 2)
+   ============================================================================= */
+
+/* Base card component */
+.ui-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.ui-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ui-card.collapsed .ui-card-body {
+  display: none;
+}
+
+/* Card header with icon and title */
+.ui-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ui-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ui-card-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Icon color variants */
+.ui-card-icon.blue {
+  background: rgba(0, 74, 173, 0.1);
+  color: #004aad;
+}
+
+.ui-card-icon.green {
+  background: rgba(39, 174, 96, 0.1);
+  color: #27ae60;
+}
+
+.ui-card-icon.purple {
+  background: rgba(128, 0, 128, 0.1);
+  color: #800080;
+}
+
+.ui-card-icon.red {
+  background: rgba(232, 27, 35, 0.1);
+  color: #E81B23;
+}
+
+.ui-card-icon.orange {
+  background: rgba(230, 126, 34, 0.1);
+  color: #e67e22;
+}
+
+/* Title group */
+.ui-card-title-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.ui-card-title {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #002f6c;
+  line-height: 1.3;
+}
+
+.ui-card-subtitle {
+  margin: 4px 0 0 0;
+  font-size: 0.85em;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Card body */
+.ui-card-body {
+  color: #444;
+  line-height: 1.6;
+}
+
+/* =============================================================================
+   28) STAT GRID COMPONENT (Workstream 2)
+   ============================================================================= */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+}
+
+.stat-grid .stat-item {
+  text-align: center;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+}
+
+.stat-grid .stat-item:hover {
+  background: #f0f4f8;
+}
+
+.stat-grid .stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #002f6c;
+  line-height: 1.2;
+}
+
+.stat-grid .stat-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* Stat value color variants */
+.stat-grid .stat-value.rep {
+  color: #E81B23;
+}
+
+.stat-grid .stat-value.dem {
+  color: #00AEF3;
+}
+
+.stat-grid .stat-value.mod {
+  color: #800080;
+}
+
+.stat-grid .stat-value.winner-rep {
+  color: #E81B23;
+}
+
+.stat-grid .stat-value.winner-dem {
+  color: #00AEF3;
+}
+
+.stat-grid .stat-value.winner-lib {
+  color: #FFC800;
+}
+
+.stat-grid .stat-value.winner-grn {
+  color: #17AA5C;
+}
+
+.stat-grid .stat-value.positive {
+  color: #28a745;
+}
+
+.stat-grid .stat-value.negative {
+  color: #dc3545;
+}
+
+/* =============================================================================
+   29) UI DIVIDER COMPONENT (Workstream 2)
+   ============================================================================= */
+
+.ui-divider {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  color: #888;
+}
+
+.ui-divider::before,
+.ui-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.ui-divider-label {
+  padding: 0 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+}
+
+.ui-divider:not(:has(.ui-divider-label))::after {
+  display: none;
+}
+
+.ui-divider:not(:has(.ui-divider-label))::before {
+  flex: none;
+  width: 100%;
+}
+
+/* =============================================================================
+   30) RESPONSIVE ADJUSTMENTS FOR CARD SYSTEM (Workstream 2)
+   ============================================================================= */
+
+@media (max-width: 800px) {
+  .ui-card {
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .ui-card-header {
+    gap: 10px;
+  }
+  
+  .ui-card-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .ui-card-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .ui-card-title {
+    font-size: 1em;
+  }
+  
+  .stat-grid {
+    gap: 8px;
+  }
+  
+  .stat-grid .stat-item {
+    padding: 10px 8px;
+  }
+  
+  .stat-grid .stat-value {
+    font-size: 1.25rem;
+  }
+  
+  .stat-grid .stat-label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .ui-card {
+    padding: 12px;
+    border-radius: 10px;
+  }
+  
+  .ui-card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+  
+  .ui-card-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stat-grid .stat-value {
+    font-size: 1.1rem;
+  }
+}
+
+/* =============================================================================
+   31) EMPTY STATE ILLUSTRATIONS (Phase 2 - Workstream 2)
+   ============================================================================= */
+
+.empty-illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-xl);
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-tertiary) 100%);
+  border-radius: var(--radius-lg);
+  margin: var(--space-lg) 0;
+}
+
+.empty-illustration .empty-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--color-primary);
+  opacity: 0.6;
+  margin-bottom: var(--space-lg);
+}
+
+.empty-illustration.error .empty-icon {
+  color: var(--color-error);
+}
+
+.empty-illustration h4 {
+  margin: 0 0 var(--space-sm) 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.empty-illustration p {
+  margin: 0;
+  font-size: 0.9em;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  max-width: 280px;
+}
+
+.empty-illustration .retry-btn {
+  margin-top: var(--space-lg);
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 0.9em;
+  font-weight: 500;
+  color: var(--color-bg-primary);
+  background: var(--color-error);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.empty-illustration .retry-btn:hover {
+  background: #c82333;
+}
+
+.empty-illustration .retry-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.3);
+}
+
+/* =============================================================================
+   32) RESPONSIVE ADJUSTMENTS FOR EMPTY STATES (Phase 2 - WS2)
+   ============================================================================= */
+
+@media (max-width: 800px) {
+  .empty-illustration {
+    padding: var(--space-xl) var(--space-lg);
+  }
+  
+  .empty-illustration .empty-icon {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .empty-illustration h4 {
+    font-size: 1em;
+  }
+  
+  .empty-illustration p {
+    font-size: 0.85em;
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 500px) {
+  .empty-illustration {
+    padding: var(--space-lg) var(--space-md);
+    margin: var(--space-md) 0;
+  }
+  
+  .empty-illustration .empty-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--space-md);
+  }
+  
+  .empty-illustration h4 {
+    font-size: 0.95em;
+  }
+  
+  .empty-illustration p {
+    font-size: 0.8em;
+    max-width: 200px;
+  }
+}
+
+/* =============================================================================
+   27) WORKSTREAM 6: MICRO-INTERACTIONS & POLISH
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   27.1) Transition Utilities
+   Use these classes for consistent transition speeds across the app.
+   ----------------------------------------------------------------------------- */
+.transition-fast {
+  transition: all 0.15s ease;
+}
+
+.transition-medium {
+  transition: all 0.25s ease;
+}
+
+.transition-slow {
+  transition: all 0.4s ease;
+}
+
+/* Specific property transitions for fine-grained control */
+.transition-transform {
+  transition: transform 0.25s ease;
+}
+
+.transition-opacity {
+  transition: opacity 0.25s ease;
+}
+
+.transition-shadow {
+  transition: box-shadow 0.25s ease;
+}
+
+.transition-background {
+  transition: background-color 0.25s ease;
+}
+
+/* -----------------------------------------------------------------------------
+   27.2) Hover Lift Effect
+   Cards and interactive elements that lift on hover.
+   ----------------------------------------------------------------------------- */
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Subtle lift variant for less prominent elements */
+.hover-lift-subtle {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift-subtle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* -----------------------------------------------------------------------------
+   27.3) Press Effect
+   Tactile feedback for button presses and clickable elements.
+   ----------------------------------------------------------------------------- */
+.press-effect {
+  transition: transform 0.1s ease;
+}
+
+.press-effect:active {
+  transform: scale(0.98);
+}
+
+/* Stronger press for larger buttons */
+.press-effect-strong:active {
+  transform: scale(0.95);
+}
+
+/* -----------------------------------------------------------------------------
+   27.4) Content Fade-In Animation
+   Used when content loads or appears dynamically.
+   ----------------------------------------------------------------------------- */
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.fade-in-fast {
+  animation: fadeIn 0.15s ease forwards;
+}
+
+.fade-in-slow {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in from different directions */
+.fade-in-up {
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-down {
+  animation: fadeInDown 0.3s ease forwards;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.3s ease forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.3s ease forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Simple opacity fade (no movement) */
+.fade-opacity {
+  animation: fadeOpacity 0.3s ease forwards;
+}
+
+@keyframes fadeOpacity {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* -----------------------------------------------------------------------------
+   27.5) Staggered List Animation
+   Items appear in sequence with increasing delays.
+   ----------------------------------------------------------------------------- */
+.stagger-item {
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Generate stagger delays for up to 10 items */
+.stagger-item:nth-child(1) { animation-delay: 0.05s; }
+.stagger-item:nth-child(2) { animation-delay: 0.1s; }
+.stagger-item:nth-child(3) { animation-delay: 0.15s; }
+.stagger-item:nth-child(4) { animation-delay: 0.2s; }
+.stagger-item:nth-child(5) { animation-delay: 0.25s; }
+.stagger-item:nth-child(6) { animation-delay: 0.3s; }
+.stagger-item:nth-child(7) { animation-delay: 0.35s; }
+.stagger-item:nth-child(8) { animation-delay: 0.4s; }
+.stagger-item:nth-child(9) { animation-delay: 0.45s; }
+.stagger-item:nth-child(10) { animation-delay: 0.5s; }
+
+/* Faster stagger variant */
+.stagger-fast.stagger-item:nth-child(1) { animation-delay: 0.03s; }
+.stagger-fast.stagger-item:nth-child(2) { animation-delay: 0.06s; }
+.stagger-fast.stagger-item:nth-child(3) { animation-delay: 0.09s; }
+.stagger-fast.stagger-item:nth-child(4) { animation-delay: 0.12s; }
+.stagger-fast.stagger-item:nth-child(5) { animation-delay: 0.15s; }
+
+/* -----------------------------------------------------------------------------
+   27.6) Scale Animations
+   For elements that scale in/out.
+   ----------------------------------------------------------------------------- */
+.scale-in {
+  animation: scaleIn 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale-out {
+  animation: scaleOut 0.2s ease forwards;
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/* Pop effect for emphasis */
+.pop-in {
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   27.7) Pulse Animation
+   For drawing attention to elements.
+   ----------------------------------------------------------------------------- */
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Subtle pulse for badges and indicators */
+.pulse-subtle {
+  animation: pulseSubtle 2s ease-in-out infinite;
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   27.8) Shimmer/Skeleton Loading Animation
+   For loading placeholders.
+   ----------------------------------------------------------------------------- */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e8e8e8 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   27.9) Slide Animations
+   For panels, sidebars, and drawers.
+   ----------------------------------------------------------------------------- */
+.slide-in-left {
+  animation: slideInLeft 0.3s ease forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s ease forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-up {
+  animation: slideInUp 0.3s ease forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-down {
+  animation: slideInDown 0.3s ease forwards;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   27.10) Interactive State Utilities
+   Hover, focus, and active state helpers.
+   ----------------------------------------------------------------------------- */
+
+/* Hover brightness for images and cards */
+.hover-brighten:hover {
+  filter: brightness(1.05);
+}
+
+.hover-dim:hover {
+  filter: brightness(0.95);
+}
+
+/* Hover scale effects */
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-scale-subtle:hover {
+  transform: scale(1.01);
+}
+
+/* Focus ring utility */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.3);
+}
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.4);
+}
+
+/* -----------------------------------------------------------------------------
+   27.11) Animation Delay Utilities
+   For custom stagger timings.
+   ----------------------------------------------------------------------------- */
+.delay-0 { animation-delay: 0s; }
+.delay-50 { animation-delay: 0.05s; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-150 { animation-delay: 0.15s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-1000 { animation-delay: 1s; }
+
+/* -----------------------------------------------------------------------------
+   27.12) Animation Duration Utilities
+   For custom animation durations.
+   ----------------------------------------------------------------------------- */
+.duration-fast { animation-duration: 0.15s; }
+.duration-normal { animation-duration: 0.3s; }
+.duration-slow { animation-duration: 0.5s; }
+.duration-slower { animation-duration: 0.75s; }
+
+/* -----------------------------------------------------------------------------
+   27.13) Reduced Motion Support
+   Respect user preferences for reduced motion.
+   ----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .hover-lift:hover,
+  .hover-lift-subtle:hover {
+    transform: none;
+  }
+  
+  .press-effect:active,
+  .press-effect-strong:active {
+    transform: none;
+  }
+}
+
+/* =============================================================================
+   28) WORKSTREAM 5: ACCESSIBILITY & RESPONSIVE IMPROVEMENTS
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   28.1) Enhanced Focus Indicators
+   High-visibility focus states for keyboard navigation.
+   ----------------------------------------------------------------------------- */
+
+/* Global focus-visible styles - high visibility yellow outline */
+:focus-visible {
+  outline: 3px solid #FFC800;
+  outline-offset: 2px;
+}
+
+/* Button-specific focus styles */
+button:focus-visible {
+  outline: 3px solid #FFC800;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(255, 200, 0, 0.25);
+}
+
+/* Link-specific focus styles */
+a:focus-visible {
+  outline: 3px solid #FFC800;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(255, 200, 0, 0.25);
+}
+
+/* View button focus enhancement */
+.view-btn:focus-visible {
+  outline: 3px solid #FFC800;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(255, 200, 0, 0.3);
+}
+
+/* Form input focus */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #FFC800;
+  outline-offset: 1px;
+  border-color: #004aad;
+}
+
+/* Slider focus */
+input[type="range"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 200, 0, 0.5);
+}
+
+/* Remove default focus outline when using focus-visible */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* -----------------------------------------------------------------------------
+   28.2) High Contrast Mode Support
+   Enhanced visibility for users who prefer higher contrast.
+   ----------------------------------------------------------------------------- */
+
+@media (prefers-contrast: high) {
+  /* Increase button borders */
+  .view-btn {
+    border-width: 3px;
+  }
+  
+  /* Add solid borders to legend swatches */
+  .legend-swatch {
+    border: 2px solid #000;
+  }
+  
+  /* Increase text contrast */
+  body {
+    color: #000;
+  }
+  
+  #sidebar p,
+  #sidebar li {
+    color: #000;
+  }
+  
+  /* Stronger card borders */
+  .ui-card,
+  .data-card {
+    border-width: 2px;
+    border-color: #000;
+  }
+  
+  /* Increase focus indicator visibility */
+  :focus-visible {
+    outline-width: 4px;
+  }
+  
+  /* Enhanced toggle buttons */
+  .toggle-btn {
+    border: 2px solid #000;
+  }
+  
+  /* Category tabs */
+  .category-tab {
+    border-width: 2px;
+  }
+  
+  /* Link underlines */
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   28.3) Mobile Slide-Out Sidebar
+   Accessible mobile navigation with overlay.
+   ----------------------------------------------------------------------------- */
+
+/* Sidebar overlay - click to close */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 499;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile-specific sidebar styles */
+@media (max-width: 800px) {
+  /* Slide-out sidebar */
+  #sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 85%;
+    max-width: 350px;
+    height: calc(100vh - 60px);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 500;
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Open state */
+  #sidebar.open {
+    transform: translateX(0);
+  }
+  
+  /* Map takes full width on mobile */
+  #map {
+    flex: 1;
+    width: 100%;
+  }
+  
+  /* Adjust header for mobile toggle */
+  #header-bar {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 16px;
+  }
+  
+  /* Show mobile toggle button */
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    order: -1;
+  }
+  
+  /* View buttons scroll horizontally on mobile */
+  .view-buttons {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  
+  .view-buttons::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* =============================================================================
+   MAP LOADING INDICATOR (Phase 2 Workstream 4)
+   ============================================================================= */
+
+/* Map loading overlay */
+#map.loading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(2px);
+  z-index: 400;
+}
+
+#map.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #004aad;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  z-index: 401;
+}
+
+/* =============================================================================
+   MOBILE SWIPE GESTURE ENHANCEMENTS (Phase 2 Workstream 4)
+   ============================================================================= */
+
+/* Smooth sidebar dragging (transition disabled during drag) */
+#sidebar.dragging {
+  transition: none !important;
+}
+
+/* Visual feedback during swipe */
+#sidebar::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 74, 173, 0);
+  transition: background 0.2s ease;
+  pointer-events: none;
+}
+
+/* Mobile touch hint indicator */
+@media (max-width: 800px) {
+  #sidebar.open::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    opacity: 0;
+    animation: swipeHint 2s ease-in-out 1s;
+  }
+}
+
+@keyframes swipeHint {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-50%) translateX(-4px);
+  }
+}
+
+/* Very small screens */
+@media (max-width: 500px) {
+  #sidebar {
+    width: 90%;
+  }
+  
+  #header-bar {
+    padding: 8px 12px;
+  }
+  
+  /* Abbreviated header title */
+  .header-title {
+    font-size: 0;
+  }
+  
+  .header-title::before {
+    content: 'CC Elections';
+    font-size: 1.1rem;
+  }
+  
+  .header-brand {
+    gap: 6px;
+  }
+  
+  /* Larger touch targets for mobile */
+  .view-btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 14px;
+  }
+  
+  /* Map loading indicator smaller on mobile */
+  #map.loading::after {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   28.4) Skip Link Enhancements
+   Skip link is already defined, ensure it works with focus-visible.
+   ----------------------------------------------------------------------------- */
+
+/* Ensure skip link has proper focus treatment */
+.skip-link:focus-visible {
+  outline: 3px solid #FFC800;
+  outline-offset: 2px;
+}
+
+/* -----------------------------------------------------------------------------
+   28.5) Screen Reader & Accessibility Utilities
+   Additional utilities for assistive technology.
+   ----------------------------------------------------------------------------- */
+
+/* Visually hidden but accessible to screen readers - already defined but ensure it's complete */
+/* Note: .sr-only is already defined in section 15 */
+
+/* Not visible to screen readers (decorative only) */
+[aria-hidden="true"] {
+  pointer-events: none;
+}
+
+/* Focus trap indicator (for modals/dialogs) */
+[data-focus-trap] {
+  position: relative;
+}
+
+/* Live region for dynamic updates */
+[aria-live] {
+  /* Ensure live regions are picked up by assistive technology */
+}
+
+/* Disabled state styling */
+[disabled],
+[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Required field indicator */
+[aria-required="true"]::after {
+  content: " *";
+  color: #dc3545;
+}
+
+/* Error state */
+[aria-invalid="true"] {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25);
+}
+
+/* -----------------------------------------------------------------------------
+   28.6) Touch Target Size
+   Ensure interactive elements meet minimum touch target requirements (44x44px).
+   ----------------------------------------------------------------------------- */
+
+@media (pointer: coarse) {
+  /* Increase tap targets on touch devices */
+  .view-btn,
+  .toggle-btn,
+  .category-tab {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Increase leaderboard item tap area */
+  .leaderboard-item {
+    min-height: 48px;
+  }
+  
+  /* Mobile toggle */
+  .mobile-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* =============================================================================
+   29) WORKSTREAM 6 (PHASE 2): PRINT STYLES & POLISH
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   29.1) Print Styles
+   Optimized layout for printing - shows data, hides interactive elements.
+   ----------------------------------------------------------------------------- */
+
+@media print {
+  /* Hide non-essential interactive elements */
+  #header-bar,
+  #sidebar-toggle,
+  .mobile-toggle,
+  .copy-link-btn,
+  .export-dropdown,
+  .toast-container,
+  #shortcuts-modal,
+  .sidebar-overlay,
+  .map-legend,
+  .turnout-simulator,
+  .compare-btn,
+  .retry-btn,
+  .leaderboard-toggle,
+  .category-tabs,
+  .search-container,
+  .election-filters,
+  .filter-results-count {
+    display: none !important;
+  }
+  
+  /* Reset body for print */
+  html, body {
+    height: auto;
+    overflow: visible;
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+  
+  /* Reset main container layout */
+  #main-container {
+    display: block;
+    height: auto;
+    overflow: visible;
+  }
+  
+  /* Sidebar becomes full-width content area */
+  #sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex: none;
+    overflow: visible;
+    border: none;
+    box-shadow: none;
+    padding: 20px;
+    background: white;
+  }
+  
+  /* Hide map - doesn't print well, show data only */
+  #map {
+    display: none !important;
+  }
+  
+  /* Print-friendly typography */
+  h2 {
+    font-size: 18pt;
+    color: black;
+    border-bottom: 2px solid #333;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  
+  h3, h4 {
+    page-break-after: avoid;
+    color: black;
+  }
+  
+  /* Cards and data sections */
+  .ui-card,
+  .data-card,
+  .race-summary,
+  .precinct-details-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    margin-bottom: 16px;
+    background: white;
+  }
+  
+  /* Remove backgrounds from stat items */
+  .stat-item,
+  .stat-card,
+  .summary-stat,
+  .precinct-stat {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+  }
+  
+  /* Tables print-friendly */
+  .comparison-table {
+    border-collapse: collapse;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  
+  .comparison-table th {
+    background: #e5e5e5;
+  }
+  
+  /* Candidate results list */
+  .candidate-results li {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Turnout highlight */
+  .turnout-highlight {
+    background: #f0f0f0 !important;
+    border: 2px solid #333;
+  }
+  
+  /* Show URLs for links */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+    word-break: break-all;
+  }
+  
+  /* Don't show URLs for internal links */
+  a[href^="#"]::after,
+  a[href^="javascript"]::after {
+    content: none;
+  }
+  
+  /* Page setup */
+  @page {
+    margin: 0.75in;
+    size: letter;
+  }
+  
+  @page :first {
+    margin-top: 1in;
+  }
+  
+  /* Print header for each page */
+  .print-header {
+    display: block;
+    text-align: center;
+    font-size: 10pt;
+    color: #666;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+  }
+  
+  /* Footer */
+  .print-footer {
+    display: block;
+    text-align: center;
+    font-size: 9pt;
+    color: #888;
+    margin-top: 16px;
+    padding-top: 8px;
+    border-top: 1px solid #ccc;
+  }
+  
+  /* Hide animations */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Ensure text is readable */
+  * {
+    color: black !important;
+    text-shadow: none !important;
+  }
+  
+  /* Exception: keep party colors for clarity */
+  .party-rep, .winner-rep, .stat-value.winner-rep { color: #b01419 !important; }
+  .party-dem, .winner-dem, .stat-value.winner-dem { color: #0066a4 !important; }
+  .party-lib, .winner-lib { color: #c9a200 !important; }
+  .positive { color: #1a7a1a !important; }
+  .negative { color: #b01419 !important; }
+}
+
+/* -----------------------------------------------------------------------------
+   29.2) Minor Polish Fixes
+   ----------------------------------------------------------------------------- */
+
+/* Abbreviated header title on very small screens */
+@media (max-width: 400px) {
+  .header-title {
+    font-size: 0;
+    line-height: 0;
+  }
+  
+  .header-title::before {
+    content: 'CC Elections';
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+  }
+}
+
+/* Branded scrollbar on hover */
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #004aad;
+}
+
+#sidebar {
+  scrollbar-color: rgba(100, 100, 100, 0.5) transparent;
+}
+
+#sidebar:hover {
+  scrollbar-color: #004aad transparent;
+}
+
+/* Enhanced card hover states (consolidate existing) */
+.ui-card,
+.data-card {
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.ui-card:hover,
+.data-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Smooth focus transitions for all interactive elements */
+button,
+a,
+select,
+input {
+  transition: box-shadow 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+/* Consistent outline removal and focus ring */
+button:focus,
+a:focus,
+select:focus,
+input:focus {
+  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.35);
+}
+
+/* Leaderboard item selected state enhancement */
+.leaderboard-item.selected {
+  background: #e3f2fd;
+  border-left: 3px solid #004aad;
+}
+
+/* Toast notification polish */
+.toast {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Election dropdown styling enhancement */
+#election-select,
+#turnout-election-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+/* Category tab active indicator polish */
+.category-tab.active {
+  position: relative;
+}
+
+.category-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+/* Data card icon subtle animation on hover */
+.data-card:hover .data-card-icon {
+  transform: scale(1.05);
+  transition: transform 0.25s ease;
+}
+
+/* Loading spinner color consistency */
+.loading-spinner {
+  border-color: rgba(0, 74, 173, 0.15);
+  border-top-color: #004aad;
+}
+
+/* Turnout highlight text shadow for better readability */
+.turnout-value {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Comparison panel subtle animation */
+.comparison-panel {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Empty state illustration subtle animation */
+.empty-illustration {
+  animation: fadeIn 0.4s ease;
+}
+
+.empty-illustration .empty-icon {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+}
+
+/* Fix precinct detail tab active state */
+.precinct-detail-tab.active {
+  background: rgba(0, 74, 173, 0.05);
+}
+
+/* Race item hover enhancement */
+.race-item {
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.race-item:hover {
+  transform: translateX(2px);
+}
+
+/* Flipped badge pulse animation */
+.flipped-badge {
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0);
+  }
+}
+
+/* Stat value number animation (tabular figures) */
+.stat-value,
+.summary-value,
+.turnout-value,
+.leaderboard-turnout {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Slider thumb active state */
+.turnout-slider:active::-webkit-slider-thumb,
+.flip-slider:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(0, 74, 173, 0.2);
+}
+
+.turnout-slider:active::-moz-range-thumb,
+.flip-slider:active::-moz-range-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(0, 74, 173, 0.2);
+}
+
+/* =============================================================================
+   30) PHASE 2 WORKSTREAM 5: KEYBOARD SHORTCUTS MODAL
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   30.1) Modal Overlay
+   Full-screen backdrop with fade animation.
+   ----------------------------------------------------------------------------- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.modal-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* -----------------------------------------------------------------------------
+   30.2) Modal Content
+   Centered dialog box with scale animation.
+   ----------------------------------------------------------------------------- */
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  max-width: 400px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
+}
+
+.modal-overlay.visible .modal-content {
+  transform: scale(1);
+}
+
+/* -----------------------------------------------------------------------------
+   30.3) Modal Header
+   Title and close button.
+   ----------------------------------------------------------------------------- */
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: #f8f9fa;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #002f6c;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid #FFC800;
+  outline-offset: 2px;
+}
+
+/* -----------------------------------------------------------------------------
+   30.4) Modal Body
+   Scrollable content area.
+   ----------------------------------------------------------------------------- */
+
+.modal-body {
+  padding: 16px 20px;
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+/* -----------------------------------------------------------------------------
+   30.5) Modal Footer
+   Hint text at bottom.
+   ----------------------------------------------------------------------------- */
+
+.modal-footer {
+  padding: 12px 20px;
+  background: #f8f9fa;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-hint {
+  margin: 0;
+  font-size: 0.85em;
+  color: #666;
+  text-align: center;
+}
+
+/* -----------------------------------------------------------------------------
+   30.6) Shortcut Item
+   Individual shortcut row with key and description.
+   ----------------------------------------------------------------------------- */
+
+.shortcut-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.shortcut-item:last-child {
+  border-bottom: none;
+}
+
+.shortcut-item span {
+  font-size: 0.9em;
+  color: #444;
+}
+
+/* -----------------------------------------------------------------------------
+   30.7) KBD Element (Keyboard Key)
+   Styled keyboard key indicator.
+   ----------------------------------------------------------------------------- */
+
+kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  font-family: monospace;
+  font-size: 0.85em;
+  font-weight: 600;
+  background: #f0f4f8;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  min-width: 32px;
+  text-align: center;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+  color: #333;
+}
+
+/* Kbd inside modal hint */
+.modal-hint kbd {
+  padding: 2px 6px;
+  min-width: auto;
+  font-size: 0.9em;
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* -----------------------------------------------------------------------------
+   30.8) Modal Responsive Styles
+   ----------------------------------------------------------------------------- */
+
+@media (max-width: 500px) {
+  .modal-content {
+    width: 95%;
+    max-height: 85vh;
+  }
+  
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding: 12px 16px;
+  }
+  
+  .modal-header h3 {
+    font-size: 1em;
+  }
+  
+  .shortcut-item {
+    gap: 10px;
+    padding: 8px 0;
+  }
+  
+  kbd {
+    padding: 3px 8px;
+    min-width: 28px;
+    font-size: 0.8em;
+  }
+}
+
+/* =============================================================================
+   31) RACE PICKER PANEL (Workstream D)
+   Modern panel UI replacing dropdown with search, filters, and grouped list
+   ============================================================================= */
+
+/* Panel Container */
+.race-picker-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.race-picker-panel[aria-hidden="false"],
+.race-picker-panel:not(.hidden) {
+  pointer-events: auto;
+}
+
+/* Backdrop */
+.race-picker-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.race-picker-panel:not(.hidden) .race-picker-backdrop {
+  opacity: 1;
+}
+
+/* Panel Content */
+.race-picker-content {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  max-height: 85vh;
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.race-picker-panel:not(.hidden) .race-picker-content {
+  transform: translateY(0);
+}
+
+/* Header */
+.race-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.race-picker-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.race-picker-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.race-picker-close:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+/* Search */
+.race-picker-search {
+  position: relative;
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.race-picker-search-input {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  padding-right: 40px;
+  font-size: 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
+}
+
+.race-picker-search-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.1);
+}
+
+.race-picker-search-clear {
+  position: absolute;
+  right: calc(var(--space-xl) + var(--space-sm));
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.race-picker-search-clear:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
+}
+
+/* Filters */
+.race-picker-filters {
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.race-picker-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.race-picker-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.875rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.race-picker-filter-chip:hover {
+  border-color: var(--color-primary);
+  background: var(--color-bg-secondary);
+}
+
+.race-picker-filter-chip.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+.race-picker-filter-chip:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.2);
+}
+
+.race-picker-filter-count {
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* Recently Viewed */
+.race-picker-recent {
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-tertiary);
+}
+
+.race-picker-recent-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.race-picker-recent-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.race-picker-recent-clear {
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.race-picker-recent-clear:hover {
+  background: var(--color-bg-secondary);
+}
+
+.race-picker-recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+/* Results */
+.race-picker-results {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md) var(--space-xl);
+}
+
+.race-picker-group {
+  margin-bottom: var(--space-lg);
+}
+
+.race-picker-group-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) 0;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  text-align: left;
+}
+
+.race-picker-group-header:hover {
+  color: var(--color-text-primary);
+}
+
+.race-picker-group-title {
+  flex: 1;
+}
+
+.race-picker-group-count {
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.race-picker-group-toggle {
+  font-size: 0.75rem;
+  transition: transform var(--transition-fast);
+}
+
+.race-picker-group-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.race-picker-group-list.collapsed {
+  display: none;
+}
+
+.race-picker-family {
+  margin-bottom: var(--space-md);
+}
+
+.race-picker-family-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+  padding-left: var(--space-sm);
+}
+
+.race-picker-family-entries {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.race-picker-race-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg-primary);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.race-picker-race-item:hover {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+  transform: translateX(4px);
+}
+
+.race-picker-race-item:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.1);
+}
+
+.race-picker-race-item.selected {
+  background: rgba(0, 74, 173, 0.1);
+  border-color: var(--color-primary);
+}
+
+.race-picker-race-name {
+  flex: 1;
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+}
+
+.race-picker-race-year {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-bg-secondary);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* Empty State */
+.race-picker-empty {
+  padding: var(--space-2xl);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.race-picker-empty-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+}
+
+.race-picker-empty-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.race-picker-empty-message {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .race-picker-content {
+    max-height: 90vh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .race-picker-header,
+  .race-picker-search,
+  .race-picker-filters,
+  .race-picker-recent,
+  .race-picker-results {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+
+  .race-picker-title {
+    font-size: 1.125rem;
+  }
+
+  .race-picker-search-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  .race-picker-race-item {
+    padding: var(--space-lg);
+    min-height: 44px; /* Touch target size */
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .race-picker-panel {
+    align-items: center;
+  }
+
+  .race-picker-content {
+    max-width: 600px;
+    max-height: 80vh;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Loading State */
+.race-picker-loading {
+  padding: var(--space-xl);
+}
+
+.race-picker-skeleton-item {
+  height: 56px;
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-secondary) 0%,
+    var(--color-bg-tertiary) 50%,
+    var(--color-bg-secondary) 100%
+  );
+  background-size: 200% 100%;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Error State */
+.race-picker-error {
+  padding: var(--space-2xl);
+  text-align: center;
+}
+
+.race-picker-error-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+}
+
+.race-picker-error-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.race-picker-error-message {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.race-picker-error-retry {
+  padding: var(--space-md) var(--space-xl);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: white;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.race-picker-error-retry:hover {
+  background: var(--color-primary-dark);
+}
+
+.race-picker-error-retry:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.2);
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Race Picker Trigger Button */
+.race-picker-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  font-size: 0.9375rem;
+  text-align: left;
+  background: var(--color-bg-primary);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: 44px; /* Touch target size */
+}
+
+.race-picker-trigger:hover {
+  border-color: var(--color-primary);
+  background: var(--color-bg-secondary);
+}
+
+.race-picker-trigger:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.1);
+}
+
+.race-picker-trigger-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.race-picker-trigger-icon {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-left: var(--space-sm);
+  transition: transform var(--transition-fast);
+}
+
+.race-picker-trigger:hover .race-picker-trigger-icon {
+  color: var(--color-primary);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .race-picker-content,
+  .race-picker-backdrop,
+  .race-picker-filter-chip,
+  .race-picker-race-item,
+  .race-picker-trigger {
+    transition: none;
+  }
+
+  .race-picker-skeleton-item {
+    animation: none;
+  }
+}

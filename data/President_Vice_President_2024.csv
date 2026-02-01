@@ -1,0 +1,331 @@
+COUNTY NUMBER,PRECINCT CODE,PRECINCT NAME,REGISTERED VOTERS TOTAL,BALLOTS CAST TOTAL,BALLOTS CAST BLANK,Write-in,Dem Kamala D. Harris/Tim Walz,Grn Jill Stein/Rudolph Ware,Lib Chase Oliver/Mike ter Maat,Rep Donald J. Trump/JD Vance,OVER VOTES,UNDER VOTES,Winning Candidate,Winning Party
+COLL,1,PCT 001,2782,1926,0,13,849,6,12,1036,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,10,PCT 010,868,625,0,3,103,11,0,508,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,100,PCT 100,25,8,0,0,6,0,0,2,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,101,PCT 101,4300,2865,0,10,1338,41,19,1435,0,22,Rep Donald J. Trump/JD Vance,Rep
+COLL,102,PCT 102,2555,1957,0,10,705,6,12,1213,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,103,PCT 103,1419,810,0,4,424,18,7,355,0,2,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,104,PCT 104,2426,1167,4,5,762,12,5,383,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,105,PCT 105,173,115,0,0,67,1,0,46,0,1,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,106,PCT 106,1869,1255,1,6,624,9,14,592,0,10,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,107,PCT 107,3373,2417,0,16,1263,51,18,1048,0,21,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,108,PCT 108,2997,2047,1,8,1088,40,24,880,0,7,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,109,PCT 109,4859,3312,0,15,1459,33,26,1754,0,25,Rep Donald J. Trump/JD Vance,Rep
+COLL,11,PCT 011,5011,3421,1,7,736,10,11,2645,0,12,Rep Donald J. Trump/JD Vance,Rep
+COLL,110,PCT 110,2816,1947,1,11,929,30,9,958,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,111,PCT 111,3096,2183,0,13,730,29,10,1390,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,112,PCT 112,3166,2322,0,15,1113,45,12,1120,0,17,Rep Donald J. Trump/JD Vance,Rep
+COLL,113,PCT 113,3351,2087,0,13,1027,40,16,987,0,4,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,114,PCT 114,4252,3062,0,12,1207,30,18,1785,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,115,PCT 115,2995,2123,15,16,1126,27,5,937,0,12,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,116,PCT 116,5006,3553,1,29,1571,77,19,1827,0,30,Rep Donald J. Trump/JD Vance,Rep
+COLL,117,PCT 117,4426,2934,2,12,1366,50,16,1475,0,15,Rep Donald J. Trump/JD Vance,Rep
+COLL,118,PCT 118,4297,2996,0,12,1291,29,16,1626,0,22,Rep Donald J. Trump/JD Vance,Rep
+COLL,119,PCT 119,2398,1696,2,10,817,46,14,793,0,16,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,12,PCT 012,2195,1618,0,8,610,11,9,968,0,12,Rep Donald J. Trump/JD Vance,Rep
+COLL,120,PCT 120,3653,2693,0,19,1126,37,27,1470,0,14,Rep Donald J. Trump/JD Vance,Rep
+COLL,121,PCT 121,2892,1952,1,11,1045,92,17,770,0,17,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,122,PCT 122,4972,3708,1,18,1313,25,25,2305,0,22,Rep Donald J. Trump/JD Vance,Rep
+COLL,123,PCT 123,2078,1458,0,8,665,10,11,757,0,7,Rep Donald J. Trump/JD Vance,Rep
+COLL,124,PCT 124,3288,2171,1,14,1121,31,10,980,0,15,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,125,PCT 125,5295,3605,1,12,1757,320,36,1456,0,24,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,126,PCT 126,4969,3443,0,16,1594,72,24,1718,1,18,Rep Donald J. Trump/JD Vance,Rep
+COLL,127,PCT 127,3929,2671,1,10,1287,42,14,1305,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,128,PCT 128,3137,2395,0,13,631,6,18,1711,0,16,Rep Donald J. Trump/JD Vance,Rep
+COLL,129,PCT 129,4643,3072,0,14,1385,33,19,1612,0,9,Rep Donald J. Trump/JD Vance,Rep
+COLL,13,PCT 013,3241,2521,0,6,752,18,10,1727,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,130,PCT 130,3972,2813,1,17,1392,97,20,1275,0,12,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,131,PCT 131,3151,2136,0,18,825,17,18,1243,0,15,Rep Donald J. Trump/JD Vance,Rep
+COLL,132,PCT 132,2874,2016,6,9,1139,14,16,830,0,8,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,133,PCT 133,2939,1791,0,3,752,31,10,992,0,3,Rep Donald J. Trump/JD Vance,Rep
+COLL,134,PCT 134,4149,2771,0,17,1344,87,10,1299,0,14,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,135,PCT 135,4286,2900,0,13,1452,105,16,1301,0,13,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,136,PCT 136,1978,1427,10,6,667,10,3,730,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,137,PCT 137,2004,1418,0,6,614,22,5,763,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,138,PCT 138,2349,1774,0,18,900,24,11,810,0,11,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,139,PCT 139,4130,2721,0,11,1410,87,18,1183,0,12,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,14,PCT 014,3407,2279,0,11,1141,76,7,1035,0,9,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,140,PCT 140,4848,3591,0,21,1285,27,33,2195,0,30,Rep Donald J. Trump/JD Vance,Rep
+COLL,141,PCT 141,3514,2511,0,14,1204,100,25,1146,0,22,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,142,PCT 142,2797,2040,17,16,1066,16,18,913,0,11,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,143,PCT 143,2165,1543,0,16,704,9,9,799,0,6,Rep Donald J. Trump/JD Vance,Rep
+COLL,144,PCT 144,2956,2072,1,9,862,74,13,1103,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,145,PCT 145,1780,1237,1,4,602,25,11,590,0,5,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,146,PCT 146,4860,3233,0,14,1524,49,12,1608,0,26,Rep Donald J. Trump/JD Vance,Rep
+COLL,147,PCT 147,2281,1409,0,6,661,50,14,668,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,148,PCT 148,1133,851,0,2,281,127,8,425,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,149,PCT 149,4621,3310,0,12,1303,48,28,1904,0,15,Rep Donald J. Trump/JD Vance,Rep
+COLL,15,PCT 015,1670,981,3,4,504,3,10,452,0,8,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,150,PCT 150,4928,3948,0,29,1505,22,24,2357,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,151,PCT 151,1856,1296,0,8,626,45,5,604,0,8,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,152,PCT 152,231,119,0,1,81,2,0,35,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,153,PCT 153,5328,3739,2,18,1520,170,21,1995,0,15,Rep Donald J. Trump/JD Vance,Rep
+COLL,154,PCT 154,2773,2103,0,7,456,15,8,1611,0,6,Rep Donald J. Trump/JD Vance,Rep
+COLL,155,PCT 155,3016,2129,1,8,866,17,14,1213,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,156,PCT 156,3797,2569,0,18,1141,39,13,1350,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,157,PCT 157,4358,3111,1,12,1525,68,16,1474,0,16,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,158,PCT 158,2851,1955,0,11,968,108,13,846,0,9,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,159,PCT 159,3385,2049,1,7,933,78,18,1003,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,16,PCT 016,5869,4290,1,23,1455,39,30,2723,0,20,Rep Donald J. Trump/JD Vance,Rep
+COLL,160,PCT 160,530,430,0,1,79,3,1,343,0,3,Rep Donald J. Trump/JD Vance,Rep
+COLL,161,PCT 161,298,192,0,0,56,0,1,133,0,2,Rep Donald J. Trump/JD Vance,Rep
+COLL,162,PCT 162,687,558,0,0,159,4,6,387,0,2,Rep Donald J. Trump/JD Vance,Rep
+COLL,163,PCT 163,2188,1474,0,9,597,44,8,813,0,3,Rep Donald J. Trump/JD Vance,Rep
+COLL,164,PCT 164,2330,1845,80,18,848,22,8,934,0,15,Rep Donald J. Trump/JD Vance,Rep
+COLL,165,PCT 165,972,736,0,6,227,41,10,450,0,2,Rep Donald J. Trump/JD Vance,Rep
+COLL,166,PCT 166,4384,3051,0,18,1235,239,25,1519,0,15,Rep Donald J. Trump/JD Vance,Rep
+COLL,167,PCT 167,5230,3582,0,20,1907,87,26,1515,0,27,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,168,PCT 168,1966,1418,0,13,454,15,9,916,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,169,PCT 169,3534,2485,2,7,1191,41,15,1220,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,17,PCT 017,5847,3902,0,14,1446,16,23,2386,0,17,Rep Donald J. Trump/JD Vance,Rep
+COLL,170,PCT 170,1921,1364,0,8,500,11,13,824,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,171,PCT 171,2980,1965,0,7,919,59,8,961,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,172,PCT 172,2941,2202,0,3,703,9,19,1466,0,2,Rep Donald J. Trump/JD Vance,Rep
+COLL,173,PCT 173,645,492,0,2,170,0,6,311,0,3,Rep Donald J. Trump/JD Vance,Rep
+COLL,174,PCT 174,4648,2951,2,14,1191,56,11,1671,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,175,PCT 175,2083,1492,1,3,541,52,17,871,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,176,PCT 176,4064,2194,0,8,1167,18,21,972,0,8,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,177,PCT 177,3532,2228,0,10,882,15,5,1309,0,7,Rep Donald J. Trump/JD Vance,Rep
+COLL,178,PCT 178,3375,2404,1,15,656,31,10,1676,0,16,Rep Donald J. Trump/JD Vance,Rep
+COLL,179,PCT 179,4704,3766,0,24,1144,27,16,2525,0,30,Rep Donald J. Trump/JD Vance,Rep
+COLL,18,PCT 018,1012,671,0,0,134,1,7,528,0,1,Rep Donald J. Trump/JD Vance,Rep
+COLL,180,PCT 180,3492,2359,1,8,1020,60,11,1250,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,181,PCT 181,3166,2049,0,7,736,7,23,1271,0,5,Rep Donald J. Trump/JD Vance,Rep
+COLL,182,PCT 182,4037,2765,1,19,1289,54,20,1364,0,19,Rep Donald J. Trump/JD Vance,Rep
+COLL,183,PCT 183,117,80,0,0,15,0,0,65,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,184,PCT 184,3360,1910,0,10,963,15,16,902,0,4,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,185,PCT 185,54,40,0,0,15,0,1,24,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,186,PCT 186,148,89,0,0,14,0,2,73,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,187,PCT 187,616,447,0,0,50,1,2,393,0,1,Rep Donald J. Trump/JD Vance,Rep
+COLL,188,PCT 188,76,60,0,1,7,4,0,46,0,2,Rep Donald J. Trump/JD Vance,Rep
+COLL,189,PCT 189,1245,863,0,3,174,2,4,676,0,4,Rep Donald J. Trump/JD Vance,Rep
+COLL,19,PCT 019,1611,1208,0,5,549,6,9,633,0,6,Rep Donald J. Trump/JD Vance,Rep
+COLL,190,PCT 190,71,46,0,2,5,0,1,38,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,191,PCT 191,967,582,1,2,207,10,3,357,0,3,Rep Donald J. Trump/JD Vance,Rep
+COLL,192,PCT 192,4881,3436,0,6,836,13,17,2557,0,7,Rep Donald J. Trump/JD Vance,Rep
+COLL,193,PCT 193,1308,877,0,2,198,3,6,668,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,194,PCT 194,33,19,0,0,3,0,0,16,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,195,PCT 195,935,674,0,1,173,6,6,484,0,4,Rep Donald J. Trump/JD Vance,Rep
+COLL,196,PCT 196,2001,1352,0,10,563,40,16,718,0,5,Rep Donald J. Trump/JD Vance,Rep
+COLL,197,PCT 197,1270,858,0,3,462,24,8,357,0,4,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,198,PCT 198,129,90,0,0,10,2,0,78,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,199,PCT 199,4135,3196,0,18,946,26,22,2177,0,7,Rep Donald J. Trump/JD Vance,Rep
+COLL,2,PCT 002,4987,2989,0,15,1417,29,18,1500,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,20,PCT 020,2184,1684,2,8,539,17,21,1092,0,7,Rep Donald J. Trump/JD Vance,Rep
+COLL,200,PCT 200,2726,1894,0,7,597,18,19,1250,0,3,Rep Donald J. Trump/JD Vance,Rep
+COLL,201,PCT 201,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,202,PCT 202,2,2,0,0,2,0,0,0,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,203,PCT 203,3182,2344,0,13,866,11,15,1426,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,204,PCT 204,354,282,0,0,116,0,1,163,0,2,Rep Donald J. Trump/JD Vance,Rep
+COLL,205,PCT 205,35,27,0,0,13,0,0,14,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,206,PCT 206,2002,1431,0,13,511,30,12,860,0,5,Rep Donald J. Trump/JD Vance,Rep
+COLL,207,PCT 207,4081,2925,1,7,1125,35,20,1725,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,208,PCT 208,4359,3323,0,10,1219,44,19,2020,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,209,PCT 209,1208,876,0,0,330,22,3,518,0,3,Rep Donald J. Trump/JD Vance,Rep
+COLL,21,PCT 021,4375,3105,2,17,1574,50,30,1421,0,13,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,210,PCT 210,1746,1290,0,5,553,173,5,550,0,4,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,211,PCT 211,3433,2455,0,11,1041,26,20,1344,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,212,PCT 212,2600,1945,0,10,879,61,17,969,0,9,Rep Donald J. Trump/JD Vance,Rep
+COLL,213,PCT 213,3697,2611,0,7,1242,32,16,1308,0,6,Rep Donald J. Trump/JD Vance,Rep
+COLL,214,PCT 214,4814,3722,0,14,937,25,19,2709,0,18,Rep Donald J. Trump/JD Vance,Rep
+COLL,215,PCT 215,3503,2092,1,5,761,14,15,1290,0,7,Rep Donald J. Trump/JD Vance,Rep
+COLL,216,PCT 216,4771,3565,0,13,1093,24,25,2399,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,217,PCT 217,3140,2190,1,7,864,29,20,1262,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,218,PCT 218,4297,3093,1,15,1426,131,21,1484,0,16,Rep Donald J. Trump/JD Vance,Rep
+COLL,219,PCT 219,4559,3137,1,18,1488,108,16,1494,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,22,PCT 022,4991,3634,0,13,771,10,23,2803,0,14,Rep Donald J. Trump/JD Vance,Rep
+COLL,220,PCT 220,5576,3948,1,13,1850,161,24,1888,0,12,Rep Donald J. Trump/JD Vance,Rep
+COLL,221,PCT 221,5274,3776,0,22,1434,21,16,2263,0,20,Rep Donald J. Trump/JD Vance,Rep
+COLL,222,PCT 222,3965,2870,1,17,1331,112,16,1375,0,19,Rep Donald J. Trump/JD Vance,Rep
+COLL,223,PCT 223,2501,1839,0,16,879,35,8,890,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,224,PCT 224,3351,2568,1,13,660,27,12,1844,0,12,Rep Donald J. Trump/JD Vance,Rep
+COLL,225,PCT 225,3945,2807,2,9,1358,78,16,1338,0,8,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,226,PCT 226,4404,2945,0,6,1428,35,19,1444,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,227,PCT 227,4468,3160,0,23,1419,41,22,1640,0,15,Rep Donald J. Trump/JD Vance,Rep
+COLL,228,PCT 228,6131,3843,1,10,1756,41,34,1993,0,9,Rep Donald J. Trump/JD Vance,Rep
+COLL,229,PCT 229,2259,1494,0,4,739,19,8,717,0,7,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,23,PCT 023,3580,1874,3,5,1196,86,12,567,0,8,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,230,PCT 230,4953,3021,0,13,1478,72,13,1436,0,9,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,231,PCT 231,3938,2850,0,10,1248,40,17,1528,0,7,Rep Donald J. Trump/JD Vance,Rep
+COLL,232,PCT 232,3850,2755,0,7,1098,33,17,1596,0,4,Rep Donald J. Trump/JD Vance,Rep
+COLL,233,PCT 233,2089,1443,0,3,549,15,10,862,0,4,Rep Donald J. Trump/JD Vance,Rep
+COLL,234,PCT 234,3351,2585,0,7,1320,79,14,1151,0,14,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,235,PCT 235,1916,1332,3,6,682,44,14,577,0,9,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,236,PCT 236,3015,2217,1,12,821,29,19,1320,0,16,Rep Donald J. Trump/JD Vance,Rep
+COLL,237,PCT 237,2345,1522,3,7,655,67,8,777,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,238,PCT 238,4043,2583,0,11,1291,39,18,1213,0,11,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,239,PCT 239,4293,3051,0,15,874,39,33,2080,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,24,PCT 024,2229,1201,11,8,782,10,7,391,0,3,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,240,PCT 240,4358,3212,0,19,928,17,24,2211,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,241,PCT 241,1549,1115,0,6,457,97,15,536,0,4,Rep Donald J. Trump/JD Vance,Rep
+COLL,242,PCT 242,3578,2604,0,11,1143,74,19,1343,0,14,Rep Donald J. Trump/JD Vance,Rep
+COLL,243,PCT 243,1684,1272,0,10,387,41,1,825,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,244,PCT 244,3235,2337,0,12,968,57,11,1266,0,23,Rep Donald J. Trump/JD Vance,Rep
+COLL,245,PCT 245,2764,1651,0,10,748,23,7,861,0,2,Rep Donald J. Trump/JD Vance,Rep
+COLL,246,PCT 246,2859,2137,1,13,989,58,12,1049,0,16,Rep Donald J. Trump/JD Vance,Rep
+COLL,247,PCT 247,2436,1876,0,9,574,10,11,1264,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,248,PCT 248,2328,1645,0,10,703,47,10,871,0,4,Rep Donald J. Trump/JD Vance,Rep
+COLL,249,PCT 249,4743,3053,0,19,1087,11,23,1908,0,5,Rep Donald J. Trump/JD Vance,Rep
+COLL,25,PCT 025,4119,2900,1,18,1249,243,36,1344,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,250,PCT 250,3886,3025,0,14,1342,161,14,1479,0,15,Rep Donald J. Trump/JD Vance,Rep
+COLL,251,PCT 251,2568,1852,0,7,610,9,13,1207,0,6,Rep Donald J. Trump/JD Vance,Rep
+COLL,252,PCT 252,3149,2338,0,6,700,17,12,1594,0,9,Rep Donald J. Trump/JD Vance,Rep
+COLL,253,PB01,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,254,LB01,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,255,LB02,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,256,LB03,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,257,LB04,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,258,LB05,0,4,0,0,3,0,0,1,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,259,LB06,0,15,0,0,5,0,0,10,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,26,PCT 026,1280,739,0,4,339,12,6,376,0,2,Rep Donald J. Trump/JD Vance,Rep
+COLL,260,LB07,0,11,0,0,9,0,0,2,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,261,LB08,0,14,0,0,10,0,0,4,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,262,LB09,0,6,0,0,1,0,0,5,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,263,LB10,0,1850,0,3,855,20,8,961,0,3,Rep Donald J. Trump/JD Vance,Rep
+COLL,264,LB11,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,265,LB12,0,1,0,0,1,0,0,0,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,266,LB13,0,1,0,0,1,0,0,0,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,267,LB14,0,1,0,0,0,0,0,1,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,268,LB15,0,50,0,0,22,0,0,28,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,269,LB16,0,6,0,0,2,0,0,4,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,27,PCT 027,2812,1880,0,7,745,32,8,1080,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,270,LB17,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,271,LB18,0,1,0,0,0,0,0,1,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,272,LB19,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,273,LB20,0,12,0,0,6,0,0,6,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,274,LB21,0,3,0,0,1,0,0,2,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,275,LB22,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,276,LB23,0,77,0,1,34,0,1,40,0,1,Rep Donald J. Trump/JD Vance,Rep
+COLL,277,LB24,0,1,0,0,0,0,0,1,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,278,LB25,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,279,LB26,0,1,0,0,1,0,0,0,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,28,PCT 028,3641,2445,0,12,1243,23,23,1130,0,14,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,280,LB27,0,4,0,0,2,0,0,2,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,281,LB28,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,282,LB29,0,1,0,0,0,0,1,0,0,0,Lib Chase Oliver/Mike ter Maat,Lib
+COLL,283,LB30,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,284,LB31,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,285,LB32,0,5,0,0,1,0,0,4,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,286,LB33,0,4,2,0,3,0,0,1,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,287,LB34,0,1,0,0,1,0,0,0,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,288,LB35,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,289,LB36,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,29,PCT 029,5387,4048,2,17,1313,40,20,2651,0,7,Rep Donald J. Trump/JD Vance,Rep
+COLL,290,LB37,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,291,LB38,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,292,LB39,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,293,LB40,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,294,LB41,0,20,0,1,8,0,0,11,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,295,LB42,0,1,0,0,0,0,0,1,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,296,LB43,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,297,LB44,0,13,0,0,4,0,0,9,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,298,LB45,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,299,LB46,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,3,PCT 003,2951,1363,2,12,847,10,4,477,0,13,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,30,PCT 030,5018,3450,0,24,1419,45,22,1920,0,20,Rep Donald J. Trump/JD Vance,Rep
+COLL,300,LB47,0,8,0,0,3,0,0,5,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,301,LB48,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,302,LB49,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,303,LB50,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,304,LB51,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,305,LB52,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,306,LB53,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,307,LB54,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,308,LB55,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,309,LB56,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,31,PCT 031,2067,1577,0,6,701,14,12,832,0,12,Rep Donald J. Trump/JD Vance,Rep
+COLL,310,LB57,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,311,LB58,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,312,LB59,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,313,LB60,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,314,LB61,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,315,LB62,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,316,LB63,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,317,LB64,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,318,LB65,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,319,LB66,0,1,0,0,1,0,0,0,0,0,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,32,PCT 032,2504,1865,0,12,860,15,14,954,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,320,LB67,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,321,LB68,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,322,LB69,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,323,LB70,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,324,LB71,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,325,LB72,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,326,LB73,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,327,LB74,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,328,LB75,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,329,LB76,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,33,PCT 033,6771,4814,1,9,1573,51,28,3140,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,330,LB77,0,0,0,0,0,0,0,0,0,0,Rep Donald J. Trump/JD Vance,Rep
+COLL,34,PCT 034,4401,3041,2,17,1658,63,35,1251,0,17,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,35,PCT 035,1861,1293,0,2,242,7,7,1032,0,3,Rep Donald J. Trump/JD Vance,Rep
+COLL,36,PCT 036,1966,1503,14,12,560,17,8,886,0,20,Rep Donald J. Trump/JD Vance,Rep
+COLL,37,PCT 037,2779,1966,0,4,310,7,8,1630,0,7,Rep Donald J. Trump/JD Vance,Rep
+COLL,38,PCT 038,3899,2387,0,11,1220,30,14,1103,0,9,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,39,PCT 039,3035,1905,1,9,1040,26,20,801,0,9,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,4,PCT 004,3793,2858,2,13,945,26,19,1849,0,6,Rep Donald J. Trump/JD Vance,Rep
+COLL,40,PCT 040,3639,2556,0,10,928,15,27,1563,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,41,PCT 041,5161,3826,1,12,1321,53,30,2397,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,42,PCT 042,2302,1548,0,4,391,4,8,1136,0,5,Rep Donald J. Trump/JD Vance,Rep
+COLL,43,PCT 043,3543,2121,0,12,1045,29,25,1004,0,6,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,44,PCT 044,1697,924,1,4,443,3,7,464,0,3,Rep Donald J. Trump/JD Vance,Rep
+COLL,45,PCT 045,3501,2475,0,19,951,38,16,1435,0,16,Rep Donald J. Trump/JD Vance,Rep
+COLL,46,PCT 046,3182,1797,1,15,991,23,7,753,0,8,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,47,PCT 047,2634,1822,1,8,984,11,10,800,0,9,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,48,PCT 048,3837,2712,0,23,1471,26,22,1155,0,15,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,49,PCT 049,2425,1806,0,5,861,9,18,895,0,18,Rep Donald J. Trump/JD Vance,Rep
+COLL,5,PCT 005,1043,733,3,5,252,3,6,462,0,5,Rep Donald J. Trump/JD Vance,Rep
+COLL,50,PCT 050,3289,1773,1,7,1003,74,11,668,0,10,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,51,PCT 051,1854,1006,0,2,561,9,6,422,0,6,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,52,PCT 052,4768,2909,2,10,1231,549,19,1083,0,17,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,53,PCT 053,2224,1662,0,8,827,15,17,788,0,7,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,54,PCT 054,3726,2254,1,19,1291,42,15,879,0,8,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,55,PCT 055,4272,2791,0,14,1781,52,19,910,0,15,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,56,PCT 056,3558,2429,2,9,933,34,15,1423,0,15,Rep Donald J. Trump/JD Vance,Rep
+COLL,57,PCT 057,5279,3455,0,13,1492,52,25,1865,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,58,PCT 058,3671,2397,3,13,1257,49,17,1052,0,9,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,59,PCT 059,4034,2725,0,17,1110,51,28,1505,0,14,Rep Donald J. Trump/JD Vance,Rep
+COLL,6,PCT 006,1650,1109,0,6,554,25,9,512,0,3,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,60,PCT 060,3282,2489,0,12,862,123,15,1466,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,61,PCT 061,1688,1214,0,9,526,30,10,626,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,62,PCT 062,2586,1763,1,14,959,10,20,751,0,9,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,63,PCT 063,2074,1604,0,12,697,13,11,867,0,4,Rep Donald J. Trump/JD Vance,Rep
+COLL,64,PCT 064,2695,1840,0,19,896,66,9,838,0,12,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,65,PCT 065,1249,847,1,3,426,4,4,406,0,4,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,66,PCT 066,2197,1497,0,6,749,10,12,712,0,8,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,67,PCT 067,3003,1995,1,12,1021,15,17,914,0,16,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,68,PCT 068,2042,1285,1,3,664,9,13,591,0,5,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,69,PCT 069,3878,2831,0,20,1324,55,20,1393,0,19,Rep Donald J. Trump/JD Vance,Rep
+COLL,7,PCT 007,1580,1035,0,2,459,19,3,550,0,2,Rep Donald J. Trump/JD Vance,Rep
+COLL,70,PCT 070,1912,1416,0,5,637,7,8,749,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,71,PCT 071,1812,1314,0,5,657,15,8,626,0,3,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,72,PCT 072,1732,1249,2,9,587,10,10,621,0,12,Rep Donald J. Trump/JD Vance,Rep
+COLL,73,PCT 073,1936,1122,6,7,661,12,4,434,0,4,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,74,PCT 074,1988,1373,9,7,593,12,10,738,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,75,PCT 075,2381,1701,0,14,755,9,7,903,0,13,Rep Donald J. Trump/JD Vance,Rep
+COLL,76,PCT 076,3331,2363,4,16,1009,83,18,1222,0,15,Rep Donald J. Trump/JD Vance,Rep
+COLL,77,PCT 077,3721,2461,0,18,1312,72,20,1035,0,4,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,78,PCT 078,4899,3053,2,20,1754,57,20,1187,0,15,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,79,PCT 079,2773,1660,17,9,767,15,11,848,0,10,Rep Donald J. Trump/JD Vance,Rep
+COLL,8,PCT 008,6230,4129,0,13,1434,32,26,2616,0,8,Rep Donald J. Trump/JD Vance,Rep
+COLL,80,PCT 080,3657,2509,0,7,1157,35,15,1284,0,11,Rep Donald J. Trump/JD Vance,Rep
+COLL,81,PCT 081,2973,2031,1,9,1076,20,15,897,0,14,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,82,PCT 082,3005,1870,0,3,929,26,14,889,0,9,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,83,PCT 083,4265,2914,1,5,1011,35,23,1826,0,14,Rep Donald J. Trump/JD Vance,Rep
+COLL,84,PCT 084,2541,1705,11,6,834,11,8,830,0,16,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,85,PCT 085,3398,2285,1,12,1273,35,23,932,0,10,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,86,PCT 086,3050,2194,0,17,1047,48,14,1048,0,20,Rep Donald J. Trump/JD Vance,Rep
+COLL,87,PCT 087,3486,2531,0,6,1186,135,15,1182,0,7,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,88,PCT 088,1661,726,7,1,480,8,3,232,0,2,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,89,PCT 089,3267,2264,0,17,1093,67,15,1061,0,11,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,9,PCT 009,4905,3253,2,12,1336,23,17,1856,0,9,Rep Donald J. Trump/JD Vance,Rep
+COLL,90,PCT 090,3268,2400,0,28,921,37,14,1378,0,22,Rep Donald J. Trump/JD Vance,Rep
+COLL,91,PCT 091,2325,1659,1,15,866,16,18,737,0,7,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,92,PCT 092,4619,2877,0,12,1431,27,19,1378,0,10,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,93,PCT 093,297,222,1,1,26,0,0,193,0,2,Rep Donald J. Trump/JD Vance,Rep
+COLL,94,PCT 094,4318,3088,0,13,1590,152,28,1281,0,24,Dem Kamala D. Harris/Tim Walz,Dem
+COLL,95,PCT 095,3171,2237,0,15,1056,55,21,1074,0,16,Rep Donald J. Trump/JD Vance,Rep
+COLL,96,PCT 096,1509,782,0,4,329,6,6,436,0,1,Rep Donald J. Trump/JD Vance,Rep
+COLL,97,PCT 097,1344,1070,0,4,325,4,9,722,0,6,Rep Donald J. Trump/JD Vance,Rep
+COLL,98,PCT 098,1618,1019,0,3,457,2,5,547,0,5,Rep Donald J. Trump/JD Vance,Rep
+COLL,99,PCT 099,403,257,0,3,143,6,3,101,0,1,Dem Kamala D. Harris/Tim Walz,Dem
