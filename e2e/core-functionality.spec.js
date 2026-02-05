@@ -1,12 +1,15 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
+// Increase test timeout to account for single-threaded Python http.server
+// under parallel load (map initialization requires fetching GeoJSON + CDN scripts)
+test.setTimeout(60000);
+
 test.describe('Core Functionality', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/index-new.html');
-    // Wait for app to initialize
-    await page.waitForSelector('#map');
-    await page.waitForTimeout(1000); // Wait for map tiles to load
+    // Wait for map legend which appears after initializeMap() completes
+    await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 
   test('page loads successfully', async ({ page }) => {
@@ -16,10 +19,11 @@ test.describe('Core Functionality', () => {
   test('map renders with precincts', async ({ page }) => {
     const mapContainer = page.locator('#map-container');
     await expect(mapContainer).toBeVisible();
-    
-    // Check for Leaflet controls
-    const zoomIn = page.locator('.leaflet-control-zoom-in');
-    await expect(zoomIn).toBeVisible();
+
+    // Wait for Leaflet to fully initialize (depends on CDN + data loading)
+    // Use .first() since mapInitializer adds a second zoom control
+    const zoomIn = page.locator('.leaflet-control-zoom-in').first();
+    await expect(zoomIn).toBeVisible({ timeout: 60000 });
   });
 
   test('header displays correctly', async ({ page }) => {
@@ -70,8 +74,8 @@ test.describe('Core Functionality', () => {
 test.describe('Election Selection', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/index-new.html');
-    await page.waitForSelector('#map');
-    await page.waitForTimeout(1000);
+    // Wait for map legend which appears after initializeMap() completes
+    await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 
   test('selecting election updates info card', async ({ page }) => {
@@ -106,8 +110,7 @@ test.describe('Election Selection', () => {
   test('deep linking to election works', async ({ page }) => {
     // Navigate directly with election in URL
     await page.goto('/index-new.html#race=Governor_2022.csv');
-    await page.waitForSelector('#map');
-    await page.waitForTimeout(2000);
+    await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
     
     // Check info card shows Governor election
     const title = page.locator('.info-card-title');
@@ -118,22 +121,23 @@ test.describe('Election Selection', () => {
 test.describe('Search & Filter', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/index-new.html');
-    await page.waitForSelector('#map');
+    // Wait for map legend which appears after initializeMap() completes
+    await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
     await page.locator('#fab').click();
     await page.waitForSelector('.election-item');
   });
 
   test('search filters elections', async ({ page }) => {
-    const searchInput = page.locator('#election-search');
+    const searchInput = page.locator('#panel-search-input');
     await searchInput.fill('President');
-    
-    // Wait for filter
-    await page.waitForTimeout(300);
-    
-    // Check visible elections
+
+    // Wait for debounced filter and panel re-render
+    await page.waitForTimeout(500);
+
+    // Check visible elections contain President
     const visibleElections = page.locator('.election-item:visible');
     const count = await visibleElections.count();
-    
+
     // Should have at least one President election
     expect(count).toBeGreaterThan(0);
   });

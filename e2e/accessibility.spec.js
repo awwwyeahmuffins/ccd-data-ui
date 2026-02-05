@@ -1,11 +1,12 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
+test.setTimeout(60000);
+
 test.describe('Accessibility', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/index-new.html');
-    await page.waitForSelector('#map');
-    await page.waitForTimeout(1000);
+    await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 
   test('skip link is present', async ({ page }) => {
@@ -89,7 +90,7 @@ test.describe('Accessibility', () => {
   test('search input is accessible', async ({ page }) => {
     await page.locator('#fab').click();
     
-    const searchInput = page.locator('#election-search');
+    const searchInput = page.locator('#panel-search-input');
     await expect(searchInput).toHaveAttribute('placeholder');
   });
 

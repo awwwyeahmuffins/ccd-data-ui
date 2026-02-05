@@ -1054,16 +1054,15 @@ function handlePrecinctClick(feature, leafletLayer) {
   leafletLayer.setStyle(selectedStyle);
   selectedLayer = leafletLayer;
 
-  // Check if precinct has no data
-  const registeredVoters = Number(data["REGISTERED VOTERS TOTAL"]) || 0;
-  const ballotsCast = Number(data["BALLOTS CAST TOTAL"]) || 0;
-  
-  if (!data["PRECINCT CODE"] || (registeredVoters === 0 && ballotsCast === 0)) {
+  // Check if precinct has no data or is not part of this race
+  // City/ISD/MUD elections may have BALLOTS_CAST > 0 for non-participating precincts
+  // (from other races on the ballot), so also check candidate votes
+  if (!data["PRECINCT CODE"] || !precinctHasCandidateVotes(data)) {
     detailsDiv.innerHTML = `
       <div class="empty-state">
         <hr>
         <h3>Precinct ${code}</h3>
-        <p>No election data available for this precinct.</p>
+        <p>This precinct is not part of this election.</p>
       </div>
     `;
     return;
@@ -1511,12 +1510,9 @@ function updateMapWithTrends() {
     const code = layer.feature.properties.PRECINCT.toString();
     const delta = trendDeltas[code];
     const record = currentElectionByPrecinct[code];
-    
+
     // Check if precinct is NOT part of this race
-    const registeredVoters = record ? Number(record["REGISTERED VOTERS TOTAL"]) || 0 : 0;
-    const ballotsCast = record ? Number(record["BALLOTS CAST TOTAL"]) || 0 : 0;
-    
-    if (!record || (registeredVoters === 0 && ballotsCast === 0)) {
+    if (!record || !precinctHasCandidateVotes(record)) {
       layer.setStyle(notInRaceStyle);
       return;
     }
@@ -1588,12 +1584,9 @@ function updateMapWithSimulation() {
     const code = layer.feature.properties.PRECINCT.toString();
     const precinctResult = currentSimulationResult.precinctResults[code];
     const record = currentElectionByPrecinct[code];
-    
+
     // Check if precinct is NOT part of this race
-    const registeredVoters = record ? Number(record["REGISTERED VOTERS TOTAL"]) || 0 : 0;
-    const ballotsCast = record ? Number(record["BALLOTS CAST TOTAL"]) || 0 : 0;
-    
-    if (!record || (registeredVoters === 0 && ballotsCast === 0)) {
+    if (!record || !precinctHasCandidateVotes(record)) {
       layer.setStyle(notInRaceStyle);
       return;
     }
@@ -1642,6 +1635,23 @@ function updateMapWithSimulation() {
       });
     }
   });
+}
+
+/**
+ * Checks if a precinct participates in the current race by summing candidate votes.
+ * Non-participating precincts in City/ISD/MUD elections have BALLOTS_CAST > 0
+ * (from other races on the ballot) but 0 votes for the current race's candidates.
+ * @param {Object} record - Election data row for the precinct
+ * @returns {boolean} True if the precinct has candidate votes in this race
+ */
+function precinctHasCandidateVotes(record) {
+  if (!record || !currentCandidates) return false;
+  let total = 0;
+  for (const name of currentCandidates) {
+    total += Number(record[name]) || 0;
+    if (total > 0) return true; // short-circuit
+  }
+  return false;
 }
 
 /**

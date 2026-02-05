@@ -193,17 +193,25 @@ export function searchElections(elections, query) {
   const queryWords = normalizedQuery.split(/\s+/);
 
   return elections.filter(entry => {
-    // Extract filename from entry (string or object)
+    // Extract filename and displayName from entry (string or object)
     const filename = typeof entry === 'string' ? entry : entry.filename;
-    
+    const displayName = typeof entry === 'object' ? entry.displayName : null;
+
     // Replace underscores with spaces for better matching
     const normalizedFilename = filename
       .toLowerCase()
       .replace(/\.csv$/, '')
       .replace(/_/g, ' ');
-    
-    // All query words must be found in the filename (AND logic)
-    return queryWords.every(word => normalizedFilename.includes(word));
+
+    // Also search displayName if available
+    const normalizedDisplayName = displayName
+      ? displayName.toLowerCase()
+      : '';
+
+    // All query words must be found in filename OR displayName (AND logic per word)
+    return queryWords.every(word =>
+      normalizedFilename.includes(word) || normalizedDisplayName.includes(word)
+    );
   });
 }
 

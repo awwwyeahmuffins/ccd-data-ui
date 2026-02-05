@@ -1,11 +1,12 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
+test.setTimeout(60000);
+
 test.describe('Command Palette', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/index-new.html');
-    await page.waitForSelector('#map');
-    await page.waitForTimeout(1000);
+    await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 
   test('opens with Cmd+K', async ({ page }) => {
@@ -101,8 +102,7 @@ test.describe('Recently Viewed', () => {
     await page.goto('/index-new.html');
     await page.evaluate(() => localStorage.clear());
     await page.reload();
-    await page.waitForSelector('#map');
-    await page.waitForTimeout(1000);
+    await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 
   test('recently viewed starts empty', async ({ page }) => {
@@ -121,16 +121,13 @@ test.describe('Recently Viewed', () => {
   test('selecting election adds to recently viewed', async ({ page }) => {
     await page.locator('#fab').click();
     await page.waitForSelector('.election-item');
-    
-    // Select an election
+
+    // Select an election (panel re-renders with recent items after selection)
     await page.locator('.election-item').first().click();
-    
-    // Wait for it to be added
-    await page.waitForTimeout(500);
-    
-    // Reopen panel
-    await page.locator('#fab').click();
-    
+
+    // Wait for selection to process and panel to re-render
+    await page.waitForSelector('.recent-item', { timeout: 5000 });
+
     // Check recently viewed has item
     const recentItems = page.locator('.recent-item');
     expect(await recentItems.count()).toBeGreaterThan(0);
@@ -141,17 +138,16 @@ test.describe('Recently Viewed', () => {
     await page.locator('#fab').click();
     await page.waitForSelector('.election-item');
     await page.locator('.election-item').first().click();
-    
-    // Reopen panel
-    await page.locator('#fab').click();
-    await page.waitForSelector('.recent-item');
-    
+
+    // Wait for panel to re-render with recent items
+    await page.waitForSelector('.recent-item', { timeout: 5000 });
+
     // Click clear
-    const clearBtn = page.locator('.clear-recent-btn');
+    const clearBtn = page.locator('#clear-recent');
     await clearBtn.click();
-    
-    // Recently viewed should be empty
-    await page.waitForTimeout(300);
+
+    // Recently viewed should be empty after re-render
+    await page.waitForTimeout(500);
     const recentItems = page.locator('.recent-item');
     expect(await recentItems.count()).toBe(0);
   });
@@ -160,15 +156,17 @@ test.describe('Recently Viewed', () => {
     // Add election to recently viewed
     await page.locator('#fab').click();
     await page.waitForSelector('.election-item');
-    
+
     const firstElection = page.locator('.election-item').first();
-    const electionName = await firstElection.locator('.election-item-title').textContent();
+    const electionName = await firstElection.locator('.election-item-name').textContent();
     await firstElection.click();
-    
-    // Reopen and click recent
-    await page.locator('#fab').click();
+
+    // Wait for panel to re-render with recent items
+    await page.waitForSelector('.recent-item', { timeout: 5000 });
+
+    // Click the recent item
     await page.locator('.recent-item').first().click();
-    
+
     // Info card should show same election
     const title = page.locator('.info-card-title');
     await expect(title).toHaveText(electionName);
