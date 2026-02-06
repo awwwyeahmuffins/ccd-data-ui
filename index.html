@@ -384,7 +384,7 @@
     }
 
     #fab.active {
-      transform: rotate(45deg) scale(1.1);
+      transform: scale(1.1);
       background: var(--secondary);
     }
 
@@ -710,11 +710,12 @@
       z-index: 2000;
       width: 360px;
       max-width: calc(100vw - 64px);
+      max-height: calc(100vh - 180px);
+      overflow-y: auto;
       background: var(--bg-primary);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-xl);
       padding: 24px;
-      transition: left 0.3s ease, right 0.3s ease;
       transform: translateY(20px);
       opacity: 0;
       pointer-events: none;
@@ -735,6 +736,7 @@
       bottom: 200px;
       width: 280px;
       max-width: 280px;
+      max-height: calc(100vh - 280px);
       padding: 16px;
       font-size: 12px;
     }
@@ -858,12 +860,6 @@
         width: auto;
         bottom: 96px;
       }
-      
-      /* Hide info card on mobile when panel is open (no room) */
-      #election-panel.active ~ #info-card {
-        opacity: 0;
-        pointer-events: none;
-      }
 
       .header-content {
         padding: 12px 16px;
@@ -876,6 +872,11 @@
       .header-btn {
         padding: 8px 16px;
         font-size: 13px;
+      }
+
+      /* B8: Fix zoom controls appearing behind header */
+      .leaflet-control-zoom {
+        z-index: 10001 !important;
       }
     }
 
@@ -982,7 +983,12 @@
       cursor: pointer;
       font-size: 16px;
       color: var(--text-muted);
-      padding: 2px 4px;
+      padding: 12px;
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       transition: var(--transition-fast);
       vertical-align: middle;
       line-height: 1;
@@ -1009,7 +1015,7 @@
       bottom: 0;
       width: 420px;
       max-width: 90vw;
-      z-index: 6000;
+      z-index: 10002;
       background: var(--bg-primary);
       box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
       transform: translateX(-100%);
@@ -1166,6 +1172,213 @@
       color: var(--text-primary);
     }
 
+    /* =============================================================================
+       PRECINCT CHAT
+       ============================================================================= */
+
+    .precinct-chat {
+      border-top: 1px solid var(--border);
+      margin-top: 16px;
+    }
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      cursor: pointer;
+      user-select: none;
+    }
+    .chat-header-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+    }
+    .chat-header-chevron {
+      font-size: 10px;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+    .chat-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 12px;
+    }
+    .chat-status {
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      line-height: 1.4;
+    }
+    .chat-status.error {
+      background: #FFF0F0;
+      color: #C62828;
+      border: 1px solid #FFCDD2;
+    }
+    .chat-status.ok {
+      background: #F0FFF0;
+      color: #2E7D32;
+      border: 1px solid #C8E6C9;
+    }
+    .chat-messages {
+      max-height: 400px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      scroll-behavior: smooth;
+    }
+    .chat-welcome {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 8px 0;
+      line-height: 1.5;
+    }
+    .chat-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .chat-suggestion-btn {
+      font-size: 12px;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .chat-suggestion-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+    .chat-message-user {
+      align-self: flex-end;
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 16px 16px 4px 16px;
+      font-size: 13px;
+      max-width: 85%;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+    .chat-message-assistant {
+      align-self: flex-start;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: 16px 16px 16px 4px;
+      font-size: 13px;
+      max-width: 85%;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+    .chat-message-assistant ul {
+      margin: 4px 0;
+      padding-left: 18px;
+    }
+    .chat-message-assistant li {
+      margin-bottom: 2px;
+    }
+    .typing-cursor {
+      display: inline-block;
+      width: 6px;
+      height: 14px;
+      background: var(--text-muted);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: cursor-blink 0.8s steps(2) infinite;
+    }
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .chat-input-area {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+    }
+    .chat-input {
+      flex: 1;
+      resize: none;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-family: inherit;
+      color: var(--text-primary);
+      background: var(--bg-primary);
+      outline: none;
+      transition: var(--transition-fast);
+      line-height: 1.4;
+    }
+    .chat-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+    .chat-input::placeholder {
+      color: var(--text-muted);
+    }
+    .chat-send-btn,
+    .chat-stop-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition-fast);
+    }
+    .chat-send-btn {
+      background: var(--primary);
+      color: #fff;
+    }
+    .chat-send-btn:hover {
+      background: var(--primary-hover);
+    }
+    .chat-stop-btn {
+      background: #C62828;
+      color: #fff;
+    }
+    .chat-stop-btn:hover {
+      background: #B71C1C;
+    }
+
+    /* Dark mode overrides */
+    [data-theme="dark"] .chat-status.error {
+      background: #3E1A1A;
+      color: #EF9A9A;
+      border-color: #5E2A2A;
+    }
+    [data-theme="dark"] .chat-status.ok {
+      background: #1A3E1A;
+      color: #A5D6A7;
+      border-color: #2A5E2A;
+    }
+    [data-theme="dark"] .chat-suggestion-btn {
+      background: var(--bg-secondary);
+      border-color: var(--border);
+      color: var(--text-secondary);
+    }
+    [data-theme="dark"] .chat-suggestion-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    [data-theme="dark"] .chat-input {
+      background: var(--bg-secondary);
+      border-color: var(--border);
+      color: var(--text-primary);
+    }
+
     /* Precinct Search Widget */
     #precinct-search-widget {
       position: fixed;
@@ -1173,6 +1386,7 @@
       left: 16px;
       z-index: 2000;
       width: 240px;
+      display: none; /* B7: Hidden - use Cmd+K command palette instead */
     }
     #precinct-search-input-map {
       width: 100%;
@@ -1346,7 +1560,7 @@
       height: 100vh;
       background: var(--bg-primary);
       box-shadow: var(--shadow-xl);
-      z-index: 10001;
+      z-index: 10003;
       transform: translateX(100%);
       transition: transform 0.3s ease;
       display: flex;
@@ -1462,6 +1676,330 @@
       }
     }
 
+    /* =============================================================================
+       MOBILE TAB BAR (A1) - Fixed bottom navigation for mobile
+       ============================================================================= */
+
+    #mobile-tab-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 5000;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-top: 1px solid var(--border);
+      padding: 4px 0;
+      padding-bottom: env(safe-area-inset-bottom, 4px);
+    }
+
+    #mobile-tab-bar .tab-bar-inner {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    #mobile-tab-bar .tab-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      min-height: 48px;
+      padding: 6px 8px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+      border-radius: var(--radius-sm);
+      gap: 2px;
+    }
+
+    #mobile-tab-bar .tab-btn:hover,
+    #mobile-tab-bar .tab-btn.active {
+      color: var(--primary);
+    }
+
+    #mobile-tab-bar .tab-btn.active {
+      background: var(--primary-light);
+    }
+
+    #mobile-tab-bar .tab-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    #mobile-tab-bar .tab-label {
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 600px) {
+      #mobile-tab-bar {
+        display: block;
+      }
+      /* Hide FAB on mobile when tab bar is visible */
+      #fab {
+        display: none;
+      }
+    }
+
+    [data-theme="dark"] #mobile-tab-bar {
+      background: rgba(26, 26, 46, 0.97);
+    }
+
+    /* =============================================================================
+       HEADER RESTORE TAB (A3) - Shows when header is collapsed
+       ============================================================================= */
+
+    .header-restore-tab {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+    }
+
+    .header-restore-tab:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    #app-header.collapsed ~ .header-restore-tab {
+      display: flex;
+    }
+
+    [data-theme="dark"] .header-restore-tab {
+      background: rgba(26, 26, 46, 0.95);
+    }
+
+    /* =============================================================================
+       TOAST NOTIFICATION SYSTEM (A4)
+       ============================================================================= */
+
+    #toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      #toast-container {
+        bottom: 72px; /* Above mobile tab bar */
+      }
+    }
+
+    .toast {
+      pointer-events: auto;
+      padding: 12px 24px;
+      background: #333;
+      color: #fff;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      max-width: 400px;
+      text-align: center;
+      animation: toastIn 0.3s ease forwards;
+    }
+
+    .toast.fade-out {
+      animation: toastOut 0.3s ease forwards;
+    }
+
+    @keyframes toastIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes toastOut {
+      from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.95);
+      }
+    }
+
+    [data-theme="dark"] .toast {
+      background: #e0e0e0;
+      color: #1a1a2e;
+    }
+
+    /* =============================================================================
+       WELCOME OVERLAY (D11) - First-use empty state
+       ============================================================================= */
+
+    #welcome-overlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 500;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 40px 48px;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
+      max-width: 420px;
+    }
+
+    #welcome-overlay h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    #welcome-overlay p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    #welcome-overlay .welcome-btn {
+      padding: 12px 28px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    #welcome-overlay .welcome-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    #welcome-overlay .welcome-shortcut {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    #welcome-overlay .welcome-shortcut kbd {
+      padding: 2px 6px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 11px;
+    }
+
+    [data-theme="dark"] #welcome-overlay {
+      background: rgba(26, 26, 46, 0.95);
+    }
+
+    /* =============================================================================
+       ELECTION GROUP CHEVRON (B5) - Collapse indicator
+       ============================================================================= */
+
+    .group-header .group-chevron {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.2s ease;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .election-group.expanded .group-header .group-chevron {
+      transform: rotate(90deg);
+    }
+
+    /* =============================================================================
+       MAP LOADING OVERLAY (D12)
+       ============================================================================= */
+
+    #map-loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 400;
+      gap: 12px;
+    }
+
+    #map-loading-overlay .loading-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    [data-theme="dark"] #map-loading-overlay {
+      background: rgba(26, 26, 46, 0.7);
+    }
+
+    /* =============================================================================
+       MOBILE INFO CARD FIX (C9) - Bottom sheet above panel
+       ============================================================================= */
+
+    @media (max-width: 768px) {
+      #election-panel.active ~ #info-card {
+        opacity: 1;
+        pointer-events: all;
+        position: fixed;
+        bottom: auto;
+        top: 60px;
+        left: 8px;
+        right: auto;
+        width: 260px;
+        max-width: 260px;
+        padding: 12px;
+        font-size: 12px;
+        z-index: 5500;
+      }
+      #election-panel.active ~ #info-card .info-card-title { font-size: 14px; }
+      #election-panel.active ~ #info-card .info-card-meta { font-size: 11px; margin-bottom: 8px; }
+      #election-panel.active ~ #info-card .stat-item { padding: 6px; }
+      #election-panel.active ~ #info-card .stat-label { font-size: 9px; }
+      #election-panel.active ~ #info-card .stat-value { font-size: 13px; }
+      #election-panel.active ~ #info-card .info-card-demographics { font-size: 10px; }
+    }
+
     /* Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
       *,
@@ -1573,6 +2111,206 @@
     .error-state-retry:hover {
       background: var(--primary-hover);
     }
+
+    /* =============================================================================
+       EXPORT & ACTION BUTTONS
+       ============================================================================= */
+
+    .export-csv-btn, .export-sim-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .export-csv-btn:hover, .export-sim-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+    .export-csv-btn svg, .export-sim-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* =============================================================================
+       RACE SUMMARY CARD (G7)
+       ============================================================================= */
+
+    .race-summary-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--primary-light);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--primary);
+      margin-bottom: 16px;
+      font-size: 13px;
+      align-items: center;
+    }
+    .race-summary-card .summary-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .race-summary-card .summary-label {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .race-summary-card .summary-value {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .race-summary-card .summary-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--border);
+    }
+
+    /* =============================================================================
+       VIEW FULL PROFILE LINK (G9)
+       ============================================================================= */
+
+    .view-profile-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 12px;
+      padding: 6px 12px;
+      border: 1px solid var(--primary);
+      border-radius: var(--radius-full);
+      background: transparent;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .view-profile-link:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* =============================================================================
+       MAP VIEW CONTROLS TOOLBAR (I14)
+       ============================================================================= */
+
+    .map-controls-toolbar {
+      background: var(--bg-primary);
+      padding: 8px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      gap: 4px;
+    }
+
+    /* =============================================================================
+       LABELS TOGGLE (F4)
+       ============================================================================= */
+
+    .labels-toggle-btn {
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-fast);
+    }
+    .labels-toggle-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .labels-toggle-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* =============================================================================
+       SIMULATOR PRESETS (H13)
+       ============================================================================= */
+
+    .simulator-presets {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    .preset-btn {
+      flex: 1;
+      padding: 6px 8px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-primary);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      text-align: center;
+    }
+    .preset-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    /* =============================================================================
+       ELECTION HISTORY TABLE (E3)
+       ============================================================================= */
+
+    .election-history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .election-history-table th {
+      text-align: left;
+      padding: 6px 8px;
+      border-bottom: 2px solid var(--border);
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .election-history-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+    .election-history-table tr:hover td {
+      background: var(--bg-secondary);
+    }
+    .election-history-table .party-rep { color: #E81B23; }
+    .election-history-table .party-dem { color: #00AEF3; }
+
+    /* =============================================================================
+       DISTRICT INFO IN INFO CARD (G8)
+       ============================================================================= */
+
+    .info-card-districts {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+    .district-tag {
+      display: inline-flex;
+      padding: 3px 8px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
   </style>
 </head>
 
@@ -1590,16 +2328,16 @@
       
       <!-- View Mode Buttons -->
       <nav class="view-mode-buttons" role="tablist" aria-label="View selection">
-        <button class="view-mode-btn active" data-view="demographics" role="tab" aria-selected="true">
-          <span class="view-icon">📊</span>
+        <button class="view-mode-btn active" data-view="demographics" role="tab" aria-selected="true" aria-label="Demographics view">
+          <span class="view-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>
           <span class="view-label">Demographics</span>
         </button>
-        <button class="view-mode-btn" data-view="election" role="tab" aria-selected="false">
-          <span class="view-icon">🗳️</span>
+        <button class="view-mode-btn" data-view="election" role="tab" aria-selected="false" aria-label="Elections view">
+          <span class="view-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
           <span class="view-label">Elections</span>
         </button>
-        <button class="view-mode-btn" data-view="turnout" role="tab" aria-selected="false">
-          <span class="view-icon">📈</span>
+        <button class="view-mode-btn" data-view="turnout" role="tab" aria-selected="false" aria-label="Turnout view">
+          <span class="view-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
           <span class="view-label">Turnout</span>
         </button>
       </nav>
@@ -1617,13 +2355,20 @@
     </div>
   </header>
 
+  <!-- Header Restore Tab (A3) - Shows when header is collapsed -->
+  <button id="show-header-tab" class="header-restore-tab" aria-label="Show header">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+
   <!-- Command Palette (Cmd+K) -->
   <div id="command-palette" role="dialog" aria-label="Command palette" aria-hidden="true">
     <div class="command-palette-container">
-      <input 
-        type="text" 
-        class="command-palette-input" 
-        placeholder="Search elections, views, or commands..."
+      <input
+        type="text"
+        class="command-palette-input"
+        placeholder="Search elections, precincts, views, or commands..."
         id="command-input"
         autocomplete="off"
       />
@@ -1667,11 +2412,16 @@
     <div id="map" role="application" aria-label="Interactive precinct map"></div>
   </div>
 
-  <!-- Floating Action Button -->
-  <button id="fab" aria-label="Open election browser" title="Browse Elections">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <line x1="12" y1="5" x2="12" y2="19"></line>
-      <line x1="5" y1="12" x2="19" y2="12"></line>
+  <!-- Floating Action Button (A2: menu icon, swaps to X when active) -->
+  <button id="fab" aria-label="Browse elections" title="Browse Elections">
+    <svg id="fab-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="4" y1="7" x2="20" y2="7"></line>
+      <line x1="4" y1="12" x2="20" y2="12"></line>
+      <line x1="4" y1="17" x2="20" y2="17"></line>
+    </svg>
+    <svg id="fab-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg>
   </button>
 
@@ -1696,13 +2446,13 @@
       />
 
       <!-- Filter Chips -->
-      <div class="filter-chips">
-        <button class="filter-chip active" data-filter="all">All</button>
-        <button class="filter-chip" data-filter="2024">2024</button>
-        <button class="filter-chip" data-filter="2022">2022</button>
-        <button class="filter-chip" data-filter="federal">Federal</button>
-        <button class="filter-chip" data-filter="state">State</button>
-        <button class="filter-chip" data-filter="county">County</button>
+      <div class="filter-chips" role="group" aria-label="Filter elections">
+        <button class="filter-chip active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-chip" data-filter="2024" aria-pressed="false">2024</button>
+        <button class="filter-chip" data-filter="2022" aria-pressed="false">2022</button>
+        <button class="filter-chip" data-filter="federal" aria-pressed="false">Federal</button>
+        <button class="filter-chip" data-filter="state" aria-pressed="false">State</button>
+        <button class="filter-chip" data-filter="county" aria-pressed="false">County</button>
       </div>
 
       <!-- Recently Viewed -->
@@ -1793,12 +2543,18 @@
   <aside id="precinct-profile-panel" role="complementary" aria-label="Precinct census profile" aria-hidden="true">
     <div class="profile-panel-header">
       <h2>Precinct Profile</h2>
-      <button class="panel-close" id="close-profile-panel" aria-label="Close profile">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="export-csv-btn" id="export-precinct-csv" title="Export precinct data">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export
+        </button>
+        <button class="panel-close" id="close-profile-panel" aria-label="Close profile">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
     <div class="profile-panel-body" id="profile-panel-body">
       <!-- Populated dynamically by precinctProfile.js -->
@@ -1812,6 +2568,39 @@
     <div class="info-card-stats"></div>
     <div class="info-card-demographics" aria-label="Precinct demographics"></div>
   </div>
+
+  <!-- Mobile Tab Bar (A1) -->
+  <nav id="mobile-tab-bar" role="tablist" aria-label="Mobile navigation">
+    <div class="tab-bar-inner">
+      <button class="tab-btn active" data-view="demographics" role="tab" aria-selected="true" aria-label="Demographics">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+        <span class="tab-label">Demographics</span>
+      </button>
+      <button class="tab-btn" data-view="election" role="tab" aria-selected="false" aria-label="Elections">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        <span class="tab-label">Elections</span>
+      </button>
+      <button class="tab-btn" data-view="turnout" role="tab" aria-selected="false" aria-label="Turnout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <span class="tab-label">Turnout</span>
+      </button>
+      <button class="tab-btn" data-action="browse" role="tab" aria-selected="false" aria-label="Browse elections">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        <span class="tab-label">Browse</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Welcome Overlay (D11) - First-use empty state -->
+  <div id="welcome-overlay">
+    <h2>Welcome to Collin County Elections</h2>
+    <p>Explore election results, demographics, and turnout data across all precincts in Collin County, Texas.</p>
+    <button class="welcome-btn" id="welcome-browse-btn">Browse Elections</button>
+    <div class="welcome-shortcut">or press <kbd>Cmd</kbd>+<kbd>K</kbd> to search</div>
+  </div>
+
+  <!-- Toast Container (A4) -->
+  <div id="toast-container"></div>
 
   <!-- External Libraries -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -1856,6 +2645,11 @@
     import { getMarginStyle, getMarginLegendHTML } from "./js/marginView.js";
     import { rankCompetitivePrecincts, generateRankerHTML, generateRankerCSV } from "./js/competitiveRanker.js";
     import { HEATMAP_METRICS, getHeatmapStyle, getHeatmapLegendHTML, buildMetricSelectorHTML, clearMinMaxCache } from "./js/demographicHeatmap.js";
+    import { exportRaceResults, computeRaceSummary } from "./js/exportManager.js";
+    import { downloadCSV, arrayToCSV } from "./js/exportCSV.js";
+    import { getPrecinctResult, buildVotingHistory, generateVotingHistoryHTML } from "./js/precinctHistory.js";
+    import { configureLLM, getLLMConfig, checkLLMHealth, buildSystemPrompt, streamChat, ConversationManager } from "./js/precinctChat.js";
+    import { createChatSection, initChatController } from "./js/chatUI.js";
 
     // ==========================================================================
     // STATE MANAGEMENT
@@ -1866,6 +2660,7 @@
       geojsonLayer: null,
       geojsonData: null,
       labelCleanup: null,
+      labelsVisible: false,
       dncLookup: null,
       racialLookup: null,
       elections: [],
@@ -1890,7 +2685,9 @@
         category: 'All'
       },
       commandSelectedIndex: 0,
-      commands: []
+      commands: [],
+      chatConversationManager: new ConversationManager(),
+      chatCleanup: null,
     };
 
     // ==========================================================================
@@ -1996,12 +2793,15 @@
     function setViewMode(mode) {
       state.viewMode = mode;
 
-      // Update button states
+      // Update desktop button states
       document.querySelectorAll('.view-mode-btn').forEach(btn => {
         const isActive = btn.dataset.view === mode;
         btn.classList.toggle('active', isActive);
         btn.setAttribute('aria-selected', isActive);
       });
+
+      // A1: Update mobile tab bar
+      updateMobileTabBar();
 
       // Show/hide and populate map view controls
       updateMapViewControls(mode);
@@ -2032,6 +2832,11 @@
 
       if (mode === 'demographics') {
         controls.style.display = 'flex';
+
+        // I14: Wrap buttons in toolbar container
+        const toolbar = document.createElement('div');
+        toolbar.className = 'map-controls-toolbar';
+
         // Party Lean button (default)
         const partyBtn = document.createElement('button');
         partyBtn.className = 'map-toggle-btn' + (!state.heatmapMetric ? ' active' : '');
@@ -2041,7 +2846,7 @@
           renderDemographicsMap();
           updateMapViewControls(mode);
         });
-        controls.appendChild(partyBtn);
+        toolbar.appendChild(partyBtn);
 
         // Heatmap metric selector
         const select = document.createElement('select');
@@ -2063,9 +2868,35 @@
           renderDemographicsMap();
           updateMapViewControls(mode);
         });
-        controls.appendChild(select);
+        toolbar.appendChild(select);
+
+        // F4: Labels toggle
+        const labelsBtn = document.createElement('button');
+        labelsBtn.className = 'map-toggle-btn' + (state.labelsVisible ? ' active' : '');
+        labelsBtn.textContent = 'Labels';
+        labelsBtn.addEventListener('click', () => {
+          state.labelsVisible = !state.labelsVisible;
+          if (state.labelsVisible) {
+            if (state.labelCleanup) state.labelCleanup();
+            state.labelCleanup = setupPrecinctLabels(state.map, state.geojsonLayer);
+            if (state.map.getZoom() < 12) {
+              showNotification('Zoom in to see precinct labels (zoom 12+)');
+            }
+          } else {
+            if (state.labelCleanup) { state.labelCleanup(); state.labelCleanup = null; }
+          }
+          updateMapViewControls(mode);
+        });
+        toolbar.appendChild(labelsBtn);
+
+        controls.appendChild(toolbar);
       } else if (mode === 'election' && state.currentElectionData) {
         controls.style.display = 'flex';
+
+        // I14: Wrap buttons in toolbar container
+        const toolbar = document.createElement('div');
+        toolbar.className = 'map-controls-toolbar';
+
         // Party color button
         const partyBtn = document.createElement('button');
         partyBtn.className = 'map-toggle-btn' + (state.electionColorMode === 'party' ? ' active' : '');
@@ -2075,7 +2906,7 @@
           renderElectionMap(state.currentElectionData);
           updateMapViewControls(mode);
         });
-        controls.appendChild(partyBtn);
+        toolbar.appendChild(partyBtn);
 
         // Margin button
         const marginBtn = document.createElement('button');
@@ -2086,14 +2917,35 @@
           renderElectionMap(state.currentElectionData);
           updateMapViewControls(mode);
         });
-        controls.appendChild(marginBtn);
+        toolbar.appendChild(marginBtn);
 
         // Competitive ranker button
         const rankerBtn = document.createElement('button');
         rankerBtn.className = 'map-toggle-btn';
         rankerBtn.textContent = 'Swing Precincts';
         rankerBtn.addEventListener('click', () => openRankerPanel());
-        controls.appendChild(rankerBtn);
+        toolbar.appendChild(rankerBtn);
+
+        // F4: Labels toggle for election view too
+        const labelsBtn = document.createElement('button');
+        labelsBtn.className = 'map-toggle-btn' + (state.labelsVisible ? ' active' : '');
+        labelsBtn.textContent = 'Labels';
+        labelsBtn.addEventListener('click', () => {
+          state.labelsVisible = !state.labelsVisible;
+          if (state.labelsVisible) {
+            if (state.labelCleanup) state.labelCleanup();
+            state.labelCleanup = setupPrecinctLabels(state.map, state.geojsonLayer);
+            if (state.map.getZoom() < 12) {
+              showNotification('Zoom in to see precinct labels (zoom 12+)');
+            }
+          } else {
+            if (state.labelCleanup) { state.labelCleanup(); state.labelCleanup = null; }
+          }
+          updateMapViewControls(mode);
+        });
+        toolbar.appendChild(labelsBtn);
+
+        controls.appendChild(toolbar);
       } else {
         controls.style.display = 'none';
       }
@@ -2153,10 +3005,18 @@
     }
 
     function showNotification(message) {
-      // Simple notification - could be enhanced with a toast component
-      console.log('📢', message);
-      // For now, just alert - could be replaced with a nicer toast
-      // alert(message);
+      // A4: Toast notification system
+      const container = document.getElementById('toast-container');
+      if (!container) { console.log(message); return; }
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      container.appendChild(toast);
+      // Auto-remove after 4 seconds with fade-out
+      setTimeout(() => {
+        toast.classList.add('fade-out');
+        toast.addEventListener('animationend', () => toast.remove());
+      }, 4000);
     }
 
     // Initialize view mode button listeners
@@ -2182,14 +3042,11 @@
       layer.setStyle(PRECINCT_STYLE.selected);
       layer.bringToFront();
 
-      // Update info card
+      // G9: Only show info card on click, don't auto-open profile panel
       updateInfoCard(feature.properties);
-
-      // Open precinct profile panel
-      openProfilePanel(feature.properties.PRECINCT);
     }
 
-    function openProfilePanel(precinctCode) {
+    async function openProfilePanel(precinctCode) {
       const panel = document.getElementById('precinct-profile-panel');
       const body = document.getElementById('profile-panel-body');
       panel.classList.add('active');
@@ -2249,13 +3106,145 @@
         }
       }
 
-      renderPrecinctProfile(precinctCode, body, extraData);
+      await renderPrecinctProfile(precinctCode, body, extraData);
+
+      // E3: Load and display election history for this precinct
+      loadPrecinctElectionHistory(precinctCode, body);
+
+      // Chat with Precinct
+      initPrecinctChat(precinctCode, body, extraData);
+    }
+
+    async function loadPrecinctElectionHistory(precinctCode, body) {
+      if (!state.elections || state.elections.length === 0) return;
+      // Build history from currently loaded election and a sample of elections
+      const historySection = document.createElement('div');
+      historySection.className = 'profile-section';
+      historySection.innerHTML = `
+        <div class="profile-section-title">Election History</div>
+        <div style="text-align:center;padding:12px;color:var(--text-muted);font-size:12px;">Loading history...</div>
+      `;
+      body.appendChild(historySection);
+
+      try {
+        // Load a sample of elections (up to 10 most recent) to build history
+        const electionsToLoad = state.elections.slice(0, 10);
+        const allElectionData = {};
+        for (const entry of electionsToLoad) {
+          try {
+            const data = await loadElectionData(entry);
+            allElectionData[entry.filename] = data;
+          } catch (err) {
+            // Skip failed loads silently
+          }
+        }
+
+        const history = buildVotingHistory(precinctCode, allElectionData);
+
+        if (history.races.length === 0) {
+          historySection.innerHTML = `
+            <div class="profile-section-title">Election History</div>
+            <div style="color:var(--text-muted);font-size:12px;padding:8px 0;">No election history found for this precinct.</div>
+          `;
+          return;
+        }
+
+        let tableHtml = `
+          <div class="profile-section-title">Election History (${history.races.length} races)</div>
+          <table class="election-history-table">
+            <thead><tr><th>Race</th><th>Winner</th><th>Turnout</th></tr></thead>
+            <tbody>
+        `;
+        for (const race of history.races.slice(0, 15)) {
+          const party = (race.winningParty || '').toLowerCase();
+          const partyClass = party === 'rep' ? 'party-rep' : party === 'dem' ? 'party-dem' : '';
+          const turnout = race.registeredVoters > 0
+            ? ((race.totalVotes / race.registeredVoters) * 100).toFixed(1) + '%'
+            : 'N/A';
+          const name = race.raceName.length > 25 ? race.raceName.substring(0, 25) + '...' : race.raceName;
+          tableHtml += `<tr><td>${name}</td><td class="${partyClass}">${race.winner}</td><td>${turnout}</td></tr>`;
+        }
+        tableHtml += '</tbody></table>';
+        historySection.innerHTML = tableHtml;
+      } catch (err) {
+        historySection.innerHTML = `
+          <div class="profile-section-title">Election History</div>
+          <div style="color:var(--text-muted);font-size:12px;padding:8px 0;">Could not load election history.</div>
+        `;
+      }
     }
 
     function closeProfilePanel() {
       const panel = document.getElementById('precinct-profile-panel');
       panel.classList.remove('active');
       panel.setAttribute('aria-hidden', 'true');
+      // Abort any active chat stream
+      if (state.chatCleanup) {
+        state.chatCleanup();
+        state.chatCleanup = null;
+      }
+    }
+
+    // ==========================================================================
+    // PRECINCT CHAT INITIALIZATION
+    // ==========================================================================
+
+    function initPrecinctChat(precinctCode, body, extraData) {
+      // Clean up previous chat
+      if (state.chatCleanup) {
+        state.chatCleanup();
+        state.chatCleanup = null;
+      }
+
+      const chatSection = createChatSection();
+      body.appendChild(chatSection);
+
+      let healthChecked = false;
+
+      // On first expand, check Ollama health
+      chatSection.addEventListener('chat-expanded', async () => {
+        if (healthChecked) return;
+        healthChecked = true;
+
+        const statusEl = chatSection.querySelector('.chat-status');
+        statusEl.style.display = 'block';
+        statusEl.textContent = 'Checking Ollama connection...';
+        statusEl.className = 'chat-status';
+
+        const health = await checkLLMHealth();
+        if (health.ok && health.modelAvailable) {
+          statusEl.textContent = 'Connected to Ollama';
+          statusEl.className = 'chat-status ok';
+          setTimeout(() => { statusEl.style.display = 'none'; }, 2000);
+        } else {
+          statusEl.textContent = health.reason || 'Cannot connect to Ollama';
+          statusEl.className = 'chat-status error';
+        }
+      });
+
+      // Build system prompt from available data
+      const censusProfile = state.censusProfiles?.[String(precinctCode)] || null;
+
+      // Gather election history (will be populated async)
+      const chatData = {
+        censusProfile,
+        partyData: extraData.partyData || null,
+        racialData: extraData.racialData || null,
+        officials: extraData.officials || null,
+        currentElection: extraData.electionData || null,
+        electionHistory: [],
+      };
+
+      const systemPrompt = buildSystemPrompt(precinctCode, chatData);
+
+      // Wire up the controller
+      state.chatCleanup = initChatController({
+        precinctCode,
+        chatSection,
+        conversationManager: state.chatConversationManager,
+        systemPrompt,
+        streamChatFn: streamChat,
+      });
     }
 
     // ==========================================================================
@@ -2395,7 +3384,7 @@
       legend.onAdd = function() {
         const div = L.DomUtil.create('div', 'map-legend-leaflet');
         div.innerHTML = `
-          <div style="background: white; padding: 12px 16px; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,0.12);">
+          <div style="background: var(--bg-primary); padding: 12px 16px; border-radius: 12px; box-shadow: var(--shadow-md);">
             <div style="font-weight: 600; margin-bottom: 8px; font-size: 13px;">Party Lean</div>
             <div style="display: flex; flex-direction: column; gap: 6px;">
               <div style="display: flex; align-items: center; gap: 8px;">
@@ -2411,7 +3400,7 @@
                 <span style="font-size: 12px;">Moderate</span>
               </div>
             </div>
-            <div style="font-size: 10px; color: #717171; margin-top: 8px;">Color intensity = strength</div>
+            <div style="font-size: 10px; color: var(--text-secondary); margin-top: 8px;">Color intensity = strength</div>
           </div>
         `;
         return div;
@@ -2447,10 +3436,10 @@
               <span style="font-size: 12px;">Moderate / Independent</span>
             </div>
           </div>
-          <div style="font-size: 10px; color: #717171; margin-top: 8px;">Color intensity = strength</div>
+          <div style="font-size: 10px; color: var(--text-secondary); margin-top: 8px;">Color intensity = strength</div>
         `;
       }
-      legendEl.innerHTML = `<div style="background: white; padding: 12px 16px; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,0.12);">${content}</div>`;
+      legendEl.innerHTML = `<div style="background: var(--bg-primary); padding: 12px 16px; border-radius: 12px; box-shadow: var(--shadow-md);">${content}</div>`;
     }
 
     // ==========================================================================
@@ -2557,7 +3546,7 @@
           id="panel-search-input"
           value="${state.filters.search}"
         />
-        <div class="filter-chips" id="filter-chips">
+        <div class="filter-chips" id="filter-chips" role="group" aria-label="Filter elections">
           ${renderFilterChips()}
         </div>
         ${state.currentElection ? `
@@ -2567,7 +3556,13 @@
                 <span class="forecast-label">Forecasting:</span>
                 <strong>${state.currentElection.displayName || formatElectionName(state.currentElection.filename)}</strong>
               </div>
-              <button id="clear-election-btn" class="clear-election-btn" title="Clear selection">✕</button>
+              <div style="display:flex;gap:6px;align-items:center;">
+                <button id="export-race-csv" class="export-csv-btn" title="Export race results to CSV">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Export CSV
+                </button>
+                <button id="clear-election-btn" class="clear-election-btn" title="Clear selection">✕</button>
+              </div>
             </div>
             <div id="turnout-simulator-container"></div>
             <div id="simulation-summary"></div>
@@ -2592,16 +3587,19 @@
 
     function renderFilterChips() {
       const years = [...new Set(state.elections.map(e => e.year).filter(y => y))].sort((a, b) => b - a);
-      
+      const noneActive = state.filters.category === 'All' && !state.filters.year;
+
       return `
-        <button class="filter-chip ${state.filters.category === 'All' && !state.filters.year ? 'active' : ''}" data-filter="all">All (${state.elections.length})</button>
-        ${years.slice(0, 3).map(year => `
-          <button class="filter-chip ${state.filters.year === year ? 'active' : ''}" data-filter="year-${year}">${year}</button>
-        `).join('')}
+        <button class="filter-chip ${noneActive ? 'active' : ''}" data-filter="all" aria-pressed="${noneActive}">All (${state.elections.length})</button>
+        ${years.slice(0, 3).map(year => {
+          const isActive = state.filters.year === year;
+          return `<button class="filter-chip ${isActive ? 'active' : ''}" data-filter="year-${year}" aria-pressed="${isActive}">${year}</button>`;
+        }).join('')}
         ${CATEGORY_ORDER.filter(c => c !== 'All').slice(0, 3).map(cat => {
           const count = filterByCategory(state.elections, cat).length;
+          const isActive = state.filters.category === cat;
           return count > 0 ? `
-            <button class="filter-chip ${state.filters.category === cat ? 'active' : ''}" data-filter="cat-${cat}">${cat}</button>
+            <button class="filter-chip ${isActive ? 'active' : ''}" data-filter="cat-${cat}" aria-pressed="${isActive}">${cat}</button>
           ` : '';
         }).join('')}
       `;
@@ -2630,14 +3628,21 @@
       return CATEGORY_ORDER.filter(cat => cat !== 'All').map(category => {
         const elections = grouped[category] || [];
         if (elections.length === 0) return '';
-        
+
+        // B5: Groups collapsed by default; expand if the current election belongs to this category
+        const hasSelected = state.currentElection && elections.some(e => e.filename === state.currentElection.filename);
+        const expandedClass = hasSelected ? 'expanded' : '';
+
         return `
-          <div class="election-group expanded" data-category="${category}">
+          <div class="election-group ${expandedClass}" data-category="${category}">
             <div class="group-header">
               <div>
                 <div class="group-title">${category}</div>
               </div>
-              <div class="group-count">${elections.length} races</div>
+              <span style="display:flex;align-items:center;gap:8px;">
+                <span class="group-count">${elections.length} races</span>
+                <svg class="group-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"></polyline></svg>
+              </span>
             </div>
             <div class="election-list">
               ${elections.map(entry => `
@@ -2679,19 +3684,22 @@
         });
       }
 
-      // Filter chips
+      // B6: Filter chips - combinable (AND logic). Year and category can both be active.
       document.querySelectorAll('.filter-chip').forEach(chip => {
         chip.addEventListener('click', () => {
           const filter = chip.dataset.filter;
           if (filter === 'all') {
+            // Clear both filters
             state.filters.year = null;
             state.filters.category = 'All';
           } else if (filter.startsWith('year-')) {
-            state.filters.year = parseInt(filter.replace('year-', ''));
-            state.filters.category = 'All';
+            const year = parseInt(filter.replace('year-', ''));
+            // Toggle: if already selected, deselect; otherwise select (keep category)
+            state.filters.year = (state.filters.year === year) ? null : year;
           } else if (filter.startsWith('cat-')) {
-            state.filters.category = filter.replace('cat-', '');
-            state.filters.year = null;
+            const cat = filter.replace('cat-', '');
+            // Toggle: if already selected, deselect; otherwise select (keep year)
+            state.filters.category = (state.filters.category === cat) ? 'All' : cat;
           }
           renderElectionPanel();
         });
@@ -2755,6 +3763,18 @@
         });
       });
 
+      // E1: Export CSV button
+      const exportRaceBtn = document.getElementById('export-race-csv');
+      if (exportRaceBtn) {
+        exportRaceBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (state.currentElectionData && state.currentElection) {
+            exportRaceResults(state.currentElectionData, state.currentElection.filename);
+            showNotification('Race results exported to CSV');
+          }
+        });
+      }
+
       // Bookmark stars
       document.querySelectorAll('.bookmark-star').forEach(star => {
         star.addEventListener('click', (e) => {
@@ -2775,7 +3795,14 @@
     async function selectElection(entry) {
       try {
         state.currentElection = entry;
-        
+
+        // D11: Hide welcome overlay
+        const welcomeOverlay = document.getElementById('welcome-overlay');
+        if (welcomeOverlay) welcomeOverlay.style.display = 'none';
+
+        // D12: Show loading overlay on map
+        showMapLoading();
+
         // Load election data
         const electionData = await loadElectionData(entry);
         state.currentElectionData = electionData;
@@ -2810,6 +3837,9 @@
         // Add to recently viewed
         addToRecentlyViewed(entry);
 
+        // D12: Remove loading overlay
+        hideMapLoading();
+
         // Switch to election view mode and update map
         setViewMode('election');
 
@@ -2832,6 +3862,7 @@
 
         console.log('✅ Loaded election:', entry.displayName || entry.filename);
       } catch (error) {
+        hideMapLoading(); // D12: clean up on error
         console.error('❌ Failed to load election:', error);
         showError('Failed to load election data.');
       }
@@ -2943,7 +3974,89 @@
         });
       }
 
+      // H13: Add simulator presets
+      const presetsHtml = `
+        <div class="simulator-presets">
+          <button class="preset-btn" data-preset="low-turnout" title="Rep: 0.8, Dem: 0.7, Mod: 0.7">Low Turnout</button>
+          <button class="preset-btn" data-preset="high-dem" title="Rep: 1.0, Dem: 1.3, Mod: 1.0">High Dem</button>
+          <button class="preset-btn" data-preset="baseline" title="All 1.0">Baseline</button>
+        </div>
+      `;
+      container.insertAdjacentHTML('afterend', presetsHtml);
+
+      // Wire up preset buttons
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const preset = btn.dataset.preset;
+          const presets = {
+            'low-turnout': { Rep: 0.8, Dem: 0.7, Mod: 0.7 },
+            'high-dem': { Rep: 1.0, Dem: 1.3, Mod: 1.0 },
+            'baseline': { Rep: 1.0, Dem: 1.0, Mod: 1.0 }
+          };
+          const values = presets[preset];
+          if (!values || !state.sliderState) return;
+          Object.entries(values).forEach(([party, val]) => {
+            state.sliderState.setValue(party, val);
+          });
+          // Update slider UI
+          document.querySelectorAll('.turnout-slider').forEach(s => {
+            const party = s.dataset.party;
+            if (values[party] !== undefined) {
+              s.value = values[party] * 100;
+            }
+          });
+          ['Rep', 'Dem', 'Mod'].forEach(party => {
+            const el = document.getElementById(`${party.toLowerCase()}-value`);
+            if (el && values[party] !== undefined) el.textContent = (values[party] * 100) + '%';
+          });
+          runSimulation();
+        });
+      });
+
+      // H11: Add export simulation button after summary
+      if (summaryDiv) {
+        const exportSimBtn = document.createElement('button');
+        exportSimBtn.className = 'export-sim-btn';
+        exportSimBtn.style.marginTop = '8px';
+        exportSimBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Export Simulation`;
+        exportSimBtn.addEventListener('click', () => exportSimulationResults());
+        summaryDiv.parentNode.insertBefore(exportSimBtn, summaryDiv.nextSibling);
+      }
+
       runSimulation();
+    }
+
+    // H11: Export simulation results
+    function exportSimulationResults() {
+      if (!state.simulationResult || !state.simulationResult.precinctResults) {
+        showNotification('Run a simulation first');
+        return;
+      }
+      const results = state.simulationResult.precinctResults;
+      const flippedSet = new Set(state.simulationResult.flippedPrecincts || []);
+      const rows = [];
+      for (const [precinctCode, result] of Object.entries(results)) {
+        if (!result || !result.winner) continue;
+        const row = {
+          'Precinct': precinctCode,
+          'Simulated Winner': result.winner.name || '',
+          'Simulated Winner Party': result.winner.party || '',
+          'Flipped': flippedSet.has(precinctCode) ? 'Y' : 'N'
+        };
+        // Add candidate vote columns from simulation
+        if (result.candidates) {
+          result.candidates.forEach(c => {
+            row[`Simulated: ${c.name}`] = c.simulatedVotes || c.votes || 0;
+          });
+        }
+        rows.push(row);
+      }
+      if (rows.length === 0) {
+        showNotification('No simulation data to export');
+        return;
+      }
+      downloadCSV(rows, `simulation_results_${new Date().toISOString().split('T')[0]}.csv`);
+      showNotification('Simulation results exported');
     }
 
     const debouncedRunSimulation = debounce(() => runSimulation(), 100);
@@ -2995,7 +4108,8 @@
           fillColor: color,
           fillOpacity: 0.7,
           weight: isFlipped ? 3 : 1,
-          color: isFlipped ? '#000' : '#444'
+          color: isFlipped ? '#000' : '#444',
+          dashArray: isFlipped ? '8 4' : null
         });
       });
     }
@@ -3129,7 +4243,28 @@
           demoHtml += `<div class="demo-row"><span>${d.label}</span><span>${d.value.toLocaleString()} (${pct})</span></div>`;
         });
       }
+
+      // G8: Add district info
+      const districtTags = [];
+      if (precinctProps.CONG) districtTags.push(`CD-${precinctProps.CONG}`);
+      if (precinctProps.COMMISH_N) districtTags.push(`Comm: ${precinctProps.COMMISH_N}`);
+      if (precinctProps.JP_N) districtTags.push(`JP: ${precinctProps.JP_N}`);
+      if (districtTags.length > 0) {
+        demoHtml += `<div class="info-card-districts">${districtTags.map(t => `<span class="district-tag">${t}</span>`).join('')}</div>`;
+      }
+
+      // G9: Add "View Full Profile" button
+      demoHtml += `<button class="view-profile-link" id="view-profile-btn">View Full Profile <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"></polyline></svg></button>`;
+
       demoEl.innerHTML = demoHtml;
+
+      // G9: Wire up the profile button
+      const profileBtn = document.getElementById('view-profile-btn');
+      if (profileBtn) {
+        profileBtn.addEventListener('click', () => {
+          openProfilePanel(precinctProps.PRECINCT);
+        });
+      }
 
       infoCard.classList.add('visible');
     }
@@ -3137,30 +4272,36 @@
     function updateInfoCardForElection(entry, electionData) {
       document.querySelector('.info-card-title').textContent = entry.displayName || formatElectionName(entry.filename);
       document.querySelector('.info-card-meta').textContent = `${entry.year || ''} • ${entry.category || 'Election'}`;
-      
-      // Calculate stats
-      const precinctCount = electionData.length;
-      const candidates = new Set();
-      electionData.forEach(row => {
-        Object.keys(row).forEach(key => {
-          if (!['Precinct', 'precinct', 'PRECINCT', 'Winning Party', 'winningParty', 'Total Votes', 'totalVotes'].includes(key)) {
-            if (row[key] && !isNaN(parseInt(row[key]))) {
-              candidates.add(key);
-            }
-          }
-        });
-      });
 
-      document.querySelector('.info-card-stats').innerHTML = `
+      // G7: Compute race summary
+      const summary = computeRaceSummary(electionData, state.simulationCandidates || []);
+
+      let statsHtml = '';
+      if (summary.winner) {
+        const winnerShort = summary.winner.length > 20 ? summary.winner.substring(0, 20) + '...' : summary.winner;
+        statsHtml += `
+          <div class="stat-item">
+            <div class="stat-label">Winner</div>
+            <div class="stat-value" style="font-size:14px;">${winnerShort}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Margin</div>
+            <div class="stat-value">+${summary.margin.toLocaleString()} (${summary.marginPct})</div>
+          </div>
+        `;
+      }
+      statsHtml += `
+        <div class="stat-item">
+          <div class="stat-label">Turnout</div>
+          <div class="stat-value">${summary.turnout}</div>
+        </div>
         <div class="stat-item">
           <div class="stat-label">Precincts</div>
-          <div class="stat-value">${precinctCount}</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-label">Candidates</div>
-          <div class="stat-value">${candidates.size}</div>
+          <div class="stat-value">${summary.activePrecincts}</div>
         </div>
       `;
+
+      document.querySelector('.info-card-stats').innerHTML = statsHtml;
       document.querySelector('.info-card-demographics').innerHTML = '';
 
       infoCard.classList.add('visible');
@@ -3356,6 +4497,21 @@
           togglePanel();
         }
       }
+
+      // E2: Keyboard shortcuts - only when no input/textarea is focused
+      const activeEl = document.activeElement;
+      const isInput = activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA' || activeEl.isContentEditable);
+      if (!isInput && !e.metaKey && !e.ctrlKey && !e.altKey) {
+        switch (e.key) {
+          case '1': setViewMode('demographics'); break;
+          case '2': setViewMode('election'); break;
+          case '3': setViewMode('turnout'); break;
+          case 'b':
+            e.preventDefault();
+            togglePanel();
+            break;
+        }
+      }
     });
 
     cmdKTrigger.addEventListener('click', openCommandPalette);
@@ -3377,17 +4533,41 @@
 
     function togglePanel() {
       const isActive = electionPanel.classList.contains('active');
+      const fabIconMenu = document.getElementById('fab-icon-menu');
+      const fabIconClose = document.getElementById('fab-icon-close');
       if (isActive) {
         electionPanel.classList.remove('active');
         electionPanel.setAttribute('aria-hidden', 'true');
         fab.classList.remove('active');
+        // F5: Update FAB aria-label
+        fab.setAttribute('aria-label', 'Browse elections');
+        // A2: Swap icon back to menu
+        if (fabIconMenu) fabIconMenu.style.display = '';
+        if (fabIconClose) fabIconClose.style.display = 'none';
+        // F5: Return focus to trigger button
+        openPanelBtn.focus();
       } else {
         electionPanel.classList.add('active');
         electionPanel.setAttribute('aria-hidden', 'false');
         fab.classList.add('active');
+        // F5: Update FAB aria-label
+        fab.setAttribute('aria-label', 'Close election browser');
+        // A2: Swap icon to X
+        if (fabIconMenu) fabIconMenu.style.display = 'none';
+        if (fabIconClose) fabIconClose.style.display = '';
         // Refresh panel content
         renderElectionPanel();
+        // D11: Hide welcome overlay when panel opens
+        const welcomeOverlay = document.getElementById('welcome-overlay');
+        if (welcomeOverlay) welcomeOverlay.style.display = 'none';
+        // F5: Focus search input when panel opens
+        setTimeout(() => {
+          const searchInput = document.getElementById('panel-search-input');
+          if (searchInput) searchInput.focus();
+        }, 100);
       }
+      // Update mobile tab bar Browse button active state
+      updateMobileTabBar();
     }
 
     fab.addEventListener('click', togglePanel);
@@ -3395,8 +4575,24 @@
     closePanelBtn.addEventListener('click', togglePanel);
     
     const forecastBtn = document.getElementById('forecast-btn');
-    forecastBtn.addEventListener('click', togglePanel);
-    
+    forecastBtn.addEventListener('click', () => {
+      // I15: When election is selected, open panel and scroll to forecast section
+      if (state.currentElection) {
+        if (!electionPanel.classList.contains('active')) {
+          togglePanel();
+        }
+        // Scroll to forecast section after panel renders
+        setTimeout(() => {
+          const forecastSection = document.getElementById('forecast-section');
+          if (forecastSection) {
+            forecastSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      } else {
+        togglePanel();
+      }
+    });
+
     function updateForecastButton() {
       if (state.currentElection) {
         forecastBtn.style.opacity = '1';
@@ -3419,16 +4615,21 @@
 
     function toggleHeader() {
       headerVisible = !headerVisible;
+      const showHeaderTab = document.getElementById('show-header-tab');
       if (headerVisible) {
         appHeader.classList.remove('collapsed');
         toggleHeaderBtn.textContent = 'Hide';
+        if (showHeaderTab) showHeaderTab.style.display = 'none';
       } else {
         appHeader.classList.add('collapsed');
         toggleHeaderBtn.textContent = 'Show';
+        if (showHeaderTab) showHeaderTab.style.display = 'flex';
       }
     }
 
     toggleHeaderBtn.addEventListener('click', toggleHeader);
+    // A3: Header restore tab click
+    document.getElementById('show-header-tab').addEventListener('click', toggleHeader);
 
     // ==========================================================================
     // ERROR HANDLING
@@ -3468,6 +4669,59 @@
     });
 
     // ==========================================================================
+    // MOBILE TAB BAR (A1)
+    // ==========================================================================
+    function initMobileTabBar() {
+      const tabBar = document.getElementById('mobile-tab-bar');
+      if (!tabBar) return;
+      tabBar.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const view = btn.dataset.view;
+          const action = btn.dataset.action;
+          if (action === 'browse') {
+            togglePanel();
+          } else if (view) {
+            setViewMode(view);
+          }
+          updateMobileTabBar();
+        });
+      });
+    }
+
+    function updateMobileTabBar() {
+      const tabBar = document.getElementById('mobile-tab-bar');
+      if (!tabBar) return;
+      tabBar.querySelectorAll('.tab-btn').forEach(btn => {
+        const view = btn.dataset.view;
+        const action = btn.dataset.action;
+        if (action === 'browse') {
+          btn.classList.toggle('active', electionPanel.classList.contains('active'));
+          btn.setAttribute('aria-selected', electionPanel.classList.contains('active'));
+        } else if (view) {
+          btn.classList.toggle('active', state.viewMode === view && !electionPanel.classList.contains('active'));
+          btn.setAttribute('aria-selected', state.viewMode === view);
+        }
+      });
+    }
+
+    // ==========================================================================
+    // MAP LOADING OVERLAY (D12)
+    // ==========================================================================
+    function showMapLoading() {
+      const container = document.getElementById('map-container');
+      if (!container || document.getElementById('map-loading-overlay')) return;
+      const overlay = document.createElement('div');
+      overlay.id = 'map-loading-overlay';
+      overlay.innerHTML = '<div class="loading-spinner"></div><div class="loading-text">Loading election data...</div>';
+      container.appendChild(overlay);
+    }
+
+    function hideMapLoading() {
+      const overlay = document.getElementById('map-loading-overlay');
+      if (overlay) overlay.remove();
+    }
+
+    // ==========================================================================
     // INITIALIZATION
     // ==========================================================================
     async function init() {
@@ -3499,6 +4753,32 @@
       // Profile panel close button
       document.getElementById('close-profile-panel').addEventListener('click', closeProfilePanel);
 
+      // E1: Export precinct data button in profile panel header
+      document.getElementById('export-precinct-csv').addEventListener('click', () => {
+        if (!state.selectedPrecinct) {
+          showNotification('No precinct selected');
+          return;
+        }
+        const code = state.selectedPrecinct.PRECINCT;
+        const props = state.selectedPrecinct;
+        const rows = [{
+          'Precinct': code,
+          'Winning Party': props.winningParty || '',
+          'Party Strength': props.partyStrength || '',
+          'Rep Voters': props.rep || 0,
+          'Mod Voters': props.mod || 0,
+          'Dem Voters': props.dem || 0,
+          'Rep Share': props.repShare || 0,
+          'Mod Share': props.modShare || 0,
+          'Dem Share': props.demShare || 0,
+          'Congressional District': props.CONG || '',
+          'Commissioner': props.COMMISH_N || '',
+          'Justice of Peace': props.JP_N || ''
+        }];
+        downloadCSV(rows, `precinct_${code}_profile.csv`);
+        showNotification(`Precinct ${code} data exported`);
+      });
+
       // Precinct search
       initPrecinctSearch();
 
@@ -3515,6 +4795,18 @@
           state.tileLayer.setUrl(newTheme === 'dark' ? DARK_TILE_URL : LIGHT_TILE_URL);
         }
       });
+
+      // A1: Mobile tab bar event listeners
+      initMobileTabBar();
+
+      // D11: Welcome overlay browse button
+      const welcomeBrowseBtn = document.getElementById('welcome-browse-btn');
+      if (welcomeBrowseBtn) {
+        welcomeBrowseBtn.addEventListener('click', () => {
+          document.getElementById('welcome-overlay').style.display = 'none';
+          togglePanel();
+        });
+      }
 
       // Restore state from URL
       restoreFromURL();

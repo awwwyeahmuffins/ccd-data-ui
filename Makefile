@@ -44,24 +44,29 @@ install:
 # SERVER COMMANDS
 # ===================
 
-# Kill anything on port 3000
+# Kill anything on port 3000 and Ollama
 stop:
 	@echo "Stopping processes on port 3000..."
 	@-lsof -ti:3000 | xargs kill -9 2>/dev/null || true
-	@echo "Port 3000 is free."
+	@echo "Stopping Ollama..."
+	@-pkill -f 'ollama serve' 2>/dev/null || true
+	@echo "Ports 3000 and 11434 are free."
 
 # Start server without killing existing
 serve:
 	@echo "Starting development server on http://localhost:3000..."
 	python3 -m http.server 3000
 
-# Kill + start (safe restart)
+# Kill + start (safe restart) — also starts Ollama for precinct chat
 start: stop
+	@echo "Starting Ollama..."
+	@ollama serve > /dev/null 2>&1 &
+	@sleep 1
 	@echo "Starting development server on http://localhost:3000..."
 	@python3 -m http.server 3000 &
-	@echo "Server started in background. Use 'make stop' to stop it."
+	@echo "Server and Ollama started in background. Use 'make stop' to stop them."
 	@sleep 1
-	@echo "Opening http://localhost:3000 in browser..."
+	@echo "Opening http://localhost:3000/index.html in browser..."
 	@open http://localhost:3000/index.html 2>/dev/null || xdg-open http://localhost:3000/index.html 2>/dev/null || echo "Open http://localhost:3000/index.html in your browser"
 
 # ===================
