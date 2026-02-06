@@ -62,7 +62,7 @@ start: stop
 	@echo "Server started in background. Use 'make stop' to stop it."
 	@sleep 1
 	@echo "Opening http://localhost:3000 in browser..."
-	@open http://localhost:3000/index-new.html 2>/dev/null || xdg-open http://localhost:3000/index-new.html 2>/dev/null || echo "Open http://localhost:3000/index-new.html in your browser"
+	@open http://localhost:3000/index.html 2>/dev/null || xdg-open http://localhost:3000/index.html 2>/dev/null || echo "Open http://localhost:3000/index.html in your browser"
 
 # ===================
 # TESTING

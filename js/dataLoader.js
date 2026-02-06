@@ -70,7 +70,12 @@ export async function loadAllData() {
     hispanic: +d.hispanic,
     others: +d.others,
     white: +d.white,
-    total: +d.total
+    total: +d.total,
+    pct_asian: parseFloat(d.pct_asian) / 100 || 0,
+    pct_black: parseFloat(d.pct_black) / 100 || 0,
+    pct_hispanic: parseFloat(d.pct_hispanic) / 100 || 0,
+    pct_others: parseFloat(d.pct_others) / 100 || 0,
+    pct_white: parseFloat(d.pct_white) / 100 || 0
   }));
 
   // Wait for all three
