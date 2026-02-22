@@ -322,12 +322,10 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   html += `<div class="profile-pop">Pop. ${escapeHtml(formatNum(p.population))} &middot; ${escapeHtml(formatNum(p.households?.total))} households</div>`;
   html += `</div>`;
 
-  // Synthetic data disclaimer for 2026 boundaries
-  if (boundary === "2026") {
-    html += `<div class="profile-disclaimer">`;
-    html += `<strong>Illustrative Data</strong> &mdash; Census figures are modeled from regional patterns, not actual American Community Survey data.`;
-    html += `</div>`;
-  }
+  // ACS data attribution
+  html += `<div class="profile-disclaimer">`;
+  html += `Census data from ACS 2019&ndash;2023 5-year estimates, aggregated from block groups.`;
+  html += `</div>`;
 
   // Key Takeaways
   html += renderTakeaways(p);
