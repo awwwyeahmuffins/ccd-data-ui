@@ -199,6 +199,8 @@ describe('getPrecinctResult', () => {
       'PRECINCT NAME': 'PCT 101',
       'REGISTERED VOTERS TOTAL': '2737',
       'BALLOTS CAST TOTAL': '1491',
+      'REP Greg Abbott': '831',
+      'DEM Beto ORourke': '660',
       'Winning Candidate': 'REP Greg Abbott',
       'Winning Party': 'REP'
     },
@@ -207,6 +209,8 @@ describe('getPrecinctResult', () => {
       'PRECINCT NAME': 'PCT 102',
       'REGISTERED VOTERS TOTAL': '1000',
       'BALLOTS CAST TOTAL': '0',
+      'REP Greg Abbott': '0',
+      'DEM Beto ORourke': '0',
       'Winning Candidate': '',
       'Winning Party': ''
     },
@@ -215,6 +219,8 @@ describe('getPrecinctResult', () => {
       'PRECINCT NAME': 'PCT 103',
       'REGISTERED VOTERS TOTAL': '3000',
       'BALLOTS CAST TOTAL': '1500',
+      'REP Greg Abbott': '600',
+      'DEM Beto ORourke': '900',
       'Winning Candidate': 'DEM Beto ORourke',
       'Winning Party': 'DEM'
     }
@@ -226,7 +232,7 @@ describe('getPrecinctResult', () => {
     expect(result.precinctCode).toBe('101');
     expect(result.winner).toBe('REP Greg Abbott');
     expect(result.winningParty).toBe('REP');
-    expect(result.totalVotes).toBe(1491);
+    expect(result.totalVotes).toBe(1491);  // 831 + 660 = 1491
     expect(result.registeredVoters).toBe(2737);
   });
   
@@ -270,18 +276,18 @@ describe('getPrecinctResult', () => {
 describe('buildVotingHistory', () => {
   const mockAllElectionData = {
     'Governor.csv': [
-      { 'PRECINCT CODE': '101', 'BALLOTS CAST TOTAL': '1000', 'REGISTERED VOTERS TOTAL': '2000', 'Winning Candidate': 'REP Abbott', 'Winning Party': 'REP' },
-      { 'PRECINCT CODE': '102', 'BALLOTS CAST TOTAL': '500', 'REGISTERED VOTERS TOTAL': '1000', 'Winning Candidate': 'DEM Beto', 'Winning Party': 'DEM' }
+      { 'PRECINCT CODE': '101', 'BALLOTS CAST TOTAL': '1000', 'REGISTERED VOTERS TOTAL': '2000', 'REP Abbott': '600', 'DEM Beto': '400', 'Winning Candidate': 'REP Abbott', 'Winning Party': 'REP' },
+      { 'PRECINCT CODE': '102', 'BALLOTS CAST TOTAL': '500', 'REGISTERED VOTERS TOTAL': '1000', 'REP Abbott': '200', 'DEM Beto': '300', 'Winning Candidate': 'DEM Beto', 'Winning Party': 'DEM' }
     ],
     'President_Vice_President.csv': [
-      { 'PRECINCT CODE': '101', 'BALLOTS CAST TOTAL': '1100', 'REGISTERED VOTERS TOTAL': '2000', 'Winning Candidate': 'REP Trump', 'Winning Party': 'REP' },
-      { 'PRECINCT CODE': '102', 'BALLOTS CAST TOTAL': '600', 'REGISTERED VOTERS TOTAL': '1000', 'Winning Candidate': 'DEM Biden', 'Winning Party': 'DEM' }
+      { 'PRECINCT CODE': '101', 'BALLOTS CAST TOTAL': '1100', 'REGISTERED VOTERS TOTAL': '2000', 'REP Trump': '700', 'DEM Biden': '400', 'Winning Candidate': 'REP Trump', 'Winning Party': 'REP' },
+      { 'PRECINCT CODE': '102', 'BALLOTS CAST TOTAL': '600', 'REGISTERED VOTERS TOTAL': '1000', 'REP Trump': '250', 'DEM Biden': '350', 'Winning Candidate': 'DEM Biden', 'Winning Party': 'DEM' }
     ],
     'Sheriff.csv': [
-      { 'PRECINCT CODE': '101', 'BALLOTS CAST TOTAL': '900', 'REGISTERED VOTERS TOTAL': '2000', 'Winning Candidate': 'REP Smith', 'Winning Party': 'REP' }
+      { 'PRECINCT CODE': '101', 'BALLOTS CAST TOTAL': '900', 'REGISTERED VOTERS TOTAL': '2000', 'REP Smith': '900', 'Winning Candidate': 'REP Smith', 'Winning Party': 'REP' }
     ],
     'Plano_ISD_-_Proposition_A.csv': [
-      { 'PRECINCT CODE': '102', 'BALLOTS CAST TOTAL': '400', 'REGISTERED VOTERS TOTAL': '1000', 'Winning Candidate': 'For', 'Winning Party': 'FOR' }
+      { 'PRECINCT CODE': '102', 'BALLOTS CAST TOTAL': '400', 'REGISTERED VOTERS TOTAL': '1000', 'For': '250', 'Against': '150', 'Winning Candidate': 'For', 'Winning Party': 'FOR' }
     ]
   };
   
@@ -342,10 +348,10 @@ describe('buildVotingHistory', () => {
 
 describe('comparePrecincts', () => {
   const mockElectionData = [
-    { 'PRECINCT CODE': '101', 'BALLOTS CAST TOTAL': '1000', 'REGISTERED VOTERS TOTAL': '2000', 'Winning Candidate': 'REP Abbott', 'Winning Party': 'REP' },
-    { 'PRECINCT CODE': '102', 'BALLOTS CAST TOTAL': '500', 'REGISTERED VOTERS TOTAL': '1000', 'Winning Candidate': 'REP Abbott', 'Winning Party': 'REP' },
-    { 'PRECINCT CODE': '103', 'BALLOTS CAST TOTAL': '600', 'REGISTERED VOTERS TOTAL': '1000', 'Winning Candidate': 'DEM Beto', 'Winning Party': 'DEM' },
-    { 'PRECINCT CODE': '104', 'BALLOTS CAST TOTAL': '0', 'REGISTERED VOTERS TOTAL': '1000', 'Winning Candidate': '', 'Winning Party': '' }
+    { 'PRECINCT CODE': '101', 'BALLOTS CAST TOTAL': '1000', 'REGISTERED VOTERS TOTAL': '2000', 'REP Abbott': '600', 'DEM Beto': '400', 'Winning Candidate': 'REP Abbott', 'Winning Party': 'REP' },
+    { 'PRECINCT CODE': '102', 'BALLOTS CAST TOTAL': '500', 'REGISTERED VOTERS TOTAL': '1000', 'REP Abbott': '300', 'DEM Beto': '200', 'Winning Candidate': 'REP Abbott', 'Winning Party': 'REP' },
+    { 'PRECINCT CODE': '103', 'BALLOTS CAST TOTAL': '600', 'REGISTERED VOTERS TOTAL': '1000', 'REP Abbott': '200', 'DEM Beto': '400', 'Winning Candidate': 'DEM Beto', 'Winning Party': 'DEM' },
+    { 'PRECINCT CODE': '104', 'BALLOTS CAST TOTAL': '0', 'REGISTERED VOTERS TOTAL': '1000', 'REP Abbott': '0', 'DEM Beto': '0', 'Winning Candidate': '', 'Winning Party': '' }
   ];
   
   it('should compare two precincts with same winner', () => {

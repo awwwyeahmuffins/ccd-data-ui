@@ -85,17 +85,32 @@ export function getPrecinctResult(electionData, precinctCode) {
     return null;
   }
   
-  // Check if precinct actually participated (has votes)
-  const ballotsCast = Number(record['BALLOTS CAST TOTAL']) || 0;
-  if (ballotsCast === 0) {
+  // Check if precinct actually participated in this race by summing candidate votes.
+  // BALLOTS CAST TOTAL is precinct-wide and unreliable for district-specific races
+  // (e.g. precinct outside a congressional district still shows total ballots).
+  const skipKeys = new Set([
+    'COUNTY NUMBER', 'PRECINCT CODE', 'PRECINCT NAME',
+    'REGISTERED VOTERS TOTAL', 'BALLOTS CAST TOTAL', 'BALLOTS CAST BLANK',
+    'OVER VOTES', 'UNDER VOTES', 'Write-in',
+    'Winning Candidate', 'Winning Party'
+  ]);
+  let candidateVotes = 0;
+  for (let key of Object.keys(record)) {
+    if (!skipKeys.has(key)) {
+      candidateVotes += Number(record[key]) || 0;
+    }
+  }
+  if (candidateVotes === 0) {
     return null;
   }
-  
+
+  const ballotsCast = Number(record['BALLOTS CAST TOTAL']) || 0;
+
   return {
     precinctCode: codeStr,
     winner: record['Winning Candidate'] || 'N/A',
     winningParty: record['Winning Party'] || 'N/A',
-    totalVotes: ballotsCast,
+    totalVotes: candidateVotes,
     registeredVoters: Number(record['REGISTERED VOTERS TOTAL']) || 0
   };
 }
