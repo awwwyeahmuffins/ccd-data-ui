@@ -8,13 +8,13 @@
 // ============================================================================
 
 // Supports both mixed case (Rep, Dem) and uppercase (REP, DEM) party codes
-const VALID_PARTIES = new Set([
+let VALID_PARTIES = new Set([
   'Rep', 'Dem', 'Mod', 'Lib', 'Grn', 'Ind', 'Con', 'For', 'Against',
   'REP', 'DEM', 'MOD', 'LIB', 'GRN', 'IND', 'CON', 'FOR', 'AGAINST'
 ]);
 
 // Map uppercase to normalized codes for turnout multipliers
-const PARTY_NORMALIZE = {
+let PARTY_NORMALIZE = {
   'REP': 'Rep',
   'DEM': 'Dem',
   'MOD': 'Mod',
@@ -77,16 +77,16 @@ export function estimatePartyVotersInPrecinct(electionRow, candidates, dncRow) {
   // Calculate total votes by party
   let repVotes = 0, demVotes = 0, modVotes = 0, totalVotes = 0;
   
-  candidates.forEach(candidate => {
-    const party = extractParty(candidate);
-    const normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
-    const votes = Number(electionRow[candidate]) || 0;
+  for (let candidate of candidates) {
+    let party = extractParty(candidate);
+    let normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
+    let votes = Number(electionRow[candidate]) || 0;
     totalVotes += votes;
-    
+
     if (normalizedParty === 'Rep') repVotes += votes;
     else if (normalizedParty === 'Dem') demVotes += votes;
     else if (normalizedParty === 'Mod' || normalizedParty === 'Lib' || normalizedParty === 'Grn') modVotes += votes;
-  });
+  }
 
   if (totalVotes === 0) {
     return { repVoted: 0, demVoted: 0, modVoted: 0, totalVoted: 0 };
@@ -141,7 +141,7 @@ export function calculateNonVotersByParty(electionRow, candidates, dncRow) {
   }
 
   // Estimate party voters who already voted
-  const partyVoters = estimatePartyVotersInPrecinct(electionRow, candidates, dncRow);
+  let partyVoters = estimatePartyVotersInPrecinct(electionRow, candidates, dncRow);
 
   // Non-voters by party = party registration - estimated party voters, clamped to >= 0
   // Also proportionally distribute based on DNC shares
@@ -172,41 +172,41 @@ export function simulatePrecinctWithExtendedTurnout(electionRow, dncRow, turnout
     return { adjustedVotes: {}, winner: null, originalWinner: null, flipped: false };
   }
 
-  const adjustedVotes = {};
-  const originalVotes = {};
+  let adjustedVotes = {};
+  let originalVotes = {};
 
   // Calculate non-voters by party for adding votes when multiplier > 1
-  const nonVoters = calculateNonVotersByParty(electionRow, candidates, dncRow);
+  let nonVoters = calculateNonVotersByParty(electionRow, candidates, dncRow);
 
   // Calculate original total votes
   let originalTotalVotes = 0;
-  candidates.forEach(candidate => {
-    const votes = Number(electionRow[candidate]) || 0;
+  for (let candidate of candidates) {
+    let votes = Number(electionRow[candidate]) || 0;
     originalVotes[candidate] = votes;
     originalTotalVotes += votes;
-  });
+  }
 
   if (originalTotalVotes === 0) {
     return { adjustedVotes: {}, winner: null, originalWinner: null, flipped: false };
   }
 
   // Calculate votes by party for proportional allocation
-  const votesByParty = { Rep: 0, Dem: 0, Mod: 0 };
-  candidates.forEach(candidate => {
-    const party = extractParty(candidate);
-    const normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
-    const votes = Number(electionRow[candidate]) || 0;
-    
+  let votesByParty = { Rep: 0, Dem: 0, Mod: 0 };
+  for (let candidate of candidates) {
+    let party = extractParty(candidate);
+    let normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
+    let votes = Number(electionRow[candidate]) || 0;
+
     if (normalizedParty === 'Rep') votesByParty.Rep += votes;
     else if (normalizedParty === 'Dem') votesByParty.Dem += votes;
     else if (normalizedParty === 'Mod' || normalizedParty === 'Lib' || normalizedParty === 'Grn') votesByParty.Mod += votes;
-  });
+  }
 
   // For each candidate, apply the appropriate turnout multiplier
-  candidates.forEach(candidate => {
-    const party = extractParty(candidate);
-    const normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
-    const originalVoteCount = Number(electionRow[candidate]) || 0;
+  for (let candidate of candidates) {
+    let party = extractParty(candidate);
+    let normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
+    let originalVoteCount = Number(electionRow[candidate]) || 0;
 
     // Get multiplier for this party (default to 1.0)
     let multiplier = 1.0;
@@ -249,14 +249,14 @@ export function simulatePrecinctWithExtendedTurnout(electionRow, dncRow, turnout
       
       adjustedVotes[candidate] = Math.round(originalVoteCount + extraVotes);
     }
-  });
+  }
 
-  const originalWinner = determineWinner(originalVotes);
-  const simulatedWinner = determineWinner(adjustedVotes);
+  let originalWinner = determineWinner(originalVotes);
+  let simulatedWinner = determineWinner(adjustedVotes);
 
-  const flipped = originalWinner.name !== simulatedWinner.name &&
-                  originalWinner.name !== null &&
-                  simulatedWinner.name !== null;
+  let flipped = originalWinner.name !== simulatedWinner.name &&
+                originalWinner.name !== null &&
+                simulatedWinner.name !== null;
 
   return {
     adjustedVotes,
@@ -280,26 +280,26 @@ export function simulatePrecinctWithTargetTurnout(electionRow, dncRow, targetTur
     return { adjustedVotes: {}, winner: null, originalWinner: null, flipped: false };
   }
 
-  const registeredTotal = Number(electionRow['REGISTERED VOTERS TOTAL']) || 0;
-  const ballotsCast = Number(electionRow['BALLOTS CAST TOTAL']) || 0;
+  let registeredTotal = Number(electionRow['REGISTERED VOTERS TOTAL']) || 0;
+  let ballotsCast = Number(electionRow['BALLOTS CAST TOTAL']) || 0;
 
   if (registeredTotal === 0) {
     return { adjustedVotes: {}, winner: null, originalWinner: null, flipped: false };
   }
 
-  const currentTurnout = ballotsCast / registeredTotal;
-  const targetBallots = Math.round(registeredTotal * targetTurnoutPct);
+  let currentTurnout = ballotsCast / registeredTotal;
+  let targetBallots = Math.round(registeredTotal * targetTurnoutPct);
 
-  const adjustedVotes = {};
-  const originalVotes = {};
+  let adjustedVotes = {};
+  let originalVotes = {};
 
   // Calculate original total votes
   let originalTotalVotes = 0;
-  candidates.forEach(candidate => {
-    const votes = Number(electionRow[candidate]) || 0;
+  for (let candidate of candidates) {
+    let votes = Number(electionRow[candidate]) || 0;
     originalVotes[candidate] = votes;
     originalTotalVotes += votes;
-  });
+  }
 
   if (originalTotalVotes === 0) {
     return { adjustedVotes: {}, winner: null, originalWinner: null, flipped: false };
@@ -307,43 +307,43 @@ export function simulatePrecinctWithTargetTurnout(electionRow, dncRow, targetTur
 
   if (targetBallots <= ballotsCast) {
     // Reduced turnout: scale down proportionally
-    const scaleFactor = targetBallots / ballotsCast;
-    candidates.forEach(candidate => {
-      const originalVoteCount = Number(electionRow[candidate]) || 0;
+    let scaleFactor = targetBallots / ballotsCast;
+    for (let candidate of candidates) {
+      let originalVoteCount = Number(electionRow[candidate]) || 0;
       adjustedVotes[candidate] = Math.round(originalVoteCount * scaleFactor);
-    });
+    }
   } else {
     // Increased turnout: add votes from non-voters proportionally by party
-    const extraVotes = targetBallots - ballotsCast;
-    const nonVoters = calculateNonVotersByParty(electionRow, candidates, dncRow);
+    let extraVotes = targetBallots - ballotsCast;
+    let nonVoters = calculateNonVotersByParty(electionRow, candidates, dncRow);
 
     // Get party registration from DNC data
-    const repReg = Number(dncRow.Rep) || 0;
-    const demReg = Number(dncRow.Dem) || 0;
-    const modReg = Number(dncRow.Mod) || 0;
-    const dncTotal = repReg + demReg + modReg || 1;
+    let repReg = Number(dncRow.Rep) || 0;
+    let demReg = Number(dncRow.Dem) || 0;
+    let modReg = Number(dncRow.Mod) || 0;
+    let dncTotal = repReg + demReg + modReg || 1;
 
     // Calculate votes by party for proportional allocation
-    const votesByParty = { Rep: 0, Dem: 0, Mod: 0 };
-    candidates.forEach(candidate => {
-      const party = extractParty(candidate);
-      const normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
-      const votes = Number(electionRow[candidate]) || 0;
-      
+    let votesByParty = { Rep: 0, Dem: 0, Mod: 0 };
+    for (let candidate of candidates) {
+      let party = extractParty(candidate);
+      let normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
+      let votes = Number(electionRow[candidate]) || 0;
+
       if (normalizedParty === 'Rep') votesByParty.Rep += votes;
       else if (normalizedParty === 'Dem') votesByParty.Dem += votes;
       else if (normalizedParty === 'Mod' || normalizedParty === 'Lib' || normalizedParty === 'Grn') votesByParty.Mod += votes;
-    });
+    }
 
     // Allocate extra votes by party proportion
-    const extraRepVotes = Math.min(extraVotes * (repReg / dncTotal), nonVoters.repNonVoters);
-    const extraDemVotes = Math.min(extraVotes * (demReg / dncTotal), nonVoters.demNonVoters);
-    const extraModVotes = Math.min(extraVotes * (modReg / dncTotal), nonVoters.modNonVoters);
+    let extraRepVotes = Math.min(extraVotes * (repReg / dncTotal), nonVoters.repNonVoters);
+    let extraDemVotes = Math.min(extraVotes * (demReg / dncTotal), nonVoters.demNonVoters);
+    let extraModVotes = Math.min(extraVotes * (modReg / dncTotal), nonVoters.modNonVoters);
 
-    candidates.forEach(candidate => {
-      const party = extractParty(candidate);
-      const normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
-      const originalVoteCount = Number(electionRow[candidate]) || 0;
+    for (let candidate of candidates) {
+      let party = extractParty(candidate);
+      let normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
+      let originalVoteCount = Number(electionRow[candidate]) || 0;
 
       let extraForCandidate = 0;
       if (normalizedParty === 'Rep' && votesByParty.Rep > 0) {
@@ -355,15 +355,15 @@ export function simulatePrecinctWithTargetTurnout(electionRow, dncRow, targetTur
       }
 
       adjustedVotes[candidate] = Math.round(originalVoteCount + extraForCandidate);
-    });
+    }
   }
 
-  const originalWinner = determineWinner(originalVotes);
-  const simulatedWinner = determineWinner(adjustedVotes);
+  let originalWinner = determineWinner(originalVotes);
+  let simulatedWinner = determineWinner(adjustedVotes);
 
-  const flipped = originalWinner.name !== simulatedWinner.name &&
-                  originalWinner.name !== null &&
-                  simulatedWinner.name !== null;
+  let flipped = originalWinner.name !== simulatedWinner.name &&
+                originalWinner.name !== null &&
+                simulatedWinner.name !== null;
 
   return {
     adjustedVotes,
@@ -387,19 +387,19 @@ export function applyVoterFlip(baseVotes, flipRates, candidates) {
     return { ...baseVotes };
   }
 
-  const adjustedVotes = {};
-  candidates.forEach(c => {
+  let adjustedVotes = {};
+  for (let c of candidates) {
     adjustedVotes[c] = baseVotes[c] || 0;
-  });
+  }
 
   // Calculate total votes by party
-  const votesByParty = { Rep: 0, Dem: 0, Mod: 0 };
-  const candidatesByParty = { Rep: [], Dem: [], Mod: [] };
+  let votesByParty = { Rep: 0, Dem: 0, Mod: 0 };
+  let candidatesByParty = { Rep: [], Dem: [], Mod: [] };
 
-  candidates.forEach(candidate => {
-    const party = extractParty(candidate);
-    const normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
-    const votes = baseVotes[candidate] || 0;
+  for (let candidate of candidates) {
+    let party = extractParty(candidate);
+    let normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
+    let votes = baseVotes[candidate] || 0;
 
     if (normalizedParty === 'Rep') {
       votesByParty.Rep += votes;
@@ -411,50 +411,52 @@ export function applyVoterFlip(baseVotes, flipRates, candidates) {
       votesByParty.Mod += votes;
       candidatesByParty.Mod.push(candidate);
     }
-  });
+  }
 
   // Apply each flip rate to ORIGINAL base votes (not chained)
-  const flipDeltas = {};
-  candidates.forEach(c => flipDeltas[c] = 0);
+  let flipDeltas = {};
+  for (let c of candidates) {
+    flipDeltas[c] = 0;
+  }
 
-  Object.entries(flipRates).forEach(([flipKey, rate]) => {
-    if (!rate || rate <= 0) return;
+  for (let [flipKey, rate] of Object.entries(flipRates)) {
+    if (!rate || rate <= 0) continue;
 
-    const [fromParty, toParty] = flipKey.split('→');
-    if (!fromParty || !toParty) return;
+    let [fromParty, toParty] = flipKey.split('→');
+    if (!fromParty || !toParty) continue;
 
-    const fromCandidates = candidatesByParty[fromParty] || [];
-    const toCandidates = candidatesByParty[toParty] || [];
-    
-    if (fromCandidates.length === 0 || toCandidates.length === 0) return;
+    let fromCandidates = candidatesByParty[fromParty] || [];
+    let toCandidates = candidatesByParty[toParty] || [];
 
-    const fromTotalVotes = votesByParty[fromParty] || 0;
-    const votesToMove = Math.round(fromTotalVotes * rate);
+    if (fromCandidates.length === 0 || toCandidates.length === 0) continue;
 
-    if (votesToMove <= 0) return;
+    let fromTotalVotes = votesByParty[fromParty] || 0;
+    let votesToMove = Math.round(fromTotalVotes * rate);
+
+    if (votesToMove <= 0) continue;
 
     // Calculate total votes for to-party to determine distribution
-    const toTotalVotes = votesByParty[toParty] || 0;
+    let toTotalVotes = votesByParty[toParty] || 0;
 
     // Subtract proportionally from "from" candidates
-    fromCandidates.forEach(candidate => {
-      const candidateVotes = baseVotes[candidate] || 0;
-      const candidateShare = fromTotalVotes > 0 ? candidateVotes / fromTotalVotes : 0;
+    for (let candidate of fromCandidates) {
+      let candidateVotes = baseVotes[candidate] || 0;
+      let candidateShare = fromTotalVotes > 0 ? candidateVotes / fromTotalVotes : 0;
       flipDeltas[candidate] -= votesToMove * candidateShare;
-    });
+    }
 
     // Add proportionally to "to" candidates
-    toCandidates.forEach(candidate => {
-      const candidateVotes = baseVotes[candidate] || 0;
-      const candidateShare = toTotalVotes > 0 ? candidateVotes / toTotalVotes : (1 / toCandidates.length);
+    for (let candidate of toCandidates) {
+      let candidateVotes = baseVotes[candidate] || 0;
+      let candidateShare = toTotalVotes > 0 ? candidateVotes / toTotalVotes : (1 / toCandidates.length);
       flipDeltas[candidate] += votesToMove * candidateShare;
-    });
-  });
+    }
+  }
 
   // Apply deltas and ensure no negative votes
-  candidates.forEach(candidate => {
+  for (let candidate of candidates) {
     adjustedVotes[candidate] = Math.max(0, Math.round(adjustedVotes[candidate] + flipDeltas[candidate]));
-  });
+  }
 
   return adjustedVotes;
 }
@@ -472,7 +474,7 @@ export function applyVoterFlip(baseVotes, flipRates, candidates) {
  */
 export function simulatePrecinctCombined(electionRow, dncRow, turnoutMultipliers, flipRates, candidates) {
   // First apply turnout adjustments
-  const turnoutResult = simulatePrecinctWithExtendedTurnout(
+  let turnoutResult = simulatePrecinctWithExtendedTurnout(
     electionRow, dncRow, turnoutMultipliers, candidates
   );
 
@@ -481,19 +483,19 @@ export function simulatePrecinctCombined(electionRow, dncRow, turnoutMultipliers
   }
 
   // Then apply voter flip to turnout-adjusted votes
-  const adjustedVotes = applyVoterFlip(turnoutResult.adjustedVotes, flipRates, candidates);
+  let adjustedVotes = applyVoterFlip(turnoutResult.adjustedVotes, flipRates, candidates);
 
   // Recalculate winner
-  const originalVotes = {};
-  candidates.forEach(c => {
+  let originalVotes = {};
+  for (let c of candidates) {
     originalVotes[c] = Number(electionRow[c]) || 0;
-  });
-  const originalWinner = determineWinner(originalVotes);
-  const simulatedWinner = determineWinner(adjustedVotes);
+  }
+  let originalWinner = determineWinner(originalVotes);
+  let simulatedWinner = determineWinner(adjustedVotes);
 
-  const flipped = originalWinner.name !== simulatedWinner.name &&
-                  originalWinner.name !== null &&
-                  simulatedWinner.name !== null;
+  let flipped = originalWinner.name !== simulatedWinner.name &&
+                originalWinner.name !== null &&
+                simulatedWinner.name !== null;
 
   return {
     adjustedVotes,
@@ -513,8 +515,8 @@ export function extractParty(candidateName) {
   if (!candidateName || typeof candidateName !== 'string') {
     return null;
   }
-  const parts = candidateName.trim().split(' ');
-  const partyCode = parts[0];
+  let parts = candidateName.trim().split(' ');
+  let partyCode = parts[0];
   
   return VALID_PARTIES.has(partyCode) ? partyCode : null;
 }
@@ -533,8 +535,8 @@ export function determineWinner(candidateVotes) {
   let maxVotes = 0;
   let winner = null;
   
-  for (const [candidate, votes] of Object.entries(candidateVotes)) {
-    const voteCount = Number(votes) || 0;
+  for (let [candidate, votes] of Object.entries(candidateVotes)) {
+    let voteCount = Number(votes) || 0;
     if (voteCount > maxVotes) {
       maxVotes = voteCount;
       winner = candidate;
@@ -565,38 +567,38 @@ export function simulatePrecinctOutcome(electionData, dncData, turnoutMultiplier
     return { adjustedVotes: {}, winner: null, originalWinner: null, flipped: false };
   }
   
-  const adjustedVotes = {};
-  const originalVotes = {};
-  
+  let adjustedVotes = {};
+  let originalVotes = {};
+
   // Get party registration totals
-  const partyReg = {
+  let partyReg = {
     Rep: Number(dncData.Rep) || 0,
     Dem: Number(dncData.Dem) || 0,
     Mod: Number(dncData.Mod) || 0
   };
-  const totalReg = partyReg.Rep + partyReg.Dem + partyReg.Mod;
-  
+  let totalReg = partyReg.Rep + partyReg.Dem + partyReg.Mod;
+
   if (totalReg === 0) {
     return { adjustedVotes: {}, winner: null, originalWinner: null, flipped: false };
   }
-  
+
   // Calculate original total votes
   let originalTotalVotes = 0;
-  candidates.forEach(candidate => {
-    const votes = Number(electionData[candidate]) || 0;
+  for (let candidate of candidates) {
+    let votes = Number(electionData[candidate]) || 0;
     originalVotes[candidate] = votes;
     originalTotalVotes += votes;
-  });
-  
+  }
+
   if (originalTotalVotes === 0) {
     return { adjustedVotes: {}, winner: null, originalWinner: null, flipped: false };
   }
-  
+
   // For each candidate, apply the appropriate turnout multiplier based on party
-  candidates.forEach(candidate => {
-    const party = extractParty(candidate);
-    const normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
-    const originalVoteCount = Number(electionData[candidate]) || 0;
+  for (let candidate of candidates) {
+    let party = extractParty(candidate);
+    let normalizedParty = party ? (PARTY_NORMALIZE[party] || party) : null;
+    let originalVoteCount = Number(electionData[candidate]) || 0;
     
     // Get multiplier for this party (default to 1.0 if not found)
     let multiplier = 1.0;
@@ -614,15 +616,15 @@ export function simulatePrecinctOutcome(electionData, dncData, turnoutMultiplier
     
     // Apply multiplier to original votes
     adjustedVotes[candidate] = Math.round(originalVoteCount * multiplier);
-  });
-  
-  const originalWinner = determineWinner(originalVotes);
-  const simulatedWinner = determineWinner(adjustedVotes);
-  
+  }
+
+  let originalWinner = determineWinner(originalVotes);
+  let simulatedWinner = determineWinner(adjustedVotes);
+
   // Check if winner flipped
-  const flipped = originalWinner.name !== simulatedWinner.name && 
-                  originalWinner.name !== null && 
-                  simulatedWinner.name !== null;
+  let flipped = originalWinner.name !== simulatedWinner.name &&
+                originalWinner.name !== null &&
+                simulatedWinner.name !== null;
   
   return {
     adjustedVotes,
@@ -644,10 +646,10 @@ export function detectFlippedPrecincts(originalResults, simulatedResults) {
     return [];
   }
   
-  const flipped = [];
-  
-  for (const [precinctCode, originalWinner] of Object.entries(originalResults)) {
-    const simulatedWinner = simulatedResults[precinctCode];
+  let flipped = [];
+
+  for (let [precinctCode, originalWinner] of Object.entries(originalResults)) {
+    let simulatedWinner = simulatedResults[precinctCode];
     if (simulatedWinner && originalWinner !== simulatedWinner && 
         originalWinner !== null && simulatedWinner !== null) {
       flipped.push(precinctCode);
@@ -669,28 +671,30 @@ export function calculateCountySummary(precinctResults, candidates) {
     return { totalVotes: 0, candidateTotals: {}, winner: null };
   }
   
-  const candidateTotals = {};
-  candidates.forEach(c => candidateTotals[c] = 0);
-  
+  let candidateTotals = {};
+  for (let c of candidates) {
+    candidateTotals[c] = 0;
+  }
+
   let totalVotes = 0;
-  
-  for (const [precinctCode, votes] of Object.entries(precinctResults)) {
-    candidates.forEach(candidate => {
-      const v = Number(votes[candidate]) || 0;
+
+  for (let [precinctCode, votes] of Object.entries(precinctResults)) {
+    for (let candidate of candidates) {
+      let v = Number(votes[candidate]) || 0;
       candidateTotals[candidate] += v;
       totalVotes += v;
-    });
+    }
   }
-  
-  const winner = determineWinner(candidateTotals);
-  
+
+  let winner = determineWinner(candidateTotals);
+
   // Calculate percentages
-  const candidatePercentages = {};
-  candidates.forEach(candidate => {
-    candidatePercentages[candidate] = totalVotes > 0 
-      ? (candidateTotals[candidate] / totalVotes) 
+  let candidatePercentages = {};
+  for (let candidate of candidates) {
+    candidatePercentages[candidate] = totalVotes > 0
+      ? (candidateTotals[candidate] / totalVotes)
       : 0;
-  });
+  }
   
   return {
     totalVotes,
@@ -716,23 +720,23 @@ export function createSliderState(initialValues = { Rep: 1.0, Dem: 1.0, Mod: 1.0
   const minValue = options.minValue ?? 0.5;
   const maxValue = options.maxValue ?? 1.5;
   let values = { ...initialValues };
-  const listeners = [];
-  
+  let listeners = [];
+
   return {
-    getValue: (party) => values[party] ?? 1.0,
-    setValue: (party, value) => {
+    getValue: function getValue(party) { return values[party] ?? 1.0; },
+    setValue: function setValue(party, value) {
       // Clamp to valid range [minValue, maxValue]
-      const clamped = Math.max(minValue, Math.min(maxValue, value));
+      let clamped = Math.max(minValue, Math.min(maxValue, value));
       values[party] = clamped;
-      listeners.forEach(fn => fn(party, clamped));
+      for (let fn of listeners) { fn(party, clamped); }
     },
-    getAll: () => ({ ...values }),
-    onChange: (fn) => listeners.push(fn),
-    reset: () => {
+    getAll: function getAll() { return { ...values }; },
+    onChange: function onChange(fn) { listeners.push(fn); },
+    reset: function reset() {
       values = { Rep: 1.0, Dem: 1.0, Mod: 1.0 };
-      listeners.forEach(fn => fn('all', values));
+      for (let fn of listeners) { fn('all', values); }
     },
-    getRange: () => ({ min: minValue, max: maxValue })
+    getRange: function getRange() { return { min: minValue, max: maxValue }; }
   };
 }
 
@@ -744,7 +748,7 @@ export function createSliderState(initialValues = { Rep: 1.0, Dem: 1.0, Mod: 1.0
  * @returns {Object} State manager for voter flip
  */
 export function createVoterFlipState(initialRates = {}) {
-  const defaultRates = {
+  let defaultRates = {
     'Rep→Dem': 0,
     'Rep→Mod': 0,
     'Dem→Rep': 0,
@@ -753,23 +757,23 @@ export function createVoterFlipState(initialRates = {}) {
     'Mod→Dem': 0
   };
   let rates = { ...defaultRates, ...initialRates };
-  const listeners = [];
-  
+  let listeners = [];
+
   return {
-    getRate: (flipKey) => rates[flipKey] ?? 0,
-    setRate: (flipKey, value) => {
+    getRate: function getRate(flipKey) { return rates[flipKey] ?? 0; },
+    setRate: function setRate(flipKey, value) {
       // Clamp to valid range [0, 0.25] (0-25%)
-      const clamped = Math.max(0, Math.min(0.25, value));
+      let clamped = Math.max(0, Math.min(0.25, value));
       rates[flipKey] = clamped;
-      listeners.forEach(fn => fn(flipKey, clamped));
+      for (let fn of listeners) { fn(flipKey, clamped); }
     },
-    getAll: () => ({ ...rates }),
-    onChange: (fn) => listeners.push(fn),
-    reset: () => {
+    getAll: function getAll() { return { ...rates }; },
+    onChange: function onChange(fn) { listeners.push(fn); },
+    reset: function reset() {
       rates = { ...defaultRates };
-      listeners.forEach(fn => fn('all', rates));
+      for (let fn of listeners) { fn('all', rates); }
     },
-    hasAnyFlips: () => Object.values(rates).some(r => r > 0)
+    hasAnyFlips: function hasAnyFlips() { return Object.values(rates).some(function checkRate(r) { return r > 0; }); }
   };
 }
 
@@ -800,23 +804,23 @@ export function runFullSimulation(electionData, dncDataByPrecinct, candidates, t
     };
   }
 
-  const { voterFlipRates = {}, targetTurnoutPct = null } = options;
-  const hasVoterFlips = voterFlipRates && Object.values(voterFlipRates).some(r => r > 0);
-  const hasExtendedTurnout = turnoutMultipliers && Object.values(turnoutMultipliers).some(m => m !== 1.0);
-  
-  const precinctResults = {};
-  const originalWinners = {};
-  const simulatedWinners = {};
-  const originalVotesByPrecinct = {};
-  const simulatedVotesByPrecinct = {};
-  
+  let { voterFlipRates = {}, targetTurnoutPct = null } = options;
+  let hasVoterFlips = voterFlipRates && Object.values(voterFlipRates).some(function checkRate(r) { return r > 0; });
+  let hasExtendedTurnout = turnoutMultipliers && Object.values(turnoutMultipliers).some(function checkMultiplier(m) { return m !== 1.0; });
+
+  let precinctResults = {};
+  let originalWinners = {};
+  let simulatedWinners = {};
+  let originalVotesByPrecinct = {};
+  let simulatedVotesByPrecinct = {};
+
   // Process each precinct
-  electionData.forEach(record => {
-    const precinctCode = record['PRECINCT CODE'];
-    if (!precinctCode) return;
-    
-    const dncData = dncDataByPrecinct[precinctCode];
-    if (!dncData) return;
+  for (let record of electionData) {
+    let precinctCode = record['PRECINCT CODE'];
+    if (!precinctCode) continue;
+
+    let dncData = dncDataByPrecinct[precinctCode];
+    if (!dncData) continue;
 
     let result;
 
@@ -825,11 +829,11 @@ export function runFullSimulation(electionData, dncDataByPrecinct, candidates, t
       result = simulatePrecinctWithTargetTurnout(record, dncData, targetTurnoutPct, candidates);
       // Apply voter flip if present
       if (hasVoterFlips) {
-        const flippedVotes = applyVoterFlip(result.adjustedVotes, voterFlipRates, candidates);
-        const originalVotes = {};
-        candidates.forEach(c => originalVotes[c] = Number(record[c]) || 0);
-        const originalWinner = determineWinner(originalVotes);
-        const simulatedWinner = determineWinner(flippedVotes);
+        let flippedVotes = applyVoterFlip(result.adjustedVotes, voterFlipRates, candidates);
+        let originalVotes = {};
+        for (let c of candidates) { originalVotes[c] = Number(record[c]) || 0; }
+        let originalWinner = determineWinner(originalVotes);
+        let simulatedWinner = determineWinner(flippedVotes);
         result = {
           adjustedVotes: flippedVotes,
           winner: simulatedWinner,
@@ -850,20 +854,20 @@ export function runFullSimulation(electionData, dncDataByPrecinct, candidates, t
     simulatedWinners[precinctCode] = result.winner?.name;
     
     // Store votes for county summary
-    const originalVotes = {};
-    candidates.forEach(c => {
+    let originalVotes = {};
+    for (let c of candidates) {
       originalVotes[c] = Number(record[c]) || 0;
-    });
+    }
     originalVotesByPrecinct[precinctCode] = originalVotes;
     simulatedVotesByPrecinct[precinctCode] = result.adjustedVotes;
-  });
+  }
   
   // Detect flipped precincts
-  const flippedPrecincts = detectFlippedPrecincts(originalWinners, simulatedWinners);
-  
+  let flippedPrecincts = detectFlippedPrecincts(originalWinners, simulatedWinners);
+
   // Calculate county-wide summaries
-  const originalSummary = calculateCountySummary(originalVotesByPrecinct, candidates);
-  const simulatedSummary = calculateCountySummary(simulatedVotesByPrecinct, candidates);
+  let originalSummary = calculateCountySummary(originalVotesByPrecinct, candidates);
+  let simulatedSummary = calculateCountySummary(simulatedVotesByPrecinct, candidates);
   
   return {
     precinctResults,
@@ -890,13 +894,13 @@ export function runFullSimulation(electionData, dncDataByPrecinct, candidates, t
  * @returns {string} HTML string for the simulator controls
  */
 export function generateSimulatorControlsHTML(currentValues = { Rep: 1.0, Dem: 1.0, Mod: 1.0 }, flipRates = {}, options = {}) {
-  const { showVoterFlip = true, minPct = 50, maxPct = 150 } = options;
-  
-  const formatPct = (val) => Math.round(val * 100) + '%';
-  const formatFlipPct = (val) => (val * 100).toFixed(0) + '%';
-  
+  let { showVoterFlip = true, minPct = 50, maxPct = 150 } = options;
+
+  function formatPct(val) { return Math.round(val * 100) + '%'; }
+  function formatFlipPct(val) { return (val * 100).toFixed(0) + '%'; }
+
   // Generate turnout slider HTML
-  const turnoutSlidersHTML = `
+  let turnoutSlidersHTML = `
     <div class="simulator-section">
       <h4 class="section-title">Party Turnout</h4>
       <p class="section-hint">Below 100%: fewer voters. Above 100%: mobilize non-voters.</p>
@@ -1059,19 +1063,19 @@ export function generateSimulationResultsHTML(originalSummary, simulatedSummary,
     return '<p class="no-data">Select an election to begin simulation.</p>';
   }
   
-  const formatPct = (val) => (val * 100).toFixed(1) + '%';
-  const formatNum = (val) => val.toLocaleString();
-  
+  function formatPct(val) { return (val * 100).toFixed(1) + '%'; }
+  function formatNum(val) { return val.toLocaleString(); }
+
   // Build candidate comparison rows
   let candidateRows = '';
-  const candidates = Object.keys(originalSummary.candidateTotals);
-  candidates.forEach(candidate => {
-    const origVotes = originalSummary.candidateTotals[candidate];
-    const simVotes = simulatedSummary.candidateTotals[candidate];
-    const diff = simVotes - origVotes;
-    const diffClass = diff > 0 ? 'positive' : diff < 0 ? 'negative' : '';
-    const diffSign = diff > 0 ? '+' : '';
-    
+  let candidates = Object.keys(originalSummary.candidateTotals);
+  for (let candidate of candidates) {
+    let origVotes = originalSummary.candidateTotals[candidate];
+    let simVotes = simulatedSummary.candidateTotals[candidate];
+    let diff = simVotes - origVotes;
+    let diffClass = diff > 0 ? 'positive' : diff < 0 ? 'negative' : '';
+    let diffSign = diff > 0 ? '+' : '';
+
     candidateRows += `
       <tr>
         <td>${candidate}</td>
@@ -1080,7 +1084,7 @@ export function generateSimulationResultsHTML(originalSummary, simulatedSummary,
         <td class="${diffClass}">${diffSign}${formatNum(diff)}</td>
       </tr>
     `;
-  });
+  }
   
   const flippedCount = flippedPrecincts.length;
   const flippedClass = countyFlipped ? 'county-flipped' : '';

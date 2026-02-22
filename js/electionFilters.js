@@ -14,7 +14,7 @@ import {
 // CATEGORY DEFINITIONS
 // ============================================================================
 
-export const ELECTION_CATEGORIES = {
+export let ELECTION_CATEGORIES = {
   FEDERAL: 'Federal',
   STATE: 'State',
   COUNTY: 'County',
@@ -25,7 +25,7 @@ export const ELECTION_CATEGORIES = {
 };
 
 // Category display order for tabs
-export const CATEGORY_ORDER = [
+export let CATEGORY_ORDER = [
   ELECTION_CATEGORIES.ALL,
   ELECTION_CATEGORIES.FEDERAL,
   ELECTION_CATEGORIES.STATE,
@@ -49,7 +49,7 @@ export function categorizeElection(filename) {
     return ELECTION_CATEGORIES.COUNTY; // Default fallback
   }
 
-  const normalized = filename.toLowerCase();
+  let normalized = filename.toLowerCase();
 
   // Federal races - President, US Senator, US Representatives
   if (
@@ -135,10 +135,10 @@ export function filterByCategory(elections, category) {
     return elections;
   }
 
-  return elections.filter(entry => {
-    const filename = typeof entry === 'string' ? entry : entry.filename;
-    const entryCategory = typeof entry === 'object' && entry.category 
-      ? entry.category 
+  return elections.filter(function matchCategory(entry) {
+    let filename = typeof entry === 'string' ? entry : entry.filename;
+    let entryCategory = typeof entry === 'object' && entry.category
+      ? entry.category
       : categorizeElection(filename);
     return entryCategory === category;
   });
@@ -155,21 +155,21 @@ export function filterByYear(elections, year) {
     return [];
   }
 
-  if (year === null || year === undefined) {
+  if (year == null) {
     return elections;
   }
 
-  return elections.filter(entry => {
+  return elections.filter(function matchYear(entry) {
     // Handle both object format and legacy string format
     if (typeof entry === 'string') {
       // Try to extract year from filename
-      const yearMatch = entry.match(/_(\d{4})\.csv$/);
+      let yearMatch = entry.match(/_(\d{4})\.csv$/);
       if (yearMatch) {
         return parseInt(yearMatch[1], 10) === year;
       }
       return false; // No year in filename, exclude if filtering by year
     }
-    
+
     return entry.year === year;
   });
 }
@@ -189,22 +189,22 @@ export function searchElections(elections, query) {
     return elections;
   }
 
-  const normalizedQuery = query.toLowerCase().trim();
-  const queryWords = normalizedQuery.split(/\s+/);
+  let normalizedQuery = query.toLowerCase().trim();
+  let queryWords = normalizedQuery.split(/\s+/);
 
-  return elections.filter(entry => {
+  return elections.filter(function matchSearch(entry) {
     // Extract filename and displayName from entry (string or object)
-    const filename = typeof entry === 'string' ? entry : entry.filename;
-    const displayName = typeof entry === 'object' ? entry.displayName : null;
+    let filename = typeof entry === 'string' ? entry : entry.filename;
+    let displayName = typeof entry === 'object' ? entry.displayName : null;
 
     // Replace underscores with spaces for better matching
-    const normalizedFilename = filename
+    let normalizedFilename = filename
       .toLowerCase()
       .replace(/\.csv$/, '')
       .replace(/_/g, ' ');
 
     // Also search displayName if available
-    const normalizedDisplayName = displayName
+    let normalizedDisplayName = displayName
       ? displayName.toLowerCase()
       : '';
 
@@ -237,7 +237,7 @@ export function getCategoryCounts(elections) {
     };
   }
 
-  const counts = {
+  let counts = {
     [ELECTION_CATEGORIES.ALL]: elections.length,
     [ELECTION_CATEGORIES.FEDERAL]: 0,
     [ELECTION_CATEGORIES.STATE]: 0,
@@ -247,15 +247,15 @@ export function getCategoryCounts(elections) {
     [ELECTION_CATEGORIES.MUD]: 0
   };
 
-  elections.forEach(entry => {
-    const filename = typeof entry === 'string' ? entry : entry.filename;
-    const category = (typeof entry === 'object' && entry.category) 
-      ? entry.category 
+  for (let entry of elections) {
+    let filename = typeof entry === 'string' ? entry : entry.filename;
+    let category = (typeof entry === 'object' && entry.category)
+      ? entry.category
       : categorizeElection(filename);
     if (counts.hasOwnProperty(category)) {
       counts[category]++;
     }
-  });
+  }
 
   return counts;
 }
@@ -270,18 +270,18 @@ export function getAvailableYears(elections) {
     return [];
   }
 
-  const years = new Set();
-  elections.forEach(entry => {
-    if (typeof entry === 'object' && entry.year !== null && entry.year !== undefined) {
+  let years = new Set();
+  for (let entry of elections) {
+    if (typeof entry === 'object' && entry.year != null) {
       years.add(entry.year);
     } else if (typeof entry === 'string') {
       // Try to extract year from filename
-      const yearMatch = entry.match(/_(\d{4})\.csv$/);
+      let yearMatch = entry.match(/_(\d{4})\.csv$/);
       if (yearMatch) {
         years.add(parseInt(yearMatch[1], 10));
       }
     }
-  });
+  }
 
   return Array.from(years).sort((a, b) => b - a); // Descending order
 }
@@ -319,22 +319,22 @@ export function highlightMatches(text, query) {
     return text || '';
   }
 
-  const trimmedQuery = query.trim();
+  let trimmedQuery = query.trim();
   if (trimmedQuery === '') {
     return text;
   }
 
-  const words = trimmedQuery.split(/\s+/);
+  let words = trimmedQuery.split(/\s+/);
   let result = text;
 
-  words.forEach(word => {
+  for (let word of words) {
     if (word) {
       // Escape special regex characters for safe matching
-      const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const regex = new RegExp(`(${escapedWord})`, 'gi');
+      let escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      let regex = new RegExp(`(${escapedWord})`, 'gi');
       result = result.replace(regex, '<mark>$1</mark>');
     }
-  });
+  }
 
   return result;
 }
@@ -351,9 +351,9 @@ export function highlightMatches(text, query) {
  * @returns {string} HTML string for filter UI
  */
 export function createFilterUI(counts, activeCategory = ELECTION_CATEGORIES.ALL, searchQuery = '') {
-  const tabsHTML = CATEGORY_ORDER.map(category => {
-    const isActive = category === activeCategory;
-    const count = counts[category] || 0;
+  let tabsHTML = CATEGORY_ORDER.map(function buildTab(category) {
+    let isActive = category === activeCategory;
+    let count = counts[category] || 0;
     return `
       <button 
         class="category-tab ${isActive ? 'active' : ''}" 
@@ -399,7 +399,7 @@ export function createFilterUI(counts, activeCategory = ELECTION_CATEGORIES.ALL,
  */
 function escapeHTML(text) {
   if (!text || typeof text !== 'string') return '';
-  const div = typeof document !== 'undefined' ? document.createElement('div') : null;
+  let div = typeof document !== 'undefined' ? document.createElement('div') : null;
   if (div) {
     div.textContent = text;
     return div.innerHTML;
@@ -521,7 +521,7 @@ export class ElectionFilterManager {
    * @returns {Object} Category counts for search results
    */
   getFilteredCategoryCounts() {
-    const searchFiltered = searchElections(this.allElections, this.searchQuery);
+    let searchFiltered = searchElections(this.allElections, this.searchQuery);
     return getCategoryCounts(searchFiltered);
   }
 
@@ -558,8 +558,8 @@ export class ElectionFilterManager {
    * @returns {Object} Grouped elections object
    */
   getGroupedFilteredElections(sortBy = 'alphabetical') {
-    const filtered = this.getFilteredElections();
-    const grouped = groupElectionsByFamily(filtered);
+    let filtered = this.getFilteredElections();
+    let grouped = groupElectionsByFamily(filtered);
     return sortFamilies(grouped, sortBy);
   }
 
@@ -568,21 +568,21 @@ export class ElectionFilterManager {
    * @returns {Object} Counts object with years, categories, and total
    */
   getFilterCounts() {
-    const years = this.getAvailableYears();
-    const yearCounts = {};
-    
+    let years = this.getAvailableYears();
+    let yearCounts = {};
+
     // Count elections by year
-    years.forEach(year => {
-      const filtered = filterByYear(this.allElections, year);
+    for (let year of years) {
+      let filtered = filterByYear(this.allElections, year);
       yearCounts[year] = filtered.length;
-    });
-    
+    }
+
     // Add "All" count
     yearCounts[null] = this.allElections.length;
-    
+
     // Category counts
-    const categoryCounts = this.getCategoryCounts();
-    
+    let categoryCounts = this.getCategoryCounts();
+
     return {
       years: yearCounts,
       categories: categoryCounts,
@@ -601,31 +601,31 @@ export class ElectionFilterManager {
       return [];
     }
 
-    const normalizedQuery = query.toLowerCase().trim();
+    let normalizedQuery = query.toLowerCase().trim();
     if (normalizedQuery === '') {
       return [];
     }
 
-    const normalizedText = text.toLowerCase();
-    const matches = [];
-    const words = normalizedQuery.split(/\s+/);
+    let normalizedText = text.toLowerCase();
+    let matches = [];
+    let words = normalizedQuery.split(/\s+/);
 
-    words.forEach(word => {
-      if (!word) return;
-      
+    for (let word of words) {
+      if (!word) continue;
+
       let startIndex = 0;
       while (true) {
-        const index = normalizedText.indexOf(word, startIndex);
+        let index = normalizedText.indexOf(word, startIndex);
         if (index === -1) break;
-        
+
         matches.push({
           start: index,
           end: index + word.length
         });
-        
+
         startIndex = index + 1;
       }
-    });
+    }
 
     // Merge overlapping matches
     return mergeOverlappingMatches(matches);
@@ -636,7 +636,7 @@ export class ElectionFilterManager {
    * @private
    */
   _notifyChange() {
-    const state = {
+    let state = {
       category: this.activeCategory,
       searchQuery: this.searchQuery,
       selectedYear: this.selectedYear,
@@ -648,13 +648,13 @@ export class ElectionFilterManager {
       filterCounts: this.getFilterCounts()
     };
 
-    this.onChangeCallbacks.forEach(cb => {
+    for (let cb of this.onChangeCallbacks) {
       try {
         cb(state);
       } catch (e) {
         console.error('Error in filter change callback:', e);
       }
-    });
+    }
   }
 }
 
@@ -667,12 +667,12 @@ function mergeOverlappingMatches(matches) {
   if (matches.length === 0) return [];
   
   // Sort by start position
-  const sorted = [...matches].sort((a, b) => a.start - b.start);
-  const merged = [sorted[0]];
+  let sorted = [...matches].sort((a, b) => a.start - b.start);
+  let merged = [sorted[0]];
   
   for (let i = 1; i < sorted.length; i++) {
-    const current = sorted[i];
-    const last = merged[merged.length - 1];
+    let current = sorted[i];
+    let last = merged[merged.length - 1];
     
     if (current.start <= last.end) {
       // Overlapping or adjacent - merge
@@ -699,8 +699,8 @@ function mergeOverlappingMatches(matches) {
 export function handleDropdownKeyboard(event, selectEl, onSelect) {
   if (!selectEl) return;
 
-  const options = Array.from(selectEl.options);
-  const currentIndex = selectEl.selectedIndex;
+  let options = Array.from(selectEl.options);
+  let currentIndex = selectEl.selectedIndex;
 
   switch (event.key) {
     case 'ArrowDown':

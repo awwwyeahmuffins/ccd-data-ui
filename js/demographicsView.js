@@ -12,7 +12,7 @@ import {
 } from "./skeletonLoader.js";
 
 export function renderDemographicsView(map) {
-  const sidebarDiv = document.getElementById("sidebar-content");
+  let sidebarDiv = document.getElementById("sidebar-content");
   
   // Show skeleton loading state while data loads
   sidebarDiv.innerHTML = createSidebarSkeleton('demographics');
@@ -30,7 +30,7 @@ export function renderDemographicsView(map) {
 async function initializeDemographicsMap(map, sidebarDiv) {
   try {
     // Load all data (GeoJSON + DNC CSV + Racial CSV)
-    const { geojson } = await loadAllData();
+    let { geojson } = await loadAllData();
     
     // Fade in the actual content after data loads
     const sidebarContent = `
@@ -48,7 +48,7 @@ async function initializeDemographicsMap(map, sidebarDiv) {
     // mapModule.js (or wherever you define styleByLean)
 
     function styleByLean(feature) {
-      const p = feature.properties;
+      let p = feature.properties;
       // Force partyStrength into an integer 1–3
       const strength = Math.max(1, Math.min(3, Math.round(p.partyStrength)));
 
@@ -89,7 +89,7 @@ async function initializeDemographicsMap(map, sidebarDiv) {
       };
     }
     // 4) Define what happens when a precinct is clicked/hovered
-    const onClickPrecinct = (properties, layer) => {
+    let onClickPrecinct = function handlePrecinctClick(properties, layer) {
       // Render the sidebar HTML (header + party info + demographics)
       renderPrecinctSidebar(properties);
       // Then draw the Chart.js pie inside the #racePieChart canvas
@@ -97,12 +97,12 @@ async function initializeDemographicsMap(map, sidebarDiv) {
       drawPartyPieChart(properties);
     };
 
-    const onHoverPrecinct = (properties, layer) => {
+    let onHoverPrecinct = function handlePrecinctHover(properties, layer) {
       // For example: highlight boundary on hover
       layer.setStyle({ weight: properties.partyStrength + 1 });
     };
 
-    const onHoverOut = (properties, layer) => {
+    let onHoverOut = function handlePrecinctHoverOut(properties, layer) {
       // Reset weight when the mouse leaves
       layer.setStyle({ weight: properties.partyStrength });
     };
@@ -115,9 +115,9 @@ async function initializeDemographicsMap(map, sidebarDiv) {
       onHoverOut
     });
 
-    const allPrecinctProps = geojson.features.map(f => ({ ...f.properties }));
+    let allPrecinctProps = geojson.features.map(f => ({ ...f.properties }));
 
-    document.getElementById("download-btn").addEventListener("click", () => {
+    document.getElementById("download-btn").addEventListener("click", function handleDownloadClick() {
       downloadCSV(allPrecinctProps, "precinct-data.csv");
     });
   } catch (err) {

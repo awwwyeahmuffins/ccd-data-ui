@@ -196,7 +196,7 @@ export function generateLegendContent(viewType, options = {}) {
  * @returns {boolean} True if update was successful
  */
 export function updateLegend(viewType, options = {}) {
-  const legendContainer = document.getElementById('map-legend');
+  let legendContainer = document.getElementById('map-legend');
   if (!legendContainer) return false;
 
   const content = generateLegendContent(viewType, options);
@@ -246,7 +246,7 @@ export function updateLegendForTurnout(options = {}) {
  * @returns {boolean}
  */
 export function isSimulationIndicatorActive() {
-  const legendContainer = document.getElementById('map-legend');
+  let legendContainer = document.getElementById('map-legend');
   if (!legendContainer) return false;
   return legendContainer.classList.contains('simulation-active');
 }

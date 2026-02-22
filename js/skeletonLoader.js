@@ -44,7 +44,7 @@ export function createSkeletonCard(options = {}) {
  * @returns {string} HTML string for skeleton stat grid
  */
 export function createSkeletonStatGrid(count = 4) {
-  const items = [];
+  let items = [];
   for (let i = 0; i < count; i++) {
     items.push(`
       <div class="skeleton-stat-item">
@@ -62,7 +62,7 @@ export function createSkeletonStatGrid(count = 4) {
  * @returns {string} HTML string for skeleton list
  */
 export function createSkeletonList(count = 5) {
-  const items = [];
+  let items = [];
   for (let i = 0; i < count; i++) {
     const delay = (i + 1) * 0.05;
     items.push(`
@@ -92,7 +92,7 @@ export function createLoadingSpinner(options = {}) {
 /**
  * Skeleton variants for different views
  */
-export const SKELETON_VARIANTS = {
+export let SKELETON_VARIANTS = {
   /**
    * Demographics view skeleton
    */
@@ -185,7 +185,7 @@ export const SKELETON_VARIANTS = {
  * @returns {string} HTML string for sidebar skeleton
  */
 export function createSidebarSkeleton(viewType) {
-  const variant = SKELETON_VARIANTS[viewType];
+  let variant = SKELETON_VARIANTS[viewType];
   if (variant) {
     return variant();
   }

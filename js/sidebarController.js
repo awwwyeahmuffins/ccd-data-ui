@@ -27,40 +27,40 @@ import {
 } from "./sidebarTemplates.js";
 
 export function clearSidebar() {
-  const sidebarDiv = document.getElementById("sidebar-content");
+  let sidebarDiv = document.getElementById("sidebar-content");
   sidebarDiv.innerHTML = "";
 }
 
 export function renderPrecinctSidebar(properties) {
-  const sidebarDiv = document.getElementById("sidebar-content");
+  let sidebarDiv = document.getElementById("sidebar-content");
 
   // Build party stats using the new stat grid
-  const partyStats = createStatGrid([
-    { 
-      label: 'Rep Share', 
-      value: ((properties.repShare || 0) * 100).toFixed(1) + '%', 
-      colorClass: 'rep' 
+  let partyStats = createStatGrid([
+    {
+      label: 'Rep Share',
+      value: ((properties.repShare || 0) * 100).toFixed(1) + '%',
+      colorClass: 'rep'
     },
-    { 
-      label: 'Mod Share', 
-      value: ((properties.modShare || 0) * 100).toFixed(1) + '%', 
-      colorClass: 'mod' 
+    {
+      label: 'Mod Share',
+      value: ((properties.modShare || 0) * 100).toFixed(1) + '%',
+      colorClass: 'mod'
     },
-    { 
-      label: 'Dem Share', 
-      value: ((properties.demShare || 0) * 100).toFixed(1) + '%', 
-      colorClass: 'dem' 
+    {
+      label: 'Dem Share',
+      value: ((properties.demShare || 0) * 100).toFixed(1) + '%',
+      colorClass: 'dem'
     }
   ]);
 
   // Build the info stats
-  const infoStats = createStatGrid([
+  let infoStats = createStatGrid([
     { label: 'Party Lean', value: properties.winningParty || 'N/A' },
     { label: 'Strength', value: properties.partyStrength || 'N/A' }
   ]);
 
   // Create card content with charts
-  const cardContent = `
+  let cardContent = `
     ${infoStats}
     ${createDivider('Party Distribution')}
     ${partyStats}
@@ -75,7 +75,7 @@ export function renderPrecinctSidebar(properties) {
   `;
 
   // Build HTML using the new card system
-  const html = createCardWithSubtitle(
+  let html = createCardWithSubtitle(
     `Precinct ${properties.PRECINCT}`,
     'Click for detailed analysis',
     ICONS.mapPin,
@@ -87,36 +87,36 @@ export function renderPrecinctSidebar(properties) {
 }
 
 export function renderPrecinctElectionSidebar(properties) {
-  const sidebarDiv = document.getElementById("sidebar-content");
+  let sidebarDiv = document.getElementById("sidebar-content");
   console.log("Rendering precinct election sidebar with properties:", properties);
 
   // Build party stats using the new stat grid
-  const partyStats = createStatGrid([
-    { 
-      label: 'Rep Share', 
-      value: ((properties.repShare || 0) * 100).toFixed(1) + '%', 
-      colorClass: 'rep' 
+  let partyStats = createStatGrid([
+    {
+      label: 'Rep Share',
+      value: ((properties.repShare || 0) * 100).toFixed(1) + '%',
+      colorClass: 'rep'
     },
-    { 
-      label: 'Mod Share', 
-      value: ((properties.modShare || 0) * 100).toFixed(1) + '%', 
-      colorClass: 'mod' 
+    {
+      label: 'Mod Share',
+      value: ((properties.modShare || 0) * 100).toFixed(1) + '%',
+      colorClass: 'mod'
     },
-    { 
-      label: 'Dem Share', 
-      value: ((properties.demShare || 0) * 100).toFixed(1) + '%', 
-      colorClass: 'dem' 
+    {
+      label: 'Dem Share',
+      value: ((properties.demShare || 0) * 100).toFixed(1) + '%',
+      colorClass: 'dem'
     }
   ]);
 
   // Build the info stats
-  const infoStats = createStatGrid([
+  let infoStats = createStatGrid([
     { label: 'Party Lean', value: properties.winningParty || 'N/A' },
     { label: 'Strength', value: properties.partyStrength || 'N/A' }
   ]);
 
   // Create card content for election view
-  const cardContent = `
+  let cardContent = `
     ${infoStats}
     ${createDivider('Party Distribution')}
     ${partyStats}
@@ -127,7 +127,7 @@ export function renderPrecinctElectionSidebar(properties) {
   `;
 
   // Build HTML using the new card system
-  const html = createCardWithSubtitle(
+  let html = createCardWithSubtitle(
     `Precinct ${properties.PRECINCT}`,
     'Election Forecast',
     ICONS.vote,

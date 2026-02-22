@@ -33,8 +33,8 @@ let leaderboardMode = 'highest'; // 'highest' or 'lowest'
  * @returns {number} Turnout percentage (0-100), or 0 if invalid
  */
 export function calculateTurnout(ballotsCast, registeredVoters) {
-  const ballots = Number(ballotsCast);
-  const registered = Number(registeredVoters);
+  let ballots = Number(ballotsCast);
+  let registered = Number(registeredVoters);
   
   if (isNaN(ballots) || isNaN(registered) || registered <= 0) {
     return 0;
@@ -56,22 +56,22 @@ export function getTurnoutColor(turnoutPct) {
   }
   
   // Clamp between 0 and 100
-  const pct = Math.max(0, Math.min(100, turnoutPct));
-  const { low, medium, high } = TURNOUT_CONFIG.colors;
+  let pct = Math.max(0, Math.min(100, turnoutPct));
+  let { low, medium, high } = TURNOUT_CONFIG.colors;
   
   if (pct < 50) {
     // Red to Yellow gradient (0-50%)
-    const ratio = pct / 50;
-    const r = Math.round(low.r + (medium.r - low.r) * ratio);
-    const g = Math.round(low.g + (medium.g - low.g) * ratio);
-    const b = Math.round(low.b + (medium.b - low.b) * ratio);
+    let ratio = pct / 50;
+    let r = Math.round(low.r + (medium.r - low.r) * ratio);
+    let g = Math.round(low.g + (medium.g - low.g) * ratio);
+    let b = Math.round(low.b + (medium.b - low.b) * ratio);
     return `rgb(${r}, ${g}, ${b})`;
   } else {
     // Yellow to Green gradient (50-100%)
-    const ratio = (pct - 50) / 50;
-    const r = Math.round(medium.r + (high.r - medium.r) * ratio);
-    const g = Math.round(medium.g + (high.g - medium.g) * ratio);
-    const b = Math.round(medium.b + (high.b - medium.b) * ratio);
+    let ratio = (pct - 50) / 50;
+    let r = Math.round(medium.r + (high.r - medium.r) * ratio);
+    let g = Math.round(medium.g + (high.g - medium.g) * ratio);
+    let b = Math.round(medium.b + (high.b - medium.b) * ratio);
     return `rgb(${r}, ${g}, ${b})`;
   }
 }
@@ -89,7 +89,7 @@ export function precinctParticipatedInRace(row) {
   }
   
   // Get all race-specific columns (exclude metadata columns) using schema utility
-  const raceColumns = getCandidateColumns(Object.keys(row));
+  let raceColumns = getCandidateColumns(Object.keys(row));
   
   // A precinct participated if any race-specific column has a non-zero value
   return raceColumns.some(col => {
@@ -108,15 +108,15 @@ export function prepareTurnoutData(electionData) {
     return [];
   }
   
-  const turnoutData = electionData
+  let turnoutData = electionData
     .filter(row => precinctParticipatedInRace(row)) // Only include precincts that participated in this race
-    .map(row => {
-      const precinctCode = row['PRECINCT CODE'];
-      const precinctName = row['PRECINCT NAME'] || `Precinct ${precinctCode}`;
-      const registeredVoters = Number(row['REGISTERED VOTERS TOTAL']) || 0;
-      const ballotsCast = Number(row['BALLOTS CAST TOTAL']) || 0;
-      const turnoutPct = calculateTurnout(ballotsCast, registeredVoters);
-      
+    .map(function buildPrecinctTurnout(row) {
+      let precinctCode = row['PRECINCT CODE'];
+      let precinctName = row['PRECINCT NAME'] || `Precinct ${precinctCode}`;
+      let registeredVoters = Number(row['REGISTERED VOTERS TOTAL']) || 0;
+      let ballotsCast = Number(row['BALLOTS CAST TOTAL']) || 0;
+      let turnoutPct = calculateTurnout(ballotsCast, registeredVoters);
+
       return {
         precinctCode: String(precinctCode),
         precinctName,
@@ -127,14 +127,14 @@ export function prepareTurnoutData(electionData) {
       };
     })
     .filter(d => d.registeredVoters > 0);
-  
+
   // Sort by turnout percentage descending
   turnoutData.sort((a, b) => b.turnoutPct - a.turnoutPct);
-  
+
   // Add rank
-  turnoutData.forEach((d, i) => {
+  for (let [i, d] of turnoutData.entries()) {
     d.rank = i + 1;
-  });
+  }
   
   return turnoutData;
 }
@@ -181,24 +181,24 @@ export function calculateCountySummary(electionData) {
   }
   
   // Filter to only precincts that actually participated in this race
-  const participatingData = electionData.filter(row => precinctParticipatedInRace(row));
-  
+  let participatingData = electionData.filter(row => precinctParticipatedInRace(row));
+
   let totalRegistered = 0;
   let totalBallotsCast = 0;
   let participatingPrecincts = 0;
   let turnouts = [];
-  
-  participatingData.forEach(row => {
-    const registered = Number(row['REGISTERED VOTERS TOTAL']) || 0;
-    const ballots = Number(row['BALLOTS CAST TOTAL']) || 0;
-    
+
+  for (let row of participatingData) {
+    let registered = Number(row['REGISTERED VOTERS TOTAL']) || 0;
+    let ballots = Number(row['BALLOTS CAST TOTAL']) || 0;
+
     if (registered > 0) {
       totalRegistered += registered;
       totalBallotsCast += ballots;
       participatingPrecincts++;
       turnouts.push(calculateTurnout(ballots, registered));
     }
-  });
+  }
   
   const overallTurnout = totalRegistered > 0 
     ? (totalBallotsCast / totalRegistered) * 100 
@@ -241,7 +241,7 @@ export function formatTurnoutPct(pct) {
  * @param {Object} map - Leaflet map instance
  */
 export function renderTurnoutView(map) {
-  const sidebarDiv = document.getElementById("sidebar-content");
+  let sidebarDiv = document.getElementById("sidebar-content");
 
   sidebarDiv.innerHTML = `
     <div class="fade-in">
@@ -326,36 +326,36 @@ export function renderTurnoutView(map) {
   `;
 
   // Set up election dropdown
-  const selectEl = document.getElementById("turnout-election-select");
+  let selectEl = document.getElementById("turnout-election-select");
   listElectionCSVs()
-    .then((files) => {
+    .then(function populateElectionDropdown(files) {
       selectEl.innerHTML = "";
-      files.forEach((entry) => {
+      for (let entry of files) {
         // Handle both string and object formats from manifest
-        const filename = typeof entry === 'string' ? entry : entry.filename;
-        const displayName = (typeof entry === 'object' && entry.displayName) 
-          ? entry.displayName 
+        let filename = typeof entry === 'string' ? entry : entry.filename;
+        let displayName = (typeof entry === 'object' && entry.displayName)
+          ? entry.displayName
           : filename.replace(/\.csv$/, "").replace(/_/g, " ").replace(/ - /g, " - ");
-        
-        const opt = document.createElement("option");
+
+        let opt = document.createElement("option");
         opt.value = filename;
         opt.text = displayName;
         selectEl.appendChild(opt);
-      });
+      }
       if (files.length > 0) {
-        const firstFilename = typeof files[0] === 'string' ? files[0] : files[0].filename;
+        let firstFilename = typeof files[0] === 'string' ? files[0] : files[0].filename;
         selectEl.value = firstFilename;
         loadAndRenderTurnout(map, firstFilename);
       }
     })
-    .catch((err) => {
+    .catch(function handleElectionListError(err) {
       console.error("Failed to list election CSVs:", err);
       selectEl.innerHTML = "<option>Error loading elections</option>";
       showTurnoutError("Unable to load elections list");
     });
 
-  selectEl.addEventListener("change", () => {
-    const chosen = selectEl.value;
+  selectEl.addEventListener("change", function handleElectionChange() {
+    let chosen = selectEl.value;
     if (!chosen) return;
     showLoadingState();
     loadAndRenderTurnout(map, chosen);
@@ -369,10 +369,10 @@ export function renderTurnoutView(map) {
  * Set up leaderboard toggle buttons
  */
 function setupLeaderboardToggle(map) {
-  const highestBtn = document.getElementById("leaderboard-highest");
-  const lowestBtn = document.getElementById("leaderboard-lowest");
+  let highestBtn = document.getElementById("leaderboard-highest");
+  let lowestBtn = document.getElementById("leaderboard-lowest");
 
-  highestBtn?.addEventListener("click", () => {
+  highestBtn?.addEventListener("click", function activateHighestMode() {
     if (leaderboardMode === 'highest') return;
     leaderboardMode = 'highest';
     highestBtn.classList.add("active");
@@ -382,7 +382,7 @@ function setupLeaderboardToggle(map) {
     updateLeaderboard();
   });
 
-  lowestBtn?.addEventListener("click", () => {
+  lowestBtn?.addEventListener("click", function activateLowestMode() {
     if (leaderboardMode === 'lowest') return;
     leaderboardMode = 'lowest';
     lowestBtn.classList.add("active");
@@ -397,9 +397,9 @@ function setupLeaderboardToggle(map) {
  * Show skeleton loading state in sidebar
  */
 function showLoadingState() {
-  const summaryDiv = document.getElementById("county-summary-stats");
-  const leaderboardDiv = document.getElementById("leaderboard-list");
-  const detailsDiv = document.getElementById("precinct-turnout-details");
+  let summaryDiv = document.getElementById("county-summary-stats");
+  let leaderboardDiv = document.getElementById("leaderboard-list");
+  let detailsDiv = document.getElementById("precinct-turnout-details");
 
   // Use skeleton loading for better UX
   if (summaryDiv) {
@@ -417,7 +417,7 @@ function showLoadingState() {
  * Show error state with fade-in animation
  */
 function showTurnoutError(message) {
-  const detailsDiv = document.getElementById("precinct-turnout-details");
+  let detailsDiv = document.getElementById("precinct-turnout-details");
   if (detailsDiv) {
     fadeInContent(detailsDiv, createErrorState('Error', message));
   }
@@ -432,14 +432,14 @@ async function loadAndRenderTurnout(map, electionFilename) {
   currentElectionFilename = electionFilename;
 
   try {
-    const [geojsonResp, electionData] = await Promise.all([
+    let [geojsonResp, electionData] = await Promise.all([
       loadAllData(),
       loadElectionData(electionFilename),
     ]);
 
     // Prepare turnout data
     currentTurnoutData = prepareTurnoutData(electionData);
-    const summary = calculateCountySummary(electionData);
+    let summary = calculateCountySummary(electionData);
     
     // Update summary card
     renderCountySummary(summary);
@@ -448,18 +448,18 @@ async function loadAndRenderTurnout(map, electionFilename) {
     updateLeaderboard();
 
     // Build turnout lookup
-    const turnoutByPrecinct = {};
-    currentTurnoutData.forEach(d => {
+    let turnoutByPrecinct = {};
+    for (let d of currentTurnoutData) {
       turnoutByPrecinct[d.precinctCode] = d;
-    });
+    }
 
-    const precinctGeoJSON = geojsonResp.geojson;
+    let precinctGeoJSON = geojsonResp.geojson;
 
     // Create map layer
-    const layer = L.geoJSON(precinctGeoJSON, {
-      style: (feature) => {
-        const code = String(feature.properties.PRECINCT);
-        const turnoutInfo = turnoutByPrecinct[code];
+    let layer = L.geoJSON(precinctGeoJSON, {
+      style: function stylePrecinctByTurnout(feature) {
+        let code = String(feature.properties.PRECINCT);
+        let turnoutInfo = turnoutByPrecinct[code];
 
         if (!turnoutInfo) {
           return TURNOUT_CONFIG.style.noData;
@@ -470,10 +470,10 @@ async function loadAndRenderTurnout(map, electionFilename) {
           fillColor: turnoutInfo.turnoutColor
         };
       },
-      onEachFeature: (feature, leafletLayer) => {
-        leafletLayer.on("click", () => {
-          const code = String(feature.properties.PRECINCT);
-          const turnoutInfo = turnoutByPrecinct[code];
+      onEachFeature: function bindPrecinctEvents(feature, leafletLayer) {
+        leafletLayer.on("click", function handlePrecinctClick() {
+          let code = String(feature.properties.PRECINCT);
+          let turnoutInfo = turnoutByPrecinct[code];
 
           // Reset previous selection
           if (selectedLayer) {
@@ -489,13 +489,13 @@ async function loadAndRenderTurnout(map, electionFilename) {
         });
 
         // Hover effects
-        leafletLayer.on("mouseover", () => {
+        leafletLayer.on("mouseover", function handlePrecinctMouseover() {
           if (leafletLayer !== selectedLayer) {
             leafletLayer.setStyle({ weight: 2 });
           }
         });
 
-        leafletLayer.on("mouseout", () => {
+        leafletLayer.on("mouseout", function handlePrecinctMouseout() {
           if (leafletLayer !== selectedLayer) {
             leafletLayer.setStyle({ weight: TURNOUT_CONFIG.style.default.weight });
           }
@@ -515,7 +515,7 @@ async function loadAndRenderTurnout(map, electionFilename) {
  * Render county summary statistics with fade-in animation
  */
 function renderCountySummary(summary) {
-  const summaryDiv = document.getElementById("county-summary-stats");
+  let summaryDiv = document.getElementById("county-summary-stats");
   if (!summaryDiv) return;
 
   // Remove skeleton loading class and add fade-in
@@ -552,13 +552,13 @@ function renderCountySummary(summary) {
  * Update leaderboard based on current mode
  */
 function updateLeaderboard() {
-  const leaderboardDiv = document.getElementById("leaderboard-list");
+  let leaderboardDiv = document.getElementById("leaderboard-list");
   if (!leaderboardDiv) return;
 
   // Remove skeleton loading state
   leaderboardDiv.classList.remove('skeleton-loading');
 
-  const precincts = leaderboardMode === 'highest' 
+  let precincts = leaderboardMode === 'highest'
     ? getTopPrecincts(currentTurnoutData, TURNOUT_CONFIG.leaderboard.defaultCount)
     : getBottomPrecincts(currentTurnoutData, TURNOUT_CONFIG.leaderboard.defaultCount);
 
@@ -567,10 +567,10 @@ function updateLeaderboard() {
     return;
   }
 
-  const listHTML = precincts.map((p, idx) => {
-    const displayRank = leaderboardMode === 'highest' ? p.rank : currentTurnoutData.length - p.rank + 1;
+  let listHTML = precincts.map(function buildLeaderboardItem(p, idx) {
+    let displayRank = leaderboardMode === 'highest' ? p.rank : currentTurnoutData.length - p.rank + 1;
     return `
-      <div class="leaderboard-item hover-lift-subtle stagger-item" data-precinct="${p.precinctCode}" tabindex="0" role="button" 
+      <div class="leaderboard-item hover-lift-subtle stagger-item" data-precinct="${p.precinctCode}" tabindex="0" role="button"
            aria-label="${p.precinctName}: ${formatTurnoutPct(p.turnoutPct)} turnout"
            style="animation-delay: ${(idx + 1) * 0.03}s;">
         <span class="leaderboard-rank">#${displayRank}</span>
@@ -583,33 +583,33 @@ function updateLeaderboard() {
   leaderboardDiv.innerHTML = listHTML;
 
   // Add click handlers to zoom to precinct
-  leaderboardDiv.querySelectorAll('.leaderboard-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const precinctCode = item.getAttribute('data-precinct');
+  for (let item of leaderboardDiv.querySelectorAll('.leaderboard-item')) {
+    item.addEventListener('click', function handleLeaderboardClick() {
+      let precinctCode = item.getAttribute('data-precinct');
       zoomToPrecinct(precinctCode);
     });
-    item.addEventListener('keydown', (e) => {
+    item.addEventListener('keydown', function handleLeaderboardKeydown(e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        const precinctCode = item.getAttribute('data-precinct');
+        let precinctCode = item.getAttribute('data-precinct');
         zoomToPrecinct(precinctCode);
       }
     });
-  });
+  }
 }
 
 /**
  * Zoom to and select a specific precinct
  */
 function zoomToPrecinct(precinctCode) {
-  const map = window.leafletMap; // We'll need to expose this globally or pass it
+  let map = window.leafletMap; // We'll need to expose this globally or pass it
   if (!map || !map.currentLayer) return;
 
-  map.currentLayer.eachLayer(layer => {
+  map.currentLayer.eachLayer(function findAndZoomToPrecinct(layer) {
     if (String(layer.feature?.properties?.PRECINCT) === precinctCode) {
       // Zoom to precinct
       map.fitBounds(layer.getBounds(), { padding: [50, 50] });
-      
+
       // Trigger click to select and show details
       layer.fire('click');
     }
@@ -620,7 +620,7 @@ function zoomToPrecinct(precinctCode) {
  * Render precinct details in sidebar
  */
 function renderPrecinctDetails(precinctCode, turnoutInfo, properties) {
-  const detailsDiv = document.getElementById("precinct-turnout-details");
+  let detailsDiv = document.getElementById("precinct-turnout-details");
   if (!detailsDiv) return;
 
   if (!turnoutInfo) {

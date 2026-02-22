@@ -31,3 +31,8 @@ build/
 # Temporary files
 *.tmp
 *.temp
+
+# CDK
+infra/cdk.out/
+infra/node_modules/
+cdk-outputs.json

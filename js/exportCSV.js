@@ -7,7 +7,7 @@
 export function arrayToCSV(dataArray) {
   if (!dataArray.length) return "";
 
-  const keys = Object.keys(dataArray[0]);
+  let keys = Object.keys(dataArray[0]);
   const escapeCell = (cell) => {
     if (cell == null) return "";
     const cellStr = String(cell);
@@ -17,8 +17,8 @@ export function arrayToCSV(dataArray) {
     return cellStr;
   };
 
-  const header = keys.map(k => escapeCell(k)).join(",") + "\r\n";
-  const body = dataArray
+  let header = keys.map(k => escapeCell(k)).join(",") + "\r\n";
+  let body = dataArray
     .map(obj =>
       keys.map(k => escapeCell(obj[k])).join(",")
     )
@@ -33,10 +33,10 @@ export function arrayToCSV(dataArray) {
  */
 export function downloadCSV(dataArray, filename) {
   const csvString = arrayToCSV(dataArray);
-  const blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
-  const url = URL.createObjectURL(blob);
+  let blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
+  let url = URL.createObjectURL(blob);
 
-  const a = document.createElement("a");
+  let a = document.createElement("a");
   a.href = url;
   a.download = filename;
   a.style.display = "none";

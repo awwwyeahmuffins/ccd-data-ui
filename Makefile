@@ -1,7 +1,7 @@
 # Collin County Elections - Development Makefile
 # ==============================================
 
-.PHONY: help install serve start stop test test-unit test-e2e test-all lint format clean
+.PHONY: help install serve start stop test test-unit test-e2e test-all lint format clean cdk-deploy cdk-destroy
 
 # Default target
 help:
@@ -44,27 +44,22 @@ install:
 # SERVER COMMANDS
 # ===================
 
-# Kill anything on port 3000 and Ollama
+# Kill anything on port 3000
 stop:
 	@echo "Stopping processes on port 3000..."
 	@-lsof -ti:3000 | xargs kill -9 2>/dev/null || true
-	@echo "Stopping Ollama..."
-	@-pkill -f 'ollama serve' 2>/dev/null || true
-	@echo "Ports 3000 and 11434 are free."
+	@echo "Port 3000 is free."
 
 # Start server without killing existing
 serve:
 	@echo "Starting development server on http://localhost:3000..."
 	python3 -m http.server 3000
 
-# Kill + start (safe restart) — also starts Ollama for precinct chat
+# Kill + start (safe restart)
 start: stop
-	@echo "Starting Ollama..."
-	@ollama serve > /dev/null 2>&1 &
-	@sleep 1
 	@echo "Starting development server on http://localhost:3000..."
 	@python3 -m http.server 3000 &
-	@echo "Server and Ollama started in background. Use 'make stop' to stop them."
+	@echo "Server started in background. Use 'make stop' to stop it."
 	@sleep 1
 	@echo "Opening http://localhost:3000/index.html in browser..."
 	@open http://localhost:3000/index.html 2>/dev/null || xdg-open http://localhost:3000/index.html 2>/dev/null || echo "Open http://localhost:3000/index.html in your browser"
@@ -153,3 +148,16 @@ report:
 # Generate coverage report
 coverage:
 	npm test -- --coverage
+
+# ===================
+# CDK INFRASTRUCTURE
+# ===================
+
+cdk-deploy:
+	@echo "Deploying CDK stack..."
+	cd infra && npm install && npx cdk deploy --outputs-file ../cdk-outputs.json
+	@echo "Stack deployed. Update js/authConfig.js with values from cdk-outputs.json."
+
+cdk-destroy:
+	@echo "Destroying CDK stack..."
+	cd infra && npx cdk destroy

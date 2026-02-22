@@ -96,9 +96,9 @@ export function createStatGrid(stats) {
     return '';
   }
   
-  const statItems = stats
+  let statItems = stats
     .filter(stat => stat && stat.label && stat.value !== undefined)
-    .map(stat => {
+    .map(function formatStatItem(stat) {
       const colorClass = stat.colorClass ? ` ${stat.colorClass}` : '';
       return `
         <div class="stat-item">
@@ -128,7 +128,7 @@ export function createDivider(label = '') {
 // COMMON ICONS (SVG strings for use with card components)
 // ============================================================================
 
-export const ICONS = {
+export let ICONS = {
   users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
     <circle cx="9" cy="7" r="4"></circle>
@@ -212,12 +212,12 @@ export function precinctDemographicsListHTML(p) {
  * @returns {string} HTML string for the precinct card
  */
 export function precinctInfoCard(p) {
-  const stats = [
+  let stats = [
     { label: 'Party Lean', value: p.winningParty || 'N/A' },
     { label: 'Strength', value: p.partyStrength || 'N/A' }
   ];
-  
-  const partyShares = createStatGrid([
+
+  let partyShares = createStatGrid([
     { label: 'Rep', value: ((p.repShare || 0) * 100).toFixed(1) + '%', colorClass: 'rep' },
     { label: 'Mod', value: ((p.modShare || 0) * 100).toFixed(1) + '%', colorClass: 'mod' },
     { label: 'Dem', value: ((p.demShare || 0) * 100).toFixed(1) + '%', colorClass: 'dem' }

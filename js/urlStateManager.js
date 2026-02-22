@@ -3,7 +3,7 @@
 // Handles building, parsing, and validating URL hash parameters
 
 // View state constants (shared with app.js)
-export const VIEWS = {
+export let VIEWS = {
   DEMOGRAPHICS: 'demographics',
   ELECTION: 'election'
 };
@@ -14,7 +14,7 @@ export const VIEWS = {
  * @returns {string} URL hash string (without the #)
  */
 export function buildURLHash(state) {
-  const params = new URLSearchParams();
+  let params = new URLSearchParams();
   
   if (state.view) {
     params.set('view', state.view);
@@ -40,7 +40,7 @@ export function parseURLHash(hash) {
     return { view: VIEWS.DEMOGRAPHICS, race: null, precinct: null };
   }
   
-  const params = new URLSearchParams(cleanHash);
+  let params = new URLSearchParams(cleanHash);
   return {
     view: params.get('view') || VIEWS.DEMOGRAPHICS,
     race: params.get('race') || null,
@@ -65,25 +65,25 @@ export function generateShareableURL(baseUrl, state) {
  * @returns {Object} - { valid: boolean, errors: string[] }
  */
 export function validateState(state) {
-  const errors = [];
+  let errors = [];
   
   if (!state || typeof state !== 'object') {
     return { valid: false, errors: ['State must be an object'] };
   }
   
   // View validation
-  const validViews = Object.values(VIEWS);
+  let validViews = Object.values(VIEWS);
   if (state.view && !validViews.includes(state.view)) {
     errors.push(`Invalid view: ${state.view}. Must be one of: ${validViews.join(', ')}`);
   }
   
   // Race validation (if provided, should be a string)
-  if (state.race !== null && state.race !== undefined && typeof state.race !== 'string') {
+  if (state.race != null && typeof state.race !== 'string') {
     errors.push('Race must be a string or null');
   }
-  
+
   // Precinct validation (if provided, should be a string or number)
-  if (state.precinct !== null && state.precinct !== undefined) {
+  if (state.precinct != null) {
     const type = typeof state.precinct;
     if (type !== 'string' && type !== 'number') {
       errors.push('Precinct must be a string, number, or null');
@@ -106,14 +106,14 @@ export function sanitizeState(state) {
     return { view: VIEWS.DEMOGRAPHICS, race: null, precinct: null };
   }
   
-  const sanitized = {
+  let sanitized = {
     view: VIEWS.DEMOGRAPHICS,
     race: null,
     precinct: null
   };
   
   // Sanitize view
-  const validViews = Object.values(VIEWS);
+  let validViews = Object.values(VIEWS);
   if (state.view && validViews.includes(state.view)) {
     sanitized.view = state.view;
   }
@@ -126,7 +126,7 @@ export function sanitizeState(state) {
   }
   
   // Sanitize precinct (convert to string, remove non-alphanumeric)
-  if (state.precinct !== null && state.precinct !== undefined) {
+  if (state.precinct != null) {
     sanitized.precinct = String(state.precinct)
       .replace(/[^a-zA-Z0-9-_]/g, '') // Allow alphanumeric, dash, underscore
       .substring(0, 50);
@@ -165,7 +165,7 @@ export async function copyToClipboard(url) {
       return { success: true };
     } else {
       // Fallback for older browsers
-      const textArea = document.createElement('textarea');
+      let textArea = document.createElement('textarea');
       textArea.value = url;
       textArea.style.position = 'fixed';
       textArea.style.left = '-999999px';
@@ -199,6 +199,6 @@ export function getShareableURL(state) {
  */
 export async function copyShareableLink(state) {
   const url = getShareableURL(state);
-  const result = await copyToClipboard(url);
+  let result = await copyToClipboard(url);
   return { ...result, url };
 }

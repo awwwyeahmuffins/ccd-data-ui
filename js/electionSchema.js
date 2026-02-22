@@ -26,7 +26,7 @@
 /**
  * Manifest schema configuration
  */
-export const ELECTION_MANIFEST_SCHEMA = {
+export let ELECTION_MANIFEST_SCHEMA = {
   /**
    * Path to the manifest file relative to app root
    */
@@ -60,7 +60,7 @@ export const ELECTION_MANIFEST_SCHEMA = {
  * 
  * See DATA_LAYOUT_SPEC.md Section 3 for complete CSV schema documentation.
  */
-export const CSV_SCHEMA = {
+export let CSV_SCHEMA = {
   /**
    * Metadata columns that are NOT candidate vote columns.
    * These columns contain precinct information, turnout data, and race metadata.
@@ -159,7 +159,7 @@ export function getCandidateColumns(headers) {
   if (!Array.isArray(headers)) {
     return [];
   }
-  const metadataSet = getMetadataColumnsSet();
+  let metadataSet = getMetadataColumnsSet();
   return headers.filter(header => !metadataSet.has(header));
 }
 
@@ -181,7 +181,7 @@ export function extractPartyFromColumn(candidateColumn) {
   }
   
   // Split by first space - first word is party abbreviation
-  const parts = candidateColumn.trim().split(/\s+/);
+  let parts = candidateColumn.trim().split(/\s+/);
   if (parts.length < 2) {
     return null;
   }
@@ -206,7 +206,7 @@ export function extractCandidateName(candidateColumn) {
   }
   
   // Split by first space and return everything after the party abbreviation
-  const parts = candidateColumn.trim().split(/\s+/);
+  let parts = candidateColumn.trim().split(/\s+/);
   if (parts.length < 2) {
     return candidateColumn; // Return as-is if no space found
   }
@@ -262,8 +262,8 @@ export function validateCSVRow(row) {
     return { valid: false, missingColumns: CSV_SCHEMA.requiredMetadataColumns };
   }
   
-  const missingColumns = CSV_SCHEMA.requiredMetadataColumns.filter(
-    col => !(col in row)
+  let missingColumns = CSV_SCHEMA.requiredMetadataColumns.filter(
+    function isColumnMissing(col) { return !(col in row); }
   );
   
   return {
@@ -311,7 +311,7 @@ export function buildCSVPath(entry, basePath = "data") {
  */
 export function normalizeManifestEntry(entry, categorizeFn) {
   // If already an object with filename, ensure required fields
-  if (typeof entry === 'object' && entry !== null && 'filename' in entry) {
+  if (typeof entry === 'object' && entry != null && 'filename' in entry) {
     return {
       filename: entry.filename,
       year: entry.year ?? ELECTION_MANIFEST_SCHEMA.defaults.year,
@@ -326,7 +326,7 @@ export function normalizeManifestEntry(entry, categorizeFn) {
   if (typeof entry === 'string') {
     // Try to extract year from filename (e.g., "Governor_2024.csv" -> 2024)
     let year = null;
-    const yearMatch = entry.match(/_(\d{4})\.csv$/);
+    let yearMatch = entry.match(/_(\d{4})\.csv$/);
     if (yearMatch) {
       year = parseInt(yearMatch[1], 10);
     }

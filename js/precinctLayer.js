@@ -57,6 +57,46 @@ export function calculateComparison(value, baseline) {
 }
 
 // ============================================================================
+// DATA QUALITY INDICATOR
+// ============================================================================
+
+/**
+ * Generate a data quality badge for interpolated precincts
+ * @param {Object} properties - Feature properties (may contain _meta)
+ * @returns {string} HTML string (empty if data is exact/original)
+ */
+export function generateQualityBadge(properties) {
+  const meta = properties?._meta;
+  if (!meta) return '';
+
+  const { dataQuality, interpolationType, maxWeight } = meta;
+
+  if (dataQuality === 'exact') return '';
+
+  let badgeClass = 'quality-badge';
+  let label = '';
+  let detail = '';
+
+  if (interpolationType === 'sliver') {
+    badgeClass += ' quality-low';
+    label = 'Low Confidence';
+    detail = `${(maxWeight * 100).toFixed(1)}% of source precinct`;
+  } else if (interpolationType === 'new_boundary') {
+    badgeClass += ' quality-estimated';
+    label = 'New Boundary';
+    detail = 'Area-interpolated estimate';
+  } else if (dataQuality === 'estimated') {
+    badgeClass += ' quality-estimated';
+    label = 'Estimated';
+    detail = `${(maxWeight * 100).toFixed(0)}% weight`;
+  }
+
+  if (!label) return '';
+
+  return `<div class="${badgeClass}" title="${detail}">${label}</div>`;
+}
+
+// ============================================================================
 // TOOLTIP CONTENT GENERATORS
 // ============================================================================
 
@@ -186,9 +226,12 @@ export function generateEnhancedTooltip(properties, options = {}) {
   } = options;
 
   const precinctCode = properties.PRECINCT || 'Unknown';
-  
+
   // Base content
   let html = `<strong>Precinct ${precinctCode}</strong>`;
+
+  // Add data quality badge if precinct is interpolated
+  html += generateQualityBadge(properties);
 
   // Add view-specific content
   switch (viewType) {
@@ -216,7 +259,7 @@ export function generateEnhancedTooltip(properties, options = {}) {
 export function generateSimpleTooltip(properties) {
   const p = properties;
   return `
-    <strong>Precinct ${p.PRECINCT}</strong><br/>
+    <strong>Precinct ${p.PRECINCT}</strong>${generateQualityBadge(p)}<br/>
     Winner: ${p.winningParty} (Strength ${p.partyStrength})<br/>
     Rep: ${(p.repShare * 100).toFixed(1)}% |
     Mod: ${(p.modShare * 100).toFixed(1)}% |
@@ -261,12 +304,13 @@ export function createPrecinctLayer(
       ? tooltipFn(p) 
       : generateSimpleTooltip(p);
 
-    // Tooltip:
+    // Tooltip (Gap 2: viewport-aware maxWidth):
     layer.bindTooltip(tooltipContent, {
       className: tooltipClassName,
       sticky: true,
       direction: "auto",
-      minWidth: 120
+      minWidth: 120,
+      maxWidth: 280
     });
 
     // Hover (mouseover / mouseout)
@@ -285,9 +329,29 @@ export function createPrecinctLayer(
     });
   }
 
+  // Wrap style function to apply reduced opacity for sliver precincts
+  function styledWithQuality(feature) {
+    let baseStyle = styleFn(feature);
+    const meta = feature.properties?._meta;
+    if (meta?.isSliver) {
+      baseStyle = {
+        ...baseStyle,
+        fillOpacity: 0.15,
+        dashArray: '4 4',
+        weight: 1,
+      };
+    } else if (meta?.dataQuality === 'estimated') {
+      baseStyle = {
+        ...baseStyle,
+        dashArray: '6 3',
+      };
+    }
+    return baseStyle;
+  }
+
   // Create the GeoJSON layer
-  const precinctLayer = L.geoJSON(geojson, {
-    style:         styleFn,
+  let precinctLayer = L.geoJSON(geojson, {
+    style:         styledWithQuality,
     onEachFeature: onEachFeature
   }).addTo(map);
 
@@ -307,10 +371,10 @@ export function createPrecinctLayer(
 export function updateLayerTooltips(layer, tooltipFn, options = {}) {
   if (!layer || !tooltipFn) return;
   
-  layer.eachLayer((featureLayer) => {
-    const properties = featureLayer.feature?.properties;
+  layer.eachLayer(function updateTooltip(featureLayer) {
+    let properties = featureLayer.feature?.properties;
     if (properties) {
-      const content = tooltipFn(properties, options);
+      let content = tooltipFn(properties, options);
       featureLayer.setTooltipContent(content);
     }
   });

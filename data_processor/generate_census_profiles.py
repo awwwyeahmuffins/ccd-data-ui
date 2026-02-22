@@ -16,8 +16,8 @@ from pathlib import Path
 
 SEED = 42
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
-GEOJSON_PATH = DATA_DIR / "Voting_Precincts.geojson"
-OUTPUT_PATH = DATA_DIR / "precinct_census_profiles.json"
+GEOJSON_PATH = DATA_DIR / "Voting_Precincts_2026.geojson"
+OUTPUT_PATH = DATA_DIR / "2026" / "precinct_census_profiles.json"
 
 # ---------------------------------------------------------------------------
 # Archetype definitions
@@ -417,6 +417,7 @@ def main():
         profiles[str(code)] = generate_precinct(code, arch)
 
     # Write output
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_PATH, "w") as f:
         json.dump(profiles, f, indent=2)
 

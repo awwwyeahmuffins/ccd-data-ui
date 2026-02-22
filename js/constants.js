@@ -4,7 +4,7 @@
 // This eliminates magic numbers and provides a single source of truth.
 
 // Party colors for election visualization
-export const PARTY_COLORS = {
+export let PARTY_COLORS = {
   // Partisan races - mixed case (from candidate names)
   Rep: "#E81B23",    // Republican red
   Dem: "#00AEF3",    // Democrat blue
@@ -36,7 +36,7 @@ export const PARTY_COLORS = {
 };
 
 // Ethnicity colors for racial demographics chart
-export const ETHNICITY_COLORS = {
+export let ETHNICITY_COLORS = {
   Asian: "#1f77b4",
   Black: "#ff7f0e",
   Hispanic: "#2ca02c",
@@ -45,7 +45,7 @@ export const ETHNICITY_COLORS = {
 };
 
 // Map configuration
-export const MAP_CONFIG = {
+export let MAP_CONFIG = {
   center: [33.1, -96.6],
   zoom: 10,           // Start closer to Collin County (was 9)
   minZoom: 8,
@@ -55,7 +55,7 @@ export const MAP_CONFIG = {
 };
 
 // Party strength colors for demographics view
-export const PARTY_STRENGTH_COLORS = {
+export let PARTY_STRENGTH_COLORS = {
   Rep: {
     1: "#fc9a9a", // very light, pinkish red
     2: "#d13636", // medium-light red
@@ -82,10 +82,10 @@ import { getMetadataColumnsSet } from "./electionSchema.js";
 
 // Metadata columns to exclude when identifying candidates
 // Now sourced from electionSchema.js for single source of truth
-export const ELECTION_META_KEYS = getMetadataColumnsSet();
+export let ELECTION_META_KEYS = getMetadataColumnsSet();
 
 // Precinct layer styling defaults
-export const PRECINCT_STYLE = {
+export let PRECINCT_STYLE = {
   default: {
     color: "#444",
     weight: 1,
@@ -107,7 +107,7 @@ export const PRECINCT_STYLE = {
 };
 
 // Chart configuration
-export const CHART_CONFIG = {
+export let CHART_CONFIG = {
   pie: {
     responsive: true,
     maintainAspectRatio: true,
@@ -139,7 +139,7 @@ export const CHART_CONFIG = {
 };
 
 // Party label mappings for display
-export const PARTY_LABELS = {
+export let PARTY_LABELS = {
   Rep: "Republican",
   Dem: "Democrat",
   Mod: "Moderate",
@@ -151,7 +151,7 @@ export const PARTY_LABELS = {
 };
 
 // Turnout view colors and configuration
-export const TURNOUT_CONFIG = {
+export let TURNOUT_CONFIG = {
   // Color scale from red (low turnout) to green (high turnout)
   colors: {
     low: { r: 231, g: 76, b: 60 },      // #E74C3C - Red

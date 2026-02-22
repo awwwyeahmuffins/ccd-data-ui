@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Precinct Lookup — Collin County Elections</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    /* =============================================================================
+       DESIGN SYSTEM — inherited from index.html
+       ============================================================================= */
+
+    :root {
+      --primary: #0057B7;
+      --primary-hover: #0068D9;
+      --primary-light: #E3F2FD;
+      --primary-dark: #003D82;
+      --secondary: #00AEF3;
+      --accent: #1976D2;
+      --dem-color: #00AEF3;
+      --rep-color: #E81B23;
+      --mod-color: #800080;
+      --text-primary: #222222;
+      --text-secondary: #717171;
+      --text-muted: #B0B0B0;
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F7F7F7;
+      --bg-overlay: rgba(0, 0, 0, 0.4);
+      --border: #DDDDDD;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 2px 16px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.16);
+      --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.2);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --primary: #4DA3FF;
+      --primary-hover: #6BB5FF;
+      --primary-light: #1a2a3a;
+      --primary-dark: #80C4FF;
+      --secondary: #00AEF3;
+      --accent: #5BA3E6;
+      --text-primary: #E8E8E8;
+      --text-secondary: #A0A0A0;
+      --text-muted: #666666;
+      --bg-primary: #1A1A2E;
+      --bg-secondary: #16213E;
+      --bg-overlay: rgba(0, 0, 0, 0.6);
+      --border: #2A2A4A;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 2px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.5);
+      --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* =============================================================================
+       HEADER
+       ============================================================================= */
+
+    .page-header {
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .header-brand-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .header-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .header-title span {
+      color: var(--primary);
+    }
+
+    .header-spacer { flex: 1; }
+
+    .header-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      transition: var(--transition-fast);
+      white-space: nowrap;
+    }
+    .header-link:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    .theme-toggle {
+      border: none;
+      background: transparent;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: var(--radius-full);
+      transition: var(--transition-fast);
+    }
+    .theme-toggle:hover {
+      background: var(--bg-secondary);
+    }
+
+    /* =============================================================================
+       SEARCH SECTION
+       ============================================================================= */
+
+    .search-section {
+      max-width: 640px;
+      margin: 48px auto 32px;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .search-heading {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .search-subheading {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .boundary-pills {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .boundary-pill {
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .boundary-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .boundary-pill.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .search-wrapper {
+      position: relative;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 16px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      outline: none;
+      transition: var(--transition-fast);
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 87, 183, 0.15);
+    }
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      max-height: 300px;
+      overflow-y: auto;
+      display: none;
+      z-index: 50;
+    }
+    .search-dropdown.open {
+      display: block;
+    }
+
+    .dropdown-item {
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 14px;
+      transition: var(--transition-fast);
+    }
+    .dropdown-item:hover,
+    .dropdown-item.selected {
+      background: var(--bg-secondary);
+    }
+    .dropdown-code {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .dropdown-party {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+    .dropdown-party.republican, .dropdown-party.rep {
+      background: rgba(232, 27, 35, 0.12);
+      color: #E81B23;
+    }
+    .dropdown-party.democrat, .dropdown-party.dem {
+      background: rgba(0, 174, 243, 0.12);
+      color: #0088CC;
+    }
+    .dropdown-party.moderate, .dropdown-party.mod {
+      background: rgba(128, 0, 128, 0.12);
+      color: #800080;
+    }
+
+    /* =============================================================================
+       INTRO MESSAGE
+       ============================================================================= */
+
+    .intro-message {
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+    .intro-message.hidden { display: none; }
+
+    /* =============================================================================
+       REPORT CONTAINER
+       ============================================================================= */
+
+    .report-container {
+      max-width: 960px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+    }
+    .report-container.hidden { display: none; }
+
+    /* Report Header */
+    .report-header {
+      margin-bottom: 24px;
+    }
+    .report-header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .report-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .boundary-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 4px 10px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-full);
+    }
+    .party-lean-badge {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+    }
+    .party-lean-badge.republican, .party-lean-badge.rep {
+      background: rgba(232, 27, 35, 0.12);
+      color: #E81B23;
+    }
+    .party-lean-badge.democrat, .party-lean-badge.dem {
+      background: rgba(0, 174, 243, 0.12);
+      color: #0088CC;
+    }
+    .party-lean-badge.moderate, .party-lean-badge.mod {
+      background: rgba(128, 0, 128, 0.12);
+      color: #800080;
+    }
+
+    /* Export bar */
+    .export-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .export-bar.hidden { display: none; }
+
+    .export-btn {
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .export-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Mini Map */
+    .mini-map-container {
+      height: 300px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 24px;
+      border: 1px solid var(--border);
+    }
+
+    /* Summary Cards */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .summary-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+    }
+    .summary-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .summary-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Report sections (reused profile styles need these wrappers) */
+    .report-section {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .report-section:empty { display: none; }
+
+    .report-section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Census unavailable message */
+    .census-unavailable {
+      padding: 20px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 14px;
+      background: var(--primary-light);
+      border-radius: var(--radius-md);
+    }
+
+    .error-message {
+      padding: 20px;
+      text-align: center;
+      color: #C62828;
+      background: #FFF0F0;
+      border-radius: var(--radius-md);
+      border: 1px solid #FFCDD2;
+    }
+
+    .empty-state {
+      color: var(--text-muted);
+      text-align: center;
+      padding: 24px;
+      font-size: 14px;
+    }
+
+    .loading-spinner {
+      text-align: center;
+      padding: 32px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* =============================================================================
+       PROFILE CONTENT STYLES (from index.html — needed for generateProfileHTML)
+       ============================================================================= */
+
+    .precinct-profile { }
+    .profile-header { margin-bottom: 20px; }
+    .profile-header h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .profile-pop {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .profile-section {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .profile-section:last-child {
+      border-bottom: none;
+    }
+    .profile-section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+    .profile-stats-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .profile-stat {
+      flex: 1;
+      min-width: 80px;
+      padding: 10px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .profile-stat-value {
+      display: block;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .profile-stat-label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+    .profile-bar {
+      display: flex;
+      height: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .profile-bar-segment {
+      min-width: 2px;
+      transition: width 0.3s;
+    }
+    .profile-bar-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+    .legend-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .profile-bars-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .profile-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+    }
+    .bar-label {
+      width: 140px;
+      flex-shrink: 0;
+      color: var(--text-secondary);
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .bar-track {
+      flex: 1;
+      height: 14px;
+      background: var(--bg-secondary);
+      border-radius: 7px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 7px;
+      transition: width 0.3s;
+    }
+    .bar-value {
+      width: 40px;
+      flex-shrink: 0;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .profile-officials-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .official-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+    }
+    .official-label { color: var(--text-secondary); font-weight: 500; }
+    .official-value { color: var(--text-primary); text-align: right; }
+    .profile-takeaways {
+      background: var(--primary-light);
+      border-radius: var(--radius-md);
+      padding: 16px !important;
+      margin-bottom: 20px;
+    }
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .takeaway-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-primary);
+    }
+    .takeaway-icon { font-size: 16px; flex-shrink: 0; }
+    .profile-party-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 8px;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+    .profile-election-result {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* =============================================================================
+       ELECTION HISTORY
+       ============================================================================= */
+
+    .party-record-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .pr-item {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+    }
+    .pr-item.rep { background: rgba(232, 27, 35, 0.1); color: #E81B23; }
+    .pr-item.dem { background: rgba(0, 174, 243, 0.1); color: #0088CC; }
+    .pr-item.other { background: var(--bg-secondary); color: var(--text-secondary); }
+
+    .history-group {
+      margin-bottom: 8px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .history-group-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--bg-secondary);
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .history-group-header:hover {
+      background: var(--border);
+    }
+    .history-group-header .chevron {
+      font-size: 10px;
+      transition: transform 0.2s;
+    }
+    .race-count {
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .history-table thead {
+      background: var(--bg-secondary);
+    }
+    .history-table th {
+      padding: 8px 12px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .history-table td {
+      padding: 8px 12px;
+      border-top: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+    .history-table tr.rep td:nth-child(3) { color: #E81B23; font-weight: 600; }
+    .history-table tr.dem td:nth-child(3) { color: #00AEF3; font-weight: 600; }
+
+    /* =============================================================================
+       PRINT STYLES
+       ============================================================================= */
+
+    @media print {
+      .page-header,
+      .search-section,
+      .export-bar,
+      .theme-toggle,
+      .header-link {
+        display: none !important;
+      }
+
+      body {
+        background: white !important;
+        color: #222 !important;
+      }
+
+      .report-container {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .report-section {
+        break-inside: avoid;
+        border: 1px solid #ddd;
+        box-shadow: none;
+      }
+
+      .mini-map-container {
+        height: 200px;
+      }
+
+      .history-group-body {
+        display: block !important;
+      }
+
+      :root {
+        --text-primary: #222;
+        --text-secondary: #555;
+        --bg-primary: #fff;
+        --bg-secondary: #f5f5f5;
+        --border: #ddd;
+      }
+    }
+
+    /* =============================================================================
+       RESPONSIVE
+       ============================================================================= */
+
+    @media (max-width: 768px) {
+      .search-heading { font-size: 22px; }
+      .search-section { margin-top: 32px; }
+
+      .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .report-header h1 { font-size: 24px; }
+
+      .page-header {
+        padding: 10px 16px;
+        gap: 10px;
+      }
+      .header-title { font-size: 14px; }
+
+      .back-text { display: none; }
+      .header-link { padding: 8px 10px; font-size: 12px; }
+
+      .report-container {
+        padding: 0 16px;
+      }
+
+      .report-section {
+        padding: 16px;
+      }
+
+      .takeaway-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-label {
+        width: 100px;
+        font-size: 11px;
+      }
+
+      .history-table {
+        font-size: 12px;
+      }
+      .history-table th,
+      .history-table td {
+        padding: 6px 8px;
+      }
+
+      .official-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+      .official-value { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========================================================================
+       HEADER
+       ======================================================================== -->
+  <header class="page-header">
+    <div class="header-brand">
+      <div class="header-brand-icon">CC</div>
+      <span class="header-title">Collin County <span>Precinct Lookup</span></span>
+    </div>
+    <div class="header-spacer"></div>
+    <a href="index.html" class="header-link"><span class="back-text">Back to </span>Map</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode"></button>
+  </header>
+
+  <!-- ========================================================================
+       SEARCH SECTION
+       ======================================================================== -->
+  <section class="search-section">
+    <h1 class="search-heading">Look Up Your Precinct</h1>
+    <p class="search-subheading">Enter a precinct number to see the full report — demographics, party data, election history, and census details.</p>
+
+    <div class="boundary-pills">
+      <button class="boundary-pill active" data-boundary="original">2024 Boundaries</button>
+      <button class="boundary-pill" data-boundary="2026">2026 Boundaries</button>
+    </div>
+
+    <div class="search-wrapper">
+      <input
+        type="text"
+        id="precinct-search"
+        class="search-input"
+        placeholder="Enter precinct number (e.g. 100)"
+        autocomplete="off"
+        inputmode="numeric"
+      />
+      <div id="search-dropdown" class="search-dropdown"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       INTRO MESSAGE (shown before search)
+       ======================================================================== -->
+  <div id="intro-message" class="intro-message">
+    Search for a precinct above to view its full report.
+  </div>
+
+  <!-- ========================================================================
+       REPORT CONTAINER (hidden until precinct selected)
+       ======================================================================== -->
+  <main id="report-container" class="report-container hidden">
+
+    <!-- Report Header -->
+    <div id="report-header" class="report-header"></div>
+
+    <!-- Export Buttons -->
+    <div id="export-bar" class="export-bar hidden">
+      <button id="export-pdf" class="export-btn">Export PDF</button>
+      <button id="export-md" class="export-btn">Export Markdown</button>
+    </div>
+
+    <!-- Mini Map -->
+    <div id="mini-map" class="mini-map-container"></div>
+
+    <!-- Summary Cards -->
+    <div id="section-summary-cards"></div>
+
+    <!-- Party Registration -->
+    <div id="section-party" class="report-section"></div>
+
+    <!-- Racial Demographics -->
+    <div id="section-racial" class="report-section"></div>
+
+    <!-- Districts & Officials -->
+    <div id="section-officials" class="report-section"></div>
+
+    <!-- Election History -->
+    <div class="report-section">
+      <div class="report-section-title">Election History</div>
+      <div id="section-election-history"></div>
+    </div>
+
+    <!-- Census Details -->
+    <div id="section-census" class="report-section"></div>
+
+  </main>
+
+  <!-- ========================================================================
+       SCRIPTS
+       ======================================================================== -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module">
+    import { initPrecinctLookup } from "./js/precinctLookup.js";
+    initPrecinctLookup();
+  </script>
+</body>
+</html>

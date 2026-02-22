@@ -17,12 +17,56 @@ import {
   buildCSVPath 
 } from "./electionSchema.js";
 
+// Active boundary set: "original" (252 precincts) or "2026" (273 precincts)
+let activeBoundary = "original";
+
+// Data paths per boundary set
+let BOUNDARY_CONFIGS = {
+  original: {
+    geojson: "data/Voting_Precincts.geojson",
+    dataDir: "data",
+    label: "2024 Boundaries (252)",
+  },
+  "2026": {
+    geojson: "data/Voting_Precincts_2026.geojson",
+    dataDir: "data/2026",
+    label: "2026 Boundaries (273)",
+  },
+};
+
 // Data cache to prevent redundant fetches
-const dataCache = {
+let dataCache = {
   allData: null,
   elections: {},
   electionsList: null
 };
+
+/**
+ * Get the active boundary set ID
+ */
+export function getActiveBoundary() {
+  return activeBoundary;
+}
+
+/**
+ * Get available boundary configs
+ */
+export function getBoundaryConfigs() {
+  return BOUNDARY_CONFIGS;
+}
+
+/**
+ * Switch to a different boundary set. Clears all cached data.
+ * @param {string} boundaryId - "original" or "2026"
+ */
+export function setActiveBoundary(boundaryId) {
+  if (!BOUNDARY_CONFIGS[boundaryId]) {
+    throw new Error(`Unknown boundary set: ${boundaryId}`);
+  }
+  console.log(`[DataLoader] setActiveBoundary: ${boundaryId} (dataDir: ${BOUNDARY_CONFIGS[boundaryId].dataDir})`);
+  activeBoundary = boundaryId;
+  clearDataCache();
+}
 
 /**
  * Clear the data cache (useful for testing or forced refresh)
@@ -43,67 +87,92 @@ export async function loadAllData() {
     return dataCache.allData;
   }
 
-  // 1) Fetch GeoJSON
-  const geojsonPromise = fetch("data/Voting_Precincts.geojson").then(r => {
+  let config = BOUNDARY_CONFIGS[activeBoundary];
+  const dir = config.dataDir;
+
+  // 1) Fetch GeoJSON (2026 boundaries use separate file; original uses default)
+  const geojsonUrl = activeBoundary === "2026"
+    ? "data/Voting_Precincts_2026.geojson"
+    : "data/Voting_Precincts.geojson";
+  let geojsonPromise = fetch(geojsonUrl).then(function handleGeoJSONResponse(r) {
     if (!r.ok) throw new Error("Failed to fetch GeoJSON");
     return r.json();
   });
 
   // 2) Fetch DNC Score CSV
-  const dncPromise = d3.csv("data/DNC Score By Precinct.csv", d => ({
-    precinct: d.Precinct,
-    rep: +d["Rep"],
-    mod: +d["Mod"],
-    dem: +d["Dem"],
-    repShare: +d["Rep Share"],
-    modShare: +d["Mod Share"],
-    demShare: +d["Dem Share"],
-    winningParty: d["Winning Party"],
-    partyStrength: +d["Party Strength"]
-  }));
+  let dncPromise = d3.csv(`${dir}/DNC Score By Precinct.csv`, function parseDNCRow(d) {
+    return {
+      precinct: d.Precinct,
+      rep: +d["Rep"],
+      mod: +d["Mod"],
+      dem: +d["Dem"],
+      repShare: +d["Rep Share"],
+      modShare: +d["Mod Share"],
+      demShare: +d["Dem Share"],
+      winningParty: d["Winning Party"],
+      partyStrength: +d["Party Strength"]
+    };
+  });
 
   // 3) Fetch Racial Numbers CSV
-  const racialPromise = d3.csv("data/Racial Numbers by Precinct.csv", d => ({
-    precinct: d.precinct,
-    asian: +d.asian,
-    black: +d.black,
-    hispanic: +d.hispanic,
-    others: +d.others,
-    white: +d.white,
-    total: +d.total,
-    pct_asian: parseFloat(d.pct_asian) / 100 || 0,
-    pct_black: parseFloat(d.pct_black) / 100 || 0,
-    pct_hispanic: parseFloat(d.pct_hispanic) / 100 || 0,
-    pct_others: parseFloat(d.pct_others) / 100 || 0,
-    pct_white: parseFloat(d.pct_white) / 100 || 0
-  }));
+  let racialPromise = d3.csv(`${dir}/Racial Numbers by Precinct.csv`, function parseRacialRow(d) {
+    return {
+      precinct: d.precinct,
+      asian: +d.asian,
+      black: +d.black,
+      hispanic: +d.hispanic,
+      others: +d.others,
+      white: +d.white,
+      total: +d.total,
+      pct_asian: parseFloat(d.pct_asian) / 100 || 0,
+      pct_black: parseFloat(d.pct_black) / 100 || 0,
+      pct_hispanic: parseFloat(d.pct_hispanic) / 100 || 0,
+      pct_others: parseFloat(d.pct_others) / 100 || 0,
+      pct_white: parseFloat(d.pct_white) / 100 || 0
+    };
+  });
 
-  // Wait for all three
-  const [geojson, dncData, racialData] = await Promise.all([
+  // 4) Fetch precinct metadata (2026 boundaries only — quality/interpolation info)
+  let metadataPromise;
+  if (activeBoundary === "2026") {
+    metadataPromise = fetch(`${dir}/precinct_metadata.json`)
+      .then(r => r.ok ? r.json() : {})
+      .catch(() => ({}));
+  } else {
+    metadataPromise = Promise.resolve({});
+  }
+
+  // Wait for all data
+  let [geojson, dncData, racialData, precinctMetadata] = await Promise.all([
     geojsonPromise,
     dncPromise,
-    racialPromise
+    racialPromise,
+    metadataPromise
   ]);
 
   // Build lookup objects keyed by PRECINCT (string)
-  const dncLookup = Object.fromEntries(
+  let dncLookup = Object.fromEntries(
     dncData.map(d => [String(d.precinct), d])
   );
-  const racialLookup = Object.fromEntries(
+  let racialLookup = Object.fromEntries(
     racialData.map(d => [String(d.precinct), d])
   );
 
-  // Merge CSV data into each feature.properties
-  geojson.features.forEach(feature => {
+  // Merge CSV data + metadata into each feature.properties
+  for (const feature of geojson.features) {
     const key = String(feature.properties.PRECINCT);
     if (dncLookup[key]) Object.assign(feature.properties, dncLookup[key]);
     if (racialLookup[key]) Object.assign(feature.properties, racialLookup[key]);
-  });
+    if (precinctMetadata[key]) {
+      feature.properties._meta = precinctMetadata[key];
+    }
+  }
 
   // Cache the result
-  const result = { geojson, dncLookup, racialLookup };
+  let result = { geojson, dncLookup, racialLookup };
   dataCache.allData = result;
-  
+
+  console.log(`[DataLoader] loadAllData: ${geojson.features.length} features, ${Object.keys(dncLookup).length} DNC entries, ${Object.keys(racialLookup).length} racial entries`);
   return result;
 }
 
@@ -113,7 +182,7 @@ export async function loadAllData() {
  * @returns {string[]} - Array of field values
  */
 function parseCSVLine(line) {
-  const result = [];
+  let result = [];
   let current = '';
   let inQuotes = false;
   
@@ -162,27 +231,28 @@ export async function loadElectionData(filenameOrEntry) {
   }
 
   // Build path using schema utility (supports subdirectories)
-  const entry = typeof filenameOrEntry === 'object' ? filenameOrEntry : { filename };
-  const csvPath = buildCSVPath(entry);
+  let entry = typeof filenameOrEntry === 'object' ? filenameOrEntry : { filename };
+  const basePath = BOUNDARY_CONFIGS[activeBoundary].dataDir;
+  const csvPath = buildCSVPath(entry, basePath);
   
-  const resp = await fetch(csvPath);
+  let resp = await fetch(csvPath);
   if (!resp.ok) {
     throw new Error(`Could not load CSV ${csvPath}: ${resp.statusText}`);
   }
   const text = await resp.text();
   
   // Handle Windows CRLF line endings
-  const lines = text.trim().replace(/\r\n/g, '\n').split("\n");
+  let lines = text.trim().replace(/\r\n/g, '\n').split("\n");
   if (lines.length < 2) return []; // no data
 
   // Parse header and data rows using robust CSV parser
-  const headers = parseCSVLine(lines[0]);
-  const rows = lines.slice(1).map((line) => {
-    const values = parseCSVLine(line);
-    const obj = {};
-    headers.forEach((h, idx) => {
+  let headers = parseCSVLine(lines[0]);
+  let rows = lines.slice(1).map(function buildRowObject(line) {
+    let values = parseCSVLine(line);
+    let obj = {};
+    for (const [idx, h] of headers.entries()) {
       obj[h] = values[idx] ?? '';
-    });
+    }
     return obj;
   });
 
@@ -204,9 +274,9 @@ function normalizeElectionManifest(manifest) {
     return [];
   }
 
-  return manifest.map(entry => {
+  return manifest.map(function normalizeEntry(entry) {
     return normalizeManifestEntry(entry, categorizeElection);
-  }).filter(entry => entry !== null);
+  }).filter(entry => entry != null);
 }
 
 /**
@@ -220,14 +290,15 @@ export async function listElectionCSVs() {
     return dataCache.electionsList;
   }
 
-  const res = await fetch(ELECTION_MANIFEST_SCHEMA.manifestPath);
+  const manifestPath = `${BOUNDARY_CONFIGS[activeBoundary].dataDir}/elections.json`;
+  let res = await fetch(manifestPath);
   if (!res.ok) {
     throw new Error(`Failed to load elections manifest: ${res.statusText}`);
   }
-  const rawManifest = await res.json();
-  
+  let rawManifest = await res.json();
+
   // Normalize to ensure consistent format using schema module
-  const normalized = normalizeElectionManifest(rawManifest);
+  let normalized = normalizeElectionManifest(rawManifest);
   
   // Cache and return
   dataCache.electionsList = normalized;
@@ -240,9 +311,9 @@ export async function listElectionCSVs() {
  * Useful for initial app load if you want to cache everything
  */
 export async function preloadAllElections() {
-  const files = await listElectionCSVs();
+  let files = await listElectionCSVs();
   // Extract filename from objects if needed
-  await Promise.all(files.map(entry => {
+  await Promise.all(files.map(function loadEntry(entry) {
     const filename = typeof entry === 'string' ? entry : entry.filename;
     return loadElectionData(filename);
   }));

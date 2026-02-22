@@ -17,12 +17,12 @@
  * Array of keyboard shortcuts with their keys, descriptions, and actions.
  * @type {Array<{key: string, description: string, action: Function}>}
  */
-export const SHORTCUTS = [
+export let SHORTCUTS = [
   { 
     key: '/', 
     description: 'Focus search box', 
     action: () => {
-      const searchInput = document.getElementById('election-search');
+      let searchInput = document.getElementById('election-search');
       if (searchInput) {
         searchInput.focus();
         searchInput.select();
@@ -68,25 +68,25 @@ export function initKeyboardShortcuts() {
   document.addEventListener('keydown', handleKeyDown);
   
   // Initialize modal close button
-  const closeBtn = document.querySelector('#shortcuts-modal .modal-close');
+  let closeBtn = document.querySelector('#shortcuts-modal .modal-close');
   if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
+    closeBtn.addEventListener('click', function handleCloseClick() {
       document.getElementById('shortcuts-modal')?.classList.remove('visible');
     });
   }
-  
+
   // Close modal when clicking overlay
-  const modal = document.getElementById('shortcuts-modal');
+  let modal = document.getElementById('shortcuts-modal');
   if (modal) {
-    modal.addEventListener('click', (e) => {
+    modal.addEventListener('click', function handleOverlayClick(e) {
       if (e.target === modal) {
         modal.classList.remove('visible');
       }
     });
   }
-  
+
   // Populate shortcuts list
-  const shortcutsList = document.getElementById('shortcuts-list');
+  let shortcutsList = document.getElementById('shortcuts-list');
   if (shortcutsList) {
     shortcutsList.innerHTML = generateShortcutsHTML();
   }
@@ -117,7 +117,7 @@ function handleKeyDown(e) {
   }
   
   // Find matching shortcut
-  const shortcut = SHORTCUTS.find(s => s.key === e.key);
+  let shortcut = SHORTCUTS.find(s => s.key === e.key);
   if (shortcut) {
     e.preventDefault();
     shortcut.action();
@@ -129,15 +129,15 @@ function handleKeyDown(e) {
  */
 function handleEscape() {
   // Close shortcuts modal
-  const modal = document.getElementById('shortcuts-modal');
+  let modal = document.getElementById('shortcuts-modal');
   if (modal?.classList.contains('visible')) {
     modal.classList.remove('visible');
     return;
   }
   
   // Close sidebar on mobile
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('sidebar-overlay');
+  let sidebar = document.getElementById('sidebar');
+  let overlay = document.getElementById('sidebar-overlay');
   if (sidebar?.classList.contains('open')) {
     sidebar.classList.remove('open');
     overlay?.classList.remove('visible');
@@ -152,7 +152,7 @@ function handleEscape() {
  * Toggle the keyboard shortcuts help modal.
  */
 function toggleShortcutsModal() {
-  const modal = document.getElementById('shortcuts-modal');
+  let modal = document.getElementById('shortcuts-modal');
   if (modal) {
     modal.classList.toggle('visible');
     
@@ -162,7 +162,7 @@ function toggleShortcutsModal() {
     
     // Focus trap - focus close button when opening
     if (isVisible) {
-      const closeBtn = modal.querySelector('.modal-close');
+      let closeBtn = modal.querySelector('.modal-close');
       closeBtn?.focus();
     }
   }
@@ -177,12 +177,14 @@ function toggleShortcutsModal() {
  * @returns {string} HTML string with all shortcuts
  */
 export function generateShortcutsHTML() {
-  return SHORTCUTS.map(shortcut => `
+  return SHORTCUTS.map(function formatShortcut(shortcut) {
+    return `
     <div class="shortcut-item">
       <kbd>${escapeHtml(shortcut.key)}</kbd>
       <span>${escapeHtml(shortcut.description)}</span>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 /**
@@ -191,7 +193,7 @@ export function generateShortcutsHTML() {
  * @returns {string} Escaped string
  */
 function escapeHtml(str) {
-  const escapeMap = {
+  let escapeMap = {
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
@@ -209,7 +211,7 @@ function escapeHtml(str) {
  * Programmatically show the shortcuts modal.
  */
 export function showShortcutsModal() {
-  const modal = document.getElementById('shortcuts-modal');
+  let modal = document.getElementById('shortcuts-modal');
   if (modal) {
     modal.classList.add('visible');
     modal.setAttribute('aria-hidden', 'false');
@@ -220,7 +222,7 @@ export function showShortcutsModal() {
  * Programmatically hide the shortcuts modal.
  */
 export function hideShortcutsModal() {
-  const modal = document.getElementById('shortcuts-modal');
+  let modal = document.getElementById('shortcuts-modal');
   if (modal) {
     modal.classList.remove('visible');
     modal.setAttribute('aria-hidden', 'true');

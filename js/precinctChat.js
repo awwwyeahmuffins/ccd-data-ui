@@ -1,66 +1,24 @@
 // precinctChat.js
 // --------------------------------------------------------------------------------
-// LLM service layer for precinct chat — Ollama API, prompt assembly, streaming,
-// conversation state. Abstraction makes it trivial to swap localhost → remote.
+// LLM service layer for precinct chat — Bedrock via API Gateway, prompt assembly,
+// conversation state.
+
+import { getApiConfig } from './authConfig.js';
+import { getIdToken } from './auth.js';
 
 // ---------------------------------------------------------------------------
-// Configuration
+// Configuration (kept for backward compat — configureLLM/getLLMConfig are no-ops)
 // ---------------------------------------------------------------------------
 
-let config = {
-  baseUrl: 'http://localhost:11434',
-  model: 'llama3.1',
-  chatEndpoint: '/api/chat',
-  healthEndpoint: '/api/tags',
-};
-
-export function configureLLM(overrides) {
-  config = { ...config, ...overrides };
-}
-
-export function getLLMConfig() {
-  return { ...config };
-}
+export function configureLLM() {}
+export function getLLMConfig() { return {}; }
 
 // ---------------------------------------------------------------------------
-// Health Check
+// Health Check — Bedrock is a managed service, always available
 // ---------------------------------------------------------------------------
 
 export async function checkLLMHealth() {
-  try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 3000);
-
-    const resp = await fetch(config.baseUrl + config.healthEndpoint, {
-      signal: controller.signal,
-    });
-    clearTimeout(timeout);
-
-    if (!resp.ok) {
-      return { ok: false, modelAvailable: false, models: [], reason: `Ollama returned ${resp.status}` };
-    }
-
-    const data = await resp.json();
-    const models = (data.models || []).map(m => m.name || m.model || '');
-    const modelAvailable = models.some(m => m.startsWith(config.model));
-
-    return {
-      ok: true,
-      modelAvailable,
-      models,
-      reason: modelAvailable ? null : `Model "${config.model}" not found. Run: ollama pull ${config.model}`,
-    };
-  } catch (err) {
-    const isAbort = err.name === 'AbortError';
-    return {
-      ok: false,
-      modelAvailable: false,
-      models: [],
-      reason: isAbort
-        ? 'Connection timed out. Is Ollama running? Run: ollama serve'
-        : `Cannot connect to Ollama. Run: ollama serve`,
-    };
-  }
+  return { ok: true, modelAvailable: true, models: ['bedrock'], reason: null };
 }
 
 // ---------------------------------------------------------------------------
@@ -68,7 +26,7 @@ export async function checkLLMHealth() {
 // ---------------------------------------------------------------------------
 
 export function buildSystemPrompt(precinctCode, data = {}) {
-  const lines = [];
+  let lines = [];
   lines.push(`You are a helpful analyst for Collin County, Texas voting Precinct ${precinctCode}.`);
   lines.push('Answer questions using ONLY the data provided below. If a question cannot be answered from the data, say so.');
   lines.push('Keep answers concise — 2-4 sentences unless the user asks for detail.');
@@ -184,19 +142,26 @@ function pct(v) {
 // ---------------------------------------------------------------------------
 
 export async function streamChat(messages, { onToken, onDone, onError, signal } = {}) {
-  const body = {
-    model: config.model,
-    messages,
-    stream: true,
-    options: { num_ctx: 8192 },
-  };
+  const { chatEndpoint } = getApiConfig();
+
+  let token;
+  try {
+    token = await getIdToken();
+  } catch (err) {
+    window.dispatchEvent(new CustomEvent('auth-expired'));
+    onError?.(new Error('Authentication expired. Please sign in again.'));
+    return;
+  }
 
   let resp;
   try {
-    resp = await fetch(config.baseUrl + config.chatEndpoint, {
+    resp = await fetch(chatEndpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({ messages }),
       signal,
     });
   } catch (err) {
@@ -205,65 +170,24 @@ export async function streamChat(messages, { onToken, onDone, onError, signal } 
     return;
   }
 
-  if (!resp.ok) {
-    onError?.(new Error(`Ollama returned ${resp.status}`));
+  if (resp.status === 401) {
+    window.dispatchEvent(new CustomEvent('auth-expired'));
+    onError?.(new Error('Session expired. Please sign in again.'));
     return;
   }
 
-  const reader = resp.body.getReader();
-  const decoder = new TextDecoder();
-  let fullText = '';
-  let buffer = '';
+  if (!resp.ok) {
+    onError?.(new Error(`Chat API returned ${resp.status}`));
+    return;
+  }
 
   try {
-    while (true) {
-      const { value, done } = await reader.read();
-      if (done) break;
-
-      buffer += decoder.decode(value, { stream: true });
-
-      // Ollama sends newline-delimited JSON
-      const lines = buffer.split('\n');
-      buffer = lines.pop(); // keep incomplete line in buffer
-
-      for (const line of lines) {
-        if (!line.trim()) continue;
-        try {
-          const chunk = JSON.parse(line);
-          if (chunk.message?.content) {
-            fullText += chunk.message.content;
-            onToken?.(chunk.message.content);
-          }
-          if (chunk.done) {
-            onDone?.(fullText);
-            return;
-          }
-        } catch {
-          // skip malformed JSON lines
-        }
-      }
-    }
-
-    // Process any remaining buffer
-    if (buffer.trim()) {
-      try {
-        const chunk = JSON.parse(buffer);
-        if (chunk.message?.content) {
-          fullText += chunk.message.content;
-          onToken?.(chunk.message.content);
-        }
-      } catch {
-        // skip
-      }
-    }
-
+    let data = await resp.json();
+    const fullText = data.message?.content || '';
+    onToken?.(fullText);
     onDone?.(fullText);
   } catch (err) {
-    if (err.name === 'AbortError') {
-      onDone?.(fullText);
-    } else {
-      onError?.(err);
-    }
+    onError?.(err);
   }
 }
 
@@ -275,17 +199,18 @@ const MAX_MESSAGES_PER_PRECINCT = 20;
 
 export class ConversationManager {
   constructor() {
+    /** @type {Map<string, Array>} */
     this._conversations = new Map();
   }
 
   addUserMessage(precinctCode, content) {
-    const msgs = this._getOrCreate(precinctCode);
+    let msgs = this._getOrCreate(precinctCode);
     msgs.push({ role: 'user', content });
     this._trim(precinctCode);
   }
 
   addAssistantMessage(precinctCode, content) {
-    const msgs = this._getOrCreate(precinctCode);
+    let msgs = this._getOrCreate(precinctCode);
     msgs.push({ role: 'assistant', content });
     this._trim(precinctCode);
   }
@@ -303,7 +228,7 @@ export class ConversationManager {
   }
 
   buildFullMessages(precinctCode, systemPrompt) {
-    const msgs = this.getMessages(precinctCode);
+    let msgs = this.getMessages(precinctCode);
     return [{ role: 'system', content: systemPrompt }, ...msgs];
   }
 
@@ -317,7 +242,7 @@ export class ConversationManager {
 
   _trim(precinctCode) {
     const key = String(precinctCode);
-    const msgs = this._conversations.get(key);
+    let msgs = this._conversations.get(key);
     if (msgs && msgs.length > MAX_MESSAGES_PER_PRECINCT) {
       this._conversations.set(key, msgs.slice(msgs.length - MAX_MESSAGES_PER_PRECINCT));
     }

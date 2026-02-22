@@ -2,19 +2,22 @@
 // --------------------------------------------------------------------------------
 // Census profile panel UI — renders detailed demographic/economic data for a precinct.
 
+import { getActiveBoundary, getBoundaryConfigs } from "./dataLoader.js";
+
 let cachedProfiles = null;
+let cachedBoundary = null;
 
 // ---------------------------------------------------------------------------
 // Formatting helpers
 // ---------------------------------------------------------------------------
 
-function escapeHtml(str) {
-  const div = document.createElement("div");
+export function escapeHtml(str) {
+  let div = document.createElement("div");
   div.textContent = String(str);
   return div.innerHTML;
 }
 
-function formatCurrency(n) {
+export function formatCurrency(n) {
   if (n == null || isNaN(n)) return "N/A";
   if (n >= 1000000) {
     return "$" + (n / 1000000).toFixed(1) + "M";
@@ -25,12 +28,12 @@ function formatCurrency(n) {
   return "$" + n.toLocaleString("en-US");
 }
 
-function formatPct(n) {
+export function formatPct(n) {
   if (n == null || isNaN(n)) return "N/A";
   return (n * 100).toFixed(1).replace(/\.0$/, "") + "%";
 }
 
-function formatNum(n) {
+export function formatNum(n) {
   if (n == null || isNaN(n)) return "N/A";
   return Number(n).toLocaleString("en-US");
 }
@@ -40,10 +43,13 @@ function formatNum(n) {
 // ---------------------------------------------------------------------------
 
 export async function loadCensusProfiles() {
-  if (cachedProfiles) return cachedProfiles;
-  const resp = await fetch("data/precinct_census_profiles.json");
+  const boundary = getActiveBoundary();
+  if (cachedProfiles && cachedBoundary === boundary) return cachedProfiles;
+  const dir = getBoundaryConfigs()[boundary].dataDir;
+  let resp = await fetch(`${dir}/precinct_census_profiles.json`);
   if (!resp.ok) throw new Error(`Failed to load census profiles: ${resp.status}`);
   cachedProfiles = await resp.json();
+  cachedBoundary = boundary;
   return cachedProfiles;
 }
 
@@ -52,8 +58,8 @@ export async function loadCensusProfiles() {
 // ---------------------------------------------------------------------------
 
 export async function renderPrecinctProfile(precinctCode, container, extraData = {}) {
-  const profiles = await loadCensusProfiles();
-  const profile = profiles[String(precinctCode)];
+  let profiles = await loadCensusProfiles();
+  let profile = profiles[String(precinctCode)];
   if (!profile) {
     container.innerHTML = `<div class="precinct-profile"><p>No census data for precinct ${escapeHtml(precinctCode)}.</p></div>`;
     return;
@@ -65,28 +71,28 @@ export async function renderPrecinctProfile(precinctCode, container, extraData =
 // Bar rendering helpers
 // ---------------------------------------------------------------------------
 
-function stackedBar(segments, colors) {
+export function stackedBar(segments, colors) {
   let html = '<div class="profile-bar">';
-  segments.forEach((seg, i) => {
+  for (const [i, seg] of segments.entries()) {
     const pct = (seg.value * 100).toFixed(1);
     const w = pct + "%";
     html += `<div class="profile-bar-segment" style="width:${w};background:${colors[i]}" title="${escapeHtml(seg.label)}: ${pct}%"></div>`;
-  });
+  }
   html += "</div>";
   html += '<div class="profile-bar-legend">';
-  segments.forEach((seg, i) => {
+  for (const [i, seg] of segments.entries()) {
     html += `<span><span class="legend-dot" style="background:${colors[i]}"></span>${escapeHtml(seg.label)}</span>`;
-  });
+  }
   html += "</div>";
   return html;
 }
 
-function barsList(items, color) {
+export function barsList(items, color) {
   let html = '<div class="profile-bars-list">';
-  items.forEach((item) => {
+  for (const item of items) {
     const pct = (item.value * 100).toFixed(1);
     html += `<div class="profile-bar-item"><span class="bar-label">${escapeHtml(item.label)}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${color}"></div></div><span class="bar-value">${pct}%</span></div>`;
-  });
+  }
   html += "</div>";
   return html;
 }
@@ -95,8 +101,8 @@ function barsList(items, color) {
 // Takeaway generation helper
 // ---------------------------------------------------------------------------
 
-function generateTakeaways(p) {
-  const items = [];
+export function generateTakeaways(p) {
+  let items = [];
 
   // Homeowners + median home value
   const ownerPct = p.housing?.ownerOccupied;
@@ -146,20 +152,20 @@ function generateTakeaways(p) {
 // ---------------------------------------------------------------------------
 
 function renderTakeaways(p) {
-  const items = generateTakeaways(p);
+  let items = generateTakeaways(p);
   if (items.length === 0) return "";
 
   let html = '<div class="profile-section profile-takeaways">';
   html += '<h4 class="profile-section-title">At a Glance</h4>';
   html += '<div class="takeaway-grid">';
-  items.forEach((item) => {
+  for (const item of items) {
     html += `<div class="takeaway-item"><span class="takeaway-icon">${item.icon}</span><span>${escapeHtml(item.text)}</span></div>`;
-  });
+  }
   html += "</div></div>";
   return html;
 }
 
-function renderPartyRegistration(partyData) {
+export function renderPartyRegistration(partyData) {
   if (!partyData) return "";
 
   let html = '<div class="profile-section">';
@@ -171,12 +177,12 @@ function renderPartyRegistration(partyData) {
   html += "</div>";
 
   // Stacked bar of shares
-  const segments = [
+  let segments = [
     { label: "Republican", value: partyData.repShare || 0 },
     { label: "Moderate", value: partyData.modShare || 0 },
     { label: "Democrat", value: partyData.demShare || 0 },
   ];
-  const colors = ["#E81B23", "#800080", "#00AEF3"];
+  let colors = ["#E81B23", "#800080", "#00AEF3"];
   html += stackedBar(segments, colors);
 
   // Winning party badge
@@ -190,10 +196,10 @@ function renderPartyRegistration(partyData) {
   return html;
 }
 
-function renderRacialDemographics(racialData) {
+export function renderRacialDemographics(racialData) {
   if (!racialData) return "";
 
-  const racialColors = {
+  let racialColors = {
     white: "#9467bd",
     asian: "#1f77b4",
     hispanic: "#2ca02c",
@@ -205,18 +211,18 @@ function renderRacialDemographics(racialData) {
   html += '<h4 class="profile-section-title">Racial Demographics</h4>';
 
   // Stacked bar
-  const segments = [
+  let segments = [
     { label: "White", value: racialData.pct_white || 0 },
     { label: "Asian", value: racialData.pct_asian || 0 },
     { label: "Hispanic", value: racialData.pct_hispanic || 0 },
     { label: "Black", value: racialData.pct_black || 0 },
     { label: "Others", value: racialData.pct_others || 0 },
   ];
-  const colors = [racialColors.white, racialColors.asian, racialColors.hispanic, racialColors.black, racialColors.others];
+  let colors = [racialColors.white, racialColors.asian, racialColors.hispanic, racialColors.black, racialColors.others];
   html += stackedBar(segments, colors);
 
   // Bar list with counts and percentages
-  const items = [
+  let items = [
     { label: `White (${escapeHtml(formatNum(racialData.white))})`, value: racialData.pct_white || 0 },
     { label: `Asian (${escapeHtml(formatNum(racialData.asian))})`, value: racialData.pct_asian || 0 },
     { label: `Hispanic (${escapeHtml(formatNum(racialData.hispanic))})`, value: racialData.pct_hispanic || 0 },
@@ -225,10 +231,10 @@ function renderRacialDemographics(racialData) {
   ];
 
   html += '<div class="profile-bars-list">';
-  items.forEach((item, i) => {
+  for (const [i, item] of items.entries()) {
     const pct = (item.value * 100).toFixed(1);
     html += `<div class="profile-bar-item"><span class="bar-label">${item.label}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${colors[i]}"></div></div><span class="bar-value">${pct}%</span></div>`;
-  });
+  }
   html += "</div>";
 
   html += "</div>";
@@ -241,10 +247,10 @@ function renderElectionResults(electionData) {
   let html = '<div class="profile-section">';
   html += `<h4 class="profile-section-title">Election: ${escapeHtml(electionData.electionName || "")}</h4>`;
   html += '<div class="profile-stats-row">';
-  (electionData.candidates || []).forEach((c) => {
+  for (const c of (electionData.candidates || [])) {
     const partyLabel = c.party ? ` (${escapeHtml(c.party)})` : "";
     html += `<div class="profile-stat"><span class="profile-stat-value">${escapeHtml(formatNum(c.votes))}</span><span class="profile-stat-label">${escapeHtml(c.name)}${partyLabel}</span></div>`;
-  });
+  }
   html += "</div>";
 
   if (electionData.winner) {
@@ -256,10 +262,10 @@ function renderElectionResults(electionData) {
   return html;
 }
 
-function renderOfficials(officials) {
+export function renderOfficials(officials) {
   if (!officials) return "";
 
-  const districtRows = [];
+  let districtRows = [];
 
   if (officials.CONG != null) {
     const name = officials.CONG_N ? ` \u2014 ${escapeHtml(String(officials.CONG_N))}` : "";
@@ -293,9 +299,9 @@ function renderOfficials(officials) {
   let html = '<div class="profile-section">';
   html += '<h4 class="profile-section-title">Districts &amp; Officials</h4>';
   html += '<div class="profile-officials-grid">';
-  districtRows.forEach((row) => {
+  for (const row of districtRows) {
     html += `<div class="official-item"><span class="official-label">${escapeHtml(row.label)}</span><span class="official-value">${row.value}</span></div>`;
-  });
+  }
   html += "</div></div>";
   return html;
 }
@@ -307,6 +313,7 @@ function renderOfficials(officials) {
 export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   const p = profile;
   const code = escapeHtml(precinctCode);
+  const boundary = getActiveBoundary();
 
   // Header
   let html = `<div class="precinct-profile">`;
@@ -314,6 +321,13 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   html += `<h3>Precinct ${code} &mdash; Census Profile</h3>`;
   html += `<div class="profile-pop">Pop. ${escapeHtml(formatNum(p.population))} &middot; ${escapeHtml(formatNum(p.households?.total))} households</div>`;
   html += `</div>`;
+
+  // Synthetic data disclaimer for 2026 boundaries
+  if (boundary === "2026") {
+    html += `<div class="profile-disclaimer">`;
+    html += `<strong>Illustrative Data</strong> &mdash; Census figures are modeled from regional patterns, not actual American Community Survey data.`;
+    html += `</div>`;
+  }
 
   // Key Takeaways
   html += renderTakeaways(p);
@@ -339,14 +353,14 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   html += statBox(formatPct(p.gender?.female), "Female");
   html += `</div>`;
 
-  const ageBrackets = [
+  let ageBrackets = [
     { label: "Under 18", value: p.age?.under18 || 0 },
     { label: "18-34", value: p.age?.["18to34"] || 0 },
     { label: "35-54", value: p.age?.["35to54"] || 0 },
     { label: "55-64", value: p.age?.["55to64"] || 0 },
     { label: "65+", value: p.age?.["65plus"] || 0 },
   ];
-  const ageColors = ["#4FC3F7", "#29B6F6", "#0288D1", "#01579B", "#002f6c"];
+  let ageColors = ["#4FC3F7", "#29B6F6", "#0288D1", "#01579B", "#002f6c"];
   html += stackedBar(ageBrackets, ageColors);
   html += `</div>`;
 
@@ -358,7 +372,7 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   html += statBox(formatPct(p.income?.povertyRate), "Poverty Rate");
   html += `</div>`;
 
-  const incomeBrackets = [
+  let incomeBrackets = [
     { label: "Under $50K", value: p.income?.brackets?.under50k || 0 },
     { label: "$50-100K", value: p.income?.brackets?.["50kTo100k"] || 0 },
     { label: "$100-150K", value: p.income?.brackets?.["100kTo150k"] || 0 },
@@ -372,7 +386,7 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   html += `<div class="profile-section">`;
   html += `<h4 class="profile-section-title">Education</h4>`;
 
-  const eduBrackets = [
+  let eduBrackets = [
     { label: "High School or Less", value: p.education?.highSchoolOrLess || 0 },
     { label: "Some College", value: p.education?.someCollege || 0 },
     { label: "Bachelor's", value: p.education?.bachelors || 0 },
@@ -385,7 +399,7 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   html += `<div class="profile-section">`;
   html += `<h4 class="profile-section-title">Top Occupations</h4>`;
 
-  const occupations = (p.employment?.topOccupations || []).map((o) => ({
+  let occupations = (p.employment?.topOccupations || []).map((o) => ({
     label: o.name,
     value: o.share,
   }));
@@ -396,7 +410,7 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   html += `<div class="profile-section">`;
   html += `<h4 class="profile-section-title">Top Industries</h4>`;
 
-  const industries = (p.employment?.topIndustries || []).map((o) => ({
+  let industries = (p.employment?.topIndustries || []).map((o) => ({
     label: o.name,
     value: o.share,
   }));
@@ -449,13 +463,13 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   html += `<div class="profile-section">`;
   html += `<h4 class="profile-section-title">Language</h4>`;
 
-  const langs = [
+  let langs = [
     { label: "English Only", value: p.language?.englishOnly || 0 },
     { label: "Spanish", value: p.language?.spanish || 0 },
     { label: "Asian Languages", value: p.language?.asianLanguages || 0 },
     { label: "Other", value: p.language?.other || 0 },
   ];
-  const langColors = ["#5C6BC0", "#AB47BC", "#26A69A", "#BDBDBD"];
+  let langColors = ["#5C6BC0", "#AB47BC", "#26A69A", "#BDBDBD"];
   html += stackedBar(langs, langColors);
   html += `</div>`;
 
@@ -476,7 +490,7 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
 // Stat box helper
 // ---------------------------------------------------------------------------
 
-function statBox(value, label) {
+export function statBox(value, label) {
   const v = value != null ? escapeHtml(String(value)) : "N/A";
   const l = escapeHtml(label);
   return `<div class="profile-stat"><span class="profile-stat-value">${v}</span><span class="profile-stat-label">${l}</span></div>`;

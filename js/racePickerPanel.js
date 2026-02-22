@@ -46,27 +46,27 @@ export function createRacePickerPanel(options = {}) {
   } = options;
 
   // Create panel container
-  const panel = document.createElement('div');
+  let panel = document.createElement('div');
   panel.className = 'race-picker-panel';
   panel.setAttribute('role', 'dialog');
   panel.setAttribute('aria-label', 'Select election race');
   panel.setAttribute('aria-modal', 'true');
 
   // Create backdrop overlay
-  const backdrop = document.createElement('div');
+  let backdrop = document.createElement('div');
   backdrop.className = 'race-picker-backdrop';
   backdrop.setAttribute('aria-hidden', 'true');
-  backdrop.addEventListener('click', () => {
+  backdrop.addEventListener('click', function handleBackdropClick() {
     panel._close();
     if (onClose) onClose();
   });
 
   // Panel content wrapper
-  const content = document.createElement('div');
+  let content = document.createElement('div');
   content.className = 'race-picker-content';
 
   // Header with close button
-  const header = document.createElement('div');
+  let header = document.createElement('div');
   header.className = 'race-picker-header';
   header.innerHTML = `
     <h2 class="race-picker-title">Select Race</h2>
@@ -76,14 +76,14 @@ export function createRacePickerPanel(options = {}) {
       type="button"
     >×</button>
   `;
-  const closeBtn = header.querySelector('.race-picker-close');
-  closeBtn.addEventListener('click', () => {
+  let closeBtn = header.querySelector('.race-picker-close');
+  closeBtn.addEventListener('click', function handleCloseClick() {
     panel._close();
     if (onClose) onClose();
   });
 
   // Search input
-  const searchContainer = document.createElement('div');
+  let searchContainer = document.createElement('div');
   searchContainer.className = 'race-picker-search';
   searchContainer.innerHTML = `
     <input 
@@ -99,21 +99,21 @@ export function createRacePickerPanel(options = {}) {
       type="button"
     >×</button>
   `;
-  const searchInput = searchContainer.querySelector('.race-picker-search-input');
-  const clearBtn = searchContainer.querySelector('.race-picker-search-clear');
+  let searchInput = searchContainer.querySelector('.race-picker-search-input');
+  let clearBtn = searchContainer.querySelector('.race-picker-search-clear');
 
   // Debounced search handler
-  const debouncedSearch = debounce((query) => {
+  let debouncedSearch = debounce((query) => {
     if (onSearch) onSearch(query);
   }, 300);
 
-  searchInput.addEventListener('input', (e) => {
+  searchInput.addEventListener('input', function handleSearchInput(e) {
     const query = e.target.value;
     clearBtn.classList.toggle('hidden', !query);
     debouncedSearch(query);
   });
 
-  clearBtn.addEventListener('click', () => {
+  clearBtn.addEventListener('click', function handleClearSearch() {
     searchInput.value = '';
     clearBtn.classList.add('hidden');
     if (onSearch) onSearch('');
@@ -121,19 +121,19 @@ export function createRacePickerPanel(options = {}) {
   });
 
   // Filter chips container
-  const filtersContainer = document.createElement('div');
+  let filtersContainer = document.createElement('div');
   filtersContainer.className = 'race-picker-filters';
   filtersContainer.setAttribute('role', 'group');
   filtersContainer.setAttribute('aria-label', 'Filter options');
 
   // Year filter chips
-  const yearFilters = document.createElement('div');
+  let yearFilters = document.createElement('div');
   yearFilters.className = 'race-picker-filter-group';
   yearFilters.setAttribute('role', 'radiogroup');
   yearFilters.setAttribute('aria-label', 'Filter by year');
 
   // Category filter chips
-  const categoryFilters = document.createElement('div');
+  let categoryFilters = document.createElement('div');
   categoryFilters.className = 'race-picker-filter-group';
   categoryFilters.setAttribute('role', 'radiogroup');
   categoryFilters.setAttribute('aria-label', 'Filter by category');
@@ -141,17 +141,17 @@ export function createRacePickerPanel(options = {}) {
   filtersContainer.appendChild(yearFilters);
   filtersContainer.appendChild(categoryFilters);
 
-  // Recently viewed section
+  // Recently viewed section (DOM element)
   let recentSection = createRecentlyViewedSection(recentlyViewed, onSelect, currentRace, '');
 
   // Results list container
-  const resultsContainer = document.createElement('div');
+  let resultsContainer = document.createElement('div');
   resultsContainer.className = 'race-picker-results';
   resultsContainer.setAttribute('role', 'listbox');
   resultsContainer.setAttribute('aria-label', 'Race list');
 
   // Empty state
-  const emptyState = document.createElement('div');
+  let emptyState = document.createElement('div');
   emptyState.className = 'race-picker-empty hidden';
   emptyState.innerHTML = `
     <div class="race-picker-empty-icon">🔍</div>
@@ -228,7 +228,7 @@ export function createRacePickerPanel(options = {}) {
   };
 
   // Backdrop click handler
-  backdrop.addEventListener('click', () => {
+  backdrop.addEventListener('click', function handleBackdropDismiss() {
     panel._close();
   });
 
@@ -280,7 +280,7 @@ export function createRacePickerPanel(options = {}) {
 
   panel._updateRecentlyViewed = (recent, searchQuery = '') => {
     if (recent.length > 0) {
-      const updated = createRecentlyViewedSection(recent, onSelect, currentRace, searchQuery);
+      let updated = createRecentlyViewedSection(recent, onSelect, currentRace, searchQuery);
       if (recentSection.parentNode) {
         recentSection.parentNode.replaceChild(updated, recentSection);
       }
@@ -298,7 +298,7 @@ export function createRacePickerPanel(options = {}) {
   panel.setAttribute('aria-hidden', 'true');
 
   // Keyboard shortcuts
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', function handlePanelKeydown(e) {
     if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
       e.preventDefault();
       searchInput.focus();
@@ -312,10 +312,10 @@ export function createRacePickerPanel(options = {}) {
  * Creates the recently viewed section
  */
 function createRecentlyViewedSection(recentlyViewed, onSelect, currentRace, searchQuery = '') {
-  const section = document.createElement('div');
+  let section = document.createElement('div');
   section.className = 'race-picker-recent';
-  
-  const header = document.createElement('div');
+
+  let header = document.createElement('div');
   header.className = 'race-picker-recent-header';
   header.innerHTML = `
     <h3 class="race-picker-recent-title">Recently Viewed</h3>
@@ -326,17 +326,17 @@ function createRecentlyViewedSection(recentlyViewed, onSelect, currentRace, sear
     >Clear</button>
   `;
 
-  const list = document.createElement('div');
+  let list = document.createElement('div');
   list.className = 'race-picker-recent-list';
   list.setAttribute('role', 'list');
 
-  recentlyViewed.forEach(entry => {
-    const item = createRaceItem(entry, onSelect, currentRace, 'recent', searchQuery);
+  for (const entry of recentlyViewed) {
+    let item = createRaceItem(entry, onSelect, currentRace, 'recent', searchQuery);
     item.setAttribute('role', 'listitem');
     list.appendChild(item);
-  });
+  }
 
-  header.querySelector('.race-picker-recent-clear').addEventListener('click', () => {
+  header.querySelector('.race-picker-recent-clear').addEventListener('click', function handleClearRecent() {
     if (window.clearRecentlyViewed) {
       window.clearRecentlyViewed();
       list.innerHTML = '';
@@ -357,31 +357,31 @@ function updateFilterChips(container, type, counts, selected, onChange) {
 
   if (type === 'year') {
     // Add "All" option
-    const allChip = createFilterChip('All', counts[null] || 0, selected === null, () => {
+    let allChip = createFilterChip('All', counts[null] || 0, selected === null, () => {
       onChange(null);
     });
     container.appendChild(allChip);
 
     // Add year chips
-    Object.keys(counts)
+    let sortedYears = Object.keys(counts)
       .filter(key => key !== 'null' && key !== null)
-      .sort((a, b) => parseInt(b) - parseInt(a))
-      .forEach(year => {
-        const chip = createFilterChip(year, counts[year], selected === parseInt(year), () => {
-          onChange(parseInt(year));
-        });
-        container.appendChild(chip);
+      .sort((a, b) => parseInt(b) - parseInt(a));
+    for (const year of sortedYears) {
+      let chip = createFilterChip(year, counts[year], selected === parseInt(year), () => {
+        onChange(parseInt(year));
       });
+      container.appendChild(chip);
+    }
   } else if (type === 'category') {
-    const categories = ['All', 'Federal', 'State', 'County', 'City', 'ISD', 'MUD'];
-    categories.forEach(category => {
+    let categories = ['All', 'Federal', 'State', 'County', 'City', 'ISD', 'MUD'];
+    for (const category of categories) {
       const count = counts[category] || 0;
       const isSelected = (category === 'All' && selected === 'All') || category === selected;
-      const chip = createFilterChip(category, count, isSelected, () => {
+      let chip = createFilterChip(category, count, isSelected, () => {
         onChange(category === 'All' ? 'All' : category);
       });
       container.appendChild(chip);
-    });
+    }
   }
 }
 
@@ -389,7 +389,7 @@ function updateFilterChips(container, type, counts, selected, onChange) {
  * Creates a filter chip button
  */
 function createFilterChip(label, count, isSelected, onClick) {
-  const chip = document.createElement('button');
+  let chip = document.createElement('button');
   chip.className = `race-picker-filter-chip ${isSelected ? 'active' : ''}`;
   chip.setAttribute('role', 'radio');
   chip.setAttribute('aria-checked', isSelected);
@@ -412,25 +412,25 @@ function updateResultsList(container, grouped, searchQuery, onSelect, currentRac
   }
 
   // Group by category for collapsible sections
-  const byCategory = {};
-  grouped.forEach(family => {
+  let byCategory = {};
+  for (const family of grouped) {
     const cat = family.category || 'County';
     if (!byCategory[cat]) {
       byCategory[cat] = [];
     }
     byCategory[cat].push(family);
-  });
+  }
 
-  const categories = ['Federal', 'State', 'County', 'City', 'ISD', 'MUD'];
-  categories.forEach(category => {
+  let categories = ['Federal', 'State', 'County', 'City', 'ISD', 'MUD'];
+  for (const category of categories) {
     if (!byCategory[category] || byCategory[category].length === 0) {
-      return;
+      continue;
     }
 
-    const section = document.createElement('div');
+    let section = document.createElement('div');
     section.className = 'race-picker-group';
-    
-    const header = document.createElement('button');
+
+    let header = document.createElement('button');
     header.className = 'race-picker-group-header';
     header.innerHTML = `
       <span class="race-picker-group-title">${category}</span>
@@ -438,17 +438,17 @@ function updateResultsList(container, grouped, searchQuery, onSelect, currentRac
       <span class="race-picker-group-toggle">▼</span>
     `;
     header.setAttribute('aria-expanded', 'true');
-    
-    const list = document.createElement('div');
+
+    let list = document.createElement('div');
     list.className = 'race-picker-group-list';
     list.setAttribute('role', 'group');
 
-    byCategory[category].forEach(family => {
-      const item = createFamilyItem(family, searchQuery, onSelect, currentRace);
+    for (const family of byCategory[category]) {
+      let item = createFamilyItem(family, searchQuery, onSelect, currentRace);
       list.appendChild(item);
-    });
+    }
 
-    header.addEventListener('click', () => {
+    header.addEventListener('click', function handleGroupToggle() {
       const isExpanded = header.getAttribute('aria-expanded') === 'true';
       header.setAttribute('aria-expanded', !isExpanded);
       list.classList.toggle('collapsed', isExpanded);
@@ -458,28 +458,28 @@ function updateResultsList(container, grouped, searchQuery, onSelect, currentRac
     section.appendChild(header);
     section.appendChild(list);
     container.appendChild(section);
-  });
+  }
 }
 
 /**
  * Creates a race family item
  */
 function createFamilyItem(family, searchQuery, onSelect, currentRace) {
-  const item = document.createElement('div');
+  let item = document.createElement('div');
   item.className = 'race-picker-family';
-  
-  const title = document.createElement('div');
+
+  let title = document.createElement('div');
   title.className = 'race-picker-family-title';
   const titleText = getRaceFamilyDisplayName(family.familyKey);
   title.innerHTML = highlightMatches(titleText, searchQuery || '');
-  
-  const entries = document.createElement('div');
+
+  let entries = document.createElement('div');
   entries.className = 'race-picker-family-entries';
-  
-  family.entries.forEach(entry => {
-    const entryEl = createRaceItem(entry, onSelect, currentRace, 'result', searchQuery);
+
+  for (const entry of family.entries) {
+    let entryEl = createRaceItem(entry, onSelect, currentRace, 'result', searchQuery);
     entries.appendChild(entryEl);
-  });
+  }
 
   item.appendChild(title);
   item.appendChild(entries);
@@ -490,7 +490,7 @@ function createFamilyItem(family, searchQuery, onSelect, currentRace) {
  * Creates a race item (entry)
  */
 function createRaceItem(entry, onSelect, currentRace, type = 'result') {
-  const item = document.createElement('button');
+  let item = document.createElement('button');
   item.className = `race-picker-race-item ${type}`;
   if (entry.filename === currentRace) {
     item.classList.add('selected');

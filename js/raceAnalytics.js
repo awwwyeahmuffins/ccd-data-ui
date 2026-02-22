@@ -11,7 +11,7 @@ import { PARTY_COLORS } from "./constants.js";
 // Light = close race, Dark = decisive win
 // ================================================================================
 
-export const MARGIN_COLOR_SCALES = {
+export let MARGIN_COLOR_SCALES = {
   REP: {
     light: "#FFCCCC", // Very light red (close race)
     dark: "#8B0000"   // Dark red (decisive win)
@@ -54,38 +54,38 @@ export function calculateRaceSummary(electionData, candidates) {
 
   let totalBallotsCast = 0;
   let totalRegisteredVoters = 0;
-  const candidateVotes = {};
-  candidates.forEach(c => candidateVotes[c] = 0);
+  let candidateVotes = {};
+  for (let c of candidates) { candidateVotes[c] = 0; }
 
-  electionData.forEach(row => {
-    const ballots = Number(row["BALLOTS CAST TOTAL"]) || 0;
-    const registered = Number(row["REGISTERED VOTERS TOTAL"]) || 0;
-    
+  for (let row of electionData) {
+    let ballots = Number(row["BALLOTS CAST TOTAL"]) || 0;
+    let registered = Number(row["REGISTERED VOTERS TOTAL"]) || 0;
+
     // Skip precincts not in this race
-    if (registered === 0 && ballots === 0) return;
-    
+    if (registered === 0 && ballots === 0) continue;
+
     totalBallotsCast += ballots;
     totalRegisteredVoters += registered;
-    
-    candidates.forEach(candidate => {
+
+    for (let candidate of candidates) {
       candidateVotes[candidate] += Number(row[candidate]) || 0;
-    });
-  });
+    }
+  }
 
   // Find winner and runner-up
-  const sortedCandidates = Object.entries(candidateVotes)
+  let sortedCandidates = Object.entries(candidateVotes)
     .sort((a, b) => b[1] - a[1]);
-  
-  const winner = sortedCandidates[0] || [null, 0];
-  const runnerUp = sortedCandidates[1] || [null, 0];
-  
-  const totalCandidateVotes = Object.values(candidateVotes).reduce((sum, v) => sum + v, 0);
-  const margin = totalCandidateVotes > 0 
-    ? (winner[1] - runnerUp[1]) / totalCandidateVotes 
+
+  let winner = sortedCandidates[0] || [null, 0];
+  let runnerUp = sortedCandidates[1] || [null, 0];
+
+  let totalCandidateVotes = Object.values(candidateVotes).reduce((sum, v) => sum + v, 0);
+  let margin = totalCandidateVotes > 0
+    ? (winner[1] - runnerUp[1]) / totalCandidateVotes
     : 0;
-  
-  const turnout = totalRegisteredVoters > 0 
-    ? totalBallotsCast / totalRegisteredVoters 
+
+  let turnout = totalRegisteredVoters > 0
+    ? totalBallotsCast / totalRegisteredVoters
     : 0;
 
   return {
@@ -112,15 +112,17 @@ export function buildVoteShareData(summary) {
     return [];
   }
 
-  const total = summary.totalCandidateVotes || 0;
-  
+  let total = summary.totalCandidateVotes || 0;
+
   return Object.entries(summary.candidateVotes)
-    .map(([candidate, votes]) => ({
-      candidate,
-      votes,
-      percentage: total > 0 ? (votes / total) * 100 : 0,
-      party: candidate.split(" ")[0] // Extract party prefix (e.g., "REP" from "REP Greg Abbott")
-    }))
+    .map(function buildEntry([candidate, votes]) {
+      return {
+        candidate,
+        votes,
+        percentage: total > 0 ? (votes / total) * 100 : 0,
+        party: candidate.split(" ")[0] // Extract party prefix (e.g., "REP" from "REP Greg Abbott")
+      };
+    })
     .sort((a, b) => b.votes - a.votes); // Sort by votes descending
 }
 
@@ -135,9 +137,9 @@ export function calculatePrecinctMargin(precinctData, candidates) {
     return null;
   }
 
-  const registered = Number(precinctData["REGISTERED VOTERS TOTAL"]) || 0;
-  const ballots = Number(precinctData["BALLOTS CAST TOTAL"]) || 0;
-  
+  let registered = Number(precinctData["REGISTERED VOTERS TOTAL"]) || 0;
+  let ballots = Number(precinctData["BALLOTS CAST TOTAL"]) || 0;
+
   // Not in race
   if (registered === 0 && ballots === 0) {
     return null;
@@ -149,10 +151,10 @@ export function calculatePrecinctMargin(precinctData, candidates) {
   let winner = null;
   let winnerParty = null;
 
-  candidates.forEach(candidate => {
-    const votes = Number(precinctData[candidate]) || 0;
+  for (let candidate of candidates) {
+    let votes = Number(precinctData[candidate]) || 0;
     totalVotes += votes;
-    
+
     if (votes > topVotes) {
       secondVotes = topVotes;
       topVotes = votes;
@@ -161,13 +163,13 @@ export function calculatePrecinctMargin(precinctData, candidates) {
     } else if (votes > secondVotes) {
       secondVotes = votes;
     }
-  });
+  }
 
   if (totalVotes === 0) {
     return null;
   }
 
-  const margin = (topVotes - secondVotes) / totalVotes;
+  let margin = (topVotes - secondVotes) / totalVotes;
 
   return {
     margin,
@@ -186,7 +188,7 @@ export function calculatePrecinctMargin(precinctData, candidates) {
  * @returns {Object} {r, g, b} values
  */
 export function hexToRGB(hex) {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ? {
     r: parseInt(result[1], 16),
     g: parseInt(result[2], 16),
@@ -202,8 +204,8 @@ export function hexToRGB(hex) {
  * @returns {string} Hex color string with # prefix
  */
 export function rgbToHex(r, g, b) {
-  return "#" + [r, g, b].map(x => {
-    const hex = x.toString(16);
+  return "#" + [r, g, b].map(function toHexPart(x) {
+    let hex = x.toString(16);
     return hex.length === 1 ? "0" + hex : hex;
   }).join("").toUpperCase();
 }
@@ -217,18 +219,18 @@ export function rgbToHex(r, g, b) {
  */
 export function getMarginColor(margin, party) {
   // Clamp margin to [0, 1]
-  const clampedMargin = Math.max(0, Math.min(1, margin));
-  
-  const scale = MARGIN_COLOR_SCALES[party] || MARGIN_COLOR_SCALES.default;
-  
+  let clampedMargin = Math.max(0, Math.min(1, margin));
+
+  let scale = MARGIN_COLOR_SCALES[party] || MARGIN_COLOR_SCALES.default;
+
   // Interpolate between light and dark based on margin
   // margin 0 = light (close), margin 1 = dark (decisive)
-  const lightRGB = hexToRGB(scale.light);
-  const darkRGB = hexToRGB(scale.dark);
-  
-  const r = Math.round(lightRGB.r + (darkRGB.r - lightRGB.r) * clampedMargin);
-  const g = Math.round(lightRGB.g + (darkRGB.g - lightRGB.g) * clampedMargin);
-  const b = Math.round(lightRGB.b + (darkRGB.b - lightRGB.b) * clampedMargin);
+  let lightRGB = hexToRGB(scale.light);
+  let darkRGB = hexToRGB(scale.dark);
+
+  let r = Math.round(lightRGB.r + (darkRGB.r - lightRGB.r) * clampedMargin);
+  let g = Math.round(lightRGB.g + (darkRGB.g - lightRGB.g) * clampedMargin);
+  let b = Math.round(lightRGB.b + (darkRGB.b - lightRGB.b) * clampedMargin);
   
   return rgbToHex(r, g, b);
 }
@@ -248,12 +250,12 @@ export function generateRaceSummaryHTML(summary, raceName) {
     return '<div class="error-state"><p>Unable to calculate race summary.</p></div>';
   }
 
-  const formatNumber = (n) => n.toLocaleString();
-  const formatPct = (n) => (n * 100).toFixed(1) + "%";
-  
+  let formatNumber = (n) => n.toLocaleString();
+  let formatPct = (n) => (n * 100).toFixed(1) + "%";
+
   // Get party label
-  const winnerParty = summary.winner ? summary.winner.split(" ")[0] : "N/A";
-  const winnerName = summary.winner ? summary.winner.split(" ").slice(1).join(" ") : "N/A";
+  let winnerParty = summary.winner ? summary.winner.split(" ")[0] : "N/A";
+  let winnerName = summary.winner ? summary.winner.split(" ").slice(1).join(" ") : "N/A";
 
   return `
     <div class="race-summary">
@@ -322,7 +324,7 @@ export function createVoteShareChart(voteShareData, canvasId = "vote-share-canva
     return null;
   }
 
-  const canvas = document.getElementById(canvasId);
+  let canvas = document.getElementById(canvasId);
   if (!canvas) {
     console.error(`Canvas element not found: ${canvasId}`);
     return null;
@@ -334,17 +336,17 @@ export function createVoteShareChart(voteShareData, canvasId = "vote-share-canva
     voteShareChartInstance = null;
   }
 
-  const ctx = canvas.getContext("2d");
-  
+  let ctx = canvas.getContext("2d");
+
   // Prepare data
-  const labels = voteShareData.map(d => {
+  let labels = voteShareData.map(function extractLabel(d) {
     // Show candidate name without party prefix for cleaner display
-    const nameParts = d.candidate.split(" ");
+    let nameParts = d.candidate.split(" ");
     return nameParts.slice(1).join(" ") || d.candidate;
   });
-  
-  const values = voteShareData.map(d => d.votes);
-  const backgroundColors = voteShareData.map(d => PARTY_COLORS[d.party] || PARTY_COLORS.default);
+
+  let values = voteShareData.map(d => d.votes);
+  let backgroundColors = voteShareData.map(d => PARTY_COLORS[d.party] || PARTY_COLORS.default);
 
   voteShareChartInstance = new Chart(ctx, {
     type: "bar",
@@ -374,17 +376,17 @@ export function createVoteShareChart(voteShareData, canvasId = "vote-share-canva
             size: 11,
             weight: "bold"
           },
-          formatter: (value, context) => {
-            const idx = context.dataIndex;
-            const pct = voteShareData[idx].percentage.toFixed(1);
+          formatter: function formatLabel(value, context) {
+            let idx = context.dataIndex;
+            let pct = voteShareData[idx].percentage.toFixed(1);
             return `${pct}%`;
           }
         },
         tooltip: {
           callbacks: {
-            label: (ctx) => {
-              const idx = ctx.dataIndex;
-              const d = voteShareData[idx];
+            label: function formatTooltip(ctx) {
+              let idx = ctx.dataIndex;
+              let d = voteShareData[idx];
               return `${d.votes.toLocaleString()} votes (${d.percentage.toFixed(1)}%)`;
             }
           }

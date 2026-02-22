@@ -60,13 +60,13 @@ export function groupElectionsByFamily(manifest) {
     return {};
   }
 
-  const grouped = {};
+  let grouped = {};
 
-  manifest.forEach(entry => {
-    const familyKey = getRaceFamily(entry);
-    
+  for (const entry of manifest) {
+    let familyKey = getRaceFamily(entry);
+
     if (!familyKey) {
-      return; // Skip invalid entries
+      continue; // Skip invalid entries
     }
 
     if (!grouped[familyKey]) {
@@ -87,22 +87,22 @@ export function groupElectionsByFamily(manifest) {
     });
 
     // Update metadata
-    const years = grouped[familyKey].entries
+    let years = grouped[familyKey].entries
       .map(e => e.year)
-      .filter(y => y !== null && y !== undefined);
-    
+      .filter(y => y != null);
+
     grouped[familyKey].totalYears = new Set(years).size;
     grouped[familyKey].latestYear = years.length > 0 ? Math.max(...years) : null;
-  });
+  }
 
   // Sort entries within each family by year descending
-  Object.keys(grouped).forEach(familyKey => {
+  for (const familyKey of Object.keys(grouped)) {
     grouped[familyKey].entries.sort((a, b) => {
       const yearA = a.year || 0;
       const yearB = b.year || 0;
       return yearB - yearA; // Descending
     });
-  });
+  }
 
   return grouped;
 }
@@ -118,13 +118,13 @@ export function sortFamilies(grouped, sortBy = 'alphabetical') {
     return [];
   }
 
-  const families = Object.keys(grouped).map(familyKey => ({
+  let families = Object.keys(grouped).map(familyKey => ({
     familyKey,
     ...grouped[familyKey]
   }));
 
   // Category order for sorting
-  const categoryOrder = {
+  let categoryOrder = {
     'Federal': 1,
     'State': 2,
     'County': 3,

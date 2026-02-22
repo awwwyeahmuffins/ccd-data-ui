@@ -6460,3 +6460,388 @@ kbd {
     animation: none;
   }
 }
+
+/* =============================================================================
+   RESPONSIVE FIX: Header & Layout at Various Breakpoints
+   ============================================================================= */
+
+/* ---------------------------------------------------------------------------
+   Issue 7: ~1366px Laptop — Forecast button clipped at right edge
+   Give the header a bit more breathing room and allow items to shrink.
+   --------------------------------------------------------------------------- */
+@media (max-width: 1400px) {
+  .header-content {
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .header-actions {
+    gap: 6px;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  /* Shrink the search trigger so it doesn't hog space */
+  #cmd-k-trigger {
+    min-width: 100px !important;
+    padding: 8px 12px !important;
+  }
+
+  .header-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* Prevent brand text from wrapping */
+  .header-brand-text {
+    white-space: nowrap !important;
+  }
+
+  /* Hide Forecast button text at laptop size — icon only */
+  .forecast-btn-text {
+    display: none !important;
+  }
+
+  .header-btn.forecast-btn {
+    padding: 8px 10px !important;
+  }
+
+  /* Smaller view mode button labels */
+  .view-mode-btn .view-label {
+    font-size: 12px !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Issue 1 & 2: 768px iPad — Header cramped; too many visible items.
+   Hide search bar, shrink buttons, abbreviate brand text.
+   --------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .header-content {
+    gap: 6px 8px !important;
+    padding: 10px 10px !important;
+  }
+
+  /* Abbreviate the title to "CC Elections" */
+  .header-brand-text {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    overflow: hidden;
+  }
+
+  .header-brand-text::after {
+    content: 'CC Elections';
+    font-size: 15px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .header-brand {
+    gap: 6px !important;
+    flex-shrink: 0;
+  }
+
+  /* Hide the search trigger — users can still use Cmd+K */
+  #cmd-k-trigger {
+    display: none !important;
+  }
+
+  /* Hide the "Hide" header toggle button */
+  #toggle-header {
+    display: none !important;
+  }
+
+  /* Compact header buttons */
+  .header-actions .header-btn {
+    padding: 7px 10px !important;
+    font-size: 12px !important;
+  }
+
+  .header-actions {
+    gap: 6px !important;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  /* Smaller theme toggle */
+  .theme-toggle {
+    padding: 5px 7px !important;
+    font-size: 13px !important;
+  }
+
+  /* Hide Cmd+K hint on tablet — irrelevant without keyboard */
+  #welcome-overlay .welcome-shortcut {
+    display: none !important;
+  }
+
+  /* Hide view-mode text labels, show icons only */
+  .view-mode-btn .view-label {
+    display: none !important;
+  }
+
+  .view-mode-btn {
+    padding: 8px 10px !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Issue 3, 5, 6: Phones (<=600px) — Title too long, dark mode toggle awkward,
+   welcome card text too large.
+   --------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  /* Explicitly hide brand text */
+  .header-brand-text {
+    display: none !important;
+  }
+
+  .header-brand-text::after {
+    content: none !important;
+  }
+
+  .header-content {
+    gap: 4px 6px !important;
+    padding: 8px 8px !important;
+  }
+
+  .header-brand {
+    gap: 4px !important;
+    flex-shrink: 0;
+  }
+
+  .header-brand-icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+  }
+
+  /* Hide search trigger and header toggle on phones */
+  #cmd-k-trigger,
+  #toggle-header {
+    display: none !important;
+  }
+
+  /* Make dark mode toggle smaller and ensure it doesn't clip */
+  .theme-toggle {
+    padding: 4px 5px !important;
+    font-size: 12px !important;
+    flex-shrink: 0;
+  }
+
+  /* Compact Browse and Forecast buttons */
+  .header-actions .header-btn {
+    padding: 6px 8px !important;
+    font-size: 11px !important;
+    white-space: nowrap;
+  }
+
+  .header-actions {
+    gap: 4px !important;
+    flex-shrink: 1;
+    min-width: 0;
+    flex-wrap: nowrap;
+  }
+
+  /* Forecast icon-only on phone */
+  .forecast-btn-text {
+    display: none !important;
+  }
+
+  .header-btn.forecast-btn {
+    padding: 6px 8px !important;
+  }
+
+  /* Boundary selector — smaller on mobile */
+  .boundary-selector select {
+    font-size: 11px !important;
+    padding: 6px 24px 6px 8px !important;
+  }
+
+  /* Welcome card — reduce text size and padding */
+  #welcome-overlay {
+    padding: 24px 20px !important;
+    max-width: 300px !important;
+    margin: 0 auto;
+  }
+
+  #welcome-overlay h2 {
+    font-size: 17px !important;
+    margin-bottom: 6px !important;
+  }
+
+  #welcome-overlay p {
+    font-size: 12px !important;
+    margin-bottom: 16px !important;
+    line-height: 1.4;
+  }
+
+  #welcome-overlay .welcome-btn {
+    padding: 10px 22px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Hide "Cmd + K to search" hint — irrelevant on touch devices */
+  #welcome-overlay .welcome-shortcut {
+    display: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Issue 3 (continued) & 4: Very small phones (<=400px) — Title wraps 3 lines,
+   bottom nav "Browse" truncated.
+   --------------------------------------------------------------------------- */
+@media (max-width: 400px) {
+  .header-content {
+    gap: 4px !important;
+    padding: 6px 6px !important;
+  }
+
+  .header-brand-icon {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 13px !important;
+  }
+
+  /* Even smaller buttons */
+  .header-actions .header-btn {
+    padding: 5px 6px !important;
+    font-size: 10px !important;
+  }
+
+  /* Theme toggle — minimal */
+  .theme-toggle {
+    padding: 3px 4px !important;
+    font-size: 11px !important;
+  }
+
+  /* Boundary selector — compact */
+  .boundary-selector select {
+    font-size: 10px !important;
+    padding: 5px 20px 5px 6px !important;
+  }
+
+  /* Welcome card — even more compact */
+  #welcome-overlay {
+    padding: 20px 16px !important;
+    max-width: 280px !important;
+  }
+
+  #welcome-overlay h2 {
+    font-size: 15px !important;
+  }
+
+  #welcome-overlay p {
+    font-size: 11px !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Issue 4: Bottom nav bar "Browse" text truncated on small phones.
+   Improve spacing and allow text to fit. Show at 600px (matches existing
+   inline breakpoint) with better layout.
+   --------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  #mobile-tab-bar .tab-bar-inner {
+    padding: 0 4px;
+  }
+
+  #mobile-tab-bar .tab-btn {
+    min-width: 44px;
+    padding: 4px 4px;
+    flex: 1;
+  }
+
+  #mobile-tab-bar .tab-label {
+    font-size: 9px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  #mobile-tab-bar .tab-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  /* On the smallest phones, use icon-only mode for bottom nav */
+  #mobile-tab-bar .tab-label {
+    font-size: 8px;
+  }
+
+  #mobile-tab-bar .tab-btn {
+    padding: 4px 2px;
+    gap: 1px;
+  }
+
+  #mobile-tab-bar .tab-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Map UI Pattern Improvements (mapuipatterns.com audit)
+   --------------------------------------------------------------------------- */
+
+/* M3: Filter chips horizontal scroll on mobile */
+@media (max-width: 768px) {
+  .filter-chips {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .filter-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-chip {
+    flex-shrink: 0;
+    font-size: 12px !important;
+    padding: 6px 12px !important;
+  }
+}
+
+/* H1: Legend toggle — collapsed on mobile by default */
+@media (max-width: 600px) {
+  .legend-body {
+    max-height: 0 !important;
+    padding: 0 14px !important;
+    opacity: 0 !important;
+  }
+
+  .legend-body:not(.collapsed) {
+    max-height: 300px !important;
+    padding: 0 14px 12px !important;
+    opacity: 1 !important;
+  }
+
+  .legend-toggle-icon::after {
+    content: ' +';
+  }
+
+  .legend-body:not(.collapsed) ~ .legend-toggle .legend-toggle-icon::after {
+    content: '';
+  }
+}
+
+/* H2: Progressive disclosure — forecast section collapsible */
+.forecast-section .forecast-header {
+  cursor: pointer;
+}
+
+.forecast-section .forecast-section-collapsible {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* Single active panel constraint — ensure panels don't overlap */
+#election-panel.active ~ #precinct-profile-panel.active,
+#election-panel.active ~ #competitive-ranker-panel.active {
+  z-index: 9999;
+}

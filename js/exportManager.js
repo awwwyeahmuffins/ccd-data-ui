@@ -31,14 +31,14 @@ export function formatElectionResultsForExport(electionData, electionName) {
   }
 
   // Define meta keys that are not candidate votes
-  const metaKeys = new Set([
+  let metaKeys = new Set([
     'PRECINCT CODE', 'REGISTERED VOTERS TOTAL', 'BALLOTS CAST TOTAL',
     'Winning Candidate', 'Winning Party'
   ]);
 
-  return electionData.map(row => {
+  return electionData.map(function buildExportRow(row) {
     // Build a clean export object with descriptive headers
-    const exportRow = {
+    let exportRow = {
       'Election': electionName,
       'Precinct Code': row['PRECINCT CODE'] || '',
       'Registered Voters': row['REGISTERED VOTERS TOTAL'] || 0,
@@ -48,7 +48,7 @@ export function formatElectionResultsForExport(electionData, electionName) {
     };
 
     // Add candidate vote columns
-    Object.keys(row).forEach(key => {
+    for (const key of Object.keys(row)) {
       if (!metaKeys.has(key)) {
         const value = row[key];
         // Only include if it looks like a vote count
@@ -56,7 +56,7 @@ export function formatElectionResultsForExport(electionData, electionName) {
           exportRow[`Votes: ${key}`] = Number(value);
         }
       }
-    });
+    }
 
     return exportRow;
   });
@@ -73,22 +73,22 @@ export function formatPrecinctHistoryForExport(precinctCode, electionResults) {
     return [];
   }
 
-  const history = [];
+  let history = [];
 
-  electionResults.forEach(election => {
-    if (!election.data || !Array.isArray(election.data)) return;
-    
+  for (const election of electionResults) {
+    if (!election.data || !Array.isArray(election.data)) continue;
+
     // Find this precinct's data in the election
-    const precinctData = election.data.find(
+    let precinctData = election.data.find(
       row => String(row['PRECINCT CODE']) === String(precinctCode)
     );
-    
-    if (!precinctData) return;
-    
+
+    if (!precinctData) continue;
+
     // Skip if precinct wasn't part of this race
     const ballotsCast = Number(precinctData['BALLOTS CAST TOTAL']) || 0;
     const registeredVoters = Number(precinctData['REGISTERED VOTERS TOTAL']) || 0;
-    if (ballotsCast === 0 && registeredVoters === 0) return;
+    if (ballotsCast === 0 && registeredVoters === 0) continue;
 
     history.push({
       'Precinct': precinctCode,
@@ -99,7 +99,7 @@ export function formatPrecinctHistoryForExport(precinctCode, electionResults) {
       'Winning Candidate': precinctData['Winning Candidate'] || '',
       'Winning Party': precinctData['Winning Party'] || ''
     });
-  });
+  }
 
   return history;
 }
@@ -115,7 +115,7 @@ export function filterElectionResults(electionData, filters = {}) {
     return [];
   }
 
-  return electionData.filter(row => {
+  return electionData.filter(function checkFilters(row) {
     const ballotsCast = Number(row['BALLOTS CAST TOTAL']) || 0;
     const registeredVoters = Number(row['REGISTERED VOTERS TOTAL']) || 0;
     const turnout = registeredVoters > 0 ? (ballotsCast / registeredVoters) : 0;
@@ -196,14 +196,14 @@ export function computeRaceSummary(electionData, candidateNames = []) {
   let totalVotes = 0;
   let totalRegistered = 0;
   let activePrecincts = 0;
-  const candidateTotals = {};
+  let candidateTotals = {};
 
   // Initialize candidate totals
-  candidateNames.forEach(name => {
+  for (const name of candidateNames) {
     candidateTotals[name] = 0;
-  });
+  }
 
-  electionData.forEach(row => {
+  for (const row of electionData) {
     const ballots = Number(row['BALLOTS CAST TOTAL']) || 0;
     const registered = Number(row['REGISTERED VOTERS TOTAL']) || 0;
 
@@ -213,18 +213,18 @@ export function computeRaceSummary(electionData, candidateNames = []) {
       totalRegistered += registered;
 
       // Sum candidate votes
-      candidateNames.forEach(name => {
+      for (const name of candidateNames) {
         candidateTotals[name] += Number(row[name]) || 0;
-      });
+      }
     }
-  });
+  }
 
   // Find winner and margin
   let winner = null;
   let topVotes = 0;
   let secondVotes = 0;
 
-  Object.entries(candidateTotals).forEach(([name, votes]) => {
+  for (const [name, votes] of Object.entries(candidateTotals)) {
     if (votes > topVotes) {
       secondVotes = topVotes;
       topVotes = votes;
@@ -232,7 +232,7 @@ export function computeRaceSummary(electionData, candidateNames = []) {
     } else if (votes > secondVotes) {
       secondVotes = votes;
     }
-  });
+  }
 
   const margin = topVotes - secondVotes;
   const marginPct = totalVotes > 0 ? ((margin / totalVotes) * 100).toFixed(1) + '%' : 'N/A';
@@ -338,10 +338,10 @@ export function createExportDropdown(container, callbacks = {}) {
   
   container.innerHTML = html;
   
-  const dropdown = document.getElementById(dropdownId);
-  const btn = dropdown.querySelector('.export-dropdown-btn');
-  const menu = dropdown.querySelector('.export-dropdown-menu');
-  const options = dropdown.querySelectorAll('.export-option');
+  let dropdown = document.getElementById(dropdownId);
+  let btn = dropdown.querySelector('.export-dropdown-btn');
+  let menu = dropdown.querySelector('.export-dropdown-menu');
+  let options = dropdown.querySelectorAll('.export-option');
   
   let isOpen = false;
   
@@ -359,7 +359,7 @@ export function createExportDropdown(container, callbacks = {}) {
     dropdown.classList.remove('open');
   }
   
-  btn.addEventListener('click', (e) => {
+  btn.addEventListener('click', function handleBtnClick(e) {
     e.stopPropagation();
     toggleDropdown();
   });
@@ -368,11 +368,11 @@ export function createExportDropdown(container, callbacks = {}) {
   document.addEventListener('click', closeDropdown);
   
   // Handle option clicks
-  options.forEach(option => {
-    option.addEventListener('click', () => {
+  for (const option of options) {
+    option.addEventListener('click', function handleOptionClick() {
       const action = option.dataset.action;
       closeDropdown();
-      
+
       if (action === 'race' && callbacks.onExportRace) {
         callbacks.onExportRace();
       } else if (action === 'precinct' && callbacks.onExportPrecinct) {
@@ -381,10 +381,10 @@ export function createExportDropdown(container, callbacks = {}) {
         callbacks.onExportFiltered();
       }
     });
-  });
+  }
   
   // Keyboard navigation
-  dropdown.addEventListener('keydown', (e) => {
+  dropdown.addEventListener('keydown', function handleDropdownKeydown(e) {
     if (e.key === 'Escape') {
       closeDropdown();
       btn.focus();

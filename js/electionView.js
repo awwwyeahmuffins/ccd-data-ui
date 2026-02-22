@@ -88,7 +88,7 @@ let trendDeltas = null;
 let trendSummary = null;
 
 // Debounced simulation update
-const debouncedUpdateSimulation = debounce(() => {
+let debouncedUpdateSimulation = debounce(function runDebouncedSimulation() {
   if (currentElectionData && currentDncData && currentCandidates) {
     updateSimulation();
   }
@@ -100,7 +100,7 @@ const debouncedUpdateSimulation = debounce(() => {
  * @param {Object} options - Optional { initialRace } to restore state from URL
  */
 export function renderElectionView(map, options = {}) {
-  const sidebarDiv = document.getElementById("sidebar-content");
+  let sidebarDiv = document.getElementById("sidebar-content");
 
   sidebarDiv.innerHTML = `
     <div class="fade-in">
@@ -191,10 +191,10 @@ export function renderElectionView(map, options = {}) {
   `;
   
   // YEAR FILTER: Store initial race and year from URL for later use
-  const initialRaceFromURL = options.initialRace;
+  let initialRaceFromURL = options.initialRace;
   // YEAR FILTER: Parse year from URL hash
-  const urlParams = new URLSearchParams(window.location.hash.slice(1));
-  const initialYearFromURL = urlParams.get('year');
+  let urlParams = new URLSearchParams(window.location.hash.slice(1));
+  let initialYearFromURL = urlParams.get('year');
   const initialYear = initialYearFromURL ? parseInt(initialYearFromURL, 10) : null;
 
   // Initialize turnout slider state with extended range (50-150%)
@@ -204,45 +204,45 @@ export function renderElectionView(map, options = {}) {
   voterFlipState = createVoterFlipState();
   
   // Set up slider change handler
-  sliderState.onChange((party, value) => {
+  sliderState.onChange(function handleSliderChange(party, value) {
     // Update displayed value
     if (party !== 'all') {
-      const valueEl = document.getElementById(`${party.toLowerCase()}-value`);
+      let valueEl = document.getElementById(`${party.toLowerCase()}-value`);
       if (valueEl) {
         valueEl.textContent = Math.round(value * 100) + '%';
       }
     }
-    
+
     // Re-run simulation with debounce
     debouncedUpdateSimulation();
   });
   
   // Set up voter flip change handler
-  voterFlipState.onChange((flipKey, value) => {
+  voterFlipState.onChange(function handleFlipChange(flipKey, value) {
     // Update displayed value
     if (flipKey !== 'all') {
-      const flipId = flipKey.toLowerCase().replace('→', '-');
-      const valueEl = document.getElementById(`flip-${flipId}-value`);
+      let flipId = flipKey.toLowerCase().replace('→', '-');
+      let valueEl = document.getElementById(`flip-${flipId}-value`);
       if (valueEl) {
         valueEl.textContent = Math.round(value * 100) + '%';
       }
     }
-    
+
     // Update active badge visibility
     updateFlipActiveBadge();
-    
+
     // Re-run simulation with debounce
     debouncedUpdateSimulation();
   });
 
-  const selectEl = document.getElementById("election-select");
-  const searchInput = document.getElementById("election-search");
-  const clearSearchBtn = document.getElementById("clear-search");
-  const tabsContainer = document.getElementById("category-tabs");
-  const resultsCountEl = document.getElementById("filter-results-count");
-  const exportDropdownContainer = document.getElementById("export-dropdown-container");
+  let selectEl = document.getElementById("election-select");
+  let searchInput = document.getElementById("election-search");
+  let clearSearchBtn = document.getElementById("clear-search");
+  let tabsContainer = document.getElementById("category-tabs");
+  let resultsCountEl = document.getElementById("filter-results-count");
+  let exportDropdownContainer = document.getElementById("export-dropdown-container");
   // YEAR FILTER: Get year dropdown element
-  const yearFilterEl = document.getElementById("year-filter");
+  let yearFilterEl = document.getElementById("year-filter");
 
   // Initialize filter manager
   filterManager = new ElectionFilterManager();
@@ -251,16 +251,16 @@ export function renderElectionView(map, options = {}) {
   let exportDropdown = null;
   if (exportDropdownContainer) {
     exportDropdown = createExportDropdown(exportDropdownContainer, {
-      onExportRace: () => {
+      onExportRace: function handleExportRace() {
         if (currentElectionData && currentElectionFilename) {
           exportRaceResults(currentElectionData, currentElectionFilename);
         }
       },
-      onExportPrecinct: () => {
+      onExportPrecinct: function handleExportPrecinct() {
         // This would require loading all elections for the precinct - future enhancement
         console.log('Precinct history export not yet implemented');
       },
-      onExportFiltered: () => {
+      onExportFiltered: function handleExportFiltered() {
         // Export filtered results - future enhancement
         console.log('Filtered export not yet implemented');
       }
@@ -269,35 +269,35 @@ export function renderElectionView(map, options = {}) {
 
   // Load elections and initialize UI
   listElectionCSVs()
-    .then((files) => {
+    .then(function initializeElectionUI(files) {
       // Set elections in filter manager
       filterManager.setElections(files);
-      
+
       // YEAR FILTER: Set initial year from URL if present
       if (initialYear !== null) {
         filterManager.setYear(initialYear);
       }
-      
+
       // YEAR FILTER: Populate year dropdown with available years
-      const availableYears = filterManager.getAvailableYears();
+      let availableYears = filterManager.getAvailableYears();
       populateYearDropdown(yearFilterEl, availableYears, initialYear);
-      
+
       // Render initial tabs
       renderCategoryTabs(tabsContainer, filterManager.getCategoryCounts(), ELECTION_CATEGORIES.ALL);
-      
+
       // YEAR FILTER: Get filtered elections (includes year filter)
-      const filteredElections = filterManager.getFilteredElections();
-      
+      let filteredElections = filterManager.getFilteredElections();
+
       // Populate dropdown with filtered elections
       populateDropdown(selectEl, filteredElections, '');
       updateResultsCount(resultsCountEl, filteredElections.length, files.length);
-      
+
       // YEAR FILTER: Check if we have an initial race from URL (must match filtered list)
       let initialRace = null;
       if (filteredElections.length > 0) {
         if (initialRaceFromURL) {
           // Find entry matching the filename
-          const matchingEntry = filteredElections.find(e => 
+          let matchingEntry = filteredElections.find(e =>
             (typeof e === 'string' ? e : e.filename) === initialRaceFromURL
           );
           if (matchingEntry) {
@@ -306,12 +306,12 @@ export function renderElectionView(map, options = {}) {
         }
         // Fallback to first filtered election
         if (!initialRace) {
-          initialRace = typeof filteredElections[0] === 'string' 
-            ? filteredElections[0] 
+          initialRace = typeof filteredElections[0] === 'string'
+            ? filteredElections[0]
             : filteredElections[0].filename;
         }
       }
-      
+
       // Load initial election
       if (initialRace) {
         selectEl.value = initialRace;
@@ -319,33 +319,33 @@ export function renderElectionView(map, options = {}) {
         // Update URL state with selected race
         setCurrentRace(initialRace);
       }
-      
+
       // Setup filter change handler
-      filterManager.onChange((state) => {
-        const filtered = state.filteredElections;
+      filterManager.onChange(function handleFilterChange(state) {
+        let filtered = state.filteredElections;
         // YEAR FILTER: Extract filenames from filtered entries for dropdown
-        const filteredFilenames = filtered.map(e => typeof e === 'string' ? e : e.filename);
+        let filteredFilenames = filtered.map(e => typeof e === 'string' ? e : e.filename);
         populateDropdown(selectEl, filtered, state.searchQuery);
         updateResultsCount(resultsCountEl, filtered.length, state.counts[ELECTION_CATEGORIES.ALL]);
-        
+
         // Update tabs with filtered counts when searching
         if (state.searchQuery) {
           renderCategoryTabs(tabsContainer, state.filteredCounts, state.category);
         } else {
           renderCategoryTabs(tabsContainer, state.counts, state.category);
         }
-        
+
         // YEAR FILTER: Auto-select first result if current selection is not in filtered list
-        const currentValue = selectEl.value;
-        const currentInFiltered = filteredFilenames.includes(currentValue);
+        let currentValue = selectEl.value;
+        let currentInFiltered = filteredFilenames.includes(currentValue);
         if (filtered.length > 0 && !currentInFiltered) {
-          const firstFilename = typeof filtered[0] === 'string' ? filtered[0] : filtered[0].filename;
+          let firstFilename = typeof filtered[0] === 'string' ? filtered[0] : filtered[0].filename;
           selectEl.value = firstFilename;
           loadAndRenderElection(map, firstFilename);
         } else if (filtered.length === 0) {
           // Show no results state
           clearLayers(map);
-          const detailsDiv = document.getElementById("precinct-details");
+          let detailsDiv = document.getElementById("precinct-details");
           if (detailsDiv) {
             detailsDiv.innerHTML = `
               <div class="no-results-message">
@@ -357,10 +357,10 @@ export function renderElectionView(map, options = {}) {
         }
       });
     })
-    .catch((err) => {
+    .catch(function handleElectionLoadError(err) {
       console.error("Failed to list election CSVs:", err);
       selectEl.innerHTML = "<option>Error loading elections</option>";
-      const detailsDiv = document.getElementById("precinct-details");
+      let detailsDiv = document.getElementById("precinct-details");
       if (detailsDiv) {
         fadeInContent(detailsDiv, createErrorState(
           'Unable to load elections',
@@ -370,17 +370,17 @@ export function renderElectionView(map, options = {}) {
     });
 
   // Search input handler (debounced)
-  const handleSearch = debounce((query) => {
+  let handleSearch = debounce(function applySearchFilter(query) {
     filterManager.setSearchQuery(query);
     clearSearchBtn.classList.toggle('hidden', !query);
   }, 150);
 
-  searchInput.addEventListener("input", (e) => {
+  searchInput.addEventListener("input", function handleSearchInput(e) {
     handleSearch(e.target.value);
   });
 
   // Clear search button
-  clearSearchBtn.addEventListener("click", () => {
+  clearSearchBtn.addEventListener("click", function handleClearSearch() {
     searchInput.value = '';
     filterManager.setSearchQuery('');
     clearSearchBtn.classList.add('hidden');
@@ -389,50 +389,50 @@ export function renderElectionView(map, options = {}) {
 
   // YEAR FILTER: Year dropdown change handler
   if (yearFilterEl) {
-    yearFilterEl.addEventListener("change", (e) => {
-      const yearValue = e.target.value;
-      const year = yearValue === '' ? null : parseInt(yearValue, 10);
+    yearFilterEl.addEventListener("change", function handleYearChange(e) {
+      let yearValue = e.target.value;
+      let year = yearValue === '' ? null : parseInt(yearValue, 10);
       filterManager.setYear(year);
-      
+
       // YEAR FILTER: Update URL with year parameter
-      const urlParams = new URLSearchParams(window.location.hash.slice(1));
+      let yearUrlParams = new URLSearchParams(window.location.hash.slice(1));
       if (year !== null) {
-        urlParams.set('year', year.toString());
+        yearUrlParams.set('year', year.toString());
       } else {
-        urlParams.delete('year');
+        yearUrlParams.delete('year');
       }
-      const newHash = urlParams.toString();
+      let newHash = yearUrlParams.toString();
       history.replaceState(null, '', `#${newHash}`);
     });
   }
 
   // Category tab click handler (delegated)
-  tabsContainer.addEventListener("click", (e) => {
-    const tab = e.target.closest('.category-tab');
+  tabsContainer.addEventListener("click", function handleTabClick(e) {
+    let tab = e.target.closest('.category-tab');
     if (tab) {
-      const category = tab.dataset.category;
+      let category = tab.dataset.category;
       filterManager.setCategory(category);
     }
   });
 
   // Keyboard navigation for tabs
-  tabsContainer.addEventListener("keydown", (e) => {
+  tabsContainer.addEventListener("keydown", function handleTabKeyNav(e) {
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-      const tabs = Array.from(tabsContainer.querySelectorAll('.category-tab'));
-      const currentIndex = tabs.findIndex(t => t === document.activeElement);
+      let tabs = Array.from(tabsContainer.querySelectorAll('.category-tab'));
+      let currentIndex = tabs.findIndex(t => t === document.activeElement);
       if (currentIndex === -1) return;
-      
+
       let nextIndex;
       if (e.key === 'ArrowRight') {
         nextIndex = (currentIndex + 1) % tabs.length;
       } else {
         nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
       }
-      
+
       tabs[nextIndex].focus();
       e.preventDefault();
     } else if (e.key === 'Enter' || e.key === ' ') {
-      const tab = e.target.closest('.category-tab');
+      let tab = e.target.closest('.category-tab');
       if (tab) {
         tab.click();
         e.preventDefault();
@@ -441,10 +441,10 @@ export function renderElectionView(map, options = {}) {
   });
 
   // Dropdown change handler
-  selectEl.addEventListener("change", () => {
-    const chosen = selectEl.value;
+  selectEl.addEventListener("change", function handleElectionSelect() {
+    let chosen = selectEl.value;
     if (!chosen) return;
-    const detailsDiv = document.getElementById("precinct-details");
+    let detailsDiv = document.getElementById("precinct-details");
     if (detailsDiv) {
       detailsDiv.innerHTML = createPrecinctDetailsSkeleton();
     }
@@ -456,28 +456,28 @@ export function renderElectionView(map, options = {}) {
   });
 
   // TRENDS: Setup trend controls
-  const trendToggle = document.getElementById("trend-toggle");
-  const trendSecondSelect = document.getElementById("trend-second-select");
-  const trendLegend = document.getElementById("trend-legend");
-  const trendError = document.getElementById("trend-error");
-  
+  let trendToggle = document.getElementById("trend-toggle");
+  let trendSecondSelect = document.getElementById("trend-second-select");
+  let trendLegend = document.getElementById("trend-legend");
+  let trendError = document.getElementById("trend-error");
+
   // Populate second election dropdown when elections load
-  listElectionCSVs().then(files => {
+  listElectionCSVs().then(function populateTrendDropdown(files) {
     populateTrendSecondDropdown(trendSecondSelect, files);
   });
-  
+
   // Trend toggle handler
   if (trendToggle) {
-    trendToggle.addEventListener("change", () => {
+    trendToggle.addEventListener("change", function handleTrendToggle() {
       trendMode = trendToggle.checked;
       updateTrendMode();
     });
   }
-  
+
   // Second election select handler
   if (trendSecondSelect) {
-    trendSecondSelect.addEventListener("change", () => {
-      const chosen = trendSecondSelect.value;
+    trendSecondSelect.addEventListener("change", function handleSecondElectionSelect() {
+      let chosen = trendSecondSelect.value;
       if (chosen && currentElectionFilename) {
         loadSecondElection(chosen);
       } else {
@@ -487,8 +487,8 @@ export function renderElectionView(map, options = {}) {
   }
 
   // Keyboard shortcut: Focus search on '/' key (when not in an input)
-  document.addEventListener("keydown", (e) => {
-    if (e.key === '/' && 
+  document.addEventListener("keydown", function handleSearchShortcut(e) {
+    if (e.key === '/' &&
         document.activeElement !== searchInput &&
         document.activeElement.tagName !== 'INPUT' &&
         document.activeElement.tagName !== 'TEXTAREA') {
@@ -505,12 +505,12 @@ export function renderElectionView(map, options = {}) {
  * @param {string} activeCategory - Currently active category
  */
 function renderCategoryTabs(container, counts, activeCategory) {
-  container.innerHTML = CATEGORY_ORDER.map((category, index) => {
-    const isActive = category === activeCategory;
-    const count = counts[category] || 0;
+  container.innerHTML = CATEGORY_ORDER.map(function renderTabButton(category, index) {
+    let isActive = category === activeCategory;
+    let count = counts[category] || 0;
     return `
-      <button 
-        class="category-tab press-effect stagger-item ${isActive ? 'active' : ''}" 
+      <button
+        class="category-tab press-effect stagger-item ${isActive ? 'active' : ''}"
         data-category="${category}"
         aria-pressed="${isActive}"
         aria-label="${category} elections: ${count} races"
@@ -532,32 +532,32 @@ function renderCategoryTabs(container, counts, activeCategory) {
  * @param {string} searchQuery - Current search query for highlighting
  */
 function populateDropdown(selectEl, elections, searchQuery) {
-  const currentValue = selectEl.value;
+  let currentValue = selectEl.value;
   selectEl.innerHTML = '';
-  
+
   if (elections.length === 0) {
-    const opt = document.createElement("option");
+    let opt = document.createElement("option");
     opt.value = '';
     opt.text = 'No elections match your filters';
     opt.disabled = true;
     selectEl.appendChild(opt);
     return;
   }
-  
-  elections.forEach((entry) => {
-    const filename = typeof entry === 'string' ? entry : entry.filename;
-    const displayName = (typeof entry === 'object' && entry.displayName) 
-      ? entry.displayName 
+
+  for (let entry of elections) {
+    let filename = typeof entry === 'string' ? entry : entry.filename;
+    let displayName = (typeof entry === 'object' && entry.displayName)
+      ? entry.displayName
       : formatElectionName(filename);
-    
-    const opt = document.createElement("option");
+
+    let opt = document.createElement("option");
     opt.value = filename;
     opt.text = displayName;
     selectEl.appendChild(opt);
-  });
-  
+  }
+
   // Restore selection if it's still in the filtered list
-  const filenames = elections.map(e => typeof e === 'string' ? e : e.filename);
+  let filenames = elections.map(e => typeof e === 'string' ? e : e.filename);
   if (filenames.includes(currentValue)) {
     selectEl.value = currentValue;
   }
@@ -576,15 +576,15 @@ function populateYearDropdown(selectEl, years, selectedYear) {
   selectEl.innerHTML = '<option value="">All years</option>';
   
   // Add year options
-  years.forEach(year => {
-    const opt = document.createElement("option");
+  for (let year of years) {
+    let opt = document.createElement("option");
     opt.value = year.toString();
     opt.text = year.toString();
     if (year === selectedYear) {
       opt.selected = true;
     }
     selectEl.appendChild(opt);
-  });
+  }
 }
 
 /**
@@ -604,44 +604,44 @@ function updateResultsCount(el, showing, total) {
 // TRENDS: Populate second election dropdown with elections that have the same race key
 async function populateTrendSecondDropdown(selectEl, allElections) {
   if (!selectEl || !currentElectionFilename) return;
-  
+
   // Get race key of current election
-  const currentEntry = allElections.find(e => {
-    const filename = typeof e === 'string' ? e : e.filename;
+  let currentEntry = allElections.find(function matchCurrentElection(e) {
+    let filename = typeof e === 'string' ? e : e.filename;
     return filename === currentElectionFilename;
   });
-  
+
   if (!currentEntry) return;
-  
-  const currentRaceKey = getRaceKey(currentEntry);
-  
+
+  let currentRaceKey = getRaceKey(currentEntry);
+
   // Filter elections with same race key but different filename
-  const sameRaceElections = allElections.filter(e => {
-    const filename = typeof e === 'string' ? e : e.filename;
+  let sameRaceElections = allElections.filter(function filterSameRace(e) {
+    let filename = typeof e === 'string' ? e : e.filename;
     if (filename === currentElectionFilename) return false;
-    const raceKey = getRaceKey(e);
+    let raceKey = getRaceKey(e);
     return raceKey === currentRaceKey;
   });
-  
+
   // Clear and populate dropdown
   selectEl.innerHTML = '<option value="">-- Select election --</option>';
-  sameRaceElections.forEach(entry => {
-    const filename = typeof entry === 'string' ? entry : entry.filename;
-    const displayName = typeof entry === 'object' && entry.displayName 
-      ? entry.displayName 
+  for (let entry of sameRaceElections) {
+    let filename = typeof entry === 'string' ? entry : entry.filename;
+    let displayName = typeof entry === 'object' && entry.displayName
+      ? entry.displayName
       : formatElectionName(filename);
-    const year = typeof entry === 'object' ? entry.year : null;
-    const label = year ? `${displayName} (${year})` : displayName;
-    
-    const opt = document.createElement("option");
+    let year = typeof entry === 'object' ? entry.year : null;
+    let label = year ? `${displayName} (${year})` : displayName;
+
+    let opt = document.createElement("option");
     opt.value = filename;
     opt.textContent = label;
     selectEl.appendChild(opt);
-  });
-  
+  }
+
   // Restore selection if it still exists
-  if (secondElectionFilename && sameRaceElections.some(e => {
-    const filename = typeof e === 'string' ? e : e.filename;
+  if (secondElectionFilename && sameRaceElections.some(function matchSecondElection(e) {
+    let filename = typeof e === 'string' ? e : e.filename;
     return filename === secondElectionFilename;
   })) {
     selectEl.value = secondElectionFilename;
@@ -654,72 +654,72 @@ async function loadSecondElection(filename) {
     return;
   }
   
-  const trendError = document.getElementById("trend-error");
-  const trendLegend = document.getElementById("trend-legend");
-  
+  let trendErrorEl = document.getElementById("trend-error");
+  let trendLegendEl = document.getElementById("trend-legend");
+
   try {
     // Load second election data
-    const secondData = await loadElectionData(filename);
-    
+    let secondData = await loadElectionData(filename);
+
     // Extract candidates from second election using schema utility
-    const secondCandidateSet = new Set();
+    let secondCandidateSet = new Set();
     if (secondData.length > 0) {
-      const headers = Object.keys(secondData[0]);
-      const candidateCols = getCandidateColumns(headers);
-      candidateCols.forEach(col => {
+      let headers = Object.keys(secondData[0]);
+      let candidateCols = getCandidateColumns(headers);
+      for (let col of candidateCols) {
         // Verify it's a numeric column (vote count)
-        const sampleValue = secondData[0][col];
+        let sampleValue = secondData[0][col];
         if (sampleValue !== "" && !isNaN(Number(sampleValue))) {
           secondCandidateSet.add(col);
         }
-      });
+      }
     }
-    
-    const secondCands = Array.from(secondCandidateSet);
-    
+
+    let secondCands = Array.from(secondCandidateSet);
+
     // Build candidate colors
-    const secondColors = {};
-    secondCands.forEach((name) => {
-      const party = name.split(" ")[0];
+    let secondColors = {};
+    for (let name of secondCands) {
+      let party = name.split(" ")[0];
       secondColors[name] = (PARTY_COLORS && PARTY_COLORS[party]) || getPartyColor(party);
-    });
-    
+    }
+
     // Build lookup by precinct
-    const secondByPrecinct = {};
-    secondData.forEach((row) => {
+    let secondByPrecinct = {};
+    for (let row of secondData) {
       secondByPrecinct[row["PRECINCT CODE"]] = row;
-    });
-    
+    }
+
     // Check if same race key
-    const currentEntry = { filename: currentElectionFilename };
-    const secondEntry = { filename };
-    const currentRaceKey = getRaceKey(currentEntry);
-    const secondRaceKey = getRaceKey(secondEntry);
+    let currentEntry = { filename: currentElectionFilename };
+    let secondEntry = { filename };
+    let currentRaceKey = getRaceKey(currentEntry);
+    let secondRaceKey = getRaceKey(secondEntry);
     
     if (currentRaceKey !== secondRaceKey) {
       // Different race - show error
-      if (trendError) {
-        trendError.textContent = "Select same race for trends (e.g., both Governor races)";
-        trendError.classList.remove("hidden");
+      if (trendErrorEl) {
+        trendErrorEl.textContent = "Select same race for trends (e.g., both Governor races)";
+        trendErrorEl.classList.remove("hidden");
       }
-      if (trendLegend) {
-        trendLegend.classList.add("hidden");
+      if (trendLegendEl) {
+        trendLegendEl.classList.add("hidden");
       }
       resetTrendMode();
       return;
     }
-    
+
     // Compute deltas
-    const deltas = computePrecinctDeltas(
+    let deltas = computePrecinctDeltas(
       currentElectionData,
       secondData,
       currentCandidates,
       secondCands,
       'Dem' // Measure Dem side margin
     );
-    
-    const summary = computeTrendSummary(deltas);
-    
+
+    let summary = computeTrendSummary(deltas);
+
     // Store state
     secondElectionFilename = filename;
     secondElectionData = secondData;
@@ -728,25 +728,25 @@ async function loadSecondElection(filename) {
     secondCandidateColors = secondColors;
     trendDeltas = deltas;
     trendSummary = summary;
-    
+
     // Hide error, show legend
-    if (trendError) {
-      trendError.classList.add("hidden");
+    if (trendErrorEl) {
+      trendErrorEl.classList.add("hidden");
     }
-    if (trendLegend) {
-      trendLegend.classList.remove("hidden");
+    if (trendLegendEl) {
+      trendLegendEl.classList.remove("hidden");
     }
-    
+
     // Update map if trend mode is enabled
     if (trendMode && currentMap && currentMap.currentLayer) {
       updateMapWithTrends();
     }
-    
+
   } catch (err) {
     console.error("Error loading second election:", err);
-    if (trendError) {
-      trendError.textContent = "Failed to load second election";
-      trendError.classList.remove("hidden");
+    if (trendErrorEl) {
+      trendErrorEl.textContent = "Failed to load second election";
+      trendErrorEl.classList.remove("hidden");
     }
     resetTrendMode();
   }
@@ -763,22 +763,22 @@ function resetTrendMode() {
   trendDeltas = null;
   trendSummary = null;
   
-  const trendToggle = document.getElementById("trend-toggle");
-  const trendSecondSelect = document.getElementById("trend-second-select");
-  const trendLegend = document.getElementById("trend-legend");
-  const trendError = document.getElementById("trend-error");
-  
-  if (trendToggle) {
-    trendToggle.checked = false;
+  let trendToggleEl = document.getElementById("trend-toggle");
+  let trendSecondSelectEl = document.getElementById("trend-second-select");
+  let trendLegendEl = document.getElementById("trend-legend");
+  let trendErrorEl = document.getElementById("trend-error");
+
+  if (trendToggleEl) {
+    trendToggleEl.checked = false;
   }
-  if (trendSecondSelect) {
-    trendSecondSelect.value = "";
+  if (trendSecondSelectEl) {
+    trendSecondSelectEl.value = "";
   }
-  if (trendLegend) {
-    trendLegend.classList.add("hidden");
+  if (trendLegendEl) {
+    trendLegendEl.classList.add("hidden");
   }
-  if (trendError) {
-    trendError.classList.add("hidden");
+  if (trendErrorEl) {
+    trendErrorEl.classList.add("hidden");
   }
   
   // Refresh map to show normal colors
@@ -789,13 +789,13 @@ function resetTrendMode() {
 
 // TRENDS: Update trend mode UI and map
 function updateTrendMode() {
-  const trendLegend = document.getElementById("trend-legend");
-  const trendSecondSelect = document.getElementById("trend-second-select");
+  let trendLegendEl = document.getElementById("trend-legend");
+  let trendSecondSelectEl = document.getElementById("trend-second-select");
   
   if (trendMode && secondElectionFilename && trendDeltas) {
     // Show legend
-    if (trendLegend) {
-      trendLegend.classList.remove("hidden");
+    if (trendLegendEl) {
+      trendLegendEl.classList.remove("hidden");
     }
     // Update map
     if (currentMap && currentMap.currentLayer) {
@@ -803,8 +803,8 @@ function updateTrendMode() {
     }
   } else {
     // Hide legend
-    if (trendLegend) {
-      trendLegend.classList.add("hidden");
+    if (trendLegendEl) {
+      trendLegendEl.classList.add("hidden");
     }
     // Reset map to normal colors
     if (currentMap && currentMap.currentLayer) {
@@ -823,8 +823,8 @@ async function loadAndRenderElection(map, electionFilename) {
   selectedLayer = null;
   currentMap = map;
   
-  const detailsDiv = document.getElementById("precinct-details");
-  const simulatorContainer = document.getElementById("turnout-simulator-container");
+  let detailsDiv = document.getElementById("precinct-details");
+  let simulatorContainer = document.getElementById("turnout-simulator-container");
   
   // Show skeleton loading state
   if (detailsDiv) {
@@ -832,47 +832,47 @@ async function loadAndRenderElection(map, electionFilename) {
   }
 
   try {
-    const [geojsonResp, electionData] = await Promise.all([
+    let [geojsonResp, electionData] = await Promise.all([
       loadAllData(),
       loadElectionData(electionFilename),
     ]);
 
     // Collect candidate fields using schema utility
-    const candidateSet = new Set();
+    let candidateSet = new Set();
     if (electionData.length > 0) {
-      const headers = Object.keys(electionData[0]);
-      const candidateCols = getCandidateColumns(headers);
-      candidateCols.forEach(col => {
+      let headers = Object.keys(electionData[0]);
+      let candidateCols = getCandidateColumns(headers);
+      for (let col of candidateCols) {
         // Verify it's a numeric column (vote count)
-        const sampleValue = electionData[0][col];
+        let sampleValue = electionData[0][col];
         if (sampleValue !== "" && !isNaN(Number(sampleValue))) {
           candidateSet.add(col);
         }
-      });
+      }
     }
 
-    const candidates = Array.from(candidateSet);
-    
-    // Build candidate colors based on party prefix
-    const candidateColors = {};
-    candidates.forEach((name) => {
-      const party = name.split(" ")[0];
-      candidateColors[name] = (PARTY_COLORS && PARTY_COLORS[party]) || getPartyColor(party);
-    });
+    let candidates = Array.from(candidateSet);
 
-    const precinctGeoJSON = geojsonResp.geojson;
-    
+    // Build candidate colors based on party prefix
+    let candidateColors = {};
+    for (let name of candidates) {
+      let party = name.split(" ")[0];
+      candidateColors[name] = (PARTY_COLORS && PARTY_COLORS[party]) || getPartyColor(party);
+    }
+
+    let precinctGeoJSON = geojsonResp.geojson;
+
     // Build lookup object keyed by precinct code (O(1) lookup)
-    const electionByPrecinct = {};
-    electionData.forEach((row) => {
+    let electionByPrecinct = {};
+    for (let row of electionData) {
       electionByPrecinct[row["PRECINCT CODE"]] = row;
-    });
+    }
 
     // Build DNC data lookup from geojsonResp.dncLookup
     // Convert lowercase keys to uppercase for turnout simulator compatibility
-    const dncDataByPrecinct = {};
+    let dncDataByPrecinct = {};
     if (geojsonResp.dncLookup) {
-      Object.entries(geojsonResp.dncLookup).forEach(([precinctCode, row]) => {
+      for (let [precinctCode, row] of Object.entries(geojsonResp.dncLookup)) {
         dncDataByPrecinct[precinctCode] = {
           Precinct: row.precinct,
           Rep: row.rep,
@@ -880,7 +880,7 @@ async function loadAndRenderElection(map, electionFilename) {
           Dem: row.dem,
           Total: row.rep + row.mod + row.dem
         };
-      });
+      }
     }
 
     // Store data for turnout simulation
@@ -902,8 +902,8 @@ async function loadAndRenderElection(map, electionFilename) {
 
     // Render turnout simulator controls with extended range and voter flip
     if (simulatorContainer) {
-      const turnoutValues = sliderState ? sliderState.getAll() : { Rep: 1.0, Dem: 1.0, Mod: 1.0 };
-      const flipRates = voterFlipState ? voterFlipState.getAll() : {};
+      let turnoutValues = sliderState ? sliderState.getAll() : { Rep: 1.0, Dem: 1.0, Mod: 1.0 };
+      let flipRates = voterFlipState ? voterFlipState.getAll() : {};
       simulatorContainer.innerHTML = generateSimulatorControlsHTML(turnoutValues, flipRates, { showVoterFlip: true });
       setupSimulatorEventListeners();
       
@@ -912,13 +912,13 @@ async function loadAndRenderElection(map, electionFilename) {
     }
 
     // Default style for precincts
-    const defaultStyle = (PRECINCT_STYLE && PRECINCT_STYLE.default) || {
+    let defaultStyle = (PRECINCT_STYLE && PRECINCT_STYLE.default) || {
       color: "#444",
       weight: 1,
       fillOpacity: 0.7
     };
-    
-    const notInRaceStyle = (PRECINCT_STYLE && PRECINCT_STYLE.notInRace) || {
+
+    let notInRaceStyle = (PRECINCT_STYLE && PRECINCT_STYLE.notInRace) || {
       color: "#888",
       weight: 1,
       fillColor: "#ccc",
@@ -926,17 +926,17 @@ async function loadAndRenderElection(map, electionFilename) {
     };
 
     // Create a new GeoJSON layer
-    const layer = L.geoJSON(precinctGeoJSON, {
-      style: (feature) => {
-        const code = feature.properties.PRECINCT;
-        const codeStr = code.toString();
+    let layer = L.geoJSON(precinctGeoJSON, {
+      style: function stylePrecinctFeature(feature) {
+        let code = feature.properties.PRECINCT;
+        let codeStr = code.toString();
         
         // O(1) direct lookup
-        const record = electionByPrecinct[codeStr];
-        
+        let record = electionByPrecinct[codeStr];
+
         // Check if precinct is NOT part of this race
-        const registeredVoters = record ? Number(record["REGISTERED VOTERS TOTAL"]) || 0 : 0;
-        const ballotsCast = record ? Number(record["BALLOTS CAST TOTAL"]) || 0 : 0;
+        let registeredVoters = record ? Number(record["REGISTERED VOTERS TOTAL"]) || 0 : 0;
+        let ballotsCast = record ? Number(record["BALLOTS CAST TOTAL"]) || 0 : 0;
         
         if (!record || (registeredVoters === 0 && ballotsCast === 0)) {
           return notInRaceStyle;
@@ -944,9 +944,9 @@ async function loadAndRenderElection(map, electionFilename) {
 
         // TRENDS: If trend mode is active and we have deltas, color by trend
         if (trendMode && trendDeltas && trendDeltas[codeStr]) {
-          const delta = trendDeltas[codeStr];
-          
-          if (delta.delta === null || delta.delta === undefined) {
+          let delta = trendDeltas[codeStr];
+
+          if (delta.delta == null) {
             // Missing data in one election
             return {
               ...defaultStyle,
@@ -956,10 +956,10 @@ async function loadAndRenderElection(map, electionFilename) {
           }
           
           // Color by margin delta
-          const fillColor = getTrendColor(delta.delta, 'Dem');
-          
+          let fillColor = getTrendColor(delta.delta, 'Dem');
+
           // If flipped, add border highlight
-          const style = {
+          let style = {
             ...defaultStyle,
             fillColor
           };
@@ -977,40 +977,40 @@ async function loadAndRenderElection(map, electionFilename) {
         let topCandidate = null;
         let topVotes = 0;
         let totalCandidateVotes = 0;
-        candidates.forEach(name => {
-          const v = Number(record[name]) || 0;
+        for (let name of candidates) {
+          let v = Number(record[name]) || 0;
           totalCandidateVotes += v;
           if (v > topVotes) {
             topVotes = v;
             topCandidate = name;
           }
-        });
+        }
         
         if (totalCandidateVotes === 0) {
           return notInRaceStyle;
         }
 
-        const fillColor = candidateColors[topCandidate] || "#ccc";
-        
+        let fillColor = candidateColors[topCandidate] || "#ccc";
+
         return {
           ...defaultStyle,
           fillColor
         };
       },
-      onEachFeature: (feature, leafletLayer) => {
-        leafletLayer.on("click", () => {
+      onEachFeature: function bindPrecinctClick(feature, leafletLayer) {
+        leafletLayer.on("click", function handleLayerClick() {
           handlePrecinctClick(feature, leafletLayer);
         });
       },
     }).addTo(map);
 
     map.currentLayer = layer;
-    
+
     // TRENDS: Populate second election dropdown with same-race elections
-    const trendSecondSelect = document.getElementById("trend-second-select");
-    if (trendSecondSelect) {
-      listElectionCSVs().then(files => {
-        populateTrendSecondDropdown(trendSecondSelect, files);
+    let trendSecondSelectEl = document.getElementById("trend-second-select");
+    if (trendSecondSelectEl) {
+      listElectionCSVs().then(function updateTrendDropdown(files) {
+        populateTrendSecondDropdown(trendSecondSelectEl, files);
       });
     }
     
@@ -1036,21 +1036,21 @@ async function loadAndRenderElection(map, electionFilename) {
  * @param {L.Layer} leafletLayer - Leaflet layer
  */
 function handlePrecinctClick(feature, leafletLayer) {
-  const detailsDiv = document.getElementById("precinct-details");
-  const code = feature.properties.PRECINCT.toString();
-  const data = currentElectionByPrecinct[code] || {};
+  let detailsDiv = document.getElementById("precinct-details");
+  let code = feature.properties.PRECINCT.toString();
+  let data = currentElectionByPrecinct[code] || {};
   
   // Store current precinct properties for comparison feature
   currentPrecinctProps = feature.properties;
   
   // Reset previous selection
   if (selectedLayer) {
-    const defaultWeight = (PRECINCT_STYLE && PRECINCT_STYLE.default && PRECINCT_STYLE.default.weight) || 1;
+    let defaultWeight = (PRECINCT_STYLE && PRECINCT_STYLE.default && PRECINCT_STYLE.default.weight) || 1;
     selectedLayer.setStyle({ weight: defaultWeight });
   }
   
   // Highlight current selection
-  const selectedStyle = (PRECINCT_STYLE && PRECINCT_STYLE.selected) || { weight: 3 };
+  let selectedStyle = (PRECINCT_STYLE && PRECINCT_STYLE.selected) || { weight: 3 };
   leafletLayer.setStyle(selectedStyle);
   selectedLayer = leafletLayer;
 
@@ -1069,42 +1069,42 @@ function handlePrecinctClick(feature, leafletLayer) {
   }
 
   // Get simulation data for this precinct
-  const precinctSimulation = currentSimulationResult?.precinctResults[code];
-  const isFlipped = currentSimulationResult?.flippedPrecincts.includes(code);
+  let precinctSimulation = currentSimulationResult?.precinctResults[code];
+  let isFlipped = currentSimulationResult?.flippedPrecincts.includes(code);
 
   // Build candidate results HTML with original and simulated values
   let candidateResultsHTML = `<h4>Detailed Results</h4><ul class="candidate-results">`;
-  currentCandidates.forEach(name => {
-    const originalVotes = Number(data[name]) || 0;
-    const simulatedVotes = precinctSimulation?.adjustedVotes[name] || originalVotes;
-    const diff = simulatedVotes - originalVotes;
-    
+  for (let name of currentCandidates) {
+    let originalVotes = Number(data[name]) || 0;
+    let simulatedVotes = precinctSimulation?.adjustedVotes[name] || originalVotes;
+    let diff = simulatedVotes - originalVotes;
+
     if (originalVotes > 0 || simulatedVotes > 0) {
-      const diffStr = diff !== 0 ? ` <span class="${diff > 0 ? 'positive' : 'negative'}">(${diff > 0 ? '+' : ''}${diff})</span>` : '';
+      let diffStr = diff !== 0 ? ` <span class="${diff > 0 ? 'positive' : 'negative'}">(${diff > 0 ? '+' : ''}${diff})</span>` : '';
       candidateResultsHTML += `<li>${name}: ${simulatedVotes.toLocaleString()} votes${diffStr}</li>`;
     }
-  });
+  }
   candidateResultsHTML += `</ul>`;
 
   // Get party label
-  const partyCode = data["Winning Party"];
-  const partyLabel = (PARTY_LABELS && PARTY_LABELS[partyCode]) || partyCode || "N/A";
-  
+  let partyCode = data["Winning Party"];
+  let partyLabel = (PARTY_LABELS && PARTY_LABELS[partyCode]) || partyCode || "N/A";
+
   // Simulated winner info
-  const simulatedWinner = precinctSimulation?.winner?.name || data["Winning Candidate"];
-  const originalWinner = data["Winning Candidate"];
-  const winnerChanged = originalWinner !== simulatedWinner;
+  let simulatedWinner = precinctSimulation?.winner?.name || data["Winning Candidate"];
+  let originalWinner = data["Winning Candidate"];
+  let winnerChanged = originalWinner !== simulatedWinner;
 
   let winnerHTML = `<p><strong>Original Winner:</strong> ${originalWinner || "N/A"}</p>`;
   if (winnerChanged) {
     winnerHTML += `<p><strong>Simulated Winner:</strong> <span class="winner-change-text">${simulatedWinner}</span></p>`;
   }
 
-  const flippedBadge = isFlipped ? '<span class="flipped-badge">FLIPPED</span>' : '';
+  let flippedBadge = isFlipped ? '<span class="flipped-badge">FLIPPED</span>' : '';
 
   // Check if we're in comparison mode
-  const comparisonState = getComparisonState();
-  const isComparing = comparisonState.isComparing;
+  let comparisonState = getComparisonState();
+  let isComparing = comparisonState.isComparing;
 
   // Build comparison mode banner if applicable
   let comparisonBanner = '';
@@ -1131,34 +1131,34 @@ function handlePrecinctClick(feature, leafletLayer) {
   // TRENDS: Build trend comparison HTML if in trend mode
   let trendHTML = '';
   if (trendMode && trendDeltas && trendDeltas[code] && secondElectionData) {
-    const delta = trendDeltas[code];
-    const secondData = secondElectionByPrecinct[code] || {};
-    
-    if (delta.delta !== null && delta.delta !== undefined) {
-      const deltaSign = delta.delta >= 0 ? '+' : '';
-      const deltaColor = delta.delta >= 0 ? 'trend-positive' : 'trend-negative';
-      const flippedBadge = delta.flipped ? '<span class="trend-flipped-badge">FLIPPED</span>' : '';
-      
+    let delta = trendDeltas[code];
+    let secondDataRow = secondElectionByPrecinct[code] || {};
+
+    if (delta.delta != null) {
+      let deltaSign = delta.delta >= 0 ? '+' : '';
+      let deltaColor = delta.delta >= 0 ? 'trend-positive' : 'trend-negative';
+      let trendFlippedBadge = delta.flipped ? '<span class="trend-flipped-badge">FLIPPED</span>' : '';
+
       // Get year info if available
-      const currentYear = currentElectionFilename.match(/_(\d{4})\.csv$/)?.[1] || '';
-      const secondYear = secondElectionFilename.match(/_(\d{4})\.csv$/)?.[1] || '';
+      let currentYear = currentElectionFilename.match(/_(\d{4})\.csv$/)?.[1] || '';
+      let secondYear = secondElectionFilename.match(/_(\d{4})\.csv$/)?.[1] || '';
       
       trendHTML = `
         <div class="trend-comparison-section">
-          <h4>Trend Comparison ${flippedBadge}</h4>
+          <h4>Trend Comparison ${trendFlippedBadge}</h4>
           <div class="trend-comparison-grid">
             <div class="trend-year-column">
               <div class="trend-year-header">${currentYear || 'Year 1'}</div>
               <p><strong>Election:</strong> ${formatElectionName(currentElectionFilename)}</p>
               <p><strong>Winner:</strong> ${delta.winner1 || 'N/A'}</p>
-              <p><strong>Margin:</strong> ${delta.margin1 !== null ? delta.margin1.toFixed(2) + '%' : 'N/A'}</p>
+              <p><strong>Margin:</strong> ${delta.margin1 != null ? delta.margin1.toFixed(2) + '%' : 'N/A'}</p>
               <p><strong>Total Votes:</strong> ${(delta.votes1 || 0).toLocaleString()}</p>
             </div>
             <div class="trend-year-column">
               <div class="trend-year-header">${secondYear || 'Year 2'}</div>
               <p><strong>Election:</strong> ${formatElectionName(secondElectionFilename)}</p>
               <p><strong>Winner:</strong> ${delta.winner2 || 'N/A'}</p>
-              <p><strong>Margin:</strong> ${delta.margin2 !== null ? delta.margin2.toFixed(2) + '%' : 'N/A'}</p>
+              <p><strong>Margin:</strong> ${delta.margin2 != null ? delta.margin2.toFixed(2) + '%' : 'N/A'}</p>
               <p><strong>Total Votes:</strong> ${(delta.votes2 || 0).toLocaleString()}</p>
             </div>
           </div>
@@ -1236,31 +1236,31 @@ function handlePrecinctClick(feature, leafletLayer) {
  * @param {string} precinctCode - Precinct code
  */
 function setupPrecinctTabs(detailsDiv, precinctCode) {
-  const tabs = detailsDiv.querySelectorAll('.precinct-detail-tab');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const tabId = tab.dataset.tab;
-      
+  let tabs = detailsDiv.querySelectorAll('.precinct-detail-tab');
+  for (let tab of tabs) {
+    tab.addEventListener('click', function handleTabSwitch() {
+      let tabId = tab.dataset.tab;
+
       // Update tab states
-      tabs.forEach(t => {
+      for (let t of tabs) {
         t.classList.remove('active');
         t.setAttribute('aria-selected', 'false');
-      });
+      }
       tab.classList.add('active');
       tab.setAttribute('aria-selected', 'true');
-      
+
       // Update content visibility
-      detailsDiv.querySelectorAll('.tab-content').forEach(content => {
+      for (let content of detailsDiv.querySelectorAll('.tab-content')) {
         content.classList.remove('active');
-      });
+      }
       document.getElementById(`tab-${tabId}`).classList.add('active');
-      
+
       // Load voting history on first tab switch
       if (tabId === 'history') {
         loadVotingHistoryTab(precinctCode);
       }
     });
-  });
+  }
 }
 
 /**
@@ -1269,9 +1269,9 @@ function setupPrecinctTabs(detailsDiv, precinctCode) {
  * @param {L.Layer} leafletLayer - Leaflet layer
  */
 function setupCompareButton(feature, leafletLayer) {
-  const compareBtn = document.getElementById('compare-btn');
+  let compareBtn = document.getElementById('compare-btn');
   if (compareBtn) {
-    compareBtn.addEventListener('click', () => {
+    compareBtn.addEventListener('click', function handleCompareClick() {
       startComparison(feature.properties);
       // Refresh the display to show comparison mode
       handlePrecinctClick(feature, leafletLayer);
@@ -1285,9 +1285,9 @@ function setupCompareButton(feature, leafletLayer) {
  * @param {L.Layer} leafletLayer - Leaflet layer
  */
 function setupCancelCompareButton(feature, leafletLayer) {
-  const cancelCompareBtn = document.getElementById('cancel-compare-btn');
+  let cancelCompareBtn = document.getElementById('cancel-compare-btn');
   if (cancelCompareBtn) {
-    cancelCompareBtn.addEventListener('click', () => {
+    cancelCompareBtn.addEventListener('click', function handleCancelCompare() {
       clearComparison();
       // Refresh the display
       handlePrecinctClick(feature, leafletLayer);
@@ -1300,16 +1300,16 @@ function setupCancelCompareButton(feature, leafletLayer) {
  * @param {string} precinctCode - Precinct code
  */
 async function loadVotingHistoryTab(precinctCode) {
-  const historyTab = document.getElementById('tab-history');
+  let historyTab = document.getElementById('tab-history');
   if (!historyTab) return;
-  
+
   // Check if already loaded
   if (historyTab.querySelector('.voting-history')) {
     return;
   }
-  
+
   try {
-    const history = await getPrecinctVotingHistory(precinctCode);
+    let history = await getPrecinctVotingHistory(precinctCode);
     historyTab.innerHTML = generateVotingHistoryHTML(history);
   } catch (err) {
     console.error('Error loading voting history:', err);
@@ -1328,26 +1328,26 @@ async function loadVotingHistoryTab(precinctCode) {
  * @param {Object} precinct2Props - Second precinct properties
  */
 async function showPrecinctComparison(precinct1Props, precinct2Props) {
-  const detailsDiv = document.getElementById("precinct-details");
-  
+  let detailsDiv = document.getElementById("precinct-details");
+
   // Generate demographics comparison
-  const demographics = compareDemographics(precinct1Props, precinct2Props);
+  let demographics = compareDemographics(precinct1Props, precinct2Props);
   
   // Generate election comparison for current election
   let electionComparison = null;
   let raceName = null;
   if (currentElectionByPrecinct && currentElectionFilename) {
-    const electionData = Object.values(currentElectionByPrecinct);
+    let electionRows = Object.values(currentElectionByPrecinct);
     electionComparison = comparePrecincts(
-      electionData, 
-      precinct1Props.PRECINCT, 
+      electionRows,
+      precinct1Props.PRECINCT,
       precinct2Props.PRECINCT
     );
     raceName = formatElectionName(currentElectionFilename);
   }
   
   // Generate comparison HTML
-  const comparisonHTML = generateComparisonHTML(demographics, electionComparison, raceName);
+  let comparisonHTML = generateComparisonHTML(demographics, electionComparison, raceName);
   
   detailsDiv.innerHTML = `
     <hr>
@@ -1358,9 +1358,9 @@ async function showPrecinctComparison(precinct1Props, precinct2Props) {
   `;
   
   // Setup clear comparison button
-  const clearBtn = document.getElementById('clear-comparison-btn');
+  let clearBtn = document.getElementById('clear-comparison-btn');
   if (clearBtn) {
-    clearBtn.addEventListener('click', () => {
+    clearBtn.addEventListener('click', function handleClearComparison() {
       clearComparison();
       detailsDiv.innerHTML = '<p class="instruction-text">Click a precinct to view results</p>';
     });
@@ -1372,67 +1372,67 @@ async function showPrecinctComparison(precinct1Props, precinct2Props) {
  */
 function setupSimulatorEventListeners() {
   // Turnout slider input handlers
-  const turnoutSliders = document.querySelectorAll('.turnout-slider');
-  
-  turnoutSliders.forEach(slider => {
-    slider.addEventListener('input', (e) => {
-      const party = e.target.dataset.party;
-      const value = Number(e.target.value) / 100;
+  let turnoutSliders = document.querySelectorAll('.turnout-slider');
+
+  for (let slider of turnoutSliders) {
+    slider.addEventListener('input', function handleTurnoutSliderInput(e) {
+      let party = e.target.dataset.party;
+      let value = Number(e.target.value) / 100;
       sliderState.setValue(party, value);
     });
-  });
+  }
 
   // Voter flip slider input handlers
-  const flipSliders = document.querySelectorAll('.flip-slider');
-  
-  flipSliders.forEach(slider => {
-    slider.addEventListener('input', (e) => {
-      const flipKey = e.target.dataset.flip;
-      const value = Number(e.target.value) / 100;
+  let flipSliders = document.querySelectorAll('.flip-slider');
+
+  for (let slider of flipSliders) {
+    slider.addEventListener('input', function handleFlipSliderInput(e) {
+      let flipKey = e.target.dataset.flip;
+      let value = Number(e.target.value) / 100;
       voterFlipState.setRate(flipKey, value);
     });
-  });
+  }
 
   // Voter flip section toggle (collapsible)
-  const flipToggle = document.getElementById('voter-flip-toggle');
-  const flipContent = document.getElementById('voter-flip-content');
+  let flipToggle = document.getElementById('voter-flip-toggle');
+  let flipContent = document.getElementById('voter-flip-content');
   if (flipToggle && flipContent) {
-    flipToggle.addEventListener('click', () => {
+    flipToggle.addEventListener('click', function handleFlipToggle() {
       flipContent.classList.toggle('collapsed');
       flipToggle.classList.toggle('collapsed');
     });
   }
 
   // Reset button handler
-  const resetBtn = document.getElementById('reset-turnout');
+  let resetBtn = document.getElementById('reset-turnout');
   if (resetBtn) {
-    resetBtn.addEventListener('click', () => {
+    resetBtn.addEventListener('click', function handleResetClick() {
       // Reset slider state
       sliderState.reset();
       voterFlipState.reset();
-      
+
       // Reset turnout slider inputs
-      document.querySelectorAll('.turnout-slider').forEach(slider => {
+      for (let slider of document.querySelectorAll('.turnout-slider')) {
         slider.value = 100;
-      });
-      
+      }
+
       // Reset flip slider inputs
-      document.querySelectorAll('.flip-slider').forEach(slider => {
+      for (let slider of document.querySelectorAll('.flip-slider')) {
         slider.value = 0;
-      });
-      
+      }
+
       // Update displayed turnout values
-      ['rep', 'dem', 'mod'].forEach(party => {
-        const valueEl = document.getElementById(`${party}-value`);
+      for (let party of ['rep', 'dem', 'mod']) {
+        let valueEl = document.getElementById(`${party}-value`);
         if (valueEl) valueEl.textContent = '100%';
-      });
-      
+      }
+
       // Update displayed flip values
-      ['rep-dem', 'dem-rep', 'mod-dem', 'mod-rep'].forEach(flip => {
-        const valueEl = document.getElementById(`flip-${flip}-value`);
+      for (let flip of ['rep-dem', 'dem-rep', 'mod-dem', 'mod-rep']) {
+        let valueEl = document.getElementById(`flip-${flip}-value`);
         if (valueEl) valueEl.textContent = '0%';
-      });
-      
+      }
+
       // Hide active badge
       updateFlipActiveBadge();
     });
@@ -1443,7 +1443,7 @@ function setupSimulatorEventListeners() {
  * Updates the "Active" badge visibility on voter flip section
  */
 function updateFlipActiveBadge() {
-  const badge = document.getElementById('flip-active-badge');
+  let badge = document.getElementById('flip-active-badge');
   if (badge && voterFlipState) {
     badge.style.display = voterFlipState.hasAnyFlips() ? 'inline' : 'none';
   }
@@ -1457,8 +1457,8 @@ function updateSimulation() {
     return;
   }
 
-  const turnoutMultipliers = sliderState ? sliderState.getAll() : { Rep: 1.0, Dem: 1.0, Mod: 1.0 };
-  const voterFlipRates = voterFlipState ? voterFlipState.getAll() : {};
+  let turnoutMultipliers = sliderState ? sliderState.getAll() : { Rep: 1.0, Dem: 1.0, Mod: 1.0 };
+  let voterFlipRates = voterFlipState ? voterFlipState.getAll() : {};
   
   // Run simulation with extended turnout and voter flip
   currentSimulationResult = runFullSimulation(
@@ -1470,7 +1470,7 @@ function updateSimulation() {
   );
 
   // Update simulation summary display
-  const summaryDiv = document.getElementById('simulation-summary');
+  let summaryDiv = document.getElementById('simulation-summary');
   if (summaryDiv) {
     summaryDiv.innerHTML = generateSimulationResultsHTML(
       currentSimulationResult.originalSummary,
@@ -1492,13 +1492,13 @@ function updateMapWithTrends() {
     return;
   }
 
-  const defaultStyle = (PRECINCT_STYLE && PRECINCT_STYLE.default) || {
+  let defaultStyle = (PRECINCT_STYLE && PRECINCT_STYLE.default) || {
     color: "#444",
     weight: 1,
     fillOpacity: 0.7
   };
-  
-  const notInRaceStyle = (PRECINCT_STYLE && PRECINCT_STYLE.notInRace) || {
+
+  let notInRaceStyle = (PRECINCT_STYLE && PRECINCT_STYLE.notInRace) || {
     color: "#888",
     weight: 1,
     fillColor: "#ccc",
@@ -1506,10 +1506,10 @@ function updateMapWithTrends() {
   };
 
   // Update each layer's style based on trend deltas
-  currentMap.currentLayer.eachLayer((layer) => {
-    const code = layer.feature.properties.PRECINCT.toString();
-    const delta = trendDeltas[code];
-    const record = currentElectionByPrecinct[code];
+  currentMap.currentLayer.eachLayer(function styleTrendLayer(layer) {
+    let code = layer.feature.properties.PRECINCT.toString();
+    let delta = trendDeltas[code];
+    let record = currentElectionByPrecinct[code];
 
     // Check if precinct is NOT part of this race
     if (!record || !precinctHasCandidateVotes(record)) {
@@ -1517,7 +1517,7 @@ function updateMapWithTrends() {
       return;
     }
     
-    if (!delta || delta.delta === null || delta.delta === undefined) {
+    if (!delta || delta.delta == null) {
       // Missing data in one election
       layer.setStyle({
         ...defaultStyle,
@@ -1528,25 +1528,25 @@ function updateMapWithTrends() {
     }
     
     // Color by margin delta
-    const fillColor = getTrendColor(delta.delta, 'Dem');
-    
+    let fillColor = getTrendColor(delta.delta, 'Dem');
+
     // If flipped, add border highlight
-    const style = {
+    let style = {
       ...defaultStyle,
       fillColor
     };
-    
+
     if (delta.flipped) {
       style.color = TREND_COLORS.flipped;
       style.weight = 3;
       style.dashArray = "5, 5";
     }
-    
+
     // Keep selected layer's weight if it's selected
     if (layer === selectedLayer) {
       style.weight = (PRECINCT_STYLE && PRECINCT_STYLE.selected && PRECINCT_STYLE.selected.weight) || 3;
     }
-    
+
     layer.setStyle(style);
   });
 }
@@ -1564,26 +1564,26 @@ function updateMapWithSimulation() {
     return;
   }
 
-  const defaultStyle = (PRECINCT_STYLE && PRECINCT_STYLE.default) || {
+  let defaultStyle = (PRECINCT_STYLE && PRECINCT_STYLE.default) || {
     color: "#444",
     weight: 1,
     fillOpacity: 0.7
   };
-  
-  const notInRaceStyle = (PRECINCT_STYLE && PRECINCT_STYLE.notInRace) || {
+
+  let notInRaceStyle = (PRECINCT_STYLE && PRECINCT_STYLE.notInRace) || {
     color: "#888",
     weight: 1,
     fillColor: "#ccc",
     fillOpacity: 0.3
   };
 
-  const flippedPrecincts = new Set(currentSimulationResult.flippedPrecincts);
+  let flippedPrecincts = new Set(currentSimulationResult.flippedPrecincts);
 
   // Update each layer's style based on simulation results
-  currentMap.currentLayer.eachLayer((layer) => {
-    const code = layer.feature.properties.PRECINCT.toString();
-    const precinctResult = currentSimulationResult.precinctResults[code];
-    const record = currentElectionByPrecinct[code];
+  currentMap.currentLayer.eachLayer(function styleSimulationLayer(layer) {
+    let code = layer.feature.properties.PRECINCT.toString();
+    let precinctResult = currentSimulationResult.precinctResults[code];
+    let record = currentElectionByPrecinct[code];
 
     // Check if precinct is NOT part of this race
     if (!record || !precinctHasCandidateVotes(record)) {
@@ -1592,26 +1592,26 @@ function updateMapWithSimulation() {
     }
 
     // Determine winner from simulation
-    const simulatedWinner = precinctResult?.winner?.name;
+    let simulatedWinner = precinctResult?.winner?.name;
     let fillColor = currentCandidateColors[simulatedWinner] || "#ccc";
-    
+
     // If no simulation result, use original
     if (!simulatedWinner && currentCandidates) {
       let topCandidate = null;
       let topVotes = 0;
-      currentCandidates.forEach(name => {
-        const v = Number(record[name]) || 0;
+      for (let name of currentCandidates) {
+        let v = Number(record[name]) || 0;
         if (v > topVotes) {
           topVotes = v;
           topCandidate = name;
         }
-      });
+      }
       fillColor = currentCandidateColors[topCandidate] || "#ccc";
     }
 
     // Check if this precinct flipped
-    const isFlipped = flippedPrecincts.has(code);
-    
+    let isFlipped = flippedPrecincts.has(code);
+
     // Set style with flipped highlighting
     if (isFlipped) {
       layer.setStyle({
@@ -1623,7 +1623,7 @@ function updateMapWithSimulation() {
       });
     } else {
       // Keep selected layer's weight if it's selected
-      const weight = (layer === selectedLayer) ? 
+      let weight = (layer === selectedLayer) ?
         ((PRECINCT_STYLE && PRECINCT_STYLE.selected && PRECINCT_STYLE.selected.weight) || 3) :
         defaultStyle.weight;
       
@@ -1660,7 +1660,7 @@ function precinctHasCandidateVotes(record) {
  * @returns {string} Hex color code
  */
 function getPartyColor(party) {
-  const colors = {
+  let colors = {
     'REP': '#E91D0E',
     'DEM': '#004aad',
     'LIB': '#FFD700',

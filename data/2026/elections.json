@@ -1,0 +1,1256 @@
+[
+  {
+    "filename": "City_Council_Place_1_City_of_Lavon_2024.csv",
+    "displayName": "City Council Place 1 City of Lavon (2024)",
+    "category": "City",
+    "year": 2024
+  },
+  {
+    "filename": "City_Council_Place_3_City_of_Lavon_2024.csv",
+    "displayName": "City Council Place 3 City of Lavon (2024)",
+    "category": "City",
+    "year": 2024
+  },
+  {
+    "filename": "City_Council_Place_5_City_of_Lavon_2024.csv",
+    "displayName": "City Council Place 5 City of Lavon (2024)",
+    "category": "City",
+    "year": 2024
+  },
+  {
+    "filename": "City_Council_Ward_1_City_of_Lowry_Crossing_2024.csv",
+    "displayName": "City Council Ward 1 City of Lowry Crossing (2024)",
+    "category": "City",
+    "year": 2024
+  },
+  {
+    "filename": "City_Council_Ward_2_City_of_Lowry_Crossing_2024.csv",
+    "displayName": "City Council Ward 2 City of Lowry Crossing (2024)",
+    "category": "City",
+    "year": 2024
+  },
+  {
+    "filename": "City_Council_Ward_3_City_of_Lowry_Crossing_2024.csv",
+    "displayName": "City Council Ward 3 City of Lowry Crossing (2024)",
+    "category": "City",
+    "year": 2024
+  },
+  {
+    "filename": "Mayor_At_Large_City_of_Princeton_2024.csv",
+    "displayName": "Mayor At Large City of Princeton (2024)",
+    "category": "City",
+    "year": 2024
+  },
+  {
+    "filename": "Seat_No_1_At_Large_City_of_Princeton_2024.csv",
+    "displayName": "Seat No 1 At Large City of Princeton (2024)",
+    "category": "City",
+    "year": 2024
+  },
+  {
+    "filename": "Seat_No_2_At_Large_City_of_Princeton_2024.csv",
+    "displayName": "Seat No 2 At Large City of Princeton (2024)",
+    "category": "City",
+    "year": 2024
+  },
+  {
+    "filename": "Constable_Precinct_No_1_2024.csv",
+    "displayName": "Constable Precinct No 1 (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "Constable_Precinct_No_2_2024.csv",
+    "displayName": "Constable Precinct No 2 (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "Constable_Precinct_No_3_2024.csv",
+    "displayName": "Constable Precinct No 3 (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "Constable_Precinct_No_4_2024.csv",
+    "displayName": "Constable Precinct No 4 (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "County_Commissioner_Precinct_No_1_2024.csv",
+    "displayName": "County Commissioner Precinct No 1 (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "County_Commissioner_Precinct_No_3_2024.csv",
+    "displayName": "County Commissioner Precinct No 3 (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "County_Tax_Assessor-Collector_2024.csv",
+    "displayName": "County Tax Assessor-Collector (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "District_Judge_199th_Judicial_District_2024.csv",
+    "displayName": "District Judge 199th Judicial District (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "District_Judge_380th_Judicial_District_2024.csv",
+    "displayName": "District Judge 380th Judicial District (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "District_Judge_401st_Judicial_District_2024.csv",
+    "displayName": "District Judge 401st Judicial District (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "District_Judge_416th_Judicial_District_2024.csv",
+    "displayName": "District Judge 416th Judicial District (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "District_Judge_468th_Judicial_District_2024.csv",
+    "displayName": "District Judge 468th Judicial District (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "District_Judge_469th_Judicial_District_2024.csv",
+    "displayName": "District Judge 469th Judicial District (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "District_Judge_470th_Judicial_District_2024.csv",
+    "displayName": "District Judge 470th Judicial District (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "District_Judge_471st_Judicial_District_2024.csv",
+    "displayName": "District Judge 471st Judicial District (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "District_Judge_493rd_Judicial_District_2024.csv",
+    "displayName": "District Judge 493rd Judicial District (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "Judge_County_Probate_Court_Unexpired_Term_2024.csv",
+    "displayName": "Judge County Probate Court Unexpired Term (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "Sheriff_2024.csv",
+    "displayName": "Sheriff (2024)",
+    "category": "County",
+    "year": 2024
+  },
+  {
+    "filename": "President_Vice_President_2024.csv",
+    "displayName": "President Vice President (2024)",
+    "category": "Federal",
+    "year": 2024
+  },
+  {
+    "filename": "United_States_Representative_District_3_2024.csv",
+    "displayName": "United States Representative District 3 (2024)",
+    "category": "Federal",
+    "year": 2024
+  },
+  {
+    "filename": "United_States_Representative_District_32_2024.csv",
+    "displayName": "United States Representative District 32 (2024)",
+    "category": "Federal",
+    "year": 2024
+  },
+  {
+    "filename": "United_States_Representative_District_4_2024.csv",
+    "displayName": "United States Representative District 4 (2024)",
+    "category": "Federal",
+    "year": 2024
+  },
+  {
+    "filename": "United_States_Senator_2024.csv",
+    "displayName": "United States Senator (2024)",
+    "category": "Federal",
+    "year": 2024
+  },
+  {
+    "filename": "For_School_Trustee_-_Bland_ISD_2024.csv",
+    "displayName": "For School Trustee - Bland ISD (2024)",
+    "category": "ISD",
+    "year": 2024
+  },
+  {
+    "filename": "For_School_Trustee_-_Princeton_ISD_2024.csv",
+    "displayName": "For School Trustee - Princeton ISD (2024)",
+    "category": "ISD",
+    "year": 2024
+  },
+  {
+    "filename": "Chief_Justice_5th_Court_of_Appeals_District_2024.csv",
+    "displayName": "Chief Justice 5th Court of Appeals District (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Judge_Court_of_Criminal_Appeals_Place_7_2024.csv",
+    "displayName": "Judge Court of Criminal Appeals Place 7 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Judge_Court_of_Criminal_Appeals_Place_8_2024.csv",
+    "displayName": "Judge Court of Criminal Appeals Place 8 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Justice_5th_Court_of_Appeals_District_Place_10_2024.csv",
+    "displayName": "Justice 5th Court of Appeals District Place 10 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Justice_5th_Court_of_Appeals_District_Place_11_2024.csv",
+    "displayName": "Justice 5th Court of Appeals District Place 11 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Justice_5th_Court_of_Appeals_District_Place_12_2024.csv",
+    "displayName": "Justice 5th Court of Appeals District Place 12 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Justice_5th_Court_of_Appeals_District_Place_13_2024.csv",
+    "displayName": "Justice 5th Court of Appeals District Place 13 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Justice_5th_Court_of_Appeals_District_Place_2_2024.csv",
+    "displayName": "Justice 5th Court of Appeals District Place 2 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Justice_5th_Court_of_Appeals_District_Place_5_2024.csv",
+    "displayName": "Justice 5th Court of Appeals District Place 5 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Justice_5th_Court_of_Appeals_District_Place_9_2024.csv",
+    "displayName": "Justice 5th Court of Appeals District Place 9 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Justice_Supreme_Court_Place_2_2024.csv",
+    "displayName": "Justice Supreme Court Place 2 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Justice_Supreme_Court_Place_4_2024.csv",
+    "displayName": "Justice Supreme Court Place 4 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Justice_Supreme_Court_Place_6_2024.csv",
+    "displayName": "Justice Supreme Court Place 6 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Member_State_Board_of_Education_District_12_2024.csv",
+    "displayName": "Member State Board of Education District 12 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Presiding_Judge_Court_of_Criminal_Appeals_2024.csv",
+    "displayName": "Presiding Judge Court of Criminal Appeals (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "State_Representative_District_89_2024.csv",
+    "displayName": "State Representative District 89 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "State_Senator_District_30_2024.csv",
+    "displayName": "State Senator District 30 (2024)",
+    "category": "State",
+    "year": 2024
+  },
+  {
+    "filename": "Carrollton_City_of_-_Proposition_A_2022.csv",
+    "displayName": "Carrollton City of - Proposition A (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Carrollton_City_of_-_Proposition_B_2022.csv",
+    "displayName": "Carrollton City of - Proposition B (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Carrollton_City_of_-_Proposition_C_2022.csv",
+    "displayName": "Carrollton City of - Proposition C (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Carrollton_City_of_-_Proposition_D_2022.csv",
+    "displayName": "Carrollton City of - Proposition D (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Carrollton_City_of_-_Proposition_E_2022.csv",
+    "displayName": "Carrollton City of - Proposition E (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Celina_City_of_-_Local_Option_Election_2022.csv",
+    "displayName": "Celina City of - Local Option Election (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Dallas_City_of_-_Proposition_A_2022.csv",
+    "displayName": "Dallas City of - Proposition A (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Lavon_City_of_-_Council_Place_5_2022.csv",
+    "displayName": "Lavon City of - Council Place 5 (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Lavon_City_of_-_Home_Rule_Charter_2022.csv",
+    "displayName": "Lavon City of - Home Rule Charter (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Lowry_Crossing_City_of_-_Ward_3_2022.csv",
+    "displayName": "Lowry Crossing City of - Ward 3 (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "McKinney_City_of_-_Local_Option_Election_2022.csv",
+    "displayName": "McKinney City of - Local Option Election (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_A_2022.csv",
+    "displayName": "Murphy City of - Proposition A (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_B_2022.csv",
+    "displayName": "Murphy City of - Proposition B (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_C_2022.csv",
+    "displayName": "Murphy City of - Proposition C (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_D_2022.csv",
+    "displayName": "Murphy City of - Proposition D (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_E_2022.csv",
+    "displayName": "Murphy City of - Proposition E (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_F_2022.csv",
+    "displayName": "Murphy City of - Proposition F (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_G_2022.csv",
+    "displayName": "Murphy City of - Proposition G (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_H_2022.csv",
+    "displayName": "Murphy City of - Proposition H (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_I_2022.csv",
+    "displayName": "Murphy City of - Proposition I (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_J_2022.csv",
+    "displayName": "Murphy City of - Proposition J (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_K_2022.csv",
+    "displayName": "Murphy City of - Proposition K (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_L_2022.csv",
+    "displayName": "Murphy City of - Proposition L (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_M_2022.csv",
+    "displayName": "Murphy City of - Proposition M (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_N_2022.csv",
+    "displayName": "Murphy City of - Proposition N (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Murphy_City_of_-_Proposition_O_2022.csv",
+    "displayName": "Murphy City of - Proposition O (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Princeton_City_of_-_Home-Rule_Charter_2022.csv",
+    "displayName": "Princeton City of - Home-Rule Charter (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_A_2022.csv",
+    "displayName": "Sachse City of - Proposition A (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_B_2022.csv",
+    "displayName": "Sachse City of - Proposition B (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_C_2022.csv",
+    "displayName": "Sachse City of - Proposition C (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_D_2022.csv",
+    "displayName": "Sachse City of - Proposition D (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_E_2022.csv",
+    "displayName": "Sachse City of - Proposition E (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_F_2022.csv",
+    "displayName": "Sachse City of - Proposition F (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_G_2022.csv",
+    "displayName": "Sachse City of - Proposition G (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_H_2022.csv",
+    "displayName": "Sachse City of - Proposition H (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_I_2022.csv",
+    "displayName": "Sachse City of - Proposition I (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_J_2022.csv",
+    "displayName": "Sachse City of - Proposition J (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_K_2022.csv",
+    "displayName": "Sachse City of - Proposition K (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_L_2022.csv",
+    "displayName": "Sachse City of - Proposition L (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_M_2022.csv",
+    "displayName": "Sachse City of - Proposition M (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_N_2022.csv",
+    "displayName": "Sachse City of - Proposition N (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_O_2022.csv",
+    "displayName": "Sachse City of - Proposition O (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_P_2022.csv",
+    "displayName": "Sachse City of - Proposition P (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_Q_2022.csv",
+    "displayName": "Sachse City of - Proposition Q (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_R_2022.csv",
+    "displayName": "Sachse City of - Proposition R (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_S_2022.csv",
+    "displayName": "Sachse City of - Proposition S (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_T_2022.csv",
+    "displayName": "Sachse City of - Proposition T (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_U_2022.csv",
+    "displayName": "Sachse City of - Proposition U (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_V_2022.csv",
+    "displayName": "Sachse City of - Proposition V (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Sachse_City_of_-_Proposition_W_2022.csv",
+    "displayName": "Sachse City of - Proposition W (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "Weston_City_of_-_Alderman_City_Council_2022.csv",
+    "displayName": "Weston City of - Alderman City Council (2022)",
+    "category": "City",
+    "year": 2022
+  },
+  {
+    "filename": "County_Commissioner_Precinct_4_2022.csv",
+    "displayName": "County Commissioner Precinct 4 (2022)",
+    "category": "County",
+    "year": 2022
+  },
+  {
+    "filename": "County_Judge_CCD_2022.csv",
+    "displayName": "County Judge CCD (2022)",
+    "category": "County",
+    "year": 2022
+  },
+  {
+    "filename": "District_Clerk_CCD_2022.csv",
+    "displayName": "District Clerk CCD (2022)",
+    "category": "County",
+    "year": 2022
+  },
+  {
+    "filename": "Justice_of_the_Peace_Precinct_2_2022.csv",
+    "displayName": "Justice of the Peace Precinct 2 (2022)",
+    "category": "County",
+    "year": 2022
+  },
+  {
+    "filename": "Justice_of_the_Peace_Precinct_3_2022.csv",
+    "displayName": "Justice of the Peace Precinct 3 (2022)",
+    "category": "County",
+    "year": 2022
+  },
+  {
+    "filename": "Justice_of_the_Peace_Precinct_4_2022.csv",
+    "displayName": "Justice of the Peace Precinct 4 (2022)",
+    "category": "County",
+    "year": 2022
+  },
+  {
+    "filename": "U_S_Representative_District_3_2022.csv",
+    "displayName": "U S Representative District 3 (2022)",
+    "category": "County",
+    "year": 2022
+  },
+  {
+    "filename": "U_S_Representative_District_32_2022.csv",
+    "displayName": "U S Representative District 32 (2022)",
+    "category": "County",
+    "year": 2022
+  },
+  {
+    "filename": "U_S_Representative_District_4_2022.csv",
+    "displayName": "U S Representative District 4 (2022)",
+    "category": "County",
+    "year": 2022
+  },
+  {
+    "filename": "Anna_ISD_-_Proposition_A_2022.csv",
+    "displayName": "Anna ISD - Proposition A (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Anna_ISD_-_Proposition_B_2022.csv",
+    "displayName": "Anna ISD - Proposition B (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Leonard_ISD_-_Propositon_A_2022.csv",
+    "displayName": "Leonard ISD - Propositon A (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Lovejoy_ISD_-_Proposition_A_2022.csv",
+    "displayName": "Lovejoy ISD - Proposition A (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Plano_ISD_-_Proposition_A_2022.csv",
+    "displayName": "Plano ISD - Proposition A (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Plano_ISD_-_Proposition_B_2022.csv",
+    "displayName": "Plano ISD - Proposition B (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Plano_ISD_-_Proposition_C_2022.csv",
+    "displayName": "Plano ISD - Proposition C (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Plano_ISD_-_Proposition_D_2022.csv",
+    "displayName": "Plano ISD - Proposition D (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Plano_ISD_-_Proposition_E_2022.csv",
+    "displayName": "Plano ISD - Proposition E (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Princeton_ISD_-_Trustees_2022.csv",
+    "displayName": "Princeton ISD - Trustees (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Trenton_ISD_-_Proposition_A_2022.csv",
+    "displayName": "Trenton ISD - Proposition A (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Trenton_ISD_-_Proposition_B_2022.csv",
+    "displayName": "Trenton ISD - Proposition B (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Wylie_ISD_-_Trustee_Place_1_2022.csv",
+    "displayName": "Wylie ISD - Trustee Place 1 (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Wylie_ISD_-_Trustee_Place_2_2022.csv",
+    "displayName": "Wylie ISD - Trustee Place 2 (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Wylie_ISD_-_Trustee_Place_5_2022.csv",
+    "displayName": "Wylie ISD - Trustee Place 5 (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Wylie_ISD_-_Trustee_Place_6_2022.csv",
+    "displayName": "Wylie ISD - Trustee Place 6 (2022)",
+    "category": "ISD",
+    "year": 2022
+  },
+  {
+    "filename": "Collin_County_MUD_No_5_-_Directors_2022.csv",
+    "displayName": "Collin County MUD No 5 - Directors (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Collin_County_MUD_No_5_-_Proposition_A_2022.csv",
+    "displayName": "Collin County MUD No 5 - Proposition A (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Collin_County_MUD_No_5_-_Proposition_B_2022.csv",
+    "displayName": "Collin County MUD No 5 - Proposition B (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Collin_County_MUD_No_5_-_Proposition_C_2022.csv",
+    "displayName": "Collin County MUD No 5 - Proposition C (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Collin_County_MUD_No_5_-_Proposition_D_2022.csv",
+    "displayName": "Collin County MUD No 5 - Proposition D (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Collin_County_MUD_No_5_-_Proposition_E_2022.csv",
+    "displayName": "Collin County MUD No 5 - Proposition E (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Collin_County_MUD_No_5_-_Proposition_F_2022.csv",
+    "displayName": "Collin County MUD No 5 - Proposition F (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "East_Collin_County_MUD_No_1_-_Directors_2022.csv",
+    "displayName": "East Collin County MUD No 1 - Directors (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "East_Collin_County_MUD_No_1_-_Proposition_A_2022.csv",
+    "displayName": "East Collin County MUD No 1 - Proposition A (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "East_Collin_County_MUD_No_1_-_Proposition_B_2022.csv",
+    "displayName": "East Collin County MUD No 1 - Proposition B (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "East_Collin_County_MUD_No_1_-_Proposition_C_2022.csv",
+    "displayName": "East Collin County MUD No 1 - Proposition C (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "East_Collin_County_MUD_No_1_-_Proposition_D_2022.csv",
+    "displayName": "East Collin County MUD No 1 - Proposition D (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "East_Collin_County_MUD_No_1_-_Proposition_E_2022.csv",
+    "displayName": "East Collin County MUD No 1 - Proposition E (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "East_Collin_County_MUD_No_1_-_Proposition_F_2022.csv",
+    "displayName": "East Collin County MUD No 1 - Proposition F (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "East_Collin_County_MUD_No_1_-_Proposition_G_2022.csv",
+    "displayName": "East Collin County MUD No 1 - Proposition G (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "East_Collin_County_MUD_No_1_-_Proposition_H_2022.csv",
+    "displayName": "East Collin County MUD No 1 - Proposition H (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "East_Collin_County_MUD_No_1_-_Proposition_I_2022.csv",
+    "displayName": "East Collin County MUD No 1 - Proposition I (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "East_Collin_County_MUD_No_1_-_Proposition_J_2022.csv",
+    "displayName": "East Collin County MUD No 1 - Proposition J (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "North_Collin_County_MUD_No_1_-_Directors_2022.csv",
+    "displayName": "North Collin County MUD No 1 - Directors (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "North_Collin_County_MUD_No_1_-_Proposition_A_2022.csv",
+    "displayName": "North Collin County MUD No 1 - Proposition A (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "North_Collin_County_MUD_No_1_-_Proposition_B_2022.csv",
+    "displayName": "North Collin County MUD No 1 - Proposition B (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "North_Collin_County_MUD_No_1_-_Proposition_C_2022.csv",
+    "displayName": "North Collin County MUD No 1 - Proposition C (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "North_Collin_County_MUD_No_1_-_Proposition_D_2022.csv",
+    "displayName": "North Collin County MUD No 1 - Proposition D (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "North_Collin_County_MUD_No_1_-_Proposition_E_2022.csv",
+    "displayName": "North Collin County MUD No 1 - Proposition E (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "North_Collin_County_MUD_No_1_-_Proposition_F_2022.csv",
+    "displayName": "North Collin County MUD No 1 - Proposition F (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "North_Parkway_MMD_No_1_-_Proposition_A_2022.csv",
+    "displayName": "North Parkway MMD No 1 - Proposition A (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "North_Parkway_MMD_No_1_-_Proposition_B_2022.csv",
+    "displayName": "North Parkway MMD No 1 - Proposition B (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "North_Parkway_MMD_No_1_-_Proposition_C_2022.csv",
+    "displayName": "North Parkway MMD No 1 - Proposition C (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "North_Parkway_MMD_No_1_-_Proposition_D_2022.csv",
+    "displayName": "North Parkway MMD No 1 - Proposition D (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Raintree_MUD_No_1_of_Collin_County_-_Directors_2022.csv",
+    "displayName": "Raintree MUD No 1 of Collin County - Directors (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Raintree_MUD_No_1_of_Collin_County_-_Proposition_A_2022.csv",
+    "displayName": "Raintree MUD No 1 of Collin County - Proposition A (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Raintree_MUD_No_1_of_Collin_County_-_Proposition_B_2022.csv",
+    "displayName": "Raintree MUD No 1 of Collin County - Proposition B (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Raintree_MUD_No_1_of_Collin_County_-_Proposition_C_2022.csv",
+    "displayName": "Raintree MUD No 1 of Collin County - Proposition C (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Raintree_MUD_No_1_of_Collin_County_-_Proposition_D_2022.csv",
+    "displayName": "Raintree MUD No 1 of Collin County - Proposition D (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Raintree_MUD_No_1_of_Collin_County_-_Proposition_E_2022.csv",
+    "displayName": "Raintree MUD No 1 of Collin County - Proposition E (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Raintree_MUD_No_1_of_Collin_County_-_Proposition_F_2022.csv",
+    "displayName": "Raintree MUD No 1 of Collin County - Proposition F (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Riverfield_MUD_No_1_-_Directors_2022.csv",
+    "displayName": "Riverfield MUD No 1 - Directors (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Riverfield_MUD_No_1_-_Proposition_A_2022.csv",
+    "displayName": "Riverfield MUD No 1 - Proposition A (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Riverfield_MUD_No_1_-_Proposition_B_2022.csv",
+    "displayName": "Riverfield MUD No 1 - Proposition B (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Riverfield_MUD_No_1_-_Proposition_C_2022.csv",
+    "displayName": "Riverfield MUD No 1 - Proposition C (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Riverfield_MUD_No_1_-_Proposition_D_2022.csv",
+    "displayName": "Riverfield MUD No 1 - Proposition D (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Riverfield_MUD_No_1_-_Proposition_E_2022.csv",
+    "displayName": "Riverfield MUD No 1 - Proposition E (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Riverfield_MUD_No_1_-_Proposition_F_2022.csv",
+    "displayName": "Riverfield MUD No 1 - Proposition F (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Van_Alstyne_MUD_3_-_Directors_2022.csv",
+    "displayName": "Van Alstyne MUD 3 - Directors (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Van_Alstyne_MUD_3_-_Proposition_A_2022.csv",
+    "displayName": "Van Alstyne MUD 3 - Proposition A (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Van_Alstyne_MUD_3_-_Proposition_B_2022.csv",
+    "displayName": "Van Alstyne MUD 3 - Proposition B (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Van_Alstyne_MUD_3_-_Proposition_C_2022.csv",
+    "displayName": "Van Alstyne MUD 3 - Proposition C (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Van_Alstyne_MUD_3_-_Proposition_D_2022.csv",
+    "displayName": "Van Alstyne MUD 3 - Proposition D (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Van_Alstyne_MUD_3_-_Proposition_E_2022.csv",
+    "displayName": "Van Alstyne MUD 3 - Proposition E (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Van_Alstyne_MUD_3_-_Proposition_F_2022.csv",
+    "displayName": "Van Alstyne MUD 3 - Proposition F (2022)",
+    "category": "MUD",
+    "year": 2022
+  },
+  {
+    "filename": "Attorney_General_2022.csv",
+    "displayName": "Attorney General (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Commissioner_of_Agriculture_2022.csv",
+    "displayName": "Commissioner of Agriculture (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Commissioner_of_the_General_Land_Office_2022.csv",
+    "displayName": "Commissioner of the General Land Office (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Comptroller_of_Public_Accounts_2022.csv",
+    "displayName": "Comptroller of Public Accounts (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Governor_2022.csv",
+    "displayName": "Governor (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Judge_Court_of_Criminal_Appeals_Place_5_2022.csv",
+    "displayName": "Judge Court of Criminal Appeals Place 5 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Judge_Court_of_Criminal_Appeals_Place_6_2022.csv",
+    "displayName": "Judge Court of Criminal Appeals Place 6 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Justice_5th_Court_of_Appeals_District_Place_4_2022.csv",
+    "displayName": "Justice 5th Court of Appeals District Place 4 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Justice_5th_Court_of_Appeals_District_Place_7_2022.csv",
+    "displayName": "Justice 5th Court of Appeals District Place 7 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Justice_Supreme_Court_Place_3_2022.csv",
+    "displayName": "Justice Supreme Court Place 3 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Justice_Supreme_Court_Place_5_2022.csv",
+    "displayName": "Justice Supreme Court Place 5 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Justice_Supreme_Court_Place_9_2022.csv",
+    "displayName": "Justice Supreme Court Place 9 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Lieutenant_Governor_2022.csv",
+    "displayName": "Lieutenant Governor (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Member_State_Board_of_Education_District_12_CCD_2022.csv",
+    "displayName": "Member State Board of Education District 12 CCD (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "Railroad_Commissioner_2022.csv",
+    "displayName": "Railroad Commissioner (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "State_Representative_District_33_2022.csv",
+    "displayName": "State Representative District 33 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "State_Representative_District_61_2022.csv",
+    "displayName": "State Representative District 61 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "State_Representative_District_66_2022.csv",
+    "displayName": "State Representative District 66 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "State_Representative_District_67_2022.csv",
+    "displayName": "State Representative District 67 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "State_Representative_District_70_2022.csv",
+    "displayName": "State Representative District 70 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "State_Senator_District_2_2022.csv",
+    "displayName": "State Senator District 2 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "State_Senator_District_8_2022.csv",
+    "displayName": "State Senator District 8 (2022)",
+    "category": "State",
+    "year": 2022
+  },
+  {
+    "filename": "City_Council,_Place_1_\u2013_City_of_Lavon.csv",
+    "displayName": "City Council, Place 1 \u2013 City of Lavon",
+    "category": "City"
+  },
+  {
+    "filename": "City_Council,_Place_3_\u2013_City_of_Lavon.csv",
+    "displayName": "City Council, Place 3 \u2013 City of Lavon",
+    "category": "City"
+  },
+  {
+    "filename": "City_Council,_Place_5_\u2013_City_of_Lavon.csv",
+    "displayName": "City Council, Place 5 \u2013 City of Lavon",
+    "category": "City"
+  },
+  {
+    "filename": "City_Council,_Ward_1_\u2013_City_of_Lowry_Crossing.csv",
+    "displayName": "City Council, Ward 1 \u2013 City of Lowry Crossing",
+    "category": "City"
+  },
+  {
+    "filename": "City_Council,_Ward_2_\u2013_City_of_Lowry_Crossing.csv",
+    "displayName": "City Council, Ward 2 \u2013 City of Lowry Crossing",
+    "category": "City"
+  },
+  {
+    "filename": "City_Council,_Ward_3_\u2013_City_of_Lowry_Crossing.csv",
+    "displayName": "City Council, Ward 3 \u2013 City of Lowry Crossing",
+    "category": "City"
+  },
+  {
+    "filename": "Mayor_\u2013_At_Large_\u2013_City_of_Princeton.csv",
+    "displayName": "Mayor \u2013 At Large \u2013 City of Princeton",
+    "category": "City"
+  },
+  {
+    "filename": "Seat_No._1_\u2013_At_Large_\u2013_City_of_Princeton.csv",
+    "displayName": "Seat No. 1 \u2013 At Large \u2013 City of Princeton",
+    "category": "City"
+  },
+  {
+    "filename": "Seat_No._2_\u2013_At_Large_\u2013_City_of_Princeton.csv",
+    "displayName": "Seat No. 2 \u2013 At Large \u2013 City of Princeton",
+    "category": "City"
+  },
+  {
+    "filename": "U._S._Representative_District_3.csv",
+    "displayName": "U. S. Representative District 3",
+    "category": "Federal"
+  },
+  {
+    "filename": "U._S._Representative,_District_32.csv",
+    "displayName": "U. S. Representative, District 32",
+    "category": "Federal"
+  },
+  {
+    "filename": "U._S._Representative,_District_4.csv",
+    "displayName": "U. S. Representative, District 4",
+    "category": "Federal"
+  }
+]

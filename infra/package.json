@@ -1,0 +1,19 @@
+{
+  "name": "ccd-infra",
+  "version": "1.0.0",
+  "bin": {
+    "ccd-infra": "bin/ccd-infra.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "typescript": "~5.4.0",
+    "aws-cdk": "^2.170.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.170.0",
+    "constructs": "^10.3.0"
+  }
+}

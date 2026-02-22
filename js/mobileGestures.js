@@ -6,7 +6,7 @@
 /**
  * Configuration for swipe gestures
  */
-export const SWIPE_CONFIG = {
+export let SWIPE_CONFIG = {
   /** Percentage of sidebar width to trigger close (0-1) */
   threshold: 0.3,
   /** Minimum swipe distance in pixels to register as intentional */
@@ -72,9 +72,9 @@ export function getSwipeDirection(distance) {
  * @returns {Function} Cleanup function to remove event listeners
  */
 export function initSidebarGestures() {
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('sidebar-overlay');
-  const mobileToggle = document.getElementById('sidebar-toggle');
+  let sidebar = document.getElementById('sidebar');
+  let overlay = document.getElementById('sidebar-overlay');
+  let mobileToggle = document.getElementById('sidebar-toggle');
   
   if (!sidebar) {
     return () => {}; // Return no-op cleanup function
@@ -87,43 +87,43 @@ export function initSidebarGestures() {
   let isDragging = false;
   let isVerticalScroll = false;
   
-  const handleTouchStart = (e) => {
+  let handleTouchStart = function handleTouchStart(e) {
     // Only track if sidebar is open
     if (!sidebar.classList.contains('open')) return;
-    
+
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
     currentX = startX;
     startTime = Date.now();
     isDragging = true;
     isVerticalScroll = false;
-    
+
     // Disable transition for smooth dragging
     sidebar.style.transition = 'none';
   };
-  
-  const handleTouchMove = (e) => {
+
+  let handleTouchMove = function handleTouchMove(e) {
     if (!isDragging) return;
-    
+
     const touchX = e.touches[0].clientX;
     const touchY = e.touches[0].clientY;
     const diffX = touchX - startX;
     const diffY = touchY - startY;
-    
+
     // Detect if this is a vertical scroll (ignore horizontal swipe)
     if (!isVerticalScroll && Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 10) {
       isVerticalScroll = true;
       return;
     }
-    
+
     if (isVerticalScroll) return;
-    
+
     currentX = touchX;
-    
+
     // Only allow swiping left (to close) - clamp to 0
     if (diffX < 0) {
       sidebar.style.transform = `translateX(${diffX}px)`;
-      
+
       // Update overlay opacity based on swipe progress
       if (overlay) {
         const progress = Math.min(1, Math.abs(diffX) / sidebar.offsetWidth);
@@ -131,19 +131,19 @@ export function initSidebarGestures() {
       }
     }
   };
-  
-  const handleTouchEnd = () => {
+
+  let handleTouchEnd = function handleTouchEnd() {
     if (!isDragging) return;
-    
+
     isDragging = false;
-    
+
     // Re-enable transition for snap animation
     sidebar.style.transition = '';
-    
+
     const distance = calculateSwipeDistance(startX, currentX);
     const duration = Date.now() - startTime;
     const velocity = Math.abs(distance) / duration;
-    
+
     if (shouldCloseSidebar(distance, sidebar.offsetWidth, velocity)) {
       // Close the sidebar
       closeSidebar(sidebar, overlay, mobileToggle);
@@ -262,7 +262,7 @@ export function initPanelSwipeGesture(panel, content, onDismiss) {
   let isDragging = false;
   let isHorizontalScroll = false;
 
-  const handleTouchStart = (e) => {
+  let handleTouchStart = function handleTouchStart(e) {
     // Only track if panel is visible
     if (panel.classList.contains('hidden') || panel.getAttribute('aria-hidden') === 'true') {
       return;
@@ -281,7 +281,7 @@ export function initPanelSwipeGesture(panel, content, onDismiss) {
 
   let startX = 0;
 
-  const handleTouchMove = (e) => {
+  let handleTouchMove = function handleTouchMove(e) {
     if (!isDragging) return;
 
     const touchY = e.touches[0].clientY;
@@ -303,7 +303,7 @@ export function initPanelSwipeGesture(panel, content, onDismiss) {
       content.style.transform = `translateY(${diffY}px)`;
 
       // Update backdrop opacity based on swipe progress
-      const backdrop = panel.querySelector('.race-picker-backdrop');
+      let backdrop = panel.querySelector('.race-picker-backdrop');
       if (backdrop) {
         const progress = Math.min(1, diffY / window.innerHeight);
         backdrop.style.opacity = String(1 - progress);
@@ -311,7 +311,7 @@ export function initPanelSwipeGesture(panel, content, onDismiss) {
     }
   };
 
-  const handleTouchEnd = () => {
+  let handleTouchEnd = function handleTouchEnd() {
     if (!isDragging) return;
 
     isDragging = false;
@@ -332,7 +332,7 @@ export function initPanelSwipeGesture(panel, content, onDismiss) {
     } else {
       // Snap back to open position
       content.style.transform = '';
-      const backdrop = panel.querySelector('.race-picker-backdrop');
+      let backdrop = panel.querySelector('.race-picker-backdrop');
       if (backdrop) {
         backdrop.style.opacity = '';
       }

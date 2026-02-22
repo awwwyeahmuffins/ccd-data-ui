@@ -11,7 +11,7 @@ import { loadElectionData, listElectionCSVs } from "./dataLoader.js";
 // ============================================================================
 
 // Order matters: more specific patterns should be checked before general ones
-const RACE_CATEGORIES = {
+let RACE_CATEGORIES = {
   Federal: ['President', 'U._S._Representative', 'United_States_Representative', 'United_States_Senator'],
   State: ['Governor', 'Lieutenant_Governor', 'Attorney_General', 'Comptroller', 'Commissioner_of', 
           'State_Representative', 'State_Senator', 'Railroad_Commissioner', 'Member,_State_Board',
@@ -26,7 +26,7 @@ const RACE_CATEGORIES = {
 };
 
 // Category display order for UI
-export const CATEGORY_ORDER = ['Federal', 'State', 'County', 'City', 'ISD', 'MUD', 'Propositions', 'Other'];
+export let CATEGORY_ORDER = ['Federal', 'State', 'County', 'City', 'ISD', 'MUD', 'Propositions', 'Other'];
 
 /**
  * Categorize a race filename into a type
@@ -79,7 +79,7 @@ export function getPrecinctResult(electionData, precinctCode) {
   }
   
   const codeStr = String(precinctCode);
-  const record = electionData.find(row => String(row['PRECINCT CODE']) === codeStr);
+  let record = electionData.find(row => String(row['PRECINCT CODE']) === codeStr);
   
   if (!record) {
     return null;
@@ -111,15 +111,15 @@ export function buildVotingHistory(precinctCode, allElectionData) {
     return { races: [], byCategory: {}, partyRecord: {} };
   }
   
-  const races = [];
-  const byCategory = {};
-  const partyRecord = { Rep: 0, Dem: 0, Other: 0 };
+  let races = [];
+  let byCategory = {};
+  let partyRecord = { Rep: 0, Dem: 0, Other: 0 };
   
   for (const [filename, electionData] of Object.entries(allElectionData)) {
-    const result = getPrecinctResult(electionData, precinctCode);
+    let result = getPrecinctResult(electionData, precinctCode);
     if (result) {
       const category = categorizeRace(filename);
-      const raceInfo = {
+      let raceInfo = {
         filename,
         raceName: formatRaceName(filename),
         category,
@@ -165,8 +165,8 @@ export function comparePrecincts(electionData, precinct1, precinct2) {
     return null;
   }
   
-  const result1 = getPrecinctResult(electionData, precinct1);
-  const result2 = getPrecinctResult(electionData, precinct2);
+  let result1 = getPrecinctResult(electionData, precinct1);
+  let result2 = getPrecinctResult(electionData, precinct2);
   
   return {
     precinct1: {
@@ -355,10 +355,11 @@ export async function loadAllElectionDataForHistory() {
     return electionDataCache;
   }
   
-  const files = await listElectionCSVs();
-  const loadPromises = files.map(async (filename) => {
+  let files = await listElectionCSVs();
+  let loadPromises = files.map(async function loadSingleElection(entry) {
+    let filename = typeof entry === 'string' ? entry : entry.filename;
     try {
-      const data = await loadElectionData(filename);
+      let data = await loadElectionData(entry);
       return [filename, data];
     } catch (err) {
       console.warn(`Failed to load ${filename}:`, err);
@@ -366,7 +367,7 @@ export async function loadAllElectionDataForHistory() {
     }
   });
   
-  const results = await Promise.all(loadPromises);
+  let results = await Promise.all(loadPromises);
   electionDataCache = Object.fromEntries(results);
   
   return electionDataCache;
@@ -385,7 +386,7 @@ export function clearElectionDataCache() {
  * @returns {Promise<Object>} - Voting history
  */
 export async function getPrecinctVotingHistory(precinctCode) {
-  const allData = await loadAllElectionDataForHistory();
+  let allData = await loadAllElectionDataForHistory();
   return buildVotingHistory(precinctCode, allData);
 }
 
@@ -393,7 +394,7 @@ export async function getPrecinctVotingHistory(precinctCode) {
 // COMPARISON STATE MANAGEMENT
 // ============================================================================
 
-// State for precinct comparison
+// State for precinct comparison (reassigned on clear)
 let comparisonState = {
   precinct1: null,
   precinct2: null,

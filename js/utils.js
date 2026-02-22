@@ -5,8 +5,8 @@
 import { ETHNICITY_COLORS, PARTY_COLORS } from "./constants.js";
 
 // Re-export color maps for backward compatibility
-export const ethnicityColorMap = ETHNICITY_COLORS;
-export const partyColorMap = {
+export let ethnicityColorMap = ETHNICITY_COLORS;
+export let partyColorMap = {
   Rep: PARTY_COLORS.Rep,
   Mod: PARTY_COLORS.Mod,
   Dem: PARTY_COLORS.Dem
@@ -17,7 +17,7 @@ export function buildRacialChartData(props) {
   if (!props || typeof props !== 'object') {
     return [];
   }
-  const categories = [
+  let categories = [
     { label: "Asian", value: Number(props.asian) || 0 },
     { label: "Black", value: Number(props.black) || 0 },
     { label: "Hispanic", value: Number(props.hispanic) || 0 },
@@ -32,7 +32,7 @@ export function buildPartyChartData(props) {
   if (!props || typeof props !== 'object') {
     return [];
   }
-  const categories = [
+  let categories = [
     { label: "Rep", value: Number(props.rep) || 0 },
     { label: "Mod", value: Number(props.mod) || 0 },
     { label: "Dem", value: Number(props.dem) || 0 }
