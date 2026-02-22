@@ -133,8 +133,9 @@ BATCH_1_VARS = [
     "B11003_013E",   # female householder no spouse
     "B25010_001E",   # average household size
     "B19013_001E",   # median household income
-    "B17001_001E",   # poverty status total
-    "B17001_002E",   # income below poverty
+    "C17002_001E",   # poverty ratio total (replaces B17001 which is N/A at BG)
+    "C17002_002E",   # under .50 poverty ratio
+    "C17002_003E",   # .50 to .99 poverty ratio
 ] + INCOME_BRACKET_VARS
 
 # Batch 2: Age detail (male brackets)
@@ -166,60 +167,63 @@ BATCH_5_VARS = [
     "B25077_001E",   # median home value
     "B25064_001E",   # median gross rent
     "B08301_001E",   # commute total
-    "B08301_002E",   # drove alone
-    "B08301_003E",   # carpooled (total)
+    "B08301_003E",   # drove alone (002 is car/van total, 003 is drove alone)
+    "B08301_004E",   # carpooled (total)
     "B08301_010E",   # public transit (total)
     "B08301_019E",   # walked
     "B08301_020E",   # other means
     "B08301_021E",   # worked at home
+    # B08303: travel time distribution (B08135 aggregate not available at BG)
     "B08303_001E",   # travel time total
-    "B08135_001E",   # aggregate travel time to work (minutes)
+    "B08303_002E",   # < 5 min
+    "B08303_003E",   # 5-9 min
+    "B08303_004E",   # 10-14 min
+    "B08303_005E",   # 15-19 min
+    "B08303_006E",   # 20-24 min
+    "B08303_007E",   # 25-29 min
+    "B08303_008E",   # 30-34 min
+    "B08303_009E",   # 35-39 min
+    "B08303_010E",   # 40-44 min
+    "B08303_011E",   # 45-59 min
+    "B08303_012E",   # 60-89 min
+    "B08303_013E",   # 90+ min
 ]
 
-# Batch 6: Language
+# Batch 6: Language (B16004 — B16001 returns null at BG level in 2023 ACS)
+# B16004: Age by Language Spoken at Home, summed across 3 age groups (5-17, 18-64, 65+)
 BATCH_6_VARS = [
-    "B16001_001E",   # language total (pop 5+)
-    "B16001_002E",   # english only
-    "B16001_003E",   # spanish
-    # Asian/Pacific Island languages - sum several
-    "B16001_015E",   # Chinese
-    "B16001_018E",   # Vietnamese
-    "B16001_021E",   # Korean
-    "B16001_024E",   # Hmong
-    "B16001_012E",   # Japanese
-    "B16001_027E",   # Hindi
-    "B16001_030E",   # Urdu
-    "B16001_033E",   # Gujarati
-    "B16001_036E",   # Other Indic
-    "B16001_039E",   # Tagalog
-    "B16001_042E",   # Other Asian
+    "B16004_001E",   # total pop 5+
+    # English only (per age group)
+    "B16004_003E",   # 5-17: English only
+    "B16004_025E",   # 18-64: English only
+    "B16004_047E",   # 65+: English only
+    # Spanish (per age group)
+    "B16004_004E",   # 5-17: Spanish
+    "B16004_026E",   # 18-64: Spanish
+    "B16004_048E",   # 65+: Spanish
+    # Asian/Pacific Island (per age group)
+    "B16004_014E",   # 5-17: Asian/Pacific
+    "B16004_036E",   # 18-64: Asian/Pacific
+    "B16004_058E",   # 65+: Asian/Pacific
+    # Other Indo-European + Other languages (per age group)
+    "B16004_009E",   # 5-17: Indo-European
+    "B16004_019E",   # 5-17: Other
+    "B16004_031E",   # 18-64: Indo-European
+    "B16004_041E",   # 18-64: Other
+    "B16004_053E",   # 65+: Indo-European
+    "B16004_063E",   # 65+: Other
 ]
 
-# Batch 7: Veterans, Insurance
+# Batch 7: Veterans, Insurance (B27010 — B27001 returns null at BG level)
 BATCH_7_VARS = [
     "B21001_001E",   # civilian pop 18+ total
     "B21001_002E",   # veterans
-    "B27001_001E",   # insurance total
-    # With insurance by age
-    "B27001_004E",   # under 6 with
-    "B27001_007E",   # 6-18 with
-    "B27001_010E",   # 19-25 with
-    "B27001_013E",   # 26-34 with
-    "B27001_016E",   # 35-44 with
-    "B27001_019E",   # 45-54 with
-    "B27001_022E",   # 55-64 with
-    "B27001_025E",   # 65-74 with
-    "B27001_028E",   # 75+ with
-    # Without insurance by age
-    "B27001_005E",   # under 6 without
-    "B27001_008E",   # 6-18 without
-    "B27001_011E",   # 19-25 without
-    "B27001_014E",   # 26-34 without
-    "B27001_017E",   # 35-44 without
-    "B27001_020E",   # 45-54 without
-    "B27001_023E",   # 55-64 without
-    "B27001_026E",   # 65-74 without
-    "B27001_029E",   # 75+ without
+    "B27010_001E",   # insurance total (civilian non-institutionalized)
+    # Uninsured by age group
+    "B27010_017E",   # under 19: no health insurance
+    "B27010_033E",   # 19-34: no health insurance
+    "B27010_050E",   # 35-64: no health insurance
+    "B27010_066E",   # 65+: no health insurance
 ]
 
 # Batch 8: Occupations (C24010 - civilian employed pop 16+)
@@ -517,8 +521,9 @@ def aggregate_to_precincts(bg_data, crosswalk):
 
         # --- Income ---
         median_hhi = weighted_median(bg_data, cw, "B19013_001E", "B11001_001E")
-        poverty_total = weighted_sum(bg_data, cw, "B17001_001E")
-        poverty_below = weighted_sum(bg_data, cw, "B17001_002E")
+        # Poverty from C17002 (ratio of income to poverty level)
+        poverty_total = weighted_sum(bg_data, cw, "C17002_001E")
+        poverty_below = weighted_sum(bg_data, cw, ["C17002_002E", "C17002_003E"])
 
         # Income brackets: collapse 16 ACS brackets into 5
         # Under 50k: brackets 002-010 (Less than $10K through $45-50K)
@@ -554,46 +559,64 @@ def aggregate_to_precincts(bg_data, crosswalk):
 
         # --- Commute ---
         commute_total = weighted_sum(bg_data, cw, "B08301_001E")
-        drove_alone = weighted_sum(bg_data, cw, "B08301_002E")
-        carpooled = weighted_sum(bg_data, cw, "B08301_003E")
+        drove_alone = weighted_sum(bg_data, cw, "B08301_003E")   # 003 = drove alone
+        carpooled = weighted_sum(bg_data, cw, "B08301_004E")     # 004 = carpooled
         transit = weighted_sum(bg_data, cw, "B08301_010E")
         walked = weighted_sum(bg_data, cw, "B08301_019E")
         other_commute = weighted_sum(bg_data, cw, "B08301_020E")
         wfh = weighted_sum(bg_data, cw, "B08301_021E")
 
-        # Mean commute: aggregate travel time / workers who commute
-        agg_travel = weighted_sum(bg_data, cw, "B08135_001E")
-        commuters = commute_total - wfh if commute_total > wfh else commute_total
-        mean_commute = agg_travel / commuters if commuters > 0 else np.nan
+        # Mean commute: compute from B08303 travel time distribution (midpoints)
+        # B08135 aggregate travel time not available at BG level
+        time_midpoints = [
+            ("B08303_002E", 2.5),    # < 5 min
+            ("B08303_003E", 7.0),    # 5-9 min
+            ("B08303_004E", 12.0),   # 10-14 min
+            ("B08303_005E", 17.0),   # 15-19 min
+            ("B08303_006E", 22.0),   # 20-24 min
+            ("B08303_007E", 27.0),   # 25-29 min
+            ("B08303_008E", 32.0),   # 30-34 min
+            ("B08303_009E", 37.0),   # 35-39 min
+            ("B08303_010E", 42.0),   # 40-44 min
+            ("B08303_011E", 52.0),   # 45-59 min
+            ("B08303_012E", 74.5),   # 60-89 min
+            ("B08303_013E", 105.0),  # 90+ min
+        ]
+        agg_travel = 0
+        travel_workers = 0
+        for var, midpoint in time_midpoints:
+            count = weighted_sum(bg_data, cw, var)
+            agg_travel += count * midpoint
+            travel_workers += count
+        mean_commute = agg_travel / travel_workers if travel_workers > 0 else np.nan
 
-        # --- Language ---
-        lang_total = weighted_sum(bg_data, cw, "B16001_001E")
-        english_only = weighted_sum(bg_data, cw, "B16001_002E")
-        spanish = weighted_sum(bg_data, cw, "B16001_003E")
+        # --- Language (B16004, summed across age groups) ---
+        lang_total = weighted_sum(bg_data, cw, "B16004_001E")
+        english_only = weighted_sum(bg_data, cw, [
+            "B16004_003E", "B16004_025E", "B16004_047E",
+        ])
+        spanish = weighted_sum(bg_data, cw, [
+            "B16004_004E", "B16004_026E", "B16004_048E",
+        ])
         asian_langs = weighted_sum(bg_data, cw, [
-            "B16001_012E", "B16001_015E", "B16001_018E", "B16001_021E",
-            "B16001_024E", "B16001_027E", "B16001_030E", "B16001_033E",
-            "B16001_036E", "B16001_039E", "B16001_042E",
+            "B16004_014E", "B16004_036E", "B16004_058E",
+        ])
+        other_langs = weighted_sum(bg_data, cw, [
+            "B16004_009E", "B16004_019E",   # 5-17: Indo-European + Other
+            "B16004_031E", "B16004_041E",   # 18-64
+            "B16004_053E", "B16004_063E",   # 65+
         ])
 
         # --- Veterans ---
         vet_total_pop = weighted_sum(bg_data, cw, "B21001_001E")
         veterans = weighted_sum(bg_data, cw, "B21001_002E")
 
-        # --- Insurance ---
-        ins_total = weighted_sum(bg_data, cw, "B27001_001E")
-        insured_vars = [
-            "B27001_004E", "B27001_007E", "B27001_010E", "B27001_013E",
-            "B27001_016E", "B27001_019E", "B27001_022E", "B27001_025E",
-            "B27001_028E",
-        ]
-        uninsured_vars = [
-            "B27001_005E", "B27001_008E", "B27001_011E", "B27001_014E",
-            "B27001_017E", "B27001_020E", "B27001_023E", "B27001_026E",
-            "B27001_029E",
-        ]
-        insured = weighted_sum(bg_data, cw, insured_vars)
-        uninsured = weighted_sum(bg_data, cw, uninsured_vars)
+        # --- Insurance (B27010 — B27001 not available at BG level) ---
+        ins_total = weighted_sum(bg_data, cw, "B27010_001E")
+        uninsured = weighted_sum(bg_data, cw, [
+            "B27010_017E", "B27010_033E", "B27010_050E", "B27010_066E",
+        ])
+        insured = ins_total - uninsured
 
         # --- Occupations ---
         occ_total = weighted_sum(bg_data, cw, "C24010_001E")
@@ -749,7 +772,7 @@ def aggregate_to_precincts(bg_data, crosswalk):
                 "englishOnly": safe_share(english_only, lang_total),
                 "spanish": safe_share(spanish, lang_total),
                 "asianLanguages": safe_share(asian_langs, lang_total),
-                "other": safe_share(lang_total - english_only - spanish - asian_langs, lang_total),
+                "other": safe_share(other_langs, lang_total),
             },
             "veterans": {
                 "total": round(veterans),
