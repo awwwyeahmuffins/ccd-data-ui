@@ -173,8 +173,8 @@ def remap_election_csv(filepath, crosswalk, unchanged_pcts):
         logger.warning(f"  Skipping {filepath.name}: no valid precinct rows")
         return None
 
-    # Identify numeric columns to interpolate
-    numeric_cols = identify_numeric_cols(df)
+    # Identify numeric columns to interpolate (exclude our helper column)
+    numeric_cols = [c for c in identify_numeric_cols(df) if c != "pct_int"]
     if not numeric_cols:
         logger.warning(f"  Skipping {filepath.name}: no numeric columns found")
         return None
