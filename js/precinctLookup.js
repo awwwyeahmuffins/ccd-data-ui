@@ -316,7 +316,7 @@ async function selectPrecinct(code) {
   renderPartySection(partyData);
   renderRacialSection(racialData);
   renderOfficialsSection(officials);
-  renderCensusSection(census, code);
+  renderCensusSection(census, code, props._meta || null);
 
   // Update URL hash
   let boundary = getActiveBoundary();
@@ -435,7 +435,7 @@ function renderOfficialsSection(officials) {
   el.innerHTML = renderOfficials(officials);
 }
 
-function renderCensusSection(census, code) {
+function renderCensusSection(census, code, boundaryMeta) {
   let el = document.getElementById("section-census");
   if (!census) {
     let boundary = getActiveBoundary();
@@ -446,7 +446,11 @@ function renderCensusSection(census, code) {
     }
     return;
   }
-  el.innerHTML = generateProfileHTML(census, code);
+  let extraData = {};
+  if (boundaryMeta) {
+    extraData.boundaryMeta = boundaryMeta;
+  }
+  el.innerHTML = generateProfileHTML(census, code, extraData);
 }
 
 function renderElectionHistory(votingHistory) {

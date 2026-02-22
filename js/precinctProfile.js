@@ -307,6 +307,116 @@ export function renderOfficials(officials) {
 }
 
 // ---------------------------------------------------------------------------
+// Boundary changes renderer (2026 view only)
+// ---------------------------------------------------------------------------
+
+export function renderBoundaryChanges(metadata) {
+  if (!metadata) return "";
+
+  const type = metadata.interpolationType;
+  const sources = metadata.sources || [];
+
+  let badgeColor, badgeText, detail = "";
+
+  switch (type) {
+    case "unchanged":
+      badgeColor = "#4CAF50";
+      badgeText = `Unchanged from Precinct ${sources[0]?.old || "?"}`;
+      break;
+    case "split":
+      badgeColor = "#FF9800";
+      badgeText = `Split from Precinct ${sources[0]?.old || "?"}`;
+      break;
+    case "merged":
+      badgeColor = "#2196F3";
+      badgeText = `Merged from Precincts ${sources.map(s => s.old).join(", ")}`;
+      break;
+    case "new_boundary":
+      badgeColor = "#FFC107";
+      badgeText = "New boundary";
+      break;
+    case "sliver":
+      badgeColor = "#9E9E9E";
+      badgeText = "Sliver precinct";
+      break;
+    default:
+      return "";
+  }
+
+  let html = '<div class="profile-section">';
+  html += '<h4 class="profile-section-title">Boundary Changes</h4>';
+  html += `<div style="display:inline-block;padding:4px 10px;border-radius:4px;background:${badgeColor};color:#fff;font-size:0.85em;font-weight:600;margin-bottom:8px">${escapeHtml(badgeText)}</div>`;
+
+  // Show source precinct weights for split/merged
+  if ((type === "split" || type === "merged") && sources.length > 0) {
+    html += '<div class="profile-bars-list" style="margin-top:8px">';
+    for (const src of sources) {
+      const pct = (src.weight * 100).toFixed(1);
+      html += `<div class="profile-bar-item">`;
+      html += `<span class="bar-label">Precinct ${escapeHtml(String(src.old))}</span>`;
+      html += `<div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${badgeColor}"></div></div>`;
+      html += `<span class="bar-value">${pct}%</span>`;
+      html += `</div>`;
+    }
+    html += '</div>';
+  }
+
+  html += '</div>';
+  return html;
+}
+
+// ---------------------------------------------------------------------------
+// 2030 Projections renderer
+// ---------------------------------------------------------------------------
+
+function renderProjections(p) {
+  const proj = p.projections;
+  if (!proj) return "";
+
+  const metrics = [
+    { key: "population", label: "Population", fmt: formatNum },
+    { key: "medianIncome", label: "Median Income", fmt: formatCurrency },
+    { key: "medianHomeValue", label: "Home Value", fmt: formatCurrency },
+    { key: "ownerOccupied", label: "Homeownership", fmt: formatPct },
+    { key: "medianAge", label: "Median Age", fmt: (v) => v != null ? String(v) : "N/A" },
+  ];
+
+  let rows = "";
+  for (const m of metrics) {
+    const d = proj[m.key];
+    if (!d) continue;
+
+    const cur = m.fmt(d.current);
+    const projected = m.fmt(d.projected);
+    const cagr = d.cagr || 0;
+    const arrow = cagr > 0 ? "\u2191" : cagr < 0 ? "\u2193" : "\u2192";
+    const arrowColor = cagr > 0 ? "#4CAF50" : cagr < 0 ? "#F44336" : "#9E9E9E";
+    const changePct = (Math.abs(cagr) * 100).toFixed(1) + "%/yr";
+
+    rows += `<div class="profile-bar-item" style="align-items:center">`;
+    rows += `<span class="bar-label" style="min-width:120px">${escapeHtml(m.label)}</span>`;
+    rows += `<span style="min-width:80px;text-align:right">${escapeHtml(cur)}</span>`;
+    rows += `<span style="color:${arrowColor};font-weight:bold;padding:0 6px">${arrow}</span>`;
+    rows += `<span style="min-width:80px">${escapeHtml(projected)}</span>`;
+    rows += `<span style="color:${arrowColor};font-size:0.8em;margin-left:4px">${changePct}</span>`;
+    rows += `</div>`;
+  }
+
+  if (!rows) return "";
+
+  let html = '<div class="profile-section">';
+  html += `<h4 class="profile-section-title">${proj.targetYear} Projections</h4>`;
+  html += '<div class="profile-bars-list">';
+  html += rows;
+  html += '</div>';
+  html += '<div class="profile-disclaimer" style="margin-top:6px;font-size:0.75em;color:#888">';
+  html += 'Projected from 5-year ACS trend (2018\u21922023)';
+  html += '</div>';
+  html += '</div>';
+  return html;
+}
+
+// ---------------------------------------------------------------------------
 // Main HTML generation
 // ---------------------------------------------------------------------------
 
@@ -341,6 +451,11 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
 
   // Elected Officials / Districts
   html += renderOfficials(extraData.officials);
+
+  // Boundary Changes (2026 view only)
+  if (boundary === "2026" && extraData.boundaryMeta) {
+    html += renderBoundaryChanges(extraData.boundaryMeta);
+  }
 
   // Age & Gender
   html += `<div class="profile-section">`;
@@ -479,6 +594,9 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   html += statBox(formatPct(p.insurance?.insured), "Insured");
   html += `</div>`;
   html += `</div>`;
+
+  // 2030 Projections
+  html += renderProjections(p);
 
   html += `</div>`; // close .precinct-profile
   return html;

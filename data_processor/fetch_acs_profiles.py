@@ -44,7 +44,9 @@ PRECINCT_GEOJSON = DATA_DIR / "Voting_Precincts.geojson"
 CROSSWALK_OUT = DATA_DIR / "precinct_to_bg_crosswalk.csv"
 OUTPUT_PATH = DATA_DIR / "precinct_census_profiles.json"
 OUTPUT_2026 = DATA_DIR / "2026" / "precinct_census_profiles.json"
-VOTER_CROSSWALK = DATA_DIR / "crosswalk_voter_based.csv"
+
+PRECINCT_2026_GEOJSON = DATA_DIR / "Voting_Precincts_2026.geojson"
+CROSSWALK_2026_OUT = DATA_DIR / "2026" / "precinct_to_bg_crosswalk.csv"
 
 TIGER_URL = "https://www2.census.gov/geo/tiger/TIGER2024/BG/tl_2024_48_bg.zip"
 TIGER_CACHE = DATA_DIR / "cache" / "tl_2024_48_bg.zip"
@@ -315,10 +317,11 @@ def download_tiger_shapefile(skip_download=False):
     return gdf
 
 
-def build_precinct_bg_crosswalk(skip_download=False):
+def build_precinct_bg_crosswalk(skip_download=False, precinct_geojson=PRECINCT_GEOJSON,
+                                crosswalk_out=CROSSWALK_OUT):
     """Build area-weighted crosswalk between precincts and Census block groups."""
-    logger.info("Loading precinct GeoJSON...")
-    precincts = gpd.read_file(PRECINCT_GEOJSON)
+    logger.info(f"Loading precinct GeoJSON: {precinct_geojson.name}...")
+    precincts = gpd.read_file(precinct_geojson)
     precincts["PRECINCT"] = precincts["PRECINCT"].astype(int)
     logger.info(f"  {len(precincts)} precincts loaded")
 
@@ -363,8 +366,9 @@ def build_precinct_bg_crosswalk(skip_download=False):
     logger.info(f"  Precincts covered: {crosswalk['precinct'].nunique()}")
 
     # Save
-    crosswalk.to_csv(CROSSWALK_OUT, index=False)
-    logger.info(f"Saved crosswalk to {CROSSWALK_OUT}")
+    crosswalk_out.parent.mkdir(parents=True, exist_ok=True)
+    crosswalk.to_csv(crosswalk_out, index=False)
+    logger.info(f"Saved crosswalk to {crosswalk_out}")
 
     return crosswalk
 
@@ -789,10 +793,10 @@ def aggregate_to_precincts(bg_data, crosswalk):
     return profiles
 
 
-def compute_population_density(profiles):
+def compute_population_density(profiles, precinct_geojson=PRECINCT_GEOJSON):
     """Compute population density using precinct areas from GeoJSON."""
-    logger.info("Computing population density from precinct areas...")
-    precincts = gpd.read_file(PRECINCT_GEOJSON)
+    logger.info(f"Computing population density from {precinct_geojson.name}...")
+    precincts = gpd.read_file(precinct_geojson)
     precincts["PRECINCT"] = precincts["PRECINCT"].astype(int)
     precincts_proj = precincts.to_crs(epsg=EPSG_PROJECTED)
 
@@ -929,189 +933,164 @@ def fill_missing_precincts(profiles, geojson_path):
     return profiles
 
 
-def remap_to_2026(profiles):
-    """Remap profiles from 252 → 273 precincts using voter-based crosswalk."""
-    if not VOTER_CROSSWALK.exists():
-        logger.warning(f"Voter crosswalk not found: {VOTER_CROSSWALK}, skipping 2026 remap")
-        return None
+# ---------------------------------------------------------------------------
+# Phase E: Historical ACS fetch + 2030 projections
+# ---------------------------------------------------------------------------
 
-    logger.info("Remapping to 2026 precinct boundaries...")
-    cw = pd.read_csv(VOTER_CROSSWALK)
-    logger.info(f"  Crosswalk: {len(cw)} rows, "
-                f"{cw['new_precinct'].nunique()} new precincts ← "
-                f"{cw['old_precinct'].nunique()} old precincts")
+# Key variables for historical comparison (ACS 2018 = 2014-2018 vintage)
+HISTORICAL_ACS_YEAR = 2018
+HISTORICAL_ACS_BASE = f"https://api.census.gov/data/{HISTORICAL_ACS_YEAR}/acs/acs5"
 
-    new_profiles = {}
-
-    for new_pct in sorted(cw["new_precinct"].unique()):
-        rows = cw[cw["new_precinct"] == new_pct]
-
-        # Check if this is a simple 1:1 copy (single source with weight=1.0)
-        if len(rows) == 1 and abs(rows.iloc[0]["weight"] - 1.0) < 0.001:
-            old_pct = str(int(rows.iloc[0]["old_precinct"]))
-            if old_pct in profiles:
-                new_profiles[str(int(new_pct))] = profiles[old_pct].copy()
-                continue
-
-        # Weighted interpolation from multiple source precincts
-        profile = interpolate_profile(profiles, rows)
-        if profile is not None:
-            new_profiles[str(int(new_pct))] = profile
-
-    logger.info(f"  Generated {len(new_profiles)} profiles for 2026 boundaries")
-    return new_profiles
+HISTORICAL_VARS = [
+    "B01003_001E",   # total population
+    "B19013_001E",   # median household income
+    "B25077_001E",   # median home value
+    "B25003_001E",   # tenure total
+    "B25003_002E",   # owner occupied
+    "B25003_003E",   # renter occupied
+    "B01002_001E",   # median age
+]
 
 
-def interpolate_profile(profiles, crosswalk_rows):
-    """Interpolate a census profile from multiple source precincts."""
-    sources = []
-    total_weight = 0
+def fetch_historical_acs_data():
+    """Fetch key ACS variables from the 2014-2018 vintage for trend analysis."""
+    logger.info(f"Fetching historical ACS {HISTORICAL_ACS_YEAR} data for trend projections...")
+    var_str = ",".join(HISTORICAL_VARS)
+    url = (
+        f"{HISTORICAL_ACS_BASE}?get={var_str}"
+        f"&for=block%20group:*"
+        f"&in=state:{STATE_FIPS}%20county:{COUNTY_FIPS}"
+    )
+    resp = requests.get(url, timeout=60)
+    resp.raise_for_status()
+    data = resp.json()
 
-    for _, row in crosswalk_rows.iterrows():
-        old_pct = str(int(row["old_precinct"]))
-        weight = row["weight"]
-        if old_pct in profiles:
-            sources.append((profiles[old_pct], weight))
-            total_weight += weight
+    headers = data[0]
+    rows = data[1:]
+    df = pd.DataFrame(rows, columns=headers)
+    df["GEOID"] = df["state"] + df["county"] + df["tract"] + df["block group"]
 
-    if not sources or total_weight == 0:
-        return None
+    for var in HISTORICAL_VARS:
+        if var in df.columns:
+            df[var] = pd.to_numeric(df[var], errors="coerce")
 
-    # Normalize weights
-    norm_sources = [(p, w / total_weight) for p, w in sources]
+    logger.info(f"  Retrieved {len(df)} historical block groups")
+    return df.set_index("GEOID")
 
-    # Weighted interpolation
-    def wavg(key_path, is_count=False):
-        """Get weighted average (or weighted sum for counts) of a nested value."""
-        vals = []
-        for p, w in norm_sources:
-            v = p
-            for k in key_path:
-                if isinstance(v, dict) and k in v:
-                    v = v[k]
-                else:
-                    v = None
-                    break
-            if v is not None and not (isinstance(v, float) and np.isnan(v)):
-                vals.append((v, w))
 
-        if not vals:
-            return None
+def aggregate_historical_to_precincts(hist_bg_data, crosswalk):
+    """Aggregate historical block group data to precinct level (key metrics only)."""
+    logger.info("Aggregating historical ACS data to precincts...")
+    profiles = {}
+    precinct_ids = sorted(crosswalk["precinct"].unique())
 
-        if is_count:
-            return sum(v * w * total_weight for v, w in vals)
-        else:
-            return sum(v * w for v, w in vals)
+    for pct_id in precinct_ids:
+        cw = crosswalk[crosswalk["precinct"] == pct_id]
 
-    # Population and count fields: scale by weight * total_weight (area-proportional)
-    population = wavg(["population"], is_count=True)
-    if population is None or population <= 0:
-        return None
+        population = weighted_sum(hist_bg_data, cw, "B01003_001E")
+        if population <= 0 or np.isnan(population):
+            continue
 
-    pop_density = wavg(["populationDensity"], is_count=False)  # avg density
+        median_income = weighted_median(hist_bg_data, cw, "B19013_001E", "B01003_001E")
+        median_home = weighted_median(hist_bg_data, cw, "B25077_001E", "B25003_002E")
+        median_age = weighted_median(hist_bg_data, cw, "B01002_001E", "B01003_001E")
 
-    # Weighted-average occupation/industry lists
-    def wavg_ranked(key_path):
-        """Weighted average of ranked lists."""
-        combined = {}
-        for p, w in norm_sources:
-            v = p
-            for k in key_path:
-                if isinstance(v, dict) and k in v:
-                    v = v[k]
-                elif isinstance(v, dict):
-                    v = None
-                    break
-                else:
-                    v = None
-                    break
-            if v and isinstance(v, list):
-                for item in v:
-                    name = item.get("name", "")
-                    share = item.get("share", 0)
-                    if name:
-                        combined[name] = combined.get(name, 0) + share * w
+        tenure_total = weighted_sum(hist_bg_data, cw, "B25003_001E")
+        owner = weighted_sum(hist_bg_data, cw, "B25003_002E")
 
-        items = sorted(combined.items(), key=lambda x: x[1], reverse=True)
-        return [{"name": n, "share": round(s, 4)} for n, s in items[:5]]
+        profiles[str(pct_id)] = {
+            "population": round(population),
+            "medianIncome": round(median_income) if pd.notna(median_income) else None,
+            "medianHomeValue": round(median_home) if pd.notna(median_home) else None,
+            "medianAge": round(float(median_age), 1) if pd.notna(median_age) else None,
+            "ownerOccupied": round(owner / tenure_total, 4) if tenure_total > 0 else None,
+        }
 
-    profile = {
-        "population": round(population),
-        "populationDensity": round(pop_density) if pop_density else 0,
-        "age": {
-            "under18": round(wavg(["age", "under18"]) or 0, 4),
-            "18to34": round(wavg(["age", "18to34"]) or 0, 4),
-            "35to54": round(wavg(["age", "35to54"]) or 0, 4),
-            "55to64": round(wavg(["age", "55to64"]) or 0, 4),
-            "65plus": round(wavg(["age", "65plus"]) or 0, 4),
-            "medianAge": round(wavg(["age", "medianAge"]) or 0, 1),
-        },
-        "gender": {
-            "male": round(wavg(["gender", "male"]) or 0, 4),
-            "female": round(wavg(["gender", "female"]) or 0, 4),
-        },
-        "households": {
-            "total": round(wavg(["households", "total"], is_count=True) or 0),
-            "familyHouseholds": round(wavg(["households", "familyHouseholds"], is_count=True) or 0),
-            "marriedCouples": round(wavg(["households", "marriedCouples"], is_count=True) or 0),
-            "singleParent": round(wavg(["households", "singleParent"], is_count=True) or 0),
-            "nonFamily": round(wavg(["households", "nonFamily"], is_count=True) or 0),
-            "averageSize": round(wavg(["households", "averageSize"]) or 0, 2),
-        },
-        "income": {
-            "medianHousehold": round(wavg(["income", "medianHousehold"]) or 0),
-            "brackets": {
-                "under50k": round(wavg(["income", "brackets", "under50k"]) or 0, 4),
-                "50kTo100k": round(wavg(["income", "brackets", "50kTo100k"]) or 0, 4),
-                "100kTo150k": round(wavg(["income", "brackets", "100kTo150k"]) or 0, 4),
-                "150kTo200k": round(wavg(["income", "brackets", "150kTo200k"]) or 0, 4),
-                "over200k": round(wavg(["income", "brackets", "over200k"]) or 0, 4),
-            },
-            "povertyRate": round(wavg(["income", "povertyRate"]) or 0, 4),
-        },
-        "education": {
-            "highSchoolOrLess": round(wavg(["education", "highSchoolOrLess"]) or 0, 4),
-            "someCollege": round(wavg(["education", "someCollege"]) or 0, 4),
-            "bachelors": round(wavg(["education", "bachelors"]) or 0, 4),
-            "graduateProfessional": round(wavg(["education", "graduateProfessional"]) or 0, 4),
-        },
-        "employment": {
-            "laborForceParticipation": round(wavg(["employment", "laborForceParticipation"]) or 0, 4),
-            "unemploymentRate": round(wavg(["employment", "unemploymentRate"]) or 0, 4),
-            "topOccupations": wavg_ranked(["employment", "topOccupations"]),
-            "topIndustries": wavg_ranked(["employment", "topIndustries"]),
-        },
-        "housing": {
-            "ownerOccupied": round(wavg(["housing", "ownerOccupied"]) or 0, 4),
-            "renterOccupied": round(wavg(["housing", "renterOccupied"]) or 0, 4),
-            "medianHomeValue": round(wavg(["housing", "medianHomeValue"]) or 0),
-            "medianRent": round(wavg(["housing", "medianRent"]) or 0),
-        },
-        "commute": {
-            "droveAlone": round(wavg(["commute", "droveAlone"]) or 0, 4),
-            "carpooled": round(wavg(["commute", "carpooled"]) or 0, 4),
-            "publicTransit": round(wavg(["commute", "publicTransit"]) or 0, 4),
-            "workedFromHome": round(wavg(["commute", "workedFromHome"]) or 0, 4),
-            "other": round(wavg(["commute", "other"]) or 0, 4),
-            "meanCommuteMinutes": round(wavg(["commute", "meanCommuteMinutes"]) or 0, 1),
-        },
-        "language": {
-            "englishOnly": round(wavg(["language", "englishOnly"]) or 0, 4),
-            "spanish": round(wavg(["language", "spanish"]) or 0, 4),
-            "asianLanguages": round(wavg(["language", "asianLanguages"]) or 0, 4),
-            "other": round(wavg(["language", "other"]) or 0, 4),
-        },
-        "veterans": {
-            "total": round(wavg(["veterans", "total"], is_count=True) or 0),
-            "share": round(wavg(["veterans", "share"]) or 0, 4),
-        },
-        "insurance": {
-            "insured": round(wavg(["insurance", "insured"]) or 0, 4),
-            "uninsured": round(wavg(["insurance", "uninsured"]) or 0, 4),
-        },
-    }
+    return profiles
 
-    return profile
+
+def compute_projections(current_profiles, historical_profiles):
+    """Compute 5-year CAGR and project key metrics to 2030."""
+    logger.info("Computing 2030 projections from ACS trend data...")
+    projection_years = 7  # 2023 midpoint → 2030
+    trend_years = 5       # 2018 → 2023
+
+    count = 0
+    for pct_id, profile in current_profiles.items():
+        hist = historical_profiles.get(pct_id)
+        if not hist:
+            continue
+
+        projections = {"targetYear": 2030}
+
+        # Population
+        cur_pop = profile.get("population", 0)
+        hist_pop = hist.get("population", 0)
+        if cur_pop > 0 and hist_pop > 0:
+            cagr = (cur_pop / hist_pop) ** (1 / trend_years) - 1
+            projected = cur_pop * (1 + cagr) ** projection_years
+            projections["population"] = {
+                "current": cur_pop,
+                "projected": round(max(0, projected)),
+                "cagr": round(cagr, 4),
+            }
+
+        # Median Income
+        cur_inc = profile.get("income", {}).get("medianHousehold")
+        hist_inc = hist.get("medianIncome")
+        if cur_inc and hist_inc and cur_inc > 0 and hist_inc > 0:
+            cagr = (cur_inc / hist_inc) ** (1 / trend_years) - 1
+            projected = cur_inc * (1 + cagr) ** projection_years
+            projections["medianIncome"] = {
+                "current": cur_inc,
+                "projected": round(max(0, projected)),
+                "cagr": round(cagr, 4),
+            }
+
+        # Median Home Value
+        cur_home = profile.get("housing", {}).get("medianHomeValue")
+        hist_home = hist.get("medianHomeValue")
+        if cur_home and hist_home and cur_home > 0 and hist_home > 0:
+            cagr = (cur_home / hist_home) ** (1 / trend_years) - 1
+            projected = cur_home * (1 + cagr) ** projection_years
+            projections["medianHomeValue"] = {
+                "current": cur_home,
+                "projected": round(max(0, projected)),
+                "cagr": round(cagr, 4),
+            }
+
+        # Owner-Occupied Rate
+        cur_owner = profile.get("housing", {}).get("ownerOccupied")
+        hist_owner = hist.get("ownerOccupied")
+        if cur_owner is not None and hist_owner is not None and hist_owner > 0:
+            cagr = (cur_owner / hist_owner) ** (1 / trend_years) - 1
+            projected = cur_owner * (1 + cagr) ** projection_years
+            projected = max(0, min(1, projected))  # clamp to [0, 1]
+            projections["ownerOccupied"] = {
+                "current": round(cur_owner, 4),
+                "projected": round(projected, 4),
+                "cagr": round(cagr, 4),
+            }
+
+        # Median Age
+        cur_age = profile.get("age", {}).get("medianAge")
+        hist_age = hist.get("medianAge")
+        if cur_age and hist_age and cur_age > 0 and hist_age > 0:
+            cagr = (cur_age / hist_age) ** (1 / trend_years) - 1
+            projected = cur_age * (1 + cagr) ** projection_years
+            projected = max(0, projected)
+            projections["medianAge"] = {
+                "current": cur_age,
+                "projected": round(projected, 1),
+                "cagr": round(cagr, 4),
+            }
+
+        if len(projections) > 1:  # more than just targetYear
+            profile["projections"] = projections
+            count += 1
+
+    logger.info(f"  Added projections to {count}/{len(current_profiles)} precincts")
+    return current_profiles
 
 
 # ---------------------------------------------------------------------------
@@ -1149,21 +1128,48 @@ def main():
     # Fill missing precincts with county averages
     profiles = fill_missing_precincts(profiles, PRECINCT_GEOJSON)
 
+    # Phase E: Historical ACS fetch + 2030 projections
+    try:
+        hist_bg_data = fetch_historical_acs_data()
+        hist_profiles = aggregate_historical_to_precincts(hist_bg_data, crosswalk)
+        profiles = compute_projections(profiles, hist_profiles)
+    except Exception as e:
+        logger.warning(f"Could not compute projections: {e}")
+
     # Write original boundary profiles
     with open(OUTPUT_PATH, "w") as f:
         json.dump(profiles, f, indent=2)
     logger.info(f"Wrote {len(profiles)} profiles to {OUTPUT_PATH}")
     logger.info(f"  File size: {OUTPUT_PATH.stat().st_size / 1024:.1f} KB")
 
-    # Phase D: Generate 2026 boundary profiles
-    NEW_GEOJSON = DATA_DIR / "Voting_Precincts_2026.geojson"
-    profiles_2026 = remap_to_2026(profiles)
-    if profiles_2026:
-        profiles_2026 = fill_missing_precincts(profiles_2026, NEW_GEOJSON)
+    # Phase D: Generate 2026 boundary profiles via direct spatial join
+    if PRECINCT_2026_GEOJSON.exists():
+        logger.info("Building direct crosswalk for 2026 precinct boundaries...")
+        if CROSSWALK_2026_OUT.exists() and args.skip_download:
+            logger.info(f"Loading cached 2026 crosswalk from {CROSSWALK_2026_OUT}")
+            crosswalk_2026 = pd.read_csv(CROSSWALK_2026_OUT, dtype={"bg_geoid": str})
+        else:
+            crosswalk_2026 = build_precinct_bg_crosswalk(
+                skip_download=True,  # reuse already-downloaded TIGER shapefile
+                precinct_geojson=PRECINCT_2026_GEOJSON,
+                crosswalk_out=CROSSWALK_2026_OUT,
+            )
+        profiles_2026 = aggregate_to_precincts(bg_data, crosswalk_2026)
+        profiles_2026 = compute_population_density(profiles_2026, PRECINCT_2026_GEOJSON)
+        profiles_2026 = fill_missing_precincts(profiles_2026, PRECINCT_2026_GEOJSON)
+        # Add projections to 2026 profiles
+        try:
+            hist_profiles_2026 = aggregate_historical_to_precincts(hist_bg_data, crosswalk_2026)
+            profiles_2026 = compute_projections(profiles_2026, hist_profiles_2026)
+        except Exception as e:
+            logger.warning(f"Could not compute 2026 projections: {e}")
         OUTPUT_2026.parent.mkdir(parents=True, exist_ok=True)
         with open(OUTPUT_2026, "w") as f:
             json.dump(profiles_2026, f, indent=2)
         logger.info(f"Wrote {len(profiles_2026)} profiles to {OUTPUT_2026}")
+    else:
+        logger.warning(f"2026 GeoJSON not found: {PRECINCT_2026_GEOJSON}, skipping")
+        profiles_2026 = None
 
     # Summary stats
     print()
