@@ -810,7 +810,10 @@ describe('generateSimulationResultsHTML', () => {
 
     expect(html).toContain('Flipped Precincts');
     expect(html).toContain('3'); // count
-    expect(html).toContain('1, 5, 12'); // list
+    expect(html).toContain('flipped-precinct-code');
+    expect(html).toContain('>1<');
+    expect(html).toContain('>5<');
+    expect(html).toContain('>12<');
   });
 
   it('should show message when no precincts flipped', () => {
@@ -824,7 +827,7 @@ describe('generateSimulationResultsHTML', () => {
     expect(html).toContain('No precincts flipped');
   });
 
-  it('should truncate long precinct lists', () => {
+  it('should show toggle for long precinct lists and hide items beyond 5', () => {
     const manyPrecincts = Array.from({ length: 15 }, (_, i) => String(i + 1));
     const html = generateSimulationResultsHTML(
       mockOriginalSummary,
@@ -833,7 +836,12 @@ describe('generateSimulationResultsHTML', () => {
       false
     );
 
-    expect(html).toContain('...');
+    expect(html).toContain('Show all 15 precincts');
+    expect(html).toContain('flipped-list-toggle');
+    // First 5 should be visible (no hidden class)
+    expect(html).toContain('data-flip-index="4"');
+    // 6th item (index 5) should be hidden
+    expect(html).toContain('flipped-list-item hidden" data-flip-index="5"');
   });
 
   it('should handle null summaries gracefully', () => {

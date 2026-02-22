@@ -15,6 +15,7 @@ import {
   renderRacialDemographics,
   renderOfficials,
   generateTakeaways,
+  renderTrendArrow,
   escapeHtml,
   formatNum,
   formatCurrency,
@@ -23,6 +24,7 @@ import {
 import {
   getPrecinctVotingHistory,
   clearElectionDataCache,
+  computePrecinctTrend,
   CATEGORY_ORDER,
   formatRaceName,
   calculateTurnout,
@@ -35,6 +37,13 @@ import {
   DARK_TILE_URL,
 } from "./themeManager.js";
 import { exportAsPDF, exportAsMarkdown } from "./precinctExport.js";
+import {
+  loadOnePagerData,
+  generateFieldOnePagerHTML,
+  generateFieldOnePagerText,
+  printOnePager,
+  copyOnePagerToClipboard,
+} from "./fieldOnePager.js";
 
 // ---------------------------------------------------------------------------
 // Module state
@@ -109,6 +118,7 @@ export async function initPrecinctLookup() {
       if (currentReportData) exportAsMarkdown(currentReportData);
     });
   }
+  bindOnePagerButton();
 
   // Load data
   await loadBaseData();
@@ -330,6 +340,26 @@ async function selectPrecinct(code) {
     votingHistory = { races: [], byCategory: {}, partyRecord: { Rep: 0, Dem: 0, Other: 0 } };
   }
   renderElectionHistory(votingHistory);
+
+  // Compute and inject trend arrow
+  computePrecinctTrend(code).then(function onTrend(trendData) {
+    let arrow = renderTrendArrow(trendData);
+    if (arrow) {
+      let headerEl = document.getElementById("report-header");
+      if (headerEl) {
+        let trendEl = headerEl.querySelector('.trend-arrow-container');
+        if (trendEl) {
+          trendEl.innerHTML = arrow;
+        } else {
+          let container = document.createElement('div');
+          container.className = 'trend-arrow-container';
+          container.style.marginTop = '8px';
+          container.innerHTML = arrow;
+          headerEl.appendChild(container);
+        }
+      }
+    }
+  }).catch(function onErr() { /* trend is optional */ });
 
   // Store for export
   let configs = getBoundaryConfigs();
@@ -602,17 +632,18 @@ function resetReport() {
     <div id="export-bar" class="export-bar hidden">
       <button id="export-pdf" class="export-btn">Export PDF</button>
       <button id="export-md" class="export-btn">Export Markdown</button>
+      <button id="export-one-pager" class="export-btn">Field One-Pager</button>
     </div>
     <div id="mini-map" class="mini-map-container"></div>
     <div id="section-summary-cards"></div>
     <div id="section-party" class="report-section"></div>
     <div id="section-racial" class="report-section"></div>
     <div id="section-officials" class="report-section"></div>
+    <div id="section-census" class="report-section"></div>
     <div class="report-section">
       <div class="report-section-title">Election History</div>
       <div id="section-election-history"></div>
     </div>
-    <div id="section-census" class="report-section"></div>
   `;
 
   // Destroy mini map so it can be re-created in the new container
@@ -632,6 +663,7 @@ function resetReport() {
       if (currentReportData) exportAsMarkdown(currentReportData);
     });
   }
+  bindOnePagerButton();
 }
 
 /**
@@ -645,6 +677,7 @@ function ensureReportStructure(reportEl) {
       <div id="export-bar" class="export-bar hidden">
         <button id="export-pdf" class="export-btn">Export PDF</button>
         <button id="export-md" class="export-btn">Export Markdown</button>
+        <button id="export-one-pager" class="export-btn">Field One-Pager</button>
       </div>
       <div id="mini-map" class="mini-map-container"></div>
       <div id="section-summary-cards"></div>
@@ -675,6 +708,7 @@ function ensureReportStructure(reportEl) {
         if (currentReportData) exportAsMarkdown(currentReportData);
       });
     }
+    bindOnePagerButton();
   }
 }
 
@@ -690,4 +724,85 @@ function showNotice(msg) {
   let el = document.getElementById("report-container");
   el.classList.remove("hidden");
   el.innerHTML = `<div class="census-unavailable">${escapeHtml(msg)}</div>`;
+}
+
+// ---------------------------------------------------------------------------
+// Field One-Pager
+// ---------------------------------------------------------------------------
+
+function bindOnePagerButton() {
+  let btn = document.getElementById("export-one-pager");
+  if (btn) {
+    btn.addEventListener("click", handleOnePagerClick);
+  }
+}
+
+async function handleOnePagerClick() {
+  if (!currentPrecinctCode) return;
+
+  let btn = document.getElementById("export-one-pager");
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "Loading...";
+  }
+
+  try {
+    let data = await loadOnePagerData(currentPrecinctCode);
+    let html = generateFieldOnePagerHTML(
+      currentPrecinctCode,
+      data.census,
+      data.party,
+      data.racial,
+      data.officials,
+      data.recentElections,
+      data.trend
+    );
+    let text = generateFieldOnePagerText(
+      currentPrecinctCode,
+      data.census,
+      data.party,
+      data.racial,
+      data.officials,
+      data.recentElections,
+      data.trend
+    );
+
+    // Show one-pager below the report
+    let container = document.getElementById("one-pager-container");
+    if (!container) {
+      container = document.createElement("div");
+      container.id = "one-pager-container";
+      let reportEl = document.getElementById("report-container");
+      reportEl.appendChild(container);
+    }
+    container.innerHTML = html;
+    container.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // Wire print button
+    let printBtn = document.getElementById("one-pager-print-btn");
+    if (printBtn) {
+      printBtn.addEventListener("click", function onPrint() {
+        printOnePager(html, currentPrecinctCode);
+      });
+    }
+
+    // Wire copy button
+    let copyBtn = document.getElementById("one-pager-copy-btn");
+    if (copyBtn) {
+      copyBtn.addEventListener("click", async function onCopy() {
+        let ok = await copyOnePagerToClipboard(text);
+        copyBtn.textContent = ok ? "Copied!" : "Failed";
+        setTimeout(function resetLabel() {
+          copyBtn.textContent = "Copy to Clipboard";
+        }, 2000);
+      });
+    }
+  } catch (err) {
+    console.error("One-pager generation failed:", err);
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = "Field One-Pager";
+    }
+  }
 }

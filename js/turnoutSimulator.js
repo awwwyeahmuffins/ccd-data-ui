@@ -1050,8 +1050,41 @@ export function generateSimulatorControlsHTML(currentValues = { Rep: 1.0, Dem: 1
 }
 
 /**
+ * Generate detailed HTML for all flipped precincts.
+ * Shows first 5 by default with a "Show all N" toggle.
+ *
+ * @param {Array} flippedPrecincts - List of precinct codes that flipped
+ * @param {Object} originalSummary - Original county-wide results (for context)
+ * @param {Object} simulatedSummary - Simulated county-wide results (for context)
+ * @returns {string} HTML string for the flipped precincts detail list
+ */
+export function generateFlippedPrecinctsDetailHTML(flippedPrecincts, originalSummary, simulatedSummary) {
+  if (!flippedPrecincts || flippedPrecincts.length === 0) {
+    return '<p class="no-flips">No precincts flipped with current settings.</p>';
+  }
+
+  let total = flippedPrecincts.length;
+  let initialShow = 5;
+  let items = '';
+
+  for (let i = 0; i < total; i++) {
+    let code = flippedPrecincts[i];
+    let hiddenClass = i >= initialShow ? ' hidden' : '';
+    items += `<div class="flipped-list-item${hiddenClass}" data-flip-index="${i}">
+        <span class="flipped-precinct-code">${code}</span>
+      </div>`;
+  }
+
+  let toggleHTML = total > initialShow
+    ? `<button class="flipped-list-toggle" data-expanded="false">Show all ${total} precincts</button>`
+    : '';
+
+  return `<div class="flipped-list">${items}${toggleHTML}</div>`;
+}
+
+/**
  * Generate HTML for simulation results summary.
- * 
+ *
  * @param {Object} originalSummary - Original county-wide results
  * @param {Object} simulatedSummary - Simulated county-wide results
  * @param {Array} flippedPrecincts - List of precincts that flipped
@@ -1116,10 +1149,7 @@ export function generateSimulationResultsHTML(originalSummary, simulatedSummary,
       
       <div class="flipped-precincts">
         <h4>Flipped Precincts: <span class="flip-count">${flippedCount}</span></h4>
-        ${flippedCount > 0 
-          ? `<p class="flip-list">Precincts: ${flippedPrecincts.slice(0, 10).join(', ')}${flippedCount > 10 ? '...' : ''}</p>`
-          : '<p class="no-flips">No precincts flipped with current settings.</p>'
-        }
+        ${generateFlippedPrecinctsDetailHTML(flippedPrecincts, originalSummary, simulatedSummary)}
       </div>
     </div>
   `;

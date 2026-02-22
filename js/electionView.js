@@ -21,6 +21,16 @@ import {
   generateSimulatorControlsHTML,
   generateSimulationResultsHTML
 } from "./turnoutSimulator.js";
+// Import simulator presets
+import {
+  generatePresetSelectorHTML,
+  applyPreset
+} from "./simulatorPresets.js";
+// Import reverse calculator
+import {
+  computeWinScenario,
+  generateReverseCalculatorHTML
+} from "./reverseCalculator.js";
 // Import export and URL state functions
 import { 
   exportRaceResults, 
@@ -29,8 +39,8 @@ import {
 } from "./exportManager.js";
 import { setCurrentRace, setCurrentPrecinct } from "./app.js";
 // Import precinct history functions (Workstream 4)
-import { 
-  getPrecinctVotingHistory, 
+import {
+  getPrecinctVotingHistory,
   generateVotingHistoryHTML,
   compareDemographics,
   comparePrecincts,
@@ -38,8 +48,18 @@ import {
   startComparison,
   clearComparison,
   getComparisonState,
-  loadAllElectionDataForHistory
+  loadAllElectionDataForHistory,
+  computePrecinctTrend
 } from "./precinctHistory.js";
+import { renderTrendArrow, loadCensusProfiles } from "./precinctProfile.js";
+// Import field one-pager
+import {
+  loadOnePagerData,
+  generateFieldOnePagerHTML,
+  generateFieldOnePagerText,
+  printOnePager,
+  copyOnePagerToClipboard,
+} from "./fieldOnePager.js";
 // Import skeleton loading utilities (Workstream 4)
 import {
   createLoadingSpinner,
@@ -55,6 +75,24 @@ import {
   computePrecinctDeltas,
   computeTrendSummary
 } from "./electionTrends.js";
+// Import universe builder
+import {
+  FILTER_FIELDS,
+  buildPrecinctRecord,
+  applyFilters,
+  generateUniverseBuilderHTML,
+  exportUniverseCSV,
+  highlightUniverseOnMap
+} from "./universeBuilder.js";
+// Import vote shift panel functions
+import {
+  generateVoteShiftPanelHTML,
+  computeFilteredShifts,
+  generateShiftLeaderboardHTML,
+  exportShiftCSV,
+  getShiftMapStyleFunction,
+  updateShiftSummaryBar
+} from "./voteShiftPanel.js";
 
 // Track selected layer for visual feedback
 let selectedLayer = null;
@@ -76,6 +114,12 @@ let currentGeoJSON = null;
 let currentElectionByPrecinct = null;
 let currentCandidateColors = null;
 let currentMap = null;
+let activePresetId = null;
+
+// UNIVERSE: Track universe builder state
+let universeRecords = [];
+let universeCriteria = [];
+let universeHighlightActive = false;
 
 // TRENDS: Track trend comparison state
 let trendMode = false;
@@ -86,6 +130,10 @@ let secondCandidates = null;
 let secondCandidateColors = null;
 let trendDeltas = null;
 let trendSummary = null;
+
+// SHIFT: Track vote shift filter state
+let shiftFilters = { minDelta: 0, direction: 'both' };
+let shiftResult = null;
 
 // Debounced simulation update
 let debouncedUpdateSimulation = debounce(function runDebouncedSimulation() {
@@ -140,46 +188,10 @@ export function renderElectionView(map, options = {}) {
         </div>
       </div>
       
-      <!-- TRENDS: Compare block -->
-      <div class="trend-compare-block">
-        <div class="trend-compare-header">
-          <h3>Compare Elections</h3>
-          <label class="trend-toggle-label">
-            <input type="checkbox" id="trend-toggle" class="trend-toggle-checkbox">
-            <span class="trend-toggle-slider"></span>
-            <span class="trend-toggle-text">Show trend</span>
-          </label>
-        </div>
-        <div class="trend-compare-controls">
-          <label for="trend-second-select">Compare to:</label>
-          <select id="trend-second-select" class="trend-second-select transition-fast" aria-label="Select second election for comparison">
-            <option value="">-- Select election --</option>
-          </select>
-        </div>
-        <div id="trend-legend" class="trend-legend hidden">
-          <div class="trend-legend-title">Trend Legend</div>
-          <div class="trend-legend-items">
-            <div class="trend-legend-item">
-              <span class="trend-legend-color" style="background-color: ${TREND_COLORS.swingDem.default}"></span>
-              <span>Swing to Dem</span>
-            </div>
-            <div class="trend-legend-item">
-              <span class="trend-legend-color" style="background-color: ${TREND_COLORS.swingRep.default}"></span>
-              <span>Swing to Rep</span>
-            </div>
-            <div class="trend-legend-item">
-              <span class="trend-legend-color" style="background-color: ${TREND_COLORS.neutral}"></span>
-              <span>No change</span>
-            </div>
-            <div class="trend-legend-item">
-              <span class="trend-legend-color trend-legend-flipped"></span>
-              <span>Flipped</span>
-            </div>
-          </div>
-        </div>
-        <div id="trend-error" class="trend-error hidden"></div>
-      </div>
-      
+      <div id="vote-shift-panel-container"></div>
+
+      <div id="universe-builder-container"></div>
+
       <p>
         Click on a precinct on the map to view that precinct's vote breakdown.
       </p>
@@ -455,36 +467,14 @@ export function renderElectionView(map, options = {}) {
     resetTrendMode();
   });
 
-  // TRENDS: Setup trend controls
-  let trendToggle = document.getElementById("trend-toggle");
-  let trendSecondSelect = document.getElementById("trend-second-select");
-  let trendLegend = document.getElementById("trend-legend");
-  let trendError = document.getElementById("trend-error");
-
-  // Populate second election dropdown when elections load
-  listElectionCSVs().then(function populateTrendDropdown(files) {
-    populateTrendSecondDropdown(trendSecondSelect, files);
+  // VOTE SHIFT PANEL: Initialize panel with elections
+  let shiftPanelContainer = document.getElementById("vote-shift-panel-container");
+  listElectionCSVs().then(function initializeVoteShiftPanel(files) {
+    if (shiftPanelContainer) {
+      shiftPanelContainer.innerHTML = generateVoteShiftPanelHTML(files);
+      setupVoteShiftPanelHandlers(map, files);
+    }
   });
-
-  // Trend toggle handler
-  if (trendToggle) {
-    trendToggle.addEventListener("change", function handleTrendToggle() {
-      trendMode = trendToggle.checked;
-      updateTrendMode();
-    });
-  }
-
-  // Second election select handler
-  if (trendSecondSelect) {
-    trendSecondSelect.addEventListener("change", function handleSecondElectionSelect() {
-      let chosen = trendSecondSelect.value;
-      if (chosen && currentElectionFilename) {
-        loadSecondElection(chosen);
-      } else {
-        resetTrendMode();
-      }
-    });
-  }
 
   // Keyboard shortcut: Focus search on '/' key (when not in an input)
   document.addEventListener("keydown", function handleSearchShortcut(e) {
@@ -709,15 +699,16 @@ async function loadSecondElection(filename) {
       return;
     }
 
-    // Compute deltas
-    let deltas = computePrecinctDeltas(
+    // Compute deltas using shift panel
+    shiftResult = computeFilteredShifts(
       currentElectionData,
       secondData,
       currentCandidates,
       secondCands,
-      'Dem' // Measure Dem side margin
+      shiftFilters
     );
 
+    let deltas = shiftResult.allDeltas;
     let summary = computeTrendSummary(deltas);
 
     // Store state
@@ -729,7 +720,7 @@ async function loadSecondElection(filename) {
     trendDeltas = deltas;
     trendSummary = summary;
 
-    // Hide error, show legend
+    // Hide error, show legend and shift UI
     if (trendErrorEl) {
       trendErrorEl.classList.add("hidden");
     }
@@ -737,9 +728,12 @@ async function loadSecondElection(filename) {
       trendLegendEl.classList.remove("hidden");
     }
 
+    // Show shift filter controls, summary, and leaderboard
+    showShiftUI(shiftResult);
+
     // Update map if trend mode is enabled
     if (trendMode && currentMap && currentMap.currentLayer) {
-      updateMapWithTrends();
+      updateMapWithShifts();
     }
 
   } catch (err) {
@@ -762,7 +756,9 @@ function resetTrendMode() {
   secondCandidateColors = null;
   trendDeltas = null;
   trendSummary = null;
-  
+  shiftResult = null;
+  shiftFilters = { minDelta: 0, direction: 'both' };
+
   let trendToggleEl = document.getElementById("trend-toggle");
   let trendSecondSelectEl = document.getElementById("trend-second-select");
   let trendLegendEl = document.getElementById("trend-legend");
@@ -780,7 +776,10 @@ function resetTrendMode() {
   if (trendErrorEl) {
     trendErrorEl.classList.add("hidden");
   }
-  
+
+  // Hide shift UI elements
+  hideShiftUI();
+
   // Refresh map to show normal colors
   if (currentMap && currentMap.currentLayer) {
     updateMapWithSimulation(); // This will use normal colors when trendMode is false
@@ -790,16 +789,15 @@ function resetTrendMode() {
 // TRENDS: Update trend mode UI and map
 function updateTrendMode() {
   let trendLegendEl = document.getElementById("trend-legend");
-  let trendSecondSelectEl = document.getElementById("trend-second-select");
-  
+
   if (trendMode && secondElectionFilename && trendDeltas) {
     // Show legend
     if (trendLegendEl) {
       trendLegendEl.classList.remove("hidden");
     }
-    // Update map
+    // Update map with shift-aware styling
     if (currentMap && currentMap.currentLayer) {
-      updateMapWithTrends();
+      updateMapWithShifts();
     }
   } else {
     // Hide legend
@@ -811,6 +809,186 @@ function updateTrendMode() {
       updateMapWithSimulation();
     }
   }
+}
+
+// SHIFT: Setup vote shift panel event handlers
+function setupVoteShiftPanelHandlers(map, allElections) {
+  let trendToggle = document.getElementById("trend-toggle");
+  let trendSecondSelect = document.getElementById("trend-second-select");
+
+  // Populate second election dropdown
+  if (trendSecondSelect) {
+    populateTrendSecondDropdown(trendSecondSelect, allElections);
+  }
+
+  // Trend toggle handler
+  if (trendToggle) {
+    trendToggle.addEventListener("change", function handleTrendToggle() {
+      trendMode = trendToggle.checked;
+      updateTrendMode();
+    });
+  }
+
+  // Second election select handler
+  if (trendSecondSelect) {
+    trendSecondSelect.addEventListener("change", function handleSecondElectionSelect() {
+      let chosen = trendSecondSelect.value;
+      if (chosen && currentElectionFilename) {
+        loadSecondElection(chosen);
+      } else {
+        resetTrendMode();
+      }
+    });
+  }
+
+  // Magnitude slider handler
+  let magnitudeSlider = document.getElementById("shift-magnitude-slider");
+  let magnitudeValue = document.getElementById("shift-magnitude-value");
+  if (magnitudeSlider) {
+    magnitudeSlider.addEventListener("input", function handleMagnitudeInput() {
+      let val = Number(magnitudeSlider.value);
+      shiftFilters.minDelta = val;
+      if (magnitudeValue) {
+        magnitudeValue.textContent = val + ' pts';
+      }
+      recomputeShifts();
+    });
+  }
+
+  // Direction select handler
+  let directionSelect = document.getElementById("shift-direction-select");
+  if (directionSelect) {
+    directionSelect.addEventListener("change", function handleDirectionChange() {
+      shiftFilters.direction = directionSelect.value;
+      recomputeShifts();
+    });
+  }
+
+  // Export button handler
+  let exportBtn = document.getElementById("shift-export-btn");
+  if (exportBtn) {
+    exportBtn.addEventListener("click", function handleShiftExport() {
+      if (shiftResult && shiftResult.allDeltas) {
+        let name1 = currentElectionFilename ? currentElectionFilename.replace('.csv', '') : 'election1';
+        let name2 = secondElectionFilename ? secondElectionFilename.replace('.csv', '') : 'election2';
+        exportShiftCSV(shiftResult.allDeltas, `vote_shift_${name1}_vs_${name2}.csv`);
+      }
+    });
+  }
+}
+
+// SHIFT: Recompute filtered shifts with current filters and update UI
+function recomputeShifts() {
+  if (!currentElectionData || !secondElectionData || !currentCandidates || !secondCandidates) {
+    return;
+  }
+
+  shiftResult = computeFilteredShifts(
+    currentElectionData,
+    secondElectionData,
+    currentCandidates,
+    secondCandidates,
+    shiftFilters
+  );
+
+  // Update summary bar
+  updateShiftSummaryBar(shiftResult.summary);
+
+  // Update leaderboard
+  let leaderboardEl = document.getElementById("shift-leaderboard");
+  if (leaderboardEl) {
+    leaderboardEl.innerHTML = generateShiftLeaderboardHTML(shiftResult.sortedPrecincts);
+  }
+
+  // Update map styling
+  if (trendMode && currentMap && currentMap.currentLayer) {
+    updateMapWithShifts();
+  }
+}
+
+// SHIFT: Show shift UI elements (filters, summary, leaderboard)
+function showShiftUI(result) {
+  let filterRow = document.getElementById("shift-filter-row");
+  let summaryBar = document.getElementById("shift-summary-bar");
+  let leaderboardContainer = document.getElementById("shift-leaderboard-container");
+  let leaderboardEl = document.getElementById("shift-leaderboard");
+
+  if (filterRow) filterRow.style.display = '';
+  if (summaryBar) summaryBar.style.display = '';
+  if (leaderboardContainer) leaderboardContainer.style.display = '';
+
+  // Populate summary
+  if (result && result.summary) {
+    updateShiftSummaryBar(result.summary);
+  }
+
+  // Populate leaderboard
+  if (leaderboardEl && result && result.sortedPrecincts) {
+    leaderboardEl.innerHTML = generateShiftLeaderboardHTML(result.sortedPrecincts);
+  }
+
+  // Reset magnitude slider display
+  let magnitudeSlider = document.getElementById("shift-magnitude-slider");
+  let magnitudeValue = document.getElementById("shift-magnitude-value");
+  if (magnitudeSlider) magnitudeSlider.value = shiftFilters.minDelta;
+  if (magnitudeValue) magnitudeValue.textContent = shiftFilters.minDelta + ' pts';
+
+  // Reset direction select
+  let directionSelect = document.getElementById("shift-direction-select");
+  if (directionSelect) directionSelect.value = shiftFilters.direction;
+}
+
+// SHIFT: Hide shift UI elements
+function hideShiftUI() {
+  let filterRow = document.getElementById("shift-filter-row");
+  let summaryBar = document.getElementById("shift-summary-bar");
+  let leaderboardContainer = document.getElementById("shift-leaderboard-container");
+
+  if (filterRow) filterRow.style.display = 'none';
+  if (summaryBar) summaryBar.style.display = 'none';
+  if (leaderboardContainer) leaderboardContainer.style.display = 'none';
+
+  // Reset magnitude slider
+  let magnitudeSlider = document.getElementById("shift-magnitude-slider");
+  let magnitudeValue = document.getElementById("shift-magnitude-value");
+  if (magnitudeSlider) magnitudeSlider.value = 0;
+  if (magnitudeValue) magnitudeValue.textContent = '0 pts';
+}
+
+// SHIFT: Update map with shift-aware styling (uses filters)
+function updateMapWithShifts() {
+  if (!currentMap || !currentMap.currentLayer || !trendDeltas) {
+    return;
+  }
+
+  let styleFn = getShiftMapStyleFunction(trendDeltas, shiftFilters);
+
+  let notInRaceStyle = (PRECINCT_STYLE && PRECINCT_STYLE.notInRace) || {
+    color: "#888",
+    weight: 1,
+    fillColor: "#ccc",
+    fillOpacity: 0.3
+  };
+
+  currentMap.currentLayer.eachLayer(function styleShiftLayer(layer) {
+    let code = layer.feature.properties.PRECINCT.toString();
+    let record = currentElectionByPrecinct[code];
+
+    // Check if precinct is NOT part of this race
+    if (!record || !precinctHasCandidateVotes(record)) {
+      layer.setStyle(notInRaceStyle);
+      return;
+    }
+
+    let style = styleFn(layer.feature);
+
+    // Keep selected layer's weight if it's selected
+    if (layer === selectedLayer) {
+      style.weight = (PRECINCT_STYLE && PRECINCT_STYLE.selected && PRECINCT_STYLE.selected.weight) || 3;
+    }
+
+    layer.setStyle(style);
+  });
 }
 
 /**
@@ -900,16 +1078,27 @@ async function loadAndRenderElection(map, electionFilename) {
       voterFlipState.reset();
     }
 
-    // Render turnout simulator controls with extended range and voter flip
+    // Reset active preset on new election
+    activePresetId = null;
+
+    // Render turnout simulator controls with preset selector, extended range, voter flip, and reverse calculator
     if (simulatorContainer) {
       let turnoutValues = sliderState ? sliderState.getAll() : { Rep: 1.0, Dem: 1.0, Mod: 1.0 };
       let flipRates = voterFlipState ? voterFlipState.getAll() : {};
-      simulatorContainer.innerHTML = generateSimulatorControlsHTML(turnoutValues, flipRates, { showVoterFlip: true });
+      let presetHTML = generatePresetSelectorHTML(activePresetId);
+      let controlsHTML = generateSimulatorControlsHTML(turnoutValues, flipRates, { showVoterFlip: true });
+      let reverseHTML = generateReverseCalculatorHTML(candidates);
+      simulatorContainer.innerHTML = presetHTML + controlsHTML + '<div id="reverse-calculator-container">' + reverseHTML + '</div>';
       setupSimulatorEventListeners();
-      
+      setupPresetEventListeners();
+      setupReverseCalculatorListeners();
+
       // Run initial simulation
       updateSimulation();
     }
+
+    // Initialize universe builder
+    initUniverseBuilder(electionData, dncDataByPrecinct, candidates);
 
     // Default style for precincts
     let defaultStyle = (PRECINCT_STYLE && PRECINCT_STYLE.default) || {
@@ -1128,6 +1317,14 @@ function handlePrecinctClick(feature, leafletLayer) {
     </button>
   ` : '';
 
+  // Field one-pager button
+  const fieldBriefButton = `
+    <button class="compare-btn press-effect hover-lift-subtle" id="field-brief-btn" style="margin-top:6px">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM6 20V4h5v7h7v9H6z"/></svg>
+      Field One-Pager
+    </button>
+  `;
+
   // TRENDS: Build trend comparison HTML if in trend mode
   let trendHTML = '';
   if (trendMode && trendDeltas && trendDeltas[code] && secondElectionData) {
@@ -1199,6 +1396,7 @@ function handlePrecinctClick(feature, leafletLayer) {
           <p><strong>Total Votes:</strong> ${(Number(data["BALLOTS CAST TOTAL"]) || 0).toLocaleString()}</p>
           ${candidateResultsHTML}
           ${compareButton}
+          ${fieldBriefButton}
         `}
       </div>
       
@@ -1219,6 +1417,23 @@ function handlePrecinctClick(feature, leafletLayer) {
 
   // Setup cancel compare button
   setupCancelCompareButton(feature, leafletLayer);
+
+  // Setup field one-pager button
+  setupFieldBriefButton(code);
+
+  // Inject trend arrow asynchronously
+  computePrecinctTrend(code).then(function onTrend(trendData) {
+    let arrow = renderTrendArrow(trendData);
+    if (arrow) {
+      let heading = detailsDiv.querySelector('h3');
+      if (heading) {
+        let container = document.createElement('div');
+        container.style.marginTop = '6px';
+        container.innerHTML = arrow;
+        heading.insertAdjacentElement('afterend', container);
+      }
+    }
+  }).catch(function onErr() { /* trend is optional */ });
 
   // Check if this is the second precinct in comparison mode
   if (isComparing && comparisonState.precinct1 && !comparisonState.precinct2) {
@@ -1293,6 +1508,37 @@ function setupCancelCompareButton(feature, leafletLayer) {
       handlePrecinctClick(feature, leafletLayer);
     });
   }
+}
+
+/**
+ * Sets up field one-pager button click handler
+ * @param {string} precinctCode - Precinct code
+ */
+function setupFieldBriefButton(precinctCode) {
+  let btn = document.getElementById('field-brief-btn');
+  if (!btn) return;
+  btn.addEventListener('click', async function handleFieldBrief() {
+    btn.disabled = true;
+    btn.textContent = 'Loading...';
+    try {
+      let data = await loadOnePagerData(precinctCode);
+      let html = generateFieldOnePagerHTML(
+        precinctCode, data.census, data.party, data.racial,
+        data.officials, data.recentElections, data.trend
+      );
+      let text = generateFieldOnePagerText(
+        precinctCode, data.census, data.party, data.racial,
+        data.officials, data.recentElections, data.trend
+      );
+      // Open print window directly
+      printOnePager(html, precinctCode);
+    } catch (err) {
+      console.error('Field one-pager error:', err);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Field One-Pager';
+    }
+  });
 }
 
 /**
@@ -1450,6 +1696,106 @@ function updateFlipActiveBadge() {
 }
 
 /**
+ * Set up preset button click handlers
+ */
+function setupPresetEventListeners() {
+  let presetBtns = document.querySelectorAll('.preset-btn');
+  for (let btn of presetBtns) {
+    btn.addEventListener('click', function handlePresetClick(e) {
+      let presetId = e.target.dataset.presetId;
+      let applied = applyPreset(presetId, sliderState, voterFlipState);
+      if (!applied) return;
+
+      activePresetId = presetId;
+
+      // Update active class on buttons
+      for (let b of document.querySelectorAll('.preset-btn')) {
+        b.classList.toggle('active', b.dataset.presetId === presetId);
+      }
+
+      // Sync slider DOM elements with new state values
+      let allValues = sliderState.getAll();
+      for (let party of ['Rep', 'Dem', 'Mod']) {
+        let slider = document.querySelector('.turnout-slider[data-party="' + party + '"]');
+        if (slider) slider.value = Math.round(allValues[party] * 100);
+        let valueEl = document.getElementById(party.toLowerCase() + '-value');
+        if (valueEl) valueEl.textContent = Math.round(allValues[party] * 100) + '%';
+      }
+
+      // Sync flip slider DOM elements
+      let allFlips = voterFlipState.getAll();
+      for (let [flipKey, rate] of Object.entries(allFlips)) {
+        let flipId = flipKey.toLowerCase().replace('\u2192', '-');
+        let slider = document.querySelector('.flip-slider[data-flip="' + flipKey + '"]');
+        if (slider) slider.value = Math.round(rate * 100);
+        let valueEl = document.getElementById('flip-' + flipId + '-value');
+        if (valueEl) valueEl.textContent = Math.round(rate * 100) + '%';
+      }
+
+      updateFlipActiveBadge();
+      updateSimulation();
+    });
+  }
+}
+
+/**
+ * Set up reverse calculator button handler
+ */
+function setupReverseCalculatorListeners() {
+  let calcBtn = document.querySelector('.reverse-calculate-btn');
+  if (calcBtn) {
+    calcBtn.addEventListener('click', function handleReverseCalc() {
+      if (!currentElectionData || !currentDncData || !currentCandidates) return;
+
+      let partySelect = document.getElementById('reverse-party-select');
+      let targetParty = partySelect ? partySelect.value : 'Dem';
+
+      let result = computeWinScenario(
+        currentElectionData,
+        currentDncData,
+        currentCandidates,
+        targetParty
+      );
+
+      let container = document.getElementById('reverse-result-container');
+      if (container) {
+        let html = generateReverseCalculatorHTML(currentCandidates, result);
+        let temp = document.createElement('div');
+        temp.innerHTML = html;
+        let resultDiv = temp.querySelector('#reverse-result-container');
+        container.innerHTML = resultDiv ? resultDiv.innerHTML : '';
+      }
+    });
+  }
+}
+
+/**
+ * Set up flipped precincts list toggle handler
+ */
+function setupFlippedListToggle() {
+  let toggle = document.querySelector('.flipped-list-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function handleFlippedToggle() {
+      let expanded = toggle.dataset.expanded === 'true';
+      let items = document.querySelectorAll('.flipped-list-item');
+      if (expanded) {
+        for (let i = 5; i < items.length; i++) {
+          items[i].classList.add('hidden');
+        }
+        toggle.textContent = 'Show all ' + items.length + ' precincts';
+        toggle.dataset.expanded = 'false';
+      } else {
+        for (let item of items) {
+          item.classList.remove('hidden');
+        }
+        toggle.textContent = 'Show fewer';
+        toggle.dataset.expanded = 'true';
+      }
+    });
+  }
+}
+
+/**
  * Updates the simulation and re-renders results
  */
 function updateSimulation() {
@@ -1459,7 +1805,7 @@ function updateSimulation() {
 
   let turnoutMultipliers = sliderState ? sliderState.getAll() : { Rep: 1.0, Dem: 1.0, Mod: 1.0 };
   let voterFlipRates = voterFlipState ? voterFlipState.getAll() : {};
-  
+
   // Run simulation with extended turnout and voter flip
   currentSimulationResult = runFullSimulation(
     currentElectionData,
@@ -1478,6 +1824,8 @@ function updateSimulation() {
       currentSimulationResult.flippedPrecincts,
       currentSimulationResult.countyFlipped
     );
+    // Set up flipped list toggle after rendering
+    setupFlippedListToggle();
   }
 
   // Update map to highlight flipped precincts
@@ -1555,9 +1903,9 @@ function updateMapWithTrends() {
  * Updates the map layer to show simulated results and highlight flipped precincts
  */
 function updateMapWithSimulation() {
-  // TRENDS: If trend mode is active, use trend colors instead
+  // TRENDS: If trend mode is active, use shift-aware colors instead
   if (trendMode && trendDeltas) {
-    updateMapWithTrends();
+    updateMapWithShifts();
     return;
   }
   if (!currentMap || !currentMap.currentLayer || !currentSimulationResult) {
@@ -1668,4 +2016,130 @@ function getPartyColor(party) {
     'IND': '#888888'
   };
   return colors[party] || '#888888';
+}
+
+// ---------------------------------------------------------------------------
+// Universe Builder integration
+// ---------------------------------------------------------------------------
+
+async function initUniverseBuilder(electionData, dncDataByPrecinct, candidates) {
+  const container = document.getElementById('universe-builder-container');
+  if (!container) return;
+
+  let censusProfiles = {};
+  try {
+    censusProfiles = await loadCensusProfiles();
+  } catch (e) {
+    // Census profiles not available
+  }
+
+  universeRecords = [];
+  universeCriteria = [];
+  universeHighlightActive = false;
+
+  for (const row of electionData) {
+    const code = String(row['PRECINCT CODE'] || '').trim();
+    if (!code) continue;
+    const dncRow = dncDataByPrecinct[code] || null;
+    const census = censusProfiles[code] || null;
+    universeRecords.push(buildPrecinctRecord(code, row, dncRow, census, candidates));
+  }
+
+  renderUniverseUI();
+}
+
+function renderUniverseUI() {
+  const container = document.getElementById('universe-builder-container');
+  if (!container) return;
+
+  const filtered = applyFilters(universeRecords, universeCriteria);
+  container.innerHTML = generateUniverseBuilderHTML(universeCriteria, filtered.length, universeRecords.length);
+
+  const toggle = document.getElementById('universe-builder-toggle');
+  const body = document.getElementById('universe-builder-body');
+  if (toggle && body) {
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('collapsed');
+      const btn = toggle.querySelector('.universe-builder-toggle');
+      if (btn) btn.innerHTML = body.classList.contains('collapsed') ? '&#9654;' : '&#9660;';
+    });
+  }
+
+  const addBtn = document.getElementById('universe-add-filter');
+  if (addBtn) {
+    addBtn.addEventListener('click', () => {
+      const fieldSelect = document.getElementById('universe-field-select');
+      const opSelect = document.getElementById('universe-operator-select');
+      const valInput = document.getElementById('universe-value-input');
+      if (!fieldSelect || !opSelect || !valInput) return;
+
+      const field = fieldSelect.value;
+      const operator = opSelect.value;
+      const fieldDef = FILTER_FIELDS.find(f => f.id === field);
+      let value;
+      if (fieldDef && fieldDef.type === 'enum') {
+        value = valInput.value.trim();
+      } else {
+        value = parseFloat(valInput.value);
+        if (isNaN(value)) return;
+      }
+
+      universeCriteria.push({ field, operator, value });
+      renderUniverseUI();
+      updateUniverseHighlight();
+    });
+  }
+
+  container.querySelectorAll('.filter-pill-remove').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.filterIndex, 10);
+      if (!isNaN(idx) && idx >= 0 && idx < universeCriteria.length) {
+        universeCriteria.splice(idx, 1);
+        renderUniverseUI();
+        updateUniverseHighlight();
+      }
+    });
+  });
+
+  const highlightToggle = document.getElementById('universe-highlight-toggle');
+  if (highlightToggle) {
+    highlightToggle.checked = universeHighlightActive;
+    highlightToggle.addEventListener('change', () => {
+      universeHighlightActive = highlightToggle.checked;
+      updateUniverseHighlight();
+    });
+  }
+
+  const exportBtn = document.getElementById('universe-export-btn');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', () => {
+      const matchingRecords = applyFilters(universeRecords, universeCriteria);
+      exportUniverseCSV(matchingRecords);
+    });
+  }
+}
+
+function updateUniverseHighlight() {
+  if (!currentMap || !currentGeoJSON) return;
+
+  let geoLayer = null;
+  currentMap.eachLayer(layer => {
+    if (layer.feature || (layer.getLayers && layer.getLayers().length > 0 && layer.getLayers()[0].feature)) {
+      geoLayer = layer;
+    }
+  });
+
+  if (!geoLayer) return;
+
+  if (universeHighlightActive && universeCriteria.length > 0) {
+    const filtered = applyFilters(universeRecords, universeCriteria);
+    const matchingCodes = filtered.map(r => r.code);
+    highlightUniverseOnMap(geoLayer, matchingCodes);
+  } else {
+    geoLayer.eachLayer(featureLayer => {
+      if (featureLayer.feature) {
+        featureLayer.setStyle({ fillOpacity: 0.7, opacity: 1 });
+      }
+    });
+  }
 }

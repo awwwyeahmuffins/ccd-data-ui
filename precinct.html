@@ -813,6 +813,108 @@
       }
       .official-value { text-align: left; }
     }
+
+    /* =============================================================================
+       FIELD ONE-PAGER
+       ============================================================================= */
+    .field-one-pager {
+      max-width: 700px; margin: 0 auto; padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: white; border: 1px solid var(--border); border-radius: var(--radius-md);
+    }
+    .one-pager-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px; padding-bottom: 12px;
+      border-bottom: 2px solid var(--text-primary);
+    }
+    .one-pager-header .precinct-code { font-size: 28px; font-weight: 800; }
+    .one-pager-header .header-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .header-badge {
+      font-size: 12px; padding: 3px 8px; border-radius: var(--radius-sm);
+      background: var(--bg-secondary);
+    }
+    .party-badge-republican, .party-badge-rep {
+      background: rgba(232, 27, 35, 0.12); color: #E81B23;
+    }
+    .party-badge-democrat, .party-badge-dem {
+      background: rgba(0, 174, 243, 0.12); color: #0088CC;
+    }
+    .party-badge-moderate, .party-badge-mod {
+      background: rgba(128, 0, 128, 0.12); color: #800080;
+    }
+    .trend-badge-dem { color: #0088CC; }
+    .trend-badge-rep { color: #E81B23; }
+    .one-pager-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 12px; margin-bottom: 20px;
+    }
+    .one-pager-stat {
+      text-align: center; padding: 12px 8px;
+      background: var(--bg-secondary); border-radius: var(--radius-sm);
+    }
+    .one-pager-stat .stat-value { font-size: 20px; font-weight: 700; }
+    .one-pager-stat .stat-label { font-size: 11px; color: var(--text-secondary); }
+    .one-pager-bar {
+      margin-bottom: 16px;
+    }
+    .one-pager-bar-label { font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+    .one-pager-bar-container {
+      height: 24px; border-radius: var(--radius-sm);
+      overflow: hidden; display: flex; width: 100%;
+    }
+    .one-pager-bar-segment {
+      height: 100%; display: flex; align-items: center;
+      justify-content: center; font-size: 10px; font-weight: 600;
+      color: white; min-width: 20px;
+    }
+    .one-pager-elections {
+      width: 100%; border-collapse: collapse;
+      margin-bottom: 16px; font-size: 13px;
+    }
+    .one-pager-elections th {
+      text-align: left; padding: 6px 8px;
+      border-bottom: 2px solid var(--text-primary);
+      font-size: 11px; text-transform: uppercase;
+    }
+    .one-pager-elections td {
+      padding: 6px 8px; border-bottom: 1px solid var(--border);
+    }
+    .one-pager-districts {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 8px; margin-bottom: 16px;
+    }
+    .one-pager-district {
+      padding: 8px; background: var(--bg-secondary);
+      border-radius: var(--radius-sm); font-size: 12px;
+    }
+    .one-pager-district .district-type { font-weight: 600; font-size: 11px; color: var(--text-secondary); }
+    .one-pager-district .district-value { font-size: 14px; font-weight: 600; }
+    .one-pager-footer {
+      text-align: center; font-size: 11px;
+      color: var(--text-muted); padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .one-pager-actions {
+      display: flex; gap: 8px; justify-content: center;
+      margin-top: 16px;
+    }
+    .one-pager-actions button {
+      padding: 8px 16px; border-radius: var(--radius-sm);
+      font-size: 13px; cursor: pointer; border: 1px solid var(--border);
+      background: var(--bg-primary);
+    }
+    .one-pager-actions .print-btn { background: var(--primary); color: white; border-color: var(--primary); }
+    .one-pager-actions .print-btn:hover { background: var(--primary-hover); }
+    .one-pager-actions .copy-btn:hover { background: var(--primary-light); }
+
+    @media print {
+      body > *:not(#one-pager-container) { display: none !important; }
+      #one-pager-container { display: block !important; }
+      .field-one-pager { border: none; box-shadow: none; max-width: 100%; }
+      .one-pager-actions { display: none !important; }
+      .one-pager-header { border-bottom-color: black; }
+      @page { margin: 0.5in; size: letter portrait; }
+    }
   </style>
 </head>
 <body>
@@ -873,6 +975,7 @@
     <div id="export-bar" class="export-bar hidden">
       <button id="export-pdf" class="export-btn">Export PDF</button>
       <button id="export-md" class="export-btn">Export Markdown</button>
+      <button id="export-one-pager" class="export-btn">Field One-Pager</button>
     </div>
 
     <!-- Mini Map -->
@@ -890,14 +993,14 @@
     <!-- Districts & Officials -->
     <div id="section-officials" class="report-section"></div>
 
+    <!-- Census Details (includes Boundary Changes + 2030 Projections) -->
+    <div id="section-census" class="report-section"></div>
+
     <!-- Election History -->
     <div class="report-section">
       <div class="report-section-title">Election History</div>
       <div id="section-election-history"></div>
     </div>
-
-    <!-- Census Details -->
-    <div id="section-census" class="report-section"></div>
 
   </main>
 

@@ -5,6 +5,7 @@
 // Feature 4B: Precinct Comparison
 
 import { loadElectionData, listElectionCSVs } from "./dataLoader.js";
+import { getRaceKey } from "./electionTrends.js";
 
 // ============================================================================
 // RACE CATEGORY CLASSIFICATION
@@ -403,6 +404,112 @@ export function clearElectionDataCache() {
 export async function getPrecinctVotingHistory(precinctCode) {
   let allData = await loadAllElectionDataForHistory();
   return buildVotingHistory(precinctCode, allData);
+}
+
+// ============================================================================
+// PRECINCT TREND COMPUTATION
+// ============================================================================
+
+/**
+ * Compute the partisan trend for a precinct across its most recent Federal races.
+ * @param {string} precinctCode - Precinct code
+ * @returns {Promise<Object|null>} Trend data or null if insufficient history
+ *   { direction: 'dem'|'rep'|'stable', delta, raceName, year1, year2 }
+ */
+export async function computePrecinctTrend(precinctCode) {
+  if (!precinctCode) return null;
+
+  let allData = await loadAllElectionDataForHistory();
+  let manifest = await listElectionCSVs();
+
+  // Build a lookup from filename to manifest entry for year/category info
+  let manifestByFile = {};
+  for (let entry of manifest) {
+    let fn = typeof entry === 'string' ? entry : entry.filename;
+    manifestByFile[fn] = entry;
+  }
+
+  // Filter to Federal-level races where this precinct participated
+  let federalRaces = [];
+  for (let [filename, electionData] of Object.entries(allData)) {
+    let entry = manifestByFile[filename];
+    if (!entry) continue;
+    let category = entry.category || categorizeRace(filename);
+    if (category !== 'Federal') continue;
+
+    let result = getPrecinctResult(electionData, precinctCode);
+    if (!result) continue;
+
+    // Compute Dem vote share for this precinct in this race
+    let row = electionData.find(r => String(r['PRECINCT CODE']) === String(precinctCode));
+    if (!row) continue;
+
+    let demVotes = 0;
+    let totalVotes = 0;
+    let skipKeys = new Set([
+      'COUNTY NUMBER', 'PRECINCT CODE', 'PRECINCT NAME',
+      'REGISTERED VOTERS TOTAL', 'BALLOTS CAST TOTAL', 'BALLOTS CAST BLANK',
+      'OVER VOTES', 'UNDER VOTES', 'Write-in',
+      'Winning Candidate', 'Winning Party'
+    ]);
+    for (let key of Object.keys(row)) {
+      if (skipKeys.has(key)) continue;
+      let votes = Number(row[key]) || 0;
+      totalVotes += votes;
+      if (key.startsWith('DEM ') || key.startsWith('Dem ')) {
+        demVotes += votes;
+      }
+    }
+    if (totalVotes === 0) continue;
+
+    let demShare = demVotes / totalVotes;
+    let year = entry.year || 0;
+    let raceKey = getRaceKey(entry);
+    let raceName = formatRaceName(filename);
+
+    federalRaces.push({ filename, raceKey, raceName, year, demShare });
+  }
+
+  if (federalRaces.length < 2) return null;
+
+  // Group by race family
+  let byFamily = {};
+  for (let race of federalRaces) {
+    if (!byFamily[race.raceKey]) byFamily[race.raceKey] = [];
+    byFamily[race.raceKey].push(race);
+  }
+
+  // Find the family with the two most recent elections
+  let bestFamily = null;
+  let bestRecent = 0;
+  for (let [key, races] of Object.entries(byFamily)) {
+    if (races.length < 2) continue;
+    races.sort((a, b) => b.year - a.year);
+    let mostRecent = races[0].year;
+    if (mostRecent > bestRecent) {
+      bestRecent = mostRecent;
+      bestFamily = races;
+    }
+  }
+
+  if (!bestFamily || bestFamily.length < 2) return null;
+
+  let newer = bestFamily[0];
+  let older = bestFamily[1];
+  let delta = (newer.demShare - older.demShare) * 100; // percentage points
+
+  let direction;
+  if (delta > 0.5) direction = 'dem';
+  else if (delta < -0.5) direction = 'rep';
+  else direction = 'stable';
+
+  return {
+    direction,
+    delta,
+    raceName: newer.raceName.replace(/\s*\(\d{4}\)\s*$/, '').replace(/_\d{4}$/, ''),
+    year1: older.year,
+    year2: newer.year
+  };
 }
 
 // ============================================================================

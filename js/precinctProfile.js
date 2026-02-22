@@ -603,6 +603,39 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
 }
 
 // ---------------------------------------------------------------------------
+// Trend arrow badge
+// ---------------------------------------------------------------------------
+
+/**
+ * Render a trend arrow badge showing partisan shift for a precinct.
+ * @param {Object|null} trendData - From computePrecinctTrend
+ * @returns {string} HTML string
+ */
+export function renderTrendArrow(trendData) {
+  if (!trendData) return '';
+  let { direction, delta, raceName, year1, year2 } = trendData;
+  let absDelta = Math.abs(delta).toFixed(1);
+  let icon, label, cls;
+
+  if (direction === 'dem') {
+    icon = '\u2191'; // up arrow
+    label = `+${absDelta}% toward Dem`;
+    cls = 'dem';
+  } else if (direction === 'rep') {
+    icon = '\u2193'; // down arrow
+    label = `-${absDelta}% toward Rep`;
+    cls = 'rep';
+  } else {
+    icon = '\u2014'; // em dash
+    label = 'Stable';
+    cls = 'stable';
+  }
+
+  let period = (year1 && year2) ? ` (${escapeHtml(String(raceName))} ${year1}\u2192${year2})` : '';
+  return `<span class="trend-arrow-badge ${cls}"><span class="trend-arrow-icon">${icon}</span>${escapeHtml(label)}${period}</span>`;
+}
+
+// ---------------------------------------------------------------------------
 // Stat box helper
 // ---------------------------------------------------------------------------
 

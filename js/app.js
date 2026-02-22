@@ -22,6 +22,13 @@ import {
 } from "./mobileGestures.js";
 // Import keyboard shortcuts (Phase 2 Workstream 5)
 import { initKeyboardShortcuts } from "./keyboardShortcuts.js";
+import { shouldShowOnboarding, showOnboardingOverlay } from "./onboardingOverlay.js";
+import {
+  loadBoundaryChangeSummary,
+  generateBoundaryTableHTML,
+  generateBoundaryStatsHTML,
+  exportBoundaryCSV
+} from "./boundaryChangesTable.js";
 
 let map = initMap({ center: MAP_CONFIG.center, zoom: MAP_CONFIG.zoom });
 
@@ -308,6 +315,22 @@ document.addEventListener("DOMContentLoaded", function initializeApp() {
   // Update URL with initial state
   updateURL(currentState);
 
+  // Show onboarding overlay for first-time users
+  if (shouldShowOnboarding()) {
+    showOnboardingOverlay(function handleOnboardingAction(action) {
+      if (action === 'demographics') switchToView(VIEWS.DEMOGRAPHICS);
+      else if (action === 'election') switchToView(VIEWS.ELECTION);
+      else if (action === 'election-simulator') {
+        switchToView(VIEWS.ELECTION);
+        setTimeout(function scrollToSimulator() {
+          let sim = document.getElementById('turnout-simulator-container');
+          if (sim) sim.scrollIntoView({ behavior: 'smooth' });
+        }, 500);
+      }
+      else if (action === 'precinct-lookup') window.location.href = 'precinct.html';
+    });
+  }
+
   // Set up view toggle handlers
   demBtn?.addEventListener("click", function showDemographicsView() {
     switchToView(VIEWS.DEMOGRAPHICS);
@@ -330,6 +353,80 @@ document.addEventListener("DOMContentLoaded", function initializeApp() {
       clearLayers(map);
       // Re-render the current view with new boundary data
       switchToView(currentState.view, { force: true, race: currentState.race });
+      // Show/hide boundary changes trigger
+      updateBoundaryChangeTrigger();
+    });
+  }
+
+  // Boundary changes trigger button
+  let cachedBoundaryChangeData = null;
+  function updateBoundaryChangeTrigger() {
+    let trigger = document.getElementById("boundary-changes-trigger");
+    if (trigger) {
+      if (getActiveBoundary() === "2026") {
+        trigger.classList.add("visible");
+      } else {
+        trigger.classList.remove("visible");
+      }
+    }
+  }
+  updateBoundaryChangeTrigger();
+
+  let boundaryTrigger = document.getElementById("boundary-changes-trigger");
+  if (boundaryTrigger) {
+    boundaryTrigger.addEventListener("click", async function openBoundaryChangesPanel() {
+      let panel = document.getElementById("boundary-changes-panel");
+      let content = document.getElementById("boundary-panel-content");
+      if (!panel || !content) return;
+
+      if (!cachedBoundaryChangeData) {
+        content.innerHTML = '<div style="padding:20px;text-align:center;">Loading...</div>';
+        panel.classList.add("open");
+        try {
+          cachedBoundaryChangeData = await loadBoundaryChangeSummary();
+        } catch (err) {
+          content.innerHTML = '<div style="padding:20px;color:red;">Failed to load data.</div>';
+          return;
+        }
+      }
+
+      function renderPanel(filters) {
+        let html = generateBoundaryStatsHTML(cachedBoundaryChangeData);
+        html += generateBoundaryTableHTML(cachedBoundaryChangeData, filters);
+        html += '<button class="boundary-export-btn" id="boundary-export-csv">Export CSV</button>';
+        content.innerHTML = html;
+
+        let filterSelect = document.getElementById("boundary-filter-type");
+        if (filterSelect) {
+          filterSelect.addEventListener("change", function() {
+            renderPanel({ ...filters, changeType: filterSelect.value });
+          });
+        }
+        content.querySelectorAll(".boundary-table th[data-sort]").forEach(function(th) {
+          th.addEventListener("click", function() {
+            let sortBy = th.dataset.sort;
+            let sortDir = filters && filters.sortBy === sortBy && filters.sortDir === "asc" ? "desc" : "asc";
+            renderPanel({ ...filters, sortBy: sortBy, sortDir: sortDir });
+          });
+        });
+        let exportBtn = document.getElementById("boundary-export-csv");
+        if (exportBtn) {
+          exportBtn.addEventListener("click", function() {
+            exportBoundaryCSV(cachedBoundaryChangeData);
+          });
+        }
+      }
+
+      renderPanel({});
+      panel.classList.add("open");
+    });
+  }
+
+  let closeBoundaryBtn = document.getElementById("close-boundary-panel");
+  if (closeBoundaryBtn) {
+    closeBoundaryBtn.addEventListener("click", function() {
+      let panel = document.getElementById("boundary-changes-panel");
+      if (panel) panel.classList.remove("open");
     });
   }
 

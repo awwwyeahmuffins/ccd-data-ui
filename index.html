@@ -1870,6 +1870,144 @@
       #competitive-ranker-panel { width: 100vw; max-width: 100vw; }
     }
 
+    /* BOUNDARY TABLE */
+    #boundary-changes-panel {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: 600px; max-width: 90vw;
+      background: var(--bg-primary); z-index: 15000;
+      box-shadow: var(--shadow-xl);
+      transform: translateX(100%); transition: transform 0.3s ease;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    #boundary-changes-panel.open { transform: translateX(0); }
+    .boundary-panel-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+    }
+    .boundary-panel-header h3 { font-size: 18px; font-weight: 600; }
+    .boundary-panel-close {
+      background: none; border: none; font-size: 24px;
+      cursor: pointer; color: var(--text-secondary);
+      padding: 4px 8px;
+    }
+    .boundary-panel-content { flex: 1; overflow-y: auto; padding: 16px 20px; }
+    .boundary-stats-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 8px; margin-bottom: 16px;
+    }
+    .boundary-stat-card {
+      text-align: center; padding: 12px 8px;
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+    }
+    .boundary-stat-card .stat-count { font-size: 24px; font-weight: 700; }
+    .boundary-stat-card .stat-label { font-size: 11px; color: var(--text-secondary); }
+    .boundary-table-filter {
+      margin-bottom: 12px; display: flex; gap: 8px; align-items: center;
+    }
+    .boundary-table-filter select {
+      padding: 6px 10px; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-size: 13px;
+    }
+    .boundary-table {
+      width: 100%; border-collapse: collapse; font-size: 13px;
+    }
+    .boundary-table th {
+      position: sticky; top: 0; background: var(--bg-secondary);
+      padding: 8px 12px; text-align: left; font-weight: 600;
+      border-bottom: 2px solid var(--border); cursor: pointer;
+    }
+    .boundary-table th:hover { background: var(--primary-light); }
+    .boundary-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
+    .boundary-table tr:nth-child(even) { background: var(--bg-secondary); }
+    .change-badge {
+      display: inline-block; padding: 2px 8px;
+      border-radius: var(--radius-full); font-size: 11px;
+      font-weight: 600; color: white;
+    }
+    .change-badge.unchanged { background: #4CAF50; }
+    .change-badge.split { background: #FF9800; }
+    .change-badge.merged { background: #2196F3; }
+    .change-badge.new_boundary { background: #FFC107; color: #333; }
+    .change-badge.sliver { background: #9E9E9E; }
+    .boundary-export-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 8px 16px; background: var(--primary); color: white;
+      border: none; border-radius: var(--radius-sm);
+      font-size: 13px; cursor: pointer; margin-top: 12px;
+    }
+    .boundary-export-btn:hover { background: var(--primary-hover); }
+    .boundary-changes-trigger {
+      display: none; margin-top: 8px; padding: 6px 12px;
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-size: 12px; cursor: pointer;
+    }
+    .boundary-changes-trigger.visible { display: inline-flex; align-items: center; gap: 4px; }
+    .boundary-changes-trigger:hover { background: var(--primary-light); }
+
+    /* UNIVERSE BUILDER */
+    .universe-builder {
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      margin: 12px 0; overflow: hidden;
+    }
+    .universe-builder-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 16px; background: var(--bg-secondary);
+      cursor: pointer; user-select: none;
+    }
+    .universe-builder-header h4 { font-size: 14px; font-weight: 600; }
+    .universe-builder-toggle { background: none; border: none; font-size: 18px; cursor: pointer; }
+    .universe-builder-body { padding: 16px; }
+    .universe-builder-body.collapsed { display: none; }
+    .filter-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .filter-pill {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 10px; border-radius: var(--radius-full);
+      background: var(--primary-light); color: var(--primary-dark);
+      font-size: 12px;
+    }
+    .filter-pill-remove {
+      background: none; border: none; cursor: pointer;
+      font-size: 14px; color: var(--primary); padding: 0 2px;
+      line-height: 1;
+    }
+    .filter-pill-remove:hover { color: var(--rep-color); }
+    .filter-add-row {
+      display: flex; gap: 6px; align-items: center; margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .filter-add-row select, .filter-add-row input {
+      padding: 5px 8px; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-size: 12px;
+    }
+    .filter-add-row input { width: 80px; }
+    .filter-add-btn {
+      padding: 5px 12px; background: var(--primary); color: white;
+      border: none; border-radius: var(--radius-sm);
+      font-size: 12px; cursor: pointer;
+    }
+    .filter-add-btn:hover { background: var(--primary-hover); }
+    .universe-match-count {
+      font-size: 14px; font-weight: 600; margin: 12px 0;
+    }
+    .universe-match-count .count { color: var(--primary); }
+    .universe-highlight-toggle {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; margin: 8px 0; cursor: pointer;
+    }
+    .universe-export-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 6px 12px; background: var(--bg-secondary);
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      font-size: 12px; cursor: pointer; margin-top: 8px;
+    }
+    .universe-export-btn:hover { background: var(--primary-light); }
+
+    @media (max-width: 768px) {
+      #boundary-changes-panel { width: 100vw; max-width: 100vw; }
+      .boundary-stats-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
     /* =============================================================================
        PRINT STYLES
        ============================================================================= */
@@ -2840,6 +2978,171 @@
     [data-theme="dark"] .basemap-option {
       color: var(--text-primary);
     }
+
+    /* ONBOARDING */
+    .onboarding-backdrop {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 20000; background: var(--bg-overlay);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .onboarding-backdrop.visible { opacity: 1; }
+    .onboarding-modal {
+      background: var(--bg-primary); border-radius: var(--radius-lg);
+      max-width: 520px; width: 90%; padding: 32px;
+      box-shadow: var(--shadow-xl);
+      transform: translateY(20px); transition: transform 0.3s ease;
+    }
+    .onboarding-backdrop.visible .onboarding-modal { transform: translateY(0); }
+    .onboarding-title { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .onboarding-subtitle { color: var(--text-secondary); margin-bottom: 24px; font-size: 14px; }
+    .onboarding-cards { display: flex; flex-direction: column; gap: 12px; }
+    .onboarding-card {
+      display: flex; align-items: center; gap: 16px; padding: 16px;
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      cursor: pointer; transition: var(--transition-fast);
+    }
+    .onboarding-card:hover { background: var(--primary-light); border-color: var(--primary); }
+    .onboarding-card-icon { flex-shrink: 0; width: 40px; height: 40px; color: var(--primary); }
+    .onboarding-card-icon svg { width: 100%; height: 100%; }
+    .onboarding-card-text h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .onboarding-card-text p { font-size: 13px; color: var(--text-secondary); }
+    .onboarding-dismiss {
+      display: block; text-align: center; margin-top: 20px;
+      color: var(--text-muted); font-size: 13px; cursor: pointer;
+      background: none; border: none; text-decoration: underline;
+    }
+    .onboarding-dismiss:hover { color: var(--text-secondary); }
+
+    /* TREND ARROWS */
+    .trend-arrow-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px; border-radius: var(--radius-full);
+      font-size: 13px; font-weight: 500;
+    }
+    .trend-arrow-badge.dem { background: #E3F2FD; color: #1565C0; }
+    .trend-arrow-badge.rep { background: #FFEBEE; color: #C62828; }
+    .trend-arrow-badge.stable { background: #F5F5F5; color: #757575; }
+    .trend-arrow-icon { font-size: 16px; font-weight: 700; }
+
+    /* SIMULATOR ENHANCEMENTS */
+    .simulator-presets {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .preset-btn {
+      padding: 5px 12px; border-radius: var(--radius-full);
+      border: 1px solid var(--border); background: var(--bg-primary);
+      font-size: 13px; cursor: pointer; transition: var(--transition-fast);
+      white-space: nowrap;
+    }
+    .preset-btn:hover { background: var(--primary-light); border-color: var(--primary); }
+    .preset-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+    .flipped-list {
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      max-height: 300px; overflow-y: auto; margin-top: 8px;
+    }
+    .flipped-list-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .flipped-list-item:last-child { border-bottom: none; }
+    .flipped-list-item.hidden { display: none; }
+    .flipped-precinct-code { font-weight: 600; min-width: 50px; }
+    .flipped-arrow { color: var(--text-muted); }
+    .flipped-list-toggle {
+      display: block; padding: 8px; text-align: center;
+      color: var(--primary); font-size: 13px; cursor: pointer;
+      border: none; background: none; width: 100%;
+    }
+    .flipped-list-toggle:hover { text-decoration: underline; }
+    .reverse-calculator {
+      margin-top: 16px; padding: 16px;
+      border: 2px dashed var(--border); border-radius: var(--radius-md);
+    }
+    .reverse-calculator h4 { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+    .reverse-calc-row {
+      display: flex; gap: 8px; align-items: center; margin-bottom: 12px;
+    }
+    .reverse-party-select {
+      padding: 6px 10px; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-size: 13px;
+    }
+    .reverse-calculate-btn {
+      padding: 8px 16px; background: var(--primary); color: white;
+      border: none; border-radius: var(--radius-sm);
+      font-size: 13px; font-weight: 500; cursor: pointer;
+    }
+    .reverse-calculate-btn:hover { background: var(--primary-hover); }
+    .reverse-result {
+      margin-top: 12px; padding: 16px; border-radius: var(--radius-sm);
+      text-align: center;
+    }
+    .reverse-result .result-number { font-size: 28px; font-weight: 700; }
+    .reverse-result .result-text { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+    .reverse-result .result-details { font-size: 12px; color: var(--text-muted); margin-top: 8px; display: flex; gap: 16px; justify-content: center; }
+    .reverse-result.achievable { background: #E8F5E9; }
+    .reverse-result.achievable .result-number { color: #2E7D32; }
+    .reverse-result.not-achievable { background: #FFEBEE; }
+    .reverse-result.not-achievable .result-number { color: #C62828; }
+
+    /* VOTE SHIFT */
+    .vote-shift-panel {
+      background: var(--bg-primary); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 16px; margin: 12px 0;
+    }
+    .vote-shift-panel h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+    .shift-filter-row {
+      display: flex; gap: 12px; align-items: center; margin: 12px 0;
+      flex-wrap: wrap;
+    }
+    .shift-filter-row label { font-size: 13px; color: var(--text-secondary); white-space: nowrap; }
+    .shift-magnitude-slider { flex: 1; min-width: 100px; accent-color: var(--primary); }
+    .shift-magnitude-value { font-size: 13px; font-weight: 600; min-width: 40px; }
+    .shift-direction-select {
+      padding: 4px 8px; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-size: 13px;
+    }
+    .shift-summary-bar {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 8px; margin: 12px 0; padding: 12px;
+      background: var(--bg-secondary); border-radius: var(--radius-sm);
+    }
+    .shift-summary-stat { text-align: center; }
+    .shift-summary-stat .value { font-size: 18px; font-weight: 700; }
+    .shift-summary-stat .label { font-size: 11px; color: var(--text-secondary); }
+    .shift-leaderboard { max-height: 400px; overflow-y: auto; margin-top: 12px; }
+    .shift-leaderboard-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 8px; border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .shift-leaderboard-item:last-child { border-bottom: none; }
+    .shift-precinct-code { font-weight: 600; min-width: 50px; }
+    .shift-bar-container { flex: 1; height: 16px; background: #f0f0f0; border-radius: 8px; overflow: hidden; position: relative; }
+    .shift-bar {
+      height: 100%; border-radius: 8px; min-width: 2px;
+      transition: width 0.3s ease;
+    }
+    .shift-bar.dem { background: var(--dem-color); }
+    .shift-bar.rep { background: var(--rep-color); }
+    .shift-delta-value { min-width: 60px; text-align: right; font-weight: 500; font-size: 12px; }
+    .shift-direction-badge {
+      display: inline-block; padding: 2px 6px;
+      border-radius: var(--radius-full); font-size: 11px; font-weight: 600;
+    }
+    .shift-direction-badge.dem { background: #E3F2FD; color: #1565C0; }
+    .shift-direction-badge.rep { background: #FFEBEE; color: #C62828; }
+    .shift-export-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 6px 12px; background: var(--bg-secondary);
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      font-size: 12px; cursor: pointer; margin-top: 8px;
+    }
+    .shift-export-btn:hover { background: var(--primary-light); }
+    .shift-no-data { font-size: 13px; color: var(--text-secondary); font-style: italic; }
   </style>
 </head>
 
@@ -2861,6 +3164,7 @@
           <option value="original">2024 Boundaries (252)</option>
           <option value="2026">2026 Boundaries (273)</option>
         </select>
+        <button class="boundary-changes-trigger" id="boundary-changes-trigger" title="View all boundary changes">View Changes</button>
       </div>
 
       <!-- View Mode Buttons -->
@@ -3025,6 +3329,15 @@
     <div id="ranker-panel-body"></div>
   </aside>
 
+  <!-- Boundary Changes Panel -->
+  <aside id="boundary-changes-panel" role="complementary" aria-label="Boundary changes summary">
+    <div class="boundary-panel-header">
+      <h3>Boundary Changes</h3>
+      <button class="boundary-panel-close" id="close-boundary-panel" aria-label="Close boundary changes">&times;</button>
+    </div>
+    <div class="boundary-panel-content" id="boundary-panel-content"></div>
+  </aside>
+
   <!-- Precinct Search Widget -->
   <div id="precinct-search-widget">
     <input type="text" id="precinct-search-input-map" placeholder="Search precinct #..." autocomplete="off" aria-label="Search for a precinct by number" />
@@ -3175,6 +3488,7 @@
     import { loadCensusProfiles, renderPrecinctProfile } from "./js/precinctProfile.js";
     import { getMarginStyle, getMarginLegendHTML } from "./js/marginView.js";
     import { rankCompetitivePrecincts, generateRankerHTML, generateRankerCSV } from "./js/competitiveRanker.js";
+    import { loadBoundaryChangeSummary, generateBoundaryTableHTML, generateBoundaryStatsHTML, exportBoundaryCSV } from "./js/boundaryChangesTable.js";
     import { HEATMAP_METRICS, getHeatmapStyle, getHeatmapLegendHTML, buildMetricSelectorHTML, clearMinMaxCache } from "./js/demographicHeatmap.js";
     import { exportRaceResults, computeRaceSummary } from "./js/exportManager.js";
     import { downloadCSV, arrayToCSV } from "./js/exportCSV.js";
@@ -3771,6 +4085,10 @@
           CONST_N: props.CONST_N, CONG_N: props.CONG_N, SEN_N: props.SEN_N,
           SHR_N: props.SHR_N, SED_N: props.SED_N
         };
+        // Boundary change metadata (2026 view)
+        if (props._meta) {
+          extraData.boundaryMeta = props._meta;
+        }
       }
 
       // Current election results for this precinct
@@ -5280,6 +5598,8 @@
       if (e.key === 'Escape') {
         if (commandPalette.classList.contains('active')) {
           closeCommandPalette();
+        } else if (document.getElementById('boundary-changes-panel').classList.contains('open')) {
+          closeBoundaryPanel();
         } else if (document.getElementById('competitive-ranker-panel').classList.contains('active')) {
           closeRankerPanel();
         } else if (document.getElementById('precinct-profile-panel').classList.contains('active')) {
@@ -5640,6 +5960,78 @@
         const banner = document.getElementById('boundary-disclaimer');
         if (banner) banner.style.display = 'none';
       });
+
+      // Boundary changes panel trigger + close
+      const boundaryTrigger = document.getElementById('boundary-changes-trigger');
+      const boundaryPanel = document.getElementById('boundary-changes-panel');
+      const boundaryPanelContent = document.getElementById('boundary-panel-content');
+      let cachedBoundaryData = null;
+
+      function updateBoundaryTriggerVisibility() {
+        if (boundaryTrigger) {
+          if (getActiveBoundary() === '2026') {
+            boundaryTrigger.classList.add('visible');
+          } else {
+            boundaryTrigger.classList.remove('visible');
+          }
+        }
+      }
+      updateBoundaryTriggerVisibility();
+
+      // Update trigger visibility when boundary changes
+      if (boundarySelect) {
+        boundarySelect.addEventListener('change', updateBoundaryTriggerVisibility);
+      }
+
+      async function openBoundaryPanel() {
+        if (!cachedBoundaryData) {
+          boundaryPanelContent.innerHTML = '<div style="padding:20px;text-align:center;">Loading...</div>';
+          try {
+            cachedBoundaryData = await loadBoundaryChangeSummary();
+          } catch (err) {
+            boundaryPanelContent.innerHTML = `<div style="padding:20px;color:red;">Failed to load: ${err.message}</div>`;
+            boundaryPanel.classList.add('open');
+            return;
+          }
+        }
+        renderBoundaryPanel();
+        boundaryPanel.classList.add('open');
+      }
+
+      function renderBoundaryPanel(filters = {}) {
+        if (!cachedBoundaryData) return;
+        let html = generateBoundaryStatsHTML(cachedBoundaryData);
+        html += generateBoundaryTableHTML(cachedBoundaryData, filters);
+        html += '<button class="boundary-export-btn" id="boundary-export-csv">Export CSV</button>';
+        boundaryPanelContent.innerHTML = html;
+
+        // Wire filter dropdown
+        const filterSelect = document.getElementById('boundary-filter-type');
+        if (filterSelect) {
+          filterSelect.addEventListener('change', () => {
+            renderBoundaryPanel({ ...filters, changeType: filterSelect.value });
+          });
+        }
+        // Wire sortable headers
+        boundaryPanelContent.querySelectorAll('.boundary-table th[data-sort]').forEach(th => {
+          th.addEventListener('click', () => {
+            const sortBy = th.dataset.sort;
+            const sortDir = filters.sortBy === sortBy && filters.sortDir === 'asc' ? 'desc' : 'asc';
+            renderBoundaryPanel({ ...filters, sortBy, sortDir });
+          });
+        });
+        // Wire export
+        document.getElementById('boundary-export-csv')?.addEventListener('click', () => {
+          exportBoundaryCSV(cachedBoundaryData);
+        });
+      }
+
+      function closeBoundaryPanel() {
+        boundaryPanel.classList.remove('open');
+      }
+
+      boundaryTrigger?.addEventListener('click', openBoundaryPanel);
+      document.getElementById('close-boundary-panel')?.addEventListener('click', closeBoundaryPanel);
 
       // Preload census profiles in background and store in state
       loadCensusProfiles().then(profiles => { state.censusProfiles = profiles; }).catch(err => console.warn('Census profiles not loaded:', err));
