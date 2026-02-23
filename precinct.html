@@ -1128,6 +1128,18 @@
     .report-section[data-accent="districts"] { border-left: 3px solid var(--primary); }
     .report-section[data-accent="census"] { border-left: 3px solid #4CAF50; }
     .report-section[data-accent="elections"] { border-left: 3px solid #FF9800; }
+    .report-section[data-accent="intelligence"] { border-left: 3px solid #9C27B0; }
+
+    .strategic-intel-content { font-size: 13.5px; line-height: 1.7; color: var(--text-primary); }
+    .strategic-intel-content p { margin: 0 0 14px 0; }
+    .strategic-intel-content p:last-child { margin-bottom: 0; }
+    .strategic-intel-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(156,39,176,0.10); color: #9C27B0;
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 12px; margin-bottom: 12px;
+    }
+    [data-theme="dark"] .strategic-intel-badge { background: rgba(156,39,176,0.20); color: #CE93D8; }
 
     .win-streak-badge {
       display: inline-block;
@@ -1692,6 +1704,7 @@
       <button class="section-nav-pill" data-target="section-census">Census</button>
       <button class="section-nav-pill" data-target="section-elections">Elections</button>
       <button class="section-nav-pill" data-target="section-talking-points">Talking Points</button>
+      <button class="section-nav-pill" data-target="section-strategic-intel">AI Intelligence</button>
       <button class="section-nav-pill" data-target="section-similar">Similar</button>
     </div>
   </nav>
@@ -1749,6 +1762,7 @@
     <div id="section-talking-points" class="report-section" data-section="section-talking-points" data-accent="census"></div>
 
     <!-- Similar Precincts -->
+    <div id="section-strategic-intel" class="report-section" data-section="section-strategic-intel" data-accent="intelligence"></div>
     <div id="section-similar" class="report-section" data-section="section-similar" data-accent="demographics"></div>
 
   </main>

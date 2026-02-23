@@ -60,6 +60,7 @@ let geojsonData = null;
 let dncLookup = null;
 let racialLookup = null;
 let censusProfiles = null;
+let strategicIntel = null;
 let precinctList = []; // [{code, feature, party}]
 let miniMap = null;
 let miniMapLayer = null;
@@ -175,6 +176,16 @@ async function loadBaseData() {
     censusProfiles = await loadCensusProfiles();
   } catch {
     censusProfiles = null;
+  }
+
+  try {
+    let boundary = getActiveBoundary();
+    let configs = getBoundaryConfigs();
+    let dataDir = configs[boundary].dataDir;
+    let resp = await fetch(`${dataDir}/strategic_intelligence.json`);
+    if (resp.ok) strategicIntel = await resp.json();
+  } catch {
+    strategicIntel = null;
   }
 
   // Build precinct list from GeoJSON features
@@ -464,6 +475,7 @@ async function selectPrecinct(code) {
   renderMarginTrend(code, allElectionData, manifest);
   renderTurnoutGap(code, votingHistory, partyData, allElectionData, manifest);
   renderTalkingPoints(code, census, partyData, racialData, votingHistory, pviResult, strategyResult);
+  renderStrategicIntelligence(code);
   renderSimilarPrecincts(code, census, partyData, racialData, allElectionData, manifest);
 
   // Compute and inject trend arrow
@@ -494,6 +506,7 @@ async function selectPrecinct(code) {
     rankings: precinctRankings,
     pvi: pviResult,
     strategy: strategyResult,
+    strategicIntel: strategicIntel?.[String(code)] || null,
   };
 
   document.getElementById("export-bar")?.classList.remove("hidden");
@@ -2006,6 +2019,34 @@ function computePVIQuick(code) {
     // Can't compute without loading data synchronously, return placeholder
     return { pvi: 0, label: 'N/A' };
   } catch { return { pvi: 0, label: 'N/A' }; }
+}
+
+// ---------------------------------------------------------------------------
+// Strategic Intelligence (AI-generated insights)
+// ---------------------------------------------------------------------------
+
+function renderStrategicIntelligence(code) {
+  let el = document.getElementById("section-strategic-intel");
+  if (!el) return;
+
+  let insight = strategicIntel?.[String(code)];
+  if (!insight) {
+    el.innerHTML = "";
+    return;
+  }
+
+  // Split into paragraphs and wrap in <p> tags
+  let paragraphs = insight
+    .split(/\n\n+/)
+    .filter((p) => p.trim())
+    .map((p) => `<p>${escapeHtml(p.trim())}</p>`)
+    .join("");
+
+  el.innerHTML = `
+    <h3 class="report-section-title">Strategic Intelligence</h3>
+    <div class="strategic-intel-badge">AI-Generated Analysis</div>
+    <div class="strategic-intel-content">${paragraphs}</div>
+  `;
 }
 
 // ---------------------------------------------------------------------------
