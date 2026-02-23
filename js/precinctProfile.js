@@ -104,14 +104,12 @@ export function barsList(items, color) {
 export function generateTakeaways(p) {
   let items = [];
 
-  // Homeowners + median home value
   const ownerPct = p.housing?.ownerOccupied;
   const medHome = p.housing?.medianHomeValue;
   if (ownerPct != null && medHome != null) {
     items.push({ icon: "\u{1F3E0}", text: `${formatPct(ownerPct)} homeowners, median home ${formatCurrency(medHome)}` });
   }
 
-  // College educated = bachelors + graduateProfessional
   const bachelors = p.education?.bachelors || 0;
   const grad = p.education?.graduateProfessional || 0;
   const collegePct = bachelors + grad;
@@ -119,32 +117,46 @@ export function generateTakeaways(p) {
     items.push({ icon: "\u{1F393}", text: `${formatPct(collegePct)} college educated` });
   }
 
-  // Median income
   const medIncome = p.income?.medianHousehold;
   if (medIncome != null) {
     items.push({ icon: "\u{1F4B0}", text: `Median income ${formatCurrency(medIncome)}` });
   }
 
-  // Non-English speakers = 1 - englishOnly
   const englishOnly = p.language?.englishOnly;
   if (englishOnly != null) {
     const nonEnglish = 1 - englishOnly;
     items.push({ icon: "\u{1F5E3}\uFE0F", text: `${formatPct(nonEnglish)} non-English speakers` });
   }
 
-  // Family households
   if (p.households?.total > 0 && p.households?.familyHouseholds != null) {
     const famPct = p.households.familyHouseholds / p.households.total;
     items.push({ icon: "\u{1F468}\u200D\u{1F469}\u200D\u{1F467}\u200D\u{1F466}", text: `${formatPct(famPct)} family households` });
   }
 
-  // Top occupation
   const topOcc = p.employment?.topOccupations?.[0];
   if (topOcc) {
     items.push({ icon: "\u{1F4BC}", text: `Top job: ${topOcc.name}` });
   }
 
   return items;
+}
+
+// ---------------------------------------------------------------------------
+// Collapsible section wrapper helper
+// ---------------------------------------------------------------------------
+
+function collapsibleSection(title, content, expanded = true) {
+  let ariaState = expanded ? "true" : "false";
+  let bodyClass = expanded ? "census-collapsible" : "census-collapsible collapsed";
+  let html = '<div class="profile-section">';
+  html += `<button class="census-toggle-btn" aria-expanded="${ariaState}">`;
+  html += `<h4 class="profile-section-title" style="margin-bottom:0;padding-bottom:0;border-bottom:none">${title}</h4>`;
+  html += '<span class="toggle-chevron">&#9660;</span>';
+  html += '</button>';
+  html += `<div class="${bodyClass}" style="margin-top:10px">`;
+  html += content;
+  html += '</div></div>';
+  return html;
 }
 
 // ---------------------------------------------------------------------------
@@ -155,13 +167,16 @@ function renderTakeaways(p) {
   let items = generateTakeaways(p);
   if (items.length === 0) return "";
 
+  let content = '<div class="takeaway-grid">';
+  for (const item of items) {
+    content += `<div class="takeaway-item"><span class="takeaway-icon">${item.icon}</span><span>${escapeHtml(item.text)}</span></div>`;
+  }
+  content += "</div>";
+
   let html = '<div class="profile-section profile-takeaways">';
   html += '<h4 class="profile-section-title">At a Glance</h4>';
-  html += '<div class="takeaway-grid">';
-  for (const item of items) {
-    html += `<div class="takeaway-item"><span class="takeaway-icon">${item.icon}</span><span>${escapeHtml(item.text)}</span></div>`;
-  }
-  html += "</div></div>";
+  html += content;
+  html += "</div>";
   return html;
 }
 
@@ -170,22 +185,23 @@ export function renderPartyRegistration(partyData) {
 
   let html = '<div class="profile-section">';
   html += '<h4 class="profile-section-title">Party Registration</h4>';
+
   html += '<div class="profile-stats-row">';
   html += `<div class="profile-stat" style="border-left:3px solid #E81B23"><span class="profile-stat-value">${escapeHtml(formatNum(partyData.rep))}</span><span class="profile-stat-label">Republican</span></div>`;
   html += `<div class="profile-stat" style="border-left:3px solid #800080"><span class="profile-stat-value">${escapeHtml(formatNum(partyData.mod))}</span><span class="profile-stat-label">Moderate</span></div>`;
   html += `<div class="profile-stat" style="border-left:3px solid #00AEF3"><span class="profile-stat-value">${escapeHtml(formatNum(partyData.dem))}</span><span class="profile-stat-label">Democrat</span></div>`;
   html += "</div>";
 
-  // Stacked bar of shares
-  let segments = [
-    { label: "Republican", value: partyData.repShare || 0 },
-    { label: "Moderate", value: partyData.modShare || 0 },
-    { label: "Democrat", value: partyData.demShare || 0 },
-  ];
-  let colors = ["#E81B23", "#800080", "#00AEF3"];
-  html += stackedBar(segments, colors);
+  let total = (partyData.rep || 0) + (partyData.mod || 0) + (partyData.dem || 0);
+  if (total > 0) {
+    let segments = [
+      { label: "Republican", value: (partyData.rep || 0) / total },
+      { label: "Moderate", value: (partyData.mod || 0) / total },
+      { label: "Democrat", value: (partyData.dem || 0) / total },
+    ];
+    html += stackedBar(segments, ["#E81B23", "#800080", "#00AEF3"]);
+  }
 
-  // Winning party badge
   if (partyData.winningParty) {
     const strength = partyData.partyStrength != null ? partyData.partyStrength : "";
     const strengthLabel = strength ? ` (Strength ${escapeHtml(String(strength))}/3)` : "";
@@ -210,30 +226,37 @@ export function renderRacialDemographics(racialData) {
   let html = '<div class="profile-section">';
   html += '<h4 class="profile-section-title">Racial Demographics</h4>';
 
-  // Stacked bar
-  let segments = [
-    { label: "White", value: racialData.pct_white || 0 },
-    { label: "Asian", value: racialData.pct_asian || 0 },
-    { label: "Hispanic", value: racialData.pct_hispanic || 0 },
-    { label: "Black", value: racialData.pct_black || 0 },
-    { label: "Others", value: racialData.pct_others || 0 },
-  ];
-  let colors = [racialColors.white, racialColors.asian, racialColors.hispanic, racialColors.black, racialColors.others];
-  html += stackedBar(segments, colors);
+  let total =
+    (racialData.white || 0) +
+    (racialData.asian || 0) +
+    (racialData.hispanic || 0) +
+    (racialData.black || 0) +
+    (racialData.others || 0);
 
-  // Bar list with counts and percentages
+  if (total > 0) {
+    let segments = [
+      { label: "White", value: (racialData.white || 0) / total },
+      { label: "Asian", value: (racialData.asian || 0) / total },
+      { label: "Hispanic", value: (racialData.hispanic || 0) / total },
+      { label: "Black", value: (racialData.black || 0) / total },
+      { label: "Others", value: (racialData.others || 0) / total },
+    ];
+    let colors = [racialColors.white, racialColors.asian, racialColors.hispanic, racialColors.black, racialColors.others];
+    html += stackedBar(segments, colors);
+  }
+
   let items = [
-    { label: `White (${escapeHtml(formatNum(racialData.white))})`, value: racialData.pct_white || 0 },
-    { label: `Asian (${escapeHtml(formatNum(racialData.asian))})`, value: racialData.pct_asian || 0 },
-    { label: `Hispanic (${escapeHtml(formatNum(racialData.hispanic))})`, value: racialData.pct_hispanic || 0 },
-    { label: `Black (${escapeHtml(formatNum(racialData.black))})`, value: racialData.pct_black || 0 },
-    { label: `Others (${escapeHtml(formatNum(racialData.others))})`, value: racialData.pct_others || 0 },
+    { label: `White (${escapeHtml(formatNum(racialData.white))})`, value: racialData.pct_white || 0, color: racialColors.white },
+    { label: `Asian (${escapeHtml(formatNum(racialData.asian))})`, value: racialData.pct_asian || 0, color: racialColors.asian },
+    { label: `Hispanic (${escapeHtml(formatNum(racialData.hispanic))})`, value: racialData.pct_hispanic || 0, color: racialColors.hispanic },
+    { label: `Black (${escapeHtml(formatNum(racialData.black))})`, value: racialData.pct_black || 0, color: racialColors.black },
+    { label: `Others (${escapeHtml(formatNum(racialData.others))})`, value: racialData.pct_others || 0, color: racialColors.others },
   ];
 
   html += '<div class="profile-bars-list">';
-  for (const [i, item] of items.entries()) {
-    const pct = (item.value * 100).toFixed(1);
-    html += `<div class="profile-bar-item"><span class="bar-label">${item.label}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${colors[i]}"></div></div><span class="bar-value">${pct}%</span></div>`;
+  for (let item of items) {
+    let pct = (item.value * 100).toFixed(1);
+    html += `<div class="profile-bar-item"><span class="bar-label">${item.label}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${item.color}"></div></div><span class="bar-value">${pct}%</span></div>`;
   }
   html += "</div>";
 
@@ -316,7 +339,7 @@ export function renderBoundaryChanges(metadata) {
   const type = metadata.interpolationType;
   const sources = metadata.sources || [];
 
-  let badgeColor, badgeText, detail = "";
+  let badgeColor, badgeText;
 
   switch (type) {
     case "unchanged":
@@ -347,7 +370,6 @@ export function renderBoundaryChanges(metadata) {
   html += '<h4 class="profile-section-title">Boundary Changes</h4>';
   html += `<div style="display:inline-block;padding:4px 10px;border-radius:4px;background:${badgeColor};color:#fff;font-size:0.85em;font-weight:600;margin-bottom:8px">${escapeHtml(badgeText)}</div>`;
 
-  // Show source precinct weights for split/merged
   if ((type === "split" || type === "merged") && sources.length > 0) {
     html += '<div class="profile-bars-list" style="margin-top:8px">';
     for (const src of sources) {
@@ -404,16 +426,14 @@ function renderProjections(p) {
 
   if (!rows) return "";
 
-  let html = '<div class="profile-section">';
-  html += `<h4 class="profile-section-title">${proj.targetYear} Projections</h4>`;
-  html += '<div class="profile-bars-list">';
-  html += rows;
-  html += '</div>';
-  html += '<div class="profile-disclaimer" style="margin-top:6px;font-size:0.75em;color:#888">';
-  html += 'Projected from 5-year ACS trend (2018\u21922023)';
-  html += '</div>';
-  html += '</div>';
-  return html;
+  let content = '<div class="profile-bars-list">';
+  content += rows;
+  content += '</div>';
+  content += '<div class="profile-disclaimer" style="margin-top:6px;font-size:0.75em;color:#888">';
+  content += 'Projected from 5-year ACS trend (2018\u21922023)';
+  content += '</div>';
+
+  return collapsibleSection(`${proj.targetYear} Projections`, content, false);
 }
 
 // ---------------------------------------------------------------------------
@@ -429,15 +449,18 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   let html = `<div class="precinct-profile">`;
   html += `<div class="profile-header">`;
   html += `<h3>Precinct ${code} &mdash; Census Profile</h3>`;
-  html += `<div class="profile-pop">Pop. ${escapeHtml(formatNum(p.population))} &middot; ${escapeHtml(formatNum(p.households?.total))} households</div>`;
+  let popDensity = "";
+  if (p.populationDensity != null) {
+    popDensity = ` &middot; ${escapeHtml(formatNum(Math.round(p.populationDensity)))} per sq mi`;
+  }
+  html += `<div class="profile-pop">Pop. ${escapeHtml(formatNum(p.population))} &middot; ${escapeHtml(formatNum(p.households?.total))} households${popDensity}</div>`;
   html += `</div>`;
 
-  // ACS data attribution
   html += `<div class="profile-disclaimer">`;
   html += `Census data from ACS 2019&ndash;2023 5-year estimates, aggregated from block groups.`;
   html += `</div>`;
 
-  // Key Takeaways
+  // Key Takeaways (expanded by default)
   html += renderTakeaways(p);
 
   // Party Registration
@@ -457,14 +480,22 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
     html += renderBoundaryChanges(extraData.boundaryMeta);
   }
 
-  // Age & Gender
-  html += `<div class="profile-section">`;
-  html += `<h4 class="profile-section-title">Age &amp; Gender</h4>`;
-  html += `<div class="profile-stats-row">`;
-  html += statBox(p.age?.medianAge, "Median Age");
-  html += statBox(formatPct(p.gender?.male), "Male");
-  html += statBox(formatPct(p.gender?.female), "Female");
-  html += `</div>`;
+  // Age & Gender (expanded by default)
+  let ageContent = '';
+  ageContent += `<div class="profile-stats-row">`;
+  ageContent += statBox(p.age?.medianAge, "Median Age");
+  ageContent += statBox(formatPct(p.gender?.male), "Male");
+  ageContent += statBox(formatPct(p.gender?.female), "Female");
+  ageContent += `</div>`;
+
+  // Gender split bar
+  if (p.gender?.male != null && p.gender?.female != null) {
+    let genderSegs = [
+      { label: "Male", value: p.gender.male },
+      { label: "Female", value: p.gender.female },
+    ];
+    ageContent += stackedBar(genderSegs, ["#42A5F5", "#EF5350"]);
+  }
 
   let ageBrackets = [
     { label: "Under 18", value: p.age?.under18 || 0 },
@@ -474,77 +505,79 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
     { label: "65+", value: p.age?.["65plus"] || 0 },
   ];
   let ageColors = ["#4FC3F7", "#29B6F6", "#0288D1", "#01579B", "#002f6c"];
-  html += stackedBar(ageBrackets, ageColors);
-  html += `</div>`;
+  ageContent += stackedBar(ageBrackets, ageColors);
+  html += collapsibleSection("Age &amp; Gender", ageContent, true);
 
-  // Income
-  html += `<div class="profile-section">`;
-  html += `<h4 class="profile-section-title">Income</h4>`;
-  html += `<div class="profile-stats-row">`;
-  html += statBox(formatCurrency(p.income?.medianHousehold), "Median HHI");
-  html += statBox(formatPct(p.income?.povertyRate), "Poverty Rate");
-  html += `</div>`;
+  // Income (expanded by default)
+  let incomeContent = '';
+  incomeContent += `<div class="profile-stats-row">`;
+  incomeContent += statBox(formatCurrency(p.income?.medianHousehold), "Median HHI");
+  incomeContent += statBox(formatPct(p.income?.povertyRate), "Poverty Rate");
+  incomeContent += `</div>`;
 
   let incomeBrackets = [
     { label: "Under $50K", value: p.income?.brackets?.under50k || 0 },
-    { label: "$50-100K", value: p.income?.brackets?.["50kTo100k"] || 0 },
-    { label: "$100-150K", value: p.income?.brackets?.["100kTo150k"] || 0 },
-    { label: "$150-200K", value: p.income?.brackets?.["150kTo200k"] || 0 },
-    { label: "Over $200K", value: p.income?.brackets?.over200k || 0 },
+    { label: "$50K-$100K", value: p.income?.brackets?.["50kTo100k"] || 0 },
+    { label: "$100K-$150K", value: p.income?.brackets?.["100kTo150k"] || 0 },
+    { label: "$150K-$200K", value: p.income?.brackets?.["150kTo200k"] || 0 },
+    { label: "$200K+", value: p.income?.brackets?.over200k || 0 },
   ];
-  html += barsList(incomeBrackets, "#4CAF50");
-  html += `</div>`;
+  incomeContent += barsList(incomeBrackets, "#4CAF50");
+  html += collapsibleSection("Income", incomeContent, true);
 
-  // Education
-  html += `<div class="profile-section">`;
-  html += `<h4 class="profile-section-title">Education</h4>`;
-
+  // Education (expanded by default)
+  let eduContent = '';
   let eduBrackets = [
-    { label: "High School or Less", value: p.education?.highSchoolOrLess || 0 },
+    { label: "HS or Less", value: p.education?.highSchoolOrLess || 0 },
     { label: "Some College", value: p.education?.someCollege || 0 },
     { label: "Bachelor's", value: p.education?.bachelors || 0 },
-    { label: "Graduate/Professional", value: p.education?.graduateProfessional || 0 },
+    { label: "Graduate+", value: p.education?.graduateProfessional || 0 },
   ];
-  html += barsList(eduBrackets, "#2196F3");
-  html += `</div>`;
+  eduContent += barsList(eduBrackets, "#2196F3");
+  html += collapsibleSection("Education", eduContent, true);
 
-  // Top Occupations
-  html += `<div class="profile-section">`;
-  html += `<h4 class="profile-section-title">Top Occupations</h4>`;
-
+  // Top Occupations (collapsed by default)
+  let occContent = '';
+  // Labor force participation + unemployment
+  if (p.employment?.laborForceParticipation != null || p.employment?.unemploymentRate != null) {
+    occContent += '<div class="profile-stats-row">';
+    if (p.employment?.laborForceParticipation != null) {
+      occContent += statBox(formatPct(p.employment.laborForceParticipation), "Labor Force");
+    }
+    if (p.employment?.unemploymentRate != null) {
+      occContent += statBox(formatPct(p.employment.unemploymentRate), "Unemployment");
+    }
+    occContent += '</div>';
+  }
   let occupations = (p.employment?.topOccupations || []).map((o) => ({
     label: o.name,
     value: o.share,
   }));
-  html += barsList(occupations, "#FF9800");
-  html += `</div>`;
+  occContent += barsList(occupations, "#FF9800");
+  html += collapsibleSection("Top Occupations", occContent, false);
 
-  // Top Industries
-  html += `<div class="profile-section">`;
-  html += `<h4 class="profile-section-title">Top Industries</h4>`;
-
+  // Top Industries (collapsed by default)
+  let indContent = '';
   let industries = (p.employment?.topIndustries || []).map((o) => ({
     label: o.name,
     value: o.share,
   }));
-  html += barsList(industries, "#FF9800");
-  html += `</div>`;
+  indContent += barsList(industries, "#FF9800");
+  html += collapsibleSection("Top Industries", indContent, false);
 
-  // Housing
-  html += `<div class="profile-section">`;
-  html += `<h4 class="profile-section-title">Housing</h4>`;
-  html += `<div class="profile-stats-row">`;
-  html += statBox(formatCurrency(p.housing?.medianHomeValue), "Median Home Value");
-  html += statBox(formatCurrency(p.housing?.medianRent), "Median Rent");
-  html += statBox(formatPct(p.housing?.ownerOccupied), "Homeowners");
-  html += `</div>`;
-  html += `</div>`;
+  // Housing (collapsed by default)
+  let housingContent = '';
+  housingContent += `<div class="profile-stats-row">`;
+  housingContent += statBox(formatCurrency(p.housing?.medianHomeValue), "Median Home Value");
+  housingContent += statBox(formatCurrency(p.housing?.medianRent), "Median Rent");
+  housingContent += statBox(formatPct(p.housing?.ownerOccupied), "Homeowners");
+  housingContent += `</div>`;
+  html += collapsibleSection("Housing", housingContent, false);
 
-  // Households
-  html += `<div class="profile-section">`;
-  html += `<h4 class="profile-section-title">Households</h4>`;
-  html += `<div class="profile-stats-row">`;
-  html += statBox(p.households?.averageSize, "Avg Size");
+  // Households (collapsed by default)
+  let hhContent = '';
+  hhContent += `<div class="profile-stats-row">`;
+  hhContent += statBox(p.households?.averageSize, "Avg Size");
   const familyPct =
     p.households?.total > 0
       ? formatPct(p.households.familyHouseholds / p.households.total)
@@ -553,29 +586,42 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
     p.households?.total > 0
       ? formatPct(p.households.marriedCouples / p.households.total)
       : "N/A";
-  html += statBox(familyPct, "Families");
-  html += statBox(marriedPct, "Married");
-  html += `</div>`;
-  html += `</div>`;
+  hhContent += statBox(familyPct, "Families");
+  hhContent += statBox(marriedPct, "Married");
+  hhContent += `</div>`;
+  // Single-parent + non-family households
+  if (p.households?.total > 0) {
+    let extraStats = '<div class="profile-stats-row">';
+    if (p.households?.singleParent != null) {
+      let spPct = formatPct(p.households.singleParent / p.households.total);
+      extraStats += statBox(spPct, "Single Parent");
+    }
+    if (p.households?.nonFamily != null) {
+      let nfPct = formatPct(p.households.nonFamily / p.households.total);
+      extraStats += statBox(nfPct, "Non-Family");
+    }
+    extraStats += '</div>';
+    if (p.households?.singleParent != null || p.households?.nonFamily != null) {
+      hhContent += extraStats;
+    }
+  }
+  html += collapsibleSection("Households", hhContent, false);
 
-  // Commute
-  html += `<div class="profile-section">`;
-  html += `<h4 class="profile-section-title">Commute</h4>`;
-  html += `<div class="profile-stats-row">`;
-  html += statBox(
+  // Commute (collapsed by default)
+  let commuteContent = '';
+  commuteContent += `<div class="profile-stats-row">`;
+  commuteContent += statBox(
     p.commute?.meanCommuteMinutes != null
       ? escapeHtml(p.commute.meanCommuteMinutes.toFixed(1)) + " min"
       : "N/A",
     "Avg Commute"
   );
-  html += statBox(formatPct(p.commute?.workedFromHome), "Work From Home");
-  html += `</div>`;
-  html += `</div>`;
+  commuteContent += statBox(formatPct(p.commute?.workedFromHome), "Work From Home");
+  commuteContent += `</div>`;
+  html += collapsibleSection("Commute", commuteContent, false);
 
-  // Language
-  html += `<div class="profile-section">`;
-  html += `<h4 class="profile-section-title">Language</h4>`;
-
+  // Language (collapsed by default)
+  let langContent = '';
   let langs = [
     { label: "English Only", value: p.language?.englishOnly || 0 },
     { label: "Spanish", value: p.language?.spanish || 0 },
@@ -583,19 +629,18 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
     { label: "Other", value: p.language?.other || 0 },
   ];
   let langColors = ["#5C6BC0", "#AB47BC", "#26A69A", "#BDBDBD"];
-  html += stackedBar(langs, langColors);
-  html += `</div>`;
+  langContent += stackedBar(langs, langColors);
+  html += collapsibleSection("Language", langContent, false);
 
-  // Other
-  html += `<div class="profile-section">`;
-  html += `<h4 class="profile-section-title">Other</h4>`;
-  html += `<div class="profile-stats-row">`;
-  html += statBox(formatPct(p.veterans?.share), "Veterans");
-  html += statBox(formatPct(p.insurance?.insured), "Insured");
-  html += `</div>`;
-  html += `</div>`;
+  // Other (collapsed by default)
+  let otherContent = '';
+  otherContent += `<div class="profile-stats-row">`;
+  otherContent += statBox(formatPct(p.veterans?.share), "Veterans");
+  otherContent += statBox(formatPct(p.insurance?.insured), "Insured");
+  otherContent += `</div>`;
+  html += collapsibleSection("Other", otherContent, false);
 
-  // 2030 Projections
+  // 2030 Projections (collapsed by default)
   html += renderProjections(p);
 
   html += `</div>`; // close .precinct-profile
@@ -606,11 +651,6 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
 // Trend arrow badge
 // ---------------------------------------------------------------------------
 
-/**
- * Render a trend arrow badge showing partisan shift for a precinct.
- * @param {Object|null} trendData - From computePrecinctTrend
- * @returns {string} HTML string
- */
 export function renderTrendArrow(trendData) {
   if (!trendData) return '';
   let { direction, delta, raceName, year1, year2 } = trendData;
@@ -618,15 +658,15 @@ export function renderTrendArrow(trendData) {
   let icon, label, cls;
 
   if (direction === 'dem') {
-    icon = '\u2191'; // up arrow
+    icon = '\u2191';
     label = `+${absDelta}% toward Dem`;
     cls = 'dem';
   } else if (direction === 'rep') {
-    icon = '\u2193'; // down arrow
+    icon = '\u2193';
     label = `-${absDelta}% toward Rep`;
     cls = 'rep';
   } else {
-    icon = '\u2014'; // em dash
+    icon = '\u2014';
     label = 'Stable';
     cls = 'stable';
   }

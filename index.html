@@ -3480,6 +3480,18 @@
       generateSimulatorControlsHTML,
       generateSimulationResultsHTML
     } from "./js/turnoutSimulator.js";
+    import {
+      FILTER_FIELDS,
+      buildPrecinctRecord,
+      applyFilters,
+      generateUniverseBuilderHTML,
+      exportUniverseCSV,
+      highlightUniverseOnMap
+    } from "./js/universeBuilder.js";
+    import {
+      computeWinScenario,
+      generateReverseCalculatorHTML
+    } from "./js/reverseCalculator.js";
     import { initTheme, toggleTheme, getCurrentTheme, DARK_TILE_URL, LIGHT_TILE_URL } from "./js/themeManager.js";
     import { setupPrecinctLabels } from "./js/mapEnhancements.js";
     import {
@@ -4636,8 +4648,10 @@
                   <button id="clear-election-btn" class="clear-election-btn" title="Clear selection">✕</button>
                 </div>
               </div>
+              <div id="universe-builder-container"></div>
               <div id="turnout-simulator-container"></div>
               <div id="simulation-summary"></div>
+              <div id="reverse-calculator-container"></div>
             </div>
           ` : `
             <div class="empty-state">
@@ -5132,7 +5146,118 @@
         summaryDiv.parentNode.insertBefore(exportSimBtn, summaryDiv.nextSibling);
       }
 
+      // Universe Builder
+      renderUniverseBuilder();
+
       runSimulation();
+    }
+
+    // ==========================================================================
+    // UNIVERSE BUILDER INTEGRATION
+    // ==========================================================================
+
+    // Universe builder state (persists across re-renders)
+    if (!window._universeState) {
+      window._universeState = { criteria: [], records: [], matchingCodes: [] };
+    }
+
+    function renderUniverseBuilder() {
+      const ubContainer = document.getElementById('universe-builder-container');
+      if (!ubContainer || !state.currentElectionData || !state.simulationCandidates?.length) return;
+
+      const us = window._universeState;
+      // Build set of valid precinct codes from GeoJSON boundaries
+      const validCodes = new Set();
+      if (state.geojsonData?.features) {
+        for (const f of state.geojsonData.features) {
+          validCodes.add(String(f.properties.PRECINCT));
+        }
+      }
+      // Build precinct records from current election + census + DNC data
+      us.records = [];
+      for (const row of state.currentElectionData) {
+        const code = String(row['PRECINCT CODE'] || row['PRECINCT_CODE'] || '');
+        if (!code) continue;
+        if (validCodes.size > 0 && !validCodes.has(code)) continue;
+        const dncRow = state.dncDataByPrecinct ? state.dncDataByPrecinct[code] : null;
+        const censusProfile = state.censusProfiles ? state.censusProfiles[code] : null;
+        us.records.push(buildPrecinctRecord(code, row, dncRow, censusProfile, state.simulationCandidates));
+      }
+
+      // Apply current filters
+      const filtered = applyFilters(us.records, us.criteria);
+      us.matchingCodes = filtered.map(r => r.code);
+
+      ubContainer.innerHTML = generateUniverseBuilderHTML(us.criteria, filtered.length, us.records.length);
+      wireUniverseBuilderEvents(ubContainer, filtered);
+    }
+
+    function wireUniverseBuilderEvents(ubContainer, filteredRecords) {
+      const us = window._universeState;
+
+      // Toggle collapse
+      const toggleHeader = document.getElementById('universe-builder-toggle');
+      const body = document.getElementById('universe-builder-body');
+      if (toggleHeader && body) {
+        toggleHeader.addEventListener('click', () => {
+          body.classList.toggle('collapsed');
+        });
+      }
+
+      // Add filter
+      const addBtn = document.getElementById('universe-add-filter');
+      if (addBtn) {
+        addBtn.addEventListener('click', () => {
+          const fieldId = document.getElementById('universe-field-select')?.value;
+          const operator = document.getElementById('universe-operator-select')?.value;
+          const valueRaw = document.getElementById('universe-value-input')?.value?.trim();
+          if (!fieldId || !operator || !valueRaw) return;
+
+          const field = FILTER_FIELDS.find(f => f.id === fieldId);
+          let value;
+          if (field?.type === 'enum') {
+            value = valueRaw;
+          } else {
+            value = Number(valueRaw);
+            if (isNaN(value)) return;
+          }
+
+          us.criteria.push({ field: fieldId, operator, value });
+          renderUniverseBuilder();
+        });
+      }
+
+      // Remove filter pills
+      ubContainer.querySelectorAll('.filter-pill-remove').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.dataset.filterIndex);
+          us.criteria.splice(idx, 1);
+          renderUniverseBuilder();
+        });
+      });
+
+      // Highlight on map toggle
+      const highlightToggle = document.getElementById('universe-highlight-toggle');
+      if (highlightToggle) {
+        highlightToggle.addEventListener('change', () => {
+          if (highlightToggle.checked && state.geojsonLayer) {
+            highlightUniverseOnMap(state.geojsonLayer, us.matchingCodes);
+          } else if (state.geojsonLayer) {
+            // Reset to normal styling
+            state.geojsonLayer.eachLayer(layer => {
+              layer.setStyle({ fillOpacity: 0.5, opacity: 1 });
+            });
+          }
+        });
+      }
+
+      // Export button
+      const exportBtn = document.getElementById('universe-export-btn');
+      if (exportBtn) {
+        exportBtn.addEventListener('click', () => {
+          exportUniverseCSV(filteredRecords);
+        });
+      }
     }
 
     // H11: Export simulation results
@@ -5190,10 +5315,73 @@
           state.simulationResult.flippedPrecincts,
           state.simulationResult.countyFlipped
         );
+        // Wire up "Show all N precincts" toggle
+        const toggle = summaryDiv.querySelector('.flipped-list-toggle');
+        if (toggle) {
+          toggle.addEventListener('click', () => {
+            const expanded = toggle.dataset.expanded === 'true';
+            const items = summaryDiv.querySelectorAll('.flipped-list-item');
+            if (expanded) {
+              for (let i = 5; i < items.length; i++) items[i].classList.add('hidden');
+              toggle.textContent = 'Show all ' + items.length + ' precincts';
+              toggle.dataset.expanded = 'false';
+            } else {
+              for (const item of items) item.classList.remove('hidden');
+              toggle.textContent = 'Show fewer';
+              toggle.dataset.expanded = 'true';
+            }
+          });
+        }
       }
 
       if (state.simulationResult && Object.keys(state.simulationResult.precinctResults || {}).length > 0) {
         updateMapForSimulation();
+      }
+
+      // Render Reverse Calculator after simulation results
+      renderReverseCalculator();
+    }
+
+    function renderReverseCalculator() {
+      const rcContainer = document.getElementById('reverse-calculator-container');
+      if (!rcContainer || !state.simulationCandidates?.length) return;
+
+      rcContainer.innerHTML = generateReverseCalculatorHTML(state.simulationCandidates);
+
+      // Wire up the calculate button
+      const calcBtn = rcContainer.querySelector('.reverse-calculate-btn');
+      if (calcBtn) {
+        calcBtn.addEventListener('click', () => {
+          const partySelect = document.getElementById('reverse-party-select');
+          if (!partySelect) return;
+          const targetParty = partySelect.value;
+
+          calcBtn.disabled = true;
+          calcBtn.textContent = 'Calculating...';
+
+          // Use requestAnimationFrame to allow UI to update before heavy computation
+          requestAnimationFrame(() => {
+            const result = computeWinScenario(
+              state.currentElectionData,
+              state.dncDataByPrecinct,
+              state.simulationCandidates,
+              targetParty
+            );
+
+            // Re-render with result
+            rcContainer.innerHTML = generateReverseCalculatorHTML(state.simulationCandidates, result);
+
+            // Re-wire the button for subsequent clicks
+            const newCalcBtn = rcContainer.querySelector('.reverse-calculate-btn');
+            if (newCalcBtn) {
+              newCalcBtn.addEventListener('click', () => renderReverseCalculator());
+            }
+
+            // Pre-select the party that was chosen
+            const newSelect = document.getElementById('reverse-party-select');
+            if (newSelect) newSelect.value = targetParty;
+          });
+        });
       }
     }
 

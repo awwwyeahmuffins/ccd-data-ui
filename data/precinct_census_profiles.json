@@ -114,6 +114,34 @@
     "insurance": {
       "insured": 0.8283,
       "uninsured": 0.1717
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5043,
+        "projected": 4757,
+        "cagr": -0.0083
+      },
+      "medianIncome": {
+        "current": 95116,
+        "projected": 210968,
+        "cagr": 0.1205
+      },
+      "medianHomeValue": {
+        "current": 448693,
+        "projected": 1283561,
+        "cagr": 0.162
+      },
+      "ownerOccupied": {
+        "current": 0.5223,
+        "projected": 0.5298,
+        "cagr": 0.002
+      },
+      "medianAge": {
+        "current": 38.7,
+        "projected": 42.7,
+        "cagr": 0.014
+      }
     }
   },
   "2": {
@@ -231,6 +259,34 @@
     "insurance": {
       "insured": 0.8517,
       "uninsured": 0.1483
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 8405,
+        "projected": 8525,
+        "cagr": 0.002
+      },
+      "medianIncome": {
+        "current": 70314,
+        "projected": 111219,
+        "cagr": 0.0677
+      },
+      "medianHomeValue": {
+        "current": 359208,
+        "projected": 789029,
+        "cagr": 0.119
+      },
+      "ownerOccupied": {
+        "current": 0.2999,
+        "projected": 0.2792,
+        "cagr": -0.0102
+      },
+      "medianAge": {
+        "current": 35.2,
+        "projected": 43.6,
+        "cagr": 0.0311
+      }
     }
   },
   "3": {
@@ -348,6 +404,34 @@
     "insurance": {
       "insured": 0.7361,
       "uninsured": 0.2639
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5577,
+        "projected": 98353,
+        "cagr": 0.5068
+      },
+      "medianIncome": {
+        "current": 61059,
+        "projected": 87740,
+        "cagr": 0.0532
+      },
+      "medianHomeValue": {
+        "current": 299150,
+        "projected": 623190,
+        "cagr": 0.1105
+      },
+      "ownerOccupied": {
+        "current": 0.5505,
+        "projected": 0.6844,
+        "cagr": 0.0316
+      },
+      "medianAge": {
+        "current": 34.2,
+        "projected": 29.0,
+        "cagr": -0.0234
+      }
     }
   },
   "4": {
@@ -465,6 +549,34 @@
     "insurance": {
       "insured": 0.9274,
       "uninsured": 0.0726
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4370,
+        "projected": 14098,
+        "cagr": 0.1821
+      },
+      "medianIncome": {
+        "current": 121337,
+        "projected": 228999,
+        "cagr": 0.095
+      },
+      "medianHomeValue": {
+        "current": 534319,
+        "projected": 1408552,
+        "cagr": 0.1485
+      },
+      "ownerOccupied": {
+        "current": 0.7784,
+        "projected": 0.7308,
+        "cagr": -0.009
+      },
+      "medianAge": {
+        "current": 38.2,
+        "projected": 36.2,
+        "cagr": -0.0077
+      }
     }
   },
   "5": {
@@ -582,6 +694,34 @@
     "insurance": {
       "insured": 0.823,
       "uninsured": 0.177
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2305,
+        "projected": 11162,
+        "cagr": 0.2528
+      },
+      "medianIncome": {
+        "current": 97319,
+        "projected": 93578,
+        "cagr": -0.0056
+      },
+      "medianHomeValue": {
+        "current": 265113,
+        "projected": 384190,
+        "cagr": 0.0544
+      },
+      "ownerOccupied": {
+        "current": 0.4966,
+        "projected": 0.281,
+        "cagr": -0.0781
+      },
+      "medianAge": {
+        "current": 45.8,
+        "projected": 51.9,
+        "cagr": 0.018
+      }
     }
   },
   "6": {
@@ -933,6 +1073,34 @@
     "insurance": {
       "insured": 0.7813,
       "uninsured": 0.2187
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6125,
+        "projected": 48871382,
+        "cagr": 2.6093
+      },
+      "medianIncome": {
+        "current": 72083,
+        "projected": 74050,
+        "cagr": 0.0039
+      },
+      "medianHomeValue": {
+        "current": 287679,
+        "projected": 557657,
+        "cagr": 0.0992
+      },
+      "ownerOccupied": {
+        "current": 0.7386,
+        "projected": 0.6305,
+        "cagr": -0.0224
+      },
+      "medianAge": {
+        "current": 38.5,
+        "projected": 38.2,
+        "cagr": -0.001
+      }
     }
   },
   "9": {
@@ -1050,6 +1218,34 @@
     "insurance": {
       "insured": 0.9389,
       "uninsured": 0.0611
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7400,
+        "projected": 22911,
+        "cagr": 0.1752
+      },
+      "medianIncome": {
+        "current": 100342,
+        "projected": 204989,
+        "cagr": 0.1074
+      },
+      "medianHomeValue": {
+        "current": 339444,
+        "projected": 853965,
+        "cagr": 0.1409
+      },
+      "ownerOccupied": {
+        "current": 0.8233,
+        "projected": 0.8427,
+        "cagr": 0.0033
+      },
+      "medianAge": {
+        "current": 37.1,
+        "projected": 47.7,
+        "cagr": 0.0366
+      }
     }
   },
   "10": {
@@ -1635,6 +1831,34 @@
     "insurance": {
       "insured": 0.9162,
       "uninsured": 0.0838
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7664,
+        "projected": 8654,
+        "cagr": 0.0175
+      },
+      "medianIncome": {
+        "current": 134867,
+        "projected": 168404,
+        "cagr": 0.0322
+      },
+      "medianHomeValue": {
+        "current": 528750,
+        "projected": 949792,
+        "cagr": 0.0873
+      },
+      "ownerOccupied": {
+        "current": 0.3899,
+        "projected": 0.428,
+        "cagr": 0.0134
+      },
+      "medianAge": {
+        "current": 37.4,
+        "projected": 40.6,
+        "cagr": 0.0116
+      }
     }
   },
   "15": {
@@ -1752,6 +1976,34 @@
     "insurance": {
       "insured": 0.8303,
       "uninsured": 0.1697
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2428,
+        "projected": 1409,
+        "cagr": -0.0748
+      },
+      "medianIncome": {
+        "current": 85978,
+        "projected": 149555,
+        "cagr": 0.0823
+      },
+      "medianHomeValue": {
+        "current": 348360,
+        "projected": 891363,
+        "cagr": 0.1436
+      },
+      "ownerOccupied": {
+        "current": 0.3423,
+        "projected": 0.4268,
+        "cagr": 0.032
+      },
+      "medianAge": {
+        "current": 40.6,
+        "projected": 41.3,
+        "cagr": 0.0025
+      }
     }
   },
   "16": {
@@ -1869,6 +2121,34 @@
     "insurance": {
       "insured": 0.9595,
       "uninsured": 0.0405
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7352,
+        "projected": 62999,
+        "cagr": 0.3592
+      },
+      "medianIncome": {
+        "current": 160140,
+        "projected": 221788,
+        "cagr": 0.0476
+      },
+      "medianHomeValue": {
+        "current": 428225,
+        "projected": 628997,
+        "cagr": 0.0565
+      },
+      "ownerOccupied": {
+        "current": 0.8734,
+        "projected": 0.8003,
+        "cagr": -0.0124
+      },
+      "medianAge": {
+        "current": 36.9,
+        "projected": 28.9,
+        "cagr": -0.0341
+      }
     }
   },
   "17": {
@@ -1986,6 +2266,34 @@
     "insurance": {
       "insured": 0.8804,
       "uninsured": 0.1196
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 8552,
+        "projected": 2970179,
+        "cagr": 1.3065
+      },
+      "medianIncome": {
+        "current": 100830,
+        "projected": 134600,
+        "cagr": 0.0421
+      },
+      "medianHomeValue": {
+        "current": 322010,
+        "projected": 276753,
+        "cagr": -0.0214
+      },
+      "ownerOccupied": {
+        "current": 0.7097,
+        "projected": 0.5344,
+        "cagr": -0.0397
+      },
+      "medianAge": {
+        "current": 33.4,
+        "projected": 21.3,
+        "cagr": -0.0624
+      }
     }
   },
   "18": {
@@ -2220,6 +2528,34 @@
     "insurance": {
       "insured": 0.9156,
       "uninsured": 0.0844
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2462,
+        "projected": 3004,
+        "cagr": 0.0288
+      },
+      "medianIncome": {
+        "current": 148622,
+        "projected": 212514,
+        "cagr": 0.0524
+      },
+      "medianHomeValue": {
+        "current": 393787,
+        "projected": 716776,
+        "cagr": 0.0893
+      },
+      "ownerOccupied": {
+        "current": 0.9225,
+        "projected": 0.9725,
+        "cagr": 0.0076
+      },
+      "medianAge": {
+        "current": 50.9,
+        "projected": 60.5,
+        "cagr": 0.0249
+      }
     }
   },
   "20": {
@@ -2337,6 +2673,34 @@
     "insurance": {
       "insured": 0.9224,
       "uninsured": 0.0776
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 1136,
+        "projected": 3177,
+        "cagr": 0.1582
+      },
+      "medianIncome": {
+        "current": 105299,
+        "projected": 149365,
+        "cagr": 0.0512
+      },
+      "medianHomeValue": {
+        "current": 490156,
+        "projected": 758593,
+        "cagr": 0.0644
+      },
+      "ownerOccupied": {
+        "current": 0.9662,
+        "projected": 1,
+        "cagr": 0.0214
+      },
+      "medianAge": {
+        "current": 48.5,
+        "projected": 52.1,
+        "cagr": 0.0102
+      }
     }
   },
   "21": {
@@ -2454,6 +2818,34 @@
     "insurance": {
       "insured": 0.9066,
       "uninsured": 0.0934
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6757,
+        "projected": 7540,
+        "cagr": 0.0158
+      },
+      "medianIncome": {
+        "current": 115521,
+        "projected": 130349,
+        "cagr": 0.0174
+      },
+      "medianHomeValue": {
+        "current": 404066,
+        "projected": 681151,
+        "cagr": 0.0775
+      },
+      "ownerOccupied": {
+        "current": 0.675,
+        "projected": 0.6664,
+        "cagr": -0.0018
+      },
+      "medianAge": {
+        "current": 43.6,
+        "projected": 43.3,
+        "cagr": -0.0009
+      }
     }
   },
   "22": {
@@ -2688,6 +3080,34 @@
     "insurance": {
       "insured": 0.687,
       "uninsured": 0.313
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 8848,
+        "projected": 179906,
+        "cagr": 0.5378
+      },
+      "medianIncome": {
+        "current": 63062,
+        "projected": 59048,
+        "cagr": -0.0094
+      },
+      "medianHomeValue": {
+        "current": 225872,
+        "projected": 267085,
+        "cagr": 0.0242
+      },
+      "ownerOccupied": {
+        "current": 0.1896,
+        "projected": 0.031,
+        "cagr": -0.228
+      },
+      "medianAge": {
+        "current": 30.6,
+        "projected": 26.0,
+        "cagr": -0.0231
+      }
     }
   },
   "24": {
@@ -2805,6 +3225,34 @@
     "insurance": {
       "insured": 0.896,
       "uninsured": 0.104
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3749,
+        "projected": 4988906,
+        "cagr": 1.7945
+      },
+      "medianIncome": {
+        "current": 69117,
+        "projected": 35948,
+        "cagr": -0.0892
+      },
+      "medianHomeValue": {
+        "current": 421749,
+        "projected": 295776,
+        "cagr": -0.0494
+      },
+      "ownerOccupied": {
+        "current": 0.1573,
+        "projected": 0.0442,
+        "cagr": -0.1658
+      },
+      "medianAge": {
+        "current": 33.0,
+        "projected": 25.2,
+        "cagr": -0.0377
+      }
     }
   },
   "25": {
@@ -3156,6 +3604,34 @@
     "insurance": {
       "insured": 0.7606,
       "uninsured": 0.2394
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4098,
+        "projected": 4244,
+        "cagr": 0.005
+      },
+      "medianIncome": {
+        "current": 96451,
+        "projected": 100335,
+        "cagr": 0.0057
+      },
+      "medianHomeValue": {
+        "current": 363309,
+        "projected": 870851,
+        "cagr": 0.133
+      },
+      "ownerOccupied": {
+        "current": 0.8018,
+        "projected": 0.7634,
+        "cagr": -0.007
+      },
+      "medianAge": {
+        "current": 27.5,
+        "projected": 20.3,
+        "cagr": -0.0421
+      }
     }
   },
   "28": {
@@ -3273,6 +3749,34 @@
     "insurance": {
       "insured": 0.9534,
       "uninsured": 0.0466
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5899,
+        "projected": 11016,
+        "cagr": 0.0933
+      },
+      "medianIncome": {
+        "current": 89072,
+        "projected": 107245,
+        "cagr": 0.0269
+      },
+      "medianHomeValue": {
+        "current": 416044,
+        "projected": 783924,
+        "cagr": 0.0947
+      },
+      "ownerOccupied": {
+        "current": 0.6102,
+        "projected": 1,
+        "cagr": 0.119
+      },
+      "medianAge": {
+        "current": 41.1,
+        "projected": 47.3,
+        "cagr": 0.0201
+      }
     }
   },
   "29": {
@@ -3507,6 +4011,34 @@
     "insurance": {
       "insured": 0.9236,
       "uninsured": 0.0764
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 9920,
+        "projected": 21050,
+        "cagr": 0.1135
+      },
+      "medianIncome": {
+        "current": 130031,
+        "projected": 165124,
+        "cagr": 0.0347
+      },
+      "medianHomeValue": {
+        "current": 460938,
+        "projected": 875324,
+        "cagr": 0.0959
+      },
+      "ownerOccupied": {
+        "current": 0.4288,
+        "projected": 0.1714,
+        "cagr": -0.1228
+      },
+      "medianAge": {
+        "current": 33.4,
+        "projected": 24.6,
+        "cagr": -0.043
+      }
     }
   },
   "31": {
@@ -3741,6 +4273,34 @@
     "insurance": {
       "insured": 0.9049,
       "uninsured": 0.0951
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2568,
+        "projected": 2316,
+        "cagr": -0.0147
+      },
+      "medianIncome": {
+        "current": 149773,
+        "projected": 265015,
+        "cagr": 0.0849
+      },
+      "medianHomeValue": {
+        "current": 378708,
+        "projected": 680636,
+        "cagr": 0.0874
+      },
+      "ownerOccupied": {
+        "current": 0.7946,
+        "projected": 0.7555,
+        "cagr": -0.0072
+      },
+      "medianAge": {
+        "current": 40.6,
+        "projected": 31.5,
+        "cagr": -0.0357
+      }
     }
   },
   "33": {
@@ -3858,6 +4418,34 @@
     "insurance": {
       "insured": 0.8773,
       "uninsured": 0.1227
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5101,
+        "projected": 22485,
+        "cagr": 0.236
+      },
+      "medianIncome": {
+        "current": 123099,
+        "projected": 191454,
+        "cagr": 0.0651
+      },
+      "medianHomeValue": {
+        "current": 402079,
+        "projected": 959990,
+        "cagr": 0.1324
+      },
+      "ownerOccupied": {
+        "current": 0.8966,
+        "projected": 0.8079,
+        "cagr": -0.0148
+      },
+      "medianAge": {
+        "current": 34.8,
+        "projected": 32.9,
+        "cagr": -0.0079
+      }
     }
   },
   "34": {
@@ -4092,6 +4680,34 @@
     "insurance": {
       "insured": 0.8636,
       "uninsured": 0.1364
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 1508,
+        "projected": 3044,
+        "cagr": 0.1056
+      },
+      "medianIncome": {
+        "current": 111177,
+        "projected": 206965,
+        "cagr": 0.0928
+      },
+      "medianHomeValue": {
+        "current": 376898,
+        "projected": 1040421,
+        "cagr": 0.1561
+      },
+      "ownerOccupied": {
+        "current": 0.9449,
+        "projected": 1,
+        "cagr": 0.0247
+      },
+      "medianAge": {
+        "current": 35.3,
+        "projected": 31.3,
+        "cagr": -0.0172
+      }
     }
   },
   "36": {
@@ -4209,6 +4825,34 @@
     "insurance": {
       "insured": 0.941,
       "uninsured": 0.059
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2230,
+        "projected": 2107,
+        "cagr": -0.0081
+      },
+      "medianIncome": {
+        "current": 244179,
+        "projected": 265016,
+        "cagr": 0.0118
+      },
+      "medianHomeValue": {
+        "current": 898668,
+        "projected": 1222787,
+        "cagr": 0.045
+      },
+      "ownerOccupied": {
+        "current": 0.9532,
+        "projected": 0.9067,
+        "cagr": -0.0071
+      },
+      "medianAge": {
+        "current": 54.8,
+        "projected": 57.6,
+        "cagr": 0.0071
+      }
     }
   },
   "37": {
@@ -4560,6 +5204,34 @@
     "insurance": {
       "insured": 0.8732,
       "uninsured": 0.1268
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4609,
+        "projected": 4280,
+        "cagr": -0.0105
+      },
+      "medianIncome": {
+        "current": 100259,
+        "projected": 170822,
+        "cagr": 0.0791
+      },
+      "medianHomeValue": {
+        "current": 295939,
+        "projected": 585708,
+        "cagr": 0.1024
+      },
+      "ownerOccupied": {
+        "current": 0.5711,
+        "projected": 0.8597,
+        "cagr": 0.0602
+      },
+      "medianAge": {
+        "current": 34.7,
+        "projected": 29.3,
+        "cagr": -0.0241
+      }
     }
   },
   "40": {
@@ -4677,6 +5349,34 @@
     "insurance": {
       "insured": 0.8994,
       "uninsured": 0.1006
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4160,
+        "projected": 2729,
+        "cagr": -0.0585
+      },
+      "medianIncome": {
+        "current": 89964,
+        "projected": 87526,
+        "cagr": -0.0039
+      },
+      "medianHomeValue": {
+        "current": 341555,
+        "projected": 563927,
+        "cagr": 0.0743
+      },
+      "ownerOccupied": {
+        "current": 0.882,
+        "projected": 1,
+        "cagr": 0.0652
+      },
+      "medianAge": {
+        "current": 53.8,
+        "projected": 93.0,
+        "cagr": 0.0813
+      }
     }
   },
   "41": {
@@ -4794,6 +5494,34 @@
     "insurance": {
       "insured": 0.9232,
       "uninsured": 0.0768
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4685,
+        "projected": 17976,
+        "cagr": 0.2118
+      },
+      "medianIncome": {
+        "current": 157189,
+        "projected": 189809,
+        "cagr": 0.0273
+      },
+      "medianHomeValue": {
+        "current": 538011,
+        "projected": 735693,
+        "cagr": 0.0457
+      },
+      "ownerOccupied": {
+        "current": 0.9576,
+        "projected": 0.9872,
+        "cagr": 0.0044
+      },
+      "medianAge": {
+        "current": 35.2,
+        "projected": 26.4,
+        "cagr": -0.0401
+      }
     }
   },
   "42": {
@@ -4911,6 +5639,34 @@
     "insurance": {
       "insured": 0.898,
       "uninsured": 0.102
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3517,
+        "projected": 4250,
+        "cagr": 0.0274
+      },
+      "medianIncome": {
+        "current": 120275,
+        "projected": 166206,
+        "cagr": 0.0473
+      },
+      "medianHomeValue": {
+        "current": 346800,
+        "projected": 663427,
+        "cagr": 0.0971
+      },
+      "ownerOccupied": {
+        "current": 0.9431,
+        "projected": 1,
+        "cagr": 0.0293
+      },
+      "medianAge": {
+        "current": 42.7,
+        "projected": 58.7,
+        "cagr": 0.0466
+      }
     }
   },
   "43": {
@@ -5028,6 +5784,34 @@
     "insurance": {
       "insured": 0.8586,
       "uninsured": 0.1414
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4869,
+        "projected": 4293,
+        "cagr": -0.0178
+      },
+      "medianIncome": {
+        "current": 76641,
+        "projected": 82377,
+        "cagr": 0.0104
+      },
+      "medianHomeValue": {
+        "current": 334732,
+        "projected": 738146,
+        "cagr": 0.1196
+      },
+      "ownerOccupied": {
+        "current": 0.5207,
+        "projected": 0.5012,
+        "cagr": -0.0054
+      },
+      "medianAge": {
+        "current": 33.5,
+        "projected": 34.7,
+        "cagr": 0.0048
+      }
     }
   },
   "44": {
@@ -5145,6 +5929,34 @@
     "insurance": {
       "insured": 0.7374,
       "uninsured": 0.2626
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2776,
+        "projected": 2085,
+        "cagr": -0.0401
+      },
+      "medianIncome": {
+        "current": 69710,
+        "projected": 119244,
+        "cagr": 0.0797
+      },
+      "medianHomeValue": {
+        "current": 264655,
+        "projected": 591506,
+        "cagr": 0.1218
+      },
+      "ownerOccupied": {
+        "current": 0.4034,
+        "projected": 0.5069,
+        "cagr": 0.0332
+      },
+      "medianAge": {
+        "current": 29.1,
+        "projected": 20.4,
+        "cagr": -0.0495
+      }
     }
   },
   "45": {
@@ -5262,6 +6074,34 @@
     "insurance": {
       "insured": 0.9671,
       "uninsured": 0.0329
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4743,
+        "projected": 26456202,
+        "cagr": 2.4293
+      },
+      "medianIncome": {
+        "current": 97145,
+        "projected": 283927,
+        "cagr": 0.1656
+      },
+      "medianHomeValue": {
+        "current": 449048,
+        "projected": 1635121,
+        "cagr": 0.2028
+      },
+      "ownerOccupied": {
+        "current": 0.4665,
+        "projected": 0.6182,
+        "cagr": 0.041
+      },
+      "medianAge": {
+        "current": 51.6,
+        "projected": 61.2,
+        "cagr": 0.0246
+      }
     }
   },
   "46": {
@@ -5379,6 +6219,34 @@
     "insurance": {
       "insured": 0.6062,
       "uninsured": 0.3938
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7116,
+        "projected": 9588,
+        "cagr": 0.0435
+      },
+      "medianIncome": {
+        "current": 65185,
+        "projected": 116951,
+        "cagr": 0.0871
+      },
+      "medianHomeValue": {
+        "current": 277646,
+        "projected": 695161,
+        "cagr": 0.1401
+      },
+      "ownerOccupied": {
+        "current": 0.415,
+        "projected": 0.4777,
+        "cagr": 0.0203
+      },
+      "medianAge": {
+        "current": 37.3,
+        "projected": 45.6,
+        "cagr": 0.0292
+      }
     }
   },
   "47": {
@@ -5496,6 +6364,34 @@
     "insurance": {
       "insured": 0.792,
       "uninsured": 0.208
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3331,
+        "projected": 3299,
+        "cagr": -0.0014
+      },
+      "medianIncome": {
+        "current": 102396,
+        "projected": 130783,
+        "cagr": 0.0356
+      },
+      "medianHomeValue": {
+        "current": 338103,
+        "projected": 846775,
+        "cagr": 0.1401
+      },
+      "ownerOccupied": {
+        "current": 0.8345,
+        "projected": 0.7553,
+        "cagr": -0.0141
+      },
+      "medianAge": {
+        "current": 39.1,
+        "projected": 33.4,
+        "cagr": -0.0224
+      }
     }
   },
   "48": {
@@ -5613,6 +6509,24 @@
     "insurance": {
       "insured": 0.9144,
       "uninsured": 0.0856
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6302,
+        "projected": 106988330,
+        "cagr": 3.0204
+      },
+      "medianIncome": {
+        "current": 103282,
+        "projected": 183967,
+        "cagr": 0.086
+      },
+      "medianAge": {
+        "current": 38.0,
+        "projected": 56.6,
+        "cagr": 0.0585
+      }
     }
   },
   "49": {
@@ -5730,6 +6644,34 @@
     "insurance": {
       "insured": 0.9289,
       "uninsured": 0.0711
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2335,
+        "projected": 3121,
+        "cagr": 0.0423
+      },
+      "medianIncome": {
+        "current": 72595,
+        "projected": 71050,
+        "cagr": -0.0031
+      },
+      "medianHomeValue": {
+        "current": 384645,
+        "projected": 778407,
+        "cagr": 0.1059
+      },
+      "ownerOccupied": {
+        "current": 0.4594,
+        "projected": 0.2048,
+        "cagr": -0.109
+      },
+      "medianAge": {
+        "current": 57.9,
+        "projected": 64.8,
+        "cagr": 0.0163
+      }
     }
   },
   "50": {
@@ -5847,6 +6789,34 @@
     "insurance": {
       "insured": 0.8465,
       "uninsured": 0.1535
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7335,
+        "projected": 7968,
+        "cagr": 0.0119
+      },
+      "medianIncome": {
+        "current": 95319,
+        "projected": 120029,
+        "cagr": 0.0335
+      },
+      "medianHomeValue": {
+        "current": 403973,
+        "projected": 1112932,
+        "cagr": 0.1558
+      },
+      "ownerOccupied": {
+        "current": 0.3896,
+        "projected": 0.2627,
+        "cagr": -0.0547
+      },
+      "medianAge": {
+        "current": 35.2,
+        "projected": 34.5,
+        "cagr": -0.0028
+      }
     }
   },
   "51": {
@@ -5964,6 +6934,34 @@
     "insurance": {
       "insured": 0.6999,
       "uninsured": 0.3001
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4044,
+        "projected": 3875,
+        "cagr": -0.0061
+      },
+      "medianIncome": {
+        "current": 62400,
+        "projected": 76396,
+        "cagr": 0.0293
+      },
+      "medianHomeValue": {
+        "current": 281019,
+        "projected": 741639,
+        "cagr": 0.1487
+      },
+      "ownerOccupied": {
+        "current": 0.5519,
+        "projected": 0.4194,
+        "cagr": -0.0385
+      },
+      "medianAge": {
+        "current": 36.1,
+        "projected": 40.1,
+        "cagr": 0.0151
+      }
     }
   },
   "52": {
@@ -6081,6 +7079,34 @@
     "insurance": {
       "insured": 0.8371,
       "uninsured": 0.1629
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6802,
+        "projected": 11182,
+        "cagr": 0.0736
+      },
+      "medianIncome": {
+        "current": 108750,
+        "projected": 281842,
+        "cagr": 0.1457
+      },
+      "medianHomeValue": {
+        "current": 354681,
+        "projected": 1010686,
+        "cagr": 0.1614
+      },
+      "ownerOccupied": {
+        "current": 0.5112,
+        "projected": 0.8726,
+        "cagr": 0.0794
+      },
+      "medianAge": {
+        "current": 34.3,
+        "projected": 39.0,
+        "cagr": 0.0185
+      }
     }
   },
   "53": {
@@ -6198,6 +7224,34 @@
     "insurance": {
       "insured": 0.9467,
       "uninsured": 0.0533
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3597,
+        "projected": 6547,
+        "cagr": 0.0893
+      },
+      "medianIncome": {
+        "current": 104665,
+        "projected": 117677,
+        "cagr": 0.0169
+      },
+      "medianHomeValue": {
+        "current": 360519,
+        "projected": 521034,
+        "cagr": 0.054
+      },
+      "ownerOccupied": {
+        "current": 0.895,
+        "projected": 0.8567,
+        "cagr": -0.0062
+      },
+      "medianAge": {
+        "current": 37.6,
+        "projected": 24.8,
+        "cagr": -0.0577
+      }
     }
   },
   "54": {
@@ -6315,6 +7369,34 @@
     "insurance": {
       "insured": 0.7203,
       "uninsured": 0.2797
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5992,
+        "projected": 6744,
+        "cagr": 0.017
+      },
+      "medianIncome": {
+        "current": 84323,
+        "projected": 86409,
+        "cagr": 0.0035
+      },
+      "medianHomeValue": {
+        "current": 303963,
+        "projected": 648427,
+        "cagr": 0.1143
+      },
+      "ownerOccupied": {
+        "current": 0.4059,
+        "projected": 0.1659,
+        "cagr": -0.12
+      },
+      "medianAge": {
+        "current": 37.8,
+        "projected": 41.1,
+        "cagr": 0.0121
+      }
     }
   },
   "55": {
@@ -6432,6 +7514,34 @@
     "insurance": {
       "insured": 0.9053,
       "uninsured": 0.0947
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 9753,
+        "projected": 87910,
+        "cagr": 0.369
+      },
+      "medianIncome": {
+        "current": 75102,
+        "projected": 84384,
+        "cagr": 0.0168
+      },
+      "medianHomeValue": {
+        "current": 506544,
+        "projected": 1477939,
+        "cagr": 0.1653
+      },
+      "ownerOccupied": {
+        "current": 0.2141,
+        "projected": 1,
+        "cagr": 0.6995
+      },
+      "medianAge": {
+        "current": 27.9,
+        "projected": 27.5,
+        "cagr": -0.0021
+      }
     }
   },
   "56": {
@@ -6666,6 +7776,34 @@
     "insurance": {
       "insured": 0.8974,
       "uninsured": 0.1026
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 8606,
+        "projected": 21692682,
+        "cagr": 2.0615
+      },
+      "medianIncome": {
+        "current": 109304,
+        "projected": 210765,
+        "cagr": 0.0983
+      },
+      "medianHomeValue": {
+        "current": 342457,
+        "projected": 682687,
+        "cagr": 0.1036
+      },
+      "ownerOccupied": {
+        "current": 0.6269,
+        "projected": 1,
+        "cagr": 0.0751
+      },
+      "medianAge": {
+        "current": 35.8,
+        "projected": 44.8,
+        "cagr": 0.0326
+      }
     }
   },
   "58": {
@@ -6783,6 +7921,34 @@
     "insurance": {
       "insured": 0.8723,
       "uninsured": 0.1277
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5541,
+        "projected": 4914,
+        "cagr": -0.017
+      },
+      "medianIncome": {
+        "current": 94348,
+        "projected": 154187,
+        "cagr": 0.0727
+      },
+      "medianHomeValue": {
+        "current": 472704,
+        "projected": 828344,
+        "cagr": 0.0834
+      },
+      "ownerOccupied": {
+        "current": 0.3425,
+        "projected": 0.3133,
+        "cagr": -0.0126
+      },
+      "medianAge": {
+        "current": 43.4,
+        "projected": 48.7,
+        "cagr": 0.0164
+      }
     }
   },
   "59": {
@@ -6900,6 +8066,34 @@
     "insurance": {
       "insured": 0.9198,
       "uninsured": 0.0802
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6238,
+        "projected": 9608,
+        "cagr": 0.0636
+      },
+      "medianIncome": {
+        "current": 133044,
+        "projected": 210651,
+        "cagr": 0.0678
+      },
+      "medianHomeValue": {
+        "current": 372598,
+        "projected": 776737,
+        "cagr": 0.1106
+      },
+      "ownerOccupied": {
+        "current": 0.8988,
+        "projected": 0.9569,
+        "cagr": 0.009
+      },
+      "medianAge": {
+        "current": 33.2,
+        "projected": 27.9,
+        "cagr": -0.0246
+      }
     }
   },
   "60": {
@@ -7017,6 +8211,34 @@
     "insurance": {
       "insured": 0.9495,
       "uninsured": 0.0505
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6046,
+        "projected": 19536,
+        "cagr": 0.1824
+      },
+      "medianIncome": {
+        "current": 195405,
+        "projected": 358194,
+        "cagr": 0.0904
+      },
+      "medianHomeValue": {
+        "current": 581338,
+        "projected": 1393728,
+        "cagr": 0.1331
+      },
+      "ownerOccupied": {
+        "current": 0.9613,
+        "projected": 0.9905,
+        "cagr": 0.0043
+      },
+      "medianAge": {
+        "current": 41.2,
+        "projected": 42.1,
+        "cagr": 0.0029
+      }
     }
   },
   "61": {
@@ -7251,6 +8473,34 @@
     "insurance": {
       "insured": 0.8992,
       "uninsured": 0.1008
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4028,
+        "projected": 4364,
+        "cagr": 0.0115
+      },
+      "medianIncome": {
+        "current": 129797,
+        "projected": 261448,
+        "cagr": 0.1052
+      },
+      "medianHomeValue": {
+        "current": 365075,
+        "projected": 846182,
+        "cagr": 0.1276
+      },
+      "ownerOccupied": {
+        "current": 0.7925,
+        "projected": 0.7865,
+        "cagr": -0.0011
+      },
+      "medianAge": {
+        "current": 43.2,
+        "projected": 44.8,
+        "cagr": 0.0052
+      }
     }
   },
   "63": {
@@ -7368,6 +8618,34 @@
     "insurance": {
       "insured": 0.9808,
       "uninsured": 0.0192
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3189,
+        "projected": 4260,
+        "cagr": 0.0422
+      },
+      "medianIncome": {
+        "current": 176795,
+        "projected": 350946,
+        "cagr": 0.1029
+      },
+      "medianHomeValue": {
+        "current": 422587,
+        "projected": 782071,
+        "cagr": 0.0919
+      },
+      "ownerOccupied": {
+        "current": 0.9748,
+        "projected": 1,
+        "cagr": 0.0081
+      },
+      "medianAge": {
+        "current": 44.1,
+        "projected": 37.1,
+        "cagr": -0.0244
+      }
     }
   },
   "64": {
@@ -7485,6 +8763,34 @@
     "insurance": {
       "insured": 0.9438,
       "uninsured": 0.0562
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4389,
+        "projected": 9444,
+        "cagr": 0.1157
+      },
+      "medianIncome": {
+        "current": 102350,
+        "projected": 76268,
+        "cagr": -0.0412
+      },
+      "medianHomeValue": {
+        "current": 485749,
+        "projected": 894034,
+        "cagr": 0.0911
+      },
+      "ownerOccupied": {
+        "current": 0.3891,
+        "projected": 0.1589,
+        "cagr": -0.1201
+      },
+      "medianAge": {
+        "current": 38.8,
+        "projected": 36.2,
+        "cagr": -0.01
+      }
     }
   },
   "65": {
@@ -7602,6 +8908,34 @@
     "insurance": {
       "insured": 0.8129,
       "uninsured": 0.1871
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 1568,
+        "projected": 1035,
+        "cagr": -0.0576
+      },
+      "medianIncome": {
+        "current": 91429,
+        "projected": 149205,
+        "cagr": 0.0725
+      },
+      "medianHomeValue": {
+        "current": 350700,
+        "projected": 706271,
+        "cagr": 0.1052
+      },
+      "ownerOccupied": {
+        "current": 0.6259,
+        "projected": 0.6226,
+        "cagr": -0.0008
+      },
+      "medianAge": {
+        "current": 36.7,
+        "projected": 36.3,
+        "cagr": -0.0016
+      }
     }
   },
   "66": {
@@ -7719,6 +9053,34 @@
     "insurance": {
       "insured": 0.8687,
       "uninsured": 0.1313
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3457,
+        "projected": 3073,
+        "cagr": -0.0167
+      },
+      "medianIncome": {
+        "current": 107077,
+        "projected": 189531,
+        "cagr": 0.085
+      },
+      "medianHomeValue": {
+        "current": 341641,
+        "projected": 616943,
+        "cagr": 0.0881
+      },
+      "ownerOccupied": {
+        "current": 0.7556,
+        "projected": 1,
+        "cagr": 0.0581
+      },
+      "medianAge": {
+        "current": 34.0,
+        "projected": 31.9,
+        "cagr": -0.0092
+      }
     }
   },
   "67": {
@@ -7836,6 +9198,34 @@
     "insurance": {
       "insured": 0.9133,
       "uninsured": 0.0867
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4244,
+        "projected": 8528,
+        "cagr": 0.1048
+      },
+      "medianIncome": {
+        "current": 83742,
+        "projected": 91045,
+        "cagr": 0.012
+      },
+      "medianHomeValue": {
+        "current": 426736,
+        "projected": 870814,
+        "cagr": 0.1073
+      },
+      "ownerOccupied": {
+        "current": 0.354,
+        "projected": 0.1653,
+        "cagr": -0.1031
+      },
+      "medianAge": {
+        "current": 42.4,
+        "projected": 31.4,
+        "cagr": -0.0422
+      }
     }
   },
   "68": {
@@ -7953,6 +9343,34 @@
     "insurance": {
       "insured": 0.7528,
       "uninsured": 0.2472
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3906,
+        "projected": 417020470,
+        "cagr": 4.2281
+      },
+      "medianIncome": {
+        "current": 78995,
+        "projected": 239560,
+        "cagr": 0.1717
+      },
+      "medianHomeValue": {
+        "current": 299705,
+        "projected": 511094,
+        "cagr": 0.0792
+      },
+      "ownerOccupied": {
+        "current": 0.6616,
+        "projected": 1,
+        "cagr": 0.2122
+      },
+      "medianAge": {
+        "current": 31.5,
+        "projected": 47.5,
+        "cagr": 0.0603
+      }
     }
   },
   "69": {
@@ -8070,6 +9488,34 @@
     "insurance": {
       "insured": 0.9186,
       "uninsured": 0.0814
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4967,
+        "projected": 4992,
+        "cagr": 0.0007
+      },
+      "medianIncome": {
+        "current": 120740,
+        "projected": 152258,
+        "cagr": 0.0337
+      },
+      "medianHomeValue": {
+        "current": 420179,
+        "projected": 940747,
+        "cagr": 0.122
+      },
+      "ownerOccupied": {
+        "current": 0.788,
+        "projected": 0.9088,
+        "cagr": 0.0206
+      },
+      "medianAge": {
+        "current": 46.6,
+        "projected": 47.6,
+        "cagr": 0.003
+      }
     }
   },
   "70": {
@@ -8187,6 +9633,34 @@
     "insurance": {
       "insured": 0.8808,
       "uninsured": 0.1192
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2769,
+        "projected": 2460,
+        "cagr": -0.0167
+      },
+      "medianIncome": {
+        "current": 115670,
+        "projected": 130599,
+        "cagr": 0.0175
+      },
+      "medianHomeValue": {
+        "current": 397176,
+        "projected": 772269,
+        "cagr": 0.0997
+      },
+      "ownerOccupied": {
+        "current": 0.7861,
+        "projected": 0.7687,
+        "cagr": -0.0032
+      },
+      "medianAge": {
+        "current": 44.4,
+        "projected": 47.4,
+        "cagr": 0.0093
+      }
     }
   },
   "71": {
@@ -8304,6 +9778,34 @@
     "insurance": {
       "insured": 0.9111,
       "uninsured": 0.0889
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2283,
+        "projected": 2119,
+        "cagr": -0.0106
+      },
+      "medianIncome": {
+        "current": 112200,
+        "projected": 168177,
+        "cagr": 0.0595
+      },
+      "medianHomeValue": {
+        "current": 434455,
+        "projected": 869017,
+        "cagr": 0.1041
+      },
+      "ownerOccupied": {
+        "current": 0.7269,
+        "projected": 0.7518,
+        "cagr": 0.0048
+      },
+      "medianAge": {
+        "current": 41.9,
+        "projected": 32.8,
+        "cagr": -0.0343
+      }
     }
   },
   "72": {
@@ -8421,6 +9923,34 @@
     "insurance": {
       "insured": 0.8761,
       "uninsured": 0.1239
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2545,
+        "projected": 4082,
+        "cagr": 0.0698
+      },
+      "medianIncome": {
+        "current": 89833,
+        "projected": 90577,
+        "cagr": 0.0012
+      },
+      "medianHomeValue": {
+        "current": 394505,
+        "projected": 749129,
+        "cagr": 0.0959
+      },
+      "ownerOccupied": {
+        "current": 0.4787,
+        "projected": 0.3133,
+        "cagr": -0.0588
+      },
+      "medianAge": {
+        "current": 43.2,
+        "projected": 51.1,
+        "cagr": 0.0244
+      }
     }
   },
   "73": {
@@ -8538,6 +10068,34 @@
     "insurance": {
       "insured": 0.8865,
       "uninsured": 0.1135
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2657,
+        "projected": 2788,
+        "cagr": 0.0069
+      },
+      "medianIncome": {
+        "current": 79267,
+        "projected": 60360,
+        "cagr": -0.0382
+      },
+      "medianHomeValue": {
+        "current": 525476,
+        "projected": 846732,
+        "cagr": 0.0705
+      },
+      "ownerOccupied": {
+        "current": 0.3067,
+        "projected": 0.2931,
+        "cagr": -0.0065
+      },
+      "medianAge": {
+        "current": 39.7,
+        "projected": 44.7,
+        "cagr": 0.0169
+      }
     }
   },
   "74": {
@@ -8655,6 +10213,34 @@
     "insurance": {
       "insured": 0.9045,
       "uninsured": 0.0955
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2460,
+        "projected": 4083,
+        "cagr": 0.0751
+      },
+      "medianIncome": {
+        "current": 95139,
+        "projected": 140798,
+        "cagr": 0.0576
+      },
+      "medianHomeValue": {
+        "current": 527048,
+        "projected": 990695,
+        "cagr": 0.0943
+      },
+      "ownerOccupied": {
+        "current": 0.6054,
+        "projected": 0.7209,
+        "cagr": 0.0253
+      },
+      "medianAge": {
+        "current": 46.4,
+        "projected": 66.7,
+        "cagr": 0.0532
+      }
     }
   },
   "75": {
@@ -8772,6 +10358,34 @@
     "insurance": {
       "insured": 0.9581,
       "uninsured": 0.0419
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2869,
+        "projected": 3905,
+        "cagr": 0.045
+      },
+      "medianIncome": {
+        "current": 135969,
+        "projected": 200805,
+        "cagr": 0.0573
+      },
+      "medianHomeValue": {
+        "current": 758919,
+        "projected": 1431565,
+        "cagr": 0.0949
+      },
+      "ownerOccupied": {
+        "current": 0.3784,
+        "projected": 0.2005,
+        "cagr": -0.0868
+      },
+      "medianAge": {
+        "current": 53.1,
+        "projected": 53.5,
+        "cagr": 0.0011
+      }
     }
   },
   "76": {
@@ -8889,6 +10503,34 @@
     "insurance": {
       "insured": 0.9149,
       "uninsured": 0.0851
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6636,
+        "projected": 35599,
+        "cagr": 0.2712
+      },
+      "medianIncome": {
+        "current": 96475,
+        "projected": 110441,
+        "cagr": 0.0195
+      },
+      "medianHomeValue": {
+        "current": 454239,
+        "projected": 1069269,
+        "cagr": 0.1301
+      },
+      "ownerOccupied": {
+        "current": 0.6321,
+        "projected": 0.5101,
+        "cagr": -0.0302
+      },
+      "medianAge": {
+        "current": 40.5,
+        "projected": 33.4,
+        "cagr": -0.0273
+      }
     }
   },
   "77": {
@@ -9006,6 +10648,34 @@
     "insurance": {
       "insured": 0.9303,
       "uninsured": 0.0697
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5457,
+        "projected": 5541,
+        "cagr": 0.0022
+      },
+      "medianIncome": {
+        "current": 112327,
+        "projected": 112978,
+        "cagr": 0.0008
+      },
+      "medianHomeValue": {
+        "current": 434361,
+        "projected": 747435,
+        "cagr": 0.0806
+      },
+      "ownerOccupied": {
+        "current": 0.5825,
+        "projected": 0.52,
+        "cagr": -0.0161
+      },
+      "medianAge": {
+        "current": 39.5,
+        "projected": 42.3,
+        "cagr": 0.0099
+      }
     }
   },
   "78": {
@@ -9240,6 +10910,34 @@
     "insurance": {
       "insured": 0.816,
       "uninsured": 0.184
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5693,
+        "projected": 3404,
+        "cagr": -0.0708
+      },
+      "medianIncome": {
+        "current": 70793,
+        "projected": 105221,
+        "cagr": 0.0582
+      },
+      "medianHomeValue": {
+        "current": 508328,
+        "projected": 967730,
+        "cagr": 0.0963
+      },
+      "ownerOccupied": {
+        "current": 0.335,
+        "projected": 0.5038,
+        "cagr": 0.06
+      },
+      "medianAge": {
+        "current": 35.3,
+        "projected": 40.7,
+        "cagr": 0.0205
+      }
     }
   },
   "80": {
@@ -9357,6 +11055,34 @@
     "insurance": {
       "insured": 0.9467,
       "uninsured": 0.0533
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4959,
+        "projected": 9762344,
+        "cagr": 1.9553
+      },
+      "medianIncome": {
+        "current": 112209,
+        "projected": 84554,
+        "cagr": -0.0396
+      },
+      "medianHomeValue": {
+        "current": 345984,
+        "projected": 500710,
+        "cagr": 0.0542
+      },
+      "ownerOccupied": {
+        "current": 0.809,
+        "projected": 0.6807,
+        "cagr": -0.0244
+      },
+      "medianAge": {
+        "current": 38.4,
+        "projected": 40.8,
+        "cagr": 0.0085
+      }
     }
   },
   "81": {
@@ -9474,6 +11200,34 @@
     "insurance": {
       "insured": 0.8832,
       "uninsured": 0.1168
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4067,
+        "projected": 4817,
+        "cagr": 0.0245
+      },
+      "medianIncome": {
+        "current": 80675,
+        "projected": 60172,
+        "cagr": -0.041
+      },
+      "medianHomeValue": {
+        "current": 368266,
+        "projected": 597949,
+        "cagr": 0.0717
+      },
+      "ownerOccupied": {
+        "current": 0.3897,
+        "projected": 0.303,
+        "cagr": -0.0353
+      },
+      "medianAge": {
+        "current": 40.3,
+        "projected": 43.8,
+        "cagr": 0.0118
+      }
     }
   },
   "82": {
@@ -9825,6 +11579,34 @@
     "insurance": {
       "insured": 0.9095,
       "uninsured": 0.0905
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3624,
+        "projected": 3427,
+        "cagr": -0.008
+      },
+      "medianIncome": {
+        "current": 102997,
+        "projected": 115182,
+        "cagr": 0.0161
+      },
+      "medianHomeValue": {
+        "current": 486978,
+        "projected": 736653,
+        "cagr": 0.0609
+      },
+      "ownerOccupied": {
+        "current": 0.5438,
+        "projected": 0.6074,
+        "cagr": 0.0159
+      },
+      "medianAge": {
+        "current": 43.2,
+        "projected": 45.2,
+        "cagr": 0.0066
+      }
     }
   },
   "85": {
@@ -9942,6 +11724,34 @@
     "insurance": {
       "insured": 0.9009,
       "uninsured": 0.0991
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4126,
+        "projected": 2310,
+        "cagr": -0.0796
+      },
+      "medianIncome": {
+        "current": 112353,
+        "projected": 146873,
+        "cagr": 0.039
+      },
+      "medianHomeValue": {
+        "current": 356615,
+        "projected": 705742,
+        "cagr": 0.1024
+      },
+      "ownerOccupied": {
+        "current": 0.8037,
+        "projected": 1,
+        "cagr": 0.032
+      },
+      "medianAge": {
+        "current": 42.2,
+        "projected": 51.3,
+        "cagr": 0.0283
+      }
     }
   },
   "86": {
@@ -10176,6 +11986,34 @@
     "insurance": {
       "insured": 0.9575,
       "uninsured": 0.0425
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4756,
+        "projected": 8566,
+        "cagr": 0.0877
+      },
+      "medianIncome": {
+        "current": 227115,
+        "projected": 349188,
+        "cagr": 0.0634
+      },
+      "medianHomeValue": {
+        "current": 681710,
+        "projected": 1026719,
+        "cagr": 0.0602
+      },
+      "ownerOccupied": {
+        "current": 0.9283,
+        "projected": 0.9436,
+        "cagr": 0.0023
+      },
+      "medianAge": {
+        "current": 39.7,
+        "projected": 47.2,
+        "cagr": 0.0249
+      }
     }
   },
   "88": {
@@ -10293,6 +12131,34 @@
     "insurance": {
       "insured": 0.786,
       "uninsured": 0.214
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5530,
+        "projected": 19804886,
+        "cagr": 2.219
+      },
+      "medianIncome": {
+        "current": 67550,
+        "projected": 21052,
+        "cagr": -0.1534
+      },
+      "medianHomeValue": {
+        "current": 873244,
+        "projected": 1441373,
+        "cagr": 0.0742
+      },
+      "ownerOccupied": {
+        "current": 0.0522,
+        "projected": 0.0014,
+        "cagr": -0.4015
+      },
+      "medianAge": {
+        "current": 33.0,
+        "projected": 21.8,
+        "cagr": -0.0576
+      }
     }
   },
   "89": {
@@ -10410,6 +12276,34 @@
     "insurance": {
       "insured": 0.9547,
       "uninsured": 0.0453
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4203,
+        "projected": 4464,
+        "cagr": 0.0086
+      },
+      "medianIncome": {
+        "current": 189691,
+        "projected": 265273,
+        "cagr": 0.0491
+      },
+      "medianHomeValue": {
+        "current": 557112,
+        "projected": 903402,
+        "cagr": 0.0715
+      },
+      "ownerOccupied": {
+        "current": 0.8195,
+        "projected": 0.6563,
+        "cagr": -0.0312
+      },
+      "medianAge": {
+        "current": 45.5,
+        "projected": 44.9,
+        "cagr": -0.0017
+      }
     }
   },
   "90": {
@@ -10527,6 +12421,34 @@
     "insurance": {
       "insured": 0.96,
       "uninsured": 0.04
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4432,
+        "projected": 6233377,
+        "cagr": 1.8166
+      },
+      "medianIncome": {
+        "current": 225138,
+        "projected": 477776,
+        "cagr": 0.1135
+      },
+      "medianHomeValue": {
+        "current": 999247,
+        "projected": 2204550,
+        "cagr": 0.1197
+      },
+      "ownerOccupied": {
+        "current": 0.8355,
+        "projected": 1,
+        "cagr": 0.0795
+      },
+      "medianAge": {
+        "current": 48.8,
+        "projected": 67.0,
+        "cagr": 0.0464
+      }
     }
   },
   "91": {
@@ -10644,6 +12566,34 @@
     "insurance": {
       "insured": 0.9256,
       "uninsured": 0.0744
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4269,
+        "projected": 4497,
+        "cagr": 0.0075
+      },
+      "medianIncome": {
+        "current": 104745,
+        "projected": 84917,
+        "cagr": -0.0295
+      },
+      "medianHomeValue": {
+        "current": 383220,
+        "projected": 647907,
+        "cagr": 0.0779
+      },
+      "ownerOccupied": {
+        "current": 0.7754,
+        "projected": 0.8291,
+        "cagr": 0.0096
+      },
+      "medianAge": {
+        "current": 37.0,
+        "projected": 33.6,
+        "cagr": -0.0135
+      }
     }
   },
   "92": {
@@ -10761,6 +12711,34 @@
     "insurance": {
       "insured": 0.797,
       "uninsured": 0.203
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5376,
+        "projected": 897184,
+        "cagr": 1.0773
+      },
+      "medianIncome": {
+        "current": 84367,
+        "projected": 43744,
+        "cagr": -0.0896
+      },
+      "medianHomeValue": {
+        "current": 391916,
+        "projected": 165484,
+        "cagr": -0.1159
+      },
+      "ownerOccupied": {
+        "current": 0.3129,
+        "projected": 0.1489,
+        "cagr": -0.1006
+      },
+      "medianAge": {
+        "current": 35.5,
+        "projected": 36.2,
+        "cagr": 0.0028
+      }
     }
   },
   "93": {
@@ -11112,6 +13090,34 @@
     "insurance": {
       "insured": 0.9357,
       "uninsured": 0.0643
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4281,
+        "projected": 61783,
+        "cagr": 0.4643
+      },
+      "medianIncome": {
+        "current": 120051,
+        "projected": 102092,
+        "cagr": -0.0229
+      },
+      "medianHomeValue": {
+        "current": 363444,
+        "projected": 529669,
+        "cagr": 0.0553
+      },
+      "ownerOccupied": {
+        "current": 0.887,
+        "projected": 0.8405,
+        "cagr": -0.0077
+      },
+      "medianAge": {
+        "current": 35.0,
+        "projected": 31.5,
+        "cagr": -0.0148
+      }
     }
   },
   "96": {
@@ -11229,6 +13235,34 @@
     "insurance": {
       "insured": 0.8447,
       "uninsured": 0.1553
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3822,
+        "projected": 20362,
+        "cagr": 0.27
+      },
+      "medianIncome": {
+        "current": 81067,
+        "projected": 75709,
+        "cagr": -0.0097
+      },
+      "medianHomeValue": {
+        "current": 265078,
+        "projected": 348768,
+        "cagr": 0.04
+      },
+      "ownerOccupied": {
+        "current": 0.5144,
+        "projected": 0.417,
+        "cagr": -0.0295
+      },
+      "medianAge": {
+        "current": 31.2,
+        "projected": 33.1,
+        "cagr": 0.0085
+      }
     }
   },
   "97": {
@@ -11463,6 +13497,34 @@
     "insurance": {
       "insured": 0.8167,
       "uninsured": 0.1833
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2812,
+        "projected": 6602175,
+        "cagr": 2.0306
+      },
+      "medianIncome": {
+        "current": 45559,
+        "projected": 28923,
+        "cagr": -0.0628
+      },
+      "medianHomeValue": {
+        "current": 296077,
+        "projected": 428943,
+        "cagr": 0.0544
+      },
+      "ownerOccupied": {
+        "current": 0.3067,
+        "projected": 0.2029,
+        "cagr": -0.0573
+      },
+      "medianAge": {
+        "current": 42.8,
+        "projected": 67.5,
+        "cagr": 0.0673
+      }
     }
   },
   "99": {
@@ -11580,6 +13642,34 @@
     "insurance": {
       "insured": 0.936,
       "uninsured": 0.064
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 674,
+        "projected": 481,
+        "cagr": -0.0471
+      },
+      "medianIncome": {
+        "current": 71196,
+        "projected": 50059,
+        "cagr": -0.0491
+      },
+      "medianHomeValue": {
+        "current": 346400,
+        "projected": 690095,
+        "cagr": 0.1035
+      },
+      "ownerOccupied": {
+        "current": 0.374,
+        "projected": 0.1846,
+        "cagr": -0.096
+      },
+      "medianAge": {
+        "current": 37.1,
+        "projected": 46.9,
+        "cagr": 0.0339
+      }
     }
   },
   "100": {
@@ -11814,6 +13904,34 @@
     "insurance": {
       "insured": 0.9357,
       "uninsured": 0.0643
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7092,
+        "projected": 16735,
+        "cagr": 0.1305
+      },
+      "medianIncome": {
+        "current": 141353,
+        "projected": 154768,
+        "cagr": 0.013
+      },
+      "medianHomeValue": {
+        "current": 440683,
+        "projected": 791933,
+        "cagr": 0.0873
+      },
+      "ownerOccupied": {
+        "current": 0.5409,
+        "projected": 0.2651,
+        "cagr": -0.0969
+      },
+      "medianAge": {
+        "current": 37.5,
+        "projected": 33.6,
+        "cagr": -0.0158
+      }
     }
   },
   "102": {
@@ -12048,6 +14166,34 @@
     "insurance": {
       "insured": 0.7957,
       "uninsured": 0.2043
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2827,
+        "projected": 27561189,
+        "cagr": 2.7141
+      },
+      "medianIncome": {
+        "current": 75336,
+        "projected": 80846,
+        "cagr": 0.0101
+      },
+      "medianHomeValue": {
+        "current": 274110,
+        "projected": 552716,
+        "cagr": 0.1054
+      },
+      "ownerOccupied": {
+        "current": 0.561,
+        "projected": 0.3247,
+        "cagr": -0.0751
+      },
+      "medianAge": {
+        "current": 35.4,
+        "projected": 36.7,
+        "cagr": 0.0052
+      }
     }
   },
   "104": {
@@ -12165,6 +14311,34 @@
     "insurance": {
       "insured": 0.8538,
       "uninsured": 0.1462
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5362,
+        "projected": 12826,
+        "cagr": 0.1327
+      },
+      "medianIncome": {
+        "current": 48251,
+        "projected": 20500,
+        "cagr": -0.1151
+      },
+      "medianHomeValue": {
+        "current": 856057,
+        "projected": 1585784,
+        "cagr": 0.0921
+      },
+      "ownerOccupied": {
+        "current": 0.1053,
+        "projected": 0.0453,
+        "cagr": -0.1134
+      },
+      "medianAge": {
+        "current": 36.0,
+        "projected": 45.0,
+        "cagr": 0.0324
+      }
     }
   },
   "105": {
@@ -12282,6 +14456,34 @@
     "insurance": {
       "insured": 0.9502,
       "uninsured": 0.0498
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 32,
+        "projected": 0,
+        "cagr": -0.6128
+      },
+      "medianIncome": {
+        "current": 117409,
+        "projected": 362777,
+        "cagr": 0.1749
+      },
+      "medianHomeValue": {
+        "current": 640900,
+        "projected": 2479703,
+        "cagr": 0.2132
+      },
+      "ownerOccupied": {
+        "current": 0.2522,
+        "projected": 0.1693,
+        "cagr": -0.0553
+      },
+      "medianAge": {
+        "current": 55.5,
+        "projected": 95.7,
+        "cagr": 0.081
+      }
     }
   },
   "106": {
@@ -12516,6 +14718,34 @@
     "insurance": {
       "insured": 0.9118,
       "uninsured": 0.0882
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4803,
+        "projected": 5255,
+        "cagr": 0.0129
+      },
+      "medianIncome": {
+        "current": 158394,
+        "projected": 202824,
+        "cagr": 0.036
+      },
+      "medianHomeValue": {
+        "current": 442689,
+        "projected": 747506,
+        "cagr": 0.0777
+      },
+      "ownerOccupied": {
+        "current": 0.8546,
+        "projected": 0.8461,
+        "cagr": -0.0014
+      },
+      "medianAge": {
+        "current": 47.7,
+        "projected": 48.8,
+        "cagr": 0.0034
+      }
     }
   },
   "108": {
@@ -12633,6 +14863,34 @@
     "insurance": {
       "insured": 0.9231,
       "uninsured": 0.0769
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4914,
+        "projected": 7985982,
+        "cagr": 1.8754
+      },
+      "medianIncome": {
+        "current": 114664,
+        "projected": 74649,
+        "cagr": -0.0595
+      },
+      "medianHomeValue": {
+        "current": 454889,
+        "projected": 317830,
+        "cagr": -0.0499
+      },
+      "ownerOccupied": {
+        "current": 0.4074,
+        "projected": 0.1325,
+        "cagr": -0.1482
+      },
+      "medianAge": {
+        "current": 40.7,
+        "projected": 35.5,
+        "cagr": -0.0195
+      }
     }
   },
   "109": {
@@ -12750,6 +15008,34 @@
     "insurance": {
       "insured": 0.9217,
       "uninsured": 0.0783
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5625,
+        "projected": 60007,
+        "cagr": 0.4024
+      },
+      "medianIncome": {
+        "current": 151029,
+        "projected": 135101,
+        "cagr": -0.0158
+      },
+      "medianHomeValue": {
+        "current": 704633,
+        "projected": 1400309,
+        "cagr": 0.1031
+      },
+      "ownerOccupied": {
+        "current": 0.4173,
+        "projected": 0.1317,
+        "cagr": -0.1519
+      },
+      "medianAge": {
+        "current": 42.1,
+        "projected": 39.6,
+        "cagr": -0.0088
+      }
     }
   },
   "110": {
@@ -12984,6 +15270,34 @@
     "insurance": {
       "insured": 0.9384,
       "uninsured": 0.0616
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3594,
+        "projected": 2590,
+        "cagr": -0.0457
+      },
+      "medianIncome": {
+        "current": 158938,
+        "projected": 135933,
+        "cagr": -0.0221
+      },
+      "medianHomeValue": {
+        "current": 950596,
+        "projected": 1544788,
+        "cagr": 0.0718
+      },
+      "ownerOccupied": {
+        "current": 0.8475,
+        "projected": 0.8097,
+        "cagr": -0.0065
+      },
+      "medianAge": {
+        "current": 44.6,
+        "projected": 53.2,
+        "cagr": 0.0256
+      }
     }
   },
   "112": {
@@ -13101,6 +15415,34 @@
     "insurance": {
       "insured": 0.8882,
       "uninsured": 0.1118
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4685,
+        "projected": 5481,
+        "cagr": 0.0227
+      },
+      "medianIncome": {
+        "current": 190580,
+        "projected": 240676,
+        "cagr": 0.0339
+      },
+      "medianHomeValue": {
+        "current": 620846,
+        "projected": 1055740,
+        "cagr": 0.0788
+      },
+      "ownerOccupied": {
+        "current": 0.9374,
+        "projected": 1,
+        "cagr": 0.0264
+      },
+      "medianAge": {
+        "current": 41.5,
+        "projected": 37.6,
+        "cagr": -0.0139
+      }
     }
   },
   "113": {
@@ -13452,6 +15794,34 @@
     "insurance": {
       "insured": 0.9234,
       "uninsured": 0.0766
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4976,
+        "projected": 5913,
+        "cagr": 0.025
+      },
+      "medianIncome": {
+        "current": 103218,
+        "projected": 98872,
+        "cagr": -0.0061
+      },
+      "medianHomeValue": {
+        "current": 564197,
+        "projected": 994427,
+        "cagr": 0.0843
+      },
+      "ownerOccupied": {
+        "current": 0.6061,
+        "projected": 0.6389,
+        "cagr": 0.0076
+      },
+      "medianAge": {
+        "current": 46.5,
+        "projected": 50.4,
+        "cagr": 0.0116
+      }
     }
   },
   "116": {
@@ -13569,6 +15939,34 @@
     "insurance": {
       "insured": 0.9347,
       "uninsured": 0.0653
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5325,
+        "projected": 4592,
+        "cagr": -0.0209
+      },
+      "medianIncome": {
+        "current": 165836,
+        "projected": 162115,
+        "cagr": -0.0032
+      },
+      "medianHomeValue": {
+        "current": 884378,
+        "projected": 1289671,
+        "cagr": 0.0554
+      },
+      "ownerOccupied": {
+        "current": 0.5687,
+        "projected": 0.4,
+        "cagr": -0.049
+      },
+      "medianAge": {
+        "current": 44.1,
+        "projected": 47.4,
+        "cagr": 0.0103
+      }
     }
   },
   "117": {
@@ -13686,6 +16084,34 @@
     "insurance": {
       "insured": 0.9055,
       "uninsured": 0.0945
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 8386,
+        "projected": 11159,
+        "cagr": 0.0417
+      },
+      "medianIncome": {
+        "current": 91330,
+        "projected": 82431,
+        "cagr": -0.0145
+      },
+      "medianHomeValue": {
+        "current": 411474,
+        "projected": 781112,
+        "cagr": 0.0959
+      },
+      "ownerOccupied": {
+        "current": 0.4372,
+        "projected": 0.2783,
+        "cagr": -0.0625
+      },
+      "medianAge": {
+        "current": 36.7,
+        "projected": 34.3,
+        "cagr": -0.0095
+      }
     }
   },
   "118": {
@@ -14154,6 +16580,34 @@
     "insurance": {
       "insured": 0.9375,
       "uninsured": 0.0625
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4185,
+        "projected": 9158,
+        "cagr": 0.1184
+      },
+      "medianIncome": {
+        "current": 162011,
+        "projected": 181797,
+        "cagr": 0.0166
+      },
+      "medianHomeValue": {
+        "current": 496638,
+        "projected": 760253,
+        "cagr": 0.0627
+      },
+      "ownerOccupied": {
+        "current": 0.8217,
+        "projected": 1,
+        "cagr": 0.0461
+      },
+      "medianAge": {
+        "current": 42.9,
+        "projected": 50.8,
+        "cagr": 0.0246
+      }
     }
   },
   "122": {
@@ -14271,6 +16725,34 @@
     "insurance": {
       "insured": 0.9571,
       "uninsured": 0.0429
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6915,
+        "projected": 8524,
+        "cagr": 0.0303
+      },
+      "medianIncome": {
+        "current": 175436,
+        "projected": 252390,
+        "cagr": 0.0533
+      },
+      "medianHomeValue": {
+        "current": 541424,
+        "projected": 993737,
+        "cagr": 0.0906
+      },
+      "ownerOccupied": {
+        "current": 0.7753,
+        "projected": 0.637,
+        "cagr": -0.0277
+      },
+      "medianAge": {
+        "current": 40.5,
+        "projected": 36.8,
+        "cagr": -0.0137
+      }
     }
   },
   "123": {
@@ -14388,6 +16870,34 @@
     "insurance": {
       "insured": 0.9362,
       "uninsured": 0.0638
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3250,
+        "projected": 3158,
+        "cagr": -0.0041
+      },
+      "medianIncome": {
+        "current": 138354,
+        "projected": 244983,
+        "cagr": 0.085
+      },
+      "medianHomeValue": {
+        "current": 725610,
+        "projected": 1269669,
+        "cagr": 0.0832
+      },
+      "ownerOccupied": {
+        "current": 0.4611,
+        "projected": 0.6106,
+        "cagr": 0.0409
+      },
+      "medianAge": {
+        "current": 40.0,
+        "projected": 39.0,
+        "cagr": -0.0035
+      }
     }
   },
   "124": {
@@ -14505,6 +17015,34 @@
     "insurance": {
       "insured": 0.9575,
       "uninsured": 0.0425
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5701,
+        "projected": 16750488,
+        "cagr": 2.1292
+      },
+      "medianIncome": {
+        "current": 119170,
+        "projected": 70072,
+        "cagr": -0.0731
+      },
+      "medianHomeValue": {
+        "current": 495534,
+        "projected": 619240,
+        "cagr": 0.0323
+      },
+      "ownerOccupied": {
+        "current": 0.2566,
+        "projected": 0.0404,
+        "cagr": -0.2321
+      },
+      "medianAge": {
+        "current": 43.7,
+        "projected": 38.8,
+        "cagr": -0.017
+      }
     }
   },
   "125": {
@@ -14739,6 +17277,34 @@
     "insurance": {
       "insured": 0.9208,
       "uninsured": 0.0792
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 8178,
+        "projected": 9814,
+        "cagr": 0.0264
+      },
+      "medianIncome": {
+        "current": 130415,
+        "projected": 177711,
+        "cagr": 0.0452
+      },
+      "medianHomeValue": {
+        "current": 369473,
+        "projected": 637210,
+        "cagr": 0.081
+      },
+      "ownerOccupied": {
+        "current": 0.8264,
+        "projected": 0.8597,
+        "cagr": 0.0057
+      },
+      "medianAge": {
+        "current": 34.5,
+        "projected": 31.2,
+        "cagr": -0.0144
+      }
     }
   },
   "127": {
@@ -14856,6 +17422,34 @@
     "insurance": {
       "insured": 0.9228,
       "uninsured": 0.0772
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5871,
+        "projected": 5985,
+        "cagr": 0.0027
+      },
+      "medianIncome": {
+        "current": 129452,
+        "projected": 153546,
+        "cagr": 0.0247
+      },
+      "medianHomeValue": {
+        "current": 393317,
+        "projected": 820324,
+        "cagr": 0.1107
+      },
+      "ownerOccupied": {
+        "current": 0.7868,
+        "projected": 0.7384,
+        "cagr": -0.009
+      },
+      "medianAge": {
+        "current": 40.5,
+        "projected": 41.5,
+        "cagr": 0.0035
+      }
     }
   },
   "128": {
@@ -14973,6 +17567,34 @@
     "insurance": {
       "insured": 0.952,
       "uninsured": 0.048
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5262,
+        "projected": 40216,
+        "cagr": 0.3371
+      },
+      "medianIncome": {
+        "current": 158990,
+        "projected": 123604,
+        "cagr": -0.0353
+      },
+      "medianHomeValue": {
+        "current": 770420,
+        "projected": 1411199,
+        "cagr": 0.0903
+      },
+      "ownerOccupied": {
+        "current": 0.8596,
+        "projected": 0.7552,
+        "cagr": -0.0183
+      },
+      "medianAge": {
+        "current": 41.9,
+        "projected": 51.8,
+        "cagr": 0.0308
+      }
     }
   },
   "129": {
@@ -15207,6 +17829,34 @@
     "insurance": {
       "insured": 0.947,
       "uninsured": 0.053
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5278,
+        "projected": 10037621,
+        "cagr": 1.9407
+      },
+      "medianIncome": {
+        "current": 145554,
+        "projected": 470498,
+        "cagr": 0.1825
+      },
+      "medianHomeValue": {
+        "current": 498994,
+        "projected": 962503,
+        "cagr": 0.0984
+      },
+      "ownerOccupied": {
+        "current": 0.854,
+        "projected": 1,
+        "cagr": 0.1407
+      },
+      "medianAge": {
+        "current": 41.4,
+        "projected": 37.7,
+        "cagr": -0.0134
+      }
     }
   },
   "131": {
@@ -15441,6 +18091,34 @@
     "insurance": {
       "insured": 0.9238,
       "uninsured": 0.0762
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4487,
+        "projected": 7244,
+        "cagr": 0.0708
+      },
+      "medianIncome": {
+        "current": 107110,
+        "projected": 173169,
+        "cagr": 0.071
+      },
+      "medianHomeValue": {
+        "current": 408319,
+        "projected": 667703,
+        "cagr": 0.0728
+      },
+      "ownerOccupied": {
+        "current": 0.6681,
+        "projected": 0.9647,
+        "cagr": 0.0539
+      },
+      "medianAge": {
+        "current": 43.6,
+        "projected": 45.5,
+        "cagr": 0.0061
+      }
     }
   },
   "133": {
@@ -15675,6 +18353,34 @@
     "insurance": {
       "insured": 0.9005,
       "uninsured": 0.0995
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 8802,
+        "projected": 11214,
+        "cagr": 0.0352
+      },
+      "medianIncome": {
+        "current": 146374,
+        "projected": 159281,
+        "cagr": 0.0121
+      },
+      "medianHomeValue": {
+        "current": 636221,
+        "projected": 1407431,
+        "cagr": 0.1201
+      },
+      "ownerOccupied": {
+        "current": 0.7077,
+        "projected": 0.6001,
+        "cagr": -0.0233
+      },
+      "medianAge": {
+        "current": 37.9,
+        "projected": 41.2,
+        "cagr": 0.012
+      }
     }
   },
   "135": {
@@ -15792,6 +18498,34 @@
     "insurance": {
       "insured": 0.9498,
       "uninsured": 0.0502
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7534,
+        "projected": 9033,
+        "cagr": 0.0263
+      },
+      "medianIncome": {
+        "current": 154255,
+        "projected": 253922,
+        "cagr": 0.0738
+      },
+      "medianHomeValue": {
+        "current": 447681,
+        "projected": 803020,
+        "cagr": 0.0871
+      },
+      "ownerOccupied": {
+        "current": 0.651,
+        "projected": 0.7651,
+        "cagr": 0.0233
+      },
+      "medianAge": {
+        "current": 35.6,
+        "projected": 33.6,
+        "cagr": -0.0082
+      }
     }
   },
   "136": {
@@ -15909,6 +18643,34 @@
     "insurance": {
       "insured": 0.9,
       "uninsured": 0.1
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2854,
+        "projected": 1694,
+        "cagr": -0.0718
+      },
+      "medianIncome": {
+        "current": 105724,
+        "projected": 199696,
+        "cagr": 0.0951
+      },
+      "medianHomeValue": {
+        "current": 654925,
+        "projected": 1554255,
+        "cagr": 0.1314
+      },
+      "ownerOccupied": {
+        "current": 0.6269,
+        "projected": 0.8142,
+        "cagr": 0.0381
+      },
+      "medianAge": {
+        "current": 50.2,
+        "projected": 64.2,
+        "cagr": 0.0358
+      }
     }
   },
   "137": {
@@ -16026,6 +18788,34 @@
     "insurance": {
       "insured": 0.876,
       "uninsured": 0.124
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2615,
+        "projected": 1663295,
+        "cagr": 1.5148
+      },
+      "medianIncome": {
+        "current": 133968,
+        "projected": 100623,
+        "cagr": -0.0401
+      },
+      "medianHomeValue": {
+        "current": 980914,
+        "projected": 2032670,
+        "cagr": 0.1097
+      },
+      "ownerOccupied": {
+        "current": 0.5606,
+        "projected": 0.3058,
+        "cagr": -0.083
+      },
+      "medianAge": {
+        "current": 43.8,
+        "projected": 42.6,
+        "cagr": -0.0041
+      }
     }
   },
   "138": {
@@ -16143,6 +18933,34 @@
     "insurance": {
       "insured": 0.9206,
       "uninsured": 0.0794
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3045,
+        "projected": 726353,
+        "cagr": 1.186
+      },
+      "medianIncome": {
+        "current": 142072,
+        "projected": 348134,
+        "cagr": 0.1366
+      },
+      "medianHomeValue": {
+        "current": 412454,
+        "projected": 925592,
+        "cagr": 0.1224
+      },
+      "ownerOccupied": {
+        "current": 0.8604,
+        "projected": 0.8356,
+        "cagr": -0.0042
+      },
+      "medianAge": {
+        "current": 46.1,
+        "projected": 43.2,
+        "cagr": -0.0093
+      }
     }
   },
   "139": {
@@ -16260,6 +19078,34 @@
     "insurance": {
       "insured": 0.8833,
       "uninsured": 0.1167
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 8543,
+        "projected": 16157513,
+        "cagr": 1.9384
+      },
+      "medianIncome": {
+        "current": 101308,
+        "projected": 91150,
+        "cagr": -0.015
+      },
+      "medianHomeValue": {
+        "current": 433371,
+        "projected": 712263,
+        "cagr": 0.0736
+      },
+      "ownerOccupied": {
+        "current": 0.3684,
+        "projected": 0.2748,
+        "cagr": -0.041
+      },
+      "medianAge": {
+        "current": 37.8,
+        "projected": 38.9,
+        "cagr": 0.0043
+      }
     }
   },
   "140": {
@@ -16377,6 +19223,34 @@
     "insurance": {
       "insured": 0.9079,
       "uninsured": 0.0921
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5513,
+        "projected": 5331,
+        "cagr": -0.0048
+      },
+      "medianIncome": {
+        "current": 151035,
+        "projected": 194461,
+        "cagr": 0.0368
+      },
+      "medianHomeValue": {
+        "current": 542679,
+        "projected": 979528,
+        "cagr": 0.088
+      },
+      "ownerOccupied": {
+        "current": 0.7777,
+        "projected": 0.617,
+        "cagr": -0.0325
+      },
+      "medianAge": {
+        "current": 44.2,
+        "projected": 46.7,
+        "cagr": 0.0079
+      }
     }
   },
   "141": {
@@ -16494,6 +19368,34 @@
     "insurance": {
       "insured": 0.8844,
       "uninsured": 0.1156
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3783,
+        "projected": 9599044,
+        "cagr": 2.0644
+      },
+      "medianIncome": {
+        "current": 135418,
+        "projected": 147047,
+        "cagr": 0.0118
+      },
+      "medianHomeValue": {
+        "current": 431221,
+        "projected": 899753,
+        "cagr": 0.1108
+      },
+      "ownerOccupied": {
+        "current": 0.9552,
+        "projected": 0.9447,
+        "cagr": -0.0016
+      },
+      "medianAge": {
+        "current": 39.7,
+        "projected": 30.3,
+        "cagr": -0.0381
+      }
     }
   },
   "142": {
@@ -16611,6 +19513,34 @@
     "insurance": {
       "insured": 0.8737,
       "uninsured": 0.1263
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6109,
+        "projected": 21631,
+        "cagr": 0.198
+      },
+      "medianIncome": {
+        "current": 121535,
+        "projected": 147229,
+        "cagr": 0.0278
+      },
+      "medianHomeValue": {
+        "current": 475423,
+        "projected": 701925,
+        "cagr": 0.0572
+      },
+      "ownerOccupied": {
+        "current": 0.4291,
+        "projected": 0.1831,
+        "cagr": -0.1146
+      },
+      "medianAge": {
+        "current": 34.0,
+        "projected": 17.0,
+        "cagr": -0.0943
+      }
     }
   },
   "143": {
@@ -16728,6 +19658,34 @@
     "insurance": {
       "insured": 0.9159,
       "uninsured": 0.0841
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2876,
+        "projected": 3282,
+        "cagr": 0.0191
+      },
+      "medianIncome": {
+        "current": 131667,
+        "projected": 129848,
+        "cagr": -0.002
+      },
+      "medianHomeValue": {
+        "current": 774876,
+        "projected": 1248684,
+        "cagr": 0.0705
+      },
+      "ownerOccupied": {
+        "current": 0.4992,
+        "projected": 0.3553,
+        "cagr": -0.0474
+      },
+      "medianAge": {
+        "current": 38.6,
+        "projected": 28.8,
+        "cagr": -0.041
+      }
     }
   },
   "144": {
@@ -16962,6 +19920,34 @@
     "insurance": {
       "insured": 0.9077,
       "uninsured": 0.0923
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 1655,
+        "projected": 1021,
+        "cagr": -0.0667
+      },
+      "medianIncome": {
+        "current": 144104,
+        "projected": 195578,
+        "cagr": 0.0446
+      },
+      "medianHomeValue": {
+        "current": 391646,
+        "projected": 643672,
+        "cagr": 0.0736
+      },
+      "ownerOccupied": {
+        "current": 0.786,
+        "projected": 0.6526,
+        "cagr": -0.0262
+      },
+      "medianAge": {
+        "current": 41.2,
+        "projected": 46.1,
+        "cagr": 0.0163
+      }
     }
   },
   "146": {
@@ -17079,6 +20065,34 @@
     "insurance": {
       "insured": 0.9519,
       "uninsured": 0.0481
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6629,
+        "projected": 6457,
+        "cagr": -0.0038
+      },
+      "medianIncome": {
+        "current": 171068,
+        "projected": 301493,
+        "cagr": 0.0843
+      },
+      "medianHomeValue": {
+        "current": 470085,
+        "projected": 904050,
+        "cagr": 0.0979
+      },
+      "ownerOccupied": {
+        "current": 0.7746,
+        "projected": 0.7336,
+        "cagr": -0.0077
+      },
+      "medianAge": {
+        "current": 36.4,
+        "projected": 35.0,
+        "cagr": -0.0054
+      }
     }
   },
   "147": {
@@ -17196,6 +20210,34 @@
     "insurance": {
       "insured": 0.9083,
       "uninsured": 0.0917
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3248,
+        "projected": 4344,
+        "cagr": 0.0424
+      },
+      "medianIncome": {
+        "current": 125417,
+        "projected": 363367,
+        "cagr": 0.1641
+      },
+      "medianHomeValue": {
+        "current": 389182,
+        "projected": 1085620,
+        "cagr": 0.1578
+      },
+      "ownerOccupied": {
+        "current": 0.3968,
+        "projected": 0.3188,
+        "cagr": -0.0308
+      },
+      "medianAge": {
+        "current": 35.2,
+        "projected": 25.1,
+        "cagr": -0.0471
+      }
     }
   },
   "148": {
@@ -17430,6 +20472,34 @@
     "insurance": {
       "insured": 0.9216,
       "uninsured": 0.0784
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6572,
+        "projected": 36132240,
+        "cagr": 2.4223
+      },
+      "medianIncome": {
+        "current": 160626,
+        "projected": 331186,
+        "cagr": 0.1089
+      },
+      "medianHomeValue": {
+        "current": 423786,
+        "projected": 842778,
+        "cagr": 0.1032
+      },
+      "ownerOccupied": {
+        "current": 0.7618,
+        "projected": 0.7981,
+        "cagr": 0.0067
+      },
+      "medianAge": {
+        "current": 39.1,
+        "projected": 50.2,
+        "cagr": 0.0364
+      }
     }
   },
   "150": {
@@ -17547,6 +20617,34 @@
     "insurance": {
       "insured": 0.9404,
       "uninsured": 0.0596
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 1765,
+        "projected": 70285,
+        "cagr": 0.6927
+      },
+      "medianIncome": {
+        "current": 152487,
+        "projected": 313545,
+        "cagr": 0.1085
+      },
+      "medianHomeValue": {
+        "current": 487912,
+        "projected": 771557,
+        "cagr": 0.0677
+      },
+      "ownerOccupied": {
+        "current": 0.9874,
+        "projected": 1,
+        "cagr": 0.023
+      },
+      "medianAge": {
+        "current": 38.3,
+        "projected": 29.9,
+        "cagr": -0.0347
+      }
     }
   },
   "151": {
@@ -17664,6 +20762,34 @@
     "insurance": {
       "insured": 0.8951,
       "uninsured": 0.1049
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2126,
+        "projected": 1841,
+        "cagr": -0.0203
+      },
+      "medianIncome": {
+        "current": 162001,
+        "projected": 204834,
+        "cagr": 0.0341
+      },
+      "medianHomeValue": {
+        "current": 455973,
+        "projected": 962959,
+        "cagr": 0.1127
+      },
+      "ownerOccupied": {
+        "current": 0.819,
+        "projected": 0.7001,
+        "cagr": -0.0222
+      },
+      "medianAge": {
+        "current": 40.0,
+        "projected": 44.8,
+        "cagr": 0.0163
+      }
     }
   },
   "152": {
@@ -18249,6 +21375,34 @@
     "insurance": {
       "insured": 0.9112,
       "uninsured": 0.0888
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5564,
+        "projected": 1286063,
+        "cagr": 1.1762
+      },
+      "medianIncome": {
+        "current": 111276,
+        "projected": 123372,
+        "cagr": 0.0149
+      },
+      "medianHomeValue": {
+        "current": 328646,
+        "projected": 491159,
+        "cagr": 0.0591
+      },
+      "ownerOccupied": {
+        "current": 0.7216,
+        "projected": 0.6274,
+        "cagr": -0.0198
+      },
+      "medianAge": {
+        "current": 36.2,
+        "projected": 35.1,
+        "cagr": -0.0044
+      }
     }
   },
   "157": {
@@ -18483,6 +21637,34 @@
     "insurance": {
       "insured": 0.9004,
       "uninsured": 0.0996
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4088,
+        "projected": 118071,
+        "cagr": 0.6168
+      },
+      "medianIncome": {
+        "current": 148425,
+        "projected": 184130,
+        "cagr": 0.0313
+      },
+      "medianHomeValue": {
+        "current": 493058,
+        "projected": 1237292,
+        "cagr": 0.1405
+      },
+      "ownerOccupied": {
+        "current": 0.8555,
+        "projected": 0.7368,
+        "cagr": -0.0211
+      },
+      "medianAge": {
+        "current": 43.9,
+        "projected": 39.0,
+        "cagr": -0.0169
+      }
     }
   },
   "159": {
@@ -18717,6 +21899,34 @@
     "insurance": {
       "insured": 0.9203,
       "uninsured": 0.0797
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 545,
+        "projected": 1331,
+        "cagr": 0.1361
+      },
+      "medianIncome": {
+        "current": 100379,
+        "projected": 133160,
+        "cagr": 0.0412
+      },
+      "medianHomeValue": {
+        "current": 490500,
+        "projected": 759872,
+        "cagr": 0.0645
+      },
+      "ownerOccupied": {
+        "current": 0.9639,
+        "projected": 1,
+        "cagr": 0.0209
+      },
+      "medianAge": {
+        "current": 49.7,
+        "projected": 55.2,
+        "cagr": 0.0152
+      }
     }
   },
   "161": {
@@ -18834,6 +22044,34 @@
     "insurance": {
       "insured": 0.9203,
       "uninsured": 0.0797
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 568,
+        "projected": 1388,
+        "cagr": 0.1362
+      },
+      "medianIncome": {
+        "current": 100379,
+        "projected": 133160,
+        "cagr": 0.0412
+      },
+      "medianHomeValue": {
+        "current": 490500,
+        "projected": 759872,
+        "cagr": 0.0645
+      },
+      "ownerOccupied": {
+        "current": 0.9639,
+        "projected": 1,
+        "cagr": 0.0209
+      },
+      "medianAge": {
+        "current": 49.7,
+        "projected": 55.2,
+        "cagr": 0.0152
+      }
     }
   },
   "162": {
@@ -18951,6 +22189,34 @@
     "insurance": {
       "insured": 0.9203,
       "uninsured": 0.0797
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 338,
+        "projected": 823,
+        "cagr": 0.1356
+      },
+      "medianIncome": {
+        "current": 100379,
+        "projected": 133160,
+        "cagr": 0.0412
+      },
+      "medianHomeValue": {
+        "current": 490500,
+        "projected": 759872,
+        "cagr": 0.0645
+      },
+      "ownerOccupied": {
+        "current": 0.9639,
+        "projected": 1,
+        "cagr": 0.0209
+      },
+      "medianAge": {
+        "current": 49.7,
+        "projected": 55.2,
+        "cagr": 0.0152
+      }
     }
   },
   "163": {
@@ -19185,6 +22451,24 @@
     "insurance": {
       "insured": 0.9831,
       "uninsured": 0.0169
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2377,
+        "projected": 126610591,
+        "cagr": 3.7338
+      },
+      "medianIncome": {
+        "current": 109613,
+        "projected": 476276,
+        "cagr": 0.2335
+      },
+      "medianAge": {
+        "current": 64.5,
+        "projected": 250.1,
+        "cagr": 0.2136
+      }
     }
   },
   "165": {
@@ -19536,6 +22820,34 @@
     "insurance": {
       "insured": 0.9553,
       "uninsured": 0.0447
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7489,
+        "projected": 6750,
+        "cagr": -0.0147
+      },
+      "medianIncome": {
+        "current": 139095,
+        "projected": 134649,
+        "cagr": -0.0046
+      },
+      "medianHomeValue": {
+        "current": 508099,
+        "projected": 870819,
+        "cagr": 0.08
+      },
+      "ownerOccupied": {
+        "current": 0.5738,
+        "projected": 0.4761,
+        "cagr": -0.0263
+      },
+      "medianAge": {
+        "current": 39.5,
+        "projected": 38.8,
+        "cagr": -0.0025
+      }
     }
   },
   "168": {
@@ -19770,6 +23082,34 @@
     "insurance": {
       "insured": 0.955,
       "uninsured": 0.045
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4978,
+        "projected": 5739,
+        "cagr": 0.0205
+      },
+      "medianIncome": {
+        "current": 116246,
+        "projected": 124548,
+        "cagr": 0.0099
+      },
+      "medianHomeValue": {
+        "current": 476238,
+        "projected": 1012184,
+        "cagr": 0.1137
+      },
+      "ownerOccupied": {
+        "current": 0.6576,
+        "projected": 0.5548,
+        "cagr": -0.024
+      },
+      "medianAge": {
+        "current": 34.3,
+        "projected": 35.2,
+        "cagr": 0.0035
+      }
     }
   },
   "170": {
@@ -20004,6 +23344,34 @@
     "insurance": {
       "insured": 0.9064,
       "uninsured": 0.0936
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3680,
+        "projected": 3667,
+        "cagr": -0.0005
+      },
+      "medianIncome": {
+        "current": 132037,
+        "projected": 356615,
+        "cagr": 0.1525
+      },
+      "medianHomeValue": {
+        "current": 541260,
+        "projected": 1431800,
+        "cagr": 0.1491
+      },
+      "ownerOccupied": {
+        "current": 0.4466,
+        "projected": 1,
+        "cagr": 0.3645
+      },
+      "medianAge": {
+        "current": 43.2,
+        "projected": 56.2,
+        "cagr": 0.0383
+      }
     }
   },
   "172": {
@@ -20238,6 +23606,34 @@
     "insurance": {
       "insured": 0.9677,
       "uninsured": 0.0323
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 1016,
+        "projected": 865,
+        "cagr": -0.0228
+      },
+      "medianIncome": {
+        "current": 212161,
+        "projected": 383004,
+        "cagr": 0.088
+      },
+      "medianHomeValue": {
+        "current": 705119,
+        "projected": 989422,
+        "cagr": 0.0496
+      },
+      "ownerOccupied": {
+        "current": 0.7131,
+        "projected": 0.6139,
+        "cagr": -0.0212
+      },
+      "medianAge": {
+        "current": 43.8,
+        "projected": 48.5,
+        "cagr": 0.0148
+      }
     }
   },
   "174": {
@@ -20589,6 +23985,34 @@
     "insurance": {
       "insured": 0.8891,
       "uninsured": 0.1109
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 8598,
+        "projected": 42716,
+        "cagr": 0.2574
+      },
+      "medianIncome": {
+        "current": 89201,
+        "projected": 127850,
+        "cagr": 0.0528
+      },
+      "medianHomeValue": {
+        "current": 554520,
+        "projected": 920162,
+        "cagr": 0.075
+      },
+      "ownerOccupied": {
+        "current": 0.026,
+        "projected": 0.0052,
+        "cagr": -0.2054
+      },
+      "medianAge": {
+        "current": 35.2,
+        "projected": 42.2,
+        "cagr": 0.0264
+      }
     }
   },
   "177": {
@@ -20706,6 +24130,34 @@
     "insurance": {
       "insured": 0.8496,
       "uninsured": 0.1504
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4858,
+        "projected": 7172,
+        "cagr": 0.0572
+      },
+      "medianIncome": {
+        "current": 85543,
+        "projected": 66870,
+        "cagr": -0.0346
+      },
+      "medianHomeValue": {
+        "current": 733387,
+        "projected": 662476,
+        "cagr": -0.0144
+      },
+      "ownerOccupied": {
+        "current": 0.1866,
+        "projected": 0.0907,
+        "cagr": -0.0979
+      },
+      "medianAge": {
+        "current": 41.1,
+        "projected": 46.2,
+        "cagr": 0.0169
+      }
     }
   },
   "178": {
@@ -20823,6 +24275,34 @@
     "insurance": {
       "insured": 0.9042,
       "uninsured": 0.0958
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4791,
+        "projected": 7493,
+        "cagr": 0.066
+      },
+      "medianIncome": {
+        "current": 180522,
+        "projected": 256962,
+        "cagr": 0.0517
+      },
+      "medianHomeValue": {
+        "current": 623425,
+        "projected": 1008897,
+        "cagr": 0.0712
+      },
+      "ownerOccupied": {
+        "current": 0.9138,
+        "projected": 0.9186,
+        "cagr": 0.0007
+      },
+      "medianAge": {
+        "current": 35.6,
+        "projected": 41.2,
+        "cagr": 0.0209
+      }
     }
   },
   "179": {
@@ -21057,6 +24537,34 @@
     "insurance": {
       "insured": 0.8824,
       "uninsured": 0.1176
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7079,
+        "projected": 13580,
+        "cagr": 0.0975
+      },
+      "medianIncome": {
+        "current": 128326,
+        "projected": 181114,
+        "cagr": 0.0505
+      },
+      "medianHomeValue": {
+        "current": 409222,
+        "projected": 760953,
+        "cagr": 0.0927
+      },
+      "ownerOccupied": {
+        "current": 0.86,
+        "projected": 0.8897,
+        "cagr": 0.0049
+      },
+      "medianAge": {
+        "current": 34.1,
+        "projected": 32.7,
+        "cagr": -0.0058
+      }
     }
   },
   "181": {
@@ -21291,6 +24799,34 @@
     "insurance": {
       "insured": 0.8936,
       "uninsured": 0.1064
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6480,
+        "projected": 28581,
+        "cagr": 0.2362
+      },
+      "medianIncome": {
+        "current": 107128,
+        "projected": 59799,
+        "cagr": -0.0799
+      },
+      "medianHomeValue": {
+        "current": 528107,
+        "projected": 795190,
+        "cagr": 0.0602
+      },
+      "ownerOccupied": {
+        "current": 0.416,
+        "projected": 0.1486,
+        "cagr": -0.1368
+      },
+      "medianAge": {
+        "current": 35.6,
+        "projected": 32.6,
+        "cagr": -0.0124
+      }
     }
   },
   "183": {
@@ -21525,6 +25061,34 @@
     "insurance": {
       "insured": 0.8589,
       "uninsured": 0.1411
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6424,
+        "projected": 10198,
+        "cagr": 0.0682
+      },
+      "medianIncome": {
+        "current": 94172,
+        "projected": 108460,
+        "cagr": 0.0204
+      },
+      "medianHomeValue": {
+        "current": 602100,
+        "projected": 921711,
+        "cagr": 0.0627
+      },
+      "ownerOccupied": {
+        "current": 0.0502,
+        "projected": 0.0192,
+        "cagr": -0.1282
+      },
+      "medianAge": {
+        "current": 32.2,
+        "projected": 30.3,
+        "cagr": -0.0085
+      }
     }
   },
   "185": {
@@ -21993,6 +25557,34 @@
     "insurance": {
       "insured": 0.9399,
       "uninsured": 0.0601
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 1003,
+        "projected": 4487,
+        "cagr": 0.2386
+      },
+      "medianIncome": {
+        "current": 103549,
+        "projected": 169877,
+        "cagr": 0.0733
+      },
+      "medianHomeValue": {
+        "current": 575634,
+        "projected": 1658697,
+        "cagr": 0.1632
+      },
+      "ownerOccupied": {
+        "current": 0.7412,
+        "projected": 0.5912,
+        "cagr": -0.0318
+      },
+      "medianAge": {
+        "current": 41.3,
+        "projected": 42.7,
+        "cagr": 0.0049
+      }
     }
   },
   "189": {
@@ -22461,6 +26053,34 @@
     "insurance": {
       "insured": 0.8284,
       "uninsured": 0.1716
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7747,
+        "projected": 70187,
+        "cagr": 0.37
+      },
+      "medianIncome": {
+        "current": 110831,
+        "projected": 212359,
+        "cagr": 0.0973
+      },
+      "medianHomeValue": {
+        "current": 304514,
+        "projected": 635735,
+        "cagr": 0.1109
+      },
+      "ownerOccupied": {
+        "current": 0.9485,
+        "projected": 1,
+        "cagr": 0.0138
+      },
+      "medianAge": {
+        "current": 31.1,
+        "projected": 24.5,
+        "cagr": -0.0336
+      }
     }
   },
   "193": {
@@ -22578,6 +26198,34 @@
     "insurance": {
       "insured": 0.8713,
       "uninsured": 0.1287
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 1032,
+        "projected": 2665,
+        "cagr": 0.1452
+      },
+      "medianIncome": {
+        "current": 102641,
+        "projected": 164528,
+        "cagr": 0.0697
+      },
+      "medianHomeValue": {
+        "current": 367428,
+        "projected": 910498,
+        "cagr": 0.1384
+      },
+      "ownerOccupied": {
+        "current": 0.9573,
+        "projected": 1,
+        "cagr": 0.0211
+      },
+      "medianAge": {
+        "current": 41.7,
+        "projected": 47.7,
+        "cagr": 0.0193
+      }
     }
   },
   "194": {
@@ -22695,6 +26343,34 @@
     "insurance": {
       "insured": 0.8898,
       "uninsured": 0.1102
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 876,
+        "projected": 1444,
+        "cagr": 0.074
+      },
+      "medianIncome": {
+        "current": 125358,
+        "projected": 239932,
+        "cagr": 0.0972
+      },
+      "medianHomeValue": {
+        "current": 380413,
+        "projected": 824960,
+        "cagr": 0.1169
+      },
+      "ownerOccupied": {
+        "current": 0.9367,
+        "projected": 0.9236,
+        "cagr": -0.002
+      },
+      "medianAge": {
+        "current": 41.6,
+        "projected": 50.7,
+        "cagr": 0.0288
+      }
     }
   },
   "195": {
@@ -22812,6 +26488,34 @@
     "insurance": {
       "insured": 0.8283,
       "uninsured": 0.1717
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2682,
+        "projected": 2162,
+        "cagr": -0.0303
+      },
+      "medianIncome": {
+        "current": 100275,
+        "projected": 84495,
+        "cagr": -0.0242
+      },
+      "medianHomeValue": {
+        "current": 360747,
+        "projected": 770090,
+        "cagr": 0.1144
+      },
+      "ownerOccupied": {
+        "current": 0.7602,
+        "projected": 0.6645,
+        "cagr": -0.019
+      },
+      "medianAge": {
+        "current": 36.6,
+        "projected": 40.4,
+        "cagr": 0.0143
+      }
     }
   },
   "196": {
@@ -23046,6 +26750,34 @@
     "insurance": {
       "insured": 0.8754,
       "uninsured": 0.1246
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2960,
+        "projected": 1976,
+        "cagr": -0.0561
+      },
+      "medianIncome": {
+        "current": 139436,
+        "projected": 136218,
+        "cagr": -0.0033
+      },
+      "medianHomeValue": {
+        "current": 499128,
+        "projected": 815889,
+        "cagr": 0.0727
+      },
+      "ownerOccupied": {
+        "current": 0.3367,
+        "projected": 0.0985,
+        "cagr": -0.1611
+      },
+      "medianAge": {
+        "current": 41.9,
+        "projected": 44.7,
+        "cagr": 0.0093
+      }
     }
   },
   "198": {
@@ -23280,6 +27012,34 @@
     "insurance": {
       "insured": 0.9343,
       "uninsured": 0.0657
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4951,
+        "projected": 16616,
+        "cagr": 0.1888
+      },
+      "medianIncome": {
+        "current": 180367,
+        "projected": 350856,
+        "cagr": 0.0997
+      },
+      "medianHomeValue": {
+        "current": 675842,
+        "projected": 1747406,
+        "cagr": 0.1453
+      },
+      "ownerOccupied": {
+        "current": 0.9527,
+        "projected": 1,
+        "cagr": 0.0191
+      },
+      "medianAge": {
+        "current": 34.7,
+        "projected": 33.6,
+        "cagr": -0.0045
+      }
     }
   },
   "200": {
@@ -23397,6 +27157,34 @@
     "insurance": {
       "insured": 0.9168,
       "uninsured": 0.0832
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2227,
+        "projected": 6423,
+        "cagr": 0.1634
+      },
+      "medianIncome": {
+        "current": 138495,
+        "projected": 299288,
+        "cagr": 0.1164
+      },
+      "medianHomeValue": {
+        "current": 481008,
+        "projected": 1107693,
+        "cagr": 0.1266
+      },
+      "ownerOccupied": {
+        "current": 0.8322,
+        "projected": 0.9194,
+        "cagr": 0.0143
+      },
+      "medianAge": {
+        "current": 36.3,
+        "projected": 32.4,
+        "cagr": -0.0163
+      }
     }
   },
   "202": {
@@ -23631,6 +27419,34 @@
     "insurance": {
       "insured": 0.8986,
       "uninsured": 0.1014
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3482,
+        "projected": 1487744,
+        "cagr": 1.3758
+      },
+      "medianIncome": {
+        "current": 144282,
+        "projected": 195102,
+        "cagr": 0.044
+      },
+      "medianHomeValue": {
+        "current": 491526,
+        "projected": 986792,
+        "cagr": 0.1047
+      },
+      "ownerOccupied": {
+        "current": 0.7995,
+        "projected": 0.7267,
+        "cagr": -0.0135
+      },
+      "medianAge": {
+        "current": 42.7,
+        "projected": 46.5,
+        "cagr": 0.0121
+      }
     }
   },
   "204": {
@@ -23865,6 +27681,34 @@
     "insurance": {
       "insured": 0.9849,
       "uninsured": 0.0151
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 232,
+        "projected": 180189,
+        "cagr": 1.5876
+      },
+      "medianIncome": {
+        "current": 156465,
+        "projected": 152908,
+        "cagr": -0.0033
+      },
+      "medianHomeValue": {
+        "current": 590250,
+        "projected": 1195178,
+        "cagr": 0.106
+      },
+      "ownerOccupied": {
+        "current": 0.7097,
+        "projected": 0.5353,
+        "cagr": -0.0395
+      },
+      "medianAge": {
+        "current": 36.5,
+        "projected": 30.1,
+        "cagr": -0.0272
+      }
     }
   },
   "206": {
@@ -23982,6 +27826,34 @@
     "insurance": {
       "insured": 0.93,
       "uninsured": 0.07
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2924,
+        "projected": 1726,
+        "cagr": -0.0725
+      },
+      "medianIncome": {
+        "current": 145862,
+        "projected": 222950,
+        "cagr": 0.0625
+      },
+      "medianHomeValue": {
+        "current": 509149,
+        "projected": 1093626,
+        "cagr": 0.1154
+      },
+      "ownerOccupied": {
+        "current": 0.7455,
+        "projected": 0.8328,
+        "cagr": 0.0159
+      },
+      "medianAge": {
+        "current": 41.5,
+        "projected": 45.3,
+        "cagr": 0.0125
+      }
     }
   },
   "207": {
@@ -24099,6 +27971,34 @@
     "insurance": {
       "insured": 0.9829,
       "uninsured": 0.0171
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 4339,
+        "projected": 2613,
+        "cagr": -0.0699
+      },
+      "medianIncome": {
+        "current": 159083,
+        "projected": 312143,
+        "cagr": 0.1011
+      },
+      "medianHomeValue": {
+        "current": 429227,
+        "projected": 787282,
+        "cagr": 0.0905
+      },
+      "ownerOccupied": {
+        "current": 0.8922,
+        "projected": 1,
+        "cagr": 0.0228
+      },
+      "medianAge": {
+        "current": 34.9,
+        "projected": 37.1,
+        "cagr": 0.0088
+      }
     }
   },
   "208": {
@@ -24216,6 +28116,34 @@
     "insurance": {
       "insured": 0.9624,
       "uninsured": 0.0376
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6321,
+        "projected": 170397,
+        "cagr": 0.601
+      },
+      "medianIncome": {
+        "current": 153942,
+        "projected": 160383,
+        "cagr": 0.0059
+      },
+      "medianHomeValue": {
+        "current": 524175,
+        "projected": 711493,
+        "cagr": 0.0446
+      },
+      "ownerOccupied": {
+        "current": 0.8872,
+        "projected": 0.7503,
+        "cagr": -0.0237
+      },
+      "medianAge": {
+        "current": 38.5,
+        "projected": 28.4,
+        "cagr": -0.0428
+      }
     }
   },
   "209": {
@@ -24567,6 +28495,34 @@
     "insurance": {
       "insured": 0.9739,
       "uninsured": 0.0261
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6300,
+        "projected": 4563,
+        "cagr": -0.0451
+      },
+      "medianIncome": {
+        "current": 149582,
+        "projected": 264134,
+        "cagr": 0.0846
+      },
+      "medianHomeValue": {
+        "current": 502934,
+        "projected": 950741,
+        "cagr": 0.0952
+      },
+      "ownerOccupied": {
+        "current": 0.7259,
+        "projected": 0.8134,
+        "cagr": 0.0164
+      },
+      "medianAge": {
+        "current": 39.0,
+        "projected": 45.2,
+        "cagr": 0.0213
+      }
     }
   },
   "212": {
@@ -24684,6 +28640,34 @@
     "insurance": {
       "insured": 0.9628,
       "uninsured": 0.0372
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3627,
+        "projected": 3745,
+        "cagr": 0.0046
+      },
+      "medianIncome": {
+        "current": 223410,
+        "projected": 262167,
+        "cagr": 0.0231
+      },
+      "medianHomeValue": {
+        "current": 836047,
+        "projected": 1542109,
+        "cagr": 0.0914
+      },
+      "ownerOccupied": {
+        "current": 0.9552,
+        "projected": 0.9292,
+        "cagr": -0.0039
+      },
+      "medianAge": {
+        "current": 40.9,
+        "projected": 53.9,
+        "cagr": 0.0401
+      }
     }
   },
   "213": {
@@ -24918,6 +28902,34 @@
     "insurance": {
       "insured": 0.9477,
       "uninsured": 0.0523
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6280,
+        "projected": 11111,
+        "cagr": 0.0849
+      },
+      "medianIncome": {
+        "current": 220591,
+        "projected": 285995,
+        "cagr": 0.0378
+      },
+      "medianHomeValue": {
+        "current": 876374,
+        "projected": 1737505,
+        "cagr": 0.1027
+      },
+      "ownerOccupied": {
+        "current": 0.9762,
+        "projected": 0.9622,
+        "cagr": -0.0021
+      },
+      "medianAge": {
+        "current": 41.6,
+        "projected": 48.3,
+        "cagr": 0.0215
+      }
     }
   },
   "215": {
@@ -25503,6 +29515,34 @@
     "insurance": {
       "insured": 0.9458,
       "uninsured": 0.0542
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6053,
+        "projected": 11238501,
+        "cagr": 1.9306
+      },
+      "medianIncome": {
+        "current": 143258,
+        "projected": 473243,
+        "cagr": 0.1861
+      },
+      "medianHomeValue": {
+        "current": 592994,
+        "projected": 1382158,
+        "cagr": 0.1285
+      },
+      "ownerOccupied": {
+        "current": 0.5232,
+        "projected": 0.7011,
+        "cagr": 0.0427
+      },
+      "medianAge": {
+        "current": 40.1,
+        "projected": 34.0,
+        "cagr": -0.0232
+      }
     }
   },
   "220": {
@@ -25620,6 +29660,34 @@
     "insurance": {
       "insured": 0.9719,
       "uninsured": 0.0281
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 11213,
+        "projected": 38117,
+        "cagr": 0.191
+      },
+      "medianIncome": {
+        "current": 168031,
+        "projected": 215567,
+        "cagr": 0.0362
+      },
+      "medianHomeValue": {
+        "current": 625645,
+        "projected": 1194171,
+        "cagr": 0.0967
+      },
+      "ownerOccupied": {
+        "current": 0.8808,
+        "projected": 0.9164,
+        "cagr": 0.0057
+      },
+      "medianAge": {
+        "current": 34.9,
+        "projected": 33.0,
+        "cagr": -0.0078
+      }
     }
   },
   "221": {
@@ -26088,6 +30156,34 @@
     "insurance": {
       "insured": 0.9531,
       "uninsured": 0.0469
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5463,
+        "projected": 10284,
+        "cagr": 0.0946
+      },
+      "medianIncome": {
+        "current": 191394,
+        "projected": 235917,
+        "cagr": 0.0303
+      },
+      "medianHomeValue": {
+        "current": 779376,
+        "projected": 1597548,
+        "cagr": 0.108
+      },
+      "ownerOccupied": {
+        "current": 0.9658,
+        "projected": 0.9939,
+        "cagr": 0.0041
+      },
+      "medianAge": {
+        "current": 33.1,
+        "projected": 28.1,
+        "cagr": -0.0231
+      }
     }
   },
   "225": {
@@ -26556,6 +30652,34 @@
     "insurance": {
       "insured": 0.9091,
       "uninsured": 0.0909
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6060,
+        "projected": 16385,
+        "cagr": 0.1527
+      },
+      "medianIncome": {
+        "current": 101458,
+        "projected": 144276,
+        "cagr": 0.0516
+      },
+      "medianHomeValue": {
+        "current": 318234,
+        "projected": 634479,
+        "cagr": 0.1036
+      },
+      "ownerOccupied": {
+        "current": 0.8253,
+        "projected": 0.8476,
+        "cagr": 0.0038
+      },
+      "medianAge": {
+        "current": 33.0,
+        "projected": 33.7,
+        "cagr": 0.0031
+      }
     }
   },
   "229": {
@@ -26673,6 +30797,34 @@
     "insurance": {
       "insured": 0.9794,
       "uninsured": 0.0206
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6544,
+        "projected": 20984,
+        "cagr": 0.1811
+      },
+      "medianIncome": {
+        "current": 161754,
+        "projected": 223953,
+        "cagr": 0.0476
+      },
+      "medianHomeValue": {
+        "current": 628447,
+        "projected": 1178338,
+        "cagr": 0.094
+      },
+      "ownerOccupied": {
+        "current": 0.6656,
+        "projected": 0.8687,
+        "cagr": 0.0388
+      },
+      "medianAge": {
+        "current": 34.0,
+        "projected": 33.0,
+        "cagr": -0.0041
+      }
     }
   },
   "230": {
@@ -26907,6 +31059,34 @@
     "insurance": {
       "insured": 0.9526,
       "uninsured": 0.0474
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6252,
+        "projected": 9471,
+        "cagr": 0.0611
+      },
+      "medianIncome": {
+        "current": 110524,
+        "projected": 143568,
+        "cagr": 0.0381
+      },
+      "medianHomeValue": {
+        "current": 400100,
+        "projected": 894425,
+        "cagr": 0.1218
+      },
+      "ownerOccupied": {
+        "current": 0.6367,
+        "projected": 0.5303,
+        "cagr": -0.0258
+      },
+      "medianAge": {
+        "current": 35.4,
+        "projected": 39.1,
+        "cagr": 0.0141
+      }
     }
   },
   "232": {
@@ -27141,6 +31321,34 @@
     "insurance": {
       "insured": 0.8985,
       "uninsured": 0.1015
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7232,
+        "projected": 93978,
+        "cagr": 0.4425
+      },
+      "medianIncome": {
+        "current": 141720,
+        "projected": 190450,
+        "cagr": 0.0431
+      },
+      "medianHomeValue": {
+        "current": 347085,
+        "projected": 736972,
+        "cagr": 0.1136
+      },
+      "ownerOccupied": {
+        "current": 0.854,
+        "projected": 0.6938,
+        "cagr": -0.0292
+      },
+      "medianAge": {
+        "current": 31.6,
+        "projected": 25.3,
+        "cagr": -0.0311
+      }
     }
   },
   "234": {
@@ -27258,6 +31466,34 @@
     "insurance": {
       "insured": 0.9585,
       "uninsured": 0.0415
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6278,
+        "projected": 11140,
+        "cagr": 0.0854
+      },
+      "medianIncome": {
+        "current": 228683,
+        "projected": 352941,
+        "cagr": 0.064
+      },
+      "medianHomeValue": {
+        "current": 683261,
+        "projected": 1032718,
+        "cagr": 0.0608
+      },
+      "ownerOccupied": {
+        "current": 0.9339,
+        "projected": 0.955,
+        "cagr": 0.0032
+      },
+      "medianAge": {
+        "current": 39.6,
+        "projected": 46.9,
+        "cagr": 0.0244
+      }
     }
   },
   "235": {
@@ -27375,6 +31611,34 @@
     "insurance": {
       "insured": 0.9394,
       "uninsured": 0.0606
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3380,
+        "projected": 4205,
+        "cagr": 0.0317
+      },
+      "medianIncome": {
+        "current": 137042,
+        "projected": 126872,
+        "cagr": -0.011
+      },
+      "medianHomeValue": {
+        "current": 522989,
+        "projected": 842515,
+        "cagr": 0.0705
+      },
+      "ownerOccupied": {
+        "current": 0.5484,
+        "projected": 0.3979,
+        "cagr": -0.0448
+      },
+      "medianAge": {
+        "current": 36.8,
+        "projected": 33.4,
+        "cagr": -0.0136
+      }
     }
   },
   "236": {
@@ -27726,6 +31990,34 @@
     "insurance": {
       "insured": 0.9327,
       "uninsured": 0.0673
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 7935,
+        "projected": 81351,
+        "cagr": 0.3944
+      },
+      "medianIncome": {
+        "current": 112831,
+        "projected": 127543,
+        "cagr": 0.0177
+      },
+      "medianHomeValue": {
+        "current": 472568,
+        "projected": 1006029,
+        "cagr": 0.114
+      },
+      "ownerOccupied": {
+        "current": 0.4252,
+        "projected": 0.27,
+        "cagr": -0.0628
+      },
+      "medianAge": {
+        "current": 32.2,
+        "projected": 37.8,
+        "cagr": 0.0233
+      }
     }
   },
   "239": {
@@ -27843,6 +32135,34 @@
     "insurance": {
       "insured": 0.9648,
       "uninsured": 0.0352
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 6025,
+        "projected": 9661,
+        "cagr": 0.0698
+      },
+      "medianIncome": {
+        "current": 171241,
+        "projected": 235695,
+        "cagr": 0.0467
+      },
+      "medianHomeValue": {
+        "current": 630885,
+        "projected": 1006536,
+        "cagr": 0.069
+      },
+      "ownerOccupied": {
+        "current": 0.7527,
+        "projected": 0.8747,
+        "cagr": 0.0217
+      },
+      "medianAge": {
+        "current": 41.0,
+        "projected": 55.8,
+        "cagr": 0.045
+      }
     }
   },
   "240": {
@@ -28311,6 +32631,34 @@
     "insurance": {
       "insured": 0.9753,
       "uninsured": 0.0247
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2983,
+        "projected": 12565,
+        "cagr": 0.2281
+      },
+      "medianIncome": {
+        "current": 215022,
+        "projected": 396251,
+        "cagr": 0.0913
+      },
+      "medianHomeValue": {
+        "current": 739447,
+        "projected": 1763214,
+        "cagr": 0.1322
+      },
+      "ownerOccupied": {
+        "current": 0.9709,
+        "projected": 0.9851,
+        "cagr": 0.0021
+      },
+      "medianAge": {
+        "current": 48.3,
+        "projected": 55.9,
+        "cagr": 0.0212
+      }
     }
   },
   "244": {
@@ -28428,6 +32776,34 @@
     "insurance": {
       "insured": 0.9539,
       "uninsured": 0.0461
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5252,
+        "projected": 5771,
+        "cagr": 0.0136
+      },
+      "medianIncome": {
+        "current": 227250,
+        "projected": 308455,
+        "cagr": 0.0446
+      },
+      "medianHomeValue": {
+        "current": 563608,
+        "projected": 863616,
+        "cagr": 0.0629
+      },
+      "ownerOccupied": {
+        "current": 0.9518,
+        "projected": 0.9197,
+        "cagr": -0.0049
+      },
+      "medianAge": {
+        "current": 38.7,
+        "projected": 42.5,
+        "cagr": 0.0134
+      }
     }
   },
   "245": {
@@ -28545,6 +32921,34 @@
     "insurance": {
       "insured": 0.8004,
       "uninsured": 0.1996
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 5281,
+        "projected": 6810,
+        "cagr": 0.037
+      },
+      "medianIncome": {
+        "current": 79473,
+        "projected": 65336,
+        "cagr": -0.0276
+      },
+      "medianHomeValue": {
+        "current": 1227005,
+        "projected": 2254908,
+        "cagr": 0.0908
+      },
+      "ownerOccupied": {
+        "current": 0.1904,
+        "projected": 0.0781,
+        "cagr": -0.1195
+      },
+      "medianAge": {
+        "current": 33.4,
+        "projected": 35.3,
+        "cagr": 0.008
+      }
     }
   },
   "246": {
@@ -28779,6 +33183,34 @@
     "insurance": {
       "insured": 0.9505,
       "uninsured": 0.0495
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 3505,
+        "projected": 149608,
+        "cagr": 0.7096
+      },
+      "medianIncome": {
+        "current": 189066,
+        "projected": 296230,
+        "cagr": 0.0663
+      },
+      "medianHomeValue": {
+        "current": 925170,
+        "projected": 2670461,
+        "cagr": 0.1635
+      },
+      "ownerOccupied": {
+        "current": 0.9153,
+        "projected": 0.8891,
+        "cagr": -0.0041
+      },
+      "medianAge": {
+        "current": 44.2,
+        "projected": 45.6,
+        "cagr": 0.0046
+      }
     }
   },
   "248": {
@@ -28896,6 +33328,34 @@
     "insurance": {
       "insured": 0.978,
       "uninsured": 0.022
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 1828,
+        "projected": 7928,
+        "cagr": 0.2332
+      },
+      "medianIncome": {
+        "current": 179822,
+        "projected": 204874,
+        "cagr": 0.0188
+      },
+      "medianHomeValue": {
+        "current": 639123,
+        "projected": 1198825,
+        "cagr": 0.094
+      },
+      "ownerOccupied": {
+        "current": 0.7577,
+        "projected": 0.5864,
+        "cagr": -0.0359
+      },
+      "medianAge": {
+        "current": 34.7,
+        "projected": 30.4,
+        "cagr": -0.0185
+      }
     }
   },
   "249": {
@@ -29130,6 +33590,34 @@
     "insurance": {
       "insured": 0.9736,
       "uninsured": 0.0264
+    },
+    "projections": {
+      "targetYear": 2030,
+      "population": {
+        "current": 2328,
+        "projected": 9265,
+        "cagr": 0.2181
+      },
+      "medianIncome": {
+        "current": 179068,
+        "projected": 232488,
+        "cagr": 0.038
+      },
+      "medianHomeValue": {
+        "current": 713693,
+        "projected": 1289198,
+        "cagr": 0.0881
+      },
+      "ownerOccupied": {
+        "current": 0.9943,
+        "projected": 1,
+        "cagr": 0.0203
+      },
+      "medianAge": {
+        "current": 38.1,
+        "projected": 44.3,
+        "cagr": 0.0218
+      }
     }
   },
   "251": {
