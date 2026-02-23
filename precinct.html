@@ -915,6 +915,733 @@
       .one-pager-header { border-bottom-color: black; }
       @page { margin: 0.5in; size: letter portrait; }
     }
+    /* =============================================================================
+       HERO DASHBOARD
+       ============================================================================= */
+
+    .hero-section { margin-bottom: 24px; }
+    .hero-row-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hero-precinct-code {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+    .hero-badges {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .hero-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .hero-stat-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+    }
+    .hero-stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+    .hero-stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+    .hero-stat-comparison {
+      font-size: 11px;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+    .hero-stat-comparison.above { color: #4CAF50; }
+    .hero-stat-comparison.below { color: #F44336; }
+    .hero-stat-comparison.near { color: var(--text-muted); }
+    .hero-stat-rank {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* =============================================================================
+       SECTION NAVIGATION
+       ============================================================================= */
+
+    .section-nav {
+      position: sticky;
+      top: 57px;
+      z-index: 90;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .section-nav.hidden { display: none; }
+    .section-nav-inner {
+      display: flex;
+      gap: 4px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 8px 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .section-nav-inner::-webkit-scrollbar { display: none; }
+    .section-nav-pill {
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: var(--transition-fast);
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+    .section-nav-pill:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+    .section-nav-pill.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* =============================================================================
+       ELECTION TABS
+       ============================================================================= */
+
+    .election-tab-bar {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .election-tab-bar::-webkit-scrollbar { display: none; }
+    .election-tab {
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition-fast);
+    }
+    .election-tab:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .election-tab.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* =============================================================================
+       CHART LAYOUT
+       ============================================================================= */
+
+    .chart-layout {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .chart-canvas-wrap {
+      width: 200px;
+      flex-shrink: 0;
+    }
+    .chart-canvas-wrap canvas { max-width: 100%; }
+    .chart-stats-wrap {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* =============================================================================
+       COLLAPSIBLE CENSUS SECTIONS
+       ============================================================================= */
+
+    .census-toggle-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: none;
+      border: none;
+      border-radius: 0;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+    }
+    .census-toggle-btn .toggle-chevron {
+      font-size: 10px;
+      transition: transform 0.2s;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .census-toggle-btn[aria-expanded="false"] .toggle-chevron {
+      transform: rotate(-90deg);
+    }
+    .census-collapsible {
+      overflow: hidden;
+      max-height: 2000px;
+      transition: max-height 0.3s ease;
+    }
+    .census-collapsible.collapsed {
+      max-height: 0;
+    }
+
+    /* =============================================================================
+       SECTION ACCENTS & BADGES
+       ============================================================================= */
+
+    .report-section[data-accent="party"] { border-left: 3px solid var(--rep-color); }
+    .report-section[data-accent="demographics"] { border-left: 3px solid #1f77b4; }
+    .report-section[data-accent="districts"] { border-left: 3px solid var(--primary); }
+    .report-section[data-accent="census"] { border-left: 3px solid #4CAF50; }
+    .report-section[data-accent="elections"] { border-left: 3px solid #FF9800; }
+
+    .win-streak-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+    }
+    .trend-arrow-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+    .trend-arrow-badge.dem { background: rgba(0, 174, 243, 0.12); color: #0088CC; }
+    .trend-arrow-badge.rep { background: rgba(232, 27, 35, 0.12); color: #E81B23; }
+    .trend-arrow-badge.stable { background: var(--bg-secondary); color: var(--text-muted); }
+
+    /* =============================================================================
+       OVERRIDES FOR POLISH
+       ============================================================================= */
+
+    .mini-map-container { height: 360px; }
+    .report-section { margin-bottom: 12px; }
+    .report-section-title { font-weight: 700; }
+
+    /* =============================================================================
+       PVI BADGE
+       ============================================================================= */
+
+    .pvi-badge {
+      font-size: 14px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.3px;
+    }
+    .pvi-badge.pvi-rep {
+      background: rgba(232, 27, 35, 0.12);
+      color: #E81B23;
+    }
+    .pvi-badge.pvi-dem {
+      background: rgba(0, 174, 243, 0.12);
+      color: #0088CC;
+    }
+    .pvi-badge.pvi-even {
+      background: rgba(128, 0, 128, 0.12);
+      color: #800080;
+    }
+
+    /* =============================================================================
+       STRATEGY BADGE
+       ============================================================================= */
+
+    .strategy-badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .strategy-badge.mobilize {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1565C0;
+    }
+    .strategy-badge.persuade {
+      background: rgba(156, 39, 176, 0.12);
+      color: #7B1FA2;
+    }
+    .strategy-badge.defend {
+      background: rgba(76, 175, 80, 0.12);
+      color: #2E7D32;
+    }
+    .strategy-badge.grow {
+      background: rgba(255, 152, 0, 0.12);
+      color: #E65100;
+    }
+
+    .strategy-detail {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .strategy-detail-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .strategy-detail-action {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .strategy-detail-rationale {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* =============================================================================
+       MARGIN TREND (diverging bar chart)
+       ============================================================================= */
+
+    .margin-trend {
+      margin-top: 16px;
+    }
+    .margin-trend-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .margin-trend-shift {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+    .margin-trend-shift.dem { background: rgba(0, 174, 243, 0.12); color: #0088CC; }
+    .margin-trend-shift.rep { background: rgba(232, 27, 35, 0.12); color: #E81B23; }
+    .margin-trend-shift.stable { background: var(--bg-secondary); color: var(--text-muted); }
+    .margin-trend-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .margin-trend-label {
+      width: 160px;
+      flex-shrink: 0;
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .margin-trend-bar-container {
+      flex: 1;
+      height: 24px;
+      position: relative;
+      background: var(--bg-secondary);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .margin-trend-center {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--text-muted);
+      z-index: 1;
+    }
+    .margin-trend-bar {
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      border-radius: 3px;
+      min-width: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 600;
+      color: white;
+      transition: width 0.3s;
+    }
+    .margin-trend-bar.rep-bar {
+      right: 50%;
+      background: #E81B23;
+    }
+    .margin-trend-bar.dem-bar {
+      left: 50%;
+      background: #00AEF3;
+    }
+    .margin-trend-value {
+      width: 50px;
+      flex-shrink: 0;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: left;
+    }
+    .margin-trend-value.dem-val { color: #0088CC; }
+    .margin-trend-value.rep-val { color: #E81B23; }
+    .margin-trend-axis {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--text-muted);
+      padding-left: 168px;
+      padding-right: 58px;
+      margin-top: 4px;
+    }
+
+    /* =============================================================================
+       TURNOUT GAP
+       ============================================================================= */
+
+    .turnout-gap {
+      margin-top: 16px;
+    }
+    .turnout-gap-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .turnout-gap-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+    .turnout-gap-race {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .turnout-gap-stats {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .turnout-gap-stat {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    .turnout-gap-stat strong {
+      color: var(--text-primary);
+    }
+    .turnout-gap-highlight {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      margin-top: 4px;
+    }
+    .turnout-gap-highlight.flip {
+      background: rgba(0, 174, 243, 0.08);
+      color: #0088CC;
+    }
+    .turnout-gap-highlight.no-flip {
+      background: var(--bg-secondary);
+      color: var(--text-muted);
+    }
+
+    /* =============================================================================
+       TALKING POINTS
+       ============================================================================= */
+
+    .talking-points {
+      padding: 0;
+    }
+    .talking-points-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .talking-point {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+    .talking-point:last-child { border-bottom: none; }
+    .talking-point-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      background: var(--bg-secondary);
+    }
+    .talking-point-category {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    /* =============================================================================
+       ELECTION DRILLDOWN
+       ============================================================================= */
+
+    .drilldown-panel {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin: 0;
+    }
+    .drilldown-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .drilldown-table th {
+      text-align: left;
+      padding: 4px 8px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      border-bottom: 1px solid var(--border);
+    }
+    .drilldown-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .drilldown-table tr:last-child td { border-bottom: none; }
+    .drilldown-table .dem-row td:first-child { color: #0088CC; font-weight: 600; }
+    .drilldown-table .rep-row td:first-child { color: #E81B23; font-weight: 600; }
+    .drilldown-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: var(--border);
+      overflow: hidden;
+      min-width: 60px;
+    }
+    .drilldown-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+    .drilldown-bar-fill.dem { background: #00AEF3; }
+    .drilldown-bar-fill.rep { background: #E81B23; }
+    .drilldown-bar-fill.other { background: #888; }
+    .history-table tr { cursor: pointer; }
+    .history-table tr:hover td { background: var(--bg-secondary); }
+    .drilldown-row td { padding: 0 !important; border-top: none !important; }
+
+    /* =============================================================================
+       PRECINCT COMPARISON
+       ============================================================================= */
+
+    .compare-btn {
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .compare-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .compare-search-wrapper {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .compare-search-input {
+      flex: 1;
+      padding: 8px 14px;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      outline: none;
+    }
+    .compare-search-input:focus {
+      border-color: var(--primary);
+    }
+    .compare-cancel-btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: var(--radius-full);
+      background: var(--bg-secondary);
+      font-size: 12px;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .comparison-table-wrapper {
+      margin-top: 16px;
+      overflow-x: auto;
+    }
+    .comparison-full-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .comparison-full-table th {
+      text-align: left;
+      padding: 8px 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      border-bottom: 2px solid var(--border);
+      background: var(--bg-secondary);
+    }
+    .comparison-full-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+    .comparison-full-table .metric-label {
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .comparison-full-table .better { font-weight: 600; }
+    .comparison-full-table .better-dem { color: #0088CC; }
+    .comparison-full-table .better-rep { color: #E81B23; }
+
+    /* =============================================================================
+       SIMILAR PRECINCTS
+       ============================================================================= */
+
+    .similar-precincts { margin-top: 0; }
+    .similar-precincts-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .similar-precincts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .similar-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .similar-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+    .similar-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .similar-card-code {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .similar-card-pvi {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+    .similar-card-diff {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Print overrides for new elements */
+    @media print {
+      .section-nav,
+      .election-tab-bar { display: none !important; }
+      .census-collapsible.collapsed {
+        max-height: none !important;
+        overflow: visible !important;
+      }
+      .census-toggle-btn .toggle-chevron { display: none !important; }
+      canvas { max-height: 200px !important; }
+      .compare-btn { display: none !important; }
+      .margin-trend-bar-container { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .turnout-gap-highlight { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    /* Mobile overrides for new elements */
+    @media (max-width: 768px) {
+      .hero-stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-precinct-code { font-size: 24px; }
+      .hero-stat-value { font-size: 20px; }
+      .chart-layout { flex-direction: column; }
+      .chart-canvas-wrap { width: 100%; max-width: 200px; margin: 0 auto; }
+      .section-nav { padding: 0 16px; top: 53px; }
+      .election-tab-bar { flex-wrap: nowrap; }
+      .margin-trend-label { width: 100px; font-size: 11px; }
+      .margin-trend-axis { padding-left: 108px; }
+      .similar-precincts-grid { grid-template-columns: 1fr 1fr; }
+      .one-pager-districts { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
@@ -957,6 +1684,22 @@
   </section>
 
   <!-- ========================================================================
+       SECTION NAVIGATION (hidden until precinct selected)
+       ======================================================================== -->
+  <nav id="section-nav" class="section-nav hidden">
+    <div class="section-nav-inner">
+      <button class="section-nav-pill active" data-target="hero-section">Summary</button>
+      <button class="section-nav-pill" data-target="section-party">Party</button>
+      <button class="section-nav-pill" data-target="section-racial">Demographics</button>
+      <button class="section-nav-pill" data-target="section-officials">Districts</button>
+      <button class="section-nav-pill" data-target="section-census">Census</button>
+      <button class="section-nav-pill" data-target="section-elections">Elections</button>
+      <button class="section-nav-pill" data-target="section-talking-points">Talking Points</button>
+      <button class="section-nav-pill" data-target="section-similar">Similar</button>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
        INTRO MESSAGE (shown before search)
        ======================================================================== -->
   <div id="intro-message" class="intro-message">
@@ -968,8 +1711,14 @@
        ======================================================================== -->
   <main id="report-container" class="report-container hidden">
 
-    <!-- Report Header -->
-    <div id="report-header" class="report-header"></div>
+    <!-- Hero Dashboard -->
+    <div id="hero-section" data-section="hero-section"></div>
+
+    <!-- Strategy Detail -->
+    <div id="strategy-section"></div>
+
+    <!-- Comparison Section -->
+    <div id="comparison-section"></div>
 
     <!-- Export Buttons -->
     <div id="export-bar" class="export-bar hidden">
@@ -981,26 +1730,29 @@
     <!-- Mini Map -->
     <div id="mini-map" class="mini-map-container"></div>
 
-    <!-- Summary Cards -->
-    <div id="section-summary-cards"></div>
-
     <!-- Party Registration -->
-    <div id="section-party" class="report-section"></div>
+    <div id="section-party" class="report-section" data-section="section-party" data-accent="party"></div>
 
     <!-- Racial Demographics -->
-    <div id="section-racial" class="report-section"></div>
+    <div id="section-racial" class="report-section" data-section="section-racial" data-accent="demographics"></div>
 
     <!-- Districts & Officials -->
-    <div id="section-officials" class="report-section"></div>
+    <div id="section-officials" class="report-section" data-section="section-officials" data-accent="districts"></div>
 
-    <!-- Census Details (includes Boundary Changes + 2030 Projections) -->
-    <div id="section-census" class="report-section"></div>
+    <!-- Census Details -->
+    <div id="section-census" class="report-section" data-section="section-census" data-accent="census"></div>
 
     <!-- Election History -->
-    <div class="report-section">
+    <div id="section-elections" class="report-section" data-section="section-elections" data-accent="elections">
       <div class="report-section-title">Election History</div>
       <div id="section-election-history"></div>
     </div>
+
+    <!-- Talking Points -->
+    <div id="section-talking-points" class="report-section" data-section="section-talking-points" data-accent="census"></div>
+
+    <!-- Similar Precincts -->
+    <div id="section-similar" class="report-section" data-section="section-similar" data-accent="demographics"></div>
 
   </main>
 
@@ -1009,6 +1761,8 @@
        ======================================================================== -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
   <script type="module">
     import { initPrecinctLookup } from "./js/precinctLookup.js";
     initPrecinctLookup();

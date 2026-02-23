@@ -68,6 +68,28 @@ export function formatRaceName(filename) {
 // PRECINCT RESULT FUNCTIONS
 // ============================================================================
 
+// Keys to skip when iterating candidate columns
+const SKIP_KEYS = new Set([
+  'COUNTY NUMBER', 'PRECINCT CODE', 'PRECINCT NAME',
+  'REGISTERED VOTERS TOTAL', 'BALLOTS CAST TOTAL', 'BALLOTS CAST BLANK',
+  'OVER VOTES', 'UNDER VOTES', 'Write-in',
+  'Winning Candidate', 'Winning Party'
+]);
+
+/**
+ * Parse a candidate column header into party + name.
+ * Columns look like "Dem Kamala D. Harris/Tim Walz" or "Rep Donald J. Trump/JD Vance"
+ * @param {string} colName - Column header
+ * @returns {{ party: string, name: string }}
+ */
+function parseCandidateColumn(colName) {
+  let match = colName.match(/^(Dem|Rep|Grn|Lib|Ind)\s+(.+)$/i);
+  if (match) {
+    return { party: match[1], name: match[2] };
+  }
+  return { party: 'Other', name: colName };
+}
+
 /**
  * Get precinct's result for a specific race
  * @param {Array} electionData - Array of precinct records for the race
@@ -78,26 +100,20 @@ export function getPrecinctResult(electionData, precinctCode) {
   if (!Array.isArray(electionData) || !precinctCode) {
     return null;
   }
-  
+
   const codeStr = String(precinctCode);
   let record = electionData.find(row => String(row['PRECINCT CODE']) === codeStr);
-  
+
   if (!record) {
     return null;
   }
-  
+
   // Check if precinct actually participated in this race by summing candidate votes.
   // BALLOTS CAST TOTAL is precinct-wide and unreliable for district-specific races
   // (e.g. precinct outside a congressional district still shows total ballots).
-  const skipKeys = new Set([
-    'COUNTY NUMBER', 'PRECINCT CODE', 'PRECINCT NAME',
-    'REGISTERED VOTERS TOTAL', 'BALLOTS CAST TOTAL', 'BALLOTS CAST BLANK',
-    'OVER VOTES', 'UNDER VOTES', 'Write-in',
-    'Winning Candidate', 'Winning Party'
-  ]);
   let candidateVotes = 0;
   for (let key of Object.keys(record)) {
-    if (!skipKeys.has(key)) {
+    if (!SKIP_KEYS.has(key)) {
       candidateVotes += Number(record[key]) || 0;
     }
   }
@@ -114,6 +130,99 @@ export function getPrecinctResult(electionData, precinctCode) {
     totalVotes: candidateVotes,
     registeredVoters: Number(record['REGISTERED VOTERS TOTAL']) || 0
   };
+}
+
+/**
+ * Extract candidate-level vote data for a precinct from already-loaded election data.
+ * Returns detailed breakdown: each candidate with party, votes, percentage, and Dem/Rep totals.
+ * @param {Array} electionData - Array of precinct records for the race
+ * @param {string} precinctCode - Precinct code
+ * @returns {Object|null} - { candidates: [{name,party,votes,pct}], demVotes, repVotes, totalVotes, demPct, repPct, margin, registeredVoters }
+ */
+export function getPrecinctCandidateData(electionData, precinctCode) {
+  if (!Array.isArray(electionData) || !precinctCode) return null;
+
+  let codeStr = String(precinctCode);
+  let record = electionData.find(row => String(row['PRECINCT CODE']) === codeStr);
+  if (!record) return null;
+
+  let candidates = [];
+  let totalVotes = 0;
+  let demVotes = 0;
+  let repVotes = 0;
+
+  for (let key of Object.keys(record)) {
+    if (SKIP_KEYS.has(key)) continue;
+    let votes = Number(record[key]) || 0;
+    if (votes === 0) continue;
+    totalVotes += votes;
+    let parsed = parseCandidateColumn(key);
+    candidates.push({ name: parsed.name, party: parsed.party, votes });
+    if (parsed.party.toLowerCase() === 'dem') demVotes += votes;
+    if (parsed.party.toLowerCase() === 'rep') repVotes += votes;
+  }
+
+  if (totalVotes === 0) return null;
+
+  // Add percentages and sort by votes descending
+  for (let c of candidates) {
+    c.pct = c.votes / totalVotes;
+  }
+  candidates.sort((a, b) => b.votes - a.votes);
+
+  let demPct = demVotes / totalVotes;
+  let repPct = repVotes / totalVotes;
+  let margin = demPct - repPct; // positive = Dem advantage
+
+  return {
+    candidates,
+    demVotes,
+    repVotes,
+    totalVotes,
+    demPct,
+    repPct,
+    margin,
+    registeredVoters: Number(record['REGISTERED VOTERS TOTAL']) || 0,
+    winner: record['Winning Candidate'] || 'N/A',
+    winningParty: record['Winning Party'] || 'N/A',
+  };
+}
+
+/**
+ * Load a specific race CSV and return detailed candidate data for a precinct.
+ * @param {string} precinctCode - Precinct code
+ * @param {string|Object} filenameOrEntry - Filename or manifest entry
+ * @returns {Promise<Object|null>} - Candidate data or null
+ */
+export async function getPrecinctRaceDetail(precinctCode, filenameOrEntry) {
+  let data = await loadElectionData(filenameOrEntry);
+  if (!data) return null;
+  return getPrecinctCandidateData(data, precinctCode);
+}
+
+/**
+ * Compute county-wide Dem vote share for a given election.
+ * Sums all precincts' Dem votes / total votes.
+ * @param {Array} electionData - Array of all precinct records for the race
+ * @returns {number} - County-wide Dem vote share (0-1)
+ */
+export function computeCountyDemShare(electionData) {
+  if (!Array.isArray(electionData)) return 0;
+
+  let countyDem = 0;
+  let countyTotal = 0;
+
+  for (let record of electionData) {
+    for (let key of Object.keys(record)) {
+      if (SKIP_KEYS.has(key)) continue;
+      let votes = Number(record[key]) || 0;
+      countyTotal += votes;
+      let parsed = parseCandidateColumn(key);
+      if (parsed.party.toLowerCase() === 'dem') countyDem += votes;
+    }
+  }
+
+  return countyTotal > 0 ? countyDem / countyTotal : 0;
 }
 
 /**
@@ -446,14 +555,8 @@ export async function computePrecinctTrend(precinctCode) {
 
     let demVotes = 0;
     let totalVotes = 0;
-    let skipKeys = new Set([
-      'COUNTY NUMBER', 'PRECINCT CODE', 'PRECINCT NAME',
-      'REGISTERED VOTERS TOTAL', 'BALLOTS CAST TOTAL', 'BALLOTS CAST BLANK',
-      'OVER VOTES', 'UNDER VOTES', 'Write-in',
-      'Winning Candidate', 'Winning Party'
-    ]);
     for (let key of Object.keys(row)) {
-      if (skipKeys.has(key)) continue;
+      if (SKIP_KEYS.has(key)) continue;
       let votes = Number(row[key]) || 0;
       totalVotes += votes;
       if (key.startsWith('DEM ') || key.startsWith('Dem ')) {

@@ -1,12 +1,14 @@
 // precinctLookup.js
 // --------------------------------------------------------------------------------
-// Precinct Lookup page orchestration — search, report rendering, mini map.
+// Precinct Lookup page orchestration — search, report rendering, mini map,
+// Chart.js charts, county comparisons, section navigation.
 
 import {
   loadAllData,
   setActiveBoundary,
   getActiveBoundary,
   getBoundaryConfigs,
+  listElectionCSVs,
 } from "./dataLoader.js";
 import {
   loadCensusProfiles,
@@ -28,6 +30,11 @@ import {
   CATEGORY_ORDER,
   formatRaceName,
   calculateTurnout,
+  getPrecinctCandidateData,
+  getPrecinctRaceDetail,
+  computeCountyDemShare,
+  loadAllElectionDataForHistory,
+  categorizeRace,
 } from "./precinctHistory.js";
 import {
   initTheme,
@@ -56,10 +63,28 @@ let censusProfiles = null;
 let precinctList = []; // [{code, feature, party}]
 let miniMap = null;
 let miniMapLayer = null;
+let contextLayer = null;
 let tileLayer = null;
 let currentReportData = null;
-let currentPrecinctCode = null; // track what's currently displayed
-let isSwitching = false; // prevent concurrent boundary switches
+let currentPrecinctCode = null;
+let isSwitching = false;
+
+// Chart lifecycle
+let chartInstances = {};
+
+// County averages & precinct rankings
+let countyAverages = null;
+let precinctRankings = null;
+
+// Section nav observer
+let sectionObserver = null;
+
+// PVI cache: precinctCode -> { pvi, label }
+let pviCache = {};
+
+// Comparison state
+let compareMode = false;
+let comparePrecinct = null;
 
 // ---------------------------------------------------------------------------
 // Entry point
@@ -101,7 +126,6 @@ export async function initPrecinctLookup() {
     searchInput.addEventListener("keydown", function onKey(e) {
       handleSearchKeydown(e, dropdown);
     });
-    // Close dropdown on outside click
     document.addEventListener("click", function onDocClick(e) {
       if (!e.target.closest(".search-wrapper")) {
         dropdown.classList.remove("open");
@@ -147,7 +171,6 @@ async function loadBaseData() {
   dncLookup = result.dncLookup;
   racialLookup = result.racialLookup;
 
-  // Try loading census profiles — may not exist for 2026
   try {
     censusProfiles = await loadCensusProfiles();
   } catch {
@@ -161,12 +184,14 @@ async function loadBaseData() {
     return { code, feature: f, party };
   });
   precinctList.sort((a, b) => a.code.localeCompare(b.code, undefined, { numeric: true }));
+
+  // Compute county averages and rankings
+  computeCountyAverages();
 }
 
 async function handleBoundarySwitch(boundaryId) {
   isSwitching = true;
 
-  // Show loading feedback on the search section
   let searchInput = document.getElementById("precinct-search");
   if (searchInput) {
     searchInput.disabled = true;
@@ -178,13 +203,11 @@ async function handleBoundarySwitch(boundaryId) {
     clearElectionDataCache();
     await loadBaseData();
 
-    // Re-render the current precinct if one was selected
     if (currentPrecinctCode) {
       let exists = precinctList.find((p) => p.code === currentPrecinctCode);
       if (exists) {
         await selectPrecinct(currentPrecinctCode);
       } else {
-        // Precinct doesn't exist in the new boundary — reset the report
         resetReport();
         let configs = getBoundaryConfigs();
         let label = configs[boundaryId].label;
@@ -204,6 +227,81 @@ async function handleBoundarySwitch(boundaryId) {
       searchInput.placeholder = "Enter precinct number (e.g. 100)";
     }
   }
+}
+
+// ---------------------------------------------------------------------------
+// County averages & rankings
+// ---------------------------------------------------------------------------
+
+function computeCountyAverages() {
+  if (!censusProfiles) {
+    countyAverages = null;
+    precinctRankings = null;
+    return;
+  }
+
+  let codes = Object.keys(censusProfiles);
+  let total = codes.length;
+  if (total === 0) {
+    countyAverages = null;
+    precinctRankings = null;
+    return;
+  }
+
+  let incomes = [], homeValues = [], ages = [], collegePcts = [], populations = [];
+  let homeownerPcts = [], povertyRates = [];
+
+  for (let code of codes) {
+    let p = censusProfiles[code];
+    if (p.income?.medianHousehold != null) incomes.push({ code, value: p.income.medianHousehold });
+    if (p.housing?.medianHomeValue != null) homeValues.push({ code, value: p.housing.medianHomeValue });
+    if (p.age?.medianAge != null) ages.push({ code, value: p.age.medianAge });
+    let bach = p.education?.bachelors || 0;
+    let grad = p.education?.graduateProfessional || 0;
+    collegePcts.push({ code, value: bach + grad });
+    if (p.population != null) populations.push({ code, value: p.population });
+    if (p.housing?.ownerOccupied != null) homeownerPcts.push({ code, value: p.housing.ownerOccupied });
+    if (p.income?.povertyRate != null) povertyRates.push({ code, value: p.income.povertyRate });
+  }
+
+  function median(arr) {
+    if (arr.length === 0) return null;
+    let sorted = arr.map((a) => a.value).sort((a, b) => a - b);
+    let mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 !== 0 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+  }
+
+  function avg(arr) {
+    if (arr.length === 0) return null;
+    return arr.reduce((s, a) => s + a.value, 0) / arr.length;
+  }
+
+  countyAverages = {
+    income: median(incomes),
+    homeValue: median(homeValues),
+    age: median(ages),
+    college: avg(collegePcts),
+    population: avg(populations),
+    homeowner: avg(homeownerPcts),
+    poverty: avg(povertyRates),
+  };
+
+  function buildRanking(arr) {
+    let sorted = [...arr].sort((a, b) => b.value - a.value);
+    let lookup = {};
+    sorted.forEach((item, i) => {
+      lookup[item.code] = { rank: i + 1, total: sorted.length };
+    });
+    return lookup;
+  }
+
+  precinctRankings = {
+    income: buildRanking(incomes),
+    homeValue: buildRanking(homeValues),
+    college: buildRanking(collegePcts),
+    population: buildRanking(populations),
+    age: buildRanking(ages),
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -240,7 +338,6 @@ function handleSearchInput(query, dropdown) {
 
   dropdown.classList.add("open");
 
-  // Attach click handlers
   dropdown.querySelectorAll(".dropdown-item").forEach(function attachClick(item) {
     item.addEventListener("click", function onSelect() {
       let code = item.dataset.code;
@@ -297,22 +394,24 @@ async function selectPrecinct(code) {
     return;
   }
 
+  // Destroy any existing charts before re-rendering
+  destroyAllCharts();
+
   currentPrecinctCode = String(code);
   let feature = entry.feature;
   let props = feature.properties;
 
-  // Extract data
   let partyData = dncLookup[String(code)] || null;
   let racialData = racialLookup[String(code)] || null;
   let officials = extractOfficials(props);
   let census = censusProfiles ? censusProfiles[String(code)] : null;
 
-  // Show report container, hide intro
+  // Show report, hide intro, show section nav
   document.getElementById("intro-message")?.classList.add("hidden");
   let reportEl = document.getElementById("report-container");
   reportEl.classList.remove("hidden");
+  showSectionNav();
 
-  // Make sure the report structure is intact (may have been wiped by showError)
   ensureReportStructure(reportEl);
 
   // Show loading state for election history
@@ -320,9 +419,9 @@ async function selectPrecinct(code) {
   historyEl.innerHTML = '<div class="loading-spinner">Loading election history...</div>';
 
   // Render immediate sections
-  renderReportHeader(code, partyData);
+  renderHeroSection(code, census, partyData, racialData);
+  bindCompareButton(code);
   renderMiniMap(feature, partyData);
-  renderSummaryCards(census, partyData, racialData);
   renderPartySection(partyData);
   renderRacialSection(racialData);
   renderOfficialsSection(officials);
@@ -332,30 +431,50 @@ async function selectPrecinct(code) {
   let boundary = getActiveBoundary();
   window.location.hash = `precinct=${code}&boundary=${boundary}`;
 
+  // Setup section nav observer
+  setupSectionNav();
+
+  // Bind collapsible census toggles
+  bindCollapsibleToggles();
+
   // Load election history async
   let votingHistory;
+  let allElectionData;
   try {
+    allElectionData = await loadAllElectionDataForHistory();
     votingHistory = await getPrecinctVotingHistory(code);
   } catch {
     votingHistory = { races: [], byCategory: {}, partyRecord: { Rep: 0, Dem: 0, Other: 0 } };
+    allElectionData = {};
   }
-  renderElectionHistory(votingHistory);
+  renderElectionHistory(votingHistory, code, allElectionData);
+
+  // Compute PVI, strategy, margin trend, turnout gap, talking points, similar precincts async
+  let manifest = [];
+  try { manifest = await listElectionCSVs(); } catch { /* optional */ }
+
+  let pviResult = computePVI(code, allElectionData, manifest);
+  renderPVIBadge(pviResult);
+  pviCache[code] = pviResult;
+
+  let strategyResult = classifyStrategy(code, partyData, votingHistory, pviResult);
+  renderStrategyBadge(strategyResult);
+  renderStrategyDetail(strategyResult);
+
+  renderMarginTrend(code, allElectionData, manifest);
+  renderTurnoutGap(code, votingHistory, partyData, allElectionData, manifest);
+  renderTalkingPoints(code, census, partyData, racialData, votingHistory, pviResult, strategyResult);
+  renderSimilarPrecincts(code, census, partyData, racialData, allElectionData, manifest);
 
   // Compute and inject trend arrow
   computePrecinctTrend(code).then(function onTrend(trendData) {
     let arrow = renderTrendArrow(trendData);
     if (arrow) {
-      let headerEl = document.getElementById("report-header");
-      if (headerEl) {
-        let trendEl = headerEl.querySelector('.trend-arrow-container');
+      let heroEl = document.getElementById("hero-section");
+      if (heroEl) {
+        let trendEl = heroEl.querySelector('.trend-arrow-container');
         if (trendEl) {
           trendEl.innerHTML = arrow;
-        } else {
-          let container = document.createElement('div');
-          container.className = 'trend-arrow-container';
-          container.style.marginTop = '8px';
-          container.innerHTML = arrow;
-          headerEl.appendChild(container);
         }
       }
     }
@@ -371,9 +490,12 @@ async function selectPrecinct(code) {
     officials,
     census,
     votingHistory,
+    countyAverages,
+    rankings: precinctRankings,
+    pvi: pviResult,
+    strategy: strategyResult,
   };
 
-  // Show export buttons
   document.getElementById("export-bar")?.classList.remove("hidden");
 }
 
@@ -387,68 +509,186 @@ function extractOfficials(props) {
 }
 
 // ---------------------------------------------------------------------------
-// Section renderers
+// Chart lifecycle
 // ---------------------------------------------------------------------------
 
-function renderReportHeader(code, partyData) {
-  let el = document.getElementById("report-header");
+function destroyAllCharts() {
+  for (let key in chartInstances) {
+    if (chartInstances[key]) {
+      chartInstances[key].destroy();
+    }
+  }
+  chartInstances = {};
+}
+
+// ---------------------------------------------------------------------------
+// Hero dashboard section
+// ---------------------------------------------------------------------------
+
+function renderHeroSection(code, census, partyData, racialData) {
+  let el = document.getElementById("hero-section");
   let configs = getBoundaryConfigs();
   let boundaryLabel = configs[getActiveBoundary()].label;
 
-  let badge = "";
+  // Row 1: precinct code + badges
+  let badges = '';
+  badges += `<span class="boundary-label">${escapeHtml(boundaryLabel)}</span>`;
   if (partyData?.winningParty) {
     let cls = partyData.winningParty.toLowerCase();
     let strength = partyData.partyStrength != null ? ` (${partyData.partyStrength}/3)` : "";
-    badge = `<span class="party-lean-badge ${cls}">${escapeHtml(partyData.winningParty)}${escapeHtml(strength)}</span>`;
+    badges += `<span class="party-lean-badge ${cls}">${escapeHtml(partyData.winningParty)}${escapeHtml(strength)}</span>`;
   }
 
-  el.innerHTML = `
-    <h1>Precinct ${escapeHtml(code)}</h1>
-    <div class="report-meta">
-      <span class="boundary-label">${escapeHtml(boundaryLabel)}</span>
-      ${badge}
-    </div>
-  `;
-}
+  let html = '<div class="hero-section">';
+  html += '<div class="hero-row-top">';
+  html += `<span class="hero-precinct-code">Precinct ${escapeHtml(code)}</span>`;
+  html += `<div class="hero-badges">${badges}<span class="pvi-badge-container"></span><span class="strategy-badge-container"></span><span class="trend-arrow-container"></span><button class="compare-btn" id="compare-btn">Compare</button></div>`;
+  html += '</div>';
 
-function renderSummaryCards(census, partyData, racialData) {
-  let el = document.getElementById("section-summary-cards");
-  let cards = [];
+  // Row 2: stat cards
+  let stats = [];
 
   if (census?.population != null) {
-    cards.push({ label: "Population", value: formatNum(census.population) });
-  }
-  if (census?.households?.total != null) {
-    cards.push({ label: "Households", value: formatNum(census.households.total) });
-  }
-  if (census?.income?.medianHousehold != null) {
-    cards.push({ label: "Median Income", value: formatCurrency(census.income.medianHousehold) });
-  }
-  if (partyData) {
-    let total = (partyData.rep || 0) + (partyData.mod || 0) + (partyData.dem || 0);
-    cards.push({ label: "Registered Voters", value: formatNum(total) });
-  }
-  if (census?.housing?.medianHomeValue != null) {
-    cards.push({ label: "Median Home Value", value: formatCurrency(census.housing.medianHomeValue) });
-  }
-  if (census?.age?.medianAge != null) {
-    cards.push({ label: "Median Age", value: String(census.age.medianAge) });
+    stats.push(heroStatCard(formatNum(census.population), "Population", census.population, "population", countyAverages?.population, true, code));
   }
 
-  if (cards.length === 0 && partyData) {
+  if (partyData) {
     let total = (partyData.rep || 0) + (partyData.mod || 0) + (partyData.dem || 0);
-    cards.push({ label: "Registered Voters", value: formatNum(total) });
+    stats.push(heroStatCard(formatNum(total), "Registered Voters", null, null, null, false, code));
+  }
+
+  if (census?.income?.medianHousehold != null) {
+    stats.push(heroStatCard(formatCurrency(census.income.medianHousehold), "Median Income", census.income.medianHousehold, "income", countyAverages?.income, true, code));
+  }
+
+  if (census?.housing?.medianHomeValue != null) {
+    stats.push(heroStatCard(formatCurrency(census.housing.medianHomeValue), "Home Value", census.housing.medianHomeValue, "homeValue", countyAverages?.homeValue, true, code));
+  }
+
+  if (census?.age?.medianAge != null) {
+    stats.push(heroStatCard(String(census.age.medianAge), "Median Age", census.age.medianAge, "age", countyAverages?.age, false, code));
+  }
+
+  if (census?.education) {
+    let collegePct = (census.education.bachelors || 0) + (census.education.graduateProfessional || 0);
+    stats.push(heroStatCard(formatPct(collegePct), "College %", collegePct, "college", countyAverages?.college, true, code));
+  }
+
+  // Fallback if no census data
+  if (stats.length === 0 && partyData) {
+    let total = (partyData.rep || 0) + (partyData.mod || 0) + (partyData.dem || 0);
+    stats.push(heroStatCard(formatNum(total), "Registered Voters", null, null, null, false, code));
     if (partyData.winningParty) {
-      cards.push({ label: "Party Lean", value: partyData.winningParty });
+      stats.push(heroStatCard(partyData.winningParty, "Party Lean", null, null, null, false, code));
     }
   }
 
-  el.innerHTML = cards.length > 0
-    ? '<div class="summary-grid">' +
-      cards.map((c) => `<div class="summary-card"><div class="summary-value">${escapeHtml(c.value)}</div><div class="summary-label">${escapeHtml(c.label)}</div></div>`).join("") +
-      "</div>"
-    : "";
+  html += '<div class="hero-stats-grid">';
+  html += stats.join('');
+  html += '</div></div>';
+
+  el.innerHTML = html;
 }
+
+function heroStatCard(displayValue, label, rawValue, rankMetric, countyValue, higherIsBetter, code) {
+  let html = '<div class="hero-stat-card">';
+  html += `<div class="hero-stat-value">${escapeHtml(displayValue)}</div>`;
+  html += `<div class="hero-stat-label">${escapeHtml(label)}</div>`;
+
+  if (rawValue != null && countyValue != null) {
+    html += comparisonBadge(rawValue, countyValue, higherIsBetter);
+  }
+
+  if (rankMetric && code && precinctRankings?.[rankMetric]) {
+    let r = precinctRankings[rankMetric][String(code)];
+    if (r) {
+      html += `<div class="hero-stat-rank">#${r.rank} of ${r.total}</div>`;
+    }
+  }
+
+  html += '</div>';
+  return html;
+}
+
+function comparisonBadge(value, countyValue, higherIsBetter) {
+  if (countyValue == null || countyValue === 0) return '';
+  let pctDiff = ((value - countyValue) / Math.abs(countyValue)) * 100;
+  let absPct = Math.abs(pctDiff).toFixed(0);
+
+  if (Math.abs(pctDiff) < 5) {
+    return '<div class="hero-stat-comparison near">near avg</div>';
+  }
+
+  let isGood = higherIsBetter ? pctDiff > 0 : pctDiff < 0;
+  let cls = isGood ? 'above' : 'below';
+  let sign = pctDiff > 0 ? '+' : '';
+  return `<div class="hero-stat-comparison ${cls}">${sign}${absPct}% vs county</div>`;
+}
+
+// ---------------------------------------------------------------------------
+// Section navigation
+// ---------------------------------------------------------------------------
+
+function showSectionNav() {
+  let nav = document.getElementById("section-nav");
+  if (nav) nav.classList.remove("hidden");
+}
+
+function hideSectionNav() {
+  let nav = document.getElementById("section-nav");
+  if (nav) nav.classList.add("hidden");
+}
+
+function setupSectionNav() {
+  // Clean up previous observer
+  if (sectionObserver) {
+    sectionObserver.disconnect();
+    sectionObserver = null;
+  }
+
+  let nav = document.getElementById("section-nav");
+  if (!nav) return;
+
+  let pills = nav.querySelectorAll(".section-nav-pill");
+
+  // Click handlers
+  pills.forEach(function attachNavClick(pill) {
+    pill.onclick = function onNavClick(e) {
+      e.preventDefault();
+      let targetId = pill.dataset.target;
+      let targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+  });
+
+  // IntersectionObserver to track active section
+  let sections = document.querySelectorAll("[data-section]");
+  if (sections.length === 0) return;
+
+  sectionObserver = new IntersectionObserver(
+    function onIntersect(entries) {
+      for (let entry of entries) {
+        if (entry.isIntersecting) {
+          let sectionId = entry.target.dataset.section;
+          pills.forEach(function updatePill(p) {
+            p.classList.toggle("active", p.dataset.target === sectionId);
+          });
+        }
+      }
+    },
+    { rootMargin: "-100px 0px -60% 0px", threshold: 0.1 }
+  );
+
+  sections.forEach(function observeSection(sec) {
+    sectionObserver.observe(sec);
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Section renderers
+// ---------------------------------------------------------------------------
 
 function renderPartySection(partyData) {
   let el = document.getElementById("section-party");
@@ -483,75 +723,253 @@ function renderCensusSection(census, code, boundaryMeta) {
   el.innerHTML = generateProfileHTML(census, code, extraData);
 }
 
-function renderElectionHistory(votingHistory) {
-  let el = document.getElementById("section-election-history");
+// ---------------------------------------------------------------------------
+// Collapsible census toggle bindings
+// ---------------------------------------------------------------------------
 
-  if (!votingHistory || !votingHistory.races || votingHistory.races.length === 0) {
-    el.innerHTML = '<p class="empty-state">No election history available for this precinct.</p>';
-    return;
-  }
-
-  let html = "";
-
-  // Party record summary
-  let pr = votingHistory.partyRecord;
-  html += '<div class="party-record-bar">';
-  html += `<span class="pr-item rep">Rep: ${pr.Rep}</span>`;
-  html += `<span class="pr-item dem">Dem: ${pr.Dem}</span>`;
-  html += `<span class="pr-item other">Other: ${pr.Other}</span>`;
-  html += "</div>";
-
-  // Grouped by category
-  for (let category of CATEGORY_ORDER) {
-    let races = votingHistory.byCategory[category];
-    if (!races || races.length === 0) continue;
-
-    html += `<div class="history-group">`;
-    html += `<button class="history-group-header" aria-expanded="true">
-      <span>${escapeHtml(category)} <span class="race-count">(${races.length})</span></span>
-      <span class="chevron">&#9660;</span>
-    </button>`;
-    html += '<div class="history-group-body">';
-    html += '<table class="history-table"><thead><tr><th>Race</th><th>Winner</th><th>Party</th><th>Votes</th><th>Turnout</th></tr></thead><tbody>';
-
-    for (let race of races) {
-      let turnout = calculateTurnout(race.totalVotes, race.registeredVoters);
-      let partyClass = (race.winningParty || "").toLowerCase();
-      html += `<tr class="${partyClass}">
-        <td>${escapeHtml(race.raceName)}</td>
-        <td>${escapeHtml(race.winner)}</td>
-        <td>${escapeHtml(race.winningParty)}</td>
-        <td>${Number(race.totalVotes).toLocaleString()}</td>
-        <td>${turnout.toFixed(1)}%</td>
-      </tr>`;
-    }
-
-    html += "</tbody></table></div></div>";
-  }
-
-  el.innerHTML = html;
-
-  // Attach collapsible behavior
-  el.querySelectorAll(".history-group-header").forEach(function attachToggle(btn) {
+function bindCollapsibleToggles() {
+  let toggles = document.querySelectorAll(".census-toggle-btn");
+  toggles.forEach(function attachToggle(btn) {
     btn.addEventListener("click", function onToggle() {
-      let body = btn.nextElementSibling;
       let expanded = btn.getAttribute("aria-expanded") === "true";
       btn.setAttribute("aria-expanded", String(!expanded));
-      body.style.display = expanded ? "none" : "block";
-      btn.querySelector(".chevron").style.transform = expanded ? "rotate(-90deg)" : "";
+      let body = btn.nextElementSibling;
+      if (body && body.classList.contains("census-collapsible")) {
+        body.classList.toggle("collapsed", expanded);
+      }
     });
   });
 }
 
 // ---------------------------------------------------------------------------
-// Mini map
+// Election history with tabs
+// ---------------------------------------------------------------------------
+
+// Tab category mapping
+let TAB_CATEGORIES = {
+  All: null,
+  Federal: ["Federal"],
+  State: ["State"],
+  County: ["County"],
+  Local: ["City", "ISD", "MUD", "Propositions", "Other"],
+};
+
+// Old renderElectionHistory/renderElectionTable replaced by renderElectionHistory with drilldown below
+
+// ---------------------------------------------------------------------------
+// Win streak computation
+// ---------------------------------------------------------------------------
+
+function computeWinStreak(votingHistory) {
+  let federal = votingHistory.byCategory?.Federal;
+  if (!federal || federal.length === 0) return null;
+
+  // Sort by year descending (raceName contains year info)
+  let sorted = [...federal].sort((a, b) => {
+    let yearA = extractYear(a.raceName);
+    let yearB = extractYear(b.raceName);
+    return yearB - yearA;
+  });
+
+  let streakParty = sorted[0]?.winningParty;
+  if (!streakParty || streakParty === "Other") return null;
+
+  let count = 0;
+  for (let race of sorted) {
+    if (race.winningParty === streakParty) {
+      count++;
+    } else {
+      break;
+    }
+  }
+
+  if (count < 2) return null;
+  return `Voted ${streakParty} in last ${count} Federal races`;
+}
+
+function extractYear(raceName) {
+  let match = raceName.match(/\b(20\d{2})\b/);
+  return match ? parseInt(match[1], 10) : 0;
+}
+
+// ---------------------------------------------------------------------------
+// Chart.js rendering
+// ---------------------------------------------------------------------------
+
+function getChartColors() {
+  let style = getComputedStyle(document.documentElement);
+  return {
+    text: style.getPropertyValue('--text-secondary').trim() || '#717171',
+    grid: style.getPropertyValue('--border').trim() || '#DDDDDD',
+  };
+}
+
+function renderPartyChart(partyData) {
+  if (!partyData) return;
+  let canvas = document.getElementById('precinct-party-chart');
+  if (!canvas || typeof Chart === 'undefined') return;
+
+  if (chartInstances.party) chartInstances.party.destroy();
+
+  chartInstances.party = new Chart(canvas.getContext('2d'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Republican', 'Moderate', 'Democrat'],
+      datasets: [{
+        data: [partyData.rep || 0, partyData.mod || 0, partyData.dem || 0],
+        backgroundColor: ['#E81B23', '#800080', '#00AEF3'],
+        borderWidth: 0,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { display: false },
+        datalabels: { display: false },
+      },
+      cutout: '60%',
+    },
+  });
+}
+
+function renderRacialChart(racialData) {
+  if (!racialData) return;
+  let canvas = document.getElementById('precinct-racial-chart');
+  if (!canvas || typeof Chart === 'undefined') return;
+
+  if (chartInstances.racial) chartInstances.racial.destroy();
+
+  chartInstances.racial = new Chart(canvas.getContext('2d'), {
+    type: 'doughnut',
+    data: {
+      labels: ['White', 'Asian', 'Hispanic', 'Black', 'Others'],
+      datasets: [{
+        data: [
+          racialData.pct_white || 0,
+          racialData.pct_asian || 0,
+          racialData.pct_hispanic || 0,
+          racialData.pct_black || 0,
+          racialData.pct_others || 0,
+        ],
+        backgroundColor: ['#9467bd', '#1f77b4', '#2ca02c', '#ff7f0e', '#d62728'],
+        borderWidth: 0,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { display: false },
+        datalabels: { display: false },
+      },
+      cutout: '60%',
+    },
+  });
+}
+
+function renderIncomeChart(census) {
+  if (!census?.income?.brackets) return;
+  let canvas = document.getElementById('precinct-income-chart');
+  if (!canvas || typeof Chart === 'undefined') return;
+
+  if (chartInstances.income) chartInstances.income.destroy();
+
+  let colors = getChartColors();
+  let brackets = census.income.brackets;
+
+  chartInstances.income = new Chart(canvas.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: ['<$50K', '$50-100K', '$100-150K', '$150-200K', '$200K+'],
+      datasets: [{
+        data: [
+          ((brackets.under50k || 0) * 100),
+          ((brackets['50kTo100k'] || 0) * 100),
+          ((brackets['100kTo150k'] || 0) * 100),
+          ((brackets['150kTo200k'] || 0) * 100),
+          ((brackets.over200k || 0) * 100),
+        ],
+        backgroundColor: ['#66BB6A', '#4CAF50', '#43A047', '#388E3C', '#2E7D32'],
+        borderRadius: 4,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: { display: false },
+      },
+      scales: {
+        y: {
+          ticks: { color: colors.text, callback: function(v) { return v + '%'; } },
+          grid: { color: colors.grid },
+        },
+        x: {
+          ticks: { color: colors.text },
+          grid: { display: false },
+        },
+      },
+    },
+  });
+}
+
+function renderEducationChart(census) {
+  if (!census?.education) return;
+  let canvas = document.getElementById('precinct-education-chart');
+  if (!canvas || typeof Chart === 'undefined') return;
+
+  if (chartInstances.education) chartInstances.education.destroy();
+
+  let colors = getChartColors();
+  let edu = census.education;
+
+  chartInstances.education = new Chart(canvas.getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: ['HS or Less', 'Some College', "Bachelor's", 'Graduate+'],
+      datasets: [{
+        data: [
+          ((edu.highSchoolOrLess || 0) * 100),
+          ((edu.someCollege || 0) * 100),
+          ((edu.bachelors || 0) * 100),
+          ((edu.graduateProfessional || 0) * 100),
+        ],
+        backgroundColor: ['#64B5F6', '#42A5F5', '#2196F3', '#1565C0'],
+        borderRadius: 4,
+      }],
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: { display: false },
+      },
+      scales: {
+        x: {
+          ticks: { color: colors.text, callback: function(v) { return v + '%'; } },
+          grid: { color: colors.grid },
+        },
+        y: {
+          ticks: { color: colors.text },
+          grid: { display: false },
+        },
+      },
+    },
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Mini map (enhanced — all precincts as context, interactive)
 // ---------------------------------------------------------------------------
 
 function renderMiniMap(feature, partyData) {
   let container = document.getElementById("mini-map");
   if (!container) return;
 
-  // Determine fill color based on party
   let fillColor = "#888";
   if (partyData?.winningParty) {
     let p = partyData.winningParty.toLowerCase();
@@ -562,32 +980,65 @@ function renderMiniMap(feature, partyData) {
 
   if (!miniMap) {
     miniMap = L.map(container, {
-      zoomControl: false,
+      zoomControl: true,
       attributionControl: false,
-      dragging: false,
-      scrollWheelZoom: false,
-      doubleClickZoom: false,
-      touchZoom: false,
+      dragging: true,
+      scrollWheelZoom: true,
+      doubleClickZoom: true,
+      touchZoom: true,
     });
     let url = getCurrentTheme() === "dark" ? DARK_TILE_URL : LIGHT_TILE_URL;
     tileLayer = L.tileLayer(url, { maxZoom: 18 }).addTo(miniMap);
   }
 
-  // Remove previous layer
+  // Remove previous layers
   if (miniMapLayer) {
     miniMap.removeLayer(miniMapLayer);
+    miniMapLayer = null;
+  }
+  if (contextLayer) {
+    miniMap.removeLayer(contextLayer);
+    contextLayer = null;
   }
 
-  miniMapLayer = L.geoJSON(feature, {
-    style: {
-      fillColor,
-      fillOpacity: 0.4,
-      color: fillColor,
-      weight: 2,
+  // Add ALL precincts as light gray context
+  let selectedCode = String(feature.properties.PRECINCT);
+  contextLayer = L.geoJSON(geojsonData, {
+    style: function contextStyle(f) {
+      let code = String(f.properties.PRECINCT);
+      if (code === selectedCode) {
+        return { fillOpacity: 0, weight: 0, opacity: 0 }; // hide selected from context layer
+      }
+      return {
+        fillColor: '#ccc',
+        fillOpacity: 0.15,
+        color: '#999',
+        weight: 0.5,
+      };
+    },
+    onEachFeature: function onContext(feat, layer) {
+      let code = String(feat.properties.PRECINCT);
+      if (code === selectedCode) return;
+      layer.bindTooltip('Precinct ' + code, { sticky: true });
+      layer.on('click', function onContextClick() {
+        let searchInput = document.getElementById('precinct-search');
+        if (searchInput) searchInput.value = code;
+        selectPrecinct(code);
+      });
     },
   }).addTo(miniMap);
 
-  miniMap.fitBounds(miniMapLayer.getBounds(), { padding: [20, 20] });
+  // Add selected precinct on top
+  miniMapLayer = L.geoJSON(feature, {
+    style: {
+      fillColor,
+      fillOpacity: 0.5,
+      color: fillColor,
+      weight: 3,
+    },
+  }).addTo(miniMap);
+
+  miniMap.fitBounds(miniMapLayer.getBounds(), { padding: [40, 40] });
 }
 
 function updateMiniMapTiles() {
@@ -614,43 +1065,53 @@ function parseHash() {
   return params;
 }
 
-/**
- * Reset the report area back to its original HTML structure.
- * Called when a precinct is not found or on boundary switch errors.
- */
-function resetReport() {
-  currentReportData = null;
-  document.getElementById("intro-message")?.classList.remove("hidden");
-  document.getElementById("export-bar")?.classList.add("hidden");
-
-  let reportEl = document.getElementById("report-container");
-  reportEl.classList.add("hidden");
-
-  // Rebuild the structure so future selectPrecinct calls work
-  reportEl.innerHTML = `
-    <div id="report-header" class="report-header"></div>
+function getReportStructureHTML() {
+  return `
+    <div id="hero-section" data-section="hero-section"></div>
+    <div id="strategy-section"></div>
+    <div id="comparison-section"></div>
     <div id="export-bar" class="export-bar hidden">
       <button id="export-pdf" class="export-btn">Export PDF</button>
       <button id="export-md" class="export-btn">Export Markdown</button>
       <button id="export-one-pager" class="export-btn">Field One-Pager</button>
     </div>
     <div id="mini-map" class="mini-map-container"></div>
-    <div id="section-summary-cards"></div>
-    <div id="section-party" class="report-section"></div>
-    <div id="section-racial" class="report-section"></div>
-    <div id="section-officials" class="report-section"></div>
-    <div id="section-census" class="report-section"></div>
-    <div class="report-section">
+    <div id="section-party" class="report-section" data-section="section-party" data-accent="party"></div>
+    <div id="section-racial" class="report-section" data-section="section-racial" data-accent="demographics"></div>
+    <div id="section-officials" class="report-section" data-section="section-officials" data-accent="districts"></div>
+    <div id="section-census" class="report-section" data-section="section-census" data-accent="census"></div>
+    <div id="section-elections" class="report-section" data-section="section-elections" data-accent="elections">
       <div class="report-section-title">Election History</div>
       <div id="section-election-history"></div>
     </div>
+    <div id="section-talking-points" class="report-section" data-section="section-talking-points" data-accent="census"></div>
+    <div id="section-similar" class="report-section" data-section="section-similar" data-accent="demographics"></div>
   `;
+}
 
-  // Destroy mini map so it can be re-created in the new container
+function resetReport() {
+  destroyAllCharts();
+  currentReportData = null;
+  compareMode = false;
+  comparePrecinct = null;
+  document.getElementById("intro-message")?.classList.remove("hidden");
+  document.getElementById("export-bar")?.classList.add("hidden");
+  hideSectionNav();
+
+  if (sectionObserver) {
+    sectionObserver.disconnect();
+    sectionObserver = null;
+  }
+
+  let reportEl = document.getElementById("report-container");
+  reportEl.classList.add("hidden");
+  reportEl.innerHTML = getReportStructureHTML();
+
   if (miniMap) {
     miniMap.remove();
     miniMap = null;
     miniMapLayer = null;
+    contextLayer = null;
     tileLayer = null;
   }
 
@@ -666,40 +1127,18 @@ function resetReport() {
   bindOnePagerButton();
 }
 
-/**
- * Ensure the report container has its expected child elements.
- * If showError/showNotice previously replaced innerHTML, rebuild it.
- */
 function ensureReportStructure(reportEl) {
-  if (!document.getElementById("report-header")) {
-    reportEl.innerHTML = `
-      <div id="report-header" class="report-header"></div>
-      <div id="export-bar" class="export-bar hidden">
-        <button id="export-pdf" class="export-btn">Export PDF</button>
-        <button id="export-md" class="export-btn">Export Markdown</button>
-        <button id="export-one-pager" class="export-btn">Field One-Pager</button>
-      </div>
-      <div id="mini-map" class="mini-map-container"></div>
-      <div id="section-summary-cards"></div>
-      <div id="section-party" class="report-section"></div>
-      <div id="section-racial" class="report-section"></div>
-      <div id="section-officials" class="report-section"></div>
-      <div class="report-section">
-        <div class="report-section-title">Election History</div>
-        <div id="section-election-history"></div>
-      </div>
-      <div id="section-census" class="report-section"></div>
-    `;
+  if (!document.getElementById("hero-section")) {
+    reportEl.innerHTML = getReportStructureHTML();
 
-    // Destroy and allow re-creation of mini map
     if (miniMap) {
       miniMap.remove();
       miniMap = null;
       miniMapLayer = null;
+      contextLayer = null;
       tileLayer = null;
     }
 
-    // Re-bind export buttons
     let pdfBtn = document.getElementById("export-pdf");
     let mdBtn = document.getElementById("export-md");
     if (pdfBtn) pdfBtn.addEventListener("click", exportAsPDF);
@@ -767,7 +1206,6 @@ async function handleOnePagerClick() {
       data.trend
     );
 
-    // Show one-pager below the report
     let container = document.getElementById("one-pager-container");
     if (!container) {
       container = document.createElement("div");
@@ -778,7 +1216,6 @@ async function handleOnePagerClick() {
     container.innerHTML = html;
     container.scrollIntoView({ behavior: "smooth", block: "start" });
 
-    // Wire print button
     let printBtn = document.getElementById("one-pager-print-btn");
     if (printBtn) {
       printBtn.addEventListener("click", function onPrint() {
@@ -786,7 +1223,6 @@ async function handleOnePagerClick() {
       });
     }
 
-    // Wire copy button
     let copyBtn = document.getElementById("one-pager-copy-btn");
     if (copyBtn) {
       copyBtn.addEventListener("click", async function onCopy() {
@@ -805,4 +1241,908 @@ async function handleOnePagerClick() {
       btn.textContent = "Field One-Pager";
     }
   }
+}
+
+// ---------------------------------------------------------------------------
+// Feature 1: PVI Competitiveness Score
+// ---------------------------------------------------------------------------
+
+function computePVI(precinctCode, allElectionData, manifest) {
+  if (!allElectionData || !manifest) return { pvi: 0, label: 'N/A' };
+
+  // Find the 2 most recent federal races (prefer President + Senator)
+  let manifestByFile = {};
+  for (let entry of manifest) {
+    let fn = typeof entry === 'string' ? entry : entry.filename;
+    manifestByFile[fn] = entry;
+  }
+
+  let federalRaces = [];
+  for (let [filename, data] of Object.entries(allElectionData)) {
+    let entry = manifestByFile[filename];
+    if (!entry) continue;
+    let cat = entry.category || categorizeRace(filename);
+    if (cat !== 'Federal') continue;
+    let year = entry.year || 0;
+    // Only use President/Senator races for PVI
+    let fn = filename.toLowerCase();
+    let isPresOrSen = fn.includes('president') || fn.includes('senator');
+    if (!isPresOrSen) continue;
+
+    let precinctData = getPrecinctCandidateData(data, precinctCode);
+    if (!precinctData) continue;
+
+    let countyDemShare = computeCountyDemShare(data);
+    federalRaces.push({
+      year,
+      filename,
+      precinctDemShare: precinctData.demPct,
+      countyDemShare,
+    });
+  }
+
+  if (federalRaces.length === 0) return { pvi: 0, label: 'N/A' };
+
+  // Sort by year desc, take top 2
+  federalRaces.sort((a, b) => b.year - a.year);
+  let recent = federalRaces.slice(0, 2);
+
+  // Average the delta (precinct Dem share - county Dem share)
+  let totalDelta = 0;
+  for (let r of recent) {
+    totalDelta += (r.precinctDemShare - r.countyDemShare);
+  }
+  let avgDelta = totalDelta / recent.length;
+  let pviPoints = avgDelta * 100;
+
+  let label;
+  if (Math.abs(pviPoints) < 0.5) {
+    label = 'EVEN';
+  } else if (pviPoints > 0) {
+    label = 'D+' + Math.abs(pviPoints).toFixed(0);
+  } else {
+    label = 'R+' + Math.abs(pviPoints).toFixed(0);
+  }
+
+  return { pvi: pviPoints, label };
+}
+
+function renderPVIBadge(pviResult) {
+  let container = document.querySelector('.pvi-badge-container');
+  if (!container) return;
+  if (!pviResult || pviResult.label === 'N/A') {
+    container.innerHTML = '';
+    return;
+  }
+
+  let cls = 'pvi-even';
+  if (pviResult.pvi > 0.5) cls = 'pvi-dem';
+  else if (pviResult.pvi < -0.5) cls = 'pvi-rep';
+
+  container.innerHTML = `<span class="pvi-badge ${cls}">${escapeHtml(pviResult.label)}</span>`;
+}
+
+// ---------------------------------------------------------------------------
+// Feature 4: Strategy Classification
+// ---------------------------------------------------------------------------
+
+function classifyStrategy(precinctCode, partyData, votingHistory, pviResult) {
+  if (!partyData) return null;
+
+  let demShare = partyData.demShare || 0;
+  let repShare = partyData.repShare || 0;
+  let modShare = partyData.modShare || 0;
+  let partyStrength = partyData.partyStrength || 0;
+  let pvi = pviResult?.pvi || 0;
+
+  // Compute average turnout from federal races
+  let avgTurnout = 0;
+  let federalRaces = votingHistory?.byCategory?.Federal || [];
+  if (federalRaces.length > 0) {
+    let totalTurnout = 0;
+    let counted = 0;
+    for (let race of federalRaces) {
+      let t = calculateTurnout(race.totalVotes, race.registeredVoters);
+      if (t > 0) { totalTurnout += t; counted++; }
+    }
+    avgTurnout = counted > 0 ? totalTurnout / counted : 0;
+  }
+
+  // Decision tree
+  let classification, action, rationale;
+
+  if (demShare > 0.30 && avgTurnout < 55) {
+    classification = 'mobilize';
+    action = 'GOTV — get Democrats to the polls';
+    rationale = `Dem registration is ${(demShare * 100).toFixed(0)}% but avg federal turnout is only ${avgTurnout.toFixed(0)}%. Higher turnout here directly helps.`;
+  } else if (modShare > 0.32 && Math.abs(pvi) < 8) {
+    classification = 'persuade';
+    action = 'Persuasion — target Moderates and weak partisans';
+    rationale = `Moderate registration is ${(modShare * 100).toFixed(0)}% and the precinct is competitive (${pviResult?.label || 'near even'}). Persuasion moves the needle here.`;
+  } else if (pvi > 0 && pvi < 12) {
+    classification = 'defend';
+    action = 'Protect — maintain Dem advantage, prevent erosion';
+    rationale = `This precinct leans Dem (${pviResult?.label}) but not by a huge margin. Don't take it for granted.`;
+  } else if (pvi < -5 && demShare > 0.20) {
+    classification = 'grow';
+    action = 'Long-term — register new voters, build infrastructure';
+    rationale = `Lean GOP (${pviResult?.label}) but Dem registration is ${(demShare * 100).toFixed(0)}%. Invest in future cycles.`;
+  } else if (demShare > 0.30) {
+    classification = 'defend';
+    action = 'Protect — solid Dem base, keep turnout high';
+    rationale = `Strong Dem registration and decent PVI. Maintain engagement.`;
+  } else {
+    classification = 'grow';
+    action = 'Long-term growth — build local party infrastructure';
+    rationale = `Low Dem share (${(demShare * 100).toFixed(0)}%). Focus on registration drives and community presence.`;
+  }
+
+  return { classification, action, rationale };
+}
+
+function renderStrategyBadge(strategy) {
+  let container = document.querySelector('.strategy-badge-container');
+  if (!container || !strategy) {
+    if (container) container.innerHTML = '';
+    return;
+  }
+
+  let labels = { mobilize: 'Mobilize', persuade: 'Persuade', defend: 'Defend', grow: 'Grow' };
+  let label = labels[strategy.classification] || strategy.classification;
+  container.innerHTML = `<span class="strategy-badge ${strategy.classification}">${escapeHtml(label)}</span>`;
+}
+
+function renderStrategyDetail(strategy) {
+  let el = document.getElementById('strategy-section');
+  if (!el || !strategy) {
+    if (el) el.innerHTML = '';
+    return;
+  }
+
+  let icons = { mobilize: '\u{1F4E3}', persuade: '\u{1F91D}', defend: '\u{1F6E1}', grow: '\u{1F331}' };
+  let titles = { mobilize: 'Mobilize Base', persuade: 'Persuade Moderates', defend: 'Defend Gains', grow: 'Grow Long-Term' };
+
+  el.innerHTML = `<div class="strategy-detail">
+    <div class="strategy-detail-title"><span class="strategy-badge ${strategy.classification}">${escapeHtml(titles[strategy.classification] || strategy.classification)}</span></div>
+    <div class="strategy-detail-action">${escapeHtml(strategy.action)}</div>
+    <div class="strategy-detail-rationale">${escapeHtml(strategy.rationale)}</div>
+  </div>`;
+}
+
+// ---------------------------------------------------------------------------
+// Feature 2: Margin Trend
+// ---------------------------------------------------------------------------
+
+function renderMarginTrend(precinctCode, allElectionData, manifest) {
+  let el = document.getElementById('section-election-history');
+  if (!el) return;
+
+  let manifestByFile = {};
+  for (let entry of manifest) {
+    let fn = typeof entry === 'string' ? entry : entry.filename;
+    manifestByFile[fn] = entry;
+  }
+
+  // Collect federal races with Dem/Rep margins
+  let races = [];
+  for (let [filename, data] of Object.entries(allElectionData)) {
+    let entry = manifestByFile[filename];
+    if (!entry) continue;
+    let cat = entry.category || categorizeRace(filename);
+    if (cat !== 'Federal') continue;
+
+    let fn = filename.toLowerCase();
+    let isPresOrSen = fn.includes('president') || fn.includes('senator') || fn.includes('representative');
+    if (!isPresOrSen) continue;
+
+    let cd = getPrecinctCandidateData(data, precinctCode);
+    if (!cd) continue;
+
+    let year = entry.year || 0;
+    let margin = cd.margin; // positive = Dem
+    let displayName = formatRaceName(filename);
+
+    races.push({ year, margin, displayName, filename });
+  }
+
+  if (races.length < 2) return;
+
+  races.sort((a, b) => a.year - b.year);
+
+  // Compute max margin for scaling
+  let maxMargin = Math.max(...races.map(r => Math.abs(r.margin)));
+  if (maxMargin < 0.01) maxMargin = 0.01;
+
+  // Compute shift
+  let first = races[0];
+  let last = races[races.length - 1];
+  let shiftPts = (last.margin - first.margin) * 100;
+  let shiftClass = shiftPts > 0.5 ? 'dem' : shiftPts < -0.5 ? 'rep' : 'stable';
+  let shiftLabel = Math.abs(shiftPts) < 0.5 ? 'No significant shift' :
+    `${shiftPts > 0 ? '+' : ''}${shiftPts.toFixed(1)} pts toward ${shiftPts > 0 ? 'Dem' : 'Rep'} since ${first.year}`;
+
+  let html = '<div class="margin-trend">';
+  html += `<div class="margin-trend-title"><span>Margin Trend (Federal Races)</span><span class="margin-trend-shift ${shiftClass}">${escapeHtml(shiftLabel)}</span></div>`;
+
+  for (let race of races) {
+    let marginPct = race.margin * 100;
+    let barWidthPct = (Math.abs(race.margin) / maxMargin) * 48; // max 48% of container width
+    let isDem = race.margin >= 0;
+    let barClass = isDem ? 'dem-bar' : 'rep-bar';
+    let valClass = isDem ? 'dem-val' : 'rep-val';
+    let label = isDem ? `D+${Math.abs(marginPct).toFixed(1)}` : `R+${Math.abs(marginPct).toFixed(1)}`;
+
+    html += '<div class="margin-trend-row">';
+    html += `<div class="margin-trend-label">${escapeHtml(race.displayName)}</div>`;
+    html += '<div class="margin-trend-bar-container"><div class="margin-trend-center"></div>';
+    html += `<div class="margin-trend-bar ${barClass}" style="width:${barWidthPct}%"></div>`;
+    html += '</div>';
+    html += `<div class="margin-trend-value ${valClass}">${escapeHtml(label)}</div>`;
+    html += '</div>';
+  }
+
+  html += '<div class="margin-trend-axis"><span>R</span><span>Center</span><span>D</span></div>';
+  html += '</div>';
+
+  // Insert before the election history table
+  let existingTrend = el.parentElement.querySelector('.margin-trend');
+  if (existingTrend) existingTrend.remove();
+  el.insertAdjacentHTML('beforebegin', html);
+}
+
+// ---------------------------------------------------------------------------
+// Feature 3: Turnout Gap / Missing Voters
+// ---------------------------------------------------------------------------
+
+function renderTurnoutGap(precinctCode, votingHistory, partyData, allElectionData, manifest) {
+  if (!votingHistory || !partyData) return;
+
+  let manifestByFile = {};
+  for (let entry of manifest) {
+    let fn = typeof entry === 'string' ? entry : entry.filename;
+    manifestByFile[fn] = entry;
+  }
+
+  // Get party registration proportions
+  let total = (partyData.rep || 0) + (partyData.mod || 0) + (partyData.dem || 0);
+  if (total === 0) return;
+  let demProp = (partyData.dem || 0) / total;
+  let repProp = (partyData.rep || 0) / total;
+  let modProp = (partyData.mod || 0) / total;
+
+  // Collect recent federal races
+  let recentRaces = [];
+  let federal = votingHistory.byCategory?.Federal || [];
+  for (let race of federal) {
+    let entry = manifestByFile[race.filename];
+    let year = entry?.year || extractYear(race.raceName);
+    if (race.registeredVoters > 0) {
+      let cd = getPrecinctCandidateData(allElectionData[race.filename], precinctCode);
+      recentRaces.push({
+        name: race.raceName,
+        year,
+        registeredVoters: race.registeredVoters,
+        totalVotes: race.totalVotes,
+        nonVoters: Math.max(0, race.registeredVoters - race.totalVotes),
+        demMargin: cd ? cd.margin : 0,
+        demVotes: cd ? cd.demVotes : 0,
+        repVotes: cd ? cd.repVotes : 0,
+      });
+    }
+  }
+
+  if (recentRaces.length === 0) return;
+  recentRaces.sort((a, b) => b.year - a.year);
+  recentRaces = recentRaces.slice(0, 4);
+
+  let html = '<div class="turnout-gap">';
+  html += '<div class="turnout-gap-title">Turnout Gap Analysis</div>';
+
+  for (let race of recentRaces) {
+    let estDemNonVoters = Math.round(race.nonVoters * demProp);
+    let estRepNonVoters = Math.round(race.nonVoters * repProp);
+    let estModNonVoters = Math.round(race.nonVoters * modProp);
+    let turnout = calculateTurnout(race.totalVotes, race.registeredVoters);
+
+    // Would full Dem turnout flip the result?
+    let demIfAllVoted = race.demVotes + estDemNonVoters;
+    let couldFlip = race.demVotes < race.repVotes && demIfAllVoted > race.repVotes;
+
+    html += '<div class="turnout-gap-card">';
+    html += `<div class="turnout-gap-race">${escapeHtml(race.name)} (${turnout.toFixed(0)}% turnout)</div>`;
+    html += '<div class="turnout-gap-stats">';
+    html += `<span class="turnout-gap-stat"><strong>${formatNum(race.nonVoters)}</strong> didn't vote</span>`;
+    html += `<span class="turnout-gap-stat">Est. <strong style="color:#0088CC">${formatNum(estDemNonVoters)}</strong> Dem</span>`;
+    html += `<span class="turnout-gap-stat">Est. <strong style="color:#E81B23">${formatNum(estRepNonVoters)}</strong> Rep</span>`;
+    html += `<span class="turnout-gap-stat">Est. <strong>${formatNum(estModNonVoters)}</strong> Mod</span>`;
+    html += '</div>';
+
+    if (couldFlip) {
+      html += `<div class="turnout-gap-highlight flip">If all estimated Dem non-voters had shown up, Democrats could have closed the ${formatNum(race.repVotes - race.demVotes)}-vote gap.</div>`;
+    } else if (race.demVotes < race.repVotes) {
+      let gap = race.repVotes - race.demVotes;
+      html += `<div class="turnout-gap-highlight no-flip">Full Dem turnout would add ${formatNum(estDemNonVoters)} votes — not enough to close the ${formatNum(gap)}-vote gap.</div>`;
+    }
+
+    html += '</div>';
+  }
+
+  html += '</div>';
+
+  // Insert into the elections section
+  let historyEl = document.getElementById('section-election-history');
+  if (!historyEl) return;
+  let existingGap = historyEl.parentElement.querySelector('.turnout-gap');
+  if (existingGap) existingGap.remove();
+  historyEl.insertAdjacentHTML('afterend', html);
+}
+
+// ---------------------------------------------------------------------------
+// Feature 7: Talking Points Generator
+// ---------------------------------------------------------------------------
+
+function renderTalkingPoints(code, census, partyData, racialData, votingHistory, pvi, strategy) {
+  let el = document.getElementById('section-talking-points');
+  if (!el) return;
+
+  let points = generateTalkingPointsList(code, census, partyData, racialData, votingHistory, pvi, strategy);
+
+  if (points.length === 0) {
+    el.innerHTML = '';
+    return;
+  }
+
+  let html = '<div class="talking-points">';
+  html += '<div class="talking-points-title">Precinct Chair Talking Points</div>';
+
+  for (let pt of points) {
+    html += `<div class="talking-point">
+      <div class="talking-point-icon">${pt.icon}</div>
+      <div><div class="talking-point-category">${escapeHtml(pt.category)}</div>${escapeHtml(pt.text)}</div>
+    </div>`;
+  }
+
+  html += '</div>';
+  el.innerHTML = html;
+}
+
+function generateTalkingPointsList(code, census, partyData, racialData, votingHistory, pvi, strategy) {
+  let points = [];
+
+  // Economic points
+  if (census?.income?.medianHousehold != null && countyAverages?.income != null) {
+    let income = census.income.medianHousehold;
+    let countyInc = countyAverages.income;
+    if (income < countyInc * 0.85) {
+      points.push({ icon: '\u{1F4B0}', category: 'Economic Pressure', text: `Median household income here is ${formatCurrency(income)} — ${((1 - income/countyInc) * 100).toFixed(0)}% below the county median. Cost of living and wages are real concerns for these voters.` });
+    } else if (income > countyInc * 1.15) {
+      points.push({ icon: '\u{1F4B0}', category: 'Economic Profile', text: `Median household income of ${formatCurrency(income)} is ${(((income/countyInc) - 1) * 100).toFixed(0)}% above the county median. Voters here may respond to property tax and business-friendly messaging.` });
+    }
+  }
+
+  // Housing pressure
+  if (census?.housing?.medianHomeValue != null && countyAverages?.homeValue != null) {
+    let hv = census.housing.medianHomeValue;
+    let countyHV = countyAverages.homeValue;
+    if (census.housing.renterOccupied != null && census.housing.renterOccupied > 0.45) {
+      points.push({ icon: '\u{1F3E0}', category: 'Housing', text: `${(census.housing.renterOccupied * 100).toFixed(0)}% of households here rent — well above the ownership-heavy county norm. Rental affordability and tenant protections resonate here.` });
+    } else if (hv > countyHV * 1.2) {
+      points.push({ icon: '\u{1F3E0}', category: 'Housing', text: `Median home values of ${formatCurrency(hv)} are ${(((hv/countyHV) - 1) * 100).toFixed(0)}% above county median. Property taxes are likely a top concern.` });
+    }
+  }
+
+  // Age demographics
+  if (census?.age?.medianAge != null && countyAverages?.age != null) {
+    let age = census.age.medianAge;
+    let countyAge = countyAverages.age;
+    if (age < countyAge - 4) {
+      points.push({ icon: '\u{1F464}', category: 'Demographic Opportunity', text: `Median age of ${age} is ${(countyAge - age).toFixed(0)} years younger than the county average. Younger voters here tend to be more diverse and education-focused.` });
+    } else if (age > countyAge + 5) {
+      points.push({ icon: '\u{1F464}', category: 'Demographic Profile', text: `Median age of ${age} skews older than the county (${countyAge.toFixed(0)}). Healthcare, Medicare, and Social Security messaging lands well here.` });
+    }
+  }
+
+  // Education
+  if (census?.education) {
+    let collegePct = ((census.education.bachelors || 0) + (census.education.graduateProfessional || 0)) * 100;
+    let countyCollege = (countyAverages?.college || 0) * 100;
+    if (collegePct > countyCollege + 10) {
+      points.push({ icon: '\u{1F393}', category: 'Education', text: `${collegePct.toFixed(0)}% of adults have a college degree — ${(collegePct - countyCollege).toFixed(0)} points above county avg. This educated electorate often responds to policy-detailed messaging.` });
+    }
+  }
+
+  // Diversity
+  if (racialData) {
+    let nonWhitePct = (1 - (racialData.pct_white || 0)) * 100;
+    if (nonWhitePct > 50) {
+      points.push({ icon: '\u{1F30D}', category: 'Diversity', text: `This is a majority-minority precinct (${nonWhitePct.toFixed(0)}% non-white). Culturally relevant outreach and multilingual materials are essential here.` });
+    } else if (nonWhitePct > 35) {
+      points.push({ icon: '\u{1F30D}', category: 'Diversity', text: `${nonWhitePct.toFixed(0)}% of residents are non-white — a growing and diverse community that's changing the precinct's political landscape.` });
+    }
+  }
+
+  // Turnout opportunity
+  let federal = votingHistory?.byCategory?.Federal || [];
+  if (federal.length > 0) {
+    let sorted = [...federal].sort((a, b) => extractYear(b.raceName) - extractYear(a.raceName));
+    let recent = sorted[0];
+    let turnout = calculateTurnout(recent.totalVotes, recent.registeredVoters);
+    if (turnout < 55 && partyData?.demShare > 0.25) {
+      let nonVoters = recent.registeredVoters - recent.totalVotes;
+      let estDem = Math.round(nonVoters * (partyData.demShare || 0));
+      points.push({ icon: '\u{1F5F3}', category: 'Turnout Opportunity', text: `Only ${turnout.toFixed(0)}% turnout in the most recent federal race. An estimated ${formatNum(estDem)} registered Democrats stayed home — every contact matters.` });
+    }
+  }
+
+  // PVI / Competitiveness
+  if (pvi && pvi.label !== 'N/A') {
+    if (Math.abs(pvi.pvi) < 5) {
+      points.push({ icon: '\u{2696}', category: 'Competitiveness', text: `This precinct is a true battleground (${pvi.label}). Small shifts in turnout or persuasion can flip outcomes. Every vote here counts double.` });
+    }
+  }
+
+  return points.slice(0, 7);
+}
+
+// ---------------------------------------------------------------------------
+// Feature 8: Election Detail Drilldown
+// ---------------------------------------------------------------------------
+
+function renderElectionHistory(votingHistory, precinctCode, allElectionData) {
+  let el = document.getElementById("section-election-history");
+
+  if (!votingHistory || !votingHistory.races || votingHistory.races.length === 0) {
+    el.innerHTML = '<p class="empty-state">No election history available for this precinct.</p>';
+    return;
+  }
+
+  let html = "";
+
+  // Party record summary
+  let pr = votingHistory.partyRecord;
+  html += '<div class="party-record-bar">';
+  html += `<span class="pr-item rep">Rep: ${pr.Rep}</span>`;
+  html += `<span class="pr-item dem">Dem: ${pr.Dem}</span>`;
+  html += `<span class="pr-item other">Other: ${pr.Other}</span>`;
+
+  // Win streak badge
+  let streak = computeWinStreak(votingHistory);
+  if (streak) {
+    html += `<span class="win-streak-badge">${escapeHtml(streak)}</span>`;
+  }
+  html += "</div>";
+
+  // Tab bar
+  html += '<div class="election-tab-bar">';
+  for (let tabName of Object.keys(TAB_CATEGORIES)) {
+    let activeClass = tabName === "All" ? " active" : "";
+    html += `<button class="election-tab${activeClass}" data-tab="${tabName}">${escapeHtml(tabName)}</button>`;
+  }
+  html += '</div>';
+
+  // Election table (all races, filtered by JS)
+  html += '<div id="election-tab-content">';
+  html += renderElectionTableWithDrilldown(votingHistory, null, precinctCode, allElectionData);
+  html += '</div>';
+
+  el.innerHTML = html;
+
+  // Attach tab click handlers
+  el.querySelectorAll(".election-tab").forEach(function attachTab(btn) {
+    btn.addEventListener("click", function onTab() {
+      el.querySelectorAll(".election-tab").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      let tabName = btn.dataset.tab;
+      let categories = TAB_CATEGORIES[tabName];
+      let contentEl = document.getElementById("election-tab-content");
+      contentEl.innerHTML = renderElectionTableWithDrilldown(votingHistory, categories, precinctCode, allElectionData);
+    });
+  });
+}
+
+function renderElectionTableWithDrilldown(votingHistory, filterCategories, precinctCode, allElectionData) {
+  let html = '';
+
+  for (let category of CATEGORY_ORDER) {
+    if (filterCategories && !filterCategories.includes(category)) continue;
+
+    let races = votingHistory.byCategory[category];
+    if (!races || races.length === 0) continue;
+
+    html += `<div class="history-group">`;
+    html += `<button class="history-group-header" aria-expanded="true">
+      <span>${escapeHtml(category)} <span class="race-count">(${races.length})</span></span>
+      <span class="chevron">&#9660;</span>
+    </button>`;
+    html += '<div class="history-group-body">';
+    html += '<table class="history-table"><thead><tr><th>Race</th><th>Winner</th><th>Party</th><th>Votes</th><th>Turnout</th></tr></thead><tbody>';
+
+    for (let race of races) {
+      let turnout = calculateTurnout(race.totalVotes, race.registeredVoters);
+      let partyClass = (race.winningParty || "").toLowerCase();
+      let rowId = 'race-' + race.filename.replace(/[^a-zA-Z0-9]/g, '_');
+      html += `<tr class="${partyClass}" data-filename="${escapeHtml(race.filename)}" data-row-id="${rowId}">
+        <td>${escapeHtml(race.raceName)}</td>
+        <td>${escapeHtml(race.winner)}</td>
+        <td>${escapeHtml(race.winningParty)}</td>
+        <td>${Number(race.totalVotes).toLocaleString()}</td>
+        <td>${turnout.toFixed(1)}%</td>
+      </tr>`;
+      html += `<tr class="drilldown-row" id="${rowId}" style="display:none"><td colspan="5"></td></tr>`;
+    }
+
+    html += "</tbody></table></div></div>";
+  }
+
+  if (!html) {
+    html = '<p class="empty-state">No races in this category.</p>';
+  }
+
+  // Attach event handlers after render
+  requestAnimationFrame(function bindHandlers() {
+    let historyEl = document.getElementById("section-election-history");
+    if (!historyEl) return;
+
+    // Collapsible group headers
+    historyEl.querySelectorAll(".history-group-header").forEach(function attachToggle(btn) {
+      if (btn._bound) return;
+      btn._bound = true;
+      btn.addEventListener("click", function onToggle() {
+        let body = btn.nextElementSibling;
+        let expanded = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!expanded));
+        body.style.display = expanded ? "none" : "block";
+        btn.querySelector(".chevron").style.transform = expanded ? "rotate(-90deg)" : "";
+      });
+    });
+
+    // Drilldown on row click
+    historyEl.querySelectorAll("tr[data-filename]").forEach(function attachDrilldown(tr) {
+      if (tr._drillBound) return;
+      tr._drillBound = true;
+      tr.addEventListener("click", function onDrilldown() {
+        let rowId = tr.dataset.rowId;
+        let drilldownRow = document.getElementById(rowId);
+        if (!drilldownRow) return;
+
+        if (drilldownRow.style.display !== 'none') {
+          drilldownRow.style.display = 'none';
+          return;
+        }
+
+        let filename = tr.dataset.filename;
+        let td = drilldownRow.querySelector('td');
+        let elData = allElectionData?.[filename];
+
+        if (!elData) {
+          td.innerHTML = '<div class="drilldown-panel">Loading...</div>';
+          drilldownRow.style.display = '';
+          getPrecinctRaceDetail(precinctCode, filename).then(function onData(cd) {
+            renderDrilldownContent(td, cd);
+          });
+        } else {
+          let cd = getPrecinctCandidateData(elData, precinctCode);
+          renderDrilldownContent(td, cd);
+          drilldownRow.style.display = '';
+        }
+      });
+    });
+  });
+
+  return html;
+}
+
+function renderDrilldownContent(td, cd) {
+  if (!cd || !cd.candidates || cd.candidates.length === 0) {
+    td.innerHTML = '<div class="drilldown-panel">No candidate detail available.</div>';
+    return;
+  }
+
+  let html = '<div class="drilldown-panel">';
+  html += '<table class="drilldown-table"><thead><tr><th>Candidate</th><th>Party</th><th>Votes</th><th>Pct</th><th>Bar</th></tr></thead><tbody>';
+
+  for (let c of cd.candidates) {
+    let partyLower = c.party.toLowerCase();
+    let rowCls = partyLower === 'dem' ? 'dem-row' : partyLower === 'rep' ? 'rep-row' : '';
+    let barCls = partyLower === 'dem' ? 'dem' : partyLower === 'rep' ? 'rep' : 'other';
+    let pctStr = (c.pct * 100).toFixed(1) + '%';
+    let barWidth = (c.pct * 100).toFixed(1);
+
+    html += `<tr class="${rowCls}">
+      <td>${escapeHtml(c.name)}</td>
+      <td>${escapeHtml(c.party)}</td>
+      <td>${c.votes.toLocaleString()}</td>
+      <td>${pctStr}</td>
+      <td><div class="drilldown-bar"><div class="drilldown-bar-fill ${barCls}" style="width:${barWidth}%"></div></div></td>
+    </tr>`;
+  }
+
+  html += '</tbody></table>';
+
+  // Margin summary
+  if (cd.demVotes > 0 || cd.repVotes > 0) {
+    let marginPts = (cd.margin * 100).toFixed(1);
+    let marginLabel = cd.margin >= 0
+      ? `D+${Math.abs(cd.margin * 100).toFixed(1)}`
+      : `R+${Math.abs(cd.margin * 100).toFixed(1)}`;
+    let color = cd.margin >= 0 ? '#0088CC' : '#E81B23';
+    html += `<div style="margin-top:8px;font-size:12px;font-weight:600;color:${color}">Margin: ${marginLabel} (${Math.abs(cd.demVotes - cd.repVotes).toLocaleString()} votes)</div>`;
+  }
+
+  html += '</div>';
+  td.innerHTML = html;
+}
+
+// ---------------------------------------------------------------------------
+// Feature 5: Precinct Comparison
+// ---------------------------------------------------------------------------
+
+function bindCompareButton(currentCode) {
+  let btn = document.getElementById('compare-btn');
+  if (!btn) return;
+
+  btn.addEventListener('click', function onCompare() {
+    let compSection = document.getElementById('comparison-section');
+    if (!compSection) return;
+
+    if (compareMode) {
+      compareMode = false;
+      comparePrecinct = null;
+      compSection.innerHTML = '';
+      btn.textContent = 'Compare';
+      return;
+    }
+
+    compareMode = true;
+    btn.textContent = 'Cancel';
+
+    compSection.innerHTML = `
+      <div class="compare-search-wrapper">
+        <input type="text" class="compare-search-input" placeholder="Enter second precinct number..." autocomplete="off" inputmode="numeric" id="compare-input" />
+        <button class="compare-cancel-btn" id="compare-cancel">Cancel</button>
+      </div>
+      <div id="comparison-results"></div>
+    `;
+
+    let input = document.getElementById('compare-input');
+    let cancelBtn = document.getElementById('compare-cancel');
+
+    input.focus();
+
+    input.addEventListener('keydown', function onKey(e) {
+      if (e.key === 'Enter') {
+        let code2 = input.value.trim();
+        if (code2 && code2 !== currentCode) {
+          renderComparison(currentCode, code2);
+        }
+      } else if (e.key === 'Escape') {
+        compareMode = false;
+        comparePrecinct = null;
+        compSection.innerHTML = '';
+        btn.textContent = 'Compare';
+      }
+    });
+
+    cancelBtn.addEventListener('click', function onCancel() {
+      compareMode = false;
+      comparePrecinct = null;
+      compSection.innerHTML = '';
+      btn.textContent = 'Compare';
+    });
+  });
+}
+
+function renderComparison(code1, code2) {
+  let resultsEl = document.getElementById('comparison-results');
+  if (!resultsEl) return;
+
+  let entry2 = precinctList.find(p => p.code === String(code2));
+  if (!entry2) {
+    resultsEl.innerHTML = `<p class="empty-state">Precinct ${escapeHtml(code2)} not found.</p>`;
+    return;
+  }
+
+  let c1 = censusProfiles ? censusProfiles[String(code1)] : null;
+  let c2 = censusProfiles ? censusProfiles[String(code2)] : null;
+  let p1 = dncLookup[String(code1)] || null;
+  let p2 = dncLookup[String(code2)] || null;
+  let r1 = racialLookup[String(code1)] || null;
+  let r2 = racialLookup[String(code2)] || null;
+  let pvi1 = pviCache[code1] || { label: 'N/A' };
+  let pvi2 = pviCache[code2] || computePVIQuick(code2);
+
+  let rows = [];
+
+  // Helper to add a comparison row
+  function addRow(metric, val1, val2, formatter, betterHigher) {
+    let f1 = formatter ? formatter(val1) : String(val1 ?? 'N/A');
+    let f2 = formatter ? formatter(val2) : String(val2 ?? 'N/A');
+    let cls1 = '', cls2 = '';
+    if (val1 != null && val2 != null && val1 !== val2) {
+      if (betterHigher !== undefined) {
+        let better1 = betterHigher ? val1 > val2 : val1 < val2;
+        cls1 = better1 ? 'better better-dem' : '';
+        cls2 = !better1 ? 'better better-dem' : '';
+      }
+    }
+    rows.push({ metric, f1, f2, cls1, cls2 });
+  }
+
+  addRow('Population', c1?.population, c2?.population, formatNum, true);
+  addRow('Median Income', c1?.income?.medianHousehold, c2?.income?.medianHousehold, formatCurrency, true);
+  addRow('Home Value', c1?.housing?.medianHomeValue, c2?.housing?.medianHomeValue, formatCurrency, undefined);
+  addRow('Median Age', c1?.age?.medianAge, c2?.age?.medianAge, v => v != null ? String(v) : 'N/A', undefined);
+
+  let cp1 = c1?.education ? ((c1.education.bachelors || 0) + (c1.education.graduateProfessional || 0)) : null;
+  let cp2 = c2?.education ? ((c2.education.bachelors || 0) + (c2.education.graduateProfessional || 0)) : null;
+  addRow('College %', cp1, cp2, v => v != null ? formatPct(v) : 'N/A', true);
+
+  addRow('Dem Share', p1?.demShare, p2?.demShare, v => v != null ? (v * 100).toFixed(1) + '%' : 'N/A', true);
+  addRow('Rep Share', p1?.repShare, p2?.repShare, v => v != null ? (v * 100).toFixed(1) + '%' : 'N/A', undefined);
+  addRow('Mod Share', p1?.modShare, p2?.modShare, v => v != null ? (v * 100).toFixed(1) + '%' : 'N/A', undefined);
+  addRow('PVI', pvi1.label, pvi2.label, v => String(v), undefined);
+
+  let nonWhite1 = r1 ? (1 - (r1.pct_white || 0)) : null;
+  let nonWhite2 = r2 ? (1 - (r2.pct_white || 0)) : null;
+  addRow('Non-White %', nonWhite1, nonWhite2, v => v != null ? (v * 100).toFixed(1) + '%' : 'N/A', undefined);
+
+  let html = '<div class="comparison-table-wrapper">';
+  html += '<table class="comparison-full-table">';
+  html += `<thead><tr><th>Metric</th><th>Precinct ${escapeHtml(code1)}</th><th>Precinct ${escapeHtml(code2)}</th></tr></thead><tbody>`;
+
+  for (let row of rows) {
+    html += `<tr><td class="metric-label">${escapeHtml(row.metric)}</td><td class="${row.cls1}">${escapeHtml(row.f1)}</td><td class="${row.cls2}">${escapeHtml(row.f2)}</td></tr>`;
+  }
+
+  html += '</tbody></table></div>';
+  resultsEl.innerHTML = html;
+}
+
+function computePVIQuick(code) {
+  // Quick PVI for comparison target — uses cached election data if available
+  try {
+    // Try from pviCache first
+    if (pviCache[code]) return pviCache[code];
+    // Can't compute without loading data synchronously, return placeholder
+    return { pvi: 0, label: 'N/A' };
+  } catch { return { pvi: 0, label: 'N/A' }; }
+}
+
+// ---------------------------------------------------------------------------
+// Feature 6: Similar Precincts
+// ---------------------------------------------------------------------------
+
+function renderSimilarPrecincts(code, census, partyData, racialData, allElectionData, manifest) {
+  let el = document.getElementById('section-similar');
+  if (!el) return;
+
+  if (!census && !partyData) {
+    el.innerHTML = '';
+    return;
+  }
+
+  // Build feature vector for the current precinct
+  let currentVec = buildFeatureVector(code, census, partyData, racialData);
+  if (!currentVec) {
+    el.innerHTML = '';
+    return;
+  }
+
+  // Build vectors for all other precincts and compute distances
+  let distances = [];
+  for (let p of precinctList) {
+    if (p.code === code) continue;
+    let otherCensus = censusProfiles ? censusProfiles[p.code] : null;
+    let otherParty = dncLookup[p.code] || null;
+    let otherRacial = racialLookup[p.code] || null;
+
+    let otherVec = buildFeatureVector(p.code, otherCensus, otherParty, otherRacial);
+    if (!otherVec) continue;
+
+    let dist = euclideanDistance(currentVec, otherVec);
+    let otherPvi = pviCache[p.code] || null;
+
+    distances.push({
+      code: p.code,
+      distance: dist,
+      census: otherCensus,
+      party: otherParty,
+      racial: otherRacial,
+      pvi: otherPvi,
+    });
+  }
+
+  distances.sort((a, b) => a.distance - b.distance);
+  let top5 = distances.slice(0, 5);
+
+  if (top5.length === 0) {
+    el.innerHTML = '';
+    return;
+  }
+
+  let html = '<div class="similar-precincts">';
+  html += '<div class="similar-precincts-title">Similar Precincts</div>';
+  html += '<div class="similar-precincts-grid">';
+
+  for (let sim of top5) {
+    let pviLabel = sim.pvi?.label || 'N/A';
+    let pviCls = (sim.pvi?.pvi || 0) > 0.5 ? 'pvi-dem' : (sim.pvi?.pvi || 0) < -0.5 ? 'pvi-rep' : 'pvi-even';
+
+    // Find a key difference
+    let diff = findKeyDifference(code, census, partyData, sim.code, sim.census, sim.party);
+
+    html += `<div class="similar-card" data-precinct="${escapeHtml(sim.code)}">`;
+    html += '<div class="similar-card-header">';
+    html += `<span class="similar-card-code">Precinct ${escapeHtml(sim.code)}</span>`;
+    html += `<span class="similar-card-pvi ${pviCls}">${escapeHtml(pviLabel)}</span>`;
+    html += '</div>';
+    html += `<div class="similar-card-diff">${escapeHtml(diff)}</div>`;
+    html += '</div>';
+  }
+
+  html += '</div></div>';
+  el.innerHTML = html;
+
+  // Make cards clickable
+  el.querySelectorAll('.similar-card').forEach(function attachClick(card) {
+    card.addEventListener('click', function onClick() {
+      let targetCode = card.dataset.precinct;
+      let searchInput = document.getElementById('precinct-search');
+      if (searchInput) searchInput.value = targetCode;
+      selectPrecinct(targetCode);
+    });
+  });
+}
+
+function buildFeatureVector(code, census, partyData, racialData) {
+  let vec = [];
+  // Dem share (0-1)
+  vec.push(partyData?.demShare || 0);
+  // Median income normalized (divide by 200k to get 0-1 range)
+  vec.push((census?.income?.medianHousehold || 0) / 200000);
+  // College pct (0-1)
+  let college = census?.education ? ((census.education.bachelors || 0) + (census.education.graduateProfessional || 0)) : 0;
+  vec.push(college);
+  // Median age normalized (divide by 80)
+  vec.push((census?.age?.medianAge || 0) / 80);
+  // Diversity index: 1 - pct_white (0-1)
+  vec.push(racialData ? (1 - (racialData.pct_white || 0)) : 0);
+  // Mod share (0-1)
+  vec.push(partyData?.modShare || 0);
+
+  // Only valid if we have at least party data
+  if (!partyData) return null;
+  return vec;
+}
+
+function euclideanDistance(a, b) {
+  let sum = 0;
+  for (let i = 0; i < a.length; i++) {
+    sum += (a[i] - b[i]) ** 2;
+  }
+  return Math.sqrt(sum);
+}
+
+function findKeyDifference(code1, census1, party1, code2, census2, party2) {
+  let diffs = [];
+
+  if (party1 && party2) {
+    let demDiff = ((party2.demShare || 0) - (party1.demShare || 0)) * 100;
+    if (Math.abs(demDiff) > 3) {
+      diffs.push(`${demDiff > 0 ? '+' : ''}${demDiff.toFixed(0)}% Dem registration`);
+    }
+  }
+
+  if (census1?.income?.medianHousehold && census2?.income?.medianHousehold) {
+    let incomeDiff = census2.income.medianHousehold - census1.income.medianHousehold;
+    let pctDiff = (incomeDiff / census1.income.medianHousehold) * 100;
+    if (Math.abs(pctDiff) > 15) {
+      diffs.push(`${pctDiff > 0 ? '+' : ''}${pctDiff.toFixed(0)}% income`);
+    }
+  }
+
+  if (diffs.length > 0) {
+    return 'Similar demographics, but ' + diffs[0];
+  }
+  return 'Very similar demographic and political profile';
 }
