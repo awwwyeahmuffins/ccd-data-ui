@@ -12,6 +12,7 @@ import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
 import * as acm from 'aws-cdk-lib/aws-certificatemanager';
 import * as route53 from 'aws-cdk-lib/aws-route53';
 import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
+import * as budgets from 'aws-cdk-lib/aws-budgets';
 import * as path from 'path';
 
 export class CcdAuthChatStack extends cdk.Stack {
@@ -34,7 +35,8 @@ export class CcdAuthChatStack extends cdk.Stack {
         requireSymbols: false,
       },
       accountRecovery: cognito.AccountRecovery.EMAIL_ONLY,
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      // RETAIN: deleting the stack must not wipe live user accounts
+      removalPolicy: cdk.RemovalPolicy.RETAIN,
     });
 
     const userPoolClient = new cognito.UserPoolClient(this, 'CcdUserPoolClient', {
@@ -59,8 +61,10 @@ export class CcdAuthChatStack extends cdk.Stack {
       runtime: lambda.Runtime.PYTHON_3_12,
       handler: 'chat_handler.handler',
       code: lambda.Code.fromAsset(path.join(__dirname, '..', 'lambda')),
-      timeout: cdk.Duration.seconds(60),
+      timeout: cdk.Duration.seconds(30),
       memorySize: 256,
+      // Cost guardrail: at most one concurrent Bedrock call
+      reservedConcurrentExecutions: 1,
       environment: {
         BEDROCK_MODEL_ID: bedrockModelId.valueAsString,
         BEDROCK_REGION: cdk.Stack.of(this).region,
@@ -70,7 +74,9 @@ export class CcdAuthChatStack extends cdk.Stack {
     chatFn.addToRolePolicy(
       new iam.PolicyStatement({
         actions: ['bedrock:InvokeModel'],
-        resources: ['*'],
+        resources: [
+          `arn:aws:bedrock:${cdk.Stack.of(this).region}::foundation-model/${bedrockModelId.valueAsString}`,
+        ],
       })
     );
 
@@ -80,12 +86,24 @@ export class CcdAuthChatStack extends cdk.Stack {
     const httpApi = new apigwv2.HttpApi(this, 'CcdChatApi', {
       apiName: 'ccd-chat-api',
       corsPreflight: {
-        allowOrigins: ['http://localhost:3000', 'https://*'],
+        allowOrigins: [
+          'http://localhost:3000',
+          'https://collincountyelections.com',
+          'https://www.collincountyelections.com',
+        ],
         allowMethods: [apigwv2.CorsHttpMethod.POST, apigwv2.CorsHttpMethod.OPTIONS],
         allowHeaders: ['Content-Type', 'Authorization'],
         maxAge: cdk.Duration.hours(1),
       },
     });
+
+    // Cost guardrail: throttle the default stage (Bedrock calls are the only
+    // meaningful variable cost in this stack)
+    const defaultStage = httpApi.defaultStage?.node.defaultChild as apigwv2.CfnStage;
+    defaultStage.defaultRouteSettings = {
+      throttlingRateLimit: 1,
+      throttlingBurstLimit: 5,
+    };
 
     const jwtAuthorizer = new apigwv2Authorizers.HttpJwtAuthorizer(
       'CognitoAuthorizer',
@@ -110,8 +128,8 @@ export class CcdAuthChatStack extends cdk.Stack {
     const siteBucket = new s3.Bucket(this, 'SiteBucket', {
       bucketName: domainName,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-      autoDeleteObjects: true,
+      // RETAIN: deleting/replacing the stack must not wipe the live site
+      removalPolicy: cdk.RemovalPolicy.RETAIN,
     });
 
     // -----------------------------------------------------------------------
@@ -165,6 +183,48 @@ export class CcdAuthChatStack extends cdk.Stack {
       target: route53.RecordTarget.fromAlias(
         new route53Targets.CloudFrontTarget(distribution),
       ),
+    });
+
+    // -----------------------------------------------------------------------
+    // Cost backstop: $10/month budget with email alerts
+    // -----------------------------------------------------------------------
+    const budgetEmail = 'masud.zari@gmail.com';
+    new budgets.CfnBudget(this, 'MonthlyBudget', {
+      budget: {
+        budgetName: 'ccd-monthly-budget',
+        budgetType: 'COST',
+        timeUnit: 'MONTHLY',
+        budgetLimit: { amount: 10, unit: 'USD' },
+      },
+      notificationsWithSubscribers: [
+        {
+          notification: {
+            notificationType: 'ACTUAL',
+            comparisonOperator: 'GREATER_THAN',
+            threshold: 50,
+            thresholdType: 'PERCENTAGE',
+          },
+          subscribers: [{ subscriptionType: 'EMAIL', address: budgetEmail }],
+        },
+        {
+          notification: {
+            notificationType: 'ACTUAL',
+            comparisonOperator: 'GREATER_THAN',
+            threshold: 80,
+            thresholdType: 'PERCENTAGE',
+          },
+          subscribers: [{ subscriptionType: 'EMAIL', address: budgetEmail }],
+        },
+        {
+          notification: {
+            notificationType: 'FORECASTED',
+            comparisonOperator: 'GREATER_THAN',
+            threshold: 100,
+            thresholdType: 'PERCENTAGE',
+          },
+          subscribers: [{ subscriptionType: 'EMAIL', address: budgetEmail }],
+        },
+      ],
     });
 
     // -----------------------------------------------------------------------

@@ -1,7 +1,7 @@
 # Collin County Elections - Development Makefile
 # ==============================================
 
-.PHONY: help install serve start stop test test-unit test-e2e test-all lint format clean cdk-deploy cdk-destroy
+.PHONY: help install serve start stop test test-unit test-e2e test-all lint format clean cdk-deploy cdk-diff cdk-destroy deploy-site
 
 # Default target
 help:
@@ -150,14 +150,37 @@ coverage:
 	npm test -- --coverage
 
 # ===================
-# CDK INFRASTRUCTURE
+# CDK INFRASTRUCTURE & DEPLOY
 # ===================
+
+# The live stack runs in account 967254372913 (profile "ccd"), us-east-1.
+# Always pin both: exported AWS_REGION/AWS_ACCESS_KEY_ID in the shell
+# otherwise silently target the wrong account/region.
+DEPLOY_PROFILE = ccd
+DEPLOY_REGION = us-east-1
+SITE_BUCKET = collincountyelections.com
+DISTRIBUTION_ID = EL7IPWFWDTJE3
 
 cdk-deploy:
 	@echo "Deploying CDK stack..."
-	cd infra && npm install && npx cdk deploy --outputs-file ../cdk-outputs.json
+	cd infra && npm install && AWS_REGION=$(DEPLOY_REGION) npx cdk deploy --profile $(DEPLOY_PROFILE) --outputs-file ../cdk-outputs.json
 	@echo "Stack deployed. Update js/authConfig.js with values from cdk-outputs.json."
+
+cdk-diff:
+	cd infra && AWS_REGION=$(DEPLOY_REGION) npx cdk diff --profile $(DEPLOY_PROFILE)
 
 cdk-destroy:
 	@echo "Destroying CDK stack..."
-	cd infra && npx cdk destroy
+	cd infra && AWS_REGION=$(DEPLOY_REGION) npx cdk destroy --profile $(DEPLOY_PROFILE)
+
+# Deploy site content. ALLOWLIST ONLY — never sync the repo root wholesale:
+# the repo contains voter PII (VoterRegistrationFile.txt) and internal files
+# that must not reach the public bucket.
+deploy-site:
+	aws s3 sync js/ s3://$(SITE_BUCKET)/js/ --delete --profile $(DEPLOY_PROFILE)
+	aws s3 sync data/ s3://$(SITE_BUCKET)/data/ --exclude "cache/*" --delete --profile $(DEPLOY_PROFILE)
+	aws s3 cp index.html s3://$(SITE_BUCKET)/index.html --profile $(DEPLOY_PROFILE)
+	aws s3 cp precinct.html s3://$(SITE_BUCKET)/precinct.html --profile $(DEPLOY_PROFILE)
+	aws s3 cp styles.css s3://$(SITE_BUCKET)/styles.css --profile $(DEPLOY_PROFILE)
+	aws cloudfront create-invalidation --distribution-id $(DISTRIBUTION_ID) --paths "/*" --profile $(DEPLOY_PROFILE)
+	@echo "Site deployed and CloudFront invalidated."
