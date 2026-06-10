@@ -1832,6 +1832,9 @@ function renderElectionTableWithDrilldown(votingHistory, filterCategories, preci
           drilldownRow.style.display = '';
           getPrecinctRaceDetail(precinctCode, filename).then(function onData(cd) {
             renderDrilldownContent(td, cd);
+          }).catch(function onError(err) {
+            console.error('Failed to load race detail:', err);
+            td.innerHTML = '<div class="drilldown-panel">Failed to load details. Click to retry.</div>';
           });
         } else {
           let cd = getPrecinctCandidateData(elData, precinctCode);

@@ -48,9 +48,12 @@ export function computeWinScenario(electionData, dncData, candidates, targetPart
     let wins = normalizedWinner === targetParty;
 
     // Calculate margin (winner votes - runner-up votes)
-    let totals = summary.candidateTotals;
+    let totals = summary.candidateTotals || {};
     let sortedVotes = Object.values(totals).sort(function descSort(a, b) { return b - a; });
-    let margin = sortedVotes.length >= 2 ? sortedVotes[0] - sortedVotes[1] : sortedVotes[0] || 0;
+    if (sortedVotes.length === 0) {
+      return { wins: false, margin: 0, flipped: [], scenario };
+    }
+    let margin = sortedVotes.length >= 2 ? sortedVotes[0] - sortedVotes[1] : sortedVotes[0];
 
     return {
       wins,

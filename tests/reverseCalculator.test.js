@@ -135,3 +135,24 @@ describe('generateReverseCalculatorHTML', () => {
     expect(html).toContain('Flipped precincts: 3');
   });
 });
+
+describe('computeWinScenario edge cases', () => {
+  it('handles a summary with missing candidateTotals without producing NaN', () => {
+    global.__mockRunFullSimulation = jest.fn(() => ({
+      simulatedSummary: {
+        winner: { name: 'Dem Bob', party: 'Dem', votes: 600 }
+        // candidateTotals intentionally missing
+      },
+      flippedPrecincts: []
+    }));
+
+    const electionData = [
+      { 'PRECINCT CODE': '101', 'REGISTERED VOTERS TOTAL': 1000, 'BALLOTS CAST TOTAL': 500, 'Rep Alice': 300, 'Dem Bob': 200 }
+    ];
+    const dncData = { '101': { Rep: 500, Dem: 300, Mod: 200 } };
+
+    const result = computeWinScenario(electionData, dncData, ['Rep Alice', 'Dem Bob'], 'Dem');
+    expect(Number.isNaN(result.projectedMargin ?? 0)).toBe(false);
+    expect(result).toBeDefined();
+  });
+});

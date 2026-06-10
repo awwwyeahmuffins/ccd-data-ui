@@ -334,8 +334,8 @@ export function getShiftMapStyleFunction(deltas, filters = {}) {
   let direction = filters.direction || 'both';
 
   return function shiftStyleFunction(feature) {
-    let code = feature.properties.PRECINCT.toString();
-    let delta = deltas[code];
+    let code = String(feature.properties?.PRECINCT ?? '');
+    let delta = code ? deltas[code] : null;
 
     // Default style for precincts with no data
     let baseStyle = {

@@ -3,6 +3,8 @@
 // Bulk boundary-changes table: fetches precinct_metadata.json, renders a filterable
 // and sortable table with stats grid and CSV export.
 
+import { escapeHtml, csvEscape } from './utils.js';
+
 const CHANGE_COLORS = {
   unchanged: '#4CAF50',
   split: '#FF9800',
@@ -92,7 +94,7 @@ export function generateBoundaryTableHTML(changeData, filters = {}) {
   html += '<tbody>';
 
   for (const row of filtered) {
-    const badge = `<span class="change-badge ${row.changeType}">${CHANGE_LABELS[row.changeType] || row.changeType}</span>`;
+    const badge = `<span class="change-badge ${escapeHtml(row.changeType)}">${escapeHtml(CHANGE_LABELS[row.changeType] || row.changeType)}</span>`;
     const sourceCodes = row.sources.map(s => s.old).join(', ');
     const sourceWeights = row.sources.map(s => {
       const w = typeof s.weight === 'number' ? s.weight : 0;
@@ -100,10 +102,10 @@ export function generateBoundaryTableHTML(changeData, filters = {}) {
     }).join(', ');
 
     html += '<tr>';
-    html += `<td>${row.precinctCode}</td>`;
+    html += `<td>${escapeHtml(row.precinctCode)}</td>`;
     html += `<td>${badge}</td>`;
-    html += `<td>${sourceCodes || '-'}</td>`;
-    html += `<td>${sourceWeights || '-'}</td>`;
+    html += `<td>${escapeHtml(sourceCodes) || '-'}</td>`;
+    html += `<td>${escapeHtml(sourceWeights) || '-'}</td>`;
     html += '</tr>';
   }
 
@@ -145,14 +147,6 @@ export function exportBoundaryCSV(changeData) {
   if (!Array.isArray(changeData) || changeData.length === 0) return;
 
   const headers = ['New Precinct', 'Change Type', 'Source Precincts', 'Source Weights', 'Data Quality'];
-  const csvEscape = (val) => {
-    if (val == null) return '';
-    const str = String(val);
-    if (str.includes(',') || str.includes('"') || str.includes('\n')) {
-      return '"' + str.replace(/"/g, '""') + '"';
-    }
-    return str;
-  };
 
   const rows = [headers.join(',')];
   for (const entry of changeData) {

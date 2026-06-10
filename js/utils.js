@@ -80,3 +80,27 @@ export function debounce(fn, delay = 100) {
     timeoutId = setTimeout(() => fn.apply(this, args), delay);
   };
 }
+
+// 8) Escape a string for safe interpolation into HTML
+export function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+// 9) Escape a value for CSV output; string values starting with =, +, -, @,
+// tab, or CR are prefixed with ' so spreadsheets treat them as text, not formulas
+export function csvEscape(value) {
+  if (value == null) return "";
+  let str = String(value);
+  if (typeof value !== "number" && /^[=+\-@\t\r]/.test(str)) {
+    str = "'" + str;
+  }
+  if (str.includes(",") || str.includes('"') || str.includes("\n")) {
+    return '"' + str.replace(/"/g, '""') + '"';
+  }
+  return str;
+}

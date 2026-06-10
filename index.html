@@ -3471,7 +3471,7 @@
     } from "./js/electionFilters.js";
     import { groupElectionsByFamily, sortFamilies } from "./js/raceGrouping.js";
     import { parseURLHash, buildURLHash, getShareableURL, copyToClipboard } from "./js/urlStateManager.js";
-    import { buildRacialChartData, buildPartyChartData, formatPct, debounce } from "./js/utils.js";
+    import { buildRacialChartData, buildPartyChartData, formatPct, debounce, escapeHtml } from "./js/utils.js";
     import { getCandidateColumns } from "./js/electionSchema.js";
     import {
       createSliderState,
@@ -5485,7 +5485,8 @@
             const sign = margin > 0 ? '+' : '';
             electionStatsHtml = candidates.slice(0, 3).map(c => {
               const isWinner = c === winner;
-              return `<div class="stat-item"><div class="stat-label">${c.name.length > 18 ? c.name.substring(0, 18) + '...' : c.name}</div><div class="stat-value">${c.votes.toLocaleString()}${isWinner ? ' ✓' : ''}</div></div>`;
+              const name = c.name.length > 18 ? c.name.substring(0, 18) + '...' : c.name;
+              return `<div class="stat-item"><div class="stat-label">${escapeHtml(name)}</div><div class="stat-value">${c.votes.toLocaleString()}${isWinner ? ' ✓' : ''}</div></div>`;
             }).join('');
             electionStatsHtml += `<div class="stat-item"><div class="stat-label">Margin</div><div class="stat-value">${sign}${margin.toLocaleString()}</div></div>`;
           }
@@ -5543,9 +5544,9 @@
 
       // G8: Add district info
       const districtTags = [];
-      if (precinctProps.CONG) districtTags.push(`CD-${precinctProps.CONG}`);
-      if (precinctProps.COMMISH_N) districtTags.push(`Comm: ${precinctProps.COMMISH_N}`);
-      if (precinctProps.JP_N) districtTags.push(`JP: ${precinctProps.JP_N}`);
+      if (precinctProps.CONG) districtTags.push(`CD-${escapeHtml(precinctProps.CONG)}`);
+      if (precinctProps.COMMISH_N) districtTags.push(`Comm: ${escapeHtml(precinctProps.COMMISH_N)}`);
+      if (precinctProps.JP_N) districtTags.push(`JP: ${escapeHtml(precinctProps.JP_N)}`);
       if (districtTags.length > 0) {
         demoHtml += `<div class="info-card-districts">${districtTags.map(t => `<span class="district-tag">${t}</span>`).join('')}</div>`;
       }

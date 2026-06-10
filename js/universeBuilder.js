@@ -3,6 +3,8 @@
 // Multi-criteria universe builder: filter precincts by election, census,
 // and DNC data, then highlight on map and export.
 
+import { escapeHtml, csvEscape } from './utils.js';
+
 export const FILTER_FIELDS = [
   { id: 'demPct', label: 'Dem Vote %', source: 'election', range: [0, 100], type: 'number' },
   { id: 'repPct', label: 'Rep Vote %', source: 'election', range: [0, 100], type: 'number' },
@@ -64,7 +66,9 @@ export function buildPrecinctRecord(code, electionRow, dncRow, censusProfile, ca
     const bc = Number(electionRow['BALLOTS CAST TOTAL']) ||
                Number(electionRow['BALLOTS CAST - TOTAL']) || 0;
     registeredVoters = rv || null;
-    turnoutPct = rv > 0 ? (bc / rv) * 100 : null;
+    // CSVs include all 330 precincts; a precinct with ballots cast but zero
+    // candidate votes did not participate in this race, so it has no turnout
+    turnoutPct = totalVotes > 0 && rv > 0 ? (bc / rv) * 100 : null;
   }
 
   let population = null;
@@ -157,7 +161,7 @@ export function generateUniverseBuilderHTML(criteria = [], matchCount = 0, total
       const opLabel = OPERATOR_LABELS[c.operator] || c.operator;
       const valLabel = Array.isArray(c.value) ? c.value.join('-') : c.value;
       html += `<span class="filter-pill">`;
-      html += `${label} ${opLabel} ${valLabel}`;
+      html += `${escapeHtml(label)} ${escapeHtml(opLabel)} ${escapeHtml(valLabel)}`;
       html += `<button class="filter-pill-remove" data-filter-index="${i}" aria-label="Remove filter">&times;</button>`;
       html += `</span>`;
     });
@@ -209,15 +213,6 @@ export function exportUniverseCSV(filteredRecords, filename = 'universe_export.c
 
   const headers = ['Precinct', 'Dem %', 'Rep %', 'Margin', 'Turnout %', 'Registered Voters',
     'Population', 'Median Income', 'College %', 'Party Lean'];
-
-  const csvEscape = (val) => {
-    if (val == null) return '';
-    const str = String(val);
-    if (str.includes(',') || str.includes('"') || str.includes('\n')) {
-      return '"' + str.replace(/"/g, '""') + '"';
-    }
-    return str;
-  };
 
   const rows = [headers.join(',')];
   for (const r of filteredRecords) {

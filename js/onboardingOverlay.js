@@ -117,7 +117,11 @@ export function showOnboardingOverlay(onAction) {
  * @param {HTMLElement} [backdrop] - The backdrop element to remove. If omitted, looks for it in the DOM.
  */
 export function dismissOnboarding(backdrop) {
-  localStorage.setItem(STORAGE_KEY, 'true');
+  try {
+    localStorage.setItem(STORAGE_KEY, 'true');
+  } catch (e) {
+    // localStorage unavailable (private browsing, quota) — still dismiss the overlay
+  }
   let el = backdrop || document.querySelector('.onboarding-backdrop');
   if (!el) return;
   el.classList.remove('visible');

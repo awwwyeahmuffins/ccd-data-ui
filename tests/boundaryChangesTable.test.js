@@ -207,3 +207,38 @@ describe('exportBoundaryCSV', () => {
     expect(createObjectURLMock).not.toHaveBeenCalled();
   });
 });
+
+describe('output escaping', () => {
+  beforeEach(() => {
+    global.URL.createObjectURL = jest.fn(() => 'blob:test');
+    global.URL.revokeObjectURL = jest.fn();
+    global.Blob = jest.fn((content, options) => ({ content, options }));
+  });
+
+  test('precinct codes are HTML-escaped in table cells', () => {
+    const changeData = [
+      { precinctCode: '<script>alert(1)</script>', changeType: 'split', sources: [{ old: '<b>9</b>', weight: 1 }], dataQuality: 'high' }
+    ];
+    const html = generateBoundaryTableHTML(changeData);
+    expect(html).not.toContain('<script>alert(1)</script>');
+    expect(html).toContain('&lt;script&gt;');
+    expect(html).not.toContain('<b>9</b>');
+  });
+
+  test('CSV export neutralizes formula-prefixed values', () => {
+    jest.spyOn(document, 'createElement').mockReturnValue({
+      href: '', download: '', click: jest.fn(), style: {}
+    });
+    jest.spyOn(document.body, 'appendChild').mockImplementation(() => {});
+    jest.spyOn(document.body, 'removeChild').mockImplementation(() => {});
+
+    const changeData = [
+      { precinctCode: '=HYPERLINK("http://evil")', changeType: 'split', sources: [], dataQuality: 'high' }
+    ];
+    exportBoundaryCSV(changeData);
+
+    const blobContent = global.Blob.mock.calls[0][0][0];
+    const dataLine = blobContent.split('\n')[1];
+    expect(dataLine.startsWith('"\'=HYPERLINK')).toBe(true);
+  });
+});

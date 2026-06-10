@@ -240,3 +240,67 @@ describe('highlightUniverseOnMap', () => {
     expect(() => highlightUniverseOnMap(null, ['1'])).not.toThrow();
   });
 });
+
+describe('CSV formula injection protection', () => {
+  beforeEach(() => {
+    global.URL.createObjectURL = jest.fn(() => 'blob:test');
+    global.URL.revokeObjectURL = jest.fn();
+    global.Blob = jest.fn((content, options) => ({ content, options }));
+    jest.spyOn(document, 'createElement').mockReturnValue({
+      href: '', download: '', click: jest.fn(), style: {}
+    });
+    jest.spyOn(document.body, 'appendChild').mockImplementation(() => {});
+    jest.spyOn(document.body, 'removeChild').mockImplementation(() => {});
+  });
+
+  test('string values starting with = are neutralized in export', () => {
+    const records = [
+      { code: '=2+5', demPct: 55, repPct: 40, margin: 15, turnoutPct: 70, registeredVoters: 5000, population: 8000, medianIncome: 90000, collegePct: 45, partyLean: '@cmd' }
+    ];
+
+    exportUniverseCSV(records);
+
+    const blobContent = global.Blob.mock.calls[0][0][0];
+    const dataLine = blobContent.split('\n')[1];
+    expect(dataLine.startsWith("'=2+5")).toBe(true);
+    expect(dataLine).toContain("'@cmd");
+  });
+
+  test('negative numbers are not corrupted by formula escaping', () => {
+    const records = [
+      { code: '7', demPct: -5.2, repPct: 40, margin: 15, turnoutPct: 70, registeredVoters: 5000, population: 8000, medianIncome: 90000, collegePct: 45, partyLean: 'Dem' }
+    ];
+
+    exportUniverseCSV(records);
+
+    const blobContent = global.Blob.mock.calls[0][0][0];
+    const dataLine = blobContent.split('\n')[1];
+    expect(dataLine).toContain('-5.2');
+    expect(dataLine).not.toContain("'-5.2");
+  });
+});
+
+describe('participation quirk handling', () => {
+  test('precinct with ballots cast but zero candidate votes has null turnout', () => {
+    const electionRow = {
+      'PRECINCT CODE': '88',
+      'REGISTERED VOTERS TOTAL': 4000,
+      'BALLOTS CAST TOTAL': 2500, // county-wide ballots, but not this race
+      'Dem Jane Smith': 0,
+      'Rep John Doe': 0
+    };
+    const record = buildPrecinctRecord('88', electionRow, null, null, ['Dem Jane Smith', 'Rep John Doe']);
+    expect(record.turnoutPct).toBeNull();
+    expect(record.demPct).toBeNull();
+    expect(record.registeredVoters).toBe(4000);
+  });
+});
+
+describe('filter pill escaping', () => {
+  test('user-supplied filter values are HTML-escaped in pills', () => {
+    const criteria = [{ field: 'demPct', operator: 'gte', value: '<img src=x onerror=alert(1)>' }];
+    const html = generateUniverseBuilderHTML(criteria, 0, 330);
+    expect(html).not.toContain('<img src=x');
+    expect(html).toContain('&lt;img');
+  });
+});
