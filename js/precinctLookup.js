@@ -1773,11 +1773,15 @@ function renderElectionTableWithDrilldown(votingHistory, filterCategories, preci
     for (let race of races) {
       let turnout = calculateTurnout(race.totalVotes, race.registeredVoters);
       let partyClass = (race.winningParty || "").toLowerCase();
+      // CSV column prefixes vary by year ("Rep" vs "REP") — normalize display
+      let partyDisplay = race.winningParty
+        ? race.winningParty.charAt(0).toUpperCase() + race.winningParty.slice(1).toLowerCase()
+        : "";
       let rowId = 'race-' + race.filename.replace(/[^a-zA-Z0-9]/g, '_');
       html += `<tr class="${partyClass}" data-filename="${escapeHtml(race.filename)}" data-row-id="${rowId}">
         <td>${escapeHtml(race.raceName)}</td>
         <td>${escapeHtml(race.winner)}</td>
-        <td>${escapeHtml(race.winningParty)}</td>
+        <td>${escapeHtml(partyDisplay)}</td>
         <td>${Number(race.totalVotes).toLocaleString()}</td>
         <td>${turnout.toFixed(1)}%</td>
       </tr>`;

@@ -4618,7 +4618,7 @@
             class="panel-search"
             placeholder="Search races..."
             id="panel-search-input"
-            value="${state.filters.search}"
+            value="${escapeHtml(state.filters.search)}"
           />
           <div class="filter-chips" id="filter-chips" role="group" aria-label="Filter elections">
             ${renderFilterChips()}
@@ -4738,9 +4738,12 @@
         const elections = grouped[category] || [];
         if (elections.length === 0) return '';
 
-        // B5: Groups collapsed by default; expand if the current election belongs to this category
+        // B5: Groups collapsed by default; expand if the current election belongs
+        // to this category, or when searching (results are already filtered —
+        // keeping them collapsed makes matches look like an empty panel)
         const hasSelected = state.currentElection && elections.some(e => e.filename === state.currentElection.filename);
-        const expandedClass = hasSelected ? 'expanded' : '';
+        const searchActive = Boolean(state.filters.search && state.filters.search.trim());
+        const expandedClass = (hasSelected || searchActive) ? 'expanded' : '';
 
         return `
           <div class="election-group ${expandedClass}" data-category="${category}">
@@ -6328,7 +6331,10 @@
 
     (async () => {
       initAuth();
-      if (await isAuthenticated()) {
+      // Local dev bypass: the gate exists to keep the public deployment
+      // behind sign-in; localhost development and e2e tests skip it
+      const isLocalDev = ['localhost', '127.0.0.1'].includes(location.hostname);
+      if (isLocalDev || await isAuthenticated()) {
         hideAuthOverlay();
         init();
         setupLogout();
