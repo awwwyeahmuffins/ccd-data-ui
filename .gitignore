@@ -35,4 +35,16 @@ build/
 # CDK
 infra/cdk.out/
 infra/node_modules/
+infra/test-results/
+cdk.out/
 cdk-outputs.json
+
+# Voter PII — never commit or deploy
+VoterRegistrationFile.txt
+
+# Generated caches and local artifacts
+data/cache/
+screenshots/
+source_material/
+test-results/
+playwright-report/
