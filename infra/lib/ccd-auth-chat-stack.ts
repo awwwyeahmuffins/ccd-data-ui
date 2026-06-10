@@ -63,8 +63,9 @@ export class CcdAuthChatStack extends cdk.Stack {
       code: lambda.Code.fromAsset(path.join(__dirname, '..', 'lambda')),
       timeout: cdk.Duration.seconds(30),
       memorySize: 256,
-      // Cost guardrail: at most one concurrent Bedrock call
-      reservedConcurrentExecutions: 1,
+      // NOTE: reservedConcurrentExecutions is not usable here — the account's
+      // Lambda concurrency quota (10) can't spare a reservation. The API stage
+      // throttle (1 rps / burst 5) is the concurrency + cost guard instead.
       environment: {
         BEDROCK_MODEL_ID: bedrockModelId.valueAsString,
         BEDROCK_REGION: cdk.Stack.of(this).region,
