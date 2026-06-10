@@ -35,7 +35,21 @@ node --experimental-vm-modules node_modules/jest/bin/jest.js tests/dataLoader.te
 npx playwright test e2e/core-functionality.spec.js
 ```
 
-**Dev server URL:** `http://localhost:3000/index-new.html` (note: `index-new.html`, not `index.html`)
+**Dev server URL:** `http://localhost:3000/index.html` (map viewer) and `http://localhost:3000/precinct.html` (precinct lookup)
+
+On localhost the Cognito sign-in gate is bypassed (see the auth bootstrap at the bottom of `index.html`); the deployed site requires sign-in.
+
+## Deployment
+
+The live site is https://collincountyelections.com — S3 + CloudFront in AWS account 967254372913 (`ccd` profile), us-east-1. Shell-exported AWS env vars point at a different account, so the Makefile pins `--profile ccd` and `AWS_REGION=us-east-1`.
+
+```bash
+make cdk-diff       # Preview infra changes (Cognito, chat Lambda, CloudFront, budget)
+make cdk-deploy     # Deploy CDK stack
+make deploy-site    # Sync site content to S3 + invalidate CloudFront
+```
+
+`deploy-site` is allowlist-only (`js/`, `data/` minus cache, `index.html`, `precinct.html`, `styles.css`). NEVER run a bare `aws s3 sync .` — the repo root contains voter PII (`VoterRegistrationFile.txt`) and internal files that must not reach the public bucket.
 
 ## Architecture
 
