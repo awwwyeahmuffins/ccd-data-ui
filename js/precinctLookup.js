@@ -10,6 +10,7 @@ import {
   getBoundaryConfigs,
   listElectionCSVs,
 } from "./dataLoader.js";
+import { findPrecinctForAddress, findPrecinctForPoint } from "./geoLookup.js";
 import {
   loadCensusProfiles,
   generateProfileHTML,
@@ -133,6 +134,9 @@ export async function initPrecinctLookup() {
       }
     });
   }
+
+  // "Use my location" button
+  bindLocationButton();
 
   // Export buttons
   let pdfBtn = document.getElementById("export-pdf");
@@ -319,6 +323,11 @@ function computeCountyAverages() {
 // Search / autocomplete
 // ---------------------------------------------------------------------------
 
+// A query with letters (or longer than any precinct code) is an address
+function looksLikeAddress(query) {
+  return /[a-zA-Z]/.test(query) || query.trim().length > 4;
+}
+
 function handleSearchInput(query, dropdown) {
   if (!query) {
     dropdown.classList.remove("open");
@@ -331,6 +340,16 @@ function handleSearchInput(query, dropdown) {
   }).slice(0, 20);
 
   if (matches.length === 0) {
+    if (looksLikeAddress(query)) {
+      dropdown.innerHTML = `<div class="dropdown-item address-action selected" data-action="address">
+        📍 Find the precinct for “${escapeHtml(query)}”
+      </div>`;
+      dropdown.classList.add("open");
+      dropdown.querySelector('[data-action="address"]').addEventListener("click", function onAddr() {
+        searchByAddress(query, dropdown);
+      });
+      return;
+    }
     dropdown.classList.remove("open");
     dropdown.innerHTML = "";
     return;
@@ -381,6 +400,10 @@ function handleSearchKeydown(e, dropdown) {
   } else if (e.key === "Enter") {
     e.preventDefault();
     if (selected) {
+      if (selected.dataset.action === "address") {
+        searchByAddress(document.getElementById("precinct-search").value.trim(), dropdown);
+        return;
+      }
       let code = selected.dataset.code;
       document.getElementById("precinct-search").value = code;
       dropdown.classList.remove("open");
@@ -389,6 +412,76 @@ function handleSearchKeydown(e, dropdown) {
   } else if (e.key === "Escape") {
     dropdown.classList.remove("open");
   }
+}
+
+// ---------------------------------------------------------------------------
+// Address & geolocation search
+// ---------------------------------------------------------------------------
+
+async function searchByAddress(query, dropdown) {
+  dropdown.innerHTML = '<div class="dropdown-item address-action">Searching for that address…</div>';
+  dropdown.classList.add("open");
+
+  let result;
+  try {
+    let features = precinctList.map((p) => p.feature);
+    result = await findPrecinctForAddress(query, features);
+  } catch {
+    dropdown.classList.remove("open");
+    showNotice("The address search service is unavailable right now. Please try again in a moment.");
+    return;
+  }
+
+  dropdown.classList.remove("open");
+  dropdown.innerHTML = "";
+
+  if (!result) {
+    showNotice(`Couldn't find “${query}”. Try adding the city, e.g. “123 Main St, McKinney”.`);
+    return;
+  }
+  if (!result.code) {
+    showNotice("That address appears to be outside Collin County's precincts.");
+    return;
+  }
+
+  document.getElementById("precinct-search").value = result.code;
+  await selectPrecinct(result.code);
+}
+
+function bindLocationButton() {
+  let btn = document.getElementById("use-location-btn");
+  if (!btn) return;
+  btn.addEventListener("click", function onLocate() {
+    if (!navigator.geolocation) {
+      showNotice("Your browser doesn't support location lookup. Type your address instead.");
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = "📍 Finding your precinct…";
+    let restore = () => {
+      btn.disabled = false;
+      btn.textContent = "📍 Use my location";
+    };
+    navigator.geolocation.getCurrentPosition(
+      function onPosition(pos) {
+        restore();
+        let features = precinctList.map((p) => p.feature);
+        let feature = findPrecinctForPoint(pos.coords.latitude, pos.coords.longitude, features);
+        if (!feature) {
+          showNotice("Your current location appears to be outside Collin County's precincts.");
+          return;
+        }
+        let code = String(feature.properties.PRECINCT);
+        document.getElementById("precinct-search").value = code;
+        selectPrecinct(code);
+      },
+      function onError() {
+        restore();
+        showNotice("Couldn't get your location. You can type your street address in the search box instead.");
+      },
+      { timeout: 10000, maximumAge: 300000 }
+    );
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -430,7 +523,7 @@ async function selectPrecinct(code) {
   historyEl.innerHTML = '<div class="loading-spinner">Loading election history...</div>';
 
   // Render immediate sections
-  renderHeroSection(code, census, partyData, racialData);
+  renderHeroSection(code, census, partyData, racialData, props._meta || null);
   bindCompareButton(code);
   renderMiniMap(feature, partyData);
   renderPartySection(partyData);
@@ -463,6 +556,9 @@ async function selectPrecinct(code) {
   // Compute PVI, strategy, margin trend, turnout gap, talking points, similar precincts async
   let manifest = [];
   try { manifest = await listElectionCSVs(); } catch { /* optional */ }
+
+  // True registered-voter count comes from election results, not the DNC file
+  updateHeroRegisteredVoters(votingHistory, manifest);
 
   let pviResult = computePVI(code, allElectionData, manifest);
   renderPVIBadge(pviResult);
@@ -538,7 +634,7 @@ function destroyAllCharts() {
 // Hero dashboard section
 // ---------------------------------------------------------------------------
 
-function renderHeroSection(code, census, partyData, racialData) {
+function renderHeroSection(code, census, partyData, racialData, meta) {
   let el = document.getElementById("hero-section");
   let configs = getBoundaryConfigs();
   let boundaryLabel = configs[getActiveBoundary()].label;
@@ -567,7 +663,10 @@ function renderHeroSection(code, census, partyData, racialData) {
 
   if (partyData) {
     let total = (partyData.rep || 0) + (partyData.mod || 0) + (partyData.dem || 0);
-    stats.push(heroStatCard(formatNum(total), "Registered Voters", null, null, null, false, code));
+    // DNC-scored voter universe — NOT the county's registered-voter count
+    // (the real count is injected later from election results; see
+    // updateHeroRegisteredVoters)
+    stats.push(heroStatCard(formatNum(total), "Scored Voters", null, null, null, false, code));
   }
 
   if (census?.income?.medianHousehold != null) {
@@ -590,7 +689,7 @@ function renderHeroSection(code, census, partyData, racialData) {
   // Fallback if no census data
   if (stats.length === 0 && partyData) {
     let total = (partyData.rep || 0) + (partyData.mod || 0) + (partyData.dem || 0);
-    stats.push(heroStatCard(formatNum(total), "Registered Voters", null, null, null, false, code));
+    stats.push(heroStatCard(formatNum(total), "Scored Voters", null, null, null, false, code));
     if (partyData.winningParty) {
       stats.push(heroStatCard(partyData.winningParty, "Party Lean", null, null, null, false, code));
     }
@@ -598,9 +697,67 @@ function renderHeroSection(code, census, partyData, racialData) {
 
   html += '<div class="hero-stats-grid">';
   html += stats.join('');
-  html += '</div></div>';
+  html += '</div>';
+
+  // Flag brand-new or low-confidence precincts so sparse stats aren't
+  // mistaken for real zeros (2026 redistricting created several)
+  let scoredTotal = partyData ? (partyData.rep || 0) + (partyData.mod || 0) + (partyData.dem || 0) : null;
+  let isNewOrLowConfidence = meta &&
+    (meta.dataQuality === 'low_confidence' || meta.interpolationType === 'new_boundary' || meta.interpolationType === 'sliver');
+  if (isNewOrLowConfidence) {
+    html += '<div class="new-precinct-notice">⚠️ This precinct was newly created in the 2026 redistricting and has little or no voting history yet. Numbers below are estimates or may be blank.</div>';
+  } else if (scoredTotal != null && scoredTotal < 10) {
+    html += '<div class="new-precinct-notice">⚠️ Very few scored voters in this precinct — percentage figures below may be misleading.</div>';
+  }
+
+  html += '</div>';
 
   el.innerHTML = html;
+}
+
+// Inject the county's actual registered-voter count into the hero grid once
+// election history is available. Sourced from the most recent race that
+// reports REGISTERED VOTERS TOTAL for this precinct (county-wide races carry
+// the full count; the DNC "Scored Voters" card is a modeled subset).
+function updateHeroRegisteredVoters(votingHistory, manifest) {
+  let races = votingHistory?.races || [];
+  if (races.length === 0) return;
+
+  let manifestByFile = {};
+  for (let entry of manifest || []) {
+    let fn = typeof entry === 'string' ? entry : entry.filename;
+    manifestByFile[fn] = entry;
+  }
+
+  let best = null;
+  for (let race of races) {
+    if (!(race.registeredVoters > 0)) continue;
+    let year = manifestByFile[race.filename]?.year || extractYear(race.raceName) || 0;
+    if (!best || year > best.year ||
+        (year === best.year && race.registeredVoters > best.count)) {
+      best = { year, count: race.registeredVoters };
+    }
+  }
+  if (!best) return;
+
+  let grid = document.querySelector('#hero-section .hero-stats-grid');
+  if (!grid || grid.querySelector('[data-stat="registered-voters"]')) return;
+
+  let card = document.createElement('div');
+  card.className = 'hero-stat-card';
+  card.setAttribute('data-stat', 'registered-voters');
+  let label = best.year ? `Registered Voters (${best.year})` : 'Registered Voters';
+  card.innerHTML =
+    `<div class="hero-stat-value">${escapeHtml(formatNum(best.count))}</div>` +
+    `<div class="hero-stat-label">${escapeHtml(label)}</div>`;
+
+  // Place right after Population (first card) so the two official counts lead
+  let first = grid.firstElementChild;
+  if (first && first.nextSibling) {
+    grid.insertBefore(card, first.nextSibling);
+  } else {
+    grid.appendChild(card);
+  }
 }
 
 function heroStatCard(displayValue, label, rawValue, rankMetric, countyValue, higherIsBetter, code) {
@@ -721,12 +878,7 @@ function renderOfficialsSection(officials) {
 function renderCensusSection(census, code, boundaryMeta) {
   let el = document.getElementById("section-census");
   if (!census) {
-    let boundary = getActiveBoundary();
-    if (boundary === "2026") {
-      el.innerHTML = '<div class="census-unavailable">Census profile data not yet available for 2026 boundaries. Party, racial, officials, and election data are still shown above.</div>';
-    } else {
-      el.innerHTML = `<div class="census-unavailable">No census data available for precinct ${escapeHtml(code)}.</div>`;
-    }
+    el.innerHTML = `<div class="census-unavailable">No census profile is available for precinct ${escapeHtml(code)}. Party, racial, officials, and election data are still shown above.</div>`;
     return;
   }
   let extraData = {};
