@@ -4,8 +4,8 @@
 // button, the mobile tab bar, and the competitive ranker panel.
 
 import { state } from "./state.js";
-import { hooks } from "./hooks.js";
 import { closeAllPanels, dismissWelcome } from "./uiChrome.js";
+import { renderElectionPanel } from "./electionPanel.js";
 import { setViewMode } from "./viewMode.js";
 import { selectPrecinctByCode } from "./search.js";
 import { rankCompetitivePrecincts, generateRankerHTML, generateRankerCSV } from "../competitiveRanker.js";
@@ -45,7 +45,7 @@ export function togglePanel() {
     if (fabIconMenu) fabIconMenu.style.display = 'none';
     if (fabIconClose) fabIconClose.style.display = '';
     // Refresh panel content
-    hooks.renderElectionPanel?.();
+    renderElectionPanel();
     // D11: Hide welcome overlay when panel opens
     dismissWelcome();
     // F5: Focus search input when panel opens
