@@ -54,8 +54,9 @@ def categorize_election_python(filename: str) -> str:
     normalized = filename.lower()
     
     # Federal races
-    if any(term in normalized for term in ['president', 'united_states_senator', 
-                                          'u._s._representative', 'united_states_representative']):
+    if any(term in normalized for term in ['president', 'united_states_senator',
+                                          'u._s._representative', 'united_states_representative',
+                                          'us_senator', 'us_representative']):
         return 'Federal'
     
     # MUD races (check before City)
@@ -77,7 +78,9 @@ def categorize_election_python(filename: str) -> str:
                                           'commissioner_of_', 'railroad_commissioner',
                                           'state_representative', 'state_senator',
                                           'state_board_of_education', 'court_of_criminal_appeals',
-                                          'supreme_court', 'court_of_appeals_district']):
+                                          'supreme_court', 'court_of_appeals_district',
+                                          'state_of_texas',
+                                          'rep_proposition', 'dem_proposition']):
         return 'State'
     
     # County races
@@ -88,27 +91,91 @@ def categorize_election_python(filename: str) -> str:
     return 'County'  # Default
 
 
+def read_table(file_path: str, **kwargs) -> pd.DataFrame:
+    """
+    Read a tabular file (CSV or Excel) into a DataFrame.
+
+    Dispatches to pd.read_excel for .xlsx/.xls files, pd.read_csv otherwise,
+    so the rest of the parser is format-agnostic.
+    """
+    if str(file_path).lower().endswith(('.xlsx', '.xls')):
+        return pd.read_excel(file_path, **kwargs)
+    return pd.read_csv(file_path, **kwargs)
+
+
+# Party codes used in the second header row of 2025+ county exports
+PARTY_HEADER_CODES = {'REP', 'DEM', 'LIB', 'GRN', 'IND', 'NON', 'W-I', 'WI'}
+
+
+def fix_text(value):
+    """
+    Repair mojibake (UTF-8 read as cp1252, e.g. 'â€“') and normalize
+    en/em dashes to plain hyphens in header text.
+    """
+    if not isinstance(value, str):
+        return value
+    try:
+        repaired = value.encode('cp1252').decode('utf-8')
+        value = repaired
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        pass
+    return value.replace('–', '-').replace('—', '-').strip()
+
+
+def strip_spreadsheet_filler(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Drop a leading Excel-table filler row like 'Column1, Column2, ...'
+    (present in some county xlsx exports).
+    """
+    if len(df) == 0:
+        return df
+    first = [str(v) for v in df.iloc[0].tolist() if pd.notna(v) and str(v).strip()]
+    if first and all(re.fullmatch(r'Column\d+', v) for v in first):
+        return df.iloc[1:].reset_index(drop=True)
+    return df
+
+
+def has_party_header_row(file_path: str) -> bool:
+    """
+    Detect the 2025+ export format with three header rows:
+    row 0 = race names, row 1 = party codes (REP/DEM/NON/...), row 2 = candidates.
+    """
+    try:
+        preview = read_table(file_path, nrows=6, header=None)
+    except Exception:
+        return False
+    preview = strip_spreadsheet_filler(preview)
+    if len(preview) < 3:
+        return False
+    second = [str(v).strip().upper() for v in preview.iloc[1].tolist()
+              if pd.notna(v) and str(v).strip()]
+    if not second:
+        return False
+    return all(v in PARTY_HEADER_CODES for v in second)
+
+
 def detect_csv_format(file_path: str) -> str:
     """
     Detect the format of a CSV file.
-    
+
     Args:
         file_path: Path to CSV file
-        
+
     Returns:
         Format type: 'multi_header', 'single_header', or 'one_race'
     """
     # Read first few rows to detect format
     try:
-        df_preview = pd.read_csv(file_path, nrows=5, header=None)
-        
+        df_preview = read_table(file_path, nrows=5, header=None)
+        df_preview = strip_spreadsheet_filler(df_preview)
+
         # Check if it looks like multi-row header (first row has repeated values)
         first_row = df_preview.iloc[0].astype(str).tolist()
         if len(set(first_row)) < len(first_row) * 0.5:  # Many repeated values
             return 'multi_header'
         
         # Check if it's a single-header CSV
-        df_single = pd.read_csv(file_path, nrows=1)
+        df_single = read_table(file_path, nrows=1)
         if len(df_single.columns) > 5:  # Reasonable number of columns
             return 'single_header'
         
@@ -132,7 +199,7 @@ def parse_multi_header_csv(file_path: str, year: Optional[int] = None) -> List[D
     logger.info(f"Parsing multi-header CSV: {file_path}")
     
     try:
-        df = pd.read_csv(file_path, header=[0, 1])
+        df = read_table(file_path, header=[0, 1])
     except Exception as e:
         logger.error(f"Failed to read multi-header CSV {file_path}: {e}")
         return []
@@ -199,6 +266,131 @@ def parse_multi_header_csv(file_path: str, year: Optional[int] = None) -> List[D
     return results
 
 
+def parse_three_row_header(file_path: str, year: Optional[int] = None,
+                           race_suffix: str = '') -> List[Dict]:
+    """
+    Parse a 2025+ county export with three header rows:
+        row 0 = race names (static column names for the first few columns)
+        row 1 = party codes (REP/DEM/NON/...)
+        row 2 = candidate names ('VOTERS'/'BALLOTS CAST' for static columns)
+
+    Candidate columns are flattened to the canonical "<PARTY> <Candidate>"
+    form (no prefix for nonpartisan NON races), matching older exports.
+
+    Args:
+        file_path: Path to CSV/Excel file
+        year: Optional year for output filename
+        race_suffix: Optional suffix appended to race names (e.g. ' Runoff')
+
+    Returns:
+        List of dicts: {race_name, df, output_filename}
+    """
+    logger.info(f"Parsing three-row-header export: {file_path}")
+
+    try:
+        raw = read_table(file_path, header=None)
+    except Exception as e:
+        logger.error(f"Failed to read {file_path}: {e}")
+        return []
+
+    raw = strip_spreadsheet_filler(raw)
+    if len(raw) < 4:
+        logger.error(f"Not enough rows in {file_path}")
+        return []
+
+    race_row = pd.Series(raw.iloc[0]).map(fix_text).ffill().tolist()
+    party_row = raw.iloc[1].tolist()
+    cand_row = raw.iloc[2].tolist()
+    data = raw.iloc[3:].reset_index(drop=True)
+
+    static_set = set(CANONICAL_STATIC_COLS)
+    columns = []
+    keep_idx = []
+    for i, race in enumerate(race_row):
+        race = race if isinstance(race, str) else ''
+        if race in static_set:
+            columns.append((race, race))
+            keep_idx.append(i)
+            continue
+        if not race or race.upper().startswith('BALLOTS CAST'):
+            # Skip blank columns and per-party turnout columns
+            # ('BALLOTS CAST - Republican Party' etc. in primary exports)
+            continue
+        party = str(party_row[i]).strip().upper() if pd.notna(party_row[i]) else ''
+        cand = fix_text(str(cand_row[i])) if pd.notna(cand_row[i]) else ''
+        if cand.upper() in ('OVER VOTES', 'UNDER VOTES'):
+            flat = cand.upper()
+        elif cand.lower().startswith('write-in'):
+            flat = 'Write-in'
+        elif party and party != 'NON':
+            flat = f"{party} {cand}"
+        else:
+            flat = cand
+        columns.append((race, flat))
+        keep_idx.append(i)
+
+    data = data.iloc[:, keep_idx]
+    data.columns = pd.MultiIndex.from_tuples(columns)
+
+    # Drop the county-total row (PRECINCT CODE == 'ZZZ') and blank rows
+    pct_codes = data.loc[:, ('PRECINCT CODE', 'PRECINCT CODE')].astype(str).str.strip()
+    data = data[(pct_codes.str.upper() != 'ZZZ') & (pct_codes != '') & (pct_codes != 'nan')]
+    data = data.reset_index(drop=True)
+
+    # Static frame with canonical flat names
+    static_df = data.loc[:, [c for c in data.columns if c[0] in static_set]].copy()
+    static_df.columns = [c[0] for c in static_df.columns]
+    for col in ('COUNTY NUMBER', 'PRECINCT CODE', 'PRECINCT NAME'):
+        if col in static_df.columns:
+            static_df[col] = static_df[col].astype(str).str.strip()
+    for col in ('REGISTERED VOTERS TOTAL', 'BALLOTS CAST TOTAL', 'BALLOTS CAST BLANK'):
+        if col in static_df.columns:
+            static_df[col] = pd.to_numeric(static_df[col], errors='coerce').fillna(0).astype(int)
+        else:
+            static_df[col] = 0
+
+    all_races = [r for r in dict.fromkeys(c[0] for c in data.columns)
+                 if r not in static_set]
+
+    results = []
+    for race in all_races:
+        race_cols = data.loc[:, data.columns.get_level_values(0) == race].copy()
+        race_cols.columns = [c[1] for c in race_cols.columns]
+        for col in race_cols.columns:
+            race_cols[col] = pd.to_numeric(race_cols[col], errors='coerce').fillna(0).astype(int)
+
+        combined_df = pd.concat([static_df, race_cols], axis=1)
+
+        # Aggregate by precinct (mirrors parse_multi_header_csv)
+        keep_fields = ["COUNTY NUMBER", "PRECINCT CODE", "PRECINCT NAME", "REGISTERED VOTERS TOTAL"]
+        agg_dict = {}
+        for colname in combined_df.columns:
+            agg_dict[colname] = "first" if colname in keep_fields else "sum"
+
+        agg_df = combined_df.groupby(
+            ["COUNTY NUMBER", "PRECINCT CODE", "PRECINCT NAME"],
+            as_index=False
+        ).agg(agg_dict)
+
+        agg_df = compute_winning_candidate(agg_df)
+        agg_df = ensure_canonical_columns(agg_df)
+
+        race_name = f"{race}{race_suffix}"
+        safe_race_name = sanitize_filename(race_name)
+        if year:
+            output_filename = f"{safe_race_name}_{year}.csv"
+        else:
+            output_filename = f"{safe_race_name}.csv"
+
+        results.append({
+            'race_name': race_name,
+            'df': agg_df,
+            'output_filename': output_filename
+        })
+
+    return results
+
+
 def parse_single_header_csv(file_path: str, year: Optional[int] = None) -> List[Dict]:
     """
     Parse a single-header CSV.
@@ -213,7 +405,7 @@ def parse_single_header_csv(file_path: str, year: Optional[int] = None) -> List[
     logger.info(f"Parsing single-header CSV: {file_path}")
     
     try:
-        df = pd.read_csv(file_path)
+        df = read_table(file_path)
     except Exception as e:
         logger.error(f"Failed to read single-header CSV {file_path}: {e}")
         return []
@@ -446,7 +638,15 @@ def parse_election_file(file_path: str, year: Optional[int] = None,
         List of dicts: {race_name, df, output_filename}
     """
     format_type = detect_csv_format(file_path)
-    
+
+    # 2025+ exports have a separate party-code header row
+    if has_party_header_row(file_path):
+        race_suffix = ''
+        if election_name and 'runoff' in election_name.lower():
+            # Disambiguate runoff races from the general election they followed
+            race_suffix = ' Runoff'
+        return parse_three_row_header(file_path, year, race_suffix=race_suffix)
+
     if format_type == 'multi_header':
         return parse_multi_header_csv(file_path, year)
     elif format_type == 'one_race':

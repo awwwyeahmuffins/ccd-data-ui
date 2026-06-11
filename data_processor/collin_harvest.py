@@ -28,21 +28,27 @@ class CollinElectionDataEngine:
     Harvests election data from Collin County's election results archive.
     """
     
-    def __init__(self, base_url="https://www.collincountytx.gov/Elections/election-results-archive", 
-                 output_dir="collin_elections_master"):
+    def __init__(self, base_url="https://www.collincountytx.gov/Elections/election-results-archive",
+                 output_dir="collin_elections_master", include_pattern=None):
         """
         Initialize the harvest engine.
-        
+
         Args:
             base_url: Base URL for the election results archive
             output_dir: Directory to store downloaded files
+            include_pattern: Optional regex; only files whose link text or
+                filename matches are downloaded (case-insensitive)
         """
         self.base_url = base_url
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        
+        self.include_pattern = re.compile(include_pattern, re.IGNORECASE) if include_pattern else None
+
+        # File extensions for parseable data files (direct-download mode)
+        self.data_extensions = ('.csv', '.xlsx', '.xls')
+
         # Keywords for identifying election-related links
-        self.election_keywords = ['election', 'results', '2024', '2022', '2020', '2018', 
+        self.election_keywords = ['election', 'results', '2026', '2025', '2024', '2022', '2020', '2018',
                                   'general', 'primary', 'runoff', 'special']
         
         # Keywords for identifying downloadable/parseable files
@@ -177,6 +183,125 @@ class CollinElectionDataEngine:
         logger.info(f"Extracted {len(downloaded_files)} files from {election_page_url}")
         return downloaded_files
     
+    @staticmethod
+    def unwrap_multipart_envelope(local_path):
+        """
+        Unwrap a multipart/form-data envelope around a downloaded file.
+
+        The county's CMS (Sitefinity) serves some documents wrapped in a
+        single-part multipart envelope:
+            --<boundary>\r\n<headers>\r\n\r\n<payload>\r\n--<boundary>--\r\n
+        If detected, rewrite the file with just the payload bytes.
+        """
+        path = Path(local_path)
+        data = path.read_bytes()
+        if not data.startswith(b'--') or b'Content-Disposition' not in data[:1024]:
+            return False
+        boundary = data.split(b'\r\n', 1)[0]
+        header_end = data.find(b'\r\n\r\n')
+        if header_end == -1:
+            return False
+        payload = data[header_end + 4:]
+        closing = b'\r\n' + boundary + b'--'
+        end = payload.rfind(closing)
+        if end != -1:
+            payload = payload[:end]
+        path.write_bytes(payload)
+        logger.info(f"Unwrapped multipart envelope: {path.name}")
+        return True
+
+    def collect_direct_file_links(self, soup):
+        """
+        Collect direct data-file links (.csv/.xlsx/.xls) from a page.
+
+        The county redesigned the archive page (2025+): instead of linking to
+        per-election landing pages, it now links directly to result documents
+        (PDF reports plus CSV/Excel precinct exports). This collects only the
+        parseable data files.
+
+        Args:
+            soup: BeautifulSoup of the archive page
+
+        Returns:
+            List of dicts: {file_url, link_text}
+        """
+        links = []
+        seen = set()
+        for link in soup.find_all('a', href=True):
+            href = link.get('href', '').strip()
+            link_text = link.get_text(strip=True)
+            # Strip query string (Sitefinity appends ?sfvrsn=...)
+            path = urlparse(urljoin(self.base_url, href)).path.lower()
+            if not path.endswith(self.data_extensions):
+                continue
+            file_url = urljoin(self.base_url, href)
+            if file_url in seen:
+                continue
+            seen.add(file_url)
+            # Apply include filter (link text or URL filename)
+            file_name = os.path.basename(urlparse(file_url).path)
+            if self.include_pattern and not (
+                    self.include_pattern.search(link_text) or
+                    self.include_pattern.search(file_name)):
+                continue
+            links.append({'file_url': file_url, 'link_text': link_text})
+        return links
+
+    def harvest_direct_files(self, direct_links):
+        """
+        Download direct data-file links found on the archive page.
+
+        Args:
+            direct_links: List of {file_url, link_text} dicts
+
+        Returns:
+            List of file metadata dicts (same shape as extract_parseable_files)
+        """
+        downloaded_files = []
+
+        for item in direct_links:
+            file_url = item['file_url']
+            link_text = item['link_text']
+
+            parsed_file_url = urlparse(file_url)
+            file_name = os.path.basename(parsed_file_url.path)
+            file_name = re.sub(r'[^\w\.\-]', '_', file_name)
+
+            # One directory per election, named after the file stem
+            election_name = re.sub(r'[^\w\-]', '_', Path(file_name).stem)
+            election_dir = self.output_dir / election_name
+            election_dir.mkdir(parents=True, exist_ok=True)
+            local_path = election_dir / file_name
+
+            try:
+                logger.info(f"Downloading: {file_url} -> {local_path}")
+                file_response = requests.get(file_url, timeout=60, stream=True)
+                file_response.raise_for_status()
+
+                with open(local_path, 'wb') as f:
+                    for chunk in file_response.iter_content(chunk_size=8192):
+                        f.write(chunk)
+
+                # Some CMS documents are served inside a multipart envelope
+                self.unwrap_multipart_envelope(local_path)
+
+                downloaded_files.append({
+                    'election': election_name,
+                    'file_name': file_name,
+                    'source_url': file_url,
+                    'local_path': str(local_path)
+                })
+
+                logger.info(f"Downloaded: {file_name}")
+                time.sleep(self.request_delay)
+
+            except requests.RequestException as e:
+                logger.warning(f"Failed to download {file_url}: {e}")
+                continue
+
+        logger.info(f"Direct-download mode: {len(downloaded_files)} files downloaded")
+        return downloaded_files
+
     def infer_year_and_type(self, url, filename, election_name):
         """
         Infer year and election type from URL, filename, or election name.
@@ -273,10 +398,34 @@ class CollinElectionDataEngine:
             List of all downloaded file metadata
         """
         logger.info("Starting harvest process")
-        
-        # Fetch archive pages
+
+        # Fetch the archive page once and check for direct data-file links
+        # (new site structure, 2025+). Fall back to legacy page-crawl mode.
+        logger.info(f"Fetching archive page: {self.base_url}")
+        try:
+            response = requests.get(self.base_url, timeout=30)
+            response.raise_for_status()
+        except requests.RequestException as e:
+            logger.error(f"Failed to fetch archive page: {e}")
+            return []
+
+        soup = BeautifulSoup(response.content, 'html.parser')
+        direct_links = self.collect_direct_file_links(soup)
+
+        if direct_links:
+            logger.info(f"Archive page links directly to {len(direct_links)} data files; "
+                        "using direct-download mode")
+            if limit:
+                direct_links = direct_links[:limit]
+            master_results = self.harvest_direct_files(direct_links)
+            if master_results:
+                self.generate_master_index(master_results)
+            logger.info(f"Harvest complete: {len(master_results)} files downloaded")
+            return master_results
+
+        # Legacy mode: discover election landing pages and crawl each
         election_links = self.fetch_archive_pages()
-        
+
         if not election_links:
             logger.warning("No election pages found")
             return []

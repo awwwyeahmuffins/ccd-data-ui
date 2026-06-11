@@ -48,18 +48,83 @@ def load_master_index(index_path: str) -> List[Dict]:
     return files
 
 
-def run_pipeline(harvest_limit: Optional[int] = None, 
+def merge_manifest(parsed_entries: List[Dict], manifest_path: str) -> str:
+    """
+    Merge newly parsed entries into an existing elections.json manifest.
+
+    Existing entries are preserved exactly as-is (an entry is only replaced
+    if a re-parsed file has the same filename). The merged manifest is sorted
+    year-descending, then category and filename ascending, matching the
+    existing manifest convention.
+
+    Args:
+        parsed_entries: List of dicts with keys: filename, year, category, displayName
+        manifest_path: Path to elections.json
+
+    Returns:
+        Path to the manifest
+    """
+    manifest_file = Path(manifest_path)
+    existing = []
+    if manifest_file.exists():
+        with open(manifest_file, 'r', encoding='utf-8') as f:
+            existing = json.load(f)
+
+    new_by_filename = {e['filename']: e for e in parsed_entries}
+
+    merged = []
+    for entry in existing:
+        if entry.get('filename') in new_by_filename:
+            # Re-parsed: take the fresh entry (keep existing key order)
+            fresh = new_by_filename.pop(entry['filename'])
+            merged.append({
+                'filename': fresh['filename'],
+                'displayName': fresh.get('displayName'),
+                'category': fresh.get('category'),
+                'year': fresh.get('year'),
+            })
+        else:
+            merged.append(entry)
+
+    # Append brand-new entries with the same key order as existing entries
+    for fresh in new_by_filename.values():
+        merged.append({
+            'filename': fresh['filename'],
+            'displayName': fresh.get('displayName'),
+            'category': fresh.get('category'),
+            'year': fresh.get('year'),
+        })
+
+    # Stable sort matching existing manifest convention:
+    # year descending, then category and filename ascending
+    merged.sort(key=lambda x: (
+        -(x.get('year') or 0),
+        x.get('category') or '',
+        x.get('filename') or ''
+    ))
+
+    with open(manifest_file, 'w', encoding='utf-8') as f:
+        json.dump(merged, f, indent=2, ensure_ascii=False)
+
+    logger.info(f"Manifest merged: {manifest_file} ({len(merged)} entries, "
+                f"{len(parsed_entries)} new/updated)")
+    return str(manifest_file)
+
+
+def run_pipeline(harvest_limit: Optional[int] = None,
                 use_existing_harvest: bool = False,
                 harvest_dir: str = 'collin_elections_master',
-                output_dir: str = 'data'):
+                output_dir: str = 'data',
+                include_pattern: Optional[str] = None):
     """
     Run the full pipeline: harvest -> parse -> manifest.
-    
+
     Args:
         harvest_limit: Limit on number of election pages to harvest
         use_existing_harvest: If True, skip harvest and use existing files
         harvest_dir: Directory containing harvested files
         output_dir: Output directory for parsed CSVs
+        include_pattern: Optional regex to restrict which files are harvested
     """
     logger.info("=" * 60)
     logger.info("Starting Election Data Pipeline")
@@ -76,7 +141,8 @@ def run_pipeline(harvest_limit: Optional[int] = None,
         harvested_files = load_master_index(str(index_path))
     else:
         logger.info("Step 1: Harvesting election data...")
-        engine = CollinElectionDataEngine(output_dir=harvest_dir)
+        engine = CollinElectionDataEngine(output_dir=harvest_dir,
+                                          include_pattern=include_pattern)
         harvest_results = engine.run(limit=harvest_limit)
         
         if not harvest_results:
@@ -142,9 +208,9 @@ def run_pipeline(harvest_limit: Optional[int] = None,
     if parse_errors:
         logger.warning(f"Encountered {len(parse_errors)} parse errors")
     
-    # Step 3: Generate manifest
+    # Step 3: Generate manifest (merge with existing entries)
     logger.info("\nStep 3: Generating manifest...")
-    manifest_path = generate_manifest(parsed_entries, output_path=f'{output_dir}/elections.json')
+    manifest_path = merge_manifest(parsed_entries, manifest_path=f'{output_dir}/elections.json')
     
     logger.info("=" * 60)
     logger.info("Pipeline Complete!")
@@ -170,14 +236,17 @@ def main():
                        help='Directory for harvested files')
     parser.add_argument('--output-dir', type=str, default='data',
                        help='Output directory for parsed CSVs')
-    
+    parser.add_argument('--include-pattern', type=str, default=None,
+                       help='Regex; only harvest files whose link text or filename matches')
+
     args = parser.parse_args()
-    
+
     run_pipeline(
         harvest_limit=args.harvest_limit,
         use_existing_harvest=args.use_existing,
         harvest_dir=args.harvest_dir,
-        output_dir=args.output_dir
+        output_dir=args.output_dir,
+        include_pattern=args.include_pattern
     )
 
 
