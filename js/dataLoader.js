@@ -17,6 +17,89 @@ import {
   buildCSVPath 
 } from "./electionSchema.js";
 
+// ---------------------------------------------------------------------------
+// STATEWIDE COUNTY LAYER
+// The app is structured for all 254 Texas counties, but only counties with
+// status "live" in data/tx/counties.json have real precinct data. Placeholder
+// counties get their county outline as a single PLACEHOLDER "precinct" and an
+// empty election list — no data is ever fabricated.
+// ---------------------------------------------------------------------------
+const LIVE_DEFAULT_COUNTY = "collin";
+let activeCounty = LIVE_DEFAULT_COUNTY; // county slug from data/tx/counties.json
+let countyRegistryPromise = null;
+let countyBoundariesPromise = null;
+
+/** Get the active county slug (default "collin"). */
+export function getActiveCounty() {
+  return activeCounty;
+}
+
+/** Load (and cache) the statewide county registry. */
+export function loadCountyRegistry() {
+  if (!countyRegistryPromise) {
+    countyRegistryPromise = fetch("data/tx/counties.json").then(r => {
+      if (!r.ok) throw new Error("Failed to fetch county registry");
+      return r.json();
+    });
+  }
+  return countyRegistryPromise;
+}
+
+function loadCountyBoundaries() {
+  if (!countyBoundariesPromise) {
+    countyBoundariesPromise = fetch("data/tx/county-boundaries.geojson").then(r => {
+      if (!r.ok) throw new Error("Failed to fetch county boundaries");
+      return r.json();
+    });
+  }
+  return countyBoundariesPromise;
+}
+
+/** Switch the active county. Clears all cached data. */
+export async function setActiveCounty(slug) {
+  const registry = await loadCountyRegistry();
+  const entry = registry.find(c => c.slug === slug);
+  if (!entry) throw new Error(`Unknown county: ${slug}`);
+  console.log(`[DataLoader] setActiveCounty: ${slug} (${entry.status})`);
+  activeCounty = slug;
+  clearDataCache();
+  return entry;
+}
+
+/** True when the active county has no real precinct data yet. */
+export async function isPlaceholderCounty() {
+  if (activeCounty === LIVE_DEFAULT_COUNTY) return false;
+  const registry = await loadCountyRegistry();
+  const entry = registry.find(c => c.slug === activeCounty);
+  return !entry || entry.status !== "live";
+}
+
+// Placeholder county: the county outline becomes a single fake "precinct"
+// whose code is the literal string "PLACEHOLDER" so nothing looks real.
+async function loadPlaceholderCountyData() {
+  const [registry, boundaries] = await Promise.all([
+    loadCountyRegistry(), loadCountyBoundaries()
+  ]);
+  const entry = registry.find(c => c.slug === activeCounty);
+  const feature = boundaries.features.find(f => f.properties.SLUG === activeCounty);
+  if (!entry || !feature) throw new Error(`No boundary for county: ${activeCounty}`);
+  const geojson = {
+    type: "FeatureCollection",
+    features: [{
+      type: "Feature",
+      properties: {
+        PRECINCT: "PLACEHOLDER",
+        COUNTY: entry.name,
+        placeholder: true,
+      },
+      geometry: feature.geometry,
+    }],
+  };
+  const result = { geojson, dncLookup: {}, racialLookup: {} };
+  dataCache.allData = result;
+  return result;
+}
+
 // Active boundary set: "original" (252 precincts) or "2026" (273 precincts)
 let activeBoundary = "original";
 
@@ -85,6 +168,11 @@ export async function loadAllData() {
   // Return cached data if available
   if (dataCache.allData) {
     return dataCache.allData;
+  }
+
+  // Placeholder counties have no real files — synthesize obvious placeholders
+  if (activeCounty !== LIVE_DEFAULT_COUNTY) {
+    return loadPlaceholderCountyData();
   }
 
   let config = BOUNDARY_CONFIGS[activeBoundary];
@@ -287,6 +375,12 @@ function normalizeElectionManifest(manifest) {
 export async function listElectionCSVs() {
   // Return cached list if available
   if (dataCache.electionsList) {
+    return dataCache.electionsList;
+  }
+
+  // Placeholder counties have no election data yet — an empty list, never fakes
+  if (activeCounty !== LIVE_DEFAULT_COUNTY) {
+    dataCache.electionsList = [];
     return dataCache.electionsList;
   }
 

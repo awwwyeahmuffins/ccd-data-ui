@@ -1,0 +1,2034 @@
+[
+  {
+    "fips": "48001",
+    "name": "Anderson",
+    "slug": "anderson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48003",
+    "name": "Andrews",
+    "slug": "andrews",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48005",
+    "name": "Angelina",
+    "slug": "angelina",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48007",
+    "name": "Aransas",
+    "slug": "aransas",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48009",
+    "name": "Archer",
+    "slug": "archer",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48011",
+    "name": "Armstrong",
+    "slug": "armstrong",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48013",
+    "name": "Atascosa",
+    "slug": "atascosa",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48015",
+    "name": "Austin",
+    "slug": "austin",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48017",
+    "name": "Bailey",
+    "slug": "bailey",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48019",
+    "name": "Bandera",
+    "slug": "bandera",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48021",
+    "name": "Bastrop",
+    "slug": "bastrop",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48023",
+    "name": "Baylor",
+    "slug": "baylor",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48025",
+    "name": "Bee",
+    "slug": "bee",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48027",
+    "name": "Bell",
+    "slug": "bell",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48029",
+    "name": "Bexar",
+    "slug": "bexar",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48031",
+    "name": "Blanco",
+    "slug": "blanco",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48033",
+    "name": "Borden",
+    "slug": "borden",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48035",
+    "name": "Bosque",
+    "slug": "bosque",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48037",
+    "name": "Bowie",
+    "slug": "bowie",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48039",
+    "name": "Brazoria",
+    "slug": "brazoria",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48041",
+    "name": "Brazos",
+    "slug": "brazos",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48043",
+    "name": "Brewster",
+    "slug": "brewster",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48045",
+    "name": "Briscoe",
+    "slug": "briscoe",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48047",
+    "name": "Brooks",
+    "slug": "brooks",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48049",
+    "name": "Brown",
+    "slug": "brown",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48051",
+    "name": "Burleson",
+    "slug": "burleson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48053",
+    "name": "Burnet",
+    "slug": "burnet",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48055",
+    "name": "Caldwell",
+    "slug": "caldwell",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48057",
+    "name": "Calhoun",
+    "slug": "calhoun",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48059",
+    "name": "Callahan",
+    "slug": "callahan",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48061",
+    "name": "Cameron",
+    "slug": "cameron",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48063",
+    "name": "Camp",
+    "slug": "camp",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48065",
+    "name": "Carson",
+    "slug": "carson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48067",
+    "name": "Cass",
+    "slug": "cass",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48069",
+    "name": "Castro",
+    "slug": "castro",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48071",
+    "name": "Chambers",
+    "slug": "chambers",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48073",
+    "name": "Cherokee",
+    "slug": "cherokee",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48075",
+    "name": "Childress",
+    "slug": "childress",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48077",
+    "name": "Clay",
+    "slug": "clay",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48079",
+    "name": "Cochran",
+    "slug": "cochran",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48081",
+    "name": "Coke",
+    "slug": "coke",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48083",
+    "name": "Coleman",
+    "slug": "coleman",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48085",
+    "name": "Collin",
+    "slug": "collin",
+    "status": "live",
+    "dataRoot": "data",
+    "notes": null
+  },
+  {
+    "fips": "48087",
+    "name": "Collingsworth",
+    "slug": "collingsworth",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48089",
+    "name": "Colorado",
+    "slug": "colorado",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48091",
+    "name": "Comal",
+    "slug": "comal",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48093",
+    "name": "Comanche",
+    "slug": "comanche",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48095",
+    "name": "Concho",
+    "slug": "concho",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48097",
+    "name": "Cooke",
+    "slug": "cooke",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48099",
+    "name": "Coryell",
+    "slug": "coryell",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48101",
+    "name": "Cottle",
+    "slug": "cottle",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48103",
+    "name": "Crane",
+    "slug": "crane",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48105",
+    "name": "Crockett",
+    "slug": "crockett",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48107",
+    "name": "Crosby",
+    "slug": "crosby",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48109",
+    "name": "Culberson",
+    "slug": "culberson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48111",
+    "name": "Dallam",
+    "slug": "dallam",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48113",
+    "name": "Dallas",
+    "slug": "dallas",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48115",
+    "name": "Dawson",
+    "slug": "dawson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48123",
+    "name": "DeWitt",
+    "slug": "dewitt",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48117",
+    "name": "Deaf Smith",
+    "slug": "deaf-smith",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48119",
+    "name": "Delta",
+    "slug": "delta",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48121",
+    "name": "Denton",
+    "slug": "denton",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48125",
+    "name": "Dickens",
+    "slug": "dickens",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48127",
+    "name": "Dimmit",
+    "slug": "dimmit",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48129",
+    "name": "Donley",
+    "slug": "donley",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48131",
+    "name": "Duval",
+    "slug": "duval",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48133",
+    "name": "Eastland",
+    "slug": "eastland",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48135",
+    "name": "Ector",
+    "slug": "ector",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48137",
+    "name": "Edwards",
+    "slug": "edwards",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48141",
+    "name": "El Paso",
+    "slug": "el-paso",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48139",
+    "name": "Ellis",
+    "slug": "ellis",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48143",
+    "name": "Erath",
+    "slug": "erath",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48145",
+    "name": "Falls",
+    "slug": "falls",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48147",
+    "name": "Fannin",
+    "slug": "fannin",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48149",
+    "name": "Fayette",
+    "slug": "fayette",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48151",
+    "name": "Fisher",
+    "slug": "fisher",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48153",
+    "name": "Floyd",
+    "slug": "floyd",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48155",
+    "name": "Foard",
+    "slug": "foard",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48157",
+    "name": "Fort Bend",
+    "slug": "fort-bend",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48159",
+    "name": "Franklin",
+    "slug": "franklin",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48161",
+    "name": "Freestone",
+    "slug": "freestone",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48163",
+    "name": "Frio",
+    "slug": "frio",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48165",
+    "name": "Gaines",
+    "slug": "gaines",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48167",
+    "name": "Galveston",
+    "slug": "galveston",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48169",
+    "name": "Garza",
+    "slug": "garza",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48171",
+    "name": "Gillespie",
+    "slug": "gillespie",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48173",
+    "name": "Glasscock",
+    "slug": "glasscock",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48175",
+    "name": "Goliad",
+    "slug": "goliad",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48177",
+    "name": "Gonzales",
+    "slug": "gonzales",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48179",
+    "name": "Gray",
+    "slug": "gray",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48181",
+    "name": "Grayson",
+    "slug": "grayson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48183",
+    "name": "Gregg",
+    "slug": "gregg",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48185",
+    "name": "Grimes",
+    "slug": "grimes",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48187",
+    "name": "Guadalupe",
+    "slug": "guadalupe",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48189",
+    "name": "Hale",
+    "slug": "hale",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48191",
+    "name": "Hall",
+    "slug": "hall",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48193",
+    "name": "Hamilton",
+    "slug": "hamilton",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48195",
+    "name": "Hansford",
+    "slug": "hansford",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48197",
+    "name": "Hardeman",
+    "slug": "hardeman",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48199",
+    "name": "Hardin",
+    "slug": "hardin",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48201",
+    "name": "Harris",
+    "slug": "harris",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48203",
+    "name": "Harrison",
+    "slug": "harrison",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48205",
+    "name": "Hartley",
+    "slug": "hartley",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48207",
+    "name": "Haskell",
+    "slug": "haskell",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48209",
+    "name": "Hays",
+    "slug": "hays",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48211",
+    "name": "Hemphill",
+    "slug": "hemphill",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48213",
+    "name": "Henderson",
+    "slug": "henderson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48215",
+    "name": "Hidalgo",
+    "slug": "hidalgo",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48217",
+    "name": "Hill",
+    "slug": "hill",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48219",
+    "name": "Hockley",
+    "slug": "hockley",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48221",
+    "name": "Hood",
+    "slug": "hood",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48223",
+    "name": "Hopkins",
+    "slug": "hopkins",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48225",
+    "name": "Houston",
+    "slug": "houston",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48227",
+    "name": "Howard",
+    "slug": "howard",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48229",
+    "name": "Hudspeth",
+    "slug": "hudspeth",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48231",
+    "name": "Hunt",
+    "slug": "hunt",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48233",
+    "name": "Hutchinson",
+    "slug": "hutchinson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48235",
+    "name": "Irion",
+    "slug": "irion",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48237",
+    "name": "Jack",
+    "slug": "jack",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48239",
+    "name": "Jackson",
+    "slug": "jackson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48241",
+    "name": "Jasper",
+    "slug": "jasper",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48243",
+    "name": "Jeff Davis",
+    "slug": "jeff-davis",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48245",
+    "name": "Jefferson",
+    "slug": "jefferson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48247",
+    "name": "Jim Hogg",
+    "slug": "jim-hogg",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48249",
+    "name": "Jim Wells",
+    "slug": "jim-wells",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48251",
+    "name": "Johnson",
+    "slug": "johnson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48253",
+    "name": "Jones",
+    "slug": "jones",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48255",
+    "name": "Karnes",
+    "slug": "karnes",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48257",
+    "name": "Kaufman",
+    "slug": "kaufman",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48259",
+    "name": "Kendall",
+    "slug": "kendall",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48261",
+    "name": "Kenedy",
+    "slug": "kenedy",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48263",
+    "name": "Kent",
+    "slug": "kent",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48265",
+    "name": "Kerr",
+    "slug": "kerr",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48267",
+    "name": "Kimble",
+    "slug": "kimble",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48269",
+    "name": "King",
+    "slug": "king",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48271",
+    "name": "Kinney",
+    "slug": "kinney",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48273",
+    "name": "Kleberg",
+    "slug": "kleberg",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48275",
+    "name": "Knox",
+    "slug": "knox",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48283",
+    "name": "La Salle",
+    "slug": "la-salle",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48277",
+    "name": "Lamar",
+    "slug": "lamar",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48279",
+    "name": "Lamb",
+    "slug": "lamb",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48281",
+    "name": "Lampasas",
+    "slug": "lampasas",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48285",
+    "name": "Lavaca",
+    "slug": "lavaca",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48287",
+    "name": "Lee",
+    "slug": "lee",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48289",
+    "name": "Leon",
+    "slug": "leon",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48291",
+    "name": "Liberty",
+    "slug": "liberty",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48293",
+    "name": "Limestone",
+    "slug": "limestone",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48295",
+    "name": "Lipscomb",
+    "slug": "lipscomb",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48297",
+    "name": "Live Oak",
+    "slug": "live-oak",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48299",
+    "name": "Llano",
+    "slug": "llano",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48301",
+    "name": "Loving",
+    "slug": "loving",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48303",
+    "name": "Lubbock",
+    "slug": "lubbock",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48305",
+    "name": "Lynn",
+    "slug": "lynn",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48313",
+    "name": "Madison",
+    "slug": "madison",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48315",
+    "name": "Marion",
+    "slug": "marion",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48317",
+    "name": "Martin",
+    "slug": "martin",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48319",
+    "name": "Mason",
+    "slug": "mason",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48321",
+    "name": "Matagorda",
+    "slug": "matagorda",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48323",
+    "name": "Maverick",
+    "slug": "maverick",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48307",
+    "name": "McCulloch",
+    "slug": "mcculloch",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48309",
+    "name": "McLennan",
+    "slug": "mclennan",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48311",
+    "name": "McMullen",
+    "slug": "mcmullen",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48325",
+    "name": "Medina",
+    "slug": "medina",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48327",
+    "name": "Menard",
+    "slug": "menard",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48329",
+    "name": "Midland",
+    "slug": "midland",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48331",
+    "name": "Milam",
+    "slug": "milam",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48333",
+    "name": "Mills",
+    "slug": "mills",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48335",
+    "name": "Mitchell",
+    "slug": "mitchell",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48337",
+    "name": "Montague",
+    "slug": "montague",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48339",
+    "name": "Montgomery",
+    "slug": "montgomery",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48341",
+    "name": "Moore",
+    "slug": "moore",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48343",
+    "name": "Morris",
+    "slug": "morris",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48345",
+    "name": "Motley",
+    "slug": "motley",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48347",
+    "name": "Nacogdoches",
+    "slug": "nacogdoches",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48349",
+    "name": "Navarro",
+    "slug": "navarro",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48351",
+    "name": "Newton",
+    "slug": "newton",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48353",
+    "name": "Nolan",
+    "slug": "nolan",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48355",
+    "name": "Nueces",
+    "slug": "nueces",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48357",
+    "name": "Ochiltree",
+    "slug": "ochiltree",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48359",
+    "name": "Oldham",
+    "slug": "oldham",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48361",
+    "name": "Orange",
+    "slug": "orange",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48363",
+    "name": "Palo Pinto",
+    "slug": "palo-pinto",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48365",
+    "name": "Panola",
+    "slug": "panola",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48367",
+    "name": "Parker",
+    "slug": "parker",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48369",
+    "name": "Parmer",
+    "slug": "parmer",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48371",
+    "name": "Pecos",
+    "slug": "pecos",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48373",
+    "name": "Polk",
+    "slug": "polk",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48375",
+    "name": "Potter",
+    "slug": "potter",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48377",
+    "name": "Presidio",
+    "slug": "presidio",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48379",
+    "name": "Rains",
+    "slug": "rains",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48381",
+    "name": "Randall",
+    "slug": "randall",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48383",
+    "name": "Reagan",
+    "slug": "reagan",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48385",
+    "name": "Real",
+    "slug": "real",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48387",
+    "name": "Red River",
+    "slug": "red-river",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48389",
+    "name": "Reeves",
+    "slug": "reeves",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48391",
+    "name": "Refugio",
+    "slug": "refugio",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48393",
+    "name": "Roberts",
+    "slug": "roberts",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48395",
+    "name": "Robertson",
+    "slug": "robertson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48397",
+    "name": "Rockwall",
+    "slug": "rockwall",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48399",
+    "name": "Runnels",
+    "slug": "runnels",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48401",
+    "name": "Rusk",
+    "slug": "rusk",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48403",
+    "name": "Sabine",
+    "slug": "sabine",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48405",
+    "name": "San Augustine",
+    "slug": "san-augustine",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48407",
+    "name": "San Jacinto",
+    "slug": "san-jacinto",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48409",
+    "name": "San Patricio",
+    "slug": "san-patricio",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48411",
+    "name": "San Saba",
+    "slug": "san-saba",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48413",
+    "name": "Schleicher",
+    "slug": "schleicher",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48415",
+    "name": "Scurry",
+    "slug": "scurry",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48417",
+    "name": "Shackelford",
+    "slug": "shackelford",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48419",
+    "name": "Shelby",
+    "slug": "shelby",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48421",
+    "name": "Sherman",
+    "slug": "sherman",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48423",
+    "name": "Smith",
+    "slug": "smith",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48425",
+    "name": "Somervell",
+    "slug": "somervell",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48427",
+    "name": "Starr",
+    "slug": "starr",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48429",
+    "name": "Stephens",
+    "slug": "stephens",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48431",
+    "name": "Sterling",
+    "slug": "sterling",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48433",
+    "name": "Stonewall",
+    "slug": "stonewall",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48435",
+    "name": "Sutton",
+    "slug": "sutton",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48437",
+    "name": "Swisher",
+    "slug": "swisher",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48439",
+    "name": "Tarrant",
+    "slug": "tarrant",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48441",
+    "name": "Taylor",
+    "slug": "taylor",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48443",
+    "name": "Terrell",
+    "slug": "terrell",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48445",
+    "name": "Terry",
+    "slug": "terry",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48447",
+    "name": "Throckmorton",
+    "slug": "throckmorton",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48449",
+    "name": "Titus",
+    "slug": "titus",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48451",
+    "name": "Tom Green",
+    "slug": "tom-green",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48453",
+    "name": "Travis",
+    "slug": "travis",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48455",
+    "name": "Trinity",
+    "slug": "trinity",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48457",
+    "name": "Tyler",
+    "slug": "tyler",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48459",
+    "name": "Upshur",
+    "slug": "upshur",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48461",
+    "name": "Upton",
+    "slug": "upton",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48463",
+    "name": "Uvalde",
+    "slug": "uvalde",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48465",
+    "name": "Val Verde",
+    "slug": "val-verde",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48467",
+    "name": "Van Zandt",
+    "slug": "van-zandt",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48469",
+    "name": "Victoria",
+    "slug": "victoria",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48471",
+    "name": "Walker",
+    "slug": "walker",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48473",
+    "name": "Waller",
+    "slug": "waller",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48475",
+    "name": "Ward",
+    "slug": "ward",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48477",
+    "name": "Washington",
+    "slug": "washington",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48479",
+    "name": "Webb",
+    "slug": "webb",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48481",
+    "name": "Wharton",
+    "slug": "wharton",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48483",
+    "name": "Wheeler",
+    "slug": "wheeler",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48485",
+    "name": "Wichita",
+    "slug": "wichita",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48487",
+    "name": "Wilbarger",
+    "slug": "wilbarger",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48489",
+    "name": "Willacy",
+    "slug": "willacy",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48491",
+    "name": "Williamson",
+    "slug": "williamson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48493",
+    "name": "Wilson",
+    "slug": "wilson",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48495",
+    "name": "Winkler",
+    "slug": "winkler",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48497",
+    "name": "Wise",
+    "slug": "wise",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48499",
+    "name": "Wood",
+    "slug": "wood",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48501",
+    "name": "Yoakum",
+    "slug": "yoakum",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48503",
+    "name": "Young",
+    "slug": "young",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48505",
+    "name": "Zapata",
+    "slug": "zapata",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  },
+  {
+    "fips": "48507",
+    "name": "Zavala",
+    "slug": "zavala",
+    "status": "placeholder",
+    "dataRoot": null,
+    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+  }
+]

@@ -13,7 +13,7 @@ test.describe('Core Functionality', () => {
   });
 
   test('page loads successfully', async ({ page }) => {
-    await expect(page).toHaveTitle(/Collin County Elections/);
+    await expect(page).toHaveTitle(/Texas Elections/);
   });
 
   test('map renders with precincts', async ({ page }) => {
@@ -32,7 +32,7 @@ test.describe('Core Functionality', () => {
     
     // Check brand
     const brand = page.locator('.header-brand');
-    await expect(brand).toContainText('Collin County Elections');
+    await expect(brand).toContainText('Texas Elections');
   });
 
   test('view mode buttons are present', async ({ page }) => {

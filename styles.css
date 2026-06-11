@@ -5040,7 +5040,7 @@ input[type="range"]:focus-visible {
   }
   
   .header-title::before {
-    content: 'CC Elections';
+    content: 'TX Elections';
     font-size: 1.1rem;
   }
   
@@ -5349,7 +5349,7 @@ input[type="range"]:focus-visible {
   }
   
   .header-title::before {
-    content: 'CC Elections';
+    content: 'TX Elections';
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.3px;
@@ -5845,7 +5845,7 @@ kbd {
   }
 
   .header-brand-text::after {
-    content: 'CC Elections';
+    content: 'TX Elections';
     font-size: 15px;
     line-height: normal;
     white-space: nowrap;

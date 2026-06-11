@@ -11,7 +11,7 @@ import { togglePanel, updateForecastButton } from "./panels.js";
 import { updateInfoCardForElection } from "./precinctPanel.js";
 import { buildDncByPrecinct } from "./forecast.js";
 import { renderElectionPanel, addToRecentlyViewed } from "./electionPanel.js";
-import { listElectionCSVs, loadElectionData } from "../dataLoader.js";
+import { listElectionCSVs, loadElectionData, getActiveCounty } from "../dataLoader.js";
 import { getCandidateColumns } from "../electionSchema.js";
 import { createSliderState, createVoterFlipState } from "../turnoutSimulator.js";
 import { buildURLHash, parseURLHash } from "../urlStateManager.js";
@@ -110,12 +110,18 @@ export async function selectElection(entry) {
 // ==========================================================================
 export function updateURLState() {
   const urlState = {};
+  if (getActiveCounty() !== 'collin') {
+    urlState.county = getActiveCounty();
+  }
   if (state.currentElection) {
     urlState.race = state.currentElection.filename;
   }
   const hash = buildURLHash(urlState);
   if (hash) {
     history.replaceState(urlState, '', `#${hash}`);
+  } else if (window.location.hash) {
+    // Back to defaults (Collin, no race) — drop the stale hash
+    history.replaceState(urlState, '', window.location.pathname + window.location.search);
   }
 }
 

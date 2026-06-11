@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Collin County Elections — Redesigned</title>
+  <title>Texas Elections — Precinct Data (Collin County live)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -3248,12 +3248,15 @@
   <header id="app-header" role="banner">
     <div class="header-content">
       <div class="header-brand">
-        <div class="header-brand-icon">CC</div>
-        <span class="header-brand-text">Collin County Elections</span>
+        <div class="header-brand-icon">TX</div>
+        <span class="header-brand-text">Texas Elections</span>
       </div>
-      
-      <!-- Boundary Selector -->
+
+      <!-- County + Boundary Selectors -->
       <div class="boundary-selector">
+        <select id="county-select" aria-label="County">
+          <option value="collin">Collin County</option>
+        </select>
         <select id="boundary-select" aria-label="Precinct boundary set">
           <option value="original">2024 Boundaries (252)</option>
           <option value="2026">2026 Boundaries (273)</option>
@@ -3308,6 +3311,18 @@
       <strong>2026 boundaries</strong> &mdash; Election data remapped using voter registration file. Dashed borders indicate precincts with boundary changes.
     </span>
     <button id="dismiss-boundary-disclaimer" aria-label="Dismiss" style="margin-left:auto;background:none;border:none;cursor:pointer;color:inherit;font-size:18px;padding:0 4px;">&times;</button>
+  </div>
+
+  <!-- Placeholder-county banner: shown for the 253 counties with no data yet -->
+  <div id="county-placeholder-banner" class="boundary-disclaimer" style="display:none;" role="status">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0">
+      <circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+    <span>
+      <strong>PLACEHOLDER</strong> &mdash; No precinct boundaries, election results, or
+      demographics are loaded for this county yet. The outline below is the county
+      border, not real precincts. See docs/ADDING_FEATURES.md → "Bring a county live".
+    </span>
   </div>
 
   <!-- Breadcrumb Bar (Gap 6 - Ch.7) -->

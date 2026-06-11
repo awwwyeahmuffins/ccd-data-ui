@@ -44,6 +44,7 @@ import { selectPrecinctByCode, initPrecinctSearch } from "./search.js";
 import { togglePanel, updateForecastButton, initMobileTabBar, initRankerPanelControls } from "./panels.js";
 import { loadElections, restoreFromURL } from "./electionWorkflow.js";
 import { initBoundarySwitching } from "./boundary.js";
+import { initCountySwitching } from "./county.js";
 import { loadRecentlyViewed } from "./electionPanel.js";
 // Side-effect import: registers ⌘K, the Escape stack, and 1/2/3/b shortcuts
 import "./commandPalette.js";
@@ -169,6 +170,9 @@ async function init() {
 
   // Boundary switching + boundary-changes panel (js/app/boundary.js)
   initBoundarySwitching();
+
+  // Statewide county selector (js/app/county.js) — also honors #county= deep links
+  await initCountySwitching();
 
   // Preload census profiles in background and store in state
   loadCensusProfiles().then(profiles => { state.censusProfiles = profiles; }).catch(err => console.warn('Census profiles not loaded:', err));

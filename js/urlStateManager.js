@@ -19,6 +19,9 @@ export function buildURLHash(state) {
   if (state.view) {
     params.set('view', state.view);
   }
+  if (state.county) {
+    params.set('county', state.county);
+  }
   if (state.race) {
     params.set('race', state.race);
   }
@@ -37,12 +40,13 @@ export function buildURLHash(state) {
 export function parseURLHash(hash) {
   const cleanHash = hash.startsWith('#') ? hash.slice(1) : hash;
   if (!cleanHash) {
-    return { view: VIEWS.DEMOGRAPHICS, race: null, precinct: null };
+    return { view: VIEWS.DEMOGRAPHICS, county: null, race: null, precinct: null };
   }
   
   let params = new URLSearchParams(cleanHash);
   return {
     view: params.get('view') || VIEWS.DEMOGRAPHICS,
+    county: params.get('county') || null,
     race: params.get('race') || null,
     precinct: params.get('precinct') || null
   };

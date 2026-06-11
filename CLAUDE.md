@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Collin County Election Data Viewer — a vanilla JavaScript (ES Modules) web app for visualizing Collin County, Texas election data with interactive maps, demographic analysis, turnout visualization, and election forecasting. No build step; served via Python's `http.server`.
+Texas Elections Data Viewer — a vanilla JavaScript (ES Modules) web app for visualizing Texas election data at the precinct level: interactive maps, demographic analysis, turnout visualization, and election forecasting. No build step; served via Python's `http.server`.
+
+**Statewide status:** all 254 Texas counties are selectable (`data/tx/counties.json` registry + `data/tx/county-boundaries.geojson`), but **only Collin County has real data**. The other 253 are explicit PLACEHOLDERS: their county outline renders as a single `PRECINCT: "PLACEHOLDER"` feature, the election list is empty, and a banner says so. NEVER fabricate data for a placeholder county — `docs/ADDING_FEATURES.md` Recipe F describes how to bring a county live with real data.
 
 ## Common Commands
 
@@ -67,7 +69,7 @@ make deploy-site    # Sync site content to S3 + invalidate CloudFront
   - `state.js` — THE shared mutable state object; every app module imports it
   - `main.js` — entry: initializeMap, init(), auth-gated startup
   - `viewMode.js` — `setViewMode` (the ONLY view-flip path) + map toolbar
-  - `mapRendering.js` — 5 render paths + legend · `precinctPanel.js` — click/info card/profile · `search.js` — precinct search · `panels.js` — panel toggle/FAB/mobile tabs/ranker · `electionPanel.js` — Browse/Forecast/Saved rendering · `electionWorkflow.js` — loadElections/selectElection/URL sync · `boundary.js` — 2024↔2026 switching · `uiChrome.js` — toasts/breadcrumbs/welcome/header · `commandPalette.js` — ⌘K + global shortcuts (side-effect import)
+  - `mapRendering.js` — 5 render paths + legend · `precinctPanel.js` — click/info card/profile · `search.js` — precinct search · `panels.js` — panel toggle/FAB/mobile tabs/ranker · `electionPanel.js` — Browse/Forecast/Saved rendering · `electionWorkflow.js` — loadElections/selectElection/URL sync · `boundary.js` — 2024↔2026 switching (Collin-only) · `county.js` — statewide county selector + placeholder handling · `uiChrome.js` — toasts/breadcrumbs/welcome/header · `commandPalette.js` — ⌘K + global shortcuts (side-effect import)
   - **Rule:** a `js/app/` module must never CALL an imported binding at module top level (declare, grab DOM, register listeners with local handlers only) — the function-level import cycles depend on it. Also preserve which listeners register at module top level (once) vs inside `init()` (re-registered on the deployed auth path where init can run twice).
 - **`precinct.html`** (lookup/report) loads `js/precinctLookup.js`, which orchestrates that entire page.
 - Root-level `js/*.js` modules are **libraries** consumed by both orchestrators; they hold no page state.

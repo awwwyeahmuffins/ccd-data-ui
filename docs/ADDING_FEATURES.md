@@ -178,3 +178,38 @@ E2E gotchas that look like your bug but aren't:
 `make deploy-site` (allowlist-only S3 sync — never bare `aws s3 sync .`; the
 repo root contains voter PII). Infra changes: `make cdk-diff` then
 `make cdk-deploy`. AWS profile `ccd`, region us-east-1 — always.
+
+## Recipe F — Bring a Texas county live (statewide expansion)
+
+The app lists all 254 Texas counties (`data/tx/counties.json`); everything
+except Collin is a PLACEHOLDER: its county outline renders as one fake
+precinct (`PRECINCT: "PLACEHOLDER"`), the election list is empty, and a
+banner says so. **Never fabricate data to fill a placeholder.** To bring a
+county live you need three real artifacts:
+
+1. **Precinct boundaries** — a GeoJSON of the county's voting precincts with
+   a `PRECINCT` property per feature. Sources: the county elections office,
+   the Texas Legislative Council / Capitol Data Portal VTD shapefiles, or
+   Census TIGER VTDs (convert to GeoJSON, simplify to keep it small).
+2. **Election results CSVs** — per-precinct results matching
+   `docs/DATA_LAYOUT_SPEC.md` (`PRECINCT CODE`, `REGISTERED VOTERS TOTAL`,
+   `BALLOTS CAST TOTAL`, party-prefixed candidate columns). Sources: county
+   canvass reports (data_processor/collin_harvest.py is the model scraper),
+   or OpenElections (openelections.net) precinct files.
+3. **A manifest** — `elections.json` listing those CSVs, generated with
+   `data_processor/manifest_generator.py`, never by hand.
+
+Then:
+
+4. Put the files under `data/tx/<slug>/` (boundaries + CSVs + elections.json).
+5. In `data/tx/counties.json`, set the county's `status` to `"live"` and
+   `dataRoot` to `"data/tx/<slug>"`.
+6. Teach `js/dataLoader.js` to use `dataRoot` for non-Collin live counties
+   (today `loadAllData()`/`listElectionCSVs()` only special-case Collin's
+   legacy layout at `data/`; the first non-Collin live county should
+   generalize those paths — grep for `LIVE_DEFAULT_COUNTY`).
+7. Optional per-county extras (party scores, racial demographics, census
+   profiles) follow the same files Collin has; without them the relevant
+   panels show N/A, which is correct — N/A is honest, fabricated data is not.
+8. Update `tests/countyRegistry.test.js`'s live-county list, add the county
+   to the e2e boundary/county spec, run the full verify checklist.
