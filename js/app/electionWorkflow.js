@@ -4,7 +4,7 @@
 // that fans out to map, panel, simulator, info card), and URL deep-link sync.
 
 import { state } from "./state.js";
-import { hooks } from "./hooks.js";
+import { buildCommands } from "./commandPalette.js";
 import { dismissWelcome, showMapLoading, hideMapLoading, showError, updateBreadcrumbs } from "./uiChrome.js";
 import { setViewMode } from "./viewMode.js";
 import { togglePanel, updateForecastButton } from "./panels.js";
@@ -24,7 +24,7 @@ export async function loadElections() {
     state.elections = await listElectionCSVs();
     state.filteredElections = [...state.elections];
     renderElectionPanel();
-    hooks.buildCommands?.();
+    buildCommands();
     console.log('✅ Loaded', state.elections.length, 'elections');
   } catch (error) {
     console.error('❌ Failed to load elections:', error);
