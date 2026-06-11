@@ -3622,50 +3622,15 @@
     import { exportRaceResults, computeRaceSummary } from "./js/exportManager.js";
     import { downloadCSV, arrayToCSV } from "./js/exportCSV.js";
     import { getPrecinctResult, buildVotingHistory, generateVotingHistoryHTML } from "./js/precinctHistory.js";
-    import { configureLLM, getLLMConfig, checkLLMHealth, buildSystemPrompt, streamChat, ConversationManager } from "./js/precinctChat.js";
+    import { configureLLM, getLLMConfig, checkLLMHealth, buildSystemPrompt, streamChat } from "./js/precinctChat.js";
     import { createChatSection, initChatController } from "./js/chatUI.js";
     import { initAuth, isAuthenticated, signOut, getIdToken, onAuthStateChange } from './js/auth.js';
     import { showAuthOverlay, hideAuthOverlay } from './js/authUI.js';
 
     // ==========================================================================
-    // STATE MANAGEMENT
+    // STATE MANAGEMENT — lives in js/app/state.js (shared mutable singleton)
     // ==========================================================================
-    const state = {
-      map: null,
-      tileLayer: null,
-      geojsonLayer: null,
-      geojsonData: null,
-      labelCleanup: null,
-      labelsVisible: false,
-      dncLookup: null,
-      racialLookup: null,
-      elections: [],
-      filteredElections: [],
-      currentElection: null,
-      currentElectionData: null,
-      selectedPrecinct: null,
-      selectedLayer: null,
-      recentlyViewed: [],
-      viewMode: 'demographics', // 'demographics' | 'election' | 'turnout'
-      electionColorMode: 'party', // 'party' | 'margin'
-      heatmapMetric: null, // null = party lean, or a HEATMAP_METRICS id
-      censusProfiles: null,
-      simulationResult: null,
-      sliderState: null,
-      voterFlipState: null,
-      dncDataByPrecinct: null,
-      simulationCandidates: null,
-      filters: {
-        search: '',
-        year: null,
-        category: 'All'
-      },
-      commandSelectedIndex: 0,
-      commands: [],
-      chatConversationManager: new ConversationManager(),
-      chatCleanup: null,
-      activeElectionTab: 'browse', // Gap 5: 'browse' | 'forecast' | 'saved'
-    };
+    import { state } from "./js/app/state.js";
 
     // ==========================================================================
     // WELCOME OVERLAY (D11) — shown once per browser, dismissible
