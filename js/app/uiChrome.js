@@ -5,8 +5,8 @@
 // collapse, map loading overlay, boundary disclaimer banner, theme icon.
 
 import { state } from "./state.js";
-import { hooks } from "./hooks.js";
 import { closeProfilePanel } from "./precinctPanel.js";
+import { setViewMode } from "./viewMode.js";
 import { formatElectionName } from "../electionFilters.js";
 import { getCurrentTheme } from "../themeManager.js";
 
@@ -87,7 +87,7 @@ export function updateBreadcrumbs() {
       const action = item.dataset.crumb;
       if (action === 'view') {
         closeProfilePanel();
-        hooks.setViewMode?.(state.viewMode);
+        setViewMode(state.viewMode);
       } else if (action === 'election' && state.currentElection) {
         closeProfilePanel();
       }
