@@ -37,7 +37,7 @@ npx playwright test e2e/core-functionality.spec.js
 
 **Dev server URL:** `http://localhost:3000/index.html` (map viewer) and `http://localhost:3000/precinct.html` (precinct lookup)
 
-On localhost the Cognito sign-in gate is bypassed (see the auth bootstrap at the bottom of `index.html`); the deployed site requires sign-in.
+On localhost the Cognito sign-in gate is bypassed (see the auth bootstrap at the bottom of `js/app/main.js`); the deployed site requires sign-in.
 
 ## Deployment
 
@@ -59,14 +59,18 @@ make deploy-site    # Sync site content to S3 + invalidate CloudFront
 - **Data pipeline:** Python 3 scripts in `data_processor/` (pandas, beautifulsoup4)
 - **Tests:** Jest 29 + jsdom (unit), Playwright 1.40 (e2e)
 
-### Architecture: two self-contained pages, no central controller
+### Architecture: two self-contained pages
 
 **Adding a feature? Start with `docs/ADDING_FEATURES.md`** — step-by-step recipes for new map views, panels, data sources, command-palette commands, and precinct-report sections, plus the verify checklist.
 
-There is NO app.js — each HTML page owns its orchestration:
-
-- **`index.html`** (map viewer) contains a ~3,000-line inline `<script type="module">` that holds all app state, view switching (`setViewMode`), panel/UI control, and map rendering. It imports ~26 modules from `js/` directly. When fixing a bug in a js module, check whether index.html's inline script has parallel logic.
+- **`index.html`** (map viewer) loads `js/app/main.js`, the page orchestrator. The map app is split across `js/app/` modules (extracted from a former 3,000-line inline script in June 2026):
+  - `state.js` — THE shared mutable state object; every app module imports it
+  - `main.js` — entry: initializeMap, init(), auth-gated startup
+  - `viewMode.js` — `setViewMode` (the ONLY view-flip path) + map toolbar
+  - `mapRendering.js` — 5 render paths + legend · `precinctPanel.js` — click/info card/profile · `search.js` — precinct search · `panels.js` — panel toggle/FAB/mobile tabs/ranker · `electionPanel.js` — Browse/Forecast/Saved rendering · `electionWorkflow.js` — loadElections/selectElection/URL sync · `boundary.js` — 2024↔2026 switching · `uiChrome.js` — toasts/breadcrumbs/welcome/header · `commandPalette.js` — ⌘K + global shortcuts (side-effect import)
+  - **Rule:** a `js/app/` module must never CALL an imported binding at module top level (declare, grab DOM, register listeners with local handlers only) — the function-level import cycles depend on it. Also preserve which listeners register at module top level (once) vs inside `init()` (re-registered on the deployed auth path where init can run twice).
 - **`precinct.html`** (lookup/report) loads `js/precinctLookup.js`, which orchestrates that entire page.
+- Root-level `js/*.js` modules are **libraries** consumed by both orchestrators; they hold no page state.
 
 **Data Layer:**
 - `dataLoader.js` — fetches GeoJSON, CSV, demographic data; in-memory caching; boundary switching (`setActiveBoundary` for 2024 vs 2026 precincts)
@@ -74,7 +78,7 @@ There is NO app.js — each HTML page owns its orchestration:
 - `constants.js` — centralized config (party colors — data encodings, do not change — category maps, map settings)
 - `utils.js` — shared formatters, `escapeHtml`/`csvEscape` (use for any innerHTML/CSV output)
 
-**Feature Modules (all consumed by index.html's inline script unless noted):**
+**Library Modules (root js/, consumed by js/app/ unless noted):**
 - `turnoutSimulator.js` — turnout prediction/simulation engine
 - `universeBuilder.js` / `reverseCalculator.js` — forecast-tab tools
 - `competitiveRanker.js` — swing-precinct ranking panel
@@ -84,7 +88,7 @@ There is NO app.js — each HTML page owns its orchestration:
 - `exportManager.js` / `exportCSV.js` — CSV export
 - `marginView.js`, `demographicHeatmap.js`, `mapEnhancements.js`, `mapInitializer.js`, `boundaryChangesTable.js` — map rendering helpers
 - `precinctProfile.js`, `precinctLookup.js`, `precinctExport.js`, `fieldOnePager.js` — precinct.html report features
-- `precinctChat.js` / `chatUI.js` — AI chat (code kept, but **intentionally disabled**: `initPrecinctChat` is commented out in index.html; the Lambda backend stays deployed)
+- `precinctChat.js` / `chatUI.js` — AI chat (code kept, but **intentionally disabled**: the `initPrecinctChat` call is commented out in `js/app/precinctPanel.js`; the Lambda backend stays deployed)
 - `urlStateManager.js` — URL hash deep linking
 - `themeManager.js`, `bookmarkManager.js`, `auth.js`/`authUI.js`/`authConfig.js`
 
@@ -115,4 +119,4 @@ Python scripts for scraping and processing election data from Collin County's we
 
 ### State Management
 
-No framework state library. index.html's inline script holds the map app's state object; precinctLookup.js holds the lookup page's state. URL hash syncs state for deep linking via `urlStateManager.js` (index) and a custom hash format (precinct.html). Data is cached after first load in `dataLoader.js`.
+No framework state library. The map app's state object lives in `js/app/state.js` (a shared mutable singleton imported by every js/app module); precinctLookup.js holds the lookup page's state. URL hash syncs state for deep linking via `urlStateManager.js` (index) and a custom hash format (precinct.html). Data is cached after first load in `dataLoader.js`.

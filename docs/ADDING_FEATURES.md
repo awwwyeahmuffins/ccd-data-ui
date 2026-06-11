@@ -15,27 +15,46 @@ Two self-contained pages, no build step, no framework:
 
 | Page | Orchestrator | What it owns |
 |------|-------------|--------------|
-| `index.html` (map viewer) | inline `<script type="module">` at the bottom of the file | all map-app state, view switching, panels, map rendering |
+| `index.html` (map viewer) | `js/app/main.js` + the other `js/app/` modules | all map-app state, view switching, panels, map rendering |
 | `precinct.html` (lookup/report) | `js/precinctLookup.js` | search, report rendering, export |
 
-`js/` modules are **libraries** — pure-ish functions consumed by the two
-orchestrators. They never hold page state and never reach into each other's DOM.
+Root-level `js/` modules are **libraries** — pure-ish functions consumed by the
+two orchestrators. They never hold page state and never reach into each other's
+DOM. The map app itself lives in `js/app/`:
 
-**Data flow (index.html):**
+| Module | Owns |
+|--------|------|
+| `state.js` | THE shared mutable state object — import it, never copy it |
+| `main.js` | entry point: initializeMap, init(), auth-gated startup |
+| `viewMode.js` | `setViewMode()` (the ONLY view-flip path) + map toolbar |
+| `mapRendering.js` | the 5 render paths + legend |
+| `precinctPanel.js` | precinct click, info card, profile panel, (disabled) chat |
+| `search.js` | precinct search widget |
+| `panels.js` | election panel toggle, FAB, forecast button, mobile tabs, ranker |
+| `electionPanel.js` | Browse/Forecast/Saved panel rendering, recently viewed |
+| `electionWorkflow.js` | loadElections, selectElection, URL deep-link sync |
+| `boundary.js` | 2024↔2026 boundary switching + changes panel |
+| `uiChrome.js` | toasts, breadcrumbs, welcome overlay, header collapse |
+| `commandPalette.js` | ⌘K palette + global shortcuts (side-effect import) |
+
+**Two invariants** (both documented in main.js):
+1. A `js/app/` module must never CALL an imported binding at module top level —
+   top-level code may only declare, grab DOM elements, and register listeners
+   with locally defined handlers. The function-level import cycles
+   (viewMode↔panels, electionPanel↔electionWorkflow) are safe only under this rule.
+2. `init()` can run twice on the deployed auth path. Listeners registered at
+   module top level run once; listeners registered inside `init()`/`initX()`
+   helpers re-register. Don't move registrations between the two.
+
+**Data flow (map page):**
 `data/elections.json` (manifest) → `dataLoader.js` (fetch + cache) →
-`state.*` in the inline script → render functions (`renderDemographicsMap`,
-`renderElectionMap`, `renderTurnoutMap`) → Leaflet layers.
+`state.*` (js/app/state.js) → render functions in `mapRendering.js` → Leaflet layers.
 
 **State lives in exactly two places:**
-- index.html inline script: a single `state` object (search for `// STATE MANAGEMENT`).
+- `js/app/state.js`: the map app's single `state` object.
 - precinctLookup.js: a module-level `state` object at the top of the file.
 
 Everything else (URL hash, localStorage) is derived/synced, never authoritative.
-
-**Navigating the inline script:** it is organized into banner-commented
-sections (`// ===== SECTION NAME =====`). Run
-`grep -n "// =====" index.html` or search for the section names listed in the
-TOC comment at the top of the script.
 
 ---
 
@@ -45,18 +64,19 @@ Example existing modes: `demographics`, `election`, `turnout`.
 
 1. **Button**: add a `<button class="view-mode-btn" data-view="yourmode">` to
    the `.view-mode-buttons` nav in index.html's header markup.
-2. **Renderer**: write `renderYourModeMap()` next to the other render functions
-   in the inline script. It should style `state.geojsonLayer` features and call
-   `updateMapLegend()`.
-3. **Switch**: add a case to `setViewMode()` (section `// VIEW MODE SWITCHING`).
+2. **Renderer**: write `renderYourModeMap()` in `js/app/mapRendering.js` next
+   to the other render functions. It should style `state.geojsonLayer`
+   features and call `updateMapLegend()`.
+3. **Switch**: add a case to `setViewMode()` in `js/app/viewMode.js`.
    That function is the ONLY place that flips views — don't add side channels.
-4. **Legend**: extend `updateMapLegend()` for your mode's legend HTML.
-5. **Toolbar** (optional): extend `updateMapViewControls(mode)` if the mode
-   needs its own sub-controls (see how demographics adds the Party Lean /
-   heatmap selector toolbar).
-6. **Command palette**: add an entry in the `// COMMAND PALETTE` section so the
-   mode is reachable via ⌘K.
-7. **Breadcrumb label**: add your mode to `viewLabels` in `updateBreadcrumbs()`.
+4. **Legend**: extend `updateMapLegend()` (mapRendering.js) for your mode's legend HTML.
+5. **Toolbar** (optional): extend `updateMapViewControls(mode)` (viewMode.js)
+   if the mode needs its own sub-controls (see how demographics adds the
+   Party Lean / heatmap selector toolbar).
+6. **Command palette**: add an entry to `buildCommands()` in
+   `js/app/commandPalette.js` so the mode is reachable via ⌘K.
+7. **Breadcrumb label**: add your mode to `viewLabels` in
+   `updateBreadcrumbs()` (js/app/uiChrome.js).
 8. **Tests**: e2e — click `[data-view="yourmode"]`, assert
    `.map-legend-leaflet` content changes. See `e2e/core-functionality.spec.js`.
 
@@ -67,13 +87,15 @@ Example existing modes: `demographics`, `election`, `turnout`.
 2. **Z-index**: pick per the layering map — header 10000, election panel 10001,
    mobile tab bar 10001, profile 10002, ranker 10003. Slot yours deliberately;
    document it in a comment next to the z-index.
-3. **Single-active-panel rule**: register open/close with the
-   `// GAP 4: SINGLE ACTIVE PANEL CONSTRAINT` helpers so opening yours closes
-   the others. Do not hand-roll visibility toggling.
-4. **Open triggers**: header button and/or command-palette entry and/or mobile
-   tab bar (`// MOBILE TAB BAR (A1)` section).
-5. **Escape + click-outside**: wire into the existing global keydown handler
-   (`// Global keyboard shortcuts`) rather than adding a new listener.
+3. **Single-active-panel rule**: add your panel id to `PANEL_IDS` and use
+   `closeAllPanels()` (js/app/uiChrome.js) so opening yours closes the others.
+   Do not hand-roll visibility toggling. Put your open/close functions in
+   `js/app/panels.js` (or a new js/app module if it's substantial).
+4. **Open triggers**: header button and/or command-palette entry
+   (commandPalette.js) and/or mobile tab bar (panels.js).
+5. **Escape + click-outside**: add your panel to the Escape stack in the
+   global keydown handler in `js/app/commandPalette.js` rather than adding a
+   new listener.
 6. **Tests**: e2e — open, assert visible, press Escape, assert closed. On
    mobile viewports remember the FAB is hidden ≤1024px; open via tab bar
    `[data-action="..."]`.
@@ -87,17 +109,17 @@ Example existing modes: `demographics`, `election`, `turnout`.
    the data is per-boundary (2024 vs 2026 files live in `data/` vs `data/2026/`).
 3. **Schema/validation**: if rows need validation, extend `js/electionSchema.js`.
 4. **Consume**: stash on `state.yourData` during `initializeMap()`'s
-   `loadAllData()` block (index) or `loadData()` (precinctLookup.js).
+   `loadAllData()` block (js/app/main.js) or `loadData()` (precinctLookup.js).
 5. **Participation gotcha**: election CSVs contain ALL precincts regardless of
    race scope. Non-participating precincts still show county-wide
    `BALLOTS CAST TOTAL > 0` — check candidate votes, not ballots cast, to
-   decide participation (see `precinctHasVotes()` in the inline script).
+   decide participation (see `precinctHasCandidateVotes()` in js/app/mapRendering.js).
 6. **Manifest**: new elections must be added to `data/elections.json` via
    `data_processor/manifest_generator.py`, never by hand.
 
 ## Recipe D — Add a command-palette command
 
-1. Find the commands array in the `// COMMAND PALETTE` section of index.html.
+1. Find the commands array in `buildCommands()` in `js/app/commandPalette.js`.
 2. Add `{ label, hint, action }` — action is a closure over existing functions.
    Keep actions one-liners that call named functions; don't inline logic.
 3. e2e: `e2e/command-palette.spec.js` has the pattern (⌘K, type, Enter, assert).
