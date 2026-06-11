@@ -19,7 +19,7 @@ export default {
   // Module name mapper for path resolution
   moduleNameMapper: {
     // Map ./moduleName.js to ../js/moduleName.js for tests
-    '^\\./(precinctHistory|turnoutSimulator|raceAnalytics|sidebarTemplates|skeletonLoader|mobileGestures|keyboardShortcuts|onboardingOverlay|precinctProfile|electionTrends|dataLoader|electionFilters|fieldOnePager|simulatorPresets|reverseCalculator|voteShiftPanel|exportCSV|boundaryChangesTable|universeBuilder)\\.js$': '<rootDir>/js/$1.js',
+    '^\\./(precinctHistory|turnoutSimulator|precinctProfile|electionTrends|dataLoader|electionFilters|fieldOnePager|reverseCalculator|exportCSV|boundaryChangesTable|universeBuilder)\\.js$': '<rootDir>/js/$1.js',
     // Map test-helpers
     '^\\./(test-helpers)\\.js$': '<rootDir>/tests/$1.js'
   },
