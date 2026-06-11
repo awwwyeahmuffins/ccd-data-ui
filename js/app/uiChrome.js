@@ -6,6 +6,7 @@
 
 import { state } from "./state.js";
 import { hooks } from "./hooks.js";
+import { closeProfilePanel } from "./precinctPanel.js";
 import { formatElectionName } from "../electionFilters.js";
 import { getCurrentTheme } from "../themeManager.js";
 
@@ -85,10 +86,10 @@ export function updateBreadcrumbs() {
     item.addEventListener('click', () => {
       const action = item.dataset.crumb;
       if (action === 'view') {
-        hooks.closeProfilePanel?.();
+        closeProfilePanel();
         hooks.setViewMode?.(state.viewMode);
       } else if (action === 'election' && state.currentElection) {
-        hooks.closeProfilePanel?.();
+        closeProfilePanel();
       }
     });
   });

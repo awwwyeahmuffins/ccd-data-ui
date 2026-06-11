@@ -103,3 +103,9 @@ export function csvEscape(value) {
   }
   return str;
 }
+
+// 10) Precinct code from an election CSV row — the column name varies across
+// CSV vintages ('PRECINCT CODE', 'Precinct', 'precinct', 'PRECINCT')
+export function getRowPrecinctCode(row) {
+  return String(row['PRECINCT CODE'] || row.Precinct || row.precinct || row.PRECINCT || '');
+}
