@@ -8,7 +8,7 @@ test.use({ ...devices['iPhone 12'] });
 
 test.describe('Mobile Experience', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/index-new.html');
+    await page.goto('/index.html');
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 
@@ -28,35 +28,31 @@ test.describe('Mobile Experience', () => {
     }
   });
 
-  test('FAB is visible and clickable', async ({ page }) => {
-    const fab = page.locator('#fab');
-    await expect(fab).toBeVisible();
-    
-    // Should be in viewport
-    const box = await fab.boundingBox();
-    expect(box.x).toBeGreaterThan(0);
-    expect(box.y).toBeGreaterThan(0);
+  test('tab bar replaces FAB on mobile', async ({ page }) => {
+    // Mobile uses the bottom tab bar; the FAB is hidden by CSS
+    await expect(page.locator('#mobile-tab-bar')).toBeVisible();
+    await expect(page.locator('#fab')).toBeHidden();
   });
 
   test('election panel takes full width on mobile', async ({ page }) => {
-    await page.locator('#fab').click();
-    
+    await page.locator('#mobile-tab-bar [data-action="browse"]').click();
+
     const panel = page.locator('#election-panel');
     await expect(panel).toHaveClass(/active/);
-    
+
     // Panel should be near full width
     const viewport = page.viewportSize();
     const box = await panel.boundingBox();
-    
+
     expect(box.width).toBeGreaterThan(viewport.width * 0.9);
   });
 
   test('filter chips wrap properly', async ({ page }) => {
-    await page.locator('#fab').click();
-    
+    await page.locator('#mobile-tab-bar [data-action="browse"]').click();
+
     const chips = page.locator('.filter-chip');
     const chipCount = await chips.count();
-    
+
     // All chips should be visible
     for (let i = 0; i < chipCount; i++) {
       await expect(chips.nth(i)).toBeVisible();
@@ -65,26 +61,28 @@ test.describe('Mobile Experience', () => {
 
   test('info card is readable on mobile', async ({ page }) => {
     // Select an election
-    await page.locator('#fab').click();
-    await page.waitForSelector('.election-item');
+    await page.locator('#mobile-tab-bar [data-action="browse"]').click();
+    // Groups are collapsed by default (B5); expand the first one
+    await page.locator('.group-header').first().click();
     await page.locator('.election-item').first().click();
-    
+
     const infoCard = page.locator('#info-card');
     await expect(infoCard).toBeVisible();
-    
+
     // Card should fit in viewport
     const box = await infoCard.boundingBox();
     const viewport = page.viewportSize();
-    
+
     expect(box.width).toBeLessThanOrEqual(viewport.width);
   });
 
   test('panel closes on election select', async ({ page }) => {
-    await page.locator('#fab').click();
-    await page.waitForSelector('.election-item');
-    
+    await page.locator('#mobile-tab-bar [data-action="browse"]').click();
+    // Groups are collapsed by default (B5); expand the first one
+    await page.locator('.group-header').first().click();
+
     await page.locator('.election-item').first().click();
-    
+
     // Panel should close on mobile
     await page.waitForTimeout(500);
     const panel = page.locator('#election-panel');

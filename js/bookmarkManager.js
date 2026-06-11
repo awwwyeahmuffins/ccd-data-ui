@@ -10,7 +10,7 @@ const MAX_BOOKMARKS = 20;
  * Loads bookmarks from localStorage
  * @returns {Array<Object>} Array of bookmark objects
  */
-export function loadBookmarks() {
+function loadBookmarks() {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) {
@@ -39,7 +39,7 @@ function persistBookmarks(bookmarks) {
  * Adds an election to bookmarks. Max 20 bookmarks (oldest removed if exceeded).
  * @param {Object} election - Election with { filename, displayName, year, category }
  */
-export function saveBookmark(election) {
+function saveBookmark(election) {
   if (!election || !election.filename) {
     return;
   }
@@ -70,7 +70,7 @@ export function saveBookmark(election) {
  * Removes a bookmark by filename
  * @param {string} filename
  */
-export function removeBookmark(filename) {
+function removeBookmark(filename) {
   const bookmarks = loadBookmarks();
   const filtered = bookmarks.filter(b => b.filename !== filename);
   persistBookmarks(filtered);

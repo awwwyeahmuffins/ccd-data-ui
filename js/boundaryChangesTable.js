@@ -123,7 +123,7 @@ export function generateBoundaryStatsHTML(changeData) {
 
   const counts = { unchanged: 0, split: 0, merged: 0, new_boundary: 0, sliver: 0 };
   for (const entry of changeData) {
-    if (counts.hasOwnProperty(entry.changeType)) {
+    if (Object.prototype.hasOwnProperty.call(counts, entry.changeType)) {
       counts[entry.changeType]++;
     }
   }

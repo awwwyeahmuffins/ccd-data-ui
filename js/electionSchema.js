@@ -8,7 +8,7 @@
 // When updating this file, ensure consistency with the specification document.
 //
 // Usage:
-//   import { ELECTION_MANIFEST_SCHEMA, CSV_SCHEMA, getCandidateColumns } from "./electionSchema.js";
+//   import { ELECTION_MANIFEST_SCHEMA, getCandidateColumns } from "./electionSchema.js";
 //
 // See DATA_LAYOUT_SPEC.md for complete documentation of the data layout.
 
@@ -60,7 +60,7 @@ export let ELECTION_MANIFEST_SCHEMA = {
  * 
  * See DATA_LAYOUT_SPEC.md Section 3 for complete CSV schema documentation.
  */
-export let CSV_SCHEMA = {
+let CSV_SCHEMA = {
   /**
    * Metadata columns that are NOT candidate vote columns.
    * These columns contain precinct information, turnout data, and race metadata.
@@ -164,32 +164,6 @@ export function getCandidateColumns(headers) {
 }
 
 /**
- * Extract party abbreviation from candidate column name
- * Candidate columns follow pattern: "{PARTY_ABBREV} {Candidate Name}"
- * 
- * @param {string} candidateColumn - Candidate column name (e.g., "REP Greg Abbott")
- * @returns {string|null} Party abbreviation (e.g., "REP") or null if pattern doesn't match
- * 
- * @example
- * extractPartyFromColumn("REP Greg Abbott") // Returns "REP"
- * extractPartyFromColumn("DEM Beto O'Rourke") // Returns "DEM"
- * extractPartyFromColumn("Write-in") // Returns null (not a candidate column)
- */
-export function extractPartyFromColumn(candidateColumn) {
-  if (!candidateColumn || typeof candidateColumn !== 'string') {
-    return null;
-  }
-  
-  // Split by first space - first word is party abbreviation
-  let parts = candidateColumn.trim().split(/\s+/);
-  if (parts.length < 2) {
-    return null;
-  }
-  
-  return parts[0].toUpperCase();
-}
-
-/**
  * Extract candidate name from candidate column name
  * Removes the party abbreviation prefix
  * 
@@ -243,33 +217,6 @@ export function validateManifestEntry(entry) {
   }
   
   return true;
-}
-
-/**
- * Validate CSV row structure
- * Checks that required metadata columns are present
- * 
- * @param {Object} row - CSV row object (parsed from CSV)
- * @returns {Object} Validation result with { valid: boolean, missingColumns: string[] }
- * 
- * @example
- * const row = { "PRECINCT CODE": "1", "PRECINCT NAME": "PCT 001", "REP John Doe": 100 };
- * const result = validateCSVRow(row);
- * // Returns: { valid: true, missingColumns: [] }
- */
-export function validateCSVRow(row) {
-  if (!row || typeof row !== 'object') {
-    return { valid: false, missingColumns: CSV_SCHEMA.requiredMetadataColumns };
-  }
-  
-  let missingColumns = CSV_SCHEMA.requiredMetadataColumns.filter(
-    function isColumnMissing(col) { return !(col in row); }
-  );
-  
-  return {
-    valid: missingColumns.length === 0,
-    missingColumns
-  };
 }
 
 /**

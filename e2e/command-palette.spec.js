@@ -5,7 +5,7 @@ test.setTimeout(60000);
 
 test.describe('Command Palette', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/index-new.html');
+    await page.goto('/index.html');
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 
@@ -99,7 +99,7 @@ test.describe('Command Palette', () => {
 test.describe('Recently Viewed', () => {
   test.beforeEach(async ({ page }) => {
     // Clear localStorage
-    await page.goto('/index-new.html');
+    await page.goto('/index.html');
     await page.evaluate(() => localStorage.clear());
     await page.reload();
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
@@ -120,12 +120,14 @@ test.describe('Recently Viewed', () => {
 
   test('selecting election adds to recently viewed', async ({ page }) => {
     await page.locator('#fab').click();
-    await page.waitForSelector('.election-item');
+    // Groups are collapsed by default (B5); expand the first one
+    await page.locator('.group-header').first().click();
 
-    // Select an election (panel re-renders with recent items after selection)
+    // Select an election (panel auto-switches to the Forecast tab)
     await page.locator('.election-item').first().click();
 
-    // Wait for selection to process and panel to re-render
+    // Recently viewed lives in the Saved tab
+    await page.locator('.panel-tab[data-panel-tab="saved"]').click();
     await page.waitForSelector('.recent-item', { timeout: 5000 });
 
     // Check recently viewed has item
@@ -136,10 +138,12 @@ test.describe('Recently Viewed', () => {
   test('clear button clears recently viewed', async ({ page }) => {
     // Add an election to recently viewed
     await page.locator('#fab').click();
-    await page.waitForSelector('.election-item');
+    // Groups are collapsed by default (B5); expand the first one
+    await page.locator('.group-header').first().click();
     await page.locator('.election-item').first().click();
 
-    // Wait for panel to re-render with recent items
+    // Recently viewed lives in the Saved tab
+    await page.locator('.panel-tab[data-panel-tab="saved"]').click();
     await page.waitForSelector('.recent-item', { timeout: 5000 });
 
     // Click clear
@@ -155,13 +159,15 @@ test.describe('Recently Viewed', () => {
   test('clicking recent item loads election', async ({ page }) => {
     // Add election to recently viewed
     await page.locator('#fab').click();
-    await page.waitForSelector('.election-item');
+    // Groups are collapsed by default (B5); expand the first one
+    await page.locator('.group-header').first().click();
 
     const firstElection = page.locator('.election-item').first();
     const electionName = await firstElection.locator('.election-item-name').textContent();
     await firstElection.click();
 
-    // Wait for panel to re-render with recent items
+    // Recently viewed lives in the Saved tab
+    await page.locator('.panel-tab[data-panel-tab="saved"]').click();
     await page.waitForSelector('.recent-item', { timeout: 5000 });
 
     // Click the recent item

@@ -43,11 +43,11 @@ describe('CSS Variables: Root Section Exists', () => {
 
 describe('CSS Variables: Brand Colors', () => {
   it('should define --color-primary', () => {
-    expect(cssContent).toMatch(/--color-primary:\s*#004aad/);
+    expect(cssContent).toMatch(/--color-primary:\s*#0B4DA2/i);
   });
 
   it('should define --color-primary-dark', () => {
-    expect(cssContent).toMatch(/--color-primary-dark:\s*#002d6a/);
+    expect(cssContent).toMatch(/--color-primary-dark:\s*#093E83/i);
   });
 
   it('should define --color-primary-light', () => {
@@ -116,7 +116,7 @@ describe('CSS Variables: Neutral Colors', () => {
   });
 
   it('should define background colors', () => {
-    expect(cssContent).toMatch(/--color-bg-primary:\s*#ffffff/i);
+    expect(cssContent).toMatch(/--color-bg-primary:\s*#FFFDF9/i);
     expect(cssContent).toMatch(/--color-bg-secondary:/);
     expect(cssContent).toMatch(/--color-bg-tertiary:/);
   });

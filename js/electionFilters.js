@@ -252,7 +252,7 @@ export function getCategoryCounts(elections) {
     let category = (typeof entry === 'object' && entry.category)
       ? entry.category
       : categorizeElection(filename);
-    if (counts.hasOwnProperty(category)) {
+    if (Object.prototype.hasOwnProperty.call(counts, category)) {
       counts[category]++;
     }
   }
@@ -265,7 +265,7 @@ export function getCategoryCounts(elections) {
  * @param {Array<Object>} elections - Array of election objects with { filename, year, ... }
  * @returns {Array<number>} Sorted array of unique years (descending)
  */
-export function getAvailableYears(elections) {
+function getAvailableYears(elections) {
   if (!elections || !Array.isArray(elections)) {
     return [];
   }
@@ -337,80 +337,6 @@ export function highlightMatches(text, query) {
   }
 
   return result;
-}
-
-// ============================================================================
-// UI COMPONENT FUNCTIONS
-// ============================================================================
-
-/**
- * Creates the filter UI HTML (tabs + search box)
- * @param {Object} counts - Category counts from getCategoryCounts
- * @param {string} activeCategory - Currently active category
- * @param {string} searchQuery - Current search query
- * @returns {string} HTML string for filter UI
- */
-export function createFilterUI(counts, activeCategory = ELECTION_CATEGORIES.ALL, searchQuery = '') {
-  let tabsHTML = CATEGORY_ORDER.map(function buildTab(category) {
-    let isActive = category === activeCategory;
-    let count = counts[category] || 0;
-    return `
-      <button 
-        class="category-tab ${isActive ? 'active' : ''}" 
-        data-category="${category}"
-        aria-pressed="${isActive}"
-        aria-label="${category} elections: ${count} races"
-      >
-        ${category}
-        <span class="tab-count">${count}</span>
-      </button>
-    `;
-  }).join('');
-
-  return `
-    <div class="election-filters" role="search" aria-label="Filter elections">
-      <div class="search-container">
-        <input 
-          type="text" 
-          id="election-search" 
-          class="election-search-input"
-          placeholder="Search elections..." 
-          value="${escapeHTML(searchQuery)}"
-          aria-label="Search elections"
-          autocomplete="off"
-        >
-        <button 
-          id="clear-search" 
-          class="clear-search-btn ${searchQuery ? '' : 'hidden'}"
-          aria-label="Clear search"
-        >×</button>
-      </div>
-      <div class="category-tabs" role="tablist" aria-label="Election categories">
-        ${tabsHTML}
-      </div>
-    </div>
-  `;
-}
-
-/**
- * Escapes HTML special characters to prevent XSS
- * @param {string} text - Text to escape
- * @returns {string} Escaped text
- */
-function escapeHTML(text) {
-  if (!text || typeof text !== 'string') return '';
-  let div = typeof document !== 'undefined' ? document.createElement('div') : null;
-  if (div) {
-    div.textContent = text;
-    return div.innerHTML;
-  }
-  // Fallback for Node.js environment
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
 }
 
 // ============================================================================

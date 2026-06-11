@@ -149,24 +149,27 @@ export function generateExportFilename(type, context = {}) {
   const timestamp = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 
   switch (type) {
-    case 'race':
+    case 'race': {
       const raceName = context.raceName || 'election';
       const cleanRaceName = raceName
         .replace(/\.csv$/, '')
         .replace(/[^a-zA-Z0-9_-]/g, '_')
         .substring(0, 50);
       return `${cleanRaceName}_results_${timestamp}.csv`;
+    }
 
-    case 'precinct':
+    case 'precinct': {
       const precinctCode = context.precinctCode || 'unknown';
       return `precinct_${precinctCode}_history_${timestamp}.csv`;
+    }
 
-    case 'filtered':
+    case 'filtered': {
       const filterDesc = context.filterDescription || 'filtered';
       const cleanFilterDesc = filterDesc
         .replace(/[^a-zA-Z0-9_-]/g, '_')
         .substring(0, 30);
       return `${cleanFilterDesc}_results_${timestamp}.csv`;
+    }
 
     default:
       return `export_${timestamp}.csv`;
@@ -259,32 +262,6 @@ export function exportRaceResults(electionData, raceName) {
   const displayName = raceName.replace(/\.csv$/, '').replace(/_/g, ' ');
   const formattedData = formatElectionResultsForExport(electionData, displayName);
   const filename = generateExportFilename('race', { raceName });
-  downloadCSV(formattedData, filename);
-}
-
-/**
- * Export precinct history to CSV (requires loading multiple elections)
- * @param {string} precinctCode - The precinct identifier
- * @param {Array<Object>} electionResults - Array of { electionName, data } objects
- */
-export function exportPrecinctHistory(precinctCode, electionResults) {
-  const formattedData = formatPrecinctHistoryForExport(precinctCode, electionResults);
-  const filename = generateExportFilename('precinct', { precinctCode });
-  downloadCSV(formattedData, filename);
-}
-
-/**
- * Export filtered results to CSV
- * @param {Array} electionData - Raw election data
- * @param {string} raceName - Name of the race/election file
- * @param {Object} filters - Applied filters
- * @param {string} filterDescription - Human-readable filter description
- */
-export function exportFilteredResults(electionData, raceName, filters, filterDescription) {
-  const filteredData = filterElectionResults(electionData, filters);
-  const displayName = raceName.replace(/\.csv$/, '').replace(/_/g, ' ');
-  const formattedData = formatElectionResultsForExport(filteredData, displayName);
-  const filename = generateExportFilename('filtered', { filterDescription });
   downloadCSV(formattedData, filename);
 }
 

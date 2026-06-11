@@ -59,39 +59,36 @@ make deploy-site    # Sync site content to S3 + invalidate CloudFront
 - **Data pipeline:** Python 3 scripts in `data_processor/` (pandas, beautifulsoup4)
 - **Tests:** Jest 29 + jsdom (unit), Playwright 1.40 (e2e)
 
-### Module Organization (`js/`)
+### Architecture: two self-contained pages, no central controller
 
-**App Controller:** `app.js` — initializes everything, orchestrates views, manages app state
+**Adding a feature? Start with `docs/ADDING_FEATURES.md`** — step-by-step recipes for new map views, panels, data sources, command-palette commands, and precinct-report sections, plus the verify checklist.
+
+There is NO app.js — each HTML page owns its orchestration:
+
+- **`index.html`** (map viewer) contains a ~3,000-line inline `<script type="module">` that holds all app state, view switching (`setViewMode`), panel/UI control, and map rendering. It imports ~26 modules from `js/` directly. When fixing a bug in a js module, check whether index.html's inline script has parallel logic.
+- **`precinct.html`** (lookup/report) loads `js/precinctLookup.js`, which orchestrates that entire page.
 
 **Data Layer:**
-- `dataLoader.js` — fetches GeoJSON, CSV, demographic data; implements caching
-- `electionSchema.js` — single source of truth for data schema definitions, validation, path building
-- `constants.js` — centralized config (colors, category maps, map settings)
-- `utils.js` — shared formatters (percentages, numbers), color mapping, debounce
+- `dataLoader.js` — fetches GeoJSON, CSV, demographic data; in-memory caching; boundary switching (`setActiveBoundary` for 2024 vs 2026 precincts)
+- `electionSchema.js` — data schema definitions, validation, path building
+- `constants.js` — centralized config (party colors — data encodings, do not change — category maps, map settings)
+- `utils.js` — shared formatters, `escapeHtml`/`csvEscape` (use for any innerHTML/CSV output)
 
-**Three Main Views:**
-- `demographicsView.js` — party affiliation and racial demographics visualization
-- `electionView.js` — main election results with turnout simulator (largest module, ~1,660 lines)
-- `turnoutView.js` — precinct turnout analysis with leaderboards
-
-**Feature Modules:**
-- `turnoutSimulator.js` — turnout prediction/simulation engine (~1,120 lines)
+**Feature Modules (all consumed by index.html's inline script unless noted):**
+- `turnoutSimulator.js` — turnout prediction/simulation engine
+- `universeBuilder.js` / `reverseCalculator.js` — forecast-tab tools
+- `competitiveRanker.js` — swing-precinct ranking panel
 - `electionFilters.js` — categorizes elections (Federal, State, County, City, ISD, MUD)
-- `precinctHistory.js` — compare precincts across elections
-- `electionTrends.js` — trend analysis and vote shift deltas
-- `raceAnalytics.js` — race-level statistics
-- `racePickerPanel.js` — election selection UI
+- `precinctHistory.js` (+ `electionTrends.js`) — per-precinct voting history
 - `raceGrouping.js` — group elections by race family
 - `exportManager.js` / `exportCSV.js` — CSV export
+- `marginView.js`, `demographicHeatmap.js`, `mapEnhancements.js`, `mapInitializer.js`, `boundaryChangesTable.js` — map rendering helpers
+- `precinctProfile.js`, `precinctLookup.js`, `precinctExport.js`, `fieldOnePager.js` — precinct.html report features
+- `precinctChat.js` / `chatUI.js` — AI chat (code kept, but **intentionally disabled**: `initPrecinctChat` is commented out in index.html; the Lambda backend stays deployed)
+- `urlStateManager.js` — URL hash deep linking
+- `themeManager.js`, `bookmarkManager.js`, `auth.js`/`authUI.js`/`authConfig.js`
 
-**UI/UX Modules:**
-- `sidebarController.js` / `sidebarTemplates.js` — sidebar state and HTML templates
-- `legendController.js` — dynamic map legend
-- `precinctLayer.js` — GeoJSON layer rendering and styling on the Leaflet map
-- `urlStateManager.js` — URL hash-based deep linking
-- `keyboardShortcuts.js` — Cmd+K / Ctrl+K command palette
-- `mobileGestures.js` — touch/swipe handling
-- `skeletonLoader.js` — loading states
+History note: an earlier app.js-based architecture (electionView.js, demographicsView.js, sidebarController.js, etc.) was abandoned mid-refactor and its 22 unreachable modules were deleted in June 2026 — recover from git history if ever needed.
 
 ### Data Contract
 
@@ -112,9 +109,10 @@ Python scripts for scraping and processing election data from Collin County's we
 
 ### Testing
 
-- **Unit tests** (`tests/*.test.js`): ~28 files, Jest with jsdom environment. Uses `--experimental-vm-modules` for ES module support. Module paths mapped in `jest.config.js`.
-- **E2E tests** (`e2e/*.spec.js`): 4 files covering core functionality, command palette, accessibility, and mobile. Playwright auto-starts a Python http.server on port 3000.
+- **Unit tests** (`tests/*.test.js`): Jest with jsdom environment. Uses `--experimental-vm-modules` for ES module support. Note: several test files test inline COPIES of source functions rather than importing the module — when changing a module, search tests for duplicated logic.
+- **E2E tests** (`e2e/*.spec.js`): 6 files covering core functionality, command palette, accessibility, mobile, boundary switching, and responsive screenshots. Playwright reuses the local server on port 3000. Run locally with `--workers=2` (the Python server is slow under parallel load).
+- **Lint**: `make lint` runs ESLint (flat config in `eslint.config.js`) over js/, e2e/, tests/ and fails on errors.
 
 ### State Management
 
-No framework state library. App state is managed in `app.js` with getter/setter functions. Each view manages its own state. URL hash syncs state for deep linking via `urlStateManager.js`. Data is cached after first load in `dataLoader.js`.
+No framework state library. index.html's inline script holds the map app's state object; precinctLookup.js holds the lookup page's state. URL hash syncs state for deep linking via `urlStateManager.js` (index) and a custom hash format (precinct.html). Data is cached after first load in `dataLoader.js`.

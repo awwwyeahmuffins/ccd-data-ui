@@ -2,10 +2,9 @@
 // --------------------------------------------------------------------------------
 // Shared utilities: building pie-data arrays, color maps, percentage formatters, etc.
 
-import { ETHNICITY_COLORS, PARTY_COLORS } from "./constants.js";
+import { PARTY_COLORS } from "./constants.js";
 
-// Re-export color maps for backward compatibility
-export let ethnicityColorMap = ETHNICITY_COLORS;
+// Re-export color map for backward compatibility
 export let partyColorMap = {
   Rep: PARTY_COLORS.Rep,
   Mod: PARTY_COLORS.Mod,

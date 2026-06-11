@@ -136,16 +136,6 @@ export function sanitizeState(state) {
 }
 
 /**
- * Update URL hash without triggering hashchange event
- * Extends existing app.js updateURL function to support race parameter
- * @param {Object} state - { view, race, precinct }
- */
-export function updateURL(state) {
-  const hash = buildURLHash(state);
-  history.replaceState(state, '', `#${hash}`);
-}
-
-/**
  * Get current state from URL
  * @returns {Object} - { view, race, precinct }
  */

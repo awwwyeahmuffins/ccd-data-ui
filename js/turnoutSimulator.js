@@ -1058,7 +1058,7 @@ export function generateSimulatorControlsHTML(currentValues = { Rep: 1.0, Dem: 1
  * @param {Object} simulatedSummary - Simulated county-wide results (for context)
  * @returns {string} HTML string for the flipped precincts detail list
  */
-export function generateFlippedPrecinctsDetailHTML(flippedPrecincts, originalSummary, simulatedSummary) {
+function generateFlippedPrecinctsDetailHTML(flippedPrecincts, originalSummary, simulatedSummary) {
   if (!flippedPrecincts || flippedPrecincts.length === 0) {
     return '<p class="no-flips">No precincts flipped with current settings.</p>';
   }

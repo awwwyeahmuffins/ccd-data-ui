@@ -116,7 +116,7 @@ test-ci:
 
 lint:
 	@echo "Running linter..."
-	npx eslint js/*.js --ext .js || true
+	npx eslint js/*.js e2e/*.spec.js tests/*.test.js
 	@echo "Lint complete."
 
 format:

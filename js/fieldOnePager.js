@@ -16,12 +16,12 @@ import { getPrecinctVotingHistory, computePrecinctTrend, calculateTurnout } from
  * @returns {Promise<{census, party, racial, officials, recentElections, trend}>}
  */
 export async function loadOnePagerData(precinctCode) {
-  let census = null;
-  let party = null;
-  let racial = null;
+  let census;
+  let party;
+  let racial;
   let officials = null;
   let recentElections = [];
-  let trend = null;
+  let trend;
 
   // Load base data (DNC + racial lookups)
   let baseData;

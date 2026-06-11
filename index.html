@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Collin County Elections — Redesigned</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="js/authStyles.css" />
@@ -13,36 +16,38 @@
        ============================================================================= */
     
     :root {
-      /* Democrat Blue Palette */
-      --primary: #0057B7;
-      --primary-hover: #0068D9;
-      --primary-light: #E3F2FD;
-      --primary-dark: #003D82;
+      /* Large-Print Civic Palette — warm paper + ink */
+      --primary: #0B4DA2;
+      --primary-hover: #093E83;
+      --primary-light: #E8F0FB;
+      --primary-dark: #08305F;
       --secondary: #00AEF3;
       --accent: #1976D2;
-      
-      /* Party Colors for Map */
+
+      /* Party Colors for Map (data encodings — do not change) */
       --dem-color: #00AEF3;
       --rep-color: #E81B23;
       --mod-color: #800080;
-      --text-primary: #222222;
-      --text-secondary: #717171;
-      --text-muted: #B0B0B0;
-      --bg-primary: #FFFFFF;
-      --bg-secondary: #F7F7F7;
-      --bg-overlay: rgba(0, 0, 0, 0.4);
-      --border: #DDDDDD;
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
-      --shadow-md: 0 2px 16px rgba(0, 0, 0, 0.12);
-      --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.16);
-      --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.2);
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
+      --text-primary: #1C2733;
+      --text-secondary: #44505C;
+      --text-muted: #5F6B76;
+      --bg-primary: #FFFDF9;
+      --bg-secondary: #F4F1EA;
+      --bg-overlay: rgba(28, 39, 51, 0.4);
+      --border: #D8D2C6;
+      --shadow-sm: 0 1px 2px rgba(28, 39, 51, 0.08);
+      --shadow-md: 0 2px 16px rgba(28, 39, 51, 0.12);
+      --shadow-lg: 0 8px 28px rgba(28, 39, 51, 0.16);
+      --shadow-xl: 0 16px 48px rgba(28, 39, 51, 0.2);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 20px;
       --radius-full: 9999px;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     * {
@@ -55,7 +60,8 @@
       height: 100%;
       width: 100%;
       overflow: hidden;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-family: var(--font-body);
+      font-size: 17px;
       color: var(--text-primary);
       background: var(--bg-secondary);
     }
@@ -70,7 +76,7 @@
       left: 0;
       right: 0;
       z-index: 10000;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 253, 249, 0.95);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       border-bottom: 1px solid var(--border);
@@ -96,7 +102,8 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 20px;
+      font-family: var(--font-display);
+      font-size: 21px;
       font-weight: 600;
       color: var(--primary);
       cursor: pointer;
@@ -106,7 +113,13 @@
       overflow: hidden;
     }
 
+    .header-brand-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .header-brand-icon {
+      flex-shrink: 0;
       width: 32px;
       height: 32px;
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -128,11 +141,12 @@
     }
 
     .header-btn {
-      padding: 6px 12px;
+      padding: 10px 16px;
+      min-height: 44px;
       border: none;
       background: transparent;
       border-radius: var(--radius-full);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 500;
       cursor: pointer;
       transition: var(--transition-fast);
@@ -149,11 +163,13 @@
       color: white;
     }
     .header-btn.forecast-btn {
-      background: var(--success, #2da44e);
-      color: white;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
     }
     .header-btn.forecast-btn:hover {
-      background: var(--success-hover, #238636);
+      border-color: var(--primary);
+      color: var(--primary);
     }
     .forecast-btn-icon { margin-right: 4px; }
     @media (max-width: 640px) {
@@ -166,12 +182,13 @@
 
     /* Boundary Selector */
     .boundary-selector select {
-      padding: 8px 32px 8px 12px;
+      padding: 10px 32px 10px 14px;
+      min-height: 44px;
       border: 1px solid var(--border);
       border-radius: var(--radius-full);
       background: var(--bg-secondary);
       color: var(--text-primary);
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 500;
       cursor: pointer;
       appearance: none;
@@ -207,7 +224,7 @@
       padding: 8px 16px;
       background: #FFF3CD;
       color: #664D03;
-      font-size: 12px;
+      font-size: 14px;
       line-height: 1.4;
       border-bottom: 1px solid #FFECB5;
       z-index: 9999;
@@ -254,34 +271,10 @@
       font-weight: 600;
     }
 
-    .boundary-badge {
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--text-muted);
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-full);
-      padding: 3px 8px;
-      white-space: nowrap;
-      transition: var(--transition-fast);
-    }
-
-    .boundary-badge.switching {
-      animation: pulse 1s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
     @media (max-width: 600px) {
       .boundary-selector select {
         font-size: 11px;
         padding: 6px 28px 6px 8px;
-      }
-      .boundary-badge {
-        display: none;
       }
     }
 
@@ -298,11 +291,12 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 14px;
+      padding: 10px 16px;
+      min-height: 44px;
       border: none;
       background: transparent;
       border-radius: var(--radius-full);
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 500;
       cursor: pointer;
       transition: var(--transition-fast);
@@ -334,12 +328,6 @@
     }
 
     @media (max-width: 900px) {
-      .view-label {
-        display: none;
-      }
-      .view-mode-btn {
-        padding: 8px 12px;
-      }
       .header-brand-text { display: none; }
       #cmd-k-trigger { display: none; }
     }
@@ -409,7 +397,7 @@
       padding: 20px 24px;
       border: none;
       border-bottom: 1px solid var(--border);
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 500;
       background: transparent;
       color: var(--text-primary);
@@ -461,13 +449,13 @@
 
     .command-item-title {
       font-weight: 500;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--text-primary);
       margin-bottom: 2px;
     }
 
     .command-item-subtitle {
-      font-size: 12px;
+      font-size: 14px;
       color: var(--text-secondary);
     }
 
@@ -497,6 +485,23 @@
     #map {
       width: 100%;
       height: 100%;
+    }
+
+    /* The fixed header overlays the full-screen map, so push Leaflet's
+       top-anchored controls (zoom, home, basemap) below it. */
+    .leaflet-top {
+      top: 80px;
+      transition: top 0.3s ease;
+    }
+
+    @media (max-width: 600px) {
+      .leaflet-top {
+        top: 60px;
+      }
+    }
+
+    body:has(#app-header.collapsed) .leaflet-top {
+      top: 0;
     }
 
     /* =============================================================================
@@ -545,7 +550,7 @@
     /* Sidebar content panel (demographics/turnout right panel) */
     #sidebar-content {
       position: fixed;
-      top: 64px;
+      top: 80px;
       right: 12px;
       bottom: 12px;
       width: 340px;
@@ -574,9 +579,9 @@
       bottom: 0;
       width: 480px;
       max-width: 90vw;
-      z-index: 5000;
+      z-index: 10001; /* above #app-header (10000) so the panel header isn't clipped */
       background: var(--bg-primary);
-      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+      box-shadow: -4px 0 24px rgba(28, 39, 51, 0.12);
       transform: translateX(100%);
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
@@ -598,7 +603,8 @@
     }
 
     .panel-title {
-      font-size: 24px;
+      font-family: var(--font-display);
+      font-size: 26px;
       font-weight: 600;
       color: var(--text-primary);
     }
@@ -631,10 +637,10 @@
     /* Search in Panel */
     .panel-search {
       width: 100%;
-      padding: 12px 14px;
+      padding: 14px 16px;
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      font-size: 15px;
+      font-size: 17px;
       margin-bottom: 16px;
       transition: var(--transition-fast);
       background: var(--bg-primary);
@@ -655,11 +661,12 @@
     }
 
     .filter-chip {
-      padding: 8px 16px;
+      padding: 10px 18px;
+      min-height: 44px;
       border: 1px solid var(--border);
       border-radius: var(--radius-full);
       background: var(--bg-primary);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 500;
       cursor: pointer;
       transition: var(--transition-fast);
@@ -683,7 +690,7 @@
     }
 
     .section-title {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -709,13 +716,13 @@
 
     .recent-item-title {
       font-weight: 500;
-      font-size: 15px;
+      font-size: 16px;
       color: var(--text-primary);
       margin-bottom: 4px;
     }
 
     .recent-item-meta {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-secondary);
     }
 
@@ -728,19 +735,21 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 0;
+      padding: 14px 0;
+      min-height: 48px;
       cursor: pointer;
       user-select: none;
     }
 
     .group-title {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 600;
       color: var(--text-primary);
     }
 
     .group-count {
-      font-size: 12px;
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
       color: var(--text-secondary);
       background: var(--bg-secondary);
       padding: 4px 10px;
@@ -774,7 +783,8 @@
     }
 
     .election-item {
-      padding: 12px 16px;
+      padding: 14px 16px;
+      min-height: 48px;
       border-radius: var(--radius-md);
       margin-bottom: 4px;
       cursor: pointer;
@@ -829,19 +839,20 @@
       color: var(--text-primary);
     }
     .forecast-section .slider-group { margin-bottom: 12px; }
-    .forecast-section .slider-group label { display: flex; justify-content: space-between; font-size: 13px; }
+    .forecast-section .slider-group label { display: flex; justify-content: space-between; font-size: 15px; }
     .forecast-section .turnout-slider { width: 100%; }
-    .forecast-section #simulation-summary { margin-top: 12px; font-size: 13px; }
+    .forecast-section #simulation-summary { margin-top: 12px; font-size: 15px; }
     .forecast-section #reset-turnout { margin-top: 8px; padding: 6px 12px; font-size: 12px; cursor: pointer; }
 
     .election-item-name {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       color: var(--text-primary);
     }
 
     .election-item-year {
-      font-size: 12px;
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
       color: var(--text-secondary);
       background: var(--bg-secondary);
       padding: 4px 8px;
@@ -862,14 +873,15 @@
     }
 
     .empty-state-title {
-      font-size: 18px;
+      font-family: var(--font-display);
+      font-size: 19px;
       font-weight: 600;
       color: var(--text-primary);
       margin-bottom: 8px;
     }
 
     .empty-state-text {
-      font-size: 14px;
+      font-size: 16px;
       color: var(--text-secondary);
     }
 
@@ -902,6 +914,31 @@
       opacity: 1;
       pointer-events: all;
     }
+
+    .info-card-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-full);
+      font-size: 18px;
+      line-height: 1;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .info-card-close:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    #info-card .info-card-title {
+      padding-right: 28px;
+    }
     
     /* Move info card to left when panel is open */
     #election-panel.active ~ #info-card,
@@ -923,7 +960,7 @@
     
     #election-panel.active ~ #info-card .info-card-meta,
     body:has(#election-panel.active) #info-card .info-card-meta {
-      font-size: 12px;
+      font-size: 13px;
     }
     
     #election-panel.active ~ #info-card .stat-item,
@@ -933,28 +970,29 @@
     
     #election-panel.active ~ #info-card .stat-label,
     body:has(#election-panel.active) #info-card .stat-label {
-      font-size: 10px;
+      font-size: 11px;
     }
     
     #election-panel.active ~ #info-card .stat-value,
     body:has(#election-panel.active) #info-card .stat-value {
-      font-size: 14px;
+      font-size: 16px;
     }
     
     #election-panel.active ~ #info-card .info-card-demographics,
     body:has(#election-panel.active) #info-card .info-card-demographics {
-      font-size: 11px;
+      font-size: 13px;
     }
 
     .info-card-title {
-      font-size: 20px;
+      font-family: var(--font-display);
+      font-size: 22px;
       font-weight: 600;
       color: var(--text-primary);
       margin-bottom: 8px;
     }
 
     .info-card-meta {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--text-secondary);
       margin-bottom: 16px;
     }
@@ -974,8 +1012,8 @@
     .info-card-demographics {
       margin-top: 16px;
       padding-top: 16px;
-      border-top: 1px solid var(--border-color, #eee);
-      font-size: 13px;
+      border-top: 1px solid var(--border);
+      font-size: 15px;
     }
     .info-card-demographics:empty {
       display: none;
@@ -983,7 +1021,7 @@
     .info-card-demographics .demo-section-title {
       font-weight: 600;
       margin-bottom: 8px;
-      font-size: 12px;
+      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: var(--text-secondary);
@@ -998,7 +1036,7 @@
     .info-card-demographics .demo-row span:last-child { font-weight: 500; }
 
     .stat-label {
-      font-size: 11px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: var(--text-secondary);
@@ -1006,8 +1044,9 @@
     }
 
     .stat-value {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 600;
+      font-variant-numeric: tabular-nums;
       color: var(--text-primary);
     }
 
@@ -1015,7 +1054,7 @@
        MOBILE RESPONSIVE
        ============================================================================= */
     
-    @media (max-width: 768px) {
+    @media (max-width: 700px) {
       #election-panel {
         width: 100vw;
         max-width: 100vw;
@@ -1032,8 +1071,8 @@
       }
 
       .panel-search {
-        padding: 10px 12px;
-        font-size: 14px;
+        padding: 12px 14px;
+        font-size: 16px;
         margin-bottom: 12px;
       }
 
@@ -1111,20 +1150,20 @@
        ============================================================================= */
 
     [data-theme="dark"] {
-      --primary: #4DA3FF;
-      --primary-hover: #6BB5FF;
-      --primary-light: #1a2a3a;
-      --primary-dark: #80C4FF;
+      --primary: #7FB1F0;
+      --primary-hover: #9CC4F5;
+      --primary-light: #1E2A3D;
+      --primary-dark: #B7D4F8;
       --secondary: #00AEF3;
       --accent: #5BA3E6;
 
-      --text-primary: #E8E8E8;
-      --text-secondary: #A0A0A0;
-      --text-muted: #666666;
-      --bg-primary: #1A1A2E;
-      --bg-secondary: #16213E;
+      --text-primary: #F2EEE6;
+      --text-secondary: #C2BCB0;
+      --text-muted: #948E82;
+      --bg-primary: #161B22;
+      --bg-secondary: #1F2630;
       --bg-overlay: rgba(0, 0, 0, 0.6);
-      --border: #2A2A4A;
+      --border: #353D47;
       --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
       --shadow-md: 0 2px 16px rgba(0, 0, 0, 0.4);
       --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.5);
@@ -1132,7 +1171,7 @@
     }
 
     [data-theme="dark"] #app-header {
-      background: rgba(26, 26, 46, 0.95);
+      background: rgba(22, 27, 34, 0.95);
     }
 
     [data-theme="dark"] .view-mode-btn.active {
@@ -1168,7 +1207,7 @@
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      padding: 8px 14px;
+      padding: 10px 16px;
       border: none;
       background: transparent;
       cursor: pointer;
@@ -1275,7 +1314,8 @@
       flex-shrink: 0;
     }
     .profile-panel-header h2 {
-      font-size: 18px;
+      font-family: var(--font-display);
+      font-size: 19px;
       font-weight: 600;
       color: var(--text-primary);
     }
@@ -1289,7 +1329,8 @@
     .precinct-profile { }
     .profile-header { margin-bottom: 20px; }
     .profile-header h3 {
-      font-size: 18px;
+      font-family: var(--font-display);
+      font-size: 19px;
       font-weight: 600;
       color: var(--text-primary);
       margin-bottom: 4px;
@@ -1330,13 +1371,14 @@
     }
     .profile-stat-value {
       display: block;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
+      font-variant-numeric: tabular-nums;
       color: var(--text-primary);
     }
     .profile-stat-label {
       display: block;
-      font-size: 11px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.3px;
       color: var(--text-secondary);
@@ -1481,8 +1523,8 @@
       gap: 6px;
     }
     .chat-suggestion-btn {
-      font-size: 12px;
-      padding: 6px 12px;
+      font-size: 14px;
+      padding: 8px 14px;
       border: 1px solid var(--border);
       border-radius: var(--radius-full);
       background: var(--bg-primary);
@@ -1501,7 +1543,7 @@
       color: #fff;
       padding: 8px 14px;
       border-radius: 16px 16px 4px 16px;
-      font-size: 13px;
+      font-size: 15px;
       max-width: 85%;
       line-height: 1.5;
       word-wrap: break-word;
@@ -1512,7 +1554,7 @@
       color: var(--text-primary);
       padding: 8px 14px;
       border-radius: 16px 16px 16px 4px;
-      font-size: 13px;
+      font-size: 15px;
       max-width: 85%;
       line-height: 1.5;
       word-wrap: break-word;
@@ -1548,7 +1590,7 @@
       padding: 10px 14px;
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      font-size: 13px;
+      font-size: 16px;
       font-family: inherit;
       color: var(--text-primary);
       background: var(--bg-primary);
@@ -1565,8 +1607,8 @@
     }
     .chat-send-btn,
     .chat-stop-btn {
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       border: none;
       border-radius: var(--radius-sm);
       cursor: pointer;
@@ -1757,7 +1799,7 @@
     /* Margin / Heatmap toggle controls */
     .map-view-controls {
       position: fixed;
-      top: 80px;
+      top: 88px;
       left: 16px;
       z-index: 1500;
       display: flex;
@@ -1765,11 +1807,12 @@
       align-items: center;
     }
     .map-toggle-btn {
-      padding: 6px 14px;
+      padding: 10px 16px;
+      min-height: 44px;
       border: 1px solid var(--border);
       border-radius: var(--radius-full);
       background: var(--bg-primary);
-      font-size: 12px;
+      font-size: 15px;
       font-weight: 500;
       color: var(--text-secondary);
       cursor: pointer;
@@ -1779,11 +1822,12 @@
     .map-toggle-btn:hover { border-color: var(--primary); color: var(--primary); }
     .map-toggle-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
     #heatmap-metric-select {
-      padding: 6px 12px;
+      padding: 10px 14px;
+      min-height: 44px;
       border: 1px solid var(--border);
       border-radius: var(--radius-full);
       background: var(--bg-primary);
-      font-size: 12px;
+      font-size: 14px;
       color: var(--text-primary);
       box-shadow: var(--shadow-sm);
       cursor: pointer;
@@ -1815,7 +1859,7 @@
       justify-content: space-between;
       flex-shrink: 0;
     }
-    .ranker-panel-header h2 { font-size: 16px; font-weight: 600; }
+    .ranker-panel-header h2 { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
     .ranker-panel-actions { display: flex; gap: 8px; align-items: center; }
     .ranker-export-btn {
       padding: 6px 12px;
@@ -1847,13 +1891,13 @@
     .ranker-empty { padding: 20px; text-align: center; color: var(--text-muted); font-size: 14px; }
 
     /* Legend styles for margin/heatmap */
-    .legend-title { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+    .legend-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
     .legend-items { display: flex; flex-direction: column; gap: 4px; }
-    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; }
-    .legend-swatch { width: 16px; height: 16px; border-radius: 3px; flex-shrink: 0; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .legend-swatch { width: 18px; height: 18px; border-radius: 3px; flex-shrink: 0; }
     .legend-label { color: var(--text-secondary); }
     .legend-gradient-container { margin-bottom: 8px; }
-    .legend-gradient-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-secondary); margin-top: 4px; }
+    .legend-gradient-labels { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
 
     @media (max-width: 768px) {
       #precinct-profile-panel {
@@ -1863,9 +1907,9 @@
       .bar-label { width: 90px; }
       #precinct-search-widget { width: calc(100vw - 32px); bottom: 90px; }
       .takeaway-grid { grid-template-columns: 1fr; }
-      .map-view-controls { top: 70px; left: 8px; flex-wrap: wrap; gap: 4px; }
-      .map-view-controls .map-toggle-btn { padding: 4px 10px; font-size: 11px; }
-      .map-view-controls #heatmap-metric-select { padding: 4px 8px; font-size: 11px; max-width: 160px; }
+      .map-view-controls { top: 72px; left: 8px; flex-wrap: wrap; gap: 4px; }
+      .map-view-controls .map-toggle-btn { padding: 8px 14px; font-size: 14px; min-height: 40px; }
+      .map-view-controls #heatmap-metric-select { padding: 8px 12px; font-size: 14px; max-width: 180px; min-height: 40px; }
       .map-view-controls #label-toggle-btn { padding: 4px 10px; font-size: 11px; }
       #competitive-ranker-panel { width: 100vw; max-width: 100vw; }
     }
@@ -2066,8 +2110,8 @@
       bottom: 0;
       left: 0;
       right: 0;
-      z-index: 5000;
-      background: rgba(255, 255, 255, 0.97);
+      z-index: 10001; /* ties #election-panel, wins by DOM order; stays below profile/ranker panels */
+      background: rgba(255, 253, 249, 0.97);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       border-top: 1px solid var(--border);
@@ -2086,8 +2130,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-width: 48px;
-      min-height: 48px;
+      min-width: 56px;
+      min-height: 56px;
       padding: 6px 8px;
       border: none;
       background: transparent;
@@ -2108,28 +2152,53 @@
     }
 
     #mobile-tab-bar .tab-btn svg {
-      width: 22px;
-      height: 22px;
+      width: 26px;
+      height: 26px;
     }
 
     #mobile-tab-bar .tab-label {
-      font-size: 10px;
+      font-size: 13px;
       font-weight: 500;
       line-height: 1.2;
     }
 
-    @media (max-width: 600px) {
+    /* The labeled bottom tab bar serves phones AND tablets (iPads are the
+       primary device for this audience) — the FAB and icon-only header view
+       tabs hide with it. */
+    @media (max-width: 1024px) {
       #mobile-tab-bar {
         display: block;
       }
-      /* Hide FAB on mobile when tab bar is visible */
       #fab {
         display: none;
+      }
+      .view-mode-buttons {
+        display: none;
+      }
+      /* Keep bottom-anchored map UI clear of the tab bar */
+      .leaflet-bottom {
+        bottom: 64px;
+      }
+      #toast-container {
+        bottom: 96px;
+      }
+    }
+
+    /* Tablet: panel as a wide drawer instead of full-screen */
+    @media (min-width: 701px) and (max-width: 1024px) {
+      #election-panel {
+        width: 560px;
+        max-width: 80vw;
+      }
+      #info-card {
+        width: 400px;
+        right: 24px;
+        bottom: 128px;
       }
     }
 
     [data-theme="dark"] #mobile-tab-bar {
-      background: rgba(26, 26, 46, 0.97);
+      background: rgba(22, 27, 34, 0.97);
     }
 
     /* =============================================================================
@@ -2146,7 +2215,7 @@
       align-items: center;
       justify-content: center;
       padding: 4px 20px;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 253, 249, 0.95);
       backdrop-filter: blur(10px);
       border: 1px solid var(--border);
       border-top: none;
@@ -2167,7 +2236,7 @@
     }
 
     [data-theme="dark"] .header-restore-tab {
-      background: rgba(26, 26, 46, 0.95);
+      background: rgba(22, 27, 34, 0.95);
     }
 
     /* =============================================================================
@@ -2190,18 +2259,18 @@
     @media (max-width: 600px) {
       #toast-container {
         bottom: auto;
-        top: 52px; /* Below mobile header */
+        top: 64px; /* Below mobile header */
         pointer-events: none;
       }
     }
 
     .toast {
       pointer-events: auto;
-      padding: 12px 24px;
-      background: #333;
+      padding: 14px 26px;
+      background: #1C2733;
       color: #fff;
       border-radius: var(--radius-full);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       box-shadow: var(--shadow-lg);
       max-width: 400px;
@@ -2236,8 +2305,8 @@
     }
 
     [data-theme="dark"] .toast {
-      background: #e0e0e0;
-      color: #1a1a2e;
+      background: #F2EEE6;
+      color: #161B22;
     }
 
     /* =============================================================================
@@ -2251,7 +2320,7 @@
       transform: translate(-50%, -50%);
       z-index: 500;
       text-align: center;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 253, 249, 0.95);
       backdrop-filter: blur(10px);
       padding: 40px 48px;
       border-radius: var(--radius-xl);
@@ -2259,27 +2328,50 @@
       max-width: 420px;
     }
 
-    #welcome-overlay h2 {
+    #welcome-overlay .welcome-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-full);
       font-size: 22px;
+      line-height: 1;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    #welcome-overlay .welcome-close:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    #welcome-overlay h2 {
+      font-family: var(--font-display);
+      font-size: 26px;
       font-weight: 700;
       color: var(--text-primary);
       margin-bottom: 8px;
     }
 
     #welcome-overlay p {
-      font-size: 14px;
+      font-size: 16px;
       color: var(--text-secondary);
       margin-bottom: 24px;
       line-height: 1.5;
     }
 
     #welcome-overlay .welcome-btn {
-      padding: 12px 28px;
+      padding: 14px 32px;
+      min-height: 48px;
       background: var(--primary);
       color: white;
       border: none;
       border-radius: var(--radius-full);
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 600;
       cursor: pointer;
       transition: var(--transition-fast);
@@ -2307,7 +2399,7 @@
     }
 
     [data-theme="dark"] #welcome-overlay {
-      background: rgba(26, 26, 46, 0.95);
+      background: rgba(22, 27, 34, 0.95);
     }
 
     @media (max-width: 600px) {
@@ -2372,7 +2464,7 @@
     }
 
     [data-theme="dark"] #map-loading-overlay {
-      background: rgba(26, 26, 46, 0.7);
+      background: rgba(22, 27, 34, 0.7);
     }
 
     /* =============================================================================
@@ -2424,6 +2516,15 @@
       outline-offset: 2px;
     }
 
+    /* Inputs override outline with borders elsewhere — restore a strong ring */
+    .panel-search:focus-visible,
+    .chat-input:focus-visible,
+    .boundary-selector select:focus-visible,
+    .command-palette-input:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 1px;
+    }
+
     /* =============================================================================
        LOADING STATES
        ============================================================================= */
@@ -2452,18 +2553,6 @@
       align-items: center;
       justify-content: center;
       z-index: 100;
-    }
-
-    .skeleton {
-      background: linear-gradient(90deg, var(--bg-secondary) 25%, #e8e8e8 50%, var(--bg-secondary) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.5s infinite;
-      border-radius: var(--radius-sm);
-    }
-
-    @keyframes shimmer {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
     }
 
     /* Error State */
@@ -2765,14 +2854,14 @@
       flex-shrink: 0;
     }
     .panel-tab {
-      padding: 12px 16px;
+      padding: 14px 18px;
       border: none;
       background: transparent;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       color: var(--text-secondary);
       cursor: pointer;
-      border-bottom: 2px solid transparent;
+      border-bottom: 3px solid transparent;
       transition: var(--transition-fast);
     }
     .panel-tab:hover {
@@ -2781,6 +2870,11 @@
     .panel-tab.active {
       color: var(--primary);
       border-bottom-color: var(--primary);
+    }
+    /* Forecast is a power tool — keep it available but visually quieter */
+    .panel-tab[data-panel-tab="forecast"]:not(.active) {
+      color: var(--text-muted);
+      font-weight: 400;
     }
     .panel-tab-content {
       display: none;
@@ -2794,7 +2888,7 @@
        ============================================================================= */
     .breadcrumb-bar {
       position: fixed;
-      top: 60px;
+      top: 80px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 1500;
@@ -2802,13 +2896,13 @@
       align-items: center;
       gap: 4px;
       padding: 5px 14px;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 253, 249, 0.92);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-radius: var(--radius-full);
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--border);
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 500;
       white-space: nowrap;
       transition: var(--transition-fast);
@@ -2816,7 +2910,7 @@
     .breadcrumb-item {
       color: var(--text-secondary);
       cursor: pointer;
-      padding: 2px 6px;
+      padding: 6px 10px;
       border-radius: var(--radius-sm);
       transition: var(--transition-fast);
     }
@@ -2834,7 +2928,7 @@
       user-select: none;
     }
     [data-theme="dark"] .breadcrumb-bar {
-      background: rgba(26, 26, 46, 0.92);
+      background: rgba(22, 27, 34, 0.92);
     }
     #app-header.collapsed ~ .breadcrumb-bar,
     #app-header.collapsed + * + .breadcrumb-bar {
@@ -2881,12 +2975,12 @@
       color: var(--primary);
     }
     .welcome-feature-title {
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--text-primary);
     }
     .welcome-feature-desc {
-      font-size: 11px;
+      font-size: 13px;
       color: var(--text-secondary);
       text-align: center;
       line-height: 1.3;
@@ -3187,7 +3281,7 @@
         <a href="precinct.html" class="header-btn header-btn-lookup" style="background:var(--secondary);color:white;font-weight:600;">Lookup</a>
         <button class="header-btn" id="logout-btn" style="display:none;">Sign Out</button>
         <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
-        <button class="header-btn" id="toggle-header">Hide</button>
+        <button class="header-btn" id="toggle-header" title="Hide header" aria-label="Hide header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
         <button class="header-btn" id="cmd-k-trigger" style="display:flex;align-items:center;gap:6px;min-width:110px;justify-content:space-between;"><span style="display:flex;align-items:center;gap:6px;color:var(--text-muted);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search...</span><kbd style="font-size:11px;padding:2px 6px;background:var(--bg-secondary);border-radius:4px;border:1px solid var(--border);color:var(--text-muted);">⌘K</kbd></button>
         <button class="header-btn primary" id="open-panel-btn">Browse</button>
         <button class="header-btn forecast-btn" id="forecast-btn" style="opacity: 0.4; pointer-events: none;" title="Select an election first to enable forecasting">
@@ -3217,7 +3311,7 @@
   </div>
 
   <!-- Breadcrumb Bar (Gap 6 - Ch.7) -->
-  <nav id="breadcrumb-bar" class="breadcrumb-bar" aria-label="Current context">
+  <nav id="breadcrumb-bar" class="breadcrumb-bar" aria-label="Current context" style="display:none;">
     <span class="breadcrumb-item active" data-crumb="view">Demographics</span>
   </nav>
 
@@ -3368,6 +3462,7 @@
 
   <!-- Floating Info Card -->
   <div id="info-card" role="region" aria-label="Selected precinct information">
+    <button class="info-card-close" id="info-card-close" title="Close" aria-label="Close info card">&times;</button>
     <div class="info-card-title"></div>
     <div class="info-card-meta"></div>
     <div class="info-card-stats"></div>
@@ -3379,7 +3474,7 @@
     <div class="tab-bar-inner">
       <button class="tab-btn active" data-view="demographics" role="tab" aria-selected="true" aria-label="Demographics">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
-        <span class="tab-label">Demo</span>
+        <span class="tab-label">Voters</span>
       </button>
       <button class="tab-btn" data-view="election" role="tab" aria-selected="false" aria-label="Elections">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
@@ -3401,34 +3496,35 @@
   </nav>
 
   <!-- Welcome Overlay (D11 + Gap 7) - Enhanced onboarding -->
-  <div id="welcome-overlay">
-    <h2>Welcome to Collin County Elections</h2>
-    <p>Explore election results, demographics, and turnout data across all precincts in Collin County, Texas.</p>
+  <div id="welcome-overlay" role="dialog" aria-modal="false" aria-labelledby="welcome-title">
+    <button class="welcome-close" id="welcome-close-btn" title="Dismiss" aria-label="Dismiss welcome message">&times;</button>
+    <h2 id="welcome-title">Welcome to Collin County Elections</h2>
+    <p>See how every precinct in Collin County votes. Pick a topic below, or browse election results.</p>
     <div class="welcome-features">
       <div class="welcome-feature" data-view="demographics">
         <div class="welcome-feature-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
         </div>
         <div class="welcome-feature-title">Demographics</div>
-        <div class="welcome-feature-desc">Party lean and racial demographics by precinct</div>
+        <div class="welcome-feature-desc">Who lives and votes in each precinct</div>
       </div>
       <div class="welcome-feature" data-view="election">
         <div class="welcome-feature-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
         </div>
         <div class="welcome-feature-title">Elections</div>
-        <div class="welcome-feature-desc">Results for 100+ races with forecasting tools</div>
+        <div class="welcome-feature-desc">Results for past races, precinct by precinct</div>
       </div>
       <div class="welcome-feature" data-view="turnout">
         <div class="welcome-feature-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
         <div class="welcome-feature-title">Turnout</div>
-        <div class="welcome-feature-desc">Voter turnout analysis with precinct leaderboards</div>
+        <div class="welcome-feature-desc">How many people voted, and where</div>
       </div>
     </div>
     <button class="welcome-btn" id="welcome-browse-btn">Browse Elections</button>
-    <div class="welcome-shortcut">or press <kbd>Cmd</kbd>+<kbd>K</kbd> to search</div>
+    <div class="welcome-shortcut" style="display: none;">or press <kbd>Cmd</kbd>+<kbd>K</kbd> to search</div>
   </div>
 
   <!-- Toast Container (A4) -->
@@ -3455,9 +3551,30 @@
   <!-- App Logic -->
   <script type="module">
     // ==========================================================================
+    // MAP VIEWER ORCHESTRATOR
+    //
+    // This inline script owns ALL state and orchestration for the map page.
+    // js/ modules are libraries; this file wires them together.
+    // How to extend it: docs/ADDING_FEATURES.md (recipes for views, panels,
+    // data sources, palette commands).
+    //
+    // Sections (search for the banner comments):
+    //   IMPORTS · STATE MANAGEMENT · WELCOME OVERLAY · SINGLE ACTIVE PANEL ·
+    //   BREADCRUMB NAVIGATION · MAP INITIALIZATION · VIEW MODE SWITCHING ·
+    //   PRECINCT CHAT (disabled) · PRECINCT SEARCH · COMPETITIVE RANKER PANEL ·
+    //   ELECTION DATA LOADING · ELECTION PANEL RENDERING ·
+    //   ELECTION SELECTION & MAP RENDERING · FORECAST (TURNOUT SIMULATOR) ·
+    //   UNIVERSE BUILDER · RECENTLY VIEWED · INFO CARD · COMMAND PALETTE ·
+    //   ELECTION PANEL TOGGLE · HEADER TOGGLE · ERROR HANDLING ·
+    //   URL STATE MANAGEMENT · MOBILE TAB BAR · BOUNDARY SWITCHING ·
+    //   MAP LOADING OVERLAY
+    // ==========================================================================
+
+    // ==========================================================================
     // IMPORTS - Existing Modules
     // ==========================================================================
-    import { initMap, addHomeControl, addBasemapControl } from "./js/mapInitializer.js";
+    import { initMap, addHomeControl, addBasemapControl, addLocateControl } from "./js/mapInitializer.js";
+    import { findPrecinctForPoint } from "./js/geoLookup.js";
     import { loadAllData, listElectionCSVs, loadElectionData, setActiveBoundary, getActiveBoundary, clearDataCache } from "./js/dataLoader.js";
     import { PARTY_COLORS, MAP_CONFIG, PRECINCT_STYLE, PARTY_STRENGTH_COLORS } from "./js/constants.js";
     import { 
@@ -3495,7 +3612,7 @@
     import { initTheme, toggleTheme, getCurrentTheme, DARK_TILE_URL, LIGHT_TILE_URL } from "./js/themeManager.js";
     import { setupPrecinctLabels } from "./js/mapEnhancements.js";
     import {
-      toggleBookmark, isBookmarked, renderBookmarkStar, renderBookmarksSection
+      toggleBookmark, isBookmarked, renderBookmarkStar, renderBookmarksSection, getBookmarks
     } from "./js/bookmarkManager.js";
     import { loadCensusProfiles, renderPrecinctProfile } from "./js/precinctProfile.js";
     import { getMarginStyle, getMarginLegendHTML } from "./js/marginView.js";
@@ -3551,6 +3668,16 @@
     };
 
     // ==========================================================================
+    // WELCOME OVERLAY (D11) — shown once per browser, dismissible
+    // ==========================================================================
+    const WELCOME_SEEN_KEY = 'ccd_welcome_seen';
+    function dismissWelcome() {
+      const overlay = document.getElementById('welcome-overlay');
+      if (overlay) overlay.style.display = 'none';
+      try { localStorage.setItem(WELCOME_SEEN_KEY, '1'); } catch { /* private mode */ }
+    }
+
+    // ==========================================================================
     // GAP 4: SINGLE ACTIVE PANEL CONSTRAINT
     // ==========================================================================
     const PANEL_IDS = ['election-panel', 'precinct-profile-panel', 'competitive-ranker-panel'];
@@ -3603,6 +3730,9 @@
         crumbs.push({ label: `Precinct ${state.selectedPrecinct.PRECINCT}`, action: 'precinct', isActive: true });
       }
 
+      // A lone view-name crumb just repeats the header's active view toggle — hide it
+      bar.style.display = crumbs.length > 1 ? '' : 'none';
+
       bar.innerHTML = crumbs.map((c, i) => {
         const sep = i > 0 ? '<span class="breadcrumb-sep">/</span>' : '';
         return `${sep}<span class="breadcrumb-item ${c.isActive ? 'active' : ''}" data-crumb="${c.action}">${c.label}</span>`;
@@ -3650,8 +3780,37 @@
         // Add GeoJSON layer with default party lean coloring
         renderDemographicsMap();
 
+        // Fit the county to the viewport on first load — the static center/zoom
+        // wastes half the screen (and centers on Dallas on tall phone screens)
+        state.map.fitBounds(state.geojsonLayer.getBounds(), { padding: [24, 24] });
+
         // Gap 1: Home button - reset to full county extent
         addHomeControl(state.map, state.geojsonLayer.getBounds());
+
+        // "Find my precinct" — geolocate, match against loaded precincts
+        addLocateControl(state.map, () => {
+          if (!navigator.geolocation) {
+            showNotification("Your browser doesn't support location lookup.");
+            return;
+          }
+          showNotification('Finding your precinct…');
+          navigator.geolocation.getCurrentPosition(
+            (pos) => {
+              const features = state.geojsonData?.features || [];
+              const feature = findPrecinctForPoint(pos.coords.latitude, pos.coords.longitude, features);
+              if (!feature) {
+                showNotification("Your location appears to be outside Collin County.");
+                return;
+              }
+              const code = String(feature.properties.PRECINCT);
+              state.map.setView([pos.coords.latitude, pos.coords.longitude], 13);
+              selectPrecinctByCode(code);
+              showNotification(`You're in Precinct ${code}`);
+            },
+            () => showNotification("Couldn't get your location — check your browser's location permission."),
+            { timeout: 10000, maximumAge: 300000 }
+          );
+        });
 
         // Gap 9: Basemap toggle
         addBasemapControl(state.map, state.tileLayer);
@@ -3865,7 +4024,7 @@
         select.id = 'heatmap-metric-select';
         const defaultOpt = document.createElement('option');
         defaultOpt.value = '';
-        defaultOpt.textContent = 'Color by demographic...';
+        defaultOpt.textContent = 'Demographic layer…';
         select.appendChild(defaultOpt);
         for (const metric of HEATMAP_METRICS) {
           const opt = document.createElement('option');
@@ -4132,7 +4291,9 @@
       // E3: Load and display election history for this precinct
       loadPrecinctElectionHistory(precinctCode, body);
 
-      // Chat with Precinct — disabled
+      // Chat with Precinct — intentionally disabled (June 2026 decision:
+      // keep the code and deployed Lambda, but no live entry point for now).
+      // Re-enable by uncommenting; requires Cognito sign-in on the live site.
       // initPrecinctChat(precinctCode, body, extraData);
 
       // Gap 6: Update breadcrumbs
@@ -4407,22 +4568,22 @@
               <span class="legend-toggle-icon">Legend</span>
             </button>
             <div class="legend-body">
-              <div style="font-weight: 600; margin-bottom: 8px; font-size: 13px;">Party Lean</div>
+              <div style="font-weight: 600; margin-bottom: 8px; font-size: 15px;">Party Lean</div>
               <div style="display: flex; flex-direction: column; gap: 6px;">
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PARTY_COLORS.Rep};"></span>
-                  <span style="font-size: 12px;">Republican</span>
+                  <span style="font-size: 14px;">Republican</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PARTY_COLORS.Dem};"></span>
-                  <span style="font-size: 12px;">Democrat</span>
+                  <span style="font-size: 14px;">Democrat</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PARTY_COLORS.Mod};"></span>
-                  <span style="font-size: 12px;">Moderate</span>
+                  <span style="font-size: 14px;">Moderate</span>
                 </div>
               </div>
-              <div style="font-size: 10px; color: var(--text-secondary); margin-top: 8px;">Color intensity = strength</div>
+              <div style="font-size: 12px; color: var(--text-secondary); margin-top: 8px;">Color intensity = strength</div>
             </div>
           </div>
         `;
@@ -4454,52 +4615,52 @@
         content = getMarginLegendHTML();
       } else if (state.viewMode === 'turnout') {
         content = `
-          <div style="font-weight: 600; margin-bottom: 8px; font-size: 13px;">Voter Turnout</div>
+          <div style="font-weight: 600; margin-bottom: 8px; font-size: 15px;">Voter Turnout</div>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="width: 16px; height: 16px; border-radius: 4px; background: #1a5f2a;"></span>
-              <span style="font-size: 12px;">70%+</span>
+              <span style="font-size: 14px;">70%+</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="width: 16px; height: 16px; border-radius: 4px; background: #4caf50;"></span>
-              <span style="font-size: 12px;">50–70%</span>
+              <span style="font-size: 14px;">50–70%</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="width: 16px; height: 16px; border-radius: 4px; background: #81c784;"></span>
-              <span style="font-size: 12px;">40–50%</span>
+              <span style="font-size: 14px;">40–50%</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="width: 16px; height: 16px; border-radius: 4px; background: #c8e6c9;"></span>
-              <span style="font-size: 12px;">30–40%</span>
+              <span style="font-size: 14px;">30–40%</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="width: 16px; height: 16px; border-radius: 4px; background: #ccc;"></span>
-              <span style="font-size: 12px;">No data</span>
+              <span style="font-size: 14px;">No data</span>
             </div>
           </div>
         `;
       } else if (state.viewMode === 'election' && !state.currentElectionData) {
         // Neutral map — no legend needed, show hint
-        content = `<div style="font-size: 12px; color: var(--text-secondary);">Select an election to see results</div>`;
+        content = `<div style="font-size: 14px; color: var(--text-secondary);">Select an election to see results</div>`;
       } else {
         // Default party lean legend
         content = `
-          <div style="font-weight: 600; margin-bottom: 8px; font-size: 13px;">Party Lean</div>
+          <div style="font-weight: 600; margin-bottom: 8px; font-size: 15px;">Party Lean</div>
           <div style="display: flex; flex-direction: column; gap: 6px;">
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PARTY_COLORS.Rep};"></span>
-              <span style="font-size: 12px;">Republican</span>
+              <span style="font-size: 14px;">Republican</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PARTY_COLORS.Dem};"></span>
-              <span style="font-size: 12px;">Democrat</span>
+              <span style="font-size: 14px;">Democrat</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
               <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PARTY_COLORS.Mod};"></span>
-              <span style="font-size: 12px;">Moderate / Independent</span>
+              <span style="font-size: 14px;">Moderate / Independent</span>
             </div>
           </div>
-          <div style="font-size: 10px; color: var(--text-secondary); margin-top: 8px;">Color intensity = strength</div>
+          <div style="font-size: 12px; color: var(--text-secondary); margin-top: 8px;">Color intensity = strength</div>
         `;
       }
       const body = legendEl.querySelector('.legend-body');
@@ -4668,7 +4829,7 @@
         <div class="panel-tab-content ${tab === 'saved' ? 'active' : ''}" data-tab-content="saved">
           ${renderBookmarksSection(state.elections)}
           ${renderRecentlyViewed()}
-          ${state.recentlyViewed.length === 0 ? `
+          ${state.recentlyViewed.length === 0 && getBookmarks().length === 0 ? `
             <div class="empty-state">
               <div class="empty-state-icon">⭐</div>
               <div class="empty-state-title">No saved items</div>
@@ -4917,8 +5078,7 @@
         state.currentElection = entry;
 
         // D11: Hide welcome overlay
-        const welcomeOverlay = document.getElementById('welcome-overlay');
-        if (welcomeOverlay) welcomeOverlay.style.display = 'none';
+        dismissWelcome();
 
         // D12: Show loading overlay on map
         showMapLoading();
@@ -5863,8 +6023,7 @@
         // Refresh panel content
         renderElectionPanel();
         // D11: Hide welcome overlay when panel opens
-        const welcomeOverlay = document.getElementById('welcome-overlay');
-        if (welcomeOverlay) welcomeOverlay.style.display = 'none';
+        dismissWelcome();
         // F5: Focus search input when panel opens
         setTimeout(() => {
           const searchInput = document.getElementById('panel-search-input');
@@ -5923,11 +6082,13 @@
       const showHeaderTab = document.getElementById('show-header-tab');
       if (headerVisible) {
         appHeader.classList.remove('collapsed');
-        toggleHeaderBtn.textContent = 'Hide';
+        toggleHeaderBtn.title = 'Hide header';
+        toggleHeaderBtn.setAttribute('aria-label', 'Hide header');
         if (showHeaderTab) showHeaderTab.style.display = 'none';
       } else {
         appHeader.classList.add('collapsed');
-        toggleHeaderBtn.textContent = 'Show';
+        toggleHeaderBtn.title = 'Show header';
+        toggleHeaderBtn.setAttribute('aria-label', 'Show header');
         if (showHeaderTab) showHeaderTab.style.display = 'flex';
       }
     }
@@ -6015,7 +6176,7 @@
     }
 
     // ==========================================================================
-    // BOUNDARY BADGE
+    // BOUNDARY SWITCHING (2024 vs 2026 precincts)
     // ==========================================================================
     function updateBoundaryDisclaimer(boundary) {
       const banner = document.getElementById('boundary-disclaimer');
@@ -6023,18 +6184,8 @@
       banner.style.display = boundary === '2026' ? 'flex' : 'none';
     }
 
-    function updateBoundaryBadge() {
-      let badge = document.getElementById('boundary-count-badge');
-      if (!badge) {
-        badge = document.createElement('span');
-        badge.id = 'boundary-count-badge';
-        badge.className = 'boundary-badge';
-        const selector = document.querySelector('.boundary-selector');
-        if (selector) selector.appendChild(badge);
-      }
-      const count = state.geojsonData?.features?.length || '...';
-      badge.textContent = `${count} precincts`;
-    }
+    // Precinct counts are shown in the boundary <select> options themselves;
+    // no separate badge (it duplicated the "(252)" already in the dropdown).
 
     // ==========================================================================
     // MAP LOADING OVERLAY (D12)
@@ -6083,7 +6234,6 @@
       const boundarySelect = document.getElementById('boundary-select');
       if (boundarySelect) {
         boundarySelect.value = getActiveBoundary();
-        updateBoundaryBadge();
         boundarySelect.addEventListener('change', async () => {
           const newBoundary = boundarySelect.value;
           console.log(`[Boundary] Switching to: ${newBoundary}`);
@@ -6130,8 +6280,7 @@
               state.labelCleanup = setupPrecinctLabels(state.map, state.geojsonLayer);
             }
 
-            // 8) Update badge, disclaimer, and notify
-            updateBoundaryBadge();
+            // 8) Update disclaimer and notify
             updateBoundaryDisclaimer(newBoundary);
             hideMapLoading();
 
@@ -6277,11 +6426,40 @@
       // A1: Mobile tab bar event listeners
       initMobileTabBar();
 
-      // D11: Welcome overlay browse button
+      // D11: Welcome overlay — show once per browser, dismissible via X / Escape
+      if (localStorage.getItem(WELCOME_SEEN_KEY)) {
+        dismissWelcome();
+      }
+
+      const welcomeCloseBtn = document.getElementById('welcome-close-btn');
+      if (welcomeCloseBtn) {
+        welcomeCloseBtn.addEventListener('click', dismissWelcome);
+      }
+
+      // Info card close button — hide the card and deselect the precinct
+      const infoCardCloseBtn = document.getElementById('info-card-close');
+      if (infoCardCloseBtn) {
+        infoCardCloseBtn.addEventListener('click', () => {
+          if (state.selectedLayer) {
+            state.selectedLayer.setStyle({ weight: PRECINCT_STYLE.default.weight });
+            state.selectedLayer = null;
+            state.selectedPrecinct = null;
+          }
+          hideInfoCard();
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const overlay = document.getElementById('welcome-overlay');
+          if (overlay && overlay.style.display !== 'none') dismissWelcome();
+        }
+      });
+
       const welcomeBrowseBtn = document.getElementById('welcome-browse-btn');
       if (welcomeBrowseBtn) {
         welcomeBrowseBtn.addEventListener('click', () => {
-          document.getElementById('welcome-overlay').style.display = 'none';
+          dismissWelcome();
           setViewMode('election');
         });
       }
@@ -6289,7 +6467,7 @@
       // Gap 7: Welcome feature card click handlers
       document.querySelectorAll('.welcome-feature[data-view]').forEach(card => {
         card.addEventListener('click', () => {
-          document.getElementById('welcome-overlay').style.display = 'none';
+          dismissWelcome();
           setViewMode(card.dataset.view);
           if (card.dataset.view === 'election') {
             togglePanel();

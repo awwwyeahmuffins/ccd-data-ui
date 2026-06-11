@@ -178,7 +178,7 @@ function getCategoryCounts(elections) {
 
   elections.forEach(filename => {
     const category = categorizeElection(filename);
-    if (counts.hasOwnProperty(category)) {
+    if (Object.prototype.hasOwnProperty.call(counts, category)) {
       counts[category]++;
     }
   });

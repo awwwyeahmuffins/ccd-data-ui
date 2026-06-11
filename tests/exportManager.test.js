@@ -152,24 +152,27 @@ function generateExportFilename(type, context = {}) {
   const timestamp = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 
   switch (type) {
-    case 'race':
+    case 'race': {
       const raceName = context.raceName || 'election';
       const cleanRaceName = raceName
         .replace(/\.csv$/, '')
         .replace(/[^a-zA-Z0-9_-]/g, '_')
         .substring(0, 50);
       return `${cleanRaceName}_results_${timestamp}.csv`;
+    }
 
-    case 'precinct':
+    case 'precinct': {
       const precinctCode = context.precinctCode || 'unknown';
       return `precinct_${precinctCode}_history_${timestamp}.csv`;
+    }
 
-    case 'filtered':
+    case 'filtered': {
       const filterDesc = context.filterDescription || 'filtered';
       const cleanFilterDesc = filterDesc
         .replace(/[^a-zA-Z0-9_-]/g, '_')
         .substring(0, 30);
       return `${cleanFilterDesc}_results_${timestamp}.csv`;
+    }
 
     default:
       return `export_${timestamp}.csv`;

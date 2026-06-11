@@ -9,6 +9,7 @@
 
 export function initMap({ center = [0, 0], zoom = 2, containerId = "map" } = {}) {
   const map = L.map(containerId, {
+    zoomControl: false,        // Default top-left control off; we add one top-right below
     zoomDelta: 1.25,           // Bigger steps per scroll tick
     zoomSnap: 0,               // Allow any zoom level (smooth zooming)
     wheelPxPerZoomLevel: 12,  // Much less scroll needed per zoom (default 60)
@@ -49,6 +50,34 @@ export function addHomeControl(map, bounds) {
     }
   });
   new HomeControl().addTo(map);
+}
+
+/**
+ * Add a "find my precinct" button. Geolocation/lookup logic is supplied by
+ * the caller via onClick — this control is purely the map button.
+ * @param {L.Map} map - Leaflet map instance
+ * @param {() => void} onClick
+ */
+export function addLocateControl(map, onClick) {
+  const LocateControl = L.Control.extend({
+    options: { position: 'topright' },
+    onAdd() {
+      const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-locate');
+      const btn = L.DomUtil.create('a', '', container);
+      btn.href = '#';
+      btn.title = 'Find my precinct';
+      btn.setAttribute('role', 'button');
+      btn.setAttribute('aria-label', 'Find my precinct using my location');
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></svg>';
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.on(btn, 'click', (e) => {
+        L.DomEvent.preventDefault(e);
+        onClick();
+      });
+      return container;
+    }
+  });
+  new LocateControl().addTo(map);
 }
 
 /**
