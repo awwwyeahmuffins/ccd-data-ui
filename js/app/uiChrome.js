@@ -118,7 +118,7 @@ const appHeader = document.getElementById('app-header');
 const toggleHeaderBtn = document.getElementById('toggle-header');
 let headerVisible = true;
 
-function toggleHeader() {
+export function toggleHeader() {
   headerVisible = !headerVisible;
   const showHeaderTab = document.getElementById('show-header-tab');
   if (headerVisible) {
