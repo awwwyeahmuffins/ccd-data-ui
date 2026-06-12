@@ -1,0 +1,29 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANS2168",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "bowie": 49,
+      "camp": 4,
+      "cass": 18,
+      "delta": 7,
+      "fannin": 16,
+      "franklin": 8,
+      "gregg": 21,
+      "harrison": 26,
+      "hopkins": 21,
+      "lamar": 32,
+      "marion": 10,
+      "morris": 8,
+      "panola": 19,
+      "red-river": 22,
+      "rusk": 22,
+      "smith": 72,
+      "titus": 19,
+      "upshur": 21,
+      "wood": 14
+    },
+    "generated": "2026-06-12"
+  }
+}

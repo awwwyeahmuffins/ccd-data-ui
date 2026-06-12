@@ -1,0 +1,46 @@
+precinct,party,candidate,votes
+loving:1,,Write-in,0
+loving:1,DEM,Joseph R Biden,1
+loving:1,GRN,Howie Hawkins,0
+loving:1,LIB,Jo Jorgensen,0
+loving:1,REP,Donald J Trump,16
+loving:2,,Write-in,0
+loving:2,DEM,Joseph R Biden,2
+loving:2,GRN,Howie Hawkins,0
+loving:2,LIB,Jo Jorgensen,0
+loving:2,REP,Donald J Trump,10
+loving:3,,Write-in,0
+loving:3,DEM,Joseph R Biden,0
+loving:3,GRN,Howie Hawkins,0
+loving:3,LIB,Jo Jorgensen,0
+loving:3,REP,Donald J Trump,26
+loving:4,,Write-in,0
+loving:4,DEM,Joseph R Biden,1
+loving:4,GRN,Howie Hawkins,0
+loving:4,LIB,Jo Jorgensen,2
+loving:4,REP,Donald J Trump,8
+winkler:101,,Write-in,0
+winkler:101,DEM,Joseph R Biden,100
+winkler:101,GRN,Howie Hawkins,1
+winkler:101,LIB,Jo Jorgensen,5
+winkler:101,REP,Donald J Trump,481
+winkler:201,,Write-in,0
+winkler:201,DEM,Joseph R Biden,25
+winkler:201,GRN,Howie Hawkins,0
+winkler:201,LIB,Jo Jorgensen,3
+winkler:201,REP,Donald J Trump,165
+winkler:202,,Write-in,0
+winkler:202,DEM,Joseph R Biden,37
+winkler:202,GRN,Howie Hawkins,0
+winkler:202,LIB,Jo Jorgensen,2
+winkler:202,REP,Donald J Trump,424
+winkler:301,,Write-in,0
+winkler:301,DEM,Joseph R Biden,73
+winkler:301,GRN,Howie Hawkins,0
+winkler:301,LIB,Jo Jorgensen,2
+winkler:301,REP,Donald J Trump,480
+winkler:401,,Write-in,0
+winkler:401,DEM,Joseph R Biden,123
+winkler:401,GRN,Howie Hawkins,0
+winkler:401,LIB,Jo Jorgensen,2
+winkler:401,REP,Donald J Trump,203

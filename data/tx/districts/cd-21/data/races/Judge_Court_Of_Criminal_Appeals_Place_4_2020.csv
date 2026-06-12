@@ -1,0 +1,19 @@
+precinct,party,candidate,votes
+real:2,,Kevin Patrick Yeary,498
+real:2,,Tina Clinton,84
+real:3,,Kevin Patrick Yeary,252
+real:3,,Tina Clinton,63
+real:4,,Kevin Patrick Yeary,216
+real:4,,Tina Clinton,24
+real:6,,Kevin Patrick Yeary,197
+real:6,,Tina Clinton,38
+travis:303,DEM,Tina Clinton,1499
+travis:303,REP,Kevin Patrick Yeary,1106
+travis:314,DEM,Tina Clinton,2707
+travis:314,REP,Kevin Patrick Yeary,2779
+travis:354,DEM,Tina Clinton,2336
+travis:354,REP,Kevin Patrick Yeary,1495
+travis:361,DEM,Tina Clinton,629
+travis:361,REP,Kevin Patrick Yeary,498
+travis:365,DEM,Tina Clinton,1291
+travis:365,REP,Kevin Patrick Yeary,935

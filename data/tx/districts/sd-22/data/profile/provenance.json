@@ -1,0 +1,22 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANS2168",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "bosque": 11,
+      "comanche": 14,
+      "eastland": 9,
+      "ellis": 34,
+      "erath": 21,
+      "falls": 12,
+      "hamilton": 11,
+      "hill": 22,
+      "hood": 15,
+      "mclennan": 91,
+      "somervell": 4,
+      "tarrant": 110
+    },
+    "generated": "2026-06-12"
+  }
+}

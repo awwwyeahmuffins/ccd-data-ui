@@ -1,0 +1,439 @@
+precinct,party,candidate,votes
+delta:1,GRN,Howie Hawkins,1
+delta:1,LIB,Jo Jorgensen,5
+delta:1,,Over Votes,0
+delta:1,,Under Votes,3
+delta:1,DEM,Joseph R. Biden,76
+delta:1,REP,Donald J. Trump,527
+delta:10,GRN,Howie Hawkins,0
+delta:10,LIB,Jo Jorgensen,4
+delta:10,,Over Votes,0
+delta:10,,Under Votes,1
+delta:10,DEM,Joseph R. Biden,61
+delta:10,REP,Donald J. Trump,256
+delta:3,GRN,Howie Hawkins,2
+delta:3,LIB,Jo Jorgensen,2
+delta:3,,Over Votes,0
+delta:3,,Under Votes,1
+delta:3,DEM,Joseph R. Biden,81
+delta:3,REP,Donald J. Trump,228
+delta:4,GRN,Howie Hawkins,0
+delta:4,LIB,Jo Jorgensen,6
+delta:4,,Over Votes,0
+delta:4,,Under Votes,2
+delta:4,DEM,Joseph R. Biden,52
+delta:4,REP,Donald J. Trump,305
+delta:5,GRN,Howie Hawkins,0
+delta:5,LIB,Jo Jorgensen,5
+delta:5,,Over Votes,0
+delta:5,,Under Votes,0
+delta:5,DEM,Joseph R. Biden,92
+delta:5,REP,Donald J. Trump,490
+delta:7,GRN,Howie Hawkins,0
+delta:7,LIB,Jo Jorgensen,2
+delta:7,,Over Votes,0
+delta:7,,Under Votes,0
+delta:7,DEM,Joseph R. Biden,20
+delta:7,REP,Donald J. Trump,157
+delta:9,GRN,Howie Hawkins,0
+delta:9,LIB,Jo Jorgensen,0
+delta:9,,Over Votes,0
+delta:9,,Under Votes,1
+delta:9,DEM,Joseph R. Biden,21
+delta:9,REP,Donald J. Trump,199
+fannin:1,,BRIAN CARROLL,1
+fannin:1,,Over Votes,0
+fannin:1,,Under Votes,14
+fannin:1,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,215
+fannin:1,GRN,HOWIE HAWKINS / ANGELA WALKER,1
+fannin:1,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",11
+fannin:1,REP,DONALD J. TRUMP / MICHAEL R. PENCE,806
+fannin:10,,BRIAN CARROLL,1
+fannin:10,,Over Votes,0
+fannin:10,,Under Votes,8
+fannin:10,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,316
+fannin:10,GRN,HOWIE HAWKINS / ANGELA WALKER,3
+fannin:10,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",22
+fannin:10,REP,DONALD J. TRUMP / MICHAEL R. PENCE,1598
+fannin:11,,BRIAN CARROLL,0
+fannin:11,,Over Votes,2
+fannin:11,,Under Votes,12
+fannin:11,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,285
+fannin:11,GRN,HOWIE HAWKINS / ANGELA WALKER,3
+fannin:11,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",27
+fannin:11,REP,DONALD J. TRUMP / MICHAEL R. PENCE,1533
+fannin:12,,BRIAN CARROLL,0
+fannin:12,,Over Votes,0
+fannin:12,,Under Votes,4
+fannin:12,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,114
+fannin:12,GRN,HOWIE HAWKINS / ANGELA WALKER,1
+fannin:12,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",6
+fannin:12,REP,DONALD J. TRUMP / MICHAEL R. PENCE,761
+fannin:13,,BRIAN CARROLL,0
+fannin:13,,Over Votes,0
+fannin:13,,Under Votes,2
+fannin:13,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,112
+fannin:13,GRN,HOWIE HAWKINS / ANGELA WALKER,1
+fannin:13,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",9
+fannin:13,REP,DONALD J. TRUMP / MICHAEL R. PENCE,507
+fannin:15,,BRIAN CARROLL,0
+fannin:15,,Over Votes,0
+fannin:15,,Under Votes,2
+fannin:15,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,74
+fannin:15,GRN,HOWIE HAWKINS / ANGELA WALKER,2
+fannin:15,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",12
+fannin:15,REP,DONALD J. TRUMP / MICHAEL R. PENCE,597
+fannin:16,,BRIAN CARROLL,0
+fannin:16,,Over Votes,0
+fannin:16,,Under Votes,1
+fannin:16,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,33
+fannin:16,GRN,HOWIE HAWKINS / ANGELA WALKER,0
+fannin:16,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",1
+fannin:16,REP,DONALD J. TRUMP / MICHAEL R. PENCE,203
+fannin:18,,BRIAN CARROLL,1
+fannin:18,,Over Votes,0
+fannin:18,,Under Votes,17
+fannin:18,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,434
+fannin:18,GRN,HOWIE HAWKINS / ANGELA WALKER,4
+fannin:18,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",30
+fannin:18,REP,DONALD J. TRUMP / MICHAEL R. PENCE,1602
+fannin:19,,BRIAN CARROLL,0
+fannin:19,,Over Votes,1
+fannin:19,,Under Votes,8
+fannin:19,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,293
+fannin:19,GRN,HOWIE HAWKINS / ANGELA WALKER,2
+fannin:19,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",10
+fannin:19,REP,DONALD J. TRUMP / MICHAEL R. PENCE,1000
+fannin:2,,BRIAN CARROLL,0
+fannin:2,,Over Votes,0
+fannin:2,,Under Votes,5
+fannin:2,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,103
+fannin:2,GRN,HOWIE HAWKINS / ANGELA WALKER,0
+fannin:2,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",7
+fannin:2,REP,DONALD J. TRUMP / MICHAEL R. PENCE,841
+fannin:3,,BRIAN CARROLL,0
+fannin:3,,Over Votes,0
+fannin:3,,Under Votes,3
+fannin:3,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,132
+fannin:3,GRN,HOWIE HAWKINS / ANGELA WALKER,2
+fannin:3,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",3
+fannin:3,REP,DONALD J. TRUMP / MICHAEL R. PENCE,284
+fannin:4,,BRIAN CARROLL,0
+fannin:4,,Over Votes,1
+fannin:4,,Under Votes,11
+fannin:4,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,247
+fannin:4,GRN,HOWIE HAWKINS / ANGELA WALKER,1
+fannin:4,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",5
+fannin:4,REP,DONALD J. TRUMP / MICHAEL R. PENCE,664
+fannin:5,,BRIAN CARROLL,0
+fannin:5,,Over Votes,0
+fannin:5,,Under Votes,5
+fannin:5,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,63
+fannin:5,GRN,HOWIE HAWKINS / ANGELA WALKER,1
+fannin:5,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",1
+fannin:5,REP,DONALD J. TRUMP / MICHAEL R. PENCE,366
+fannin:6,,BRIAN CARROLL,0
+fannin:6,,Over Votes,0
+fannin:6,,Under Votes,5
+fannin:6,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,85
+fannin:6,GRN,HOWIE HAWKINS / ANGELA WALKER,1
+fannin:6,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",3
+fannin:6,REP,DONALD J. TRUMP / MICHAEL R. PENCE,478
+fannin:7,,BRIAN CARROLL,0
+fannin:7,,Over Votes,0
+fannin:7,,Under Votes,4
+fannin:7,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,53
+fannin:7,GRN,HOWIE HAWKINS / ANGELA WALKER,0
+fannin:7,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",1
+fannin:7,REP,DONALD J. TRUMP / MICHAEL R. PENCE,320
+fannin:9,,BRIAN CARROLL,0
+fannin:9,,Over Votes,0
+fannin:9,,Under Votes,5
+fannin:9,DEM,JOSEPH R. BIDEN / KAMALA D. HARRIS,96
+fannin:9,GRN,HOWIE HAWKINS / ANGELA WALKER,1
+fannin:9,LIB,"JO JORGENSEN / JEREMY ""SPIKE"" COHEN",7
+fannin:9,REP,DONALD J. TRUMP / MICHAEL R. PENCE,611
+franklin:101,,BODDIE/STONEHAM,0
+franklin:101,,CARROLL/PATEL,0
+franklin:101,,CELLA/CELLA,0
+franklin:101,,CUELLAR/MONREAL,0
+franklin:101,,HOEFLING/PRIOR,0
+franklin:101,LIB,JORGENSEN/COHEN,9
+franklin:101,,LA RIVA/PELTIER,0
+franklin:101,,LOEB/JAIRALA,0
+franklin:101,,MORROW/BECKETT,0
+franklin:101,,WELLS/WELLS,0
+franklin:101,DEM,BIDEN/HARRIS,144
+franklin:101,GRN,HAWKINS/WALKER,1
+franklin:101,REP,TRUMP/PENCE,690
+franklin:102,,BODDIE/STONEHAM,0
+franklin:102,,CARROLL/PATEL,0
+franklin:102,,CELLA/CELLA,0
+franklin:102,,CUELLAR/MONREAL,0
+franklin:102,,HOEFLING/PRIOR,0
+franklin:102,LIB,JORGENSEN/COHEN,2
+franklin:102,,LA RIVA/PELTIER,0
+franklin:102,,LOEB/JAIRALA,0
+franklin:102,,MORROW/BECKETT,0
+franklin:102,,WELLS/WELLS,0
+franklin:102,DEM,BIDEN/HARRIS,41
+franklin:102,GRN,HAWKINS/WALKER,0
+franklin:102,REP,TRUMP/PENCE,362
+franklin:201,,BODDIE/STONEHAM,0
+franklin:201,,CARROLL/PATEL,0
+franklin:201,,CELLA/CELLA,0
+franklin:201,,CUELLAR/MONREAL,0
+franklin:201,,HOEFLING/PRIOR,0
+franklin:201,LIB,JORGENSEN/COHEN,1
+franklin:201,,LA RIVA/PELTIER,0
+franklin:201,,LOEB/JAIRALA,0
+franklin:201,,MORROW/BECKETT,0
+franklin:201,,WELLS/WELLS,0
+franklin:201,DEM,BIDEN/HARRIS,56
+franklin:201,GRN,HAWKINS/WALKER,0
+franklin:201,REP,TRUMP/PENCE,385
+franklin:202,,BODDIE/STONEHAM,0
+franklin:202,,CARROLL/PATEL,0
+franklin:202,,CELLA/CELLA,0
+franklin:202,,CUELLAR/MONREAL,0
+franklin:202,,HOEFLING/PRIOR,0
+franklin:202,LIB,JORGENSEN/COHEN,3
+franklin:202,,LA RIVA/PELTIER,0
+franklin:202,,LOEB/JAIRALA,0
+franklin:202,,MORROW/BECKETT,0
+franklin:202,,WELLS/WELLS,0
+franklin:202,DEM,BIDEN/HARRIS,137
+franklin:202,GRN,HAWKINS/WALKER,3
+franklin:202,REP,TRUMP/PENCE,485
+franklin:301,,BODDIE/STONEHAM,0
+franklin:301,,CARROLL/PATEL,0
+franklin:301,,CELLA/CELLA,0
+franklin:301,,CUELLAR/MONREAL,0
+franklin:301,,HOEFLING/PRIOR,0
+franklin:301,LIB,JORGENSEN/COHEN,3
+franklin:301,,LA RIVA/PELTIER,0
+franklin:301,,LOEB/JAIRALA,0
+franklin:301,,MORROW/BECKETT,0
+franklin:301,,WELLS/WELLS,0
+franklin:301,DEM,BIDEN/HARRIS,83
+franklin:301,GRN,HAWKINS/WALKER,0
+franklin:301,REP,TRUMP/PENCE,510
+franklin:302,,BODDIE/STONEHAM,0
+franklin:302,,CARROLL/PATEL,0
+franklin:302,,CELLA/CELLA,0
+franklin:302,,CUELLAR/MONREAL,0
+franklin:302,,HOEFLING/PRIOR,0
+franklin:302,LIB,JORGENSEN/COHEN,6
+franklin:302,,LA RIVA/PELTIER,0
+franklin:302,,LOEB/JAIRALA,0
+franklin:302,,MORROW/BECKETT,0
+franklin:302,,WELLS/WELLS,0
+franklin:302,DEM,BIDEN/HARRIS,96
+franklin:302,GRN,HAWKINS/WALKER,3
+franklin:302,REP,TRUMP/PENCE,489
+franklin:401,,BODDIE/STONEHAM,0
+franklin:401,,CARROLL/PATEL,0
+franklin:401,,CELLA/CELLA,0
+franklin:401,,CUELLAR/MONREAL,0
+franklin:401,,HOEFLING/PRIOR,0
+franklin:401,LIB,JORGENSEN/COHEN,4
+franklin:401,,LA RIVA/PELTIER,0
+franklin:401,,LOEB/JAIRALA,0
+franklin:401,,MORROW/BECKETT,0
+franklin:401,,WELLS/WELLS,0
+franklin:401,DEM,BIDEN/HARRIS,155
+franklin:401,GRN,HAWKINS/WALKER,0
+franklin:401,REP,TRUMP/PENCE,756
+franklin:402,,BODDIE/STONEHAM,0
+franklin:402,,CARROLL/PATEL,0
+franklin:402,,CELLA/CELLA,0
+franklin:402,,CUELLAR/MONREAL,0
+franklin:402,,HOEFLING/PRIOR,0
+franklin:402,LIB,JORGENSEN/COHEN,8
+franklin:402,,LA RIVA/PELTIER,0
+franklin:402,,LOEB/JAIRALA,0
+franklin:402,,MORROW/BECKETT,0
+franklin:402,,WELLS/WELLS,0
+franklin:402,DEM,BIDEN/HARRIS,92
+franklin:402,GRN,HAWKINS/WALKER,1
+franklin:402,REP,TRUMP/PENCE,484
+grayson:101,,Write-in,2
+grayson:101,DEM,Joseph R Biden,1031
+grayson:101,GRN,Howie Hawkins,12
+grayson:101,LIB,Jo Jorgensen,28
+grayson:101,REP,Donald J Trump,1316
+grayson:102,,Write-in,2
+grayson:102,DEM,Joseph R Biden,795
+grayson:102,GRN,Howie Hawkins,3
+grayson:102,LIB,Jo Jorgensen,15
+grayson:102,REP,Donald J Trump,494
+grayson:103,,Write-in,4
+grayson:103,DEM,Joseph R Biden,69
+grayson:103,GRN,Howie Hawkins,1
+grayson:103,LIB,Jo Jorgensen,3
+grayson:103,REP,Donald J Trump,357
+grayson:104,,Write-in,3
+grayson:104,DEM,Joseph R Biden,108
+grayson:104,GRN,Howie Hawkins,0
+grayson:104,LIB,Jo Jorgensen,5
+grayson:104,REP,Donald J Trump,631
+grayson:105,,Write-in,14
+grayson:105,DEM,Joseph R Biden,945
+grayson:105,GRN,Howie Hawkins,6
+grayson:105,LIB,Jo Jorgensen,52
+grayson:105,REP,Donald J Trump,3823
+grayson:106,,Write-in,3
+grayson:106,DEM,Joseph R Biden,382
+grayson:106,GRN,Howie Hawkins,8
+grayson:106,LIB,Jo Jorgensen,25
+grayson:106,REP,Donald J Trump,1688
+grayson:107,,Write-in,3
+grayson:107,DEM,Joseph R Biden,195
+grayson:107,GRN,Howie Hawkins,2
+grayson:107,LIB,Jo Jorgensen,15
+grayson:107,REP,Donald J Trump,1242
+grayson:108,,Write-in,5
+grayson:108,DEM,Joseph R Biden,181
+grayson:108,GRN,Howie Hawkins,2
+grayson:108,LIB,Jo Jorgensen,10
+grayson:108,REP,Donald J Trump,1176
+grayson:201,,Write-in,9
+grayson:201,DEM,Joseph R Biden,721
+grayson:201,GRN,Howie Hawkins,7
+grayson:201,LIB,Jo Jorgensen,33
+grayson:201,REP,Donald J Trump,1507
+grayson:202,,Write-in,3
+grayson:202,DEM,Joseph R Biden,625
+grayson:202,GRN,Howie Hawkins,7
+grayson:202,LIB,Jo Jorgensen,27
+grayson:202,REP,Donald J Trump,1536
+grayson:203,,Write-in,2
+grayson:203,DEM,Joseph R Biden,264
+grayson:203,GRN,Howie Hawkins,8
+grayson:203,LIB,Jo Jorgensen,6
+grayson:203,REP,Donald J Trump,380
+grayson:204,,Write-in,2
+grayson:204,DEM,Joseph R Biden,175
+grayson:204,GRN,Howie Hawkins,4
+grayson:204,LIB,Jo Jorgensen,7
+grayson:204,REP,Donald J Trump,608
+grayson:205,,Write-in,6
+grayson:205,DEM,Joseph R Biden,532
+grayson:205,GRN,Howie Hawkins,6
+grayson:205,LIB,Jo Jorgensen,25
+grayson:205,REP,Donald J Trump,2337
+grayson:206,,Write-in,4
+grayson:206,DEM,Joseph R Biden,283
+grayson:206,GRN,Howie Hawkins,1
+grayson:206,LIB,Jo Jorgensen,8
+grayson:206,REP,Donald J Trump,770
+grayson:207,,Write-in,2
+grayson:207,DEM,Joseph R Biden,145
+grayson:207,GRN,Howie Hawkins,1
+grayson:207,LIB,Jo Jorgensen,7
+grayson:207,REP,Donald J Trump,680
+grayson:208,,Write-in,2
+grayson:208,DEM,Joseph R Biden,250
+grayson:208,GRN,Howie Hawkins,2
+grayson:208,LIB,Jo Jorgensen,13
+grayson:208,REP,Donald J Trump,855
+grayson:209,,Write-in,2
+grayson:209,DEM,Joseph R Biden,153
+grayson:209,GRN,Howie Hawkins,1
+grayson:209,LIB,Jo Jorgensen,7
+grayson:209,REP,Donald J Trump,742
+grayson:210,,Write-in,4
+grayson:210,DEM,Joseph R Biden,209
+grayson:210,GRN,Howie Hawkins,4
+grayson:210,LIB,Jo Jorgensen,18
+grayson:210,REP,Donald J Trump,1337
+grayson:301,,Write-in,4
+grayson:301,DEM,Joseph R Biden,499
+grayson:301,GRN,Howie Hawkins,1
+grayson:301,LIB,Jo Jorgensen,15
+grayson:301,REP,Donald J Trump,907
+grayson:302,,Write-in,12
+grayson:302,DEM,Joseph R Biden,1326
+grayson:302,GRN,Howie Hawkins,10
+grayson:302,LIB,Jo Jorgensen,46
+grayson:302,REP,Donald J Trump,2721
+grayson:303,,Write-in,0
+grayson:303,DEM,Joseph R Biden,124
+grayson:303,GRN,Howie Hawkins,1
+grayson:303,LIB,Jo Jorgensen,6
+grayson:303,REP,Donald J Trump,602
+grayson:304,,Write-in,6
+grayson:304,DEM,Joseph R Biden,676
+grayson:304,GRN,Howie Hawkins,2
+grayson:304,LIB,Jo Jorgensen,29
+grayson:304,REP,Donald J Trump,1290
+grayson:305,,Write-in,1
+grayson:305,DEM,Joseph R Biden,173
+grayson:305,GRN,Howie Hawkins,3
+grayson:305,LIB,Jo Jorgensen,12
+grayson:305,REP,Donald J Trump,957
+grayson:306,,Write-in,2
+grayson:306,DEM,Joseph R Biden,394
+grayson:306,GRN,Howie Hawkins,4
+grayson:306,LIB,Jo Jorgensen,23
+grayson:306,REP,Donald J Trump,2442
+grayson:307,,Write-in,2
+grayson:307,DEM,Joseph R Biden,199
+grayson:307,GRN,Howie Hawkins,4
+grayson:307,LIB,Jo Jorgensen,17
+grayson:307,REP,Donald J Trump,1386
+grayson:308,,Write-in,0
+grayson:308,DEM,Joseph R Biden,146
+grayson:308,GRN,Howie Hawkins,2
+grayson:308,LIB,Jo Jorgensen,14
+grayson:308,REP,Donald J Trump,790
+grayson:309,,Write-in,7
+grayson:309,DEM,Joseph R Biden,112
+grayson:309,GRN,Howie Hawkins,1
+grayson:309,LIB,Jo Jorgensen,9
+grayson:309,REP,Donald J Trump,495
+grayson:401,,Write-in,2
+grayson:401,DEM,Joseph R Biden,488
+grayson:401,GRN,Howie Hawkins,3
+grayson:401,LIB,Jo Jorgensen,16
+grayson:401,REP,Donald J Trump,508
+grayson:402,,Write-in,6
+grayson:402,DEM,Joseph R Biden,514
+grayson:402,GRN,Howie Hawkins,4
+grayson:402,LIB,Jo Jorgensen,18
+grayson:402,REP,Donald J Trump,1202
+grayson:403,,Write-in,4
+grayson:403,DEM,Joseph R Biden,440
+grayson:403,GRN,Howie Hawkins,7
+grayson:403,LIB,Jo Jorgensen,19
+grayson:403,REP,Donald J Trump,1857
+grayson:404,,Write-in,8
+grayson:404,DEM,Joseph R Biden,525
+grayson:404,GRN,Howie Hawkins,5
+grayson:404,LIB,Jo Jorgensen,26
+grayson:404,REP,Donald J Trump,2213
+grayson:405,,Write-in,0
+grayson:405,DEM,Joseph R Biden,133
+grayson:405,GRN,Howie Hawkins,2
+grayson:405,LIB,Jo Jorgensen,3
+grayson:405,REP,Donald J Trump,215
+grayson:406,,Write-in,2
+grayson:406,DEM,Joseph R Biden,312
+grayson:406,GRN,Howie Hawkins,4
+grayson:406,LIB,Jo Jorgensen,15
+grayson:406,REP,Donald J Trump,1861
+grayson:407,,Write-in,0
+grayson:407,DEM,Joseph R Biden,46
+grayson:407,GRN,Howie Hawkins,0
+grayson:407,LIB,Jo Jorgensen,1
+grayson:407,REP,Donald J Trump,51
+grayson:408,,Write-in,1
+grayson:408,DEM,Joseph R Biden,391
+grayson:408,GRN,Howie Hawkins,3
+grayson:408,LIB,Jo Jorgensen,19
+grayson:408,REP,Donald J Trump,971
+grayson:409,,Write-in,8
+grayson:409,DEM,Joseph R Biden,945
+grayson:409,GRN,Howie Hawkins,5
+grayson:409,LIB,Jo Jorgensen,42
+grayson:409,REP,Donald J Trump,2216

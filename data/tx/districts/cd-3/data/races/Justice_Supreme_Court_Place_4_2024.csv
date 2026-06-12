@@ -1,0 +1,693 @@
+precinct,party,candidate,votes
+collin:1,Dem,Christine Vinh Weems,777
+collin:1,Rep,John Devine,1040
+collin:1,,Over Votes,0
+collin:1,,Under Votes,109
+collin:10,Dem,Christine Vinh Weems,94
+collin:10,Rep,John Devine,494
+collin:10,,Over Votes,0
+collin:10,,Under Votes,37
+collin:100,Dem,Christine Vinh Weems,6
+collin:100,Rep,John Devine,1
+collin:100,,Over Votes,0
+collin:100,,Under Votes,1
+collin:101,Dem,Christine Vinh Weems,1260
+collin:101,Rep,John Devine,1449
+collin:101,,Over Votes,0
+collin:101,,Under Votes,156
+collin:102,Dem,Christine Vinh Weems,631
+collin:102,Rep,John Devine,1236
+collin:102,,Over Votes,0
+collin:102,,Under Votes,90
+collin:106,Dem,Christine Vinh Weems,573
+collin:106,Rep,John Devine,607
+collin:106,,Over Votes,0
+collin:106,,Under Votes,75
+collin:107,Dem,Christine Vinh Weems,1166
+collin:107,Rep,John Devine,1105
+collin:107,,Over Votes,0
+collin:107,,Under Votes,146
+collin:11,Dem,Christine Vinh Weems,663
+collin:11,Rep,John Devine,2526
+collin:11,,Over Votes,0
+collin:11,,Under Votes,232
+collin:112,Dem,Christine Vinh Weems,1020
+collin:112,Rep,John Devine,1155
+collin:112,,Over Votes,0
+collin:112,,Under Votes,147
+collin:113,Dem,Christine Vinh Weems,947
+collin:113,Rep,John Devine,989
+collin:113,,Over Votes,0
+collin:113,,Under Votes,151
+collin:114,Dem,Christine Vinh Weems,1143
+collin:114,Rep,John Devine,1720
+collin:114,,Over Votes,0
+collin:114,,Under Votes,199
+collin:116,Dem,Christine Vinh Weems,1510
+collin:116,Rep,John Devine,1829
+collin:116,,Over Votes,0
+collin:116,,Under Votes,214
+collin:117,Dem,Christine Vinh Weems,1304
+collin:117,Rep,John Devine,1432
+collin:117,,Over Votes,0
+collin:117,,Under Votes,198
+collin:118,Dem,Christine Vinh Weems,1170
+collin:118,Rep,John Devine,1631
+collin:118,,Over Votes,0
+collin:118,,Under Votes,195
+collin:119,Dem,Christine Vinh Weems,768
+collin:119,Rep,John Devine,843
+collin:119,,Over Votes,0
+collin:119,,Under Votes,85
+collin:12,Dem,Christine Vinh Weems,535
+collin:12,Rep,John Devine,987
+collin:12,,Over Votes,0
+collin:12,,Under Votes,96
+collin:120,Dem,Christine Vinh Weems,1015
+collin:120,Rep,John Devine,1537
+collin:120,,Over Votes,0
+collin:120,,Under Votes,141
+collin:121,Dem,Christine Vinh Weems,1039
+collin:121,Rep,John Devine,791
+collin:121,,Over Votes,0
+collin:121,,Under Votes,122
+collin:122,Dem,Christine Vinh Weems,1139
+collin:122,Rep,John Devine,2345
+collin:122,,Over Votes,0
+collin:122,,Under Votes,224
+collin:126,Dem,Christine Vinh Weems,1498
+collin:126,Rep,John Devine,1733
+collin:126,,Over Votes,0
+collin:126,,Under Votes,212
+collin:127,Dem,Christine Vinh Weems,1209
+collin:127,Rep,John Devine,1270
+collin:127,,Over Votes,0
+collin:127,,Under Votes,192
+collin:128,Dem,Christine Vinh Weems,543
+collin:128,Rep,John Devine,1730
+collin:128,,Over Votes,0
+collin:128,,Under Votes,122
+collin:129,Dem,Christine Vinh Weems,1262
+collin:129,Rep,John Devine,1618
+collin:129,,Over Votes,0
+collin:129,,Under Votes,192
+collin:13,Dem,Christine Vinh Weems,705
+collin:13,Rep,John Devine,1729
+collin:13,,Over Votes,0
+collin:13,,Under Votes,87
+collin:130,Dem,Christine Vinh Weems,1301
+collin:130,Rep,John Devine,1325
+collin:130,,Over Votes,0
+collin:130,,Under Votes,187
+collin:131,Dem,Christine Vinh Weems,755
+collin:131,Rep,John Devine,1242
+collin:131,,Over Votes,0
+collin:131,,Under Votes,139
+collin:133,Dem,Christine Vinh Weems,724
+collin:133,Rep,John Devine,938
+collin:133,,Over Votes,0
+collin:133,,Under Votes,129
+collin:137,Dem,Christine Vinh Weems,562
+collin:137,Rep,John Devine,796
+collin:137,,Over Votes,0
+collin:137,,Under Votes,60
+collin:140,Dem,Christine Vinh Weems,1160
+collin:140,Rep,John Devine,2250
+collin:140,,Over Votes,0
+collin:140,,Under Votes,181
+collin:141,Dem,Christine Vinh Weems,1169
+collin:141,Rep,John Devine,1198
+collin:141,,Over Votes,0
+collin:141,,Under Votes,144
+collin:144,Dem,Christine Vinh Weems,830
+collin:144,Rep,John Devine,1105
+collin:144,,Over Votes,0
+collin:144,,Under Votes,137
+collin:145,Dem,Christine Vinh Weems,566
+collin:145,Rep,John Devine,573
+collin:145,,Over Votes,0
+collin:145,,Under Votes,98
+collin:146,Dem,Christine Vinh Weems,1415
+collin:146,Rep,John Devine,1583
+collin:146,,Over Votes,0
+collin:146,,Under Votes,235
+collin:147,Dem,Christine Vinh Weems,647
+collin:147,Rep,John Devine,666
+collin:147,,Over Votes,0
+collin:147,,Under Votes,96
+collin:148,Dem,Christine Vinh Weems,320
+collin:148,Rep,John Devine,426
+collin:148,,Over Votes,0
+collin:148,,Under Votes,105
+collin:149,Dem,Christine Vinh Weems,1227
+collin:149,Rep,John Devine,1883
+collin:149,,Over Votes,0
+collin:149,,Under Votes,200
+collin:15,Dem,Christine Vinh Weems,475
+collin:15,Rep,John Devine,434
+collin:15,,Over Votes,0
+collin:15,,Under Votes,72
+collin:150,Dem,Christine Vinh Weems,1397
+collin:150,Rep,John Devine,2366
+collin:150,,Over Votes,0
+collin:150,,Under Votes,185
+collin:151,Dem,Christine Vinh Weems,626
+collin:151,Rep,John Devine,581
+collin:151,,Over Votes,0
+collin:151,,Under Votes,89
+collin:153,Dem,Christine Vinh Weems,1499
+collin:153,Rep,John Devine,1958
+collin:153,,Over Votes,0
+collin:153,,Under Votes,282
+collin:155,Dem,Christine Vinh Weems,803
+collin:155,Rep,John Devine,1207
+collin:155,,Over Votes,0
+collin:155,,Under Votes,119
+collin:156,Dem,Christine Vinh Weems,1059
+collin:156,Rep,John Devine,1329
+collin:156,,Over Votes,0
+collin:156,,Under Votes,181
+collin:157,Dem,Christine Vinh Weems,1428
+collin:157,Rep,John Devine,1502
+collin:157,,Over Votes,0
+collin:157,,Under Votes,181
+collin:159,Dem,Christine Vinh Weems,902
+collin:159,Rep,John Devine,972
+collin:159,,Over Votes,0
+collin:159,,Under Votes,175
+collin:16,Dem,Christine Vinh Weems,1361
+collin:16,Rep,John Devine,2691
+collin:16,,Over Votes,0
+collin:16,,Under Votes,238
+collin:160,Dem,Christine Vinh Weems,65
+collin:160,Rep,John Devine,355
+collin:160,,Over Votes,0
+collin:160,,Under Votes,10
+collin:161,Dem,Christine Vinh Weems,53
+collin:161,Rep,John Devine,129
+collin:161,,Over Votes,0
+collin:161,,Under Votes,10
+collin:162,Dem,Christine Vinh Weems,154
+collin:162,Rep,John Devine,380
+collin:162,,Over Votes,0
+collin:162,,Under Votes,24
+collin:165,Dem,Christine Vinh Weems,237
+collin:165,Rep,John Devine,456
+collin:165,,Over Votes,0
+collin:165,,Under Votes,43
+collin:166,Dem,Christine Vinh Weems,1248
+collin:166,Rep,John Devine,1549
+collin:166,,Over Votes,0
+collin:166,,Under Votes,254
+collin:168,Dem,Christine Vinh Weems,401
+collin:168,Rep,John Devine,938
+collin:168,,Over Votes,0
+collin:168,,Under Votes,79
+collin:169,Dem,Christine Vinh Weems,1141
+collin:169,Rep,John Devine,1176
+collin:169,,Over Votes,0
+collin:169,,Under Votes,168
+collin:17,Dem,Christine Vinh Weems,1372
+collin:17,Rep,John Devine,2311
+collin:17,,Over Votes,0
+collin:17,,Under Votes,219
+collin:170,Dem,Christine Vinh Weems,474
+collin:170,Rep,John Devine,807
+collin:170,,Over Votes,0
+collin:170,,Under Votes,83
+collin:171,Dem,Christine Vinh Weems,868
+collin:171,Rep,John Devine,924
+collin:171,,Over Votes,0
+collin:171,,Under Votes,173
+collin:172,Dem,Christine Vinh Weems,664
+collin:172,Rep,John Devine,1435
+collin:172,,Over Votes,0
+collin:172,,Under Votes,103
+collin:173,Dem,Christine Vinh Weems,139
+collin:173,Rep,John Devine,326
+collin:173,,Over Votes,0
+collin:173,,Under Votes,27
+collin:174,Dem,Christine Vinh Weems,1140
+collin:174,Rep,John Devine,1616
+collin:174,,Over Votes,0
+collin:174,,Under Votes,195
+collin:175,Dem,Christine Vinh Weems,524
+collin:175,Rep,John Devine,875
+collin:175,,Over Votes,0
+collin:175,,Under Votes,93
+collin:178,Dem,Christine Vinh Weems,623
+collin:178,Rep,John Devine,1665
+collin:178,,Over Votes,0
+collin:178,,Under Votes,116
+collin:179,Dem,Christine Vinh Weems,1000
+collin:179,Rep,John Devine,2572
+collin:179,,Over Votes,0
+collin:179,,Under Votes,194
+collin:18,Dem,Christine Vinh Weems,114
+collin:18,Rep,John Devine,520
+collin:18,,Over Votes,0
+collin:18,,Under Votes,37
+collin:181,Dem,Christine Vinh Weems,703
+collin:181,Rep,John Devine,1222
+collin:181,,Over Votes,0
+collin:181,,Under Votes,124
+collin:182,Dem,Christine Vinh Weems,1185
+collin:182,Rep,John Devine,1389
+collin:182,,Over Votes,0
+collin:182,,Under Votes,191
+collin:183,Dem,Christine Vinh Weems,12
+collin:183,Rep,John Devine,63
+collin:183,,Over Votes,0
+collin:183,,Under Votes,5
+collin:185,Dem,Christine Vinh Weems,16
+collin:185,Rep,John Devine,19
+collin:185,,Over Votes,0
+collin:185,,Under Votes,5
+collin:186,Dem,Christine Vinh Weems,12
+collin:186,Rep,John Devine,70
+collin:186,,Over Votes,0
+collin:186,,Under Votes,7
+collin:187,Dem,Christine Vinh Weems,48
+collin:187,Rep,John Devine,375
+collin:187,,Over Votes,0
+collin:187,,Under Votes,24
+collin:188,Dem,Christine Vinh Weems,7
+collin:188,Rep,John Devine,51
+collin:188,,Over Votes,0
+collin:188,,Under Votes,2
+collin:189,Dem,Christine Vinh Weems,166
+collin:189,Rep,John Devine,654
+collin:189,,Over Votes,0
+collin:189,,Under Votes,43
+collin:19,Dem,Christine Vinh Weems,517
+collin:19,Rep,John Devine,633
+collin:19,,Over Votes,0
+collin:19,,Under Votes,58
+collin:190,Dem,Christine Vinh Weems,5
+collin:190,Rep,John Devine,37
+collin:190,,Over Votes,0
+collin:190,,Under Votes,4
+collin:191,Dem,Christine Vinh Weems,205
+collin:191,Rep,John Devine,341
+collin:191,,Over Votes,0
+collin:191,,Under Votes,36
+collin:192,Dem,Christine Vinh Weems,814
+collin:192,Rep,John Devine,2414
+collin:192,,Over Votes,0
+collin:192,,Under Votes,208
+collin:193,Dem,Christine Vinh Weems,188
+collin:193,Rep,John Devine,636
+collin:193,,Over Votes,0
+collin:193,,Under Votes,53
+collin:194,Dem,Christine Vinh Weems,3
+collin:194,Rep,John Devine,12
+collin:194,,Over Votes,0
+collin:194,,Under Votes,4
+collin:195,Dem,Christine Vinh Weems,148
+collin:195,Rep,John Devine,486
+collin:195,,Over Votes,0
+collin:195,,Under Votes,40
+collin:196,Dem,Christine Vinh Weems,535
+collin:196,Rep,John Devine,724
+collin:196,,Over Votes,0
+collin:196,,Under Votes,93
+collin:197,Dem,Christine Vinh Weems,433
+collin:197,Rep,John Devine,372
+collin:197,,Over Votes,0
+collin:197,,Under Votes,53
+collin:198,Dem,Christine Vinh Weems,8
+collin:198,Rep,John Devine,76
+collin:198,,Over Votes,0
+collin:198,,Under Votes,6
+collin:2,Dem,Christine Vinh Weems,1328
+collin:2,Rep,John Devine,1451
+collin:2,,Over Votes,0
+collin:2,,Under Votes,210
+collin:20,Dem,Christine Vinh Weems,508
+collin:20,Rep,John Devine,1086
+collin:20,,Over Votes,0
+collin:20,,Under Votes,90
+collin:200,Dem,Christine Vinh Weems,532
+collin:200,Rep,John Devine,1242
+collin:200,,Over Votes,0
+collin:200,,Under Votes,120
+collin:202,Dem,Christine Vinh Weems,2
+collin:202,Rep,John Devine,0
+collin:202,,Over Votes,0
+collin:202,,Under Votes,0
+collin:203,Dem,Christine Vinh Weems,775
+collin:203,Rep,John Devine,1429
+collin:203,,Over Votes,0
+collin:203,,Under Votes,140
+collin:204,Dem,Christine Vinh Weems,97
+collin:204,Rep,John Devine,169
+collin:204,,Over Votes,0
+collin:204,,Under Votes,16
+collin:205,Dem,Christine Vinh Weems,11
+collin:205,Rep,John Devine,14
+collin:205,,Over Votes,0
+collin:205,,Under Votes,2
+collin:206,Dem,Christine Vinh Weems,501
+collin:206,Rep,John Devine,861
+collin:206,,Over Votes,0
+collin:206,,Under Votes,69
+collin:207,Dem,Christine Vinh Weems,1045
+collin:207,Rep,John Devine,1711
+collin:207,,Over Votes,0
+collin:207,,Under Votes,169
+collin:208,Dem,Christine Vinh Weems,1114
+collin:208,Rep,John Devine,2008
+collin:208,,Over Votes,0
+collin:208,,Under Votes,201
+collin:210,Dem,Christine Vinh Weems,625
+collin:210,Rep,John Devine,562
+collin:210,,Over Votes,0
+collin:210,,Under Votes,103
+collin:211,Dem,Christine Vinh Weems,953
+collin:211,Rep,John Devine,1330
+collin:211,,Over Votes,0
+collin:211,,Under Votes,172
+collin:214,Dem,Christine Vinh Weems,847
+collin:214,Rep,John Devine,2710
+collin:214,,Over Votes,0
+collin:214,,Under Votes,165
+collin:215,Dem,Christine Vinh Weems,719
+collin:215,Rep,John Devine,1208
+collin:215,,Over Votes,0
+collin:215,,Under Votes,165
+collin:216,Dem,Christine Vinh Weems,1011
+collin:216,Rep,John Devine,2384
+collin:216,,Over Votes,0
+collin:216,,Under Votes,170
+collin:217,Dem,Christine Vinh Weems,812
+collin:217,Rep,John Devine,1248
+collin:217,,Over Votes,0
+collin:217,,Under Votes,130
+collin:218,Dem,Christine Vinh Weems,1378
+collin:218,Rep,John Devine,1538
+collin:218,,Over Votes,0
+collin:218,,Under Votes,177
+collin:219,Dem,Christine Vinh Weems,1462
+collin:219,Rep,John Devine,1484
+collin:219,,Over Votes,0
+collin:219,,Under Votes,191
+collin:221,Dem,Christine Vinh Weems,1249
+collin:221,Rep,John Devine,2309
+collin:221,,Over Votes,0
+collin:221,,Under Votes,218
+collin:222,Dem,Christine Vinh Weems,1303
+collin:222,Rep,John Devine,1406
+collin:222,,Over Votes,0
+collin:222,,Under Votes,161
+collin:223,Dem,Christine Vinh Weems,827
+collin:223,Rep,John Devine,925
+collin:223,,Over Votes,0
+collin:223,,Under Votes,87
+collin:224,Dem,Christine Vinh Weems,612
+collin:224,Rep,John Devine,1849
+collin:224,,Over Votes,0
+collin:224,,Under Votes,107
+collin:227,Dem,Christine Vinh Weems,1298
+collin:227,Rep,John Devine,1648
+collin:227,,Over Votes,0
+collin:227,,Under Votes,214
+collin:228,Dem,Christine Vinh Weems,1674
+collin:228,Rep,John Devine,1882
+collin:228,,Over Votes,0
+collin:228,,Under Votes,287
+collin:230,Dem,Christine Vinh Weems,1414
+collin:230,Rep,John Devine,1392
+collin:230,,Over Votes,0
+collin:230,,Under Votes,215
+collin:231,Dem,Christine Vinh Weems,1178
+collin:231,Rep,John Devine,1514
+collin:231,,Over Votes,0
+collin:231,,Under Votes,158
+collin:232,Dem,Christine Vinh Weems,1036
+collin:232,Rep,John Devine,1551
+collin:232,,Over Votes,0
+collin:232,,Under Votes,168
+collin:233,Dem,Christine Vinh Weems,532
+collin:233,Rep,John Devine,819
+collin:233,,Over Votes,0
+collin:233,,Under Votes,92
+collin:234,Dem,Christine Vinh Weems,1275
+collin:234,Rep,John Devine,1158
+collin:234,,Over Votes,0
+collin:234,,Under Votes,152
+collin:236,Dem,Christine Vinh Weems,767
+collin:236,Rep,John Devine,1327
+collin:236,,Over Votes,0
+collin:236,,Under Votes,123
+collin:237,Dem,Christine Vinh Weems,644
+collin:237,Rep,John Devine,747
+collin:237,,Over Votes,0
+collin:237,,Under Votes,131
+collin:238,Dem,Christine Vinh Weems,1267
+collin:238,Rep,John Devine,1138
+collin:238,,Over Votes,0
+collin:238,,Under Votes,178
+collin:239,Dem,Christine Vinh Weems,818
+collin:239,Rep,John Devine,2084
+collin:239,,Over Votes,0
+collin:239,,Under Votes,149
+collin:240,Dem,Christine Vinh Weems,850
+collin:240,Rep,John Devine,2203
+collin:240,,Over Votes,0
+collin:240,,Under Votes,159
+collin:241,Dem,Christine Vinh Weems,463
+collin:241,Rep,John Devine,572
+collin:241,,Over Votes,0
+collin:241,,Under Votes,80
+collin:242,Dem,Christine Vinh Weems,1084
+collin:242,Rep,John Devine,1355
+collin:242,,Over Votes,0
+collin:242,,Under Votes,165
+collin:243,Dem,Christine Vinh Weems,356
+collin:243,Rep,John Devine,854
+collin:243,,Over Votes,0
+collin:243,,Under Votes,62
+collin:244,Dem,Christine Vinh Weems,923
+collin:244,Rep,John Devine,1269
+collin:244,,Over Votes,0
+collin:244,,Under Votes,145
+collin:246,Dem,Christine Vinh Weems,904
+collin:246,Rep,John Devine,1114
+collin:246,,Over Votes,0
+collin:246,,Under Votes,119
+collin:247,Dem,Christine Vinh Weems,511
+collin:247,Rep,John Devine,1282
+collin:247,,Over Votes,0
+collin:247,,Under Votes,83
+collin:249,Dem,Christine Vinh Weems,1050
+collin:249,Rep,John Devine,1834
+collin:249,,Over Votes,0
+collin:249,,Under Votes,169
+collin:25,Dem,Christine Vinh Weems,1293
+collin:25,Rep,John Devine,1368
+collin:25,,Over Votes,0
+collin:25,,Under Votes,239
+collin:251,Dem,Christine Vinh Weems,571
+collin:251,Rep,John Devine,1181
+collin:251,,Over Votes,0
+collin:251,,Under Votes,100
+collin:252,Dem,Christine Vinh Weems,645
+collin:252,Rep,John Devine,1564
+collin:252,,Over Votes,0
+collin:252,,Under Votes,129
+collin:27,Dem,Christine Vinh Weems,702
+collin:27,Rep,John Devine,1044
+collin:27,,Over Votes,0
+collin:27,,Under Votes,134
+collin:28,Dem,Christine Vinh Weems,1168
+collin:28,Rep,John Devine,1147
+collin:28,,Over Votes,0
+collin:28,,Under Votes,130
+collin:3,Dem,Christine Vinh Weems,790
+collin:3,Rep,John Devine,441
+collin:3,,Over Votes,0
+collin:3,,Under Votes,132
+collin:31,Dem,Christine Vinh Weems,665
+collin:31,Rep,John Devine,846
+collin:31,,Over Votes,0
+collin:31,,Under Votes,66
+collin:32,Dem,Christine Vinh Weems,787
+collin:32,Rep,John Devine,964
+collin:32,,Over Votes,0
+collin:32,,Under Votes,114
+collin:33,Dem,Christine Vinh Weems,1476
+collin:33,Rep,John Devine,3032
+collin:33,,Over Votes,0
+collin:33,,Under Votes,306
+collin:34,Dem,Christine Vinh Weems,1577
+collin:34,Rep,John Devine,1281
+collin:34,,Over Votes,0
+collin:34,,Under Votes,183
+collin:35,Dem,Christine Vinh Weems,213
+collin:35,Rep,John Devine,1002
+collin:35,,Over Votes,0
+collin:35,,Under Votes,78
+collin:37,Dem,Christine Vinh Weems,282
+collin:37,Rep,John Devine,1577
+collin:37,,Over Votes,0
+collin:37,,Under Votes,107
+collin:38,Dem,Christine Vinh Weems,1124
+collin:38,Rep,John Devine,1094
+collin:38,,Over Votes,0
+collin:38,,Under Votes,169
+collin:4,Dem,Christine Vinh Weems,881
+collin:4,Rep,John Devine,1829
+collin:4,,Over Votes,0
+collin:4,,Under Votes,148
+collin:40,Dem,Christine Vinh Weems,889
+collin:40,Rep,John Devine,1530
+collin:40,,Over Votes,0
+collin:40,,Under Votes,137
+collin:41,Dem,Christine Vinh Weems,1204
+collin:41,Rep,John Devine,2430
+collin:41,,Over Votes,0
+collin:41,,Under Votes,192
+collin:42,Dem,Christine Vinh Weems,366
+collin:42,Rep,John Devine,1094
+collin:42,,Over Votes,0
+collin:42,,Under Votes,88
+collin:43,Dem,Christine Vinh Weems,991
+collin:43,Rep,John Devine,974
+collin:43,,Over Votes,0
+collin:43,,Under Votes,156
+collin:44,Dem,Christine Vinh Weems,414
+collin:44,Rep,John Devine,434
+collin:44,,Over Votes,0
+collin:44,,Under Votes,76
+collin:45,Dem,Christine Vinh Weems,880
+collin:45,Rep,John Devine,1450
+collin:45,,Over Votes,0
+collin:45,,Under Votes,145
+collin:47,Dem,Christine Vinh Weems,929
+collin:47,Rep,John Devine,794
+collin:47,,Over Votes,0
+collin:47,,Under Votes,99
+collin:5,Dem,Christine Vinh Weems,220
+collin:5,Rep,John Devine,454
+collin:5,,Over Votes,0
+collin:5,,Under Votes,59
+collin:53,Dem,Christine Vinh Weems,778
+collin:53,Rep,John Devine,816
+collin:53,,Over Votes,0
+collin:53,,Under Votes,68
+collin:56,Dem,Christine Vinh Weems,858
+collin:56,Rep,John Devine,1403
+collin:56,,Over Votes,0
+collin:56,,Under Votes,168
+collin:57,Dem,Christine Vinh Weems,1409
+collin:57,Rep,John Devine,1825
+collin:57,,Over Votes,0
+collin:57,,Under Votes,221
+collin:59,Dem,Christine Vinh Weems,1035
+collin:59,Rep,John Devine,1499
+collin:59,,Over Votes,0
+collin:59,,Under Votes,191
+collin:6,Dem,Christine Vinh Weems,540
+collin:6,Rep,John Devine,495
+collin:6,,Over Votes,0
+collin:6,,Under Votes,74
+collin:60,Dem,Christine Vinh Weems,854
+collin:60,Rep,John Devine,1488
+collin:60,,Over Votes,0
+collin:60,,Under Votes,147
+collin:61,Dem,Christine Vinh Weems,502
+collin:61,Rep,John Devine,652
+collin:61,,Over Votes,0
+collin:61,,Under Votes,60
+collin:63,Dem,Christine Vinh Weems,645
+collin:63,Rep,John Devine,877
+collin:63,,Over Votes,0
+collin:63,,Under Votes,82
+collin:64,Dem,Christine Vinh Weems,856
+collin:64,Rep,John Devine,858
+collin:64,,Over Votes,0
+collin:64,,Under Votes,126
+collin:65,Dem,Christine Vinh Weems,403
+collin:65,Rep,John Devine,403
+collin:65,,Over Votes,0
+collin:65,,Under Votes,41
+collin:69,Dem,Christine Vinh Weems,1263
+collin:69,Rep,John Devine,1434
+collin:69,,Over Votes,0
+collin:69,,Under Votes,134
+collin:7,Dem,Christine Vinh Weems,432
+collin:7,Rep,John Devine,523
+collin:7,,Over Votes,0
+collin:7,,Under Votes,80
+collin:71,Dem,Christine Vinh Weems,602
+collin:71,Rep,John Devine,650
+collin:71,,Over Votes,0
+collin:71,,Under Votes,62
+collin:76,Dem,Christine Vinh Weems,1001
+collin:76,Rep,John Devine,1225
+collin:76,,Over Votes,0
+collin:76,,Under Votes,137
+collin:8,Dem,Christine Vinh Weems,1372
+collin:8,Rep,John Devine,2474
+collin:8,,Over Votes,0
+collin:8,,Under Votes,283
+collin:80,Dem,Christine Vinh Weems,1085
+collin:80,Rep,John Devine,1254
+collin:80,,Over Votes,0
+collin:80,,Under Votes,170
+collin:81,Dem,Christine Vinh Weems,1013
+collin:81,Rep,John Devine,898
+collin:81,,Over Votes,0
+collin:81,,Under Votes,120
+collin:82,Dem,Christine Vinh Weems,896
+collin:82,Rep,John Devine,856
+collin:82,,Over Votes,0
+collin:82,,Under Votes,118
+collin:83,Dem,Christine Vinh Weems,938
+collin:83,Rep,John Devine,1816
+collin:83,,Over Votes,0
+collin:83,,Under Votes,160
+collin:86,Dem,Christine Vinh Weems,979
+collin:86,Rep,John Devine,1096
+collin:86,,Over Votes,0
+collin:86,,Under Votes,119
+collin:87,Dem,Christine Vinh Weems,1256
+collin:87,Rep,John Devine,1079
+collin:87,,Over Votes,0
+collin:87,,Under Votes,196
+collin:9,Dem,Christine Vinh Weems,1253
+collin:9,Rep,John Devine,1788
+collin:9,,Over Votes,0
+collin:9,,Under Votes,212
+collin:90,Dem,Christine Vinh Weems,858
+collin:90,Rep,John Devine,1404
+collin:90,,Over Votes,0
+collin:90,,Under Votes,138
+collin:91,Dem,Christine Vinh Weems,805
+collin:91,Rep,John Devine,768
+collin:91,,Over Votes,0
+collin:91,,Under Votes,86
+collin:93,Dem,Christine Vinh Weems,25
+collin:93,Rep,John Devine,186
+collin:93,,Over Votes,0
+collin:93,,Under Votes,11
+collin:95,Dem,Christine Vinh Weems,1002
+collin:95,Rep,John Devine,1065
+collin:95,,Over Votes,0
+collin:95,,Under Votes,170
+collin:96,Dem,Christine Vinh Weems,313
+collin:96,Rep,John Devine,414
+collin:96,,Over Votes,0
+collin:96,,Under Votes,55
+collin:97,Dem,Christine Vinh Weems,291
+collin:97,Rep,John Devine,720
+collin:97,,Over Votes,0
+collin:97,,Under Votes,59
+collin:98,Dem,Christine Vinh Weems,425
+collin:98,Rep,John Devine,532
+collin:98,,Over Votes,0
+collin:98,,Under Votes,62
+collin:99,Dem,Christine Vinh Weems,140
+collin:99,Rep,John Devine,96
+collin:99,,Over Votes,0
+collin:99,,Under Votes,21

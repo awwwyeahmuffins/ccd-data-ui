@@ -1,0 +1,439 @@
+precinct,party,candidate,votes
+armstrong:101,DEM,Beto O'Rourke,14
+armstrong:101,GRN,Delilah Barrios,1
+armstrong:101,LIB,Mark Tippetts,1
+armstrong:101,REP,Greg Abbott,216
+armstrong:201,DEM,Beto O'Rourke,10
+armstrong:201,GRN,Delilah Barrios,0
+armstrong:201,LIB,Mark Tippetts,1
+armstrong:201,REP,Greg Abbott,117
+armstrong:202,DEM,Beto O'Rourke,10
+armstrong:202,GRN,Delilah Barrios,0
+armstrong:202,LIB,Mark Tippetts,0
+armstrong:202,REP,Greg Abbott,44
+armstrong:301,DEM,Beto O'Rourke,13
+armstrong:301,GRN,Delilah Barrios,0
+armstrong:301,LIB,Mark Tippetts,3
+armstrong:301,REP,Greg Abbott,172
+armstrong:303,DEM,Beto O'Rourke,4
+armstrong:303,GRN,Delilah Barrios,0
+armstrong:303,LIB,Mark Tippetts,0
+armstrong:303,REP,Greg Abbott,33
+armstrong:401,DEM,Beto O'Rourke,3
+armstrong:401,GRN,Delilah Barrios,0
+armstrong:401,LIB,Mark Tippetts,0
+armstrong:401,REP,Greg Abbott,129
+armstrong:402,DEM,Beto O'Rourke,6
+armstrong:402,GRN,Delilah Barrios,0
+armstrong:402,LIB,Mark Tippetts,3
+armstrong:402,REP,Greg Abbott,100
+armstrong:404,DEM,Beto O'Rourke,0
+armstrong:404,GRN,Delilah Barrios,0
+armstrong:404,LIB,Mark Tippetts,1
+armstrong:404,REP,Greg Abbott,20
+dallam:1,DEM,Beto O'Rourke,8
+dallam:1,GRN,Delilah Barrios,0
+dallam:1,LIB,Mark Tippetts,6
+dallam:1,REP,Greg Abbott,163
+dallam:2,DEM,Beto O'Rourke,1
+dallam:2,GRN,Delilah Barrios,1
+dallam:2,LIB,Mark Tippetts,0
+dallam:2,REP,Greg Abbott,43
+dallam:3,DEM,Beto O'Rourke,0
+dallam:3,GRN,Delilah Barrios,0
+dallam:3,LIB,Mark Tippetts,0
+dallam:3,REP,Greg Abbott,17
+dallam:4,DEM,Beto O'Rourke,0
+dallam:4,GRN,Delilah Barrios,0
+dallam:4,LIB,Mark Tippetts,0
+dallam:4,REP,Greg Abbott,22
+dallam:5,DEM,Beto O'Rourke,1
+dallam:5,GRN,Delilah Barrios,0
+dallam:5,LIB,Mark Tippetts,0
+dallam:5,REP,Greg Abbott,16
+dallam:6,DEM,Beto O'Rourke,10
+dallam:6,GRN,Delilah Barrios,0
+dallam:6,LIB,Mark Tippetts,0
+dallam:6,REP,Greg Abbott,113
+dallam:7,DEM,Beto O'Rourke,26
+dallam:7,GRN,Delilah Barrios,0
+dallam:7,LIB,Mark Tippetts,1
+dallam:7,REP,Greg Abbott,183
+dallam:8,DEM,Beto O'Rourke,17
+dallam:8,GRN,Delilah Barrios,2
+dallam:8,LIB,Mark Tippetts,2
+dallam:8,REP,Greg Abbott,232
+dallam:9,DEM,Beto O'Rourke,15
+dallam:9,GRN,Delilah Barrios,2
+dallam:9,LIB,Mark Tippetts,0
+dallam:9,REP,Greg Abbott,169
+hartley:101,DEM,Beto O'Rourke,5
+hartley:101,GRN,Delilah Barrios,0
+hartley:101,LIB,Mark Tippetts,1
+hartley:101,REP,Greg Abbott,169
+hartley:102,DEM,Beto O'Rourke,10
+hartley:102,GRN,Delilah Barrios,0
+hartley:102,LIB,Mark Tippetts,0
+hartley:102,REP,Greg Abbott,196
+hartley:201,DEM,Beto O'Rourke,5
+hartley:201,GRN,Delilah Barrios,0
+hartley:201,LIB,Mark Tippetts,0
+hartley:201,REP,Greg Abbott,127
+hartley:202,DEM,Beto O'Rourke,11
+hartley:202,GRN,Delilah Barrios,0
+hartley:202,LIB,Mark Tippetts,4
+hartley:202,REP,Greg Abbott,257
+hartley:301,DEM,Beto O'Rourke,39
+hartley:301,GRN,Delilah Barrios,0
+hartley:301,LIB,Mark Tippetts,5
+hartley:301,REP,Greg Abbott,376
+hartley:401,DEM,Beto O'Rourke,26
+hartley:401,GRN,Delilah Barrios,3
+hartley:401,LIB,Mark Tippetts,2
+hartley:401,REP,Greg Abbott,338
+oldham:101,,Over Votes,0
+oldham:101,,Under Votes,0
+oldham:101,,Write-in,0
+oldham:101,DEM,Beto O'Rourke,13
+oldham:101,GRN,Delilah Barrios,1
+oldham:101,LIB,Mark Tippetts,1
+oldham:101,REP,Greg Abbott,81
+oldham:103,,Over Votes,0
+oldham:103,,Under Votes,0
+oldham:103,,Write-in,0
+oldham:103,DEM,Beto O'Rourke,1
+oldham:103,GRN,Delilah Barrios,0
+oldham:103,LIB,Mark Tippetts,0
+oldham:103,REP,Greg Abbott,92
+oldham:202,,Over Votes,0
+oldham:202,,Under Votes,0
+oldham:202,,Write-in,0
+oldham:202,DEM,Beto O'Rourke,10
+oldham:202,GRN,Delilah Barrios,0
+oldham:202,LIB,Mark Tippetts,2
+oldham:202,REP,Greg Abbott,87
+oldham:203,,Over Votes,0
+oldham:203,,Under Votes,0
+oldham:203,,Write-in,0
+oldham:203,DEM,Beto O'Rourke,6
+oldham:203,GRN,Delilah Barrios,1
+oldham:203,LIB,Mark Tippetts,1
+oldham:203,REP,Greg Abbott,132
+oldham:303,,Over Votes,0
+oldham:303,,Under Votes,0
+oldham:303,,Write-in,0
+oldham:303,DEM,Beto O'Rourke,13
+oldham:303,GRN,Delilah Barrios,1
+oldham:303,LIB,Mark Tippetts,1
+oldham:303,REP,Greg Abbott,147
+oldham:403,,Over Votes,0
+oldham:403,,Under Votes,1
+oldham:403,,Write-in,0
+oldham:403,DEM,Beto O'Rourke,3
+oldham:403,GRN,Delilah Barrios,0
+oldham:403,LIB,Mark Tippetts,2
+oldham:403,REP,Greg Abbott,74
+oldham:404,,Over Votes,0
+oldham:404,,Under Votes,1
+oldham:404,,Write-in,0
+oldham:404,DEM,Beto O'Rourke,4
+oldham:404,GRN,Delilah Barrios,0
+oldham:404,LIB,Mark Tippetts,0
+oldham:404,REP,Greg Abbott,97
+parmer:101,,Over Votes,0
+parmer:101,,Under Votes,2
+parmer:101,,Write-in,0
+parmer:101,DEM,Beto O'Rourke,56
+parmer:101,GRN,Delilah Barrios,5
+parmer:101,LIB,Mark Tippetts,2
+parmer:101,REP,Greg Abbott,423
+parmer:201,,Over Votes,0
+parmer:201,,Under Votes,3
+parmer:201,,Write-in,0
+parmer:201,DEM,Beto O'Rourke,47
+parmer:201,GRN,Delilah Barrios,2
+parmer:201,LIB,Mark Tippetts,2
+parmer:201,REP,Greg Abbott,172
+parmer:202,,Over Votes,0
+parmer:202,,Under Votes,0
+parmer:202,,Write-in,0
+parmer:202,DEM,Beto O'Rourke,5
+parmer:202,GRN,Delilah Barrios,1
+parmer:202,LIB,Mark Tippetts,1
+parmer:202,REP,Greg Abbott,155
+parmer:301,,Over Votes,0
+parmer:301,,Under Votes,0
+parmer:301,,Write-in,0
+parmer:301,DEM,Beto O'Rourke,58
+parmer:301,GRN,Delilah Barrios,1
+parmer:301,LIB,Mark Tippetts,4
+parmer:301,REP,Greg Abbott,564
+parmer:303,,Over Votes,0
+parmer:303,,Under Votes,0
+parmer:303,,Write-in,0
+parmer:303,DEM,Beto O'Rourke,0
+parmer:303,GRN,Delilah Barrios,0
+parmer:303,LIB,Mark Tippetts,0
+parmer:303,REP,Greg Abbott,18
+parmer:401,,Over Votes,0
+parmer:401,,Under Votes,0
+parmer:401,,Write-in,0
+parmer:401,DEM,Beto O'Rourke,5
+parmer:401,GRN,Delilah Barrios,0
+parmer:401,LIB,Mark Tippetts,0
+parmer:401,REP,Greg Abbott,144
+parmer:402,,Over Votes,0
+parmer:402,,Under Votes,0
+parmer:402,,Write-in,0
+parmer:402,DEM,Beto O'Rourke,31
+parmer:402,GRN,Delilah Barrios,1
+parmer:402,LIB,Mark Tippetts,1
+parmer:402,REP,Greg Abbott,70
+randall:103,,Jacqueline Abernathy,0
+randall:103,,Mark V. Goloby,0
+randall:103,,Rejected write-ins,0
+randall:103,,Unassigned write-ins,0
+randall:103,DEM,Beto O'Rourke,130
+randall:103,GRN,Delilah Barrios,2
+randall:103,LIB,Mark Tippetts,4
+randall:103,REP,Greg Abbott,194
+randall:110,,Jacqueline Abernathy,0
+randall:110,,Mark V. Goloby,0
+randall:110,,Rejected write-ins,0
+randall:110,,Unassigned write-ins,0
+randall:110,DEM,Beto O'Rourke,189
+randall:110,GRN,Delilah Barrios,3
+randall:110,LIB,Mark Tippetts,10
+randall:110,REP,Greg Abbott,1720
+randall:111,,Jacqueline Abernathy,0
+randall:111,,Mark V. Goloby,0
+randall:111,,Rejected write-ins,0
+randall:111,,Unassigned write-ins,0
+randall:111,DEM,Beto O'Rourke,420
+randall:111,GRN,Delilah Barrios,4
+randall:111,LIB,Mark Tippetts,12
+randall:111,REP,Greg Abbott,1237
+randall:112,,Jacqueline Abernathy,0
+randall:112,,Mark V. Goloby,0
+randall:112,,Rejected write-ins,1
+randall:112,,Unassigned write-ins,0
+randall:112,DEM,Beto O'Rourke,328
+randall:112,GRN,Delilah Barrios,6
+randall:112,LIB,Mark Tippetts,20
+randall:112,REP,Greg Abbott,929
+randall:114,,Jacqueline Abernathy,1
+randall:114,,Mark V. Goloby,0
+randall:114,,Rejected write-ins,1
+randall:114,,Unassigned write-ins,0
+randall:114,DEM,Beto O'Rourke,378
+randall:114,GRN,Delilah Barrios,8
+randall:114,LIB,Mark Tippetts,20
+randall:114,REP,Greg Abbott,1101
+randall:123,,Jacqueline Abernathy,0
+randall:123,,Mark V. Goloby,0
+randall:123,,Rejected write-ins,0
+randall:123,,Unassigned write-ins,0
+randall:123,DEM,Beto O'Rourke,44
+randall:123,GRN,Delilah Barrios,1
+randall:123,LIB,Mark Tippetts,3
+randall:123,REP,Greg Abbott,586
+randall:131,,Jacqueline Abernathy,0
+randall:131,,Mark V. Goloby,0
+randall:131,,Rejected write-ins,0
+randall:131,,Unassigned write-ins,0
+randall:131,DEM,Beto O'Rourke,122
+randall:131,GRN,Delilah Barrios,2
+randall:131,LIB,Mark Tippetts,6
+randall:131,REP,Greg Abbott,953
+randall:204,,Jacqueline Abernathy,0
+randall:204,,Mark V. Goloby,0
+randall:204,,Rejected write-ins,1
+randall:204,,Unassigned write-ins,0
+randall:204,DEM,Beto O'Rourke,393
+randall:204,GRN,Delilah Barrios,4
+randall:204,LIB,Mark Tippetts,20
+randall:204,REP,Greg Abbott,2053
+randall:208,,Jacqueline Abernathy,0
+randall:208,,Mark V. Goloby,0
+randall:208,,Rejected write-ins,0
+randall:208,,Unassigned write-ins,0
+randall:208,DEM,Beto O'Rourke,75
+randall:208,GRN,Delilah Barrios,0
+randall:208,LIB,Mark Tippetts,6
+randall:208,REP,Greg Abbott,823
+randall:216,,Jacqueline Abernathy,0
+randall:216,,Mark V. Goloby,0
+randall:216,,Rejected write-ins,1
+randall:216,,Unassigned write-ins,0
+randall:216,DEM,Beto O'Rourke,228
+randall:216,GRN,Delilah Barrios,0
+randall:216,LIB,Mark Tippetts,7
+randall:216,REP,Greg Abbott,660
+randall:222,,Jacqueline Abernathy,0
+randall:222,,Mark V. Goloby,0
+randall:222,,Rejected write-ins,0
+randall:222,,Unassigned write-ins,0
+randall:222,DEM,Beto O'Rourke,439
+randall:222,GRN,Delilah Barrios,3
+randall:222,LIB,Mark Tippetts,30
+randall:222,REP,Greg Abbott,2008
+randall:227,,Jacqueline Abernathy,0
+randall:227,,Mark V. Goloby,0
+randall:227,,Rejected write-ins,0
+randall:227,,Unassigned write-ins,0
+randall:227,DEM,Beto O'Rourke,316
+randall:227,GRN,Delilah Barrios,2
+randall:227,LIB,Mark Tippetts,18
+randall:227,REP,Greg Abbott,1780
+randall:228,,Jacqueline Abernathy,2
+randall:228,,Mark V. Goloby,0
+randall:228,,Rejected write-ins,0
+randall:228,,Unassigned write-ins,0
+randall:228,DEM,Beto O'Rourke,522
+randall:228,GRN,Delilah Barrios,3
+randall:228,LIB,Mark Tippetts,20
+randall:228,REP,Greg Abbott,2334
+randall:230,,Jacqueline Abernathy,0
+randall:230,,Mark V. Goloby,0
+randall:230,,Rejected write-ins,1
+randall:230,,Unassigned write-ins,0
+randall:230,DEM,Beto O'Rourke,457
+randall:230,GRN,Delilah Barrios,8
+randall:230,LIB,Mark Tippetts,28
+randall:230,REP,Greg Abbott,2257
+randall:301,,Jacqueline Abernathy,0
+randall:301,,Mark V. Goloby,0
+randall:301,,Rejected write-ins,0
+randall:301,,Unassigned write-ins,0
+randall:301,DEM,Beto O'Rourke,79
+randall:301,GRN,Delilah Barrios,4
+randall:301,LIB,Mark Tippetts,9
+randall:301,REP,Greg Abbott,973
+randall:302,,Jacqueline Abernathy,0
+randall:302,,Mark V. Goloby,0
+randall:302,,Rejected write-ins,0
+randall:302,,Unassigned write-ins,0
+randall:302,DEM,Beto O'Rourke,263
+randall:302,GRN,Delilah Barrios,6
+randall:302,LIB,Mark Tippetts,13
+randall:302,REP,Greg Abbott,1111
+randall:305,,Jacqueline Abernathy,0
+randall:305,,Mark V. Goloby,0
+randall:305,,Rejected write-ins,0
+randall:305,,Unassigned write-ins,0
+randall:305,DEM,Beto O'Rourke,309
+randall:305,GRN,Delilah Barrios,3
+randall:305,LIB,Mark Tippetts,20
+randall:305,REP,Greg Abbott,1032
+randall:306,,Jacqueline Abernathy,0
+randall:306,,Mark V. Goloby,0
+randall:306,,Rejected write-ins,1
+randall:306,,Unassigned write-ins,0
+randall:306,DEM,Beto O'Rourke,244
+randall:306,GRN,Delilah Barrios,5
+randall:306,LIB,Mark Tippetts,11
+randall:306,REP,Greg Abbott,1308
+randall:307,,Jacqueline Abernathy,1
+randall:307,,Mark V. Goloby,0
+randall:307,,Rejected write-ins,0
+randall:307,,Unassigned write-ins,0
+randall:307,DEM,Beto O'Rourke,64
+randall:307,GRN,Delilah Barrios,2
+randall:307,LIB,Mark Tippetts,6
+randall:307,REP,Greg Abbott,606
+randall:309,,Jacqueline Abernathy,0
+randall:309,,Mark V. Goloby,0
+randall:309,,Rejected write-ins,1
+randall:309,,Unassigned write-ins,0
+randall:309,DEM,Beto O'Rourke,176
+randall:309,GRN,Delilah Barrios,3
+randall:309,LIB,Mark Tippetts,23
+randall:309,REP,Greg Abbott,1621
+randall:315,,Jacqueline Abernathy,0
+randall:315,,Mark V. Goloby,0
+randall:315,,Rejected write-ins,1
+randall:315,,Unassigned write-ins,0
+randall:315,DEM,Beto O'Rourke,15
+randall:315,GRN,Delilah Barrios,0
+randall:315,LIB,Mark Tippetts,0
+randall:315,REP,Greg Abbott,173
+randall:317,,Jacqueline Abernathy,0
+randall:317,,Mark V. Goloby,0
+randall:317,,Rejected write-ins,0
+randall:317,,Unassigned write-ins,0
+randall:317,DEM,Beto O'Rourke,8
+randall:317,GRN,Delilah Barrios,0
+randall:317,LIB,Mark Tippetts,0
+randall:317,REP,Greg Abbott,29
+randall:324,,Jacqueline Abernathy,0
+randall:324,,Mark V. Goloby,0
+randall:324,,Rejected write-ins,0
+randall:324,,Unassigned write-ins,0
+randall:324,DEM,Beto O'Rourke,449
+randall:324,GRN,Delilah Barrios,2
+randall:324,LIB,Mark Tippetts,25
+randall:324,REP,Greg Abbott,2362
+randall:325,,Jacqueline Abernathy,0
+randall:325,,Mark V. Goloby,0
+randall:325,,Rejected write-ins,0
+randall:325,,Unassigned write-ins,0
+randall:325,DEM,Beto O'Rourke,149
+randall:325,GRN,Delilah Barrios,1
+randall:325,LIB,Mark Tippetts,13
+randall:325,REP,Greg Abbott,1244
+randall:332,,Jacqueline Abernathy,0
+randall:332,,Mark V. Goloby,0
+randall:332,,Rejected write-ins,1
+randall:332,,Unassigned write-ins,0
+randall:332,DEM,Beto O'Rourke,112
+randall:332,GRN,Delilah Barrios,2
+randall:332,LIB,Mark Tippetts,7
+randall:332,REP,Greg Abbott,1322
+randall:415,,Jacqueline Abernathy,1
+randall:415,,Mark V. Goloby,0
+randall:415,,Rejected write-ins,1
+randall:415,,Unassigned write-ins,0
+randall:415,DEM,Beto O'Rourke,352
+randall:415,GRN,Delilah Barrios,1
+randall:415,LIB,Mark Tippetts,13
+randall:415,REP,Greg Abbott,1310
+randall:418,,Jacqueline Abernathy,0
+randall:418,,Mark V. Goloby,0
+randall:418,,Rejected write-ins,0
+randall:418,,Unassigned write-ins,0
+randall:418,DEM,Beto O'Rourke,369
+randall:418,GRN,Delilah Barrios,2
+randall:418,LIB,Mark Tippetts,22
+randall:418,REP,Greg Abbott,1171
+randall:420,,Jacqueline Abernathy,1
+randall:420,,Mark V. Goloby,0
+randall:420,,Rejected write-ins,2
+randall:420,,Unassigned write-ins,0
+randall:420,DEM,Beto O'Rourke,368
+randall:420,GRN,Delilah Barrios,6
+randall:420,LIB,Mark Tippetts,18
+randall:420,REP,Greg Abbott,1569
+randall:421,,Jacqueline Abernathy,1
+randall:421,,Mark V. Goloby,0
+randall:421,,Rejected write-ins,0
+randall:421,,Unassigned write-ins,0
+randall:421,DEM,Beto O'Rourke,325
+randall:421,GRN,Delilah Barrios,8
+randall:421,LIB,Mark Tippetts,12
+randall:421,REP,Greg Abbott,1161
+randall:426,,Jacqueline Abernathy,0
+randall:426,,Mark V. Goloby,0
+randall:426,,Rejected write-ins,0
+randall:426,,Unassigned write-ins,0
+randall:426,DEM,Beto O'Rourke,349
+randall:426,GRN,Delilah Barrios,5
+randall:426,LIB,Mark Tippetts,21
+randall:426,REP,Greg Abbott,2002
+randall:429,,Jacqueline Abernathy,1
+randall:429,,Mark V. Goloby,0
+randall:429,,Rejected write-ins,1
+randall:429,,Unassigned write-ins,0
+randall:429,DEM,Beto O'Rourke,556
+randall:429,GRN,Delilah Barrios,2
+randall:429,LIB,Mark Tippetts,25
+randall:429,REP,Greg Abbott,1614

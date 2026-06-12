@@ -1,0 +1,17 @@
+precinct,party,candidate,votes
+deaf-smith:1,,Overvotes:,0
+deaf-smith:1,,Undervotes:,32
+deaf-smith:1,DEM,Kathy Cheng,242
+deaf-smith:1,REP,Jane Bland,562
+deaf-smith:2,,Overvotes:,0
+deaf-smith:2,,Undervotes:,31
+deaf-smith:2,DEM,Kathy Cheng,314
+deaf-smith:2,REP,Jane Bland,546
+deaf-smith:3,,Overvotes:,1
+deaf-smith:3,,Undervotes:,49
+deaf-smith:3,DEM,Kathy Cheng,330
+deaf-smith:3,REP,Jane Bland,1505
+deaf-smith:4,,Overvotes:,0
+deaf-smith:4,,Undervotes:,39
+deaf-smith:4,DEM,Kathy Cheng,313
+deaf-smith:4,REP,Jane Bland,677

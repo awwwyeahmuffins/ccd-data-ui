@@ -1,0 +1,28 @@
+precinct,party,candidate,votes
+loving:1,DEM,Amy Clark Meachum,2
+loving:1,LIB,Mark Ash,1
+loving:1,REP,Nathan Hecht,14
+loving:2,DEM,Amy Clark Meachum,2
+loving:2,LIB,Mark Ash,0
+loving:2,REP,Nathan Hecht,10
+loving:3,DEM,Amy Clark Meachum,0
+loving:3,LIB,Mark Ash,0
+loving:3,REP,Nathan Hecht,26
+loving:4,DEM,Amy Clark Meachum,1
+loving:4,LIB,Mark Ash,1
+loving:4,REP,Nathan Hecht,6
+winkler:101,DEM,Amy Clark Meachum,92
+winkler:101,LIB,Mark Ash,17
+winkler:101,REP,Nathan Hecht,462
+winkler:201,DEM,Amy Clark Meachum,29
+winkler:201,LIB,Mark Ash,6
+winkler:201,REP,Nathan Hecht,150
+winkler:202,DEM,Amy Clark Meachum,42
+winkler:202,LIB,Mark Ash,4
+winkler:202,REP,Nathan Hecht,414
+winkler:301,DEM,Amy Clark Meachum,80
+winkler:301,LIB,Mark Ash,4
+winkler:301,REP,Nathan Hecht,463
+winkler:401,DEM,Amy Clark Meachum,116
+winkler:401,LIB,Mark Ash,4
+winkler:401,REP,Nathan Hecht,196

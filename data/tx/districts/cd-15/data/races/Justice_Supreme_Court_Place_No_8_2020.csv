@@ -1,0 +1,664 @@
+precinct,party,candidate,votes
+hidalgo:10,DEM,Gisela D. Triana,762
+hidalgo:10,LIB,Tom Oxford,29
+hidalgo:10,REP,Brett Busby,373
+hidalgo:100,DEM,Gisela D. Triana,859
+hidalgo:100,LIB,Tom Oxford,42
+hidalgo:100,REP,Brett Busby,491
+hidalgo:101,DEM,Gisela D. Triana,313
+hidalgo:101,LIB,Tom Oxford,8
+hidalgo:101,REP,Brett Busby,394
+hidalgo:102,DEM,Gisela D. Triana,295
+hidalgo:102,LIB,Tom Oxford,12
+hidalgo:102,REP,Brett Busby,374
+hidalgo:103,DEM,Gisela D. Triana,950
+hidalgo:103,LIB,Tom Oxford,38
+hidalgo:103,REP,Brett Busby,812
+hidalgo:104,DEM,Gisela D. Triana,835
+hidalgo:104,LIB,Tom Oxford,53
+hidalgo:104,REP,Brett Busby,467
+hidalgo:105,DEM,Gisela D. Triana,1156
+hidalgo:105,LIB,Tom Oxford,57
+hidalgo:105,REP,Brett Busby,687
+hidalgo:106,DEM,Gisela D. Triana,1825
+hidalgo:106,LIB,Tom Oxford,69
+hidalgo:106,REP,Brett Busby,1302
+hidalgo:107,DEM,Gisela D. Triana,836
+hidalgo:107,LIB,Tom Oxford,31
+hidalgo:107,REP,Brett Busby,407
+hidalgo:108,DEM,Gisela D. Triana,758
+hidalgo:108,LIB,Tom Oxford,22
+hidalgo:108,REP,Brett Busby,242
+hidalgo:109,DEM,Gisela D. Triana,1050
+hidalgo:109,LIB,Tom Oxford,57
+hidalgo:109,REP,Brett Busby,424
+hidalgo:11,DEM,Gisela D. Triana,677
+hidalgo:11,LIB,Tom Oxford,28
+hidalgo:11,REP,Brett Busby,245
+hidalgo:115,DEM,Gisela D. Triana,1002
+hidalgo:115,LIB,Tom Oxford,42
+hidalgo:115,REP,Brett Busby,456
+hidalgo:12,DEM,Gisela D. Triana,84
+hidalgo:12,LIB,Tom Oxford,5
+hidalgo:12,REP,Brett Busby,61
+hidalgo:122,DEM,Gisela D. Triana,749
+hidalgo:122,LIB,Tom Oxford,61
+hidalgo:122,REP,Brett Busby,419
+hidalgo:124,DEM,Gisela D. Triana,500
+hidalgo:124,LIB,Tom Oxford,26
+hidalgo:124,REP,Brett Busby,375
+hidalgo:125,DEM,Gisela D. Triana,307
+hidalgo:125,LIB,Tom Oxford,9
+hidalgo:125,REP,Brett Busby,176
+hidalgo:128,DEM,Gisela D. Triana,712
+hidalgo:128,LIB,Tom Oxford,22
+hidalgo:128,REP,Brett Busby,330
+hidalgo:129,DEM,Gisela D. Triana,48
+hidalgo:129,LIB,Tom Oxford,2
+hidalgo:129,REP,Brett Busby,56
+hidalgo:13,DEM,Gisela D. Triana,1467
+hidalgo:13,LIB,Tom Oxford,63
+hidalgo:13,REP,Brett Busby,891
+hidalgo:131,DEM,Gisela D. Triana,12
+hidalgo:131,LIB,Tom Oxford,0
+hidalgo:131,REP,Brett Busby,1
+hidalgo:133,DEM,Gisela D. Triana,33
+hidalgo:133,LIB,Tom Oxford,2
+hidalgo:133,REP,Brett Busby,26
+hidalgo:134,DEM,Gisela D. Triana,687
+hidalgo:134,LIB,Tom Oxford,28
+hidalgo:134,REP,Brett Busby,712
+hidalgo:135,DEM,Gisela D. Triana,577
+hidalgo:135,LIB,Tom Oxford,29
+hidalgo:135,REP,Brett Busby,412
+hidalgo:136,DEM,Gisela D. Triana,563
+hidalgo:136,LIB,Tom Oxford,32
+hidalgo:136,REP,Brett Busby,374
+hidalgo:137,DEM,Gisela D. Triana,14
+hidalgo:137,LIB,Tom Oxford,1
+hidalgo:137,REP,Brett Busby,11
+hidalgo:138,DEM,Gisela D. Triana,139
+hidalgo:138,LIB,Tom Oxford,4
+hidalgo:138,REP,Brett Busby,50
+hidalgo:139,DEM,Gisela D. Triana,138
+hidalgo:139,LIB,Tom Oxford,10
+hidalgo:139,REP,Brett Busby,65
+hidalgo:14,DEM,Gisela D. Triana,448
+hidalgo:14,LIB,Tom Oxford,16
+hidalgo:14,REP,Brett Busby,206
+hidalgo:141,DEM,Gisela D. Triana,33
+hidalgo:141,LIB,Tom Oxford,0
+hidalgo:141,REP,Brett Busby,20
+hidalgo:145,DEM,Gisela D. Triana,294
+hidalgo:145,LIB,Tom Oxford,8
+hidalgo:145,REP,Brett Busby,148
+hidalgo:146,DEM,Gisela D. Triana,596
+hidalgo:146,LIB,Tom Oxford,35
+hidalgo:146,REP,Brett Busby,240
+hidalgo:147,DEM,Gisela D. Triana,47
+hidalgo:147,LIB,Tom Oxford,4
+hidalgo:147,REP,Brett Busby,34
+hidalgo:148,DEM,Gisela D. Triana,27
+hidalgo:148,LIB,Tom Oxford,1
+hidalgo:148,REP,Brett Busby,16
+hidalgo:149,DEM,Gisela D. Triana,32
+hidalgo:149,LIB,Tom Oxford,1
+hidalgo:149,REP,Brett Busby,9
+hidalgo:15,DEM,Gisela D. Triana,206
+hidalgo:15,LIB,Tom Oxford,10
+hidalgo:15,REP,Brett Busby,116
+hidalgo:150,DEM,Gisela D. Triana,401
+hidalgo:150,LIB,Tom Oxford,19
+hidalgo:150,REP,Brett Busby,262
+hidalgo:151,DEM,Gisela D. Triana,170
+hidalgo:151,LIB,Tom Oxford,5
+hidalgo:151,REP,Brett Busby,77
+hidalgo:152,DEM,Gisela D. Triana,688
+hidalgo:152,LIB,Tom Oxford,23
+hidalgo:152,REP,Brett Busby,508
+hidalgo:153,DEM,Gisela D. Triana,101
+hidalgo:153,LIB,Tom Oxford,4
+hidalgo:153,REP,Brett Busby,38
+hidalgo:154,DEM,Gisela D. Triana,772
+hidalgo:154,LIB,Tom Oxford,40
+hidalgo:154,REP,Brett Busby,409
+hidalgo:161,DEM,Gisela D. Triana,722
+hidalgo:161,LIB,Tom Oxford,30
+hidalgo:161,REP,Brett Busby,443
+hidalgo:162,DEM,Gisela D. Triana,38
+hidalgo:162,LIB,Tom Oxford,3
+hidalgo:162,REP,Brett Busby,32
+hidalgo:163,DEM,Gisela D. Triana,55
+hidalgo:163,LIB,Tom Oxford,3
+hidalgo:163,REP,Brett Busby,21
+hidalgo:164,DEM,Gisela D. Triana,649
+hidalgo:164,LIB,Tom Oxford,33
+hidalgo:164,REP,Brett Busby,613
+hidalgo:165,DEM,Gisela D. Triana,228
+hidalgo:165,LIB,Tom Oxford,10
+hidalgo:165,REP,Brett Busby,221
+hidalgo:166,DEM,Gisela D. Triana,175
+hidalgo:166,LIB,Tom Oxford,12
+hidalgo:166,REP,Brett Busby,168
+hidalgo:167,DEM,Gisela D. Triana,169
+hidalgo:167,LIB,Tom Oxford,8
+hidalgo:167,REP,Brett Busby,209
+hidalgo:168,DEM,Gisela D. Triana,119
+hidalgo:168,LIB,Tom Oxford,4
+hidalgo:168,REP,Brett Busby,116
+hidalgo:170,DEM,Gisela D. Triana,255
+hidalgo:170,LIB,Tom Oxford,11
+hidalgo:170,REP,Brett Busby,122
+hidalgo:172,DEM,Gisela D. Triana,12
+hidalgo:172,LIB,Tom Oxford,0
+hidalgo:172,REP,Brett Busby,11
+hidalgo:173,DEM,Gisela D. Triana,399
+hidalgo:173,LIB,Tom Oxford,29
+hidalgo:173,REP,Brett Busby,343
+hidalgo:176,DEM,Gisela D. Triana,392
+hidalgo:176,LIB,Tom Oxford,24
+hidalgo:176,REP,Brett Busby,193
+hidalgo:177,DEM,Gisela D. Triana,218
+hidalgo:177,LIB,Tom Oxford,14
+hidalgo:177,REP,Brett Busby,104
+hidalgo:178,DEM,Gisela D. Triana,6
+hidalgo:178,LIB,Tom Oxford,0
+hidalgo:178,REP,Brett Busby,11
+hidalgo:18,DEM,Gisela D. Triana,80
+hidalgo:18,LIB,Tom Oxford,9
+hidalgo:18,REP,Brett Busby,58
+hidalgo:180,DEM,Gisela D. Triana,61
+hidalgo:180,LIB,Tom Oxford,5
+hidalgo:180,REP,Brett Busby,25
+hidalgo:181,DEM,Gisela D. Triana,213
+hidalgo:181,LIB,Tom Oxford,8
+hidalgo:181,REP,Brett Busby,345
+hidalgo:182,DEM,Gisela D. Triana,272
+hidalgo:182,LIB,Tom Oxford,10
+hidalgo:182,REP,Brett Busby,102
+hidalgo:183,DEM,Gisela D. Triana,186
+hidalgo:183,LIB,Tom Oxford,8
+hidalgo:183,REP,Brett Busby,87
+hidalgo:184,DEM,Gisela D. Triana,8
+hidalgo:184,LIB,Tom Oxford,1
+hidalgo:184,REP,Brett Busby,15
+hidalgo:185,DEM,Gisela D. Triana,0
+hidalgo:185,LIB,Tom Oxford,0
+hidalgo:185,REP,Brett Busby,0
+hidalgo:187,DEM,Gisela D. Triana,767
+hidalgo:187,LIB,Tom Oxford,30
+hidalgo:187,REP,Brett Busby,486
+hidalgo:188,DEM,Gisela D. Triana,667
+hidalgo:188,LIB,Tom Oxford,20
+hidalgo:188,REP,Brett Busby,547
+hidalgo:19,DEM,Gisela D. Triana,52
+hidalgo:19,LIB,Tom Oxford,3
+hidalgo:19,REP,Brett Busby,64
+hidalgo:193,DEM,Gisela D. Triana,190
+hidalgo:193,LIB,Tom Oxford,9
+hidalgo:193,REP,Brett Busby,109
+hidalgo:194,DEM,Gisela D. Triana,549
+hidalgo:194,LIB,Tom Oxford,23
+hidalgo:194,REP,Brett Busby,525
+hidalgo:195,DEM,Gisela D. Triana,234
+hidalgo:195,LIB,Tom Oxford,10
+hidalgo:195,REP,Brett Busby,298
+hidalgo:197,DEM,Gisela D. Triana,233
+hidalgo:197,LIB,Tom Oxford,14
+hidalgo:197,REP,Brett Busby,115
+hidalgo:198,DEM,Gisela D. Triana,193
+hidalgo:198,LIB,Tom Oxford,17
+hidalgo:198,REP,Brett Busby,116
+hidalgo:199,DEM,Gisela D. Triana,885
+hidalgo:199,LIB,Tom Oxford,46
+hidalgo:199,REP,Brett Busby,733
+hidalgo:20,DEM,Gisela D. Triana,303
+hidalgo:20,LIB,Tom Oxford,16
+hidalgo:20,REP,Brett Busby,176
+hidalgo:200,DEM,Gisela D. Triana,830
+hidalgo:200,LIB,Tom Oxford,36
+hidalgo:200,REP,Brett Busby,646
+hidalgo:201,DEM,Gisela D. Triana,433
+hidalgo:201,LIB,Tom Oxford,16
+hidalgo:201,REP,Brett Busby,354
+hidalgo:203,DEM,Gisela D. Triana,1498
+hidalgo:203,LIB,Tom Oxford,52
+hidalgo:203,REP,Brett Busby,1036
+hidalgo:204,DEM,Gisela D. Triana,192
+hidalgo:204,LIB,Tom Oxford,16
+hidalgo:204,REP,Brett Busby,138
+hidalgo:205,DEM,Gisela D. Triana,64
+hidalgo:205,LIB,Tom Oxford,5
+hidalgo:205,REP,Brett Busby,42
+hidalgo:206,DEM,Gisela D. Triana,447
+hidalgo:206,LIB,Tom Oxford,24
+hidalgo:206,REP,Brett Busby,258
+hidalgo:207,DEM,Gisela D. Triana,884
+hidalgo:207,LIB,Tom Oxford,39
+hidalgo:207,REP,Brett Busby,662
+hidalgo:209,DEM,Gisela D. Triana,245
+hidalgo:209,LIB,Tom Oxford,14
+hidalgo:209,REP,Brett Busby,141
+hidalgo:210,DEM,Gisela D. Triana,142
+hidalgo:210,LIB,Tom Oxford,3
+hidalgo:210,REP,Brett Busby,71
+hidalgo:211,DEM,Gisela D. Triana,507
+hidalgo:211,LIB,Tom Oxford,21
+hidalgo:211,REP,Brett Busby,248
+hidalgo:212,DEM,Gisela D. Triana,163
+hidalgo:212,LIB,Tom Oxford,8
+hidalgo:212,REP,Brett Busby,164
+hidalgo:215,DEM,Gisela D. Triana,392
+hidalgo:215,LIB,Tom Oxford,21
+hidalgo:215,REP,Brett Busby,279
+hidalgo:216,DEM,Gisela D. Triana,599
+hidalgo:216,LIB,Tom Oxford,17
+hidalgo:216,REP,Brett Busby,258
+hidalgo:217,DEM,Gisela D. Triana,56
+hidalgo:217,LIB,Tom Oxford,4
+hidalgo:217,REP,Brett Busby,28
+hidalgo:218,DEM,Gisela D. Triana,284
+hidalgo:218,LIB,Tom Oxford,15
+hidalgo:218,REP,Brett Busby,157
+hidalgo:219,DEM,Gisela D. Triana,364
+hidalgo:219,LIB,Tom Oxford,25
+hidalgo:219,REP,Brett Busby,219
+hidalgo:220,DEM,Gisela D. Triana,201
+hidalgo:220,LIB,Tom Oxford,8
+hidalgo:220,REP,Brett Busby,112
+hidalgo:221,DEM,Gisela D. Triana,426
+hidalgo:221,LIB,Tom Oxford,29
+hidalgo:221,REP,Brett Busby,300
+hidalgo:222,DEM,Gisela D. Triana,1
+hidalgo:222,LIB,Tom Oxford,0
+hidalgo:222,REP,Brett Busby,8
+hidalgo:223,DEM,Gisela D. Triana,172
+hidalgo:223,LIB,Tom Oxford,4
+hidalgo:223,REP,Brett Busby,178
+hidalgo:224,DEM,Gisela D. Triana,70
+hidalgo:224,LIB,Tom Oxford,5
+hidalgo:224,REP,Brett Busby,101
+hidalgo:226,DEM,Gisela D. Triana,8
+hidalgo:226,LIB,Tom Oxford,1
+hidalgo:226,REP,Brett Busby,8
+hidalgo:227,DEM,Gisela D. Triana,1070
+hidalgo:227,LIB,Tom Oxford,50
+hidalgo:227,REP,Brett Busby,459
+hidalgo:228,DEM,Gisela D. Triana,1765
+hidalgo:228,LIB,Tom Oxford,99
+hidalgo:228,REP,Brett Busby,894
+hidalgo:229,DEM,Gisela D. Triana,294
+hidalgo:229,LIB,Tom Oxford,20
+hidalgo:229,REP,Brett Busby,170
+hidalgo:230,DEM,Gisela D. Triana,318
+hidalgo:230,LIB,Tom Oxford,19
+hidalgo:230,REP,Brett Busby,339
+hidalgo:231,DEM,Gisela D. Triana,92
+hidalgo:231,LIB,Tom Oxford,7
+hidalgo:231,REP,Brett Busby,79
+hidalgo:233,DEM,Gisela D. Triana,0
+hidalgo:233,LIB,Tom Oxford,0
+hidalgo:233,REP,Brett Busby,0
+hidalgo:234,DEM,Gisela D. Triana,720
+hidalgo:234,LIB,Tom Oxford,38
+hidalgo:234,REP,Brett Busby,374
+hidalgo:236,DEM,Gisela D. Triana,216
+hidalgo:236,LIB,Tom Oxford,7
+hidalgo:236,REP,Brett Busby,216
+hidalgo:239,DEM,Gisela D. Triana,702
+hidalgo:239,LIB,Tom Oxford,32
+hidalgo:239,REP,Brett Busby,504
+hidalgo:24,DEM,Gisela D. Triana,21
+hidalgo:24,LIB,Tom Oxford,2
+hidalgo:24,REP,Brett Busby,48
+hidalgo:240,DEM,Gisela D. Triana,293
+hidalgo:240,LIB,Tom Oxford,16
+hidalgo:240,REP,Brett Busby,192
+hidalgo:241,DEM,Gisela D. Triana,135
+hidalgo:241,LIB,Tom Oxford,10
+hidalgo:241,REP,Brett Busby,65
+hidalgo:243,DEM,Gisela D. Triana,26
+hidalgo:243,LIB,Tom Oxford,0
+hidalgo:243,REP,Brett Busby,30
+hidalgo:244,DEM,Gisela D. Triana,269
+hidalgo:244,LIB,Tom Oxford,6
+hidalgo:244,REP,Brett Busby,149
+hidalgo:246,DEM,Gisela D. Triana,2
+hidalgo:246,LIB,Tom Oxford,0
+hidalgo:246,REP,Brett Busby,0
+hidalgo:247,DEM,Gisela D. Triana,58
+hidalgo:247,LIB,Tom Oxford,2
+hidalgo:247,REP,Brett Busby,33
+hidalgo:248,DEM,Gisela D. Triana,15
+hidalgo:248,LIB,Tom Oxford,0
+hidalgo:248,REP,Brett Busby,7
+hidalgo:25,DEM,Gisela D. Triana,838
+hidalgo:25,LIB,Tom Oxford,41
+hidalgo:25,REP,Brett Busby,515
+hidalgo:252,DEM,Gisela D. Triana,4
+hidalgo:252,LIB,Tom Oxford,0
+hidalgo:252,REP,Brett Busby,6
+hidalgo:254,DEM,Gisela D. Triana,67
+hidalgo:254,LIB,Tom Oxford,2
+hidalgo:254,REP,Brett Busby,31
+hidalgo:255,DEM,Gisela D. Triana,87
+hidalgo:255,LIB,Tom Oxford,5
+hidalgo:255,REP,Brett Busby,55
+hidalgo:256,DEM,Gisela D. Triana,145
+hidalgo:256,LIB,Tom Oxford,7
+hidalgo:256,REP,Brett Busby,48
+hidalgo:257,DEM,Gisela D. Triana,181
+hidalgo:257,LIB,Tom Oxford,9
+hidalgo:257,REP,Brett Busby,61
+hidalgo:26,DEM,Gisela D. Triana,290
+hidalgo:26,LIB,Tom Oxford,16
+hidalgo:26,REP,Brett Busby,117
+hidalgo:27,DEM,Gisela D. Triana,301
+hidalgo:27,LIB,Tom Oxford,19
+hidalgo:27,REP,Brett Busby,107
+hidalgo:28,DEM,Gisela D. Triana,827
+hidalgo:28,LIB,Tom Oxford,37
+hidalgo:28,REP,Brett Busby,485
+hidalgo:29,DEM,Gisela D. Triana,304
+hidalgo:29,LIB,Tom Oxford,14
+hidalgo:29,REP,Brett Busby,304
+hidalgo:30,DEM,Gisela D. Triana,1405
+hidalgo:30,LIB,Tom Oxford,81
+hidalgo:30,REP,Brett Busby,737
+hidalgo:31,DEM,Gisela D. Triana,561
+hidalgo:31,LIB,Tom Oxford,27
+hidalgo:31,REP,Brett Busby,381
+hidalgo:33,DEM,Gisela D. Triana,553
+hidalgo:33,LIB,Tom Oxford,22
+hidalgo:33,REP,Brett Busby,213
+hidalgo:34,DEM,Gisela D. Triana,311
+hidalgo:34,LIB,Tom Oxford,7
+hidalgo:34,REP,Brett Busby,172
+hidalgo:35,DEM,Gisela D. Triana,1126
+hidalgo:35,LIB,Tom Oxford,50
+hidalgo:35,REP,Brett Busby,457
+hidalgo:37,DEM,Gisela D. Triana,306
+hidalgo:37,LIB,Tom Oxford,13
+hidalgo:37,REP,Brett Busby,172
+hidalgo:38,DEM,Gisela D. Triana,1124
+hidalgo:38,LIB,Tom Oxford,39
+hidalgo:38,REP,Brett Busby,886
+hidalgo:47,DEM,Gisela D. Triana,503
+hidalgo:47,LIB,Tom Oxford,16
+hidalgo:47,REP,Brett Busby,243
+hidalgo:48,DEM,Gisela D. Triana,1030
+hidalgo:48,LIB,Tom Oxford,36
+hidalgo:48,REP,Brett Busby,521
+hidalgo:49,DEM,Gisela D. Triana,877
+hidalgo:49,LIB,Tom Oxford,29
+hidalgo:49,REP,Brett Busby,428
+hidalgo:5,DEM,Gisela D. Triana,579
+hidalgo:5,LIB,Tom Oxford,30
+hidalgo:5,REP,Brett Busby,270
+hidalgo:50,DEM,Gisela D. Triana,746
+hidalgo:50,LIB,Tom Oxford,48
+hidalgo:50,REP,Brett Busby,422
+hidalgo:51,DEM,Gisela D. Triana,685
+hidalgo:51,LIB,Tom Oxford,31
+hidalgo:51,REP,Brett Busby,210
+hidalgo:52,DEM,Gisela D. Triana,1539
+hidalgo:52,LIB,Tom Oxford,62
+hidalgo:52,REP,Brett Busby,1157
+hidalgo:54,DEM,Gisela D. Triana,560
+hidalgo:54,LIB,Tom Oxford,10
+hidalgo:54,REP,Brett Busby,514
+hidalgo:6,DEM,Gisela D. Triana,698
+hidalgo:6,LIB,Tom Oxford,31
+hidalgo:6,REP,Brett Busby,557
+hidalgo:61,DEM,Gisela D. Triana,668
+hidalgo:61,LIB,Tom Oxford,29
+hidalgo:61,REP,Brett Busby,310
+hidalgo:62,DEM,Gisela D. Triana,1042
+hidalgo:62,LIB,Tom Oxford,44
+hidalgo:62,REP,Brett Busby,1021
+hidalgo:63,DEM,Gisela D. Triana,224
+hidalgo:63,LIB,Tom Oxford,9
+hidalgo:63,REP,Brett Busby,106
+hidalgo:64,DEM,Gisela D. Triana,637
+hidalgo:64,LIB,Tom Oxford,27
+hidalgo:64,REP,Brett Busby,284
+hidalgo:65,DEM,Gisela D. Triana,363
+hidalgo:65,LIB,Tom Oxford,8
+hidalgo:65,REP,Brett Busby,208
+hidalgo:66,DEM,Gisela D. Triana,423
+hidalgo:66,LIB,Tom Oxford,21
+hidalgo:66,REP,Brett Busby,192
+hidalgo:67,DEM,Gisela D. Triana,710
+hidalgo:67,LIB,Tom Oxford,33
+hidalgo:67,REP,Brett Busby,438
+hidalgo:68,DEM,Gisela D. Triana,1002
+hidalgo:68,LIB,Tom Oxford,54
+hidalgo:68,REP,Brett Busby,653
+hidalgo:69,DEM,Gisela D. Triana,993
+hidalgo:69,LIB,Tom Oxford,55
+hidalgo:69,REP,Brett Busby,656
+hidalgo:7,DEM,Gisela D. Triana,1003
+hidalgo:7,LIB,Tom Oxford,36
+hidalgo:7,REP,Brett Busby,729
+hidalgo:72,DEM,Gisela D. Triana,481
+hidalgo:72,LIB,Tom Oxford,21
+hidalgo:72,REP,Brett Busby,262
+hidalgo:73,DEM,Gisela D. Triana,921
+hidalgo:73,LIB,Tom Oxford,43
+hidalgo:73,REP,Brett Busby,941
+hidalgo:74,DEM,Gisela D. Triana,322
+hidalgo:74,LIB,Tom Oxford,16
+hidalgo:74,REP,Brett Busby,243
+hidalgo:75,DEM,Gisela D. Triana,15
+hidalgo:75,LIB,Tom Oxford,1
+hidalgo:75,REP,Brett Busby,29
+hidalgo:76,DEM,Gisela D. Triana,2
+hidalgo:76,LIB,Tom Oxford,0
+hidalgo:76,REP,Brett Busby,14
+hidalgo:78,DEM,Gisela D. Triana,678
+hidalgo:78,LIB,Tom Oxford,29
+hidalgo:78,REP,Brett Busby,342
+hidalgo:8,DEM,Gisela D. Triana,538
+hidalgo:8,LIB,Tom Oxford,27
+hidalgo:8,REP,Brett Busby,534
+hidalgo:80,DEM,Gisela D. Triana,247
+hidalgo:80,LIB,Tom Oxford,14
+hidalgo:80,REP,Brett Busby,101
+hidalgo:81,DEM,Gisela D. Triana,1677
+hidalgo:81,LIB,Tom Oxford,74
+hidalgo:81,REP,Brett Busby,1168
+hidalgo:82,DEM,Gisela D. Triana,2
+hidalgo:82,LIB,Tom Oxford,0
+hidalgo:82,REP,Brett Busby,1
+hidalgo:83,DEM,Gisela D. Triana,1191
+hidalgo:83,LIB,Tom Oxford,40
+hidalgo:83,REP,Brett Busby,1176
+hidalgo:84,DEM,Gisela D. Triana,351
+hidalgo:84,LIB,Tom Oxford,12
+hidalgo:84,REP,Brett Busby,242
+hidalgo:86,DEM,Gisela D. Triana,212
+hidalgo:86,LIB,Tom Oxford,9
+hidalgo:86,REP,Brett Busby,154
+hidalgo:88,DEM,Gisela D. Triana,1408
+hidalgo:88,LIB,Tom Oxford,67
+hidalgo:88,REP,Brett Busby,643
+hidalgo:89,DEM,Gisela D. Triana,4
+hidalgo:89,LIB,Tom Oxford,0
+hidalgo:89,REP,Brett Busby,1
+hidalgo:9,DEM,Gisela D. Triana,1112
+hidalgo:9,LIB,Tom Oxford,43
+hidalgo:9,REP,Brett Busby,739
+hidalgo:92,DEM,Gisela D. Triana,91
+hidalgo:92,LIB,Tom Oxford,7
+hidalgo:92,REP,Brett Busby,40
+hidalgo:93,DEM,Gisela D. Triana,52
+hidalgo:93,LIB,Tom Oxford,6
+hidalgo:93,REP,Brett Busby,62
+hidalgo:94,DEM,Gisela D. Triana,661
+hidalgo:94,LIB,Tom Oxford,37
+hidalgo:94,REP,Brett Busby,329
+hidalgo:95,DEM,Gisela D. Triana,1266
+hidalgo:95,LIB,Tom Oxford,45
+hidalgo:95,REP,Brett Busby,540
+hidalgo:96,DEM,Gisela D. Triana,950
+hidalgo:96,LIB,Tom Oxford,48
+hidalgo:96,REP,Brett Busby,778
+hidalgo:97,DEM,Gisela D. Triana,777
+hidalgo:97,LIB,Tom Oxford,32
+hidalgo:97,REP,Brett Busby,437
+hidalgo:98,DEM,Gisela D. Triana,1239
+hidalgo:98,LIB,Tom Oxford,48
+hidalgo:98,REP,Brett Busby,592
+hidalgo:99,DEM,Gisela D. Triana,1517
+hidalgo:99,LIB,Tom Oxford,77
+hidalgo:99,REP,Brett Busby,812
+jim-wells:1,,Over Votes,0
+jim-wells:1,,Under Votes,10
+jim-wells:1,DEM,Gisela D. Triana,139
+jim-wells:1,LIB,Tom Oxford,4
+jim-wells:1,REP,Brett Busby,76
+jim-wells:10,,Over Votes,3
+jim-wells:10,,Under Votes,86
+jim-wells:10,DEM,Gisela D. Triana,636
+jim-wells:10,LIB,Tom Oxford,18
+jim-wells:10,REP,Brett Busby,316
+jim-wells:11,,Over Votes,0
+jim-wells:11,,Under Votes,58
+jim-wells:11,DEM,Gisela D. Triana,249
+jim-wells:11,LIB,Tom Oxford,13
+jim-wells:11,REP,Brett Busby,168
+jim-wells:12,,Over Votes,1
+jim-wells:12,,Under Votes,52
+jim-wells:12,DEM,Gisela D. Triana,567
+jim-wells:12,LIB,Tom Oxford,23
+jim-wells:12,REP,Brett Busby,459
+jim-wells:13,,Over Votes,0
+jim-wells:13,,Under Votes,14
+jim-wells:13,DEM,Gisela D. Triana,155
+jim-wells:13,LIB,Tom Oxford,2
+jim-wells:13,REP,Brett Busby,62
+jim-wells:14,,Over Votes,0
+jim-wells:14,,Under Votes,8
+jim-wells:14,DEM,Gisela D. Triana,45
+jim-wells:14,LIB,Tom Oxford,1
+jim-wells:14,REP,Brett Busby,75
+jim-wells:15,,Over Votes,0
+jim-wells:15,,Under Votes,71
+jim-wells:15,DEM,Gisela D. Triana,435
+jim-wells:15,LIB,Tom Oxford,17
+jim-wells:15,REP,Brett Busby,370
+jim-wells:16,,Over Votes,0
+jim-wells:16,,Under Votes,31
+jim-wells:16,DEM,Gisela D. Triana,264
+jim-wells:16,LIB,Tom Oxford,9
+jim-wells:16,REP,Brett Busby,120
+jim-wells:17,,Over Votes,0
+jim-wells:17,,Under Votes,47
+jim-wells:17,DEM,Gisela D. Triana,497
+jim-wells:17,LIB,Tom Oxford,12
+jim-wells:17,REP,Brett Busby,348
+jim-wells:18,,Over Votes,1
+jim-wells:18,,Under Votes,20
+jim-wells:18,DEM,Gisela D. Triana,102
+jim-wells:18,LIB,Tom Oxford,9
+jim-wells:18,REP,Brett Busby,105
+jim-wells:19,,Over Votes,0
+jim-wells:19,,Under Votes,13
+jim-wells:19,DEM,Gisela D. Triana,40
+jim-wells:19,LIB,Tom Oxford,3
+jim-wells:19,REP,Brett Busby,154
+jim-wells:2,,Over Votes,0
+jim-wells:2,,Under Votes,12
+jim-wells:2,DEM,Gisela D. Triana,86
+jim-wells:2,LIB,Tom Oxford,6
+jim-wells:2,REP,Brett Busby,257
+jim-wells:20,,Over Votes,0
+jim-wells:20,,Under Votes,15
+jim-wells:20,DEM,Gisela D. Triana,256
+jim-wells:20,LIB,Tom Oxford,7
+jim-wells:20,REP,Brett Busby,95
+jim-wells:22,,Over Votes,1
+jim-wells:22,,Under Votes,96
+jim-wells:22,DEM,Gisela D. Triana,516
+jim-wells:22,LIB,Tom Oxford,12
+jim-wells:22,REP,Brett Busby,305
+jim-wells:3,,Over Votes,0
+jim-wells:3,,Under Votes,26
+jim-wells:3,DEM,Gisela D. Triana,162
+jim-wells:3,LIB,Tom Oxford,10
+jim-wells:3,REP,Brett Busby,647
+jim-wells:4,,Over Votes,0
+jim-wells:4,,Under Votes,76
+jim-wells:4,DEM,Gisela D. Triana,332
+jim-wells:4,LIB,Tom Oxford,13
+jim-wells:4,REP,Brett Busby,327
+jim-wells:5,,Over Votes,0
+jim-wells:5,,Under Votes,12
+jim-wells:5,DEM,Gisela D. Triana,85
+jim-wells:5,LIB,Tom Oxford,4
+jim-wells:5,REP,Brett Busby,51
+jim-wells:6,,Over Votes,0
+jim-wells:6,,Under Votes,57
+jim-wells:6,DEM,Gisela D. Triana,316
+jim-wells:6,LIB,Tom Oxford,4
+jim-wells:6,REP,Brett Busby,197
+jim-wells:7,,Over Votes,0
+jim-wells:7,,Under Votes,72
+jim-wells:7,DEM,Gisela D. Triana,643
+jim-wells:7,LIB,Tom Oxford,28
+jim-wells:7,REP,Brett Busby,816
+jim-wells:8,,Over Votes,1
+jim-wells:8,,Under Votes,100
+jim-wells:8,DEM,Gisela D. Triana,496
+jim-wells:8,LIB,Tom Oxford,29
+jim-wells:8,REP,Brett Busby,1442
+jim-wells:9,,Over Votes,1
+jim-wells:9,,Under Votes,33
+jim-wells:9,DEM,Gisela D. Triana,181
+jim-wells:9,LIB,Tom Oxford,4
+jim-wells:9,REP,Brett Busby,128
+karnes:1,DEM,Gisela D. Triana,250
+karnes:1,LIB,Tom Oxford,13
+karnes:1,REP,Brett Busby,554
+karnes:10,DEM,Gisela D. Triana,18
+karnes:10,LIB,Tom Oxford,4
+karnes:10,REP,Brett Busby,218
+karnes:11,DEM,Gisela D. Triana,100
+karnes:11,LIB,Tom Oxford,8
+karnes:11,REP,Brett Busby,307
+karnes:12,DEM,Gisela D. Triana,95
+karnes:12,LIB,Tom Oxford,5
+karnes:12,REP,Brett Busby,352
+karnes:13,DEM,Gisela D. Triana,1
+karnes:13,LIB,Tom Oxford,0
+karnes:13,REP,Brett Busby,27
+karnes:14,DEM,Gisela D. Triana,250
+karnes:14,LIB,Tom Oxford,4
+karnes:14,REP,Brett Busby,264
+karnes:15,DEM,Gisela D. Triana,25
+karnes:15,LIB,Tom Oxford,1
+karnes:15,REP,Brett Busby,45
+karnes:2,DEM,Gisela D. Triana,13
+karnes:2,LIB,Tom Oxford,0
+karnes:2,REP,Brett Busby,117
+karnes:3,DEM,Gisela D. Triana,2
+karnes:3,LIB,Tom Oxford,1
+karnes:3,REP,Brett Busby,109
+karnes:4,DEM,Gisela D. Triana,214
+karnes:4,LIB,Tom Oxford,12
+karnes:4,REP,Brett Busby,455
+karnes:5,DEM,Gisela D. Triana,139
+karnes:5,LIB,Tom Oxford,8
+karnes:5,REP,Brett Busby,305
+karnes:6,DEM,Gisela D. Triana,9
+karnes:6,LIB,Tom Oxford,2
+karnes:6,REP,Brett Busby,200
+karnes:7,DEM,Gisela D. Triana,53
+karnes:7,LIB,Tom Oxford,4
+karnes:7,REP,Brett Busby,441
+karnes:8,DEM,Gisela D. Triana,24
+karnes:8,LIB,Tom Oxford,1
+karnes:8,REP,Brett Busby,110
+karnes:9,DEM,Gisela D. Triana,20
+karnes:9,LIB,Tom Oxford,1
+karnes:9,REP,Brett Busby,152

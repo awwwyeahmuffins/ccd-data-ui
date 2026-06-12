@@ -1,0 +1,714 @@
+precinct,party,candidate,votes
+dallas:1083,,Under Votes,9
+dallas:1083,DEM,Robert Johnson,445
+dallas:1083,REP,"Jesse F. McClure, III",149
+dallas:1085,,Under Votes,7
+dallas:1085,DEM,Robert Johnson,292
+dallas:1085,REP,"Jesse F. McClure, III",93
+dallas:1090,,Under Votes,15
+dallas:1090,DEM,Robert Johnson,630
+dallas:1090,REP,"Jesse F. McClure, III",136
+dallas:1094,,Under Votes,3
+dallas:1094,DEM,Robert Johnson,350
+dallas:1094,REP,"Jesse F. McClure, III",46
+dallas:1095,,Under Votes,7
+dallas:1095,DEM,Robert Johnson,352
+dallas:1095,REP,"Jesse F. McClure, III",75
+dallas:1096,,Under Votes,8
+dallas:1096,DEM,Robert Johnson,334
+dallas:1096,REP,"Jesse F. McClure, III",71
+dallas:1100,,Under Votes,19
+dallas:1100,DEM,Robert Johnson,740
+dallas:1100,REP,"Jesse F. McClure, III",73
+dallas:1101,,Under Votes,11
+dallas:1101,DEM,Robert Johnson,358
+dallas:1101,REP,"Jesse F. McClure, III",100
+dallas:1102,,Under Votes,8
+dallas:1102,DEM,Robert Johnson,393
+dallas:1102,REP,"Jesse F. McClure, III",130
+dallas:1103,,Under Votes,2
+dallas:1103,DEM,Robert Johnson,112
+dallas:1103,REP,"Jesse F. McClure, III",32
+dallas:1108,,Under Votes,14
+dallas:1108,DEM,Robert Johnson,596
+dallas:1108,REP,"Jesse F. McClure, III",141
+dallas:1109,,Under Votes,6
+dallas:1109,DEM,Robert Johnson,95
+dallas:1109,REP,"Jesse F. McClure, III",39
+dallas:1111,,Under Votes,9
+dallas:1111,DEM,Robert Johnson,316
+dallas:1111,REP,"Jesse F. McClure, III",103
+dallas:1113,,Under Votes,3
+dallas:1113,DEM,Robert Johnson,85
+dallas:1113,REP,"Jesse F. McClure, III",15
+dallas:1124,REP,"Jesse F. McClure, III",1
+dallas:1136,DEM,Robert Johnson,1
+dallas:2098,,Under Votes,20
+dallas:2098,DEM,Robert Johnson,575
+dallas:2098,REP,"Jesse F. McClure, III",400
+dallas:2099,,Under Votes,38
+dallas:2099,DEM,Robert Johnson,1536
+dallas:2099,REP,"Jesse F. McClure, III",558
+dallas:2100,,Under Votes,39
+dallas:2100,DEM,Robert Johnson,1487
+dallas:2100,REP,"Jesse F. McClure, III",390
+dallas:2101,,Under Votes,32
+dallas:2101,DEM,Robert Johnson,545
+dallas:2101,REP,"Jesse F. McClure, III",451
+dallas:2102,,Under Votes,59
+dallas:2102,DEM,Robert Johnson,1281
+dallas:2102,REP,"Jesse F. McClure, III",955
+dallas:2103,,Under Votes,8
+dallas:2103,DEM,Robert Johnson,309
+dallas:2103,REP,"Jesse F. McClure, III",83
+dallas:2104,,Under Votes,11
+dallas:2104,DEM,Robert Johnson,83
+dallas:2104,REP,"Jesse F. McClure, III",68
+dallas:2105,,Under Votes,33
+dallas:2105,DEM,Robert Johnson,1053
+dallas:2105,REP,"Jesse F. McClure, III",380
+dallas:2106,,Under Votes,22
+dallas:2106,DEM,Robert Johnson,744
+dallas:2106,REP,"Jesse F. McClure, III",148
+dallas:2107,DEM,Robert Johnson,22
+dallas:2107,REP,"Jesse F. McClure, III",3
+dallas:2110,,Under Votes,4
+dallas:2110,DEM,Robert Johnson,133
+dallas:2110,REP,"Jesse F. McClure, III",23
+dallas:2111,,Under Votes,1
+dallas:2111,DEM,Robert Johnson,7
+dallas:2111,REP,"Jesse F. McClure, III",4
+dallas:2112,,Under Votes,1
+dallas:2112,DEM,Robert Johnson,49
+dallas:2112,REP,"Jesse F. McClure, III",9
+dallas:2114,,Under Votes,60
+dallas:2114,DEM,Robert Johnson,949
+dallas:2114,REP,"Jesse F. McClure, III",787
+dallas:2115,,Under Votes,2
+dallas:2115,DEM,Robert Johnson,87
+dallas:2115,REP,"Jesse F. McClure, III",78
+dallas:2116,DEM,Robert Johnson,50
+dallas:2116,REP,"Jesse F. McClure, III",34
+dallas:2116,,Under Votes,3
+dallas:2117,,Under Votes,16
+dallas:2117,DEM,Robert Johnson,562
+dallas:2117,REP,"Jesse F. McClure, III",121
+dallas:3000,,Under Votes,45
+dallas:3000,DEM,Robert Johnson,1097
+dallas:3000,REP,"Jesse F. McClure, III",846
+dallas:3001,DEM,Robert Johnson,136
+dallas:3001,REP,"Jesse F. McClure, III",21
+dallas:3003,,Under Votes,13
+dallas:3003,DEM,Robert Johnson,766
+dallas:3003,REP,"Jesse F. McClure, III",92
+dallas:3004,,Under Votes,23
+dallas:3004,DEM,Robert Johnson,904
+dallas:3004,REP,"Jesse F. McClure, III",193
+dallas:3005,,Under Votes,11
+dallas:3005,DEM,Robert Johnson,232
+dallas:3005,REP,"Jesse F. McClure, III",129
+dallas:3006,,Under Votes,48
+dallas:3006,DEM,Robert Johnson,994
+dallas:3006,REP,"Jesse F. McClure, III",889
+dallas:3007,,Under Votes,20
+dallas:3007,DEM,Robert Johnson,356
+dallas:3007,REP,"Jesse F. McClure, III",390
+dallas:3008,REP,"Jesse F. McClure, III",75
+dallas:3008,,Under Votes,11
+dallas:3008,DEM,Robert Johnson,317
+dallas:3011,,Under Votes,19
+dallas:3011,DEM,Robert Johnson,337
+dallas:3011,REP,"Jesse F. McClure, III",193
+dallas:3012,DEM,Robert Johnson,36
+dallas:3012,REP,"Jesse F. McClure, III",18
+dallas:3013,,Under Votes,4
+dallas:3013,DEM,Robert Johnson,180
+dallas:3013,REP,"Jesse F. McClure, III",76
+dallas:3014,,Under Votes,9
+dallas:3014,DEM,Robert Johnson,524
+dallas:3014,REP,"Jesse F. McClure, III",267
+dallas:3015,,Under Votes,1
+dallas:3015,DEM,Robert Johnson,53
+dallas:3015,REP,"Jesse F. McClure, III",36
+dallas:3016,,Under Votes,10
+dallas:3016,DEM,Robert Johnson,549
+dallas:3016,REP,"Jesse F. McClure, III",141
+dallas:3017,,Under Votes,5
+dallas:3017,DEM,Robert Johnson,201
+dallas:3017,REP,"Jesse F. McClure, III",20
+dallas:3018,,Under Votes,9
+dallas:3018,DEM,Robert Johnson,526
+dallas:3018,REP,"Jesse F. McClure, III",27
+dallas:3019,,Under Votes,2
+dallas:3019,DEM,Robert Johnson,185
+dallas:3019,REP,"Jesse F. McClure, III",11
+dallas:3020,,Under Votes,2
+dallas:3020,DEM,Robert Johnson,73
+dallas:3020,REP,"Jesse F. McClure, III",21
+dallas:3021,,Under Votes,4
+dallas:3021,DEM,Robert Johnson,240
+dallas:3021,REP,"Jesse F. McClure, III",15
+dallas:3022,,Under Votes,7
+dallas:3022,DEM,Robert Johnson,410
+dallas:3022,REP,"Jesse F. McClure, III",24
+dallas:3023,,Under Votes,3
+dallas:3023,DEM,Robert Johnson,344
+dallas:3023,REP,"Jesse F. McClure, III",10
+dallas:3024,,Under Votes,6
+dallas:3024,DEM,Robert Johnson,351
+dallas:3024,REP,"Jesse F. McClure, III",18
+dallas:3025,DEM,Robert Johnson,43
+dallas:3025,REP,"Jesse F. McClure, III",3
+dallas:3026,,Under Votes,2
+dallas:3026,DEM,Robert Johnson,214
+dallas:3026,REP,"Jesse F. McClure, III",10
+dallas:3027,,Under Votes,7
+dallas:3027,DEM,Robert Johnson,354
+dallas:3027,REP,"Jesse F. McClure, III",22
+dallas:3028,,Under Votes,7
+dallas:3028,DEM,Robert Johnson,277
+dallas:3028,REP,"Jesse F. McClure, III",13
+dallas:3029,,Under Votes,7
+dallas:3029,DEM,Robert Johnson,212
+dallas:3029,REP,"Jesse F. McClure, III",12
+dallas:3030,DEM,Robert Johnson,3
+dallas:3031,,Under Votes,5
+dallas:3031,DEM,Robert Johnson,156
+dallas:3031,REP,"Jesse F. McClure, III",70
+dallas:3033,,Under Votes,3
+dallas:3033,DEM,Robert Johnson,87
+dallas:3033,REP,"Jesse F. McClure, III",8
+dallas:3034,,Under Votes,12
+dallas:3034,DEM,Robert Johnson,429
+dallas:3034,REP,"Jesse F. McClure, III",19
+dallas:3035,,Under Votes,15
+dallas:3035,DEM,Robert Johnson,379
+dallas:3035,REP,"Jesse F. McClure, III",28
+dallas:3036,DEM,Robert Johnson,1
+dallas:3036,REP,"Jesse F. McClure, III",1
+dallas:3037,,Under Votes,1
+dallas:3037,DEM,Robert Johnson,124
+dallas:3037,REP,"Jesse F. McClure, III",9
+dallas:3038,,Under Votes,10
+dallas:3038,DEM,Robert Johnson,314
+dallas:3038,REP,"Jesse F. McClure, III",14
+dallas:3039,,Under Votes,8
+dallas:3039,DEM,Robert Johnson,705
+dallas:3039,REP,"Jesse F. McClure, III",36
+dallas:3040,,Under Votes,3
+dallas:3040,DEM,Robert Johnson,265
+dallas:3040,REP,"Jesse F. McClure, III",15
+dallas:3042,,Under Votes,8
+dallas:3042,DEM,Robert Johnson,336
+dallas:3042,REP,"Jesse F. McClure, III",17
+dallas:3043,,Under Votes,8
+dallas:3043,DEM,Robert Johnson,505
+dallas:3043,REP,"Jesse F. McClure, III",27
+dallas:3044,,Under Votes,9
+dallas:3044,DEM,Robert Johnson,659
+dallas:3044,REP,"Jesse F. McClure, III",29
+dallas:3045,,Under Votes,3
+dallas:3045,DEM,Robert Johnson,205
+dallas:3045,REP,"Jesse F. McClure, III",14
+dallas:3046,,Under Votes,16
+dallas:3046,DEM,Robert Johnson,906
+dallas:3046,REP,"Jesse F. McClure, III",148
+dallas:3047,,Under Votes,5
+dallas:3047,DEM,Robert Johnson,401
+dallas:3047,REP,"Jesse F. McClure, III",149
+dallas:3048,,Under Votes,14
+dallas:3048,DEM,Robert Johnson,749
+dallas:3048,REP,"Jesse F. McClure, III",38
+dallas:3049,,Under Votes,15
+dallas:3049,DEM,Robert Johnson,593
+dallas:3049,REP,"Jesse F. McClure, III",22
+dallas:3050,,Under Votes,4
+dallas:3050,DEM,Robert Johnson,470
+dallas:3050,REP,"Jesse F. McClure, III",31
+dallas:3051,,Under Votes,2
+dallas:3051,DEM,Robert Johnson,231
+dallas:3051,REP,"Jesse F. McClure, III",12
+dallas:3052,,Under Votes,10
+dallas:3052,DEM,Robert Johnson,612
+dallas:3052,REP,"Jesse F. McClure, III",30
+dallas:3053,,Under Votes,18
+dallas:3053,DEM,Robert Johnson,646
+dallas:3053,REP,"Jesse F. McClure, III",59
+dallas:3054,,Under Votes,23
+dallas:3054,DEM,Robert Johnson,1215
+dallas:3054,REP,"Jesse F. McClure, III",60
+dallas:3055,,Under Votes,24
+dallas:3055,DEM,Robert Johnson,1091
+dallas:3055,REP,"Jesse F. McClure, III",87
+dallas:3056,,Under Votes,15
+dallas:3056,DEM,Robert Johnson,1088
+dallas:3056,REP,"Jesse F. McClure, III",73
+dallas:3057,,Under Votes,11
+dallas:3057,DEM,Robert Johnson,904
+dallas:3057,REP,"Jesse F. McClure, III",97
+dallas:3058,,Under Votes,12
+dallas:3058,DEM,Robert Johnson,782
+dallas:3058,REP,"Jesse F. McClure, III",43
+dallas:3059,,Under Votes,3
+dallas:3059,DEM,Robert Johnson,483
+dallas:3059,REP,"Jesse F. McClure, III",14
+dallas:3060,,Under Votes,6
+dallas:3060,DEM,Robert Johnson,530
+dallas:3060,REP,"Jesse F. McClure, III",19
+dallas:3061,,Under Votes,4
+dallas:3061,DEM,Robert Johnson,409
+dallas:3061,REP,"Jesse F. McClure, III",16
+dallas:3062,,Under Votes,13
+dallas:3062,DEM,Robert Johnson,661
+dallas:3062,REP,"Jesse F. McClure, III",41
+dallas:3063,,Under Votes,17
+dallas:3063,DEM,Robert Johnson,1109
+dallas:3063,REP,"Jesse F. McClure, III",79
+dallas:3064,,Under Votes,14
+dallas:3064,DEM,Robert Johnson,1025
+dallas:3064,REP,"Jesse F. McClure, III",41
+dallas:3065,,Under Votes,13
+dallas:3065,DEM,Robert Johnson,743
+dallas:3065,REP,"Jesse F. McClure, III",33
+dallas:3066,,Under Votes,12
+dallas:3066,DEM,Robert Johnson,584
+dallas:3066,REP,"Jesse F. McClure, III",33
+dallas:3067,,Under Votes,6
+dallas:3067,DEM,Robert Johnson,534
+dallas:3067,REP,"Jesse F. McClure, III",32
+dallas:3068,,Under Votes,19
+dallas:3068,DEM,Robert Johnson,1319
+dallas:3068,REP,"Jesse F. McClure, III",85
+dallas:3069,,Under Votes,11
+dallas:3069,DEM,Robert Johnson,574
+dallas:3069,REP,"Jesse F. McClure, III",25
+dallas:3070,,Under Votes,17
+dallas:3070,DEM,Robert Johnson,942
+dallas:3070,REP,"Jesse F. McClure, III",57
+dallas:3071,,Under Votes,14
+dallas:3071,DEM,Robert Johnson,793
+dallas:3071,REP,"Jesse F. McClure, III",47
+dallas:3072,,Under Votes,1
+dallas:3072,DEM,Robert Johnson,13
+dallas:3072,REP,"Jesse F. McClure, III",2
+dallas:3073,,Under Votes,1
+dallas:3073,DEM,Robert Johnson,67
+dallas:3073,REP,"Jesse F. McClure, III",3
+dallas:3074,,Under Votes,3
+dallas:3074,DEM,Robert Johnson,164
+dallas:3074,REP,"Jesse F. McClure, III",52
+dallas:3075,,Under Votes,2
+dallas:3075,DEM,Robert Johnson,63
+dallas:3075,REP,"Jesse F. McClure, III",12
+dallas:3077,,Under Votes,24
+dallas:3077,DEM,Robert Johnson,1094
+dallas:3077,REP,"Jesse F. McClure, III",314
+dallas:3078,,Under Votes,6
+dallas:3078,DEM,Robert Johnson,929
+dallas:3078,REP,"Jesse F. McClure, III",182
+dallas:3079,,Under Votes,3
+dallas:3079,DEM,Robert Johnson,127
+dallas:3079,REP,"Jesse F. McClure, III",59
+dallas:3080,,Under Votes,7
+dallas:3080,DEM,Robert Johnson,311
+dallas:3080,REP,"Jesse F. McClure, III",142
+dallas:3081,,Under Votes,27
+dallas:3081,DEM,Robert Johnson,522
+dallas:3081,REP,"Jesse F. McClure, III",384
+dallas:3082,,Under Votes,7
+dallas:3082,DEM,Robert Johnson,704
+dallas:3082,REP,"Jesse F. McClure, III",63
+dallas:3083,,Under Votes,3
+dallas:3083,DEM,Robert Johnson,290
+dallas:3083,REP,"Jesse F. McClure, III",122
+dallas:3084,,Under Votes,8
+dallas:3084,DEM,Robert Johnson,503
+dallas:3084,REP,"Jesse F. McClure, III",87
+dallas:3085,,Under Votes,4
+dallas:3085,DEM,Robert Johnson,52
+dallas:3085,REP,"Jesse F. McClure, III",45
+dallas:3086,,Under Votes,41
+dallas:3086,DEM,Robert Johnson,1010
+dallas:3086,REP,"Jesse F. McClure, III",704
+dallas:3089,,Under Votes,1
+dallas:3089,DEM,Robert Johnson,14
+dallas:3089,REP,"Jesse F. McClure, III",56
+dallas:3090,,Under Votes,8
+dallas:3090,DEM,Robert Johnson,496
+dallas:3090,REP,"Jesse F. McClure, III",107
+dallas:3092,,Under Votes,4
+dallas:3092,DEM,Robert Johnson,444
+dallas:3092,REP,"Jesse F. McClure, III",51
+dallas:3093,DEM,Robert Johnson,2
+dallas:3095,,Under Votes,25
+dallas:3095,DEM,Robert Johnson,820
+dallas:3095,REP,"Jesse F. McClure, III",342
+dallas:3096,,Under Votes,25
+dallas:3096,DEM,Robert Johnson,925
+dallas:3096,REP,"Jesse F. McClure, III",296
+dallas:3097,,Under Votes,1
+dallas:3097,DEM,Robert Johnson,64
+dallas:3097,REP,"Jesse F. McClure, III",4
+dallas:3098,,Under Votes,1
+dallas:3098,DEM,Robert Johnson,75
+dallas:3098,REP,"Jesse F. McClure, III",1
+dallas:3099,,Under Votes,1
+dallas:3099,DEM,Robert Johnson,110
+dallas:3099,REP,"Jesse F. McClure, III",3
+dallas:30T4,DEM,Robert Johnson,2
+dallas:3100,,Under Votes,18
+dallas:3100,DEM,Robert Johnson,852
+dallas:3100,REP,"Jesse F. McClure, III",309
+dallas:3101,,Under Votes,10
+dallas:3101,DEM,Robert Johnson,396
+dallas:3101,REP,"Jesse F. McClure, III",138
+dallas:3102,,Under Votes,19
+dallas:3102,DEM,Robert Johnson,940
+dallas:3102,REP,"Jesse F. McClure, III",191
+dallas:3103,,Under Votes,12
+dallas:3103,DEM,Robert Johnson,1216
+dallas:3103,REP,"Jesse F. McClure, III",270
+dallas:3104,,Under Votes,26
+dallas:3104,DEM,Robert Johnson,997
+dallas:3104,REP,"Jesse F. McClure, III",276
+dallas:3105,,Under Votes,17
+dallas:3105,DEM,Robert Johnson,869
+dallas:3105,REP,"Jesse F. McClure, III",382
+dallas:3106,,Under Votes,23
+dallas:3106,DEM,Robert Johnson,1295
+dallas:3106,REP,"Jesse F. McClure, III",304
+dallas:3107,,Under Votes,12
+dallas:3107,DEM,Robert Johnson,1061
+dallas:3107,REP,"Jesse F. McClure, III",170
+dallas:3108,,Under Votes,19
+dallas:3108,DEM,Robert Johnson,712
+dallas:3108,REP,"Jesse F. McClure, III",555
+dallas:3109,,Under Votes,36
+dallas:3109,DEM,Robert Johnson,1210
+dallas:3109,REP,"Jesse F. McClure, III",924
+dallas:3110,,Under Votes,15
+dallas:3110,DEM,Robert Johnson,1246
+dallas:3110,REP,"Jesse F. McClure, III",235
+dallas:3111,DEM,Robert Johnson,1
+dallas:3111,REP,"Jesse F. McClure, III",4
+dallas:3112,DEM,Robert Johnson,23
+dallas:3112,REP,"Jesse F. McClure, III",11
+dallas:3114,DEM,Robert Johnson,2
+dallas:3114,REP,"Jesse F. McClure, III",2
+dallas:3115,,Under Votes,6
+dallas:3115,DEM,Robert Johnson,834
+dallas:3115,REP,"Jesse F. McClure, III",224
+dallas:3117,DEM,Robert Johnson,8
+dallas:3117,REP,"Jesse F. McClure, III",2
+dallas:3200,,Under Votes,25
+dallas:3200,DEM,Robert Johnson,759
+dallas:3200,REP,"Jesse F. McClure, III",568
+dallas:3201,,Under Votes,12
+dallas:3201,DEM,Robert Johnson,498
+dallas:3201,REP,"Jesse F. McClure, III",355
+dallas:3202,,Under Votes,22
+dallas:3202,DEM,Robert Johnson,784
+dallas:3202,REP,"Jesse F. McClure, III",280
+dallas:3203,,Under Votes,16
+dallas:3203,DEM,Robert Johnson,624
+dallas:3203,REP,"Jesse F. McClure, III",328
+dallas:3204,,Under Votes,25
+dallas:3204,DEM,Robert Johnson,649
+dallas:3204,REP,"Jesse F. McClure, III",405
+dallas:3205,,Under Votes,7
+dallas:3205,DEM,Robert Johnson,674
+dallas:3205,REP,"Jesse F. McClure, III",104
+dallas:3206,,Under Votes,33
+dallas:3206,DEM,Robert Johnson,702
+dallas:3206,REP,"Jesse F. McClure, III",592
+dallas:3207,,Under Votes,21
+dallas:3207,DEM,Robert Johnson,688
+dallas:3207,REP,"Jesse F. McClure, III",483
+dallas:3208,,Under Votes,14
+dallas:3208,DEM,Robert Johnson,476
+dallas:3208,REP,"Jesse F. McClure, III",222
+dallas:3209,,Under Votes,6
+dallas:3209,DEM,Robert Johnson,40
+dallas:3209,REP,"Jesse F. McClure, III",49
+dallas:3210,,Under Votes,22
+dallas:3210,DEM,Robert Johnson,574
+dallas:3210,REP,"Jesse F. McClure, III",405
+dallas:3211,,Under Votes,6
+dallas:3211,DEM,Robert Johnson,293
+dallas:3211,REP,"Jesse F. McClure, III",155
+dallas:32T0,DEM,Robert Johnson,2
+dallas:3600,,Under Votes,23
+dallas:3600,DEM,Robert Johnson,968
+dallas:3600,REP,"Jesse F. McClure, III",192
+dallas:3601,,Under Votes,9
+dallas:3601,DEM,Robert Johnson,1030
+dallas:3601,REP,"Jesse F. McClure, III",246
+dallas:3602,,Under Votes,6
+dallas:3602,DEM,Robert Johnson,349
+dallas:3602,REP,"Jesse F. McClure, III",71
+dallas:3603,,Under Votes,6
+dallas:3603,DEM,Robert Johnson,137
+dallas:3603,REP,"Jesse F. McClure, III",38
+dallas:3604,,Under Votes,14
+dallas:3604,DEM,Robert Johnson,1088
+dallas:3604,REP,"Jesse F. McClure, III",278
+dallas:3605,,Under Votes,17
+dallas:3605,DEM,Robert Johnson,829
+dallas:3605,REP,"Jesse F. McClure, III",155
+dallas:3606,,Under Votes,17
+dallas:3606,DEM,Robert Johnson,1013
+dallas:3606,REP,"Jesse F. McClure, III",106
+dallas:3607,,Under Votes,23
+dallas:3607,DEM,Robert Johnson,1946
+dallas:3607,REP,"Jesse F. McClure, III",229
+dallas:3608,,Under Votes,25
+dallas:3608,DEM,Robert Johnson,1606
+dallas:3608,REP,"Jesse F. McClure, III",130
+dallas:3609,,Under Votes,19
+dallas:3609,DEM,Robert Johnson,1466
+dallas:3609,REP,"Jesse F. McClure, III",268
+dallas:3610,,Under Votes,9
+dallas:3610,DEM,Robert Johnson,160
+dallas:3610,REP,"Jesse F. McClure, III",74
+dallas:3611,,Under Votes,11
+dallas:3611,DEM,Robert Johnson,388
+dallas:3611,REP,"Jesse F. McClure, III",151
+dallas:3612,,Under Votes,17
+dallas:3612,DEM,Robert Johnson,1349
+dallas:3612,REP,"Jesse F. McClure, III",239
+dallas:3613,,Under Votes,7
+dallas:3613,DEM,Robert Johnson,197
+dallas:3613,REP,"Jesse F. McClure, III",76
+dallas:3614,,Under Votes,4
+dallas:3614,DEM,Robert Johnson,356
+dallas:3614,REP,"Jesse F. McClure, III",44
+dallas:3615,,Under Votes,14
+dallas:3615,DEM,Robert Johnson,1098
+dallas:3615,REP,"Jesse F. McClure, III",147
+dallas:3616,,Under Votes,6
+dallas:3616,DEM,Robert Johnson,272
+dallas:3616,REP,"Jesse F. McClure, III",37
+dallas:3617,,Under Votes,10
+dallas:3617,DEM,Robert Johnson,1147
+dallas:3617,REP,"Jesse F. McClure, III",76
+dallas:3618,,Under Votes,1
+dallas:3618,DEM,Robert Johnson,352
+dallas:3618,REP,"Jesse F. McClure, III",30
+dallas:3619,DEM,Robert Johnson,53
+dallas:3619,REP,"Jesse F. McClure, III",34
+dallas:3620,,Under Votes,8
+dallas:3620,DEM,Robert Johnson,609
+dallas:3620,REP,"Jesse F. McClure, III",87
+dallas:3621,,Under Votes,1
+dallas:3621,DEM,Robert Johnson,272
+dallas:3621,REP,"Jesse F. McClure, III",49
+dallas:3800,DEM,Robert Johnson,1967
+dallas:3800,REP,"Jesse F. McClure, III",138
+dallas:3800,,Under Votes,31
+dallas:3801,REP,"Jesse F. McClure, III",26
+dallas:3801,,Under Votes,4
+dallas:3801,DEM,Robert Johnson,86
+dallas:3802,,Under Votes,22
+dallas:3802,DEM,Robert Johnson,1392
+dallas:3802,REP,"Jesse F. McClure, III",150
+dallas:3803,,Under Votes,18
+dallas:3803,DEM,Robert Johnson,1257
+dallas:3803,REP,"Jesse F. McClure, III",121
+dallas:3805,,Under Votes,26
+dallas:3805,DEM,Robert Johnson,1906
+dallas:3805,REP,"Jesse F. McClure, III",132
+dallas:3806,,Under Votes,9
+dallas:3806,DEM,Robert Johnson,417
+dallas:3806,REP,"Jesse F. McClure, III",35
+dallas:3807,,Under Votes,22
+dallas:3807,DEM,Robert Johnson,996
+dallas:3807,REP,"Jesse F. McClure, III",149
+dallas:3808,,Under Votes,29
+dallas:3808,DEM,Robert Johnson,1406
+dallas:3808,REP,"Jesse F. McClure, III",602
+dallas:3809,,Under Votes,2
+dallas:3809,DEM,Robert Johnson,113
+dallas:3809,REP,"Jesse F. McClure, III",32
+dallas:3900,,Under Votes,12
+dallas:3900,DEM,Robert Johnson,1159
+dallas:3900,REP,"Jesse F. McClure, III",223
+dallas:3922,DEM,Robert Johnson,20
+dallas:3922,REP,"Jesse F. McClure, III",7
+dallas:3940,,Under Votes,10
+dallas:3940,DEM,Robert Johnson,580
+dallas:3940,REP,"Jesse F. McClure, III",230
+dallas:3950,,Under Votes,13
+dallas:3950,DEM,Robert Johnson,606
+dallas:3950,REP,"Jesse F. McClure, III",209
+dallas:3951,,Under Votes,20
+dallas:3951,DEM,Robert Johnson,1221
+dallas:3951,REP,"Jesse F. McClure, III",163
+dallas:3952,DEM,Robert Johnson,56
+dallas:3952,REP,"Jesse F. McClure, III",13
+dallas:4015,,Under Votes,15
+dallas:4015,DEM,Robert Johnson,558
+dallas:4015,REP,"Jesse F. McClure, III",229
+dallas:4016,,Under Votes,19
+dallas:4016,DEM,Robert Johnson,640
+dallas:4016,REP,"Jesse F. McClure, III",188
+dallas:4017,,Under Votes,5
+dallas:4017,DEM,Robert Johnson,196
+dallas:4017,REP,"Jesse F. McClure, III",92
+dallas:4018,,Under Votes,20
+dallas:4018,DEM,Robert Johnson,389
+dallas:4018,REP,"Jesse F. McClure, III",278
+dallas:4019,,Under Votes,20
+dallas:4019,DEM,Robert Johnson,972
+dallas:4019,REP,"Jesse F. McClure, III",189
+dallas:4020,,Under Votes,12
+dallas:4020,DEM,Robert Johnson,336
+dallas:4020,REP,"Jesse F. McClure, III",83
+dallas:4021,,Under Votes,16
+dallas:4021,DEM,Robert Johnson,1155
+dallas:4021,REP,"Jesse F. McClure, III",211
+dallas:4022,,Under Votes,11
+dallas:4022,DEM,Robert Johnson,480
+dallas:4022,REP,"Jesse F. McClure, III",89
+dallas:4024,,Under Votes,13
+dallas:4024,DEM,Robert Johnson,519
+dallas:4024,REP,"Jesse F. McClure, III",84
+dallas:4033,,Under Votes,18
+dallas:4033,DEM,Robert Johnson,622
+dallas:4033,REP,"Jesse F. McClure, III",208
+dallas:4035,,Under Votes,4
+dallas:4035,DEM,Robert Johnson,505
+dallas:4035,REP,"Jesse F. McClure, III",73
+dallas:4038,,Under Votes,11
+dallas:4038,DEM,Robert Johnson,685
+dallas:4038,REP,"Jesse F. McClure, III",82
+dallas:4039,,Under Votes,3
+dallas:4039,DEM,Robert Johnson,163
+dallas:4039,REP,"Jesse F. McClure, III",14
+dallas:4040,,Under Votes,5
+dallas:4040,DEM,Robert Johnson,233
+dallas:4040,REP,"Jesse F. McClure, III",15
+dallas:4041,,Under Votes,2
+dallas:4041,DEM,Robert Johnson,174
+dallas:4041,REP,"Jesse F. McClure, III",22
+dallas:4047,,Under Votes,2
+dallas:4047,DEM,Robert Johnson,206
+dallas:4047,REP,"Jesse F. McClure, III",18
+dallas:4050,,Under Votes,19
+dallas:4050,DEM,Robert Johnson,1525
+dallas:4050,REP,"Jesse F. McClure, III",480
+dallas:4052,,Under Votes,15
+dallas:4052,DEM,Robert Johnson,1236
+dallas:4052,REP,"Jesse F. McClure, III",438
+dallas:4079,,Under Votes,51
+dallas:4079,DEM,Robert Johnson,1844
+dallas:4079,REP,"Jesse F. McClure, III",666
+dallas:4080,,Under Votes,13
+dallas:4080,DEM,Robert Johnson,319
+dallas:4080,REP,"Jesse F. McClure, III",196
+dallas:4093,DEM,Robert Johnson,22
+dallas:4093,REP,"Jesse F. McClure, III",2
+dallas:4100,DEM,Robert Johnson,14
+dallas:4100,REP,"Jesse F. McClure, III",2
+dallas:4110,,Under Votes,6
+dallas:4110,DEM,Robert Johnson,269
+dallas:4110,REP,"Jesse F. McClure, III",14
+dallas:4112,,Under Votes,4
+dallas:4112,DEM,Robert Johnson,10
+dallas:4112,REP,"Jesse F. McClure, III",29
+dallas:4115,,Under Votes,4
+dallas:4115,DEM,Robert Johnson,156
+dallas:4115,REP,"Jesse F. McClure, III",66
+dallas:4117,DEM,Robert Johnson,5
+dallas:4117,REP,"Jesse F. McClure, III",5
+dallas:4131,,Under Votes,10
+dallas:4131,DEM,Robert Johnson,667
+dallas:4131,REP,"Jesse F. McClure, III",105
+dallas:4135,,Under Votes,8
+dallas:4135,DEM,Robert Johnson,528
+dallas:4135,REP,"Jesse F. McClure, III",129
+dallas:4141,DEM,Robert Johnson,76
+dallas:4141,REP,"Jesse F. McClure, III",22
+dallas:4143,DEM,Robert Johnson,33
+dallas:4143,REP,"Jesse F. McClure, III",1
+dallas:4161,,Under Votes,8
+dallas:4161,DEM,Robert Johnson,250
+dallas:4161,REP,"Jesse F. McClure, III",65
+dallas:4500,,Under Votes,12
+dallas:4500,DEM,Robert Johnson,689
+dallas:4500,REP,"Jesse F. McClure, III",433
+dallas:4501,,Under Votes,23
+dallas:4501,DEM,Robert Johnson,596
+dallas:4501,REP,"Jesse F. McClure, III",438
+dallas:4502,,Under Votes,21
+dallas:4502,DEM,Robert Johnson,1075
+dallas:4502,REP,"Jesse F. McClure, III",585
+dallas:4503,,Under Votes,21
+dallas:4503,DEM,Robert Johnson,1438
+dallas:4503,REP,"Jesse F. McClure, III",607
+dallas:4504,,Under Votes,12
+dallas:4504,DEM,Robert Johnson,330
+dallas:4504,REP,"Jesse F. McClure, III",237
+dallas:4505,,Under Votes,14
+dallas:4505,DEM,Robert Johnson,498
+dallas:4505,REP,"Jesse F. McClure, III",372
+dallas:4506,,Under Votes,10
+dallas:4506,DEM,Robert Johnson,297
+dallas:4506,REP,"Jesse F. McClure, III",247
+dallas:4509,,Under Votes,5
+dallas:4509,DEM,Robert Johnson,265
+dallas:4509,REP,"Jesse F. McClure, III",338
+dallas:4519,,Under Votes,33
+dallas:4519,DEM,Robert Johnson,1047
+dallas:4519,REP,"Jesse F. McClure, III",735
+dallas:4520,,Under Votes,14
+dallas:4520,DEM,Robert Johnson,233
+dallas:4520,REP,"Jesse F. McClure, III",128
+dallas:4521,,Under Votes,26
+dallas:4521,DEM,Robert Johnson,1162
+dallas:4521,REP,"Jesse F. McClure, III",910
+dallas:4522,,Under Votes,28
+dallas:4522,DEM,Robert Johnson,1107
+dallas:4522,REP,"Jesse F. McClure, III",588
+dallas:4523,,Under Votes,9
+dallas:4523,DEM,Robert Johnson,231
+dallas:4523,REP,"Jesse F. McClure, III",119
+dallas:4525,,Under Votes,7
+dallas:4525,DEM,Robert Johnson,317
+dallas:4525,REP,"Jesse F. McClure, III",167
+dallas:4529,,Under Votes,13
+dallas:4529,DEM,Robert Johnson,201
+dallas:4529,REP,"Jesse F. McClure, III",157
+dallas:4536,DEM,Robert Johnson,12
+dallas:4536,REP,"Jesse F. McClure, III",8
+dallas:4537,DEM,Robert Johnson,3
+dallas:4538,,Under Votes,6
+dallas:4538,DEM,Robert Johnson,195
+dallas:4538,REP,"Jesse F. McClure, III",97
+tarrant:2002,DEM,Robert Johnson,0
+tarrant:2002,REP,"Jesse F. McClure, III",0
+tarrant:2275,DEM,Robert Johnson,256
+tarrant:2275,REP,"Jesse F. McClure, III",201
+tarrant:2299,DEM,Robert Johnson,601
+tarrant:2299,REP,"Jesse F. McClure, III",282
+tarrant:2302,DEM,Robert Johnson,385
+tarrant:2302,REP,"Jesse F. McClure, III",124
+tarrant:2349,DEM,Robert Johnson,555
+tarrant:2349,REP,"Jesse F. McClure, III",316
+tarrant:2379,DEM,Robert Johnson,1212
+tarrant:2379,REP,"Jesse F. McClure, III",503
+tarrant:2381,DEM,Robert Johnson,130
+tarrant:2381,REP,"Jesse F. McClure, III",48
+tarrant:2438,DEM,Robert Johnson,837
+tarrant:2438,REP,"Jesse F. McClure, III",363
+tarrant:2466,DEM,Robert Johnson,359
+tarrant:2466,REP,"Jesse F. McClure, III",191
+tarrant:2484,DEM,Robert Johnson,1111
+tarrant:2484,REP,"Jesse F. McClure, III",591
+tarrant:2488,DEM,Robert Johnson,725
+tarrant:2488,REP,"Jesse F. McClure, III",409
+tarrant:2644,DEM,Robert Johnson,1385
+tarrant:2644,REP,"Jesse F. McClure, III",576
+tarrant:2675,DEM,Robert Johnson,0
+tarrant:2675,REP,"Jesse F. McClure, III",0
+tarrant:2699,DEM,Robert Johnson,1466
+tarrant:2699,REP,"Jesse F. McClure, III",695

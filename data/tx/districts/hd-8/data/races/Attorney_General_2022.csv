@@ -1,0 +1,127 @@
+precinct,party,candidate,votes
+anderson:1,DEM,Rochelle Mercedes Garza,203
+anderson:1,LIB,Mark Ash,17
+anderson:1,REP,Ken Paxton,592
+anderson:10,DEM,Rochelle Mercedes Garza,27
+anderson:10,LIB,Mark Ash,5
+anderson:10,REP,Ken Paxton,245
+anderson:11,DEM,Rochelle Mercedes Garza,123
+anderson:11,LIB,Mark Ash,5
+anderson:11,REP,Ken Paxton,532
+anderson:13,DEM,Rochelle Mercedes Garza,186
+anderson:13,LIB,Mark Ash,22
+anderson:13,REP,Ken Paxton,556
+anderson:15,DEM,Rochelle Mercedes Garza,59
+anderson:15,LIB,Mark Ash,6
+anderson:15,REP,Ken Paxton,464
+anderson:16,DEM,Rochelle Mercedes Garza,83
+anderson:16,LIB,Mark Ash,18
+anderson:16,REP,Ken Paxton,423
+anderson:17,DEM,Rochelle Mercedes Garza,72
+anderson:17,LIB,Mark Ash,7
+anderson:17,REP,Ken Paxton,353
+anderson:18,DEM,Rochelle Mercedes Garza,130
+anderson:18,LIB,Mark Ash,17
+anderson:18,REP,Ken Paxton,936
+anderson:19,DEM,Rochelle Mercedes Garza,214
+anderson:19,LIB,Mark Ash,21
+anderson:19,REP,Ken Paxton,763
+anderson:2,DEM,Rochelle Mercedes Garza,133
+anderson:2,LIB,Mark Ash,27
+anderson:2,REP,Ken Paxton,1149
+anderson:20,DEM,Rochelle Mercedes Garza,121
+anderson:20,LIB,Mark Ash,12
+anderson:20,REP,Ken Paxton,424
+anderson:21,DEM,Rochelle Mercedes Garza,101
+anderson:21,LIB,Mark Ash,22
+anderson:21,REP,Ken Paxton,811
+anderson:22,DEM,Rochelle Mercedes Garza,89
+anderson:22,LIB,Mark Ash,13
+anderson:22,REP,Ken Paxton,555
+anderson:23,DEM,Rochelle Mercedes Garza,58
+anderson:23,LIB,Mark Ash,15
+anderson:23,REP,Ken Paxton,722
+anderson:24,DEM,Rochelle Mercedes Garza,33
+anderson:24,LIB,Mark Ash,6
+anderson:24,REP,Ken Paxton,483
+anderson:3,DEM,Rochelle Mercedes Garza,75
+anderson:3,LIB,Mark Ash,25
+anderson:3,REP,Ken Paxton,551
+anderson:4,DEM,Rochelle Mercedes Garza,69
+anderson:4,LIB,Mark Ash,11
+anderson:4,REP,Ken Paxton,796
+anderson:5,DEM,Rochelle Mercedes Garza,9
+anderson:5,LIB,Mark Ash,3
+anderson:5,REP,Ken Paxton,159
+anderson:6,DEM,Rochelle Mercedes Garza,267
+anderson:6,LIB,Mark Ash,12
+anderson:6,REP,Ken Paxton,284
+anderson:7,DEM,Rochelle Mercedes Garza,283
+anderson:7,LIB,Mark Ash,8
+anderson:7,REP,Ken Paxton,89
+anderson:8,DEM,Rochelle Mercedes Garza,72
+anderson:8,LIB,Mark Ash,6
+anderson:8,REP,Ken Paxton,57
+anderson:9,DEM,Rochelle Mercedes Garza,110
+anderson:9,LIB,Mark Ash,17
+anderson:9,REP,Ken Paxton,565
+henderson:1CR,,Over Votes,0
+henderson:1CR,,Under Votes,15
+henderson:1CR,DEM,Rochelle Mercedes Garza,125
+henderson:1CR,LIB,Mark Ash,26
+henderson:1CR,REP,Ken Paxton,998
+henderson:3B,,Over Votes,0
+henderson:3B,,Under Votes,36
+henderson:3B,DEM,Rochelle Mercedes Garza,156
+henderson:3B,LIB,Mark Ash,38
+henderson:3B,REP,Ken Paxton,1413
+henderson:3C,,Over Votes,0
+henderson:3C,,Under Votes,33
+henderson:3C,DEM,Rochelle Mercedes Garza,185
+henderson:3C,LIB,Mark Ash,22
+henderson:3C,REP,Ken Paxton,930
+henderson:3CS,,Over Votes,0
+henderson:3CS,,Under Votes,21
+henderson:3CS,DEM,Rochelle Mercedes Garza,133
+henderson:3CS,LIB,Mark Ash,22
+henderson:3CS,REP,Ken Paxton,959
+henderson:3M,,Over Votes,0
+henderson:3M,,Under Votes,12
+henderson:3M,DEM,Rochelle Mercedes Garza,98
+henderson:3M,LIB,Mark Ash,20
+henderson:3M,REP,Ken Paxton,719
+henderson:3N,,Over Votes,0
+henderson:3N,,Under Votes,6
+henderson:3N,DEM,Rochelle Mercedes Garza,56
+henderson:3N,LIB,Mark Ash,16
+henderson:3N,REP,Ken Paxton,588
+henderson:3WS,,Over Votes,0
+henderson:3WS,,Under Votes,14
+henderson:3WS,DEM,Rochelle Mercedes Garza,93
+henderson:3WS,LIB,Mark Ash,25
+henderson:3WS,REP,Ken Paxton,563
+henderson:4LP,,Over Votes,0
+henderson:4LP,,Under Votes,21
+henderson:4LP,DEM,Rochelle Mercedes Garza,240
+henderson:4LP,LIB,Mark Ash,29
+henderson:4LP,REP,Ken Paxton,1183
+henderson:4MS,,Over Votes,0
+henderson:4MS,,Under Votes,13
+henderson:4MS,DEM,Rochelle Mercedes Garza,197
+henderson:4MS,LIB,Mark Ash,8
+henderson:4MS,REP,Ken Paxton,392
+henderson:4NLP,,Over Votes,0
+henderson:4NLP,,Under Votes,10
+henderson:4NLP,DEM,Rochelle Mercedes Garza,76
+henderson:4NLP,LIB,Mark Ash,20
+henderson:4NLP,REP,Ken Paxton,840
+henderson:4SE,,Over Votes,0
+henderson:4SE,,Under Votes,27
+henderson:4SE,DEM,Rochelle Mercedes Garza,294
+henderson:4SE,LIB,Mark Ash,66
+henderson:4SE,REP,Ken Paxton,1692
+henderson:4W,,Over Votes,0
+henderson:4W,,Under Votes,7
+henderson:4W,DEM,Rochelle Mercedes Garza,113
+henderson:4W,LIB,Mark Ash,14
+henderson:4W,REP,Ken Paxton,476

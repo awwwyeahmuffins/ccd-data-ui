@@ -1,0 +1,286 @@
+precinct,party,candidate,votes
+smith:1,,Over Votes,0
+smith:1,,Under Votes,3
+smith:1,DEM,Janet T. Dudding,65
+smith:1,LIB,V. Alonzo Echevarria-Garza,6
+smith:1,REP,Glenn Hegar,51
+smith:11,,Over Votes,0
+smith:11,,Under Votes,13
+smith:11,DEM,Janet T. Dudding,410
+smith:11,LIB,V. Alonzo Echevarria-Garza,8
+smith:11,REP,Glenn Hegar,135
+smith:12,,Over Votes,0
+smith:12,,Under Votes,9
+smith:12,DEM,Janet T. Dudding,442
+smith:12,LIB,V. Alonzo Echevarria-Garza,16
+smith:12,REP,Glenn Hegar,81
+smith:13,,Over Votes,0
+smith:13,,Under Votes,9
+smith:13,DEM,Janet T. Dudding,501
+smith:13,LIB,V. Alonzo Echevarria-Garza,12
+smith:13,REP,Glenn Hegar,21
+smith:16,,Over Votes,0
+smith:16,,Under Votes,8
+smith:16,DEM,Janet T. Dudding,374
+smith:16,LIB,V. Alonzo Echevarria-Garza,20
+smith:16,REP,Glenn Hegar,61
+smith:18,,Over Votes,0
+smith:18,,Under Votes,9
+smith:18,DEM,Janet T. Dudding,363
+smith:18,LIB,V. Alonzo Echevarria-Garza,8
+smith:18,REP,Glenn Hegar,60
+smith:2,,Over Votes,0
+smith:2,,Under Votes,11
+smith:2,DEM,Janet T. Dudding,129
+smith:2,LIB,V. Alonzo Echevarria-Garza,10
+smith:2,REP,Glenn Hegar,46
+smith:20,,Over Votes,0
+smith:20,,Under Votes,6
+smith:20,DEM,Janet T. Dudding,96
+smith:20,LIB,V. Alonzo Echevarria-Garza,17
+smith:20,REP,Glenn Hegar,62
+smith:21,,Over Votes,0
+smith:21,,Under Votes,18
+smith:21,DEM,Janet T. Dudding,198
+smith:21,LIB,V. Alonzo Echevarria-Garza,18
+smith:21,REP,Glenn Hegar,711
+smith:22,,Over Votes,0
+smith:22,,Under Votes,0
+smith:22,DEM,Janet T. Dudding,59
+smith:22,LIB,V. Alonzo Echevarria-Garza,4
+smith:22,REP,Glenn Hegar,43
+smith:23,,Over Votes,0
+smith:23,,Under Votes,19
+smith:23,DEM,Janet T. Dudding,312
+smith:23,LIB,V. Alonzo Echevarria-Garza,37
+smith:23,REP,Glenn Hegar,760
+smith:24,,Over Votes,0
+smith:24,,Under Votes,18
+smith:24,DEM,Janet T. Dudding,162
+smith:24,LIB,V. Alonzo Echevarria-Garza,20
+smith:24,REP,Glenn Hegar,1035
+smith:25,,Over Votes,0
+smith:25,,Under Votes,22
+smith:25,DEM,Janet T. Dudding,257
+smith:25,LIB,V. Alonzo Echevarria-Garza,23
+smith:25,REP,Glenn Hegar,942
+smith:26,,Over Votes,0
+smith:26,,Under Votes,17
+smith:26,DEM,Janet T. Dudding,216
+smith:26,LIB,V. Alonzo Echevarria-Garza,24
+smith:26,REP,Glenn Hegar,1320
+smith:27,,Over Votes,0
+smith:27,,Under Votes,15
+smith:27,DEM,Janet T. Dudding,253
+smith:27,LIB,V. Alonzo Echevarria-Garza,20
+smith:27,REP,Glenn Hegar,569
+smith:28,,Over Votes,0
+smith:28,,Under Votes,33
+smith:28,DEM,Janet T. Dudding,295
+smith:28,LIB,V. Alonzo Echevarria-Garza,34
+smith:28,REP,Glenn Hegar,1728
+smith:29,,Over Votes,0
+smith:29,,Under Votes,11
+smith:29,DEM,Janet T. Dudding,160
+smith:29,LIB,V. Alonzo Echevarria-Garza,15
+smith:29,REP,Glenn Hegar,729
+smith:3,,Over Votes,0
+smith:3,,Under Votes,34
+smith:3,DEM,Janet T. Dudding,362
+smith:3,LIB,V. Alonzo Echevarria-Garza,29
+smith:3,REP,Glenn Hegar,979
+smith:30,,Over Votes,0
+smith:30,,Under Votes,32
+smith:30,DEM,Janet T. Dudding,350
+smith:30,LIB,V. Alonzo Echevarria-Garza,48
+smith:30,REP,Glenn Hegar,1925
+smith:31,,Over Votes,0
+smith:31,,Under Votes,23
+smith:31,DEM,Janet T. Dudding,234
+smith:31,LIB,V. Alonzo Echevarria-Garza,31
+smith:31,REP,Glenn Hegar,1648
+smith:32,,Over Votes,0
+smith:32,,Under Votes,5
+smith:32,DEM,Janet T. Dudding,96
+smith:32,LIB,V. Alonzo Echevarria-Garza,5
+smith:32,REP,Glenn Hegar,215
+smith:33,,Over Votes,0
+smith:33,,Under Votes,11
+smith:33,DEM,Janet T. Dudding,97
+smith:33,LIB,V. Alonzo Echevarria-Garza,14
+smith:33,REP,Glenn Hegar,486
+smith:34,,Over Votes,0
+smith:34,,Under Votes,8
+smith:34,DEM,Janet T. Dudding,401
+smith:34,LIB,V. Alonzo Echevarria-Garza,10
+smith:34,REP,Glenn Hegar,118
+smith:35,,Over Votes,0
+smith:35,,Under Votes,19
+smith:35,DEM,Janet T. Dudding,595
+smith:35,LIB,V. Alonzo Echevarria-Garza,13
+smith:35,REP,Glenn Hegar,579
+smith:36,,Over Votes,0
+smith:36,,Under Votes,18
+smith:36,DEM,Janet T. Dudding,711
+smith:36,LIB,V. Alonzo Echevarria-Garza,31
+smith:36,REP,Glenn Hegar,246
+smith:37,,Over Votes,0
+smith:37,,Under Votes,13
+smith:37,DEM,Janet T. Dudding,171
+smith:37,LIB,V. Alonzo Echevarria-Garza,9
+smith:37,REP,Glenn Hegar,951
+smith:38,,Over Votes,0
+smith:38,,Under Votes,25
+smith:38,DEM,Janet T. Dudding,339
+smith:38,LIB,V. Alonzo Echevarria-Garza,20
+smith:38,REP,Glenn Hegar,872
+smith:39,,Over Votes,0
+smith:39,,Under Votes,6
+smith:39,DEM,Janet T. Dudding,96
+smith:39,LIB,V. Alonzo Echevarria-Garza,4
+smith:39,REP,Glenn Hegar,64
+smith:40,,Over Votes,0
+smith:40,,Under Votes,42
+smith:40,DEM,Janet T. Dudding,365
+smith:40,LIB,V. Alonzo Echevarria-Garza,32
+smith:40,REP,Glenn Hegar,2036
+smith:41,,Over Votes,0
+smith:41,,Under Votes,33
+smith:41,DEM,Janet T. Dudding,307
+smith:41,LIB,V. Alonzo Echevarria-Garza,36
+smith:41,REP,Glenn Hegar,2226
+smith:42,,Over Votes,0
+smith:42,,Under Votes,36
+smith:42,DEM,Janet T. Dudding,377
+smith:42,LIB,V. Alonzo Echevarria-Garza,39
+smith:42,REP,Glenn Hegar,2096
+smith:43,,Over Votes,0
+smith:43,,Under Votes,18
+smith:43,DEM,Janet T. Dudding,221
+smith:43,LIB,V. Alonzo Echevarria-Garza,18
+smith:43,REP,Glenn Hegar,521
+smith:44,,Over Votes,0
+smith:44,,Under Votes,25
+smith:44,DEM,Janet T. Dudding,610
+smith:44,LIB,V. Alonzo Echevarria-Garza,31
+smith:44,REP,Glenn Hegar,1240
+smith:45,,Over Votes,0
+smith:45,,Under Votes,18
+smith:45,DEM,Janet T. Dudding,131
+smith:45,LIB,V. Alonzo Echevarria-Garza,11
+smith:45,REP,Glenn Hegar,1165
+smith:48,,Over Votes,0
+smith:48,,Under Votes,11
+smith:48,DEM,Janet T. Dudding,127
+smith:48,LIB,V. Alonzo Echevarria-Garza,11
+smith:48,REP,Glenn Hegar,195
+smith:50,,Over Votes,0
+smith:50,,Under Votes,21
+smith:50,DEM,Janet T. Dudding,275
+smith:50,LIB,V. Alonzo Echevarria-Garza,19
+smith:50,REP,Glenn Hegar,1064
+smith:51,,Over Votes,0
+smith:51,,Under Votes,30
+smith:51,DEM,Janet T. Dudding,400
+smith:51,LIB,V. Alonzo Echevarria-Garza,23
+smith:51,REP,Glenn Hegar,1215
+smith:52,,Over Votes,0
+smith:52,,Under Votes,15
+smith:52,DEM,Janet T. Dudding,169
+smith:52,LIB,V. Alonzo Echevarria-Garza,15
+smith:52,REP,Glenn Hegar,1329
+smith:54,,Over Votes,0
+smith:54,,Under Votes,29
+smith:54,DEM,Janet T. Dudding,406
+smith:54,LIB,V. Alonzo Echevarria-Garza,32
+smith:54,REP,Glenn Hegar,1234
+smith:55,,Over Votes,0
+smith:55,,Under Votes,12
+smith:55,DEM,Janet T. Dudding,323
+smith:55,LIB,V. Alonzo Echevarria-Garza,17
+smith:55,REP,Glenn Hegar,426
+smith:56,,Over Votes,0
+smith:56,,Under Votes,26
+smith:56,DEM,Janet T. Dudding,408
+smith:56,LIB,V. Alonzo Echevarria-Garza,37
+smith:56,REP,Glenn Hegar,1431
+smith:57,,Over Votes,0
+smith:57,,Under Votes,11
+smith:57,DEM,Janet T. Dudding,93
+smith:57,LIB,V. Alonzo Echevarria-Garza,4
+smith:57,REP,Glenn Hegar,374
+smith:58,,Over Votes,0
+smith:58,,Under Votes,47
+smith:58,DEM,Janet T. Dudding,487
+smith:58,LIB,V. Alonzo Echevarria-Garza,33
+smith:58,REP,Glenn Hegar,1802
+smith:59,,Over Votes,0
+smith:59,,Under Votes,25
+smith:59,DEM,Janet T. Dudding,429
+smith:59,LIB,V. Alonzo Echevarria-Garza,21
+smith:59,REP,Glenn Hegar,1620
+smith:60,,Over Votes,0
+smith:60,,Under Votes,4
+smith:60,DEM,Janet T. Dudding,63
+smith:60,LIB,V. Alonzo Echevarria-Garza,10
+smith:60,REP,Glenn Hegar,100
+smith:61,,Over Votes,0
+smith:61,,Under Votes,24
+smith:61,DEM,Janet T. Dudding,402
+smith:61,LIB,V. Alonzo Echevarria-Garza,31
+smith:61,REP,Glenn Hegar,577
+smith:66,,Over Votes,0
+smith:66,,Under Votes,10
+smith:66,DEM,Janet T. Dudding,129
+smith:66,LIB,V. Alonzo Echevarria-Garza,6
+smith:66,REP,Glenn Hegar,207
+smith:71,,Over Votes,0
+smith:71,,Under Votes,37
+smith:71,DEM,Janet T. Dudding,416
+smith:71,LIB,V. Alonzo Echevarria-Garza,32
+smith:71,REP,Glenn Hegar,2203
+smith:73,,Over Votes,0
+smith:73,,Under Votes,7
+smith:73,DEM,Janet T. Dudding,105
+smith:73,LIB,V. Alonzo Echevarria-Garza,9
+smith:73,REP,Glenn Hegar,176
+smith:74,,Over Votes,0
+smith:74,,Under Votes,11
+smith:74,DEM,Janet T. Dudding,75
+smith:74,LIB,V. Alonzo Echevarria-Garza,6
+smith:74,REP,Glenn Hegar,338
+smith:75,,Over Votes,0
+smith:75,,Under Votes,22
+smith:75,DEM,Janet T. Dudding,203
+smith:75,LIB,V. Alonzo Echevarria-Garza,14
+smith:75,REP,Glenn Hegar,1821
+smith:76,,Over Votes,0
+smith:76,,Under Votes,10
+smith:76,DEM,Janet T. Dudding,123
+smith:76,LIB,V. Alonzo Echevarria-Garza,12
+smith:76,REP,Glenn Hegar,67
+smith:77,,Over Votes,0
+smith:77,,Under Votes,8
+smith:77,DEM,Janet T. Dudding,108
+smith:77,LIB,V. Alonzo Echevarria-Garza,7
+smith:77,REP,Glenn Hegar,197
+smith:79,,Over Votes,0
+smith:79,,Under Votes,41
+smith:79,DEM,Janet T. Dudding,390
+smith:79,LIB,V. Alonzo Echevarria-Garza,39
+smith:79,REP,Glenn Hegar,1712
+smith:81,,Over Votes,0
+smith:81,,Under Votes,0
+smith:81,DEM,Janet T. Dudding,61
+smith:81,LIB,V. Alonzo Echevarria-Garza,3
+smith:81,REP,Glenn Hegar,45
+smith:82,,Over Votes,0
+smith:82,,Under Votes,1
+smith:82,DEM,Janet T. Dudding,4
+smith:82,LIB,V. Alonzo Echevarria-Garza,1
+smith:82,REP,Glenn Hegar,7
+smith:9,,Over Votes,0
+smith:9,,Under Votes,2
+smith:9,DEM,Janet T. Dudding,70
+smith:9,LIB,V. Alonzo Echevarria-Garza,4
+smith:9,REP,Glenn Hegar,29

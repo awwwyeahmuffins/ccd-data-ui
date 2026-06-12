@@ -1,0 +1,288 @@
+precinct,party,candidate,votes
+collin:101,Dem,Kamala D. Harris/Tim Walz,1338
+collin:101,Grn,Jill Stein/Rudolph Ware,41
+collin:101,Lib,Chase Oliver/Mike ter Maat,19
+collin:101,Rep,Donald J. Trump/JD Vance,1435
+collin:101,,Write-in,10
+collin:101,,Over Votes,0
+collin:101,,Under Votes,22
+collin:105,Dem,Kamala D. Harris/Tim Walz,67
+collin:105,Grn,Jill Stein/Rudolph Ware,1
+collin:105,Lib,Chase Oliver/Mike ter Maat,0
+collin:105,Rep,Donald J. Trump/JD Vance,46
+collin:105,,Write-in,0
+collin:105,,Over Votes,0
+collin:105,,Under Votes,1
+collin:108,Dem,Kamala D. Harris/Tim Walz,1088
+collin:108,Grn,Jill Stein/Rudolph Ware,40
+collin:108,Lib,Chase Oliver/Mike ter Maat,24
+collin:108,Rep,Donald J. Trump/JD Vance,880
+collin:108,,Write-in,8
+collin:108,,Over Votes,0
+collin:108,,Under Votes,7
+collin:109,Dem,Kamala D. Harris/Tim Walz,1459
+collin:109,Grn,Jill Stein/Rudolph Ware,33
+collin:109,Lib,Chase Oliver/Mike ter Maat,26
+collin:109,Rep,Donald J. Trump/JD Vance,1754
+collin:109,,Write-in,15
+collin:109,,Over Votes,0
+collin:109,,Under Votes,25
+collin:111,Dem,Kamala D. Harris/Tim Walz,730
+collin:111,Grn,Jill Stein/Rudolph Ware,29
+collin:111,Lib,Chase Oliver/Mike ter Maat,10
+collin:111,Rep,Donald J. Trump/JD Vance,1390
+collin:111,,Write-in,13
+collin:111,,Over Votes,0
+collin:111,,Under Votes,11
+collin:112,Dem,Kamala D. Harris/Tim Walz,1113
+collin:112,Grn,Jill Stein/Rudolph Ware,45
+collin:112,Lib,Chase Oliver/Mike ter Maat,12
+collin:112,Rep,Donald J. Trump/JD Vance,1120
+collin:112,,Write-in,15
+collin:112,,Over Votes,0
+collin:112,,Under Votes,17
+collin:116,Dem,Kamala D. Harris/Tim Walz,1571
+collin:116,Grn,Jill Stein/Rudolph Ware,77
+collin:116,Lib,Chase Oliver/Mike ter Maat,19
+collin:116,Rep,Donald J. Trump/JD Vance,1827
+collin:116,,Write-in,29
+collin:116,,Over Votes,0
+collin:116,,Under Votes,30
+collin:117,Dem,Kamala D. Harris/Tim Walz,1366
+collin:117,Grn,Jill Stein/Rudolph Ware,50
+collin:117,Lib,Chase Oliver/Mike ter Maat,16
+collin:117,Rep,Donald J. Trump/JD Vance,1475
+collin:117,,Write-in,12
+collin:117,,Over Votes,0
+collin:117,,Under Votes,15
+collin:118,Dem,Kamala D. Harris/Tim Walz,1291
+collin:118,Grn,Jill Stein/Rudolph Ware,29
+collin:118,Lib,Chase Oliver/Mike ter Maat,16
+collin:118,Rep,Donald J. Trump/JD Vance,1626
+collin:118,,Write-in,12
+collin:118,,Over Votes,0
+collin:118,,Under Votes,22
+collin:119,Dem,Kamala D. Harris/Tim Walz,817
+collin:119,Grn,Jill Stein/Rudolph Ware,46
+collin:119,Lib,Chase Oliver/Mike ter Maat,14
+collin:119,Rep,Donald J. Trump/JD Vance,793
+collin:119,,Write-in,10
+collin:119,,Over Votes,0
+collin:119,,Under Votes,16
+collin:123,Dem,Kamala D. Harris/Tim Walz,665
+collin:123,Grn,Jill Stein/Rudolph Ware,10
+collin:123,Lib,Chase Oliver/Mike ter Maat,11
+collin:123,Rep,Donald J. Trump/JD Vance,757
+collin:123,,Write-in,8
+collin:123,,Over Votes,0
+collin:123,,Under Votes,7
+collin:124,Dem,Kamala D. Harris/Tim Walz,1121
+collin:124,Grn,Jill Stein/Rudolph Ware,31
+collin:124,Lib,Chase Oliver/Mike ter Maat,10
+collin:124,Rep,Donald J. Trump/JD Vance,980
+collin:124,,Write-in,14
+collin:124,,Over Votes,0
+collin:124,,Under Votes,15
+collin:127,Dem,Kamala D. Harris/Tim Walz,1287
+collin:127,Grn,Jill Stein/Rudolph Ware,42
+collin:127,Lib,Chase Oliver/Mike ter Maat,14
+collin:127,Rep,Donald J. Trump/JD Vance,1305
+collin:127,,Write-in,10
+collin:127,,Over Votes,0
+collin:127,,Under Votes,13
+collin:137,Dem,Kamala D. Harris/Tim Walz,614
+collin:137,Grn,Jill Stein/Rudolph Ware,22
+collin:137,Lib,Chase Oliver/Mike ter Maat,5
+collin:137,Rep,Donald J. Trump/JD Vance,763
+collin:137,,Write-in,6
+collin:137,,Over Votes,0
+collin:137,,Under Votes,8
+collin:143,Dem,Kamala D. Harris/Tim Walz,704
+collin:143,Grn,Jill Stein/Rudolph Ware,9
+collin:143,Lib,Chase Oliver/Mike ter Maat,9
+collin:143,Rep,Donald J. Trump/JD Vance,799
+collin:143,,Write-in,16
+collin:143,,Over Votes,0
+collin:143,,Under Votes,6
+collin:146,Dem,Kamala D. Harris/Tim Walz,1524
+collin:146,Grn,Jill Stein/Rudolph Ware,49
+collin:146,Lib,Chase Oliver/Mike ter Maat,12
+collin:146,Rep,Donald J. Trump/JD Vance,1608
+collin:146,,Write-in,14
+collin:146,,Over Votes,0
+collin:146,,Under Votes,26
+collin:154,Dem,Kamala D. Harris/Tim Walz,456
+collin:154,Grn,Jill Stein/Rudolph Ware,15
+collin:154,Lib,Chase Oliver/Mike ter Maat,8
+collin:154,Rep,Donald J. Trump/JD Vance,1611
+collin:154,,Write-in,7
+collin:154,,Over Votes,0
+collin:154,,Under Votes,6
+collin:176,Dem,Kamala D. Harris/Tim Walz,1167
+collin:176,Grn,Jill Stein/Rudolph Ware,18
+collin:176,Lib,Chase Oliver/Mike ter Maat,21
+collin:176,Rep,Donald J. Trump/JD Vance,972
+collin:176,,Write-in,8
+collin:176,,Over Votes,0
+collin:176,,Under Votes,8
+collin:177,Dem,Kamala D. Harris/Tim Walz,882
+collin:177,Grn,Jill Stein/Rudolph Ware,15
+collin:177,Lib,Chase Oliver/Mike ter Maat,5
+collin:177,Rep,Donald J. Trump/JD Vance,1309
+collin:177,,Write-in,10
+collin:177,,Over Votes,0
+collin:177,,Under Votes,7
+collin:178,Dem,Kamala D. Harris/Tim Walz,656
+collin:178,Grn,Jill Stein/Rudolph Ware,31
+collin:178,Lib,Chase Oliver/Mike ter Maat,10
+collin:178,Rep,Donald J. Trump/JD Vance,1676
+collin:178,,Write-in,15
+collin:178,,Over Votes,0
+collin:178,,Under Votes,16
+collin:184,Dem,Kamala D. Harris/Tim Walz,963
+collin:184,Grn,Jill Stein/Rudolph Ware,15
+collin:184,Lib,Chase Oliver/Mike ter Maat,16
+collin:184,Rep,Donald J. Trump/JD Vance,902
+collin:184,,Write-in,10
+collin:184,,Over Votes,0
+collin:184,,Under Votes,4
+collin:199,Dem,Kamala D. Harris/Tim Walz,946
+collin:199,Grn,Jill Stein/Rudolph Ware,26
+collin:199,Lib,Chase Oliver/Mike ter Maat,22
+collin:199,Rep,Donald J. Trump/JD Vance,2177
+collin:199,,Write-in,18
+collin:199,,Over Votes,0
+collin:199,,Under Votes,7
+collin:207,Dem,Kamala D. Harris/Tim Walz,1125
+collin:207,Grn,Jill Stein/Rudolph Ware,35
+collin:207,Lib,Chase Oliver/Mike ter Maat,20
+collin:207,Rep,Donald J. Trump/JD Vance,1725
+collin:207,,Write-in,7
+collin:207,,Over Votes,0
+collin:207,,Under Votes,13
+collin:208,Dem,Kamala D. Harris/Tim Walz,1219
+collin:208,Grn,Jill Stein/Rudolph Ware,44
+collin:208,Lib,Chase Oliver/Mike ter Maat,19
+collin:208,Rep,Donald J. Trump/JD Vance,2020
+collin:208,,Write-in,10
+collin:208,,Over Votes,0
+collin:208,,Under Votes,11
+collin:214,Dem,Kamala D. Harris/Tim Walz,937
+collin:214,Grn,Jill Stein/Rudolph Ware,25
+collin:214,Lib,Chase Oliver/Mike ter Maat,19
+collin:214,Rep,Donald J. Trump/JD Vance,2709
+collin:214,,Write-in,14
+collin:214,,Over Votes,0
+collin:214,,Under Votes,18
+collin:22,Dem,Kamala D. Harris/Tim Walz,771
+collin:22,Grn,Jill Stein/Rudolph Ware,10
+collin:22,Lib,Chase Oliver/Mike ter Maat,23
+collin:22,Rep,Donald J. Trump/JD Vance,2803
+collin:22,,Write-in,13
+collin:22,,Over Votes,0
+collin:22,,Under Votes,14
+collin:224,Dem,Kamala D. Harris/Tim Walz,660
+collin:224,Grn,Jill Stein/Rudolph Ware,27
+collin:224,Lib,Chase Oliver/Mike ter Maat,12
+collin:224,Rep,Donald J. Trump/JD Vance,1844
+collin:224,,Write-in,13
+collin:224,,Over Votes,0
+collin:224,,Under Votes,12
+collin:229,Dem,Kamala D. Harris/Tim Walz,739
+collin:229,Grn,Jill Stein/Rudolph Ware,19
+collin:229,Lib,Chase Oliver/Mike ter Maat,8
+collin:229,Rep,Donald J. Trump/JD Vance,717
+collin:229,,Write-in,4
+collin:229,,Over Votes,0
+collin:229,,Under Votes,7
+collin:239,Dem,Kamala D. Harris/Tim Walz,874
+collin:239,Grn,Jill Stein/Rudolph Ware,39
+collin:239,Lib,Chase Oliver/Mike ter Maat,33
+collin:239,Rep,Donald J. Trump/JD Vance,2080
+collin:239,,Write-in,15
+collin:239,,Over Votes,0
+collin:239,,Under Votes,10
+collin:245,Dem,Kamala D. Harris/Tim Walz,748
+collin:245,Grn,Jill Stein/Rudolph Ware,23
+collin:245,Lib,Chase Oliver/Mike ter Maat,7
+collin:245,Rep,Donald J. Trump/JD Vance,861
+collin:245,,Write-in,10
+collin:245,,Over Votes,0
+collin:245,,Under Votes,2
+collin:246,Dem,Kamala D. Harris/Tim Walz,989
+collin:246,Grn,Jill Stein/Rudolph Ware,58
+collin:246,Lib,Chase Oliver/Mike ter Maat,12
+collin:246,Rep,Donald J. Trump/JD Vance,1049
+collin:246,,Write-in,13
+collin:246,,Over Votes,0
+collin:246,,Under Votes,16
+collin:28,Dem,Kamala D. Harris/Tim Walz,1243
+collin:28,Grn,Jill Stein/Rudolph Ware,23
+collin:28,Lib,Chase Oliver/Mike ter Maat,23
+collin:28,Rep,Donald J. Trump/JD Vance,1130
+collin:28,,Write-in,12
+collin:28,,Over Votes,0
+collin:28,,Under Votes,14
+collin:29,Dem,Kamala D. Harris/Tim Walz,1313
+collin:29,Grn,Jill Stein/Rudolph Ware,40
+collin:29,Lib,Chase Oliver/Mike ter Maat,20
+collin:29,Rep,Donald J. Trump/JD Vance,2651
+collin:29,,Write-in,17
+collin:29,,Over Votes,0
+collin:29,,Under Votes,7
+collin:30,Dem,Kamala D. Harris/Tim Walz,1419
+collin:30,Grn,Jill Stein/Rudolph Ware,45
+collin:30,Lib,Chase Oliver/Mike ter Maat,22
+collin:30,Rep,Donald J. Trump/JD Vance,1920
+collin:30,,Write-in,24
+collin:30,,Over Votes,0
+collin:30,,Under Votes,20
+collin:34,Dem,Kamala D. Harris/Tim Walz,1658
+collin:34,Grn,Jill Stein/Rudolph Ware,63
+collin:34,Lib,Chase Oliver/Mike ter Maat,35
+collin:34,Rep,Donald J. Trump/JD Vance,1251
+collin:34,,Write-in,17
+collin:34,,Over Votes,0
+collin:34,,Under Votes,17
+collin:75,Dem,Kamala D. Harris/Tim Walz,755
+collin:75,Grn,Jill Stein/Rudolph Ware,9
+collin:75,Lib,Chase Oliver/Mike ter Maat,7
+collin:75,Rep,Donald J. Trump/JD Vance,903
+collin:75,,Write-in,14
+collin:75,,Over Votes,0
+collin:75,,Under Votes,13
+collin:81,Dem,Kamala D. Harris/Tim Walz,1076
+collin:81,Grn,Jill Stein/Rudolph Ware,20
+collin:81,Lib,Chase Oliver/Mike ter Maat,15
+collin:81,Rep,Donald J. Trump/JD Vance,897
+collin:81,,Write-in,9
+collin:81,,Over Votes,0
+collin:81,,Under Votes,14
+collin:86,Dem,Kamala D. Harris/Tim Walz,1047
+collin:86,Grn,Jill Stein/Rudolph Ware,48
+collin:86,Lib,Chase Oliver/Mike ter Maat,14
+collin:86,Rep,Donald J. Trump/JD Vance,1048
+collin:86,,Write-in,17
+collin:86,,Over Votes,0
+collin:86,,Under Votes,20
+collin:89,Dem,Kamala D. Harris/Tim Walz,1093
+collin:89,Grn,Jill Stein/Rudolph Ware,67
+collin:89,Lib,Chase Oliver/Mike ter Maat,15
+collin:89,Rep,Donald J. Trump/JD Vance,1061
+collin:89,,Write-in,17
+collin:89,,Over Votes,0
+collin:89,,Under Votes,11
+collin:90,Dem,Kamala D. Harris/Tim Walz,921
+collin:90,Grn,Jill Stein/Rudolph Ware,37
+collin:90,Lib,Chase Oliver/Mike ter Maat,14
+collin:90,Rep,Donald J. Trump/JD Vance,1378
+collin:90,,Write-in,28
+collin:90,,Over Votes,0
+collin:90,,Under Votes,22
+collin:92,Dem,Kamala D. Harris/Tim Walz,1431
+collin:92,Grn,Jill Stein/Rudolph Ware,27
+collin:92,Lib,Chase Oliver/Mike ter Maat,19
+collin:92,Rep,Donald J. Trump/JD Vance,1378
+collin:92,,Write-in,12
+collin:92,,Over Votes,0
+collin:92,,Under Votes,10

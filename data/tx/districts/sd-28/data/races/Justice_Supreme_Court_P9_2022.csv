@@ -1,0 +1,17 @@
+precinct,party,candidate,votes
+jones:1,,Over Votes,0
+jones:1,,Under Votes,14
+jones:1,DEM,Julia Maldonado,148
+jones:1,REP,Evan Young,718
+jones:2,,Over Votes,0
+jones:2,,Under Votes,31
+jones:2,DEM,Julia Maldonado,166
+jones:2,REP,Evan Young,1019
+jones:3,,Over Votes,0
+jones:3,,Under Votes,26
+jones:3,DEM,Julia Maldonado,128
+jones:3,REP,Evan Young,1318
+jones:4,,Over Votes,0
+jones:4,,Under Votes,26
+jones:4,DEM,Julia Maldonado,164
+jones:4,REP,Evan Young,1249

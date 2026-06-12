@@ -1,0 +1,690 @@
+precinct,party,candidate,votes
+harris:10,,Abram Loeb,0
+harris:10,,Gloria La Riva,0
+harris:10,,Jesse Cuellar,0
+harris:10,,Kasey Wells,0
+harris:10,,Over Votes,0
+harris:10,,President R. Boddie,0
+harris:10,,Robert Morrow,0
+harris:10,,Tom Hoefling,0
+harris:10,,Under Votes,6
+harris:10,DEM,Joseph R. Biden,792
+harris:10,GRN,Howie Hawkins,6
+harris:10,LIB,Jo Jorgensen,9
+harris:10,REP,Donald J. Trump/Michael R. Pence,250
+harris:100,,Abram Loeb,0
+harris:100,,Gloria La Riva,0
+harris:100,,Jesse Cuellar,0
+harris:100,,Kasey Wells,0
+harris:100,,Over Votes,0
+harris:100,,President R. Boddie,0
+harris:100,,Robert Morrow,0
+harris:100,,Tom Hoefling,0
+harris:100,,Under Votes,8
+harris:100,DEM,Joseph R. Biden,483
+harris:100,GRN,Howie Hawkins,6
+harris:100,LIB,Jo Jorgensen,8
+harris:100,REP,Donald J. Trump/Michael R. Pence,417
+harris:102,,Abram Loeb,0
+harris:102,,Gloria La Riva,0
+harris:102,,Jesse Cuellar,0
+harris:102,,Kasey Wells,0
+harris:102,,Over Votes,0
+harris:102,,President R. Boddie,0
+harris:102,,Robert Morrow,0
+harris:102,,Tom Hoefling,0
+harris:102,,Under Votes,10
+harris:102,DEM,Joseph R. Biden,571
+harris:102,GRN,Howie Hawkins,6
+harris:102,LIB,Jo Jorgensen,13
+harris:102,REP,Donald J. Trump/Michael R. Pence,276
+harris:11,,Abram Loeb,0
+harris:11,,Gloria La Riva,0
+harris:11,,Jesse Cuellar,0
+harris:11,,Kasey Wells,0
+harris:11,,Over Votes,1
+harris:11,,President R. Boddie,0
+harris:11,,Robert Morrow,0
+harris:11,,Tom Hoefling,0
+harris:11,,Under Votes,16
+harris:11,DEM,Joseph R. Biden,817
+harris:11,GRN,Howie Hawkins,6
+harris:11,LIB,Jo Jorgensen,11
+harris:11,REP,Donald J. Trump/Michael R. Pence,242
+harris:12,,Abram Loeb,0
+harris:12,,Gloria La Riva,0
+harris:12,,Jesse Cuellar,0
+harris:12,,Kasey Wells,0
+harris:12,,Over Votes,1
+harris:12,,President R. Boddie,0
+harris:12,,Robert Morrow,0
+harris:12,,Tom Hoefling,0
+harris:12,,Under Votes,7
+harris:12,DEM,Joseph R. Biden,219
+harris:12,GRN,Howie Hawkins,0
+harris:12,LIB,Jo Jorgensen,3
+harris:12,REP,Donald J. Trump/Michael R. Pence,202
+harris:141,,Abram Loeb,0
+harris:141,,Gloria La Riva,0
+harris:141,,Jesse Cuellar,0
+harris:141,,Kasey Wells,0
+harris:141,,Over Votes,0
+harris:141,,President R. Boddie,0
+harris:141,,Robert Morrow,0
+harris:141,,Tom Hoefling,2
+harris:141,,Under Votes,3
+harris:141,DEM,Joseph R. Biden,168
+harris:141,GRN,Howie Hawkins,2
+harris:141,LIB,Jo Jorgensen,4
+harris:141,REP,Donald J. Trump/Michael R. Pence,279
+harris:162,,Abram Loeb,0
+harris:162,,Gloria La Riva,0
+harris:162,,Jesse Cuellar,0
+harris:162,,Kasey Wells,0
+harris:162,,Over Votes,0
+harris:162,,President R. Boddie,0
+harris:162,,Robert Morrow,0
+harris:162,,Tom Hoefling,0
+harris:162,,Under Votes,16
+harris:162,DEM,Joseph R. Biden,447
+harris:162,GRN,Howie Hawkins,2
+harris:162,LIB,Jo Jorgensen,5
+harris:162,REP,Donald J. Trump/Michael R. Pence,287
+harris:163,,Abram Loeb,0
+harris:163,,Gloria La Riva,0
+harris:163,,Jesse Cuellar,0
+harris:163,,Kasey Wells,0
+harris:163,,Over Votes,2
+harris:163,,President R. Boddie,0
+harris:163,,Robert Morrow,0
+harris:163,,Tom Hoefling,0
+harris:163,,Under Votes,24
+harris:163,DEM,Joseph R. Biden,1002
+harris:163,GRN,Howie Hawkins,4
+harris:163,LIB,Jo Jorgensen,13
+harris:163,REP,Donald J. Trump/Michael R. Pence,705
+harris:164,,Abram Loeb,0
+harris:164,,Gloria La Riva,0
+harris:164,,Jesse Cuellar,0
+harris:164,,Kasey Wells,0
+harris:164,,Over Votes,2
+harris:164,,President R. Boddie,0
+harris:164,,Robert Morrow,0
+harris:164,,Tom Hoefling,0
+harris:164,,Under Votes,5
+harris:164,DEM,Joseph R. Biden,670
+harris:164,GRN,Howie Hawkins,4
+harris:164,LIB,Jo Jorgensen,2
+harris:164,REP,Donald J. Trump/Michael R. Pence,50
+harris:187,,Abram Loeb,0
+harris:187,,Gloria La Riva,0
+harris:187,,Jesse Cuellar,0
+harris:187,,Kasey Wells,0
+harris:187,,Over Votes,0
+harris:187,,President R. Boddie,0
+harris:187,,Robert Morrow,0
+harris:187,,Tom Hoefling,0
+harris:187,,Under Votes,1
+harris:187,DEM,Joseph R. Biden,100
+harris:187,GRN,Howie Hawkins,2
+harris:187,LIB,Jo Jorgensen,1
+harris:187,REP,Donald J. Trump/Michael R. Pence,43
+harris:208,,Abram Loeb,0
+harris:208,,Gloria La Riva,0
+harris:208,,Jesse Cuellar,0
+harris:208,,Kasey Wells,0
+harris:208,,Over Votes,0
+harris:208,,President R. Boddie,0
+harris:208,,Robert Morrow,0
+harris:208,,Tom Hoefling,0
+harris:208,,Under Votes,49
+harris:208,DEM,Joseph R. Biden,874
+harris:208,GRN,Howie Hawkins,8
+harris:208,LIB,Jo Jorgensen,7
+harris:208,REP,Donald J. Trump/Michael R. Pence,495
+harris:220,,Abram Loeb,0
+harris:220,,Gloria La Riva,0
+harris:220,,Jesse Cuellar,0
+harris:220,,Kasey Wells,0
+harris:220,,Over Votes,2
+harris:220,,President R. Boddie,0
+harris:220,,Robert Morrow,0
+harris:220,,Tom Hoefling,0
+harris:220,,Under Votes,16
+harris:220,DEM,Joseph R. Biden,446
+harris:220,GRN,Howie Hawkins,9
+harris:220,LIB,Jo Jorgensen,5
+harris:220,REP,Donald J. Trump/Michael R. Pence,817
+harris:229,,Abram Loeb,0
+harris:229,,Gloria La Riva,0
+harris:229,,Jesse Cuellar,0
+harris:229,,Kasey Wells,0
+harris:229,,Over Votes,0
+harris:229,,President R. Boddie,0
+harris:229,,Robert Morrow,0
+harris:229,,Tom Hoefling,0
+harris:229,,Under Votes,6
+harris:229,DEM,Joseph R. Biden,271
+harris:229,GRN,Howie Hawkins,2
+harris:229,LIB,Jo Jorgensen,5
+harris:229,REP,Donald J. Trump/Michael R. Pence,164
+harris:248,,Abram Loeb,0
+harris:248,,Gloria La Riva,0
+harris:248,,Jesse Cuellar,0
+harris:248,,Kasey Wells,0
+harris:248,,Over Votes,1
+harris:248,,President R. Boddie,0
+harris:248,,Robert Morrow,0
+harris:248,,Tom Hoefling,0
+harris:248,,Under Votes,18
+harris:248,DEM,Joseph R. Biden,604
+harris:248,GRN,Howie Hawkins,5
+harris:248,LIB,Jo Jorgensen,15
+harris:248,REP,Donald J. Trump/Michael R. Pence,323
+harris:266,,Abram Loeb,0
+harris:266,,Gloria La Riva,0
+harris:266,,Jesse Cuellar,0
+harris:266,,Kasey Wells,0
+harris:266,,Over Votes,2
+harris:266,,President R. Boddie,0
+harris:266,,Robert Morrow,0
+harris:266,,Tom Hoefling,0
+harris:266,,Under Votes,9
+harris:266,DEM,Joseph R. Biden,724
+harris:266,GRN,Howie Hawkins,2
+harris:266,LIB,Jo Jorgensen,15
+harris:266,REP,Donald J. Trump/Michael R. Pence,523
+harris:354,,Abram Loeb,0
+harris:354,,Gloria La Riva,0
+harris:354,,Jesse Cuellar,0
+harris:354,,Kasey Wells,0
+harris:354,,Over Votes,1
+harris:354,,President R. Boddie,0
+harris:354,,Robert Morrow,0
+harris:354,,Tom Hoefling,0
+harris:354,,Under Votes,14
+harris:354,DEM,Joseph R. Biden,1666
+harris:354,GRN,Howie Hawkins,10
+harris:354,LIB,Jo Jorgensen,9
+harris:354,REP,Donald J. Trump/Michael R. Pence,625
+harris:368,,Abram Loeb,0
+harris:368,,Gloria La Riva,0
+harris:368,,Jesse Cuellar,0
+harris:368,,Kasey Wells,0
+harris:368,,Over Votes,0
+harris:368,,President R. Boddie,0
+harris:368,,Robert Morrow,0
+harris:368,,Tom Hoefling,0
+harris:368,,Under Votes,9
+harris:368,DEM,Joseph R. Biden,456
+harris:368,GRN,Howie Hawkins,1
+harris:368,LIB,Jo Jorgensen,6
+harris:368,REP,Donald J. Trump/Michael R. Pence,201
+harris:375,,Abram Loeb,0
+harris:375,,Gloria La Riva,0
+harris:375,,Jesse Cuellar,0
+harris:375,,Kasey Wells,0
+harris:375,,Over Votes,0
+harris:375,,President R. Boddie,0
+harris:375,,Robert Morrow,0
+harris:375,,Tom Hoefling,0
+harris:375,,Under Votes,20
+harris:375,DEM,Joseph R. Biden,812
+harris:375,GRN,Howie Hawkins,7
+harris:375,LIB,Jo Jorgensen,7
+harris:375,REP,Donald J. Trump/Michael R. Pence,591
+harris:381,,Abram Loeb,0
+harris:381,,Gloria La Riva,0
+harris:381,,Jesse Cuellar,0
+harris:381,,Kasey Wells,0
+harris:381,,Over Votes,0
+harris:381,,President R. Boddie,0
+harris:381,,Robert Morrow,0
+harris:381,,Tom Hoefling,0
+harris:381,,Under Votes,35
+harris:381,DEM,Joseph R. Biden,1468
+harris:381,GRN,Howie Hawkins,12
+harris:381,LIB,Jo Jorgensen,22
+harris:381,REP,Donald J. Trump/Michael R. Pence,1010
+harris:413,,Abram Loeb,0
+harris:413,,Gloria La Riva,0
+harris:413,,Jesse Cuellar,0
+harris:413,,Kasey Wells,0
+harris:413,,Over Votes,1
+harris:413,,President R. Boddie,0
+harris:413,,Robert Morrow,0
+harris:413,,Tom Hoefling,0
+harris:413,,Under Votes,26
+harris:413,DEM,Joseph R. Biden,1357
+harris:413,GRN,Howie Hawkins,5
+harris:413,LIB,Jo Jorgensen,23
+harris:413,REP,Donald J. Trump/Michael R. Pence,839
+harris:528,,Abram Loeb,0
+harris:528,,Gloria La Riva,0
+harris:528,,Jesse Cuellar,0
+harris:528,,Kasey Wells,0
+harris:528,,Over Votes,0
+harris:528,,President R. Boddie,0
+harris:528,,Robert Morrow,0
+harris:528,,Tom Hoefling,0
+harris:528,,Under Votes,0
+harris:528,DEM,Joseph R. Biden,34
+harris:528,GRN,Howie Hawkins,0
+harris:528,LIB,Jo Jorgensen,0
+harris:528,REP,Donald J. Trump/Michael R. Pence,4
+harris:530,,Abram Loeb,0
+harris:530,,Gloria La Riva,0
+harris:530,,Jesse Cuellar,0
+harris:530,,Kasey Wells,0
+harris:530,,Over Votes,0
+harris:530,,President R. Boddie,0
+harris:530,,Robert Morrow,0
+harris:530,,Tom Hoefling,0
+harris:530,,Under Votes,11
+harris:530,DEM,Joseph R. Biden,417
+harris:530,GRN,Howie Hawkins,1
+harris:530,LIB,Jo Jorgensen,9
+harris:530,REP,Donald J. Trump/Michael R. Pence,180
+harris:533,,Abram Loeb,0
+harris:533,,Gloria La Riva,0
+harris:533,,Jesse Cuellar,0
+harris:533,,Kasey Wells,0
+harris:533,,Over Votes,0
+harris:533,,President R. Boddie,0
+harris:533,,Robert Morrow,0
+harris:533,,Tom Hoefling,0
+harris:533,,Under Votes,10
+harris:533,DEM,Joseph R. Biden,291
+harris:533,GRN,Howie Hawkins,2
+harris:533,LIB,Jo Jorgensen,3
+harris:533,REP,Donald J. Trump/Michael R. Pence,313
+harris:560,,Abram Loeb,0
+harris:560,,Gloria La Riva,0
+harris:560,,Jesse Cuellar,0
+harris:560,,Kasey Wells,0
+harris:560,,Over Votes,0
+harris:560,,President R. Boddie,0
+harris:560,,Robert Morrow,0
+harris:560,,Tom Hoefling,0
+harris:560,,Under Votes,15
+harris:560,DEM,Joseph R. Biden,402
+harris:560,GRN,Howie Hawkins,0
+harris:560,LIB,Jo Jorgensen,1
+harris:560,REP,Donald J. Trump/Michael R. Pence,159
+harris:605,,Abram Loeb,0
+harris:605,,Gloria La Riva,0
+harris:605,,Jesse Cuellar,0
+harris:605,,Kasey Wells,0
+harris:605,,Over Votes,0
+harris:605,,President R. Boddie,0
+harris:605,,Robert Morrow,0
+harris:605,,Tom Hoefling,0
+harris:605,,Under Votes,27
+harris:605,DEM,Joseph R. Biden,1888
+harris:605,GRN,Howie Hawkins,13
+harris:605,LIB,Jo Jorgensen,21
+harris:605,REP,Donald J. Trump/Michael R. Pence,783
+harris:62,,Abram Loeb,0
+harris:62,,Gloria La Riva,0
+harris:62,,Jesse Cuellar,0
+harris:62,,Kasey Wells,0
+harris:62,,Over Votes,2
+harris:62,,President R. Boddie,0
+harris:62,,Robert Morrow,0
+harris:62,,Tom Hoefling,0
+harris:62,,Under Votes,9
+harris:62,DEM,Joseph R. Biden,784
+harris:62,GRN,Howie Hawkins,4
+harris:62,LIB,Jo Jorgensen,12
+harris:62,REP,Donald J. Trump/Michael R. Pence,352
+harris:64,,Abram Loeb,0
+harris:64,,Gloria La Riva,0
+harris:64,,Jesse Cuellar,0
+harris:64,,Kasey Wells,0
+harris:64,,Over Votes,3
+harris:64,,President R. Boddie,0
+harris:64,,Robert Morrow,0
+harris:64,,Tom Hoefling,0
+harris:64,,Under Votes,12
+harris:64,DEM,Joseph R. Biden,871
+harris:64,GRN,Howie Hawkins,3
+harris:64,LIB,Jo Jorgensen,7
+harris:64,REP,Donald J. Trump/Michael R. Pence,299
+harris:65,,Abram Loeb,0
+harris:65,,Gloria La Riva,0
+harris:65,,Jesse Cuellar,0
+harris:65,,Kasey Wells,0
+harris:65,,Over Votes,0
+harris:65,,President R. Boddie,0
+harris:65,,Robert Morrow,0
+harris:65,,Tom Hoefling,0
+harris:65,,Under Votes,10
+harris:65,DEM,Joseph R. Biden,750
+harris:65,GRN,Howie Hawkins,4
+harris:65,LIB,Jo Jorgensen,10
+harris:65,REP,Donald J. Trump/Michael R. Pence,304
+harris:69,,Abram Loeb,0
+harris:69,,Gloria La Riva,0
+harris:69,,Jesse Cuellar,0
+harris:69,,Kasey Wells,0
+harris:69,,Over Votes,0
+harris:69,,President R. Boddie,0
+harris:69,,Robert Morrow,0
+harris:69,,Tom Hoefling,0
+harris:69,,Under Votes,7
+harris:69,DEM,Joseph R. Biden,498
+harris:69,GRN,Howie Hawkins,3
+harris:69,LIB,Jo Jorgensen,1
+harris:69,REP,Donald J. Trump/Michael R. Pence,148
+harris:719,,Abram Loeb,0
+harris:719,,Gloria La Riva,0
+harris:719,,Jesse Cuellar,0
+harris:719,,Kasey Wells,0
+harris:719,,Over Votes,0
+harris:719,,President R. Boddie,0
+harris:719,,Robert Morrow,0
+harris:719,,Tom Hoefling,0
+harris:719,,Under Votes,18
+harris:719,DEM,Joseph R. Biden,454
+harris:719,GRN,Howie Hawkins,3
+harris:719,LIB,Jo Jorgensen,12
+harris:719,REP,Donald J. Trump/Michael R. Pence,499
+harris:725,,Abram Loeb,0
+harris:725,,Gloria La Riva,0
+harris:725,,Jesse Cuellar,0
+harris:725,,Kasey Wells,0
+harris:725,,Over Votes,2
+harris:725,,President R. Boddie,0
+harris:725,,Robert Morrow,0
+harris:725,,Tom Hoefling,0
+harris:725,,Under Votes,20
+harris:725,DEM,Joseph R. Biden,843
+harris:725,GRN,Howie Hawkins,3
+harris:725,LIB,Jo Jorgensen,9
+harris:725,REP,Donald J. Trump/Michael R. Pence,538
+harris:740,,Abram Loeb,0
+harris:740,,Gloria La Riva,0
+harris:740,,Jesse Cuellar,0
+harris:740,,Kasey Wells,0
+harris:740,,Over Votes,0
+harris:740,,President R. Boddie,0
+harris:740,,Robert Morrow,0
+harris:740,,Tom Hoefling,0
+harris:740,,Under Votes,3
+harris:740,DEM,Joseph R. Biden,269
+harris:740,GRN,Howie Hawkins,2
+harris:740,LIB,Jo Jorgensen,3
+harris:740,REP,Donald J. Trump/Michael R. Pence,300
+harris:741,,Abram Loeb,0
+harris:741,,Gloria La Riva,0
+harris:741,,Jesse Cuellar,0
+harris:741,,Kasey Wells,0
+harris:741,,Over Votes,0
+harris:741,,President R. Boddie,0
+harris:741,,Robert Morrow,0
+harris:741,,Tom Hoefling,0
+harris:741,,Under Votes,14
+harris:741,DEM,Joseph R. Biden,947
+harris:741,GRN,Howie Hawkins,4
+harris:741,LIB,Jo Jorgensen,8
+harris:741,REP,Donald J. Trump/Michael R. Pence,497
+harris:769,,Abram Loeb,0
+harris:769,,Gloria La Riva,0
+harris:769,,Jesse Cuellar,0
+harris:769,,Kasey Wells,0
+harris:769,,Over Votes,1
+harris:769,,President R. Boddie,0
+harris:769,,Robert Morrow,0
+harris:769,,Tom Hoefling,0
+harris:769,,Under Votes,1
+harris:769,DEM,Joseph R. Biden,97
+harris:769,GRN,Howie Hawkins,0
+harris:769,LIB,Jo Jorgensen,1
+harris:769,REP,Donald J. Trump/Michael R. Pence,14
+harris:79,,Abram Loeb,0
+harris:79,,Gloria La Riva,0
+harris:79,,Jesse Cuellar,0
+harris:79,,Kasey Wells,0
+harris:79,,Over Votes,3
+harris:79,,President R. Boddie,0
+harris:79,,Robert Morrow,0
+harris:79,,Tom Hoefling,0
+harris:79,,Under Votes,13
+harris:79,DEM,Joseph R. Biden,1026
+harris:79,GRN,Howie Hawkins,7
+harris:79,LIB,Jo Jorgensen,11
+harris:79,REP,Donald J. Trump/Michael R. Pence,445
+harris:80,,Abram Loeb,0
+harris:80,,Gloria La Riva,0
+harris:80,,Jesse Cuellar,0
+harris:80,,Kasey Wells,0
+harris:80,,Over Votes,4
+harris:80,,President R. Boddie,0
+harris:80,,Robert Morrow,0
+harris:80,,Tom Hoefling,0
+harris:80,,Under Votes,20
+harris:80,DEM,Joseph R. Biden,1260
+harris:80,GRN,Howie Hawkins,4
+harris:80,LIB,Jo Jorgensen,8
+harris:80,REP,Donald J. Trump/Michael R. Pence,461
+harris:81,,Abram Loeb,0
+harris:81,,Gloria La Riva,0
+harris:81,,Jesse Cuellar,0
+harris:81,,Kasey Wells,0
+harris:81,,Over Votes,0
+harris:81,,President R. Boddie,0
+harris:81,,Robert Morrow,0
+harris:81,,Tom Hoefling,0
+harris:81,,Under Votes,37
+harris:81,DEM,Joseph R. Biden,740
+harris:81,GRN,Howie Hawkins,1
+harris:81,LIB,Jo Jorgensen,11
+harris:81,REP,Donald J. Trump/Michael R. Pence,531
+harris:810,,Abram Loeb,0
+harris:810,,Gloria La Riva,0
+harris:810,,Jesse Cuellar,0
+harris:810,,Kasey Wells,0
+harris:810,,Over Votes,0
+harris:810,,President R. Boddie,0
+harris:810,,Robert Morrow,0
+harris:810,,Tom Hoefling,0
+harris:810,,Under Votes,1
+harris:810,DEM,Joseph R. Biden,52
+harris:810,GRN,Howie Hawkins,0
+harris:810,LIB,Jo Jorgensen,0
+harris:810,REP,Donald J. Trump/Michael R. Pence,25
+harris:811,,Abram Loeb,0
+harris:811,,Gloria La Riva,0
+harris:811,,Jesse Cuellar,0
+harris:811,,Kasey Wells,0
+harris:811,,Over Votes,0
+harris:811,,President R. Boddie,0
+harris:811,,Robert Morrow,0
+harris:811,,Tom Hoefling,0
+harris:811,,Under Votes,4
+harris:811,DEM,Joseph R. Biden,104
+harris:811,GRN,Howie Hawkins,0
+harris:811,LIB,Jo Jorgensen,1
+harris:811,REP,Donald J. Trump/Michael R. Pence,46
+harris:812,,Abram Loeb,0
+harris:812,,Gloria La Riva,0
+harris:812,,Jesse Cuellar,0
+harris:812,,Kasey Wells,0
+harris:812,,Over Votes,0
+harris:812,,President R. Boddie,0
+harris:812,,Robert Morrow,0
+harris:812,,Tom Hoefling,0
+harris:812,,Under Votes,0
+harris:812,DEM,Joseph R. Biden,1
+harris:812,GRN,Howie Hawkins,0
+harris:812,LIB,Jo Jorgensen,0
+harris:812,REP,Donald J. Trump/Michael R. Pence,0
+harris:821,,Abram Loeb,0
+harris:821,,Gloria La Riva,0
+harris:821,,Jesse Cuellar,0
+harris:821,,Kasey Wells,0
+harris:821,,Over Votes,0
+harris:821,,President R. Boddie,0
+harris:821,,Robert Morrow,0
+harris:821,,Tom Hoefling,0
+harris:821,,Under Votes,9
+harris:821,DEM,Joseph R. Biden,466
+harris:821,GRN,Howie Hawkins,2
+harris:821,LIB,Jo Jorgensen,3
+harris:821,REP,Donald J. Trump/Michael R. Pence,117
+harris:824,,Abram Loeb,0
+harris:824,,Gloria La Riva,0
+harris:824,,Jesse Cuellar,0
+harris:824,,Kasey Wells,0
+harris:824,,Over Votes,0
+harris:824,,President R. Boddie,0
+harris:824,,Robert Morrow,0
+harris:824,,Tom Hoefling,0
+harris:824,,Under Votes,13
+harris:824,DEM,Joseph R. Biden,1283
+harris:824,GRN,Howie Hawkins,5
+harris:824,LIB,Jo Jorgensen,11
+harris:824,REP,Donald J. Trump/Michael R. Pence,428
+harris:827,,Abram Loeb,0
+harris:827,,Gloria La Riva,0
+harris:827,,Jesse Cuellar,0
+harris:827,,Kasey Wells,0
+harris:827,,Over Votes,0
+harris:827,,President R. Boddie,0
+harris:827,,Robert Morrow,0
+harris:827,,Tom Hoefling,0
+harris:827,,Under Votes,7
+harris:827,DEM,Joseph R. Biden,288
+harris:827,GRN,Howie Hawkins,2
+harris:827,LIB,Jo Jorgensen,4
+harris:827,REP,Donald J. Trump/Michael R. Pence,194
+harris:831,,Abram Loeb,0
+harris:831,,Gloria La Riva,0
+harris:831,,Jesse Cuellar,0
+harris:831,,Kasey Wells,0
+harris:831,,Over Votes,0
+harris:831,,President R. Boddie,0
+harris:831,,Robert Morrow,0
+harris:831,,Tom Hoefling,0
+harris:831,,Under Votes,0
+harris:831,DEM,Joseph R. Biden,9
+harris:831,GRN,Howie Hawkins,0
+harris:831,LIB,Jo Jorgensen,0
+harris:831,REP,Donald J. Trump/Michael R. Pence,3
+harris:838,,Abram Loeb,0
+harris:838,,Gloria La Riva,0
+harris:838,,Jesse Cuellar,0
+harris:838,,Kasey Wells,0
+harris:838,,Over Votes,0
+harris:838,,President R. Boddie,0
+harris:838,,Robert Morrow,0
+harris:838,,Tom Hoefling,0
+harris:838,,Under Votes,0
+harris:838,DEM,Joseph R. Biden,0
+harris:838,GRN,Howie Hawkins,0
+harris:838,LIB,Jo Jorgensen,0
+harris:838,REP,Donald J. Trump/Michael R. Pence,0
+harris:857,,Abram Loeb,0
+harris:857,,Gloria La Riva,0
+harris:857,,Jesse Cuellar,0
+harris:857,,Kasey Wells,0
+harris:857,,Over Votes,0
+harris:857,,President R. Boddie,0
+harris:857,,Robert Morrow,0
+harris:857,,Tom Hoefling,0
+harris:857,,Under Votes,0
+harris:857,DEM,Joseph R. Biden,0
+harris:857,GRN,Howie Hawkins,0
+harris:857,LIB,Jo Jorgensen,0
+harris:857,REP,Donald J. Trump/Michael R. Pence,0
+harris:860,,Abram Loeb,0
+harris:860,,Gloria La Riva,0
+harris:860,,Jesse Cuellar,0
+harris:860,,Kasey Wells,0
+harris:860,,Over Votes,0
+harris:860,,President R. Boddie,0
+harris:860,,Robert Morrow,0
+harris:860,,Tom Hoefling,0
+harris:860,,Under Votes,0
+harris:860,DEM,Joseph R. Biden,1
+harris:860,GRN,Howie Hawkins,0
+harris:860,LIB,Jo Jorgensen,0
+harris:860,REP,Donald J. Trump/Michael R. Pence,0
+harris:872,,Abram Loeb,0
+harris:872,,Gloria La Riva,0
+harris:872,,Jesse Cuellar,0
+harris:872,,Kasey Wells,0
+harris:872,,Over Votes,0
+harris:872,,President R. Boddie,0
+harris:872,,Robert Morrow,0
+harris:872,,Tom Hoefling,0
+harris:872,,Under Votes,0
+harris:872,DEM,Joseph R. Biden,11
+harris:872,GRN,Howie Hawkins,0
+harris:872,LIB,Jo Jorgensen,0
+harris:872,REP,Donald J. Trump/Michael R. Pence,14
+harris:905,,Abram Loeb,0
+harris:905,,Gloria La Riva,0
+harris:905,,Jesse Cuellar,0
+harris:905,,Kasey Wells,0
+harris:905,,Over Votes,0
+harris:905,,President R. Boddie,0
+harris:905,,Robert Morrow,0
+harris:905,,Tom Hoefling,0
+harris:905,,Under Votes,2
+harris:905,DEM,Joseph R. Biden,315
+harris:905,GRN,Howie Hawkins,2
+harris:905,LIB,Jo Jorgensen,2
+harris:905,REP,Donald J. Trump/Michael R. Pence,267
+harris:925,,Abram Loeb,0
+harris:925,,Gloria La Riva,0
+harris:925,,Jesse Cuellar,0
+harris:925,,Kasey Wells,0
+harris:925,,Over Votes,0
+harris:925,,President R. Boddie,0
+harris:925,,Robert Morrow,0
+harris:925,,Tom Hoefling,0
+harris:925,,Under Votes,0
+harris:925,DEM,Joseph R. Biden,0
+harris:925,GRN,Howie Hawkins,0
+harris:925,LIB,Jo Jorgensen,0
+harris:925,REP,Donald J. Trump/Michael R. Pence,0
+harris:935,,Abram Loeb,0
+harris:935,,Gloria La Riva,0
+harris:935,,Jesse Cuellar,0
+harris:935,,Kasey Wells,0
+harris:935,,Over Votes,0
+harris:935,,President R. Boddie,0
+harris:935,,Robert Morrow,0
+harris:935,,Tom Hoefling,0
+harris:935,,Under Votes,0
+harris:935,DEM,Joseph R. Biden,16
+harris:935,GRN,Howie Hawkins,0
+harris:935,LIB,Jo Jorgensen,0
+harris:935,REP,Donald J. Trump/Michael R. Pence,11
+harris:954,,Abram Loeb,0
+harris:954,,Gloria La Riva,0
+harris:954,,Jesse Cuellar,0
+harris:954,,Kasey Wells,0
+harris:954,,Over Votes,0
+harris:954,,President R. Boddie,0
+harris:954,,Robert Morrow,0
+harris:954,,Tom Hoefling,0
+harris:954,,Under Votes,0
+harris:954,DEM,Joseph R. Biden,0
+harris:954,GRN,Howie Hawkins,0
+harris:954,LIB,Jo Jorgensen,0
+harris:954,REP,Donald J. Trump/Michael R. Pence,0
+harris:99,,Abram Loeb,0
+harris:99,,Gloria La Riva,0
+harris:99,,Jesse Cuellar,0
+harris:99,,Kasey Wells,0
+harris:99,,Over Votes,1
+harris:99,,President R. Boddie,0
+harris:99,,Robert Morrow,0
+harris:99,,Tom Hoefling,0
+harris:99,,Under Votes,19
+harris:99,DEM,Joseph R. Biden,573
+harris:99,GRN,Howie Hawkins,4
+harris:99,LIB,Jo Jorgensen,12
+harris:99,REP,Donald J. Trump/Michael R. Pence,502

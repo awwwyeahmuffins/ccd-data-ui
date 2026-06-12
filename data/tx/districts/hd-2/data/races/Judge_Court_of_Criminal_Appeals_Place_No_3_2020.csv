@@ -1,0 +1,71 @@
+precinct,party,candidate,votes
+hopkins:1,DEM,Elizabeth Davis Frizell,511
+hopkins:1,REP,Bert Richardson,2177
+hopkins:11,DEM,Elizabeth Davis Frizell,87
+hopkins:11,REP,Bert Richardson,440
+hopkins:12,DEM,Elizabeth Davis Frizell,22
+hopkins:12,REP,Bert Richardson,184
+hopkins:13,DEM,Elizabeth Davis Frizell,129
+hopkins:13,REP,Bert Richardson,534
+hopkins:14,DEM,Elizabeth Davis Frizell,106
+hopkins:14,REP,Bert Richardson,614
+hopkins:16,DEM,Elizabeth Davis Frizell,85
+hopkins:16,REP,Bert Richardson,727
+hopkins:17,DEM,Elizabeth Davis Frizell,140
+hopkins:17,REP,Bert Richardson,703
+hopkins:2,DEM,Elizabeth Davis Frizell,581
+hopkins:2,REP,Bert Richardson,1141
+hopkins:20,DEM,Elizabeth Davis Frizell,48
+hopkins:20,REP,Bert Richardson,382
+hopkins:23,DEM,Elizabeth Davis Frizell,23
+hopkins:23,REP,Bert Richardson,199
+hopkins:24,DEM,Elizabeth Davis Frizell,55
+hopkins:24,REP,Bert Richardson,479
+hopkins:25,DEM,Elizabeth Davis Frizell,40
+hopkins:25,REP,Bert Richardson,263
+hopkins:3,DEM,Elizabeth Davis Frizell,519
+hopkins:3,REP,Bert Richardson,1723
+hopkins:36,DEM,Elizabeth Davis Frizell,81
+hopkins:36,REP,Bert Richardson,586
+hopkins:4,DEM,Elizabeth Davis Frizell,400
+hopkins:4,REP,Bert Richardson,1743
+hopkins:5,DEM,Elizabeth Davis Frizell,47
+hopkins:5,REP,Bert Richardson,317
+hopkins:8,DEM,Elizabeth Davis Frizell,42
+hopkins:8,REP,Bert Richardson,166
+van-zandt:1A,DEM,Elizabeth Davis Frizell,144
+van-zandt:1A,REP,Bert Richardson,1088
+van-zandt:1B,DEM,Elizabeth Davis Frizell,280
+van-zandt:1B,REP,Bert Richardson,1766
+van-zandt:1C,DEM,Elizabeth Davis Frizell,89
+van-zandt:1C,REP,Bert Richardson,941
+van-zandt:1D,DEM,Elizabeth Davis Frizell,108
+van-zandt:1D,REP,Bert Richardson,855
+van-zandt:1E,DEM,Elizabeth Davis Frizell,113
+van-zandt:1E,REP,Bert Richardson,477
+van-zandt:2A,DEM,Elizabeth Davis Frizell,283
+van-zandt:2A,REP,Bert Richardson,2086
+van-zandt:2B,DEM,Elizabeth Davis Frizell,109
+van-zandt:2B,REP,Bert Richardson,1048
+van-zandt:2C,DEM,Elizabeth Davis Frizell,183
+van-zandt:2C,REP,Bert Richardson,1527
+van-zandt:2D,DEM,Elizabeth Davis Frizell,173
+van-zandt:2D,REP,Bert Richardson,1219
+van-zandt:3A,DEM,Elizabeth Davis Frizell,99
+van-zandt:3A,REP,Bert Richardson,689
+van-zandt:3B,DEM,Elizabeth Davis Frizell,261
+van-zandt:3B,REP,Bert Richardson,846
+van-zandt:3C,DEM,Elizabeth Davis Frizell,400
+van-zandt:3C,REP,Bert Richardson,1769
+van-zandt:3D,DEM,Elizabeth Davis Frizell,204
+van-zandt:3D,REP,Bert Richardson,1779
+van-zandt:4A,DEM,Elizabeth Davis Frizell,113
+van-zandt:4A,REP,Bert Richardson,834
+van-zandt:4B,DEM,Elizabeth Davis Frizell,150
+van-zandt:4B,REP,Bert Richardson,1143
+van-zandt:4C,DEM,Elizabeth Davis Frizell,165
+van-zandt:4C,REP,Bert Richardson,1035
+van-zandt:4D,DEM,Elizabeth Davis Frizell,393
+van-zandt:4D,REP,Bert Richardson,2009
+van-zandt:4E,DEM,Elizabeth Davis Frizell,116
+van-zandt:4E,REP,Bert Richardson,775

@@ -1,0 +1,156 @@
+precinct,party,candidate,votes
+hardin:1,DEM,Staci Williams,272
+hardin:1,LIB,William Bryan Strange III,25
+hardin:1,REP,Jeff Boyd,754
+hardin:10,DEM,Staci Williams,578
+hardin:10,LIB,William Bryan Strange III,16
+hardin:10,REP,Jeff Boyd,573
+hardin:11,DEM,Staci Williams,80
+hardin:11,LIB,William Bryan Strange III,13
+hardin:11,REP,Jeff Boyd,631
+hardin:12,DEM,Staci Williams,95
+hardin:12,LIB,William Bryan Strange III,8
+hardin:12,REP,Jeff Boyd,625
+hardin:13,DEM,Staci Williams,145
+hardin:13,LIB,William Bryan Strange III,41
+hardin:13,REP,Jeff Boyd,1589
+hardin:14,DEM,Staci Williams,93
+hardin:14,LIB,William Bryan Strange III,16
+hardin:14,REP,Jeff Boyd,917
+hardin:15,DEM,Staci Williams,147
+hardin:15,LIB,William Bryan Strange III,17
+hardin:15,REP,Jeff Boyd,1272
+hardin:16,DEM,Staci Williams,147
+hardin:16,LIB,William Bryan Strange III,22
+hardin:16,REP,Jeff Boyd,1461
+hardin:17,DEM,Staci Williams,64
+hardin:17,LIB,William Bryan Strange III,13
+hardin:17,REP,Jeff Boyd,812
+hardin:18,DEM,Staci Williams,458
+hardin:18,LIB,William Bryan Strange III,73
+hardin:18,REP,Jeff Boyd,3869
+hardin:19,DEM,Staci Williams,71
+hardin:19,LIB,William Bryan Strange III,16
+hardin:19,REP,Jeff Boyd,663
+hardin:2,DEM,Staci Williams,348
+hardin:2,LIB,William Bryan Strange III,56
+hardin:2,REP,Jeff Boyd,3126
+hardin:3,DEM,Staci Williams,23
+hardin:3,LIB,William Bryan Strange III,6
+hardin:3,REP,Jeff Boyd,433
+hardin:4,DEM,Staci Williams,49
+hardin:4,LIB,William Bryan Strange III,8
+hardin:4,REP,Jeff Boyd,566
+hardin:5,DEM,Staci Williams,24
+hardin:5,LIB,William Bryan Strange III,3
+hardin:5,REP,Jeff Boyd,426
+hardin:6,DEM,Staci Williams,311
+hardin:6,LIB,William Bryan Strange III,67
+hardin:6,REP,Jeff Boyd,3137
+hardin:7,DEM,Staci Williams,28
+hardin:7,LIB,William Bryan Strange III,5
+hardin:7,REP,Jeff Boyd,526
+hardin:8,DEM,Staci Williams,63
+hardin:8,LIB,William Bryan Strange III,11
+hardin:8,REP,Jeff Boyd,588
+hardin:9,DEM,Staci Williams,332
+hardin:9,LIB,William Bryan Strange III,35
+hardin:9,REP,Jeff Boyd,1385
+liberty:1,DEM,Staci Williams,57
+liberty:1,LIB,William Bryan Strange III,8
+liberty:1,REP,Jeff Boyd,426
+liberty:10,DEM,Staci Williams,431
+liberty:10,LIB,William Bryan Strange III,34
+liberty:10,REP,Jeff Boyd,1527
+liberty:11,DEM,Staci Williams,222
+liberty:11,LIB,William Bryan Strange III,4
+liberty:11,REP,Jeff Boyd,296
+liberty:12,DEM,Staci Williams,227
+liberty:12,LIB,William Bryan Strange III,25
+liberty:12,REP,Jeff Boyd,644
+liberty:13,DEM,Staci Williams,28
+liberty:13,LIB,William Bryan Strange III,5
+liberty:13,REP,Jeff Boyd,359
+liberty:14,DEM,Staci Williams,58
+liberty:14,LIB,William Bryan Strange III,7
+liberty:14,REP,Jeff Boyd,267
+liberty:15,DEM,Staci Williams,64
+liberty:15,LIB,William Bryan Strange III,6
+liberty:15,REP,Jeff Boyd,224
+liberty:16,DEM,Staci Williams,29
+liberty:16,LIB,William Bryan Strange III,6
+liberty:16,REP,Jeff Boyd,257
+liberty:17,DEM,Staci Williams,23
+liberty:17,LIB,William Bryan Strange III,6
+liberty:17,REP,Jeff Boyd,359
+liberty:18,DEM,Staci Williams,490
+liberty:18,LIB,William Bryan Strange III,8
+liberty:18,REP,Jeff Boyd,244
+liberty:19,DEM,Staci Williams,291
+liberty:19,LIB,William Bryan Strange III,25
+liberty:19,REP,Jeff Boyd,757
+liberty:2,DEM,Staci Williams,80
+liberty:2,LIB,William Bryan Strange III,5
+liberty:2,REP,Jeff Boyd,724
+liberty:20,DEM,Staci Williams,367
+liberty:20,LIB,William Bryan Strange III,6
+liberty:20,REP,Jeff Boyd,37
+liberty:21,DEM,Staci Williams,275
+liberty:21,LIB,William Bryan Strange III,51
+liberty:21,REP,Jeff Boyd,2061
+liberty:22,DEM,Staci Williams,564
+liberty:22,LIB,William Bryan Strange III,37
+liberty:22,REP,Jeff Boyd,1724
+liberty:23,DEM,Staci Williams,438
+liberty:23,LIB,William Bryan Strange III,33
+liberty:23,REP,Jeff Boyd,965
+liberty:24,DEM,Staci Williams,61
+liberty:24,LIB,William Bryan Strange III,11
+liberty:24,REP,Jeff Boyd,469
+liberty:25,DEM,Staci Williams,62
+liberty:25,LIB,William Bryan Strange III,14
+liberty:25,REP,Jeff Boyd,576
+liberty:26,DEM,Staci Williams,260
+liberty:26,LIB,William Bryan Strange III,26
+liberty:26,REP,Jeff Boyd,1211
+liberty:27,DEM,Staci Williams,35
+liberty:27,LIB,William Bryan Strange III,5
+liberty:27,REP,Jeff Boyd,186
+liberty:28,DEM,Staci Williams,24
+liberty:28,LIB,William Bryan Strange III,5
+liberty:28,REP,Jeff Boyd,487
+liberty:29,DEM,Staci Williams,86
+liberty:29,LIB,William Bryan Strange III,9
+liberty:29,REP,Jeff Boyd,785
+liberty:3,DEM,Staci Williams,142
+liberty:3,LIB,William Bryan Strange III,28
+liberty:3,REP,Jeff Boyd,1361
+liberty:30,DEM,Staci Williams,296
+liberty:30,LIB,William Bryan Strange III,20
+liberty:30,REP,Jeff Boyd,862
+liberty:4,DEM,Staci Williams,61
+liberty:4,LIB,William Bryan Strange III,6
+liberty:4,REP,Jeff Boyd,315
+liberty:5,DEM,Staci Williams,253
+liberty:5,LIB,William Bryan Strange III,38
+liberty:5,REP,Jeff Boyd,1160
+liberty:6,DEM,Staci Williams,52
+liberty:6,LIB,William Bryan Strange III,8
+liberty:6,REP,Jeff Boyd,570
+liberty:7,DEM,Staci Williams,340
+liberty:7,LIB,William Bryan Strange III,26
+liberty:7,REP,Jeff Boyd,731
+liberty:8,DEM,Staci Williams,140
+liberty:8,LIB,William Bryan Strange III,28
+liberty:8,REP,Jeff Boyd,1313
+liberty:9,DEM,Staci Williams,158
+liberty:9,LIB,William Bryan Strange III,30
+liberty:9,REP,Jeff Boyd,1551
+montgomery:16,DEM,Staci Williams,357
+montgomery:16,REP,Jeff Boyd,2162
+montgomery:41,DEM,Staci Williams,293
+montgomery:41,REP,Jeff Boyd,2153
+montgomery:53,DEM,Staci Williams,702
+montgomery:53,REP,Jeff Boyd,2442
+montgomery:54,DEM,Staci Williams,221
+montgomery:54,REP,Jeff Boyd,650

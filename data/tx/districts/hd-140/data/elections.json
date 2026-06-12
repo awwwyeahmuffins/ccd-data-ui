@@ -1,0 +1,43 @@
+{
+  "version": 3,
+  "county": "hd-140",
+  "boundarySet": "members",
+  "elections": [
+    {
+      "id": "president-2020",
+      "displayName": "President (2020)",
+      "office": "President",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "Federal",
+      "raceFile": "races/President_2020.csv",
+      "turnoutFile": "turnout/President_2020.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "railroad-commissioner-2020",
+      "displayName": "Railroad Commissioner (2020)",
+      "office": "Railroad Commissioner",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/Railroad_Commissioner_2020.csv",
+      "turnoutFile": "turnout/Railroad_Commissioner_2020.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "u-s-senate-2020",
+      "displayName": "U S Senate (2020)",
+      "office": "U.S. Senate",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "County",
+      "raceFile": "races/U_S_Senate_2020.csv",
+      "turnoutFile": "turnout/U_S_Senate_2020.csv",
+      "sourceUrl": null
+    }
+  ]
+}

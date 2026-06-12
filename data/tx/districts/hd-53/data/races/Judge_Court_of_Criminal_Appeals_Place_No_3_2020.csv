@@ -1,0 +1,111 @@
+precinct,party,candidate,votes
+kerr:101,DEM,Elizabeth Davis Frizell,437
+kerr:101,REP,Bert Richardson,1770
+kerr:107,DEM,Elizabeth Davis Frizell,130
+kerr:107,REP,Bert Richardson,612
+kerr:109,DEM,Elizabeth Davis Frizell,198
+kerr:109,REP,Bert Richardson,951
+kerr:113,DEM,Elizabeth Davis Frizell,312
+kerr:113,REP,Bert Richardson,941
+kerr:118,DEM,Elizabeth Davis Frizell,110
+kerr:118,REP,Bert Richardson,228
+kerr:119,DEM,Elizabeth Davis Frizell,460
+kerr:119,REP,Bert Richardson,1100
+kerr:202,DEM,Elizabeth Davis Frizell,297
+kerr:202,REP,Bert Richardson,1494
+kerr:211,DEM,Elizabeth Davis Frizell,282
+kerr:211,REP,Bert Richardson,649
+kerr:215,DEM,Elizabeth Davis Frizell,463
+kerr:215,REP,Bert Richardson,1829
+kerr:220,DEM,Elizabeth Davis Frizell,396
+kerr:220,REP,Bert Richardson,1702
+kerr:303,DEM,Elizabeth Davis Frizell,142
+kerr:303,REP,Bert Richardson,635
+kerr:308,DEM,Elizabeth Davis Frizell,123
+kerr:308,REP,Bert Richardson,323
+kerr:312,DEM,Elizabeth Davis Frizell,806
+kerr:312,REP,Bert Richardson,1929
+kerr:314,DEM,Elizabeth Davis Frizell,505
+kerr:314,REP,Bert Richardson,815
+kerr:404,DEM,Elizabeth Davis Frizell,103
+kerr:404,REP,Bert Richardson,708
+kerr:405,DEM,Elizabeth Davis Frizell,305
+kerr:405,REP,Bert Richardson,1056
+kerr:406,DEM,Elizabeth Davis Frizell,455
+kerr:406,REP,Bert Richardson,1907
+kerr:410,DEM,Elizabeth Davis Frizell,15
+kerr:410,REP,Bert Richardson,232
+kerr:416,DEM,Elizabeth Davis Frizell,250
+kerr:416,REP,Bert Richardson,1042
+kerr:417,DEM,Elizabeth Davis Frizell,274
+kerr:417,REP,Bert Richardson,998
+kimble:1,DEM,Elizabeth Davis Frizell,69
+kimble:1,REP,Bert Richardson,464
+kimble:2,DEM,Elizabeth Davis Frizell,28
+kimble:2,REP,Bert Richardson,247
+kimble:3,DEM,Elizabeth Davis Frizell,17
+kimble:3,REP,Bert Richardson,191
+kimble:4,DEM,Elizabeth Davis Frizell,33
+kimble:4,REP,Bert Richardson,257
+kimble:6,DEM,Elizabeth Davis Frizell,16
+kimble:6,REP,Bert Richardson,228
+kimble:7,DEM,Elizabeth Davis Frizell,20
+kimble:7,REP,Bert Richardson,259
+kimble:9,DEM,Elizabeth Davis Frizell,55
+kimble:9,REP,Bert Richardson,308
+mason:101,DEM,Elizabeth Davis Frizell,106
+mason:101,REP,Bert Richardson,481
+mason:210,DEM,Elizabeth Davis Frizell,93
+mason:210,REP,Bert Richardson,393
+mason:302,DEM,Elizabeth Davis Frizell,109
+mason:302,REP,Bert Richardson,537
+mason:405,DEM,Elizabeth Davis Frizell,127
+mason:405,REP,Bert Richardson,548
+mcculloch:101,,Over Votes,0
+mcculloch:101,,Under Votes,32
+mcculloch:101,DEM,Elizabeth Davis Frizell,119
+mcculloch:101,REP,Bert Richardson,812
+mcculloch:102,,Over Votes,0
+mcculloch:102,,Under Votes,2
+mcculloch:102,DEM,Elizabeth Davis Frizell,13
+mcculloch:102,REP,Bert Richardson,108
+mcculloch:201,,Over Votes,0
+mcculloch:201,,Under Votes,19
+mcculloch:201,DEM,Elizabeth Davis Frizell,122
+mcculloch:201,REP,Bert Richardson,320
+mcculloch:202,,Over Votes,0
+mcculloch:202,,Under Votes,3
+mcculloch:202,DEM,Elizabeth Davis Frizell,16
+mcculloch:202,REP,Bert Richardson,102
+mcculloch:301,,Over Votes,0
+mcculloch:301,,Under Votes,26
+mcculloch:301,DEM,Elizabeth Davis Frizell,106
+mcculloch:301,REP,Bert Richardson,639
+mcculloch:302,,Over Votes,0
+mcculloch:302,,Under Votes,2
+mcculloch:302,DEM,Elizabeth Davis Frizell,16
+mcculloch:302,REP,Bert Richardson,176
+mcculloch:401,,Over Votes,0
+mcculloch:401,,Under Votes,17
+mcculloch:401,DEM,Elizabeth Davis Frizell,52
+mcculloch:401,REP,Bert Richardson,368
+mcculloch:402,,Over Votes,0
+mcculloch:402,,Under Votes,13
+mcculloch:402,DEM,Elizabeth Davis Frizell,24
+mcculloch:402,REP,Bert Richardson,230
+mcculloch:403,,Over Votes,0
+mcculloch:403,,Under Votes,2
+mcculloch:403,DEM,Elizabeth Davis Frizell,11
+mcculloch:403,REP,Bert Richardson,102
+menard:1,DEM,Elizabeth Davis Frizell,51
+menard:1,REP,Bert Richardson,140
+menard:2,DEM,Elizabeth Davis Frizell,45
+menard:2,REP,Bert Richardson,181
+menard:3,DEM,Elizabeth Davis Frizell,40
+menard:3,REP,Bert Richardson,211
+menard:4,DEM,Elizabeth Davis Frizell,38
+menard:4,REP,Bert Richardson,140
+menard:5,DEM,Elizabeth Davis Frizell,6
+menard:5,REP,Bert Richardson,39
+menard:6,DEM,Elizabeth Davis Frizell,9
+menard:6,REP,Bert Richardson,67

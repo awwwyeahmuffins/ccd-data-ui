@@ -1,0 +1,277 @@
+precinct,party,candidate,votes
+chambers:1,DEM,Elizabeth Davis Frizell,69
+chambers:1,REP,Bert Richardson,389
+chambers:10,DEM,Elizabeth Davis Frizell,561
+chambers:10,REP,Bert Richardson,3305
+chambers:11,DEM,Elizabeth Davis Frizell,386
+chambers:11,REP,Bert Richardson,1149
+chambers:12,DEM,Elizabeth Davis Frizell,240
+chambers:12,REP,Bert Richardson,688
+chambers:13,DEM,Elizabeth Davis Frizell,0
+chambers:13,REP,Bert Richardson,0
+chambers:14,DEM,Elizabeth Davis Frizell,51
+chambers:14,REP,Bert Richardson,276
+chambers:15,DEM,Elizabeth Davis Frizell,640
+chambers:15,REP,Bert Richardson,1019
+chambers:2,DEM,Elizabeth Davis Frizell,141
+chambers:2,REP,Bert Richardson,336
+chambers:3,DEM,Elizabeth Davis Frizell,110
+chambers:3,REP,Bert Richardson,189
+chambers:4,DEM,Elizabeth Davis Frizell,368
+chambers:4,REP,Bert Richardson,2558
+chambers:5,DEM,Elizabeth Davis Frizell,232
+chambers:5,REP,Bert Richardson,1623
+chambers:6,DEM,Elizabeth Davis Frizell,339
+chambers:6,REP,Bert Richardson,1100
+chambers:7,DEM,Elizabeth Davis Frizell,218
+chambers:7,REP,Bert Richardson,1260
+chambers:8,DEM,Elizabeth Davis Frizell,466
+chambers:8,REP,Bert Richardson,3074
+chambers:9,DEM,Elizabeth Davis Frizell,25
+chambers:9,REP,Bert Richardson,231
+galveston:103,DEM,Elizabeth Davis Frizell,166
+galveston:103,REP,Bert Richardson,834
+galveston:104,DEM,Elizabeth Davis Frizell,129
+galveston:104,REP,Bert Richardson,612
+jefferson:101,DEM,Elizabeth Davis Frizell,0
+jefferson:101,REP,Bert Richardson,0
+jefferson:104,DEM,Elizabeth Davis Frizell,6
+jefferson:104,REP,Bert Richardson,50
+jefferson:108,DEM,Elizabeth Davis Frizell,37
+jefferson:108,REP,Bert Richardson,319
+jefferson:24,DEM,Elizabeth Davis Frizell,82
+jefferson:24,REP,Bert Richardson,291
+jefferson:25,DEM,Elizabeth Davis Frizell,363
+jefferson:25,REP,Bert Richardson,1240
+jefferson:26,DEM,Elizabeth Davis Frizell,807
+jefferson:26,REP,Bert Richardson,1124
+jefferson:28,DEM,Elizabeth Davis Frizell,375
+jefferson:28,REP,Bert Richardson,208
+jefferson:29,DEM,Elizabeth Davis Frizell,175
+jefferson:29,REP,Bert Richardson,1286
+jefferson:30,DEM,Elizabeth Davis Frizell,89
+jefferson:30,REP,Bert Richardson,742
+jefferson:31,DEM,Elizabeth Davis Frizell,110
+jefferson:31,REP,Bert Richardson,801
+jefferson:32,DEM,Elizabeth Davis Frizell,32
+jefferson:32,REP,Bert Richardson,124
+jefferson:33,DEM,Elizabeth Davis Frizell,465
+jefferson:33,REP,Bert Richardson,960
+jefferson:34,DEM,Elizabeth Davis Frizell,976
+jefferson:34,REP,Bert Richardson,52
+jefferson:44,DEM,Elizabeth Davis Frizell,247
+jefferson:44,REP,Bert Richardson,191
+jefferson:45,DEM,Elizabeth Davis Frizell,432
+jefferson:45,REP,Bert Richardson,231
+jefferson:46,DEM,Elizabeth Davis Frizell,395
+jefferson:46,REP,Bert Richardson,199
+jefferson:47,DEM,Elizabeth Davis Frizell,496
+jefferson:47,REP,Bert Richardson,254
+jefferson:48,DEM,Elizabeth Davis Frizell,361
+jefferson:48,REP,Bert Richardson,89
+jefferson:49,DEM,Elizabeth Davis Frizell,162
+jefferson:49,REP,Bert Richardson,70
+jefferson:50,DEM,Elizabeth Davis Frizell,986
+jefferson:50,REP,Bert Richardson,250
+jefferson:51,DEM,Elizabeth Davis Frizell,177
+jefferson:51,REP,Bert Richardson,31
+jefferson:52,DEM,Elizabeth Davis Frizell,243
+jefferson:52,REP,Bert Richardson,16
+jefferson:53,DEM,Elizabeth Davis Frizell,671
+jefferson:53,REP,Bert Richardson,60
+jefferson:54,DEM,Elizabeth Davis Frizell,262
+jefferson:54,REP,Bert Richardson,12
+jefferson:55,DEM,Elizabeth Davis Frizell,199
+jefferson:55,REP,Bert Richardson,8
+jefferson:57,DEM,Elizabeth Davis Frizell,395
+jefferson:57,REP,Bert Richardson,11
+jefferson:58,DEM,Elizabeth Davis Frizell,6
+jefferson:58,REP,Bert Richardson,32
+jefferson:59,DEM,Elizabeth Davis Frizell,542
+jefferson:59,REP,Bert Richardson,13
+jefferson:66,DEM,Elizabeth Davis Frizell,248
+jefferson:66,REP,Bert Richardson,763
+jefferson:80,DEM,Elizabeth Davis Frizell,5
+jefferson:80,REP,Bert Richardson,2
+jefferson:81,DEM,Elizabeth Davis Frizell,389
+jefferson:81,REP,Bert Richardson,15
+jefferson:90,DEM,Elizabeth Davis Frizell,47
+jefferson:90,REP,Bert Richardson,73
+jefferson:91,DEM,Elizabeth Davis Frizell,61
+jefferson:91,REP,Bert Richardson,492
+jefferson:92,DEM,Elizabeth Davis Frizell,292
+jefferson:92,REP,Bert Richardson,601
+jefferson:93,DEM,Elizabeth Davis Frizell,292
+jefferson:93,REP,Bert Richardson,81
+jefferson:96,DEM,Elizabeth Davis Frizell,200
+jefferson:96,REP,Bert Richardson,48
+jefferson:97,DEM,Elizabeth Davis Frizell,0
+jefferson:97,REP,Bert Richardson,0
+montgomery:1,DEM,Elizabeth Davis Frizell,722
+montgomery:1,REP,Bert Richardson,1828
+montgomery:10,DEM,Elizabeth Davis Frizell,878
+montgomery:10,REP,Bert Richardson,416
+montgomery:100,DEM,Elizabeth Davis Frizell,1147
+montgomery:100,REP,Bert Richardson,2252
+montgomery:11,DEM,Elizabeth Davis Frizell,288
+montgomery:11,REP,Bert Richardson,1133
+montgomery:12,DEM,Elizabeth Davis Frizell,294
+montgomery:12,REP,Bert Richardson,968
+montgomery:14,DEM,Elizabeth Davis Frizell,819
+montgomery:14,REP,Bert Richardson,2085
+montgomery:15,DEM,Elizabeth Davis Frizell,794
+montgomery:15,REP,Bert Richardson,2960
+montgomery:16,DEM,Elizabeth Davis Frizell,370
+montgomery:16,REP,Bert Richardson,2189
+montgomery:17,DEM,Elizabeth Davis Frizell,405
+montgomery:17,REP,Bert Richardson,2268
+montgomery:19,DEM,Elizabeth Davis Frizell,510
+montgomery:19,REP,Bert Richardson,2236
+montgomery:2,DEM,Elizabeth Davis Frizell,515
+montgomery:2,REP,Bert Richardson,1363
+montgomery:20,DEM,Elizabeth Davis Frizell,482
+montgomery:20,REP,Bert Richardson,821
+montgomery:21,DEM,Elizabeth Davis Frizell,793
+montgomery:21,REP,Bert Richardson,1729
+montgomery:22,DEM,Elizabeth Davis Frizell,624
+montgomery:22,REP,Bert Richardson,2914
+montgomery:23,DEM,Elizabeth Davis Frizell,760
+montgomery:23,REP,Bert Richardson,1845
+montgomery:24,DEM,Elizabeth Davis Frizell,648
+montgomery:24,REP,Bert Richardson,1599
+montgomery:25,DEM,Elizabeth Davis Frizell,335
+montgomery:25,REP,Bert Richardson,1825
+montgomery:26,DEM,Elizabeth Davis Frizell,382
+montgomery:26,REP,Bert Richardson,1104
+montgomery:27,DEM,Elizabeth Davis Frizell,848
+montgomery:27,REP,Bert Richardson,2129
+montgomery:31,DEM,Elizabeth Davis Frizell,1106
+montgomery:31,REP,Bert Richardson,2483
+montgomery:32,DEM,Elizabeth Davis Frizell,799
+montgomery:32,REP,Bert Richardson,1217
+montgomery:33,DEM,Elizabeth Davis Frizell,739
+montgomery:33,REP,Bert Richardson,1753
+montgomery:34,DEM,Elizabeth Davis Frizell,451
+montgomery:34,REP,Bert Richardson,1558
+montgomery:35,DEM,Elizabeth Davis Frizell,1032
+montgomery:35,REP,Bert Richardson,2467
+montgomery:36,DEM,Elizabeth Davis Frizell,442
+montgomery:36,REP,Bert Richardson,1646
+montgomery:37,DEM,Elizabeth Davis Frizell,544
+montgomery:37,REP,Bert Richardson,1402
+montgomery:38,DEM,Elizabeth Davis Frizell,687
+montgomery:38,REP,Bert Richardson,3806
+montgomery:4,DEM,Elizabeth Davis Frizell,554
+montgomery:4,REP,Bert Richardson,755
+montgomery:40,DEM,Elizabeth Davis Frizell,1058
+montgomery:40,REP,Bert Richardson,3601
+montgomery:41,DEM,Elizabeth Davis Frizell,303
+montgomery:41,REP,Bert Richardson,2184
+montgomery:42,DEM,Elizabeth Davis Frizell,75
+montgomery:42,REP,Bert Richardson,456
+montgomery:43,DEM,Elizabeth Davis Frizell,790
+montgomery:43,REP,Bert Richardson,3568
+montgomery:44,DEM,Elizabeth Davis Frizell,513
+montgomery:44,REP,Bert Richardson,1092
+montgomery:45,DEM,Elizabeth Davis Frizell,641
+montgomery:45,REP,Bert Richardson,1489
+montgomery:46,DEM,Elizabeth Davis Frizell,1607
+montgomery:46,REP,Bert Richardson,2884
+montgomery:47,DEM,Elizabeth Davis Frizell,1177
+montgomery:47,REP,Bert Richardson,1696
+montgomery:48,DEM,Elizabeth Davis Frizell,572
+montgomery:48,REP,Bert Richardson,1266
+montgomery:49,DEM,Elizabeth Davis Frizell,615
+montgomery:49,REP,Bert Richardson,1128
+montgomery:5,DEM,Elizabeth Davis Frizell,25
+montgomery:5,REP,Bert Richardson,219
+montgomery:50,DEM,Elizabeth Davis Frizell,466
+montgomery:50,REP,Bert Richardson,2642
+montgomery:51,DEM,Elizabeth Davis Frizell,579
+montgomery:51,REP,Bert Richardson,784
+montgomery:52,DEM,Elizabeth Davis Frizell,484
+montgomery:52,REP,Bert Richardson,1735
+montgomery:53,DEM,Elizabeth Davis Frizell,709
+montgomery:53,REP,Bert Richardson,2474
+montgomery:54,DEM,Elizabeth Davis Frizell,224
+montgomery:54,REP,Bert Richardson,654
+montgomery:55,DEM,Elizabeth Davis Frizell,190
+montgomery:55,REP,Bert Richardson,661
+montgomery:56,DEM,Elizabeth Davis Frizell,736
+montgomery:56,REP,Bert Richardson,1559
+montgomery:57,DEM,Elizabeth Davis Frizell,310
+montgomery:57,REP,Bert Richardson,1683
+montgomery:58,DEM,Elizabeth Davis Frizell,534
+montgomery:58,REP,Bert Richardson,1431
+montgomery:59,DEM,Elizabeth Davis Frizell,371
+montgomery:59,REP,Bert Richardson,918
+montgomery:6,DEM,Elizabeth Davis Frizell,953
+montgomery:6,REP,Bert Richardson,1981
+montgomery:60,DEM,Elizabeth Davis Frizell,469
+montgomery:60,REP,Bert Richardson,790
+montgomery:61,DEM,Elizabeth Davis Frizell,1394
+montgomery:61,REP,Bert Richardson,2315
+montgomery:62,DEM,Elizabeth Davis Frizell,703
+montgomery:62,REP,Bert Richardson,1350
+montgomery:63,DEM,Elizabeth Davis Frizell,705
+montgomery:63,REP,Bert Richardson,3644
+montgomery:64,DEM,Elizabeth Davis Frizell,271
+montgomery:64,REP,Bert Richardson,948
+montgomery:67,DEM,Elizabeth Davis Frizell,760
+montgomery:67,REP,Bert Richardson,1297
+montgomery:68,DEM,Elizabeth Davis Frizell,1059
+montgomery:68,REP,Bert Richardson,2502
+montgomery:69,DEM,Elizabeth Davis Frizell,1129
+montgomery:69,REP,Bert Richardson,2102
+montgomery:7,DEM,Elizabeth Davis Frizell,266
+montgomery:7,REP,Bert Richardson,1146
+montgomery:70,DEM,Elizabeth Davis Frizell,722
+montgomery:70,REP,Bert Richardson,1479
+montgomery:71,DEM,Elizabeth Davis Frizell,1115
+montgomery:71,REP,Bert Richardson,2374
+montgomery:72,DEM,Elizabeth Davis Frizell,457
+montgomery:72,REP,Bert Richardson,3019
+montgomery:73,DEM,Elizabeth Davis Frizell,378
+montgomery:73,REP,Bert Richardson,947
+montgomery:75,DEM,Elizabeth Davis Frizell,1004
+montgomery:75,REP,Bert Richardson,2068
+montgomery:77,DEM,Elizabeth Davis Frizell,548
+montgomery:77,REP,Bert Richardson,2885
+montgomery:78,DEM,Elizabeth Davis Frizell,1228
+montgomery:78,REP,Bert Richardson,2703
+montgomery:79,DEM,Elizabeth Davis Frizell,542
+montgomery:79,REP,Bert Richardson,1015
+montgomery:8,DEM,Elizabeth Davis Frizell,284
+montgomery:8,REP,Bert Richardson,1895
+montgomery:80,DEM,Elizabeth Davis Frizell,1118
+montgomery:80,REP,Bert Richardson,2914
+montgomery:81,DEM,Elizabeth Davis Frizell,958
+montgomery:81,REP,Bert Richardson,2237
+montgomery:82,DEM,Elizabeth Davis Frizell,1142
+montgomery:82,REP,Bert Richardson,3134
+montgomery:83,DEM,Elizabeth Davis Frizell,146
+montgomery:83,REP,Bert Richardson,884
+montgomery:84,DEM,Elizabeth Davis Frizell,1335
+montgomery:84,REP,Bert Richardson,1506
+montgomery:85,DEM,Elizabeth Davis Frizell,441
+montgomery:85,REP,Bert Richardson,2006
+montgomery:86,DEM,Elizabeth Davis Frizell,334
+montgomery:86,REP,Bert Richardson,1461
+montgomery:87,DEM,Elizabeth Davis Frizell,937
+montgomery:87,REP,Bert Richardson,2058
+montgomery:88,DEM,Elizabeth Davis Frizell,1137
+montgomery:88,REP,Bert Richardson,2063
+montgomery:90,DEM,Elizabeth Davis Frizell,769
+montgomery:90,REP,Bert Richardson,4297
+montgomery:92,DEM,Elizabeth Davis Frizell,1436
+montgomery:92,REP,Bert Richardson,2129
+montgomery:93,DEM,Elizabeth Davis Frizell,710
+montgomery:93,REP,Bert Richardson,2055
+montgomery:94,DEM,Elizabeth Davis Frizell,415
+montgomery:94,REP,Bert Richardson,748
+montgomery:95,DEM,Elizabeth Davis Frizell,1114
+montgomery:95,REP,Bert Richardson,1644
+montgomery:96,DEM,Elizabeth Davis Frizell,1529
+montgomery:96,REP,Bert Richardson,2618
+montgomery:98,DEM,Elizabeth Davis Frizell,1301
+montgomery:98,REP,Bert Richardson,2417

@@ -1,0 +1,363 @@
+precinct,party,candidate,votes
+bexar:1001,DEM,Tina Clinton,404
+bexar:1001,REP,Kevin Patrick Yeary,121
+bexar:1003,DEM,Tina Clinton,1055
+bexar:1003,REP,Kevin Patrick Yeary,280
+bexar:1008,DEM,Tina Clinton,1026
+bexar:1008,REP,Kevin Patrick Yeary,218
+bexar:1098,DEM,Tina Clinton,385
+bexar:1098,REP,Kevin Patrick Yeary,74
+bexar:2001,DEM,Tina Clinton,272
+bexar:2001,REP,Kevin Patrick Yeary,70
+bexar:2002,DEM,Tina Clinton,464
+bexar:2002,REP,Kevin Patrick Yeary,129
+bexar:2003,DEM,Tina Clinton,720
+bexar:2003,REP,Kevin Patrick Yeary,190
+bexar:2004,DEM,Tina Clinton,1045
+bexar:2004,REP,Kevin Patrick Yeary,275
+bexar:2005,DEM,Tina Clinton,463
+bexar:2005,REP,Kevin Patrick Yeary,127
+bexar:2007,DEM,Tina Clinton,592
+bexar:2007,REP,Kevin Patrick Yeary,190
+bexar:2008,DEM,Tina Clinton,410
+bexar:2008,REP,Kevin Patrick Yeary,127
+bexar:2018,DEM,Tina Clinton,539
+bexar:2018,REP,Kevin Patrick Yeary,165
+bexar:2029,DEM,Tina Clinton,406
+bexar:2029,REP,Kevin Patrick Yeary,116
+bexar:2031,DEM,Tina Clinton,558
+bexar:2031,REP,Kevin Patrick Yeary,118
+bexar:2032,DEM,Tina Clinton,221
+bexar:2032,REP,Kevin Patrick Yeary,62
+bexar:2033,DEM,Tina Clinton,262
+bexar:2033,REP,Kevin Patrick Yeary,76
+bexar:2034,DEM,Tina Clinton,289
+bexar:2034,REP,Kevin Patrick Yeary,84
+bexar:2035,DEM,Tina Clinton,723
+bexar:2035,REP,Kevin Patrick Yeary,237
+bexar:2036,DEM,Tina Clinton,796
+bexar:2036,REP,Kevin Patrick Yeary,444
+bexar:2039,DEM,Tina Clinton,689
+bexar:2039,REP,Kevin Patrick Yeary,186
+bexar:2051,DEM,Tina Clinton,294
+bexar:2051,REP,Kevin Patrick Yeary,109
+bexar:2052,DEM,Tina Clinton,376
+bexar:2052,REP,Kevin Patrick Yeary,124
+bexar:2053,DEM,Tina Clinton,515
+bexar:2053,REP,Kevin Patrick Yeary,162
+bexar:2054,DEM,Tina Clinton,997
+bexar:2054,REP,Kevin Patrick Yeary,280
+bexar:2055,DEM,Tina Clinton,809
+bexar:2055,REP,Kevin Patrick Yeary,289
+bexar:2067,DEM,Tina Clinton,140
+bexar:2067,REP,Kevin Patrick Yeary,35
+bexar:2070,DEM,Tina Clinton,770
+bexar:2070,REP,Kevin Patrick Yeary,146
+bexar:2071,DEM,Tina Clinton,269
+bexar:2071,REP,Kevin Patrick Yeary,79
+bexar:2075,DEM,Tina Clinton,393
+bexar:2075,REP,Kevin Patrick Yeary,83
+bexar:2079,DEM,Tina Clinton,241
+bexar:2079,REP,Kevin Patrick Yeary,40
+bexar:2104,DEM,Tina Clinton,127
+bexar:2104,REP,Kevin Patrick Yeary,38
+bexar:2105,DEM,Tina Clinton,227
+bexar:2105,REP,Kevin Patrick Yeary,71
+bexar:2117,DEM,Tina Clinton,283
+bexar:2117,REP,Kevin Patrick Yeary,67
+bexar:2152,DEM,Tina Clinton,225
+bexar:2152,REP,Kevin Patrick Yeary,74
+bexar:3159,DEM,Tina Clinton,884
+bexar:3159,REP,Kevin Patrick Yeary,579
+bexar:3204,DEM,Tina Clinton,0
+bexar:3204,REP,Kevin Patrick Yeary,0
+bexar:3205,DEM,Tina Clinton,0
+bexar:3205,REP,Kevin Patrick Yeary,0
+bexar:3206,DEM,Tina Clinton,79
+bexar:3206,REP,Kevin Patrick Yeary,20
+bexar:3207,DEM,Tina Clinton,3
+bexar:3207,REP,Kevin Patrick Yeary,0
+bexar:3208,DEM,Tina Clinton,41
+bexar:3208,REP,Kevin Patrick Yeary,17
+bexar:4001,DEM,Tina Clinton,1343
+bexar:4001,REP,Kevin Patrick Yeary,680
+bexar:4005,DEM,Tina Clinton,806
+bexar:4005,REP,Kevin Patrick Yeary,201
+bexar:4006,DEM,Tina Clinton,301
+bexar:4006,REP,Kevin Patrick Yeary,98
+bexar:4009,DEM,Tina Clinton,365
+bexar:4009,REP,Kevin Patrick Yeary,81
+bexar:4010,DEM,Tina Clinton,567
+bexar:4010,REP,Kevin Patrick Yeary,81
+bexar:4015,DEM,Tina Clinton,769
+bexar:4015,REP,Kevin Patrick Yeary,215
+bexar:4017,DEM,Tina Clinton,1052
+bexar:4017,REP,Kevin Patrick Yeary,303
+bexar:4018,DEM,Tina Clinton,591
+bexar:4018,REP,Kevin Patrick Yeary,201
+bexar:4021,DEM,Tina Clinton,385
+bexar:4021,REP,Kevin Patrick Yeary,259
+bexar:4035,DEM,Tina Clinton,12
+bexar:4035,REP,Kevin Patrick Yeary,13
+bexar:4040,DEM,Tina Clinton,521
+bexar:4040,REP,Kevin Patrick Yeary,121
+bexar:4042,DEM,Tina Clinton,93
+bexar:4042,REP,Kevin Patrick Yeary,58
+bexar:4043,DEM,Tina Clinton,1157
+bexar:4043,REP,Kevin Patrick Yeary,744
+bexar:4044,DEM,Tina Clinton,503
+bexar:4044,REP,Kevin Patrick Yeary,299
+bexar:4045,DEM,Tina Clinton,908
+bexar:4045,REP,Kevin Patrick Yeary,572
+bexar:4047,DEM,Tina Clinton,960
+bexar:4047,REP,Kevin Patrick Yeary,555
+bexar:4049,DEM,Tina Clinton,924
+bexar:4049,REP,Kevin Patrick Yeary,474
+bexar:4053,DEM,Tina Clinton,803
+bexar:4053,REP,Kevin Patrick Yeary,576
+bexar:4054,DEM,Tina Clinton,1345
+bexar:4054,REP,Kevin Patrick Yeary,1223
+bexar:4060,DEM,Tina Clinton,654
+bexar:4060,REP,Kevin Patrick Yeary,478
+bexar:4061,DEM,Tina Clinton,894
+bexar:4061,REP,Kevin Patrick Yeary,409
+bexar:4063,DEM,Tina Clinton,299
+bexar:4063,REP,Kevin Patrick Yeary,203
+bexar:4064,DEM,Tina Clinton,783
+bexar:4064,REP,Kevin Patrick Yeary,649
+bexar:4065,DEM,Tina Clinton,1594
+bexar:4065,REP,Kevin Patrick Yeary,665
+bexar:4066,DEM,Tina Clinton,1351
+bexar:4066,REP,Kevin Patrick Yeary,705
+bexar:4067,DEM,Tina Clinton,571
+bexar:4067,REP,Kevin Patrick Yeary,451
+bexar:4068,DEM,Tina Clinton,293
+bexar:4068,REP,Kevin Patrick Yeary,172
+bexar:4076,DEM,Tina Clinton,1292
+bexar:4076,REP,Kevin Patrick Yeary,687
+bexar:4080,DEM,Tina Clinton,838
+bexar:4080,REP,Kevin Patrick Yeary,467
+bexar:4082,DEM,Tina Clinton,745
+bexar:4082,REP,Kevin Patrick Yeary,179
+bexar:4083,DEM,Tina Clinton,308
+bexar:4083,REP,Kevin Patrick Yeary,236
+bexar:4087,DEM,Tina Clinton,1108
+bexar:4087,REP,Kevin Patrick Yeary,627
+bexar:4088,DEM,Tina Clinton,1602
+bexar:4088,REP,Kevin Patrick Yeary,791
+bexar:4091,DEM,Tina Clinton,418
+bexar:4091,REP,Kevin Patrick Yeary,244
+bexar:4093,DEM,Tina Clinton,942
+bexar:4093,REP,Kevin Patrick Yeary,787
+bexar:4096,DEM,Tina Clinton,902
+bexar:4096,REP,Kevin Patrick Yeary,571
+bexar:4097,DEM,Tina Clinton,708
+bexar:4097,REP,Kevin Patrick Yeary,705
+bexar:4099,DEM,Tina Clinton,455
+bexar:4099,REP,Kevin Patrick Yeary,277
+bexar:4100,DEM,Tina Clinton,376
+bexar:4100,REP,Kevin Patrick Yeary,300
+bexar:4102,DEM,Tina Clinton,296
+bexar:4102,REP,Kevin Patrick Yeary,159
+bexar:4105,DEM,Tina Clinton,585
+bexar:4105,REP,Kevin Patrick Yeary,806
+bexar:4106,DEM,Tina Clinton,173
+bexar:4106,REP,Kevin Patrick Yeary,74
+bexar:4107,DEM,Tina Clinton,467
+bexar:4107,REP,Kevin Patrick Yeary,430
+bexar:4109,DEM,Tina Clinton,536
+bexar:4109,REP,Kevin Patrick Yeary,350
+bexar:4110,DEM,Tina Clinton,586
+bexar:4110,REP,Kevin Patrick Yeary,212
+bexar:4111,DEM,Tina Clinton,172
+bexar:4111,REP,Kevin Patrick Yeary,19
+bexar:4114,DEM,Tina Clinton,30
+bexar:4114,REP,Kevin Patrick Yeary,15
+bexar:4119,DEM,Tina Clinton,293
+bexar:4119,REP,Kevin Patrick Yeary,117
+bexar:4120,DEM,Tina Clinton,70
+bexar:4120,REP,Kevin Patrick Yeary,41
+bexar:4122,DEM,Tina Clinton,37
+bexar:4122,REP,Kevin Patrick Yeary,15
+bexar:4123,DEM,Tina Clinton,69
+bexar:4123,REP,Kevin Patrick Yeary,21
+bexar:4125,DEM,Tina Clinton,26
+bexar:4125,REP,Kevin Patrick Yeary,14
+bexar:4128,DEM,Tina Clinton,72
+bexar:4128,REP,Kevin Patrick Yeary,45
+bexar:4131,DEM,Tina Clinton,155
+bexar:4131,REP,Kevin Patrick Yeary,79
+bexar:4132,DEM,Tina Clinton,1049
+bexar:4132,REP,Kevin Patrick Yeary,589
+bexar:4134,DEM,Tina Clinton,3
+bexar:4134,REP,Kevin Patrick Yeary,1
+bexar:4135,DEM,Tina Clinton,0
+bexar:4135,REP,Kevin Patrick Yeary,0
+bexar:4138,DEM,Tina Clinton,0
+bexar:4138,REP,Kevin Patrick Yeary,0
+bexar:4139,DEM,Tina Clinton,1
+bexar:4139,REP,Kevin Patrick Yeary,0
+bexar:4140,DEM,Tina Clinton,0
+bexar:4140,REP,Kevin Patrick Yeary,0
+bexar:4142,DEM,Tina Clinton,280
+bexar:4142,REP,Kevin Patrick Yeary,60
+bexar:4143,DEM,Tina Clinton,1960
+bexar:4143,REP,Kevin Patrick Yeary,821
+bexar:4145,DEM,Tina Clinton,3
+bexar:4145,REP,Kevin Patrick Yeary,2
+bexar:4146,DEM,Tina Clinton,12
+bexar:4146,REP,Kevin Patrick Yeary,6
+bexar:4148,DEM,Tina Clinton,48
+bexar:4148,REP,Kevin Patrick Yeary,48
+bexar:4149,DEM,Tina Clinton,159
+bexar:4149,REP,Kevin Patrick Yeary,107
+bexar:4150,DEM,Tina Clinton,772
+bexar:4150,REP,Kevin Patrick Yeary,385
+bexar:4152,DEM,Tina Clinton,762
+bexar:4152,REP,Kevin Patrick Yeary,480
+bexar:4154,DEM,Tina Clinton,247
+bexar:4154,REP,Kevin Patrick Yeary,193
+bexar:4155,DEM,Tina Clinton,1213
+bexar:4155,REP,Kevin Patrick Yeary,379
+bexar:4156,DEM,Tina Clinton,473
+bexar:4156,REP,Kevin Patrick Yeary,221
+bexar:4157,DEM,Tina Clinton,817
+bexar:4157,REP,Kevin Patrick Yeary,197
+bexar:4158,DEM,Tina Clinton,189
+bexar:4158,REP,Kevin Patrick Yeary,125
+bexar:4160,DEM,Tina Clinton,826
+bexar:4160,REP,Kevin Patrick Yeary,376
+bexar:4161,DEM,Tina Clinton,357
+bexar:4161,REP,Kevin Patrick Yeary,64
+bexar:4163,DEM,Tina Clinton,887
+bexar:4163,REP,Kevin Patrick Yeary,474
+bexar:4166,DEM,Tina Clinton,159
+bexar:4166,REP,Kevin Patrick Yeary,63
+bexar:4168,DEM,Tina Clinton,942
+bexar:4168,REP,Kevin Patrick Yeary,459
+bexar:4175,DEM,Tina Clinton,0
+bexar:4175,REP,Kevin Patrick Yeary,0
+bexar:4178,DEM,Tina Clinton,2
+bexar:4178,REP,Kevin Patrick Yeary,0
+bexar:4181,DEM,Tina Clinton,0
+bexar:4181,REP,Kevin Patrick Yeary,1
+bexar:4182,DEM,Tina Clinton,0
+bexar:4182,REP,Kevin Patrick Yeary,0
+bexar:4183,DEM,Tina Clinton,52
+bexar:4183,REP,Kevin Patrick Yeary,12
+bexar:4184,DEM,Tina Clinton,10
+bexar:4184,REP,Kevin Patrick Yeary,1
+bexar:4185,DEM,Tina Clinton,0
+bexar:4185,REP,Kevin Patrick Yeary,1
+bexar:4186,DEM,Tina Clinton,59
+bexar:4186,REP,Kevin Patrick Yeary,14
+bexar:4189,DEM,Tina Clinton,379
+bexar:4189,REP,Kevin Patrick Yeary,185
+bexar:4190,DEM,Tina Clinton,1
+bexar:4190,REP,Kevin Patrick Yeary,1
+bexar:4191,DEM,Tina Clinton,1
+bexar:4191,REP,Kevin Patrick Yeary,0
+bexar:4192,DEM,Tina Clinton,0
+bexar:4192,REP,Kevin Patrick Yeary,0
+bexar:4193,DEM,Tina Clinton,24
+bexar:4193,REP,Kevin Patrick Yeary,14
+bexar:4195,DEM,Tina Clinton,0
+bexar:4195,REP,Kevin Patrick Yeary,0
+bexar:4196,DEM,Tina Clinton,0
+bexar:4196,REP,Kevin Patrick Yeary,0
+bexar:4197,DEM,Tina Clinton,2
+bexar:4197,REP,Kevin Patrick Yeary,1
+bexar:4198,DEM,Tina Clinton,685
+bexar:4198,REP,Kevin Patrick Yeary,285
+bexar:4199,DEM,Tina Clinton,499
+bexar:4199,REP,Kevin Patrick Yeary,322
+bexar:4203,DEM,Tina Clinton,208
+bexar:4203,REP,Kevin Patrick Yeary,48
+bexar:4205,DEM,Tina Clinton,38
+bexar:4205,REP,Kevin Patrick Yeary,41
+bexar:4211,DEM,Tina Clinton,19
+bexar:4211,REP,Kevin Patrick Yeary,1
+bexar:4213,DEM,Tina Clinton,16
+bexar:4213,REP,Kevin Patrick Yeary,9
+comal:201,DEM,Tina Clinton,1226
+comal:201,REP,Kevin Patrick Yeary,2566
+comal:302,DEM,Tina Clinton,1259
+comal:302,REP,Kevin Patrick Yeary,2307
+comal:304,DEM,Tina Clinton,1192
+comal:304,REP,Kevin Patrick Yeary,1919
+comal:306,DEM,Tina Clinton,618
+comal:306,REP,Kevin Patrick Yeary,1112
+hays:110,DEM,Tina Clinton,838
+hays:110,REP,Kevin Patrick Yeary,673
+hays:111,DEM,Tina Clinton,163
+hays:111,REP,Kevin Patrick Yeary,56
+hays:112,DEM,Tina Clinton,1049
+hays:112,REP,Kevin Patrick Yeary,375
+hays:113,DEM,Tina Clinton,536
+hays:113,REP,Kevin Patrick Yeary,219
+hays:114,DEM,Tina Clinton,736
+hays:114,REP,Kevin Patrick Yeary,336
+hays:115,DEM,Tina Clinton,933
+hays:115,REP,Kevin Patrick Yeary,399
+hays:120,DEM,Tina Clinton,508
+hays:120,REP,Kevin Patrick Yeary,353
+hays:121,DEM,Tina Clinton,1090
+hays:121,REP,Kevin Patrick Yeary,216
+hays:122,DEM,Tina Clinton,516
+hays:122,REP,Kevin Patrick Yeary,136
+hays:123,DEM,Tina Clinton,540
+hays:123,REP,Kevin Patrick Yeary,169
+hays:125,DEM,Tina Clinton,1345
+hays:125,REP,Kevin Patrick Yeary,842
+hays:126,DEM,Tina Clinton,1192
+hays:126,REP,Kevin Patrick Yeary,963
+hays:127,DEM,Tina Clinton,390
+hays:127,REP,Kevin Patrick Yeary,322
+hays:128,DEM,Tina Clinton,1070
+hays:128,REP,Kevin Patrick Yeary,829
+hays:129,DEM,Tina Clinton,1041
+hays:129,REP,Kevin Patrick Yeary,649
+hays:130,DEM,Tina Clinton,1284
+hays:130,REP,Kevin Patrick Yeary,767
+hays:220,DEM,Tina Clinton,1125
+hays:220,REP,Kevin Patrick Yeary,1083
+hays:221,DEM,Tina Clinton,1067
+hays:221,REP,Kevin Patrick Yeary,721
+hays:223,DEM,Tina Clinton,1007
+hays:223,REP,Kevin Patrick Yeary,711
+hays:227,DEM,Tina Clinton,1283
+hays:227,REP,Kevin Patrick Yeary,868
+hays:228,DEM,Tina Clinton,1749
+hays:228,REP,Kevin Patrick Yeary,1125
+hays:229,DEM,Tina Clinton,764
+hays:229,REP,Kevin Patrick Yeary,459
+hays:231,DEM,Tina Clinton,1418
+hays:231,REP,Kevin Patrick Yeary,854
+hays:233,DEM,Tina Clinton,520
+hays:233,REP,Kevin Patrick Yeary,353
+hays:234,DEM,Tina Clinton,429
+hays:234,REP,Kevin Patrick Yeary,323
+hays:301,DEM,Tina Clinton,0
+hays:301,REP,Kevin Patrick Yeary,0
+hays:316,DEM,Tina Clinton,670
+hays:316,REP,Kevin Patrick Yeary,558
+hays:317,DEM,Tina Clinton,239
+hays:317,REP,Kevin Patrick Yeary,62
+hays:318,DEM,Tina Clinton,63
+hays:318,REP,Kevin Patrick Yeary,22
+hays:330,DEM,Tina Clinton,919
+hays:330,REP,Kevin Patrick Yeary,362
+hays:334,DEM,Tina Clinton,1209
+hays:334,REP,Kevin Patrick Yeary,392
+hays:340,DEM,Tina Clinton,834
+hays:340,REP,Kevin Patrick Yeary,481
+hays:413,DEM,Tina Clinton,539
+hays:413,REP,Kevin Patrick Yeary,134
+hays:414,DEM,Tina Clinton,716
+hays:414,REP,Kevin Patrick Yeary,237
+hays:415,DEM,Tina Clinton,1153
+hays:415,REP,Kevin Patrick Yeary,359
+hays:416,DEM,Tina Clinton,64
+hays:416,REP,Kevin Patrick Yeary,36
+hays:418,DEM,Tina Clinton,1
+hays:418,REP,Kevin Patrick Yeary,2

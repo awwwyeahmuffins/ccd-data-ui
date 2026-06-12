@@ -1,0 +1,376 @@
+precinct,party,candidate,votes
+austin:101,,Over Votes,0
+austin:101,,Under Votes,6
+austin:101,DEM,Janet T. Dudding,103
+austin:101,LIB,V. Alonzo Echevarria-Garza,6
+austin:101,REP,Glenn Hegar,602
+austin:102,,Over Votes,0
+austin:102,,Under Votes,10
+austin:102,DEM,Janet T. Dudding,131
+austin:102,LIB,V. Alonzo Echevarria-Garza,9
+austin:102,REP,Glenn Hegar,669
+austin:103,,Over Votes,0
+austin:103,,Under Votes,7
+austin:103,DEM,Janet T. Dudding,100
+austin:103,LIB,V. Alonzo Echevarria-Garza,9
+austin:103,REP,Glenn Hegar,819
+austin:104,,Over Votes,0
+austin:104,,Under Votes,5
+austin:104,DEM,Janet T. Dudding,49
+austin:104,LIB,V. Alonzo Echevarria-Garza,10
+austin:104,REP,Glenn Hegar,410
+austin:205,,Over Votes,0
+austin:205,,Under Votes,22
+austin:205,DEM,Janet T. Dudding,201
+austin:205,LIB,V. Alonzo Echevarria-Garza,25
+austin:205,REP,Glenn Hegar,1349
+austin:206,,Over Votes,0
+austin:206,,Under Votes,6
+austin:206,DEM,Janet T. Dudding,92
+austin:206,LIB,V. Alonzo Echevarria-Garza,14
+austin:206,REP,Glenn Hegar,783
+austin:207,,Over Votes,0
+austin:207,,Under Votes,9
+austin:207,DEM,Janet T. Dudding,61
+austin:207,LIB,V. Alonzo Echevarria-Garza,4
+austin:207,REP,Glenn Hegar,410
+austin:208,,Over Votes,0
+austin:208,,Under Votes,4
+austin:208,DEM,Janet T. Dudding,74
+austin:208,LIB,V. Alonzo Echevarria-Garza,3
+austin:208,REP,Glenn Hegar,371
+austin:309,,Over Votes,0
+austin:309,,Under Votes,6
+austin:309,DEM,Janet T. Dudding,22
+austin:309,LIB,V. Alonzo Echevarria-Garza,3
+austin:309,REP,Glenn Hegar,406
+austin:310,,Over Votes,0
+austin:310,,Under Votes,20
+austin:310,DEM,Janet T. Dudding,215
+austin:310,LIB,V. Alonzo Echevarria-Garza,19
+austin:310,REP,Glenn Hegar,1192
+austin:311,,Over Votes,0
+austin:311,,Under Votes,11
+austin:311,DEM,Janet T. Dudding,140
+austin:311,LIB,V. Alonzo Echevarria-Garza,12
+austin:311,REP,Glenn Hegar,230
+austin:412,,Over Votes,0
+austin:412,,Under Votes,7
+austin:412,DEM,Janet T. Dudding,74
+austin:412,LIB,V. Alonzo Echevarria-Garza,3
+austin:412,REP,Glenn Hegar,263
+austin:413,,Over Votes,0
+austin:413,,Under Votes,9
+austin:413,DEM,Janet T. Dudding,82
+austin:413,LIB,V. Alonzo Echevarria-Garza,10
+austin:413,REP,Glenn Hegar,745
+austin:414,,Over Votes,0
+austin:414,,Under Votes,5
+austin:414,DEM,Janet T. Dudding,131
+austin:414,LIB,V. Alonzo Echevarria-Garza,13
+austin:414,REP,Glenn Hegar,542
+austin:415,,Over Votes,0
+austin:415,,Under Votes,13
+austin:415,DEM,Janet T. Dudding,141
+austin:415,LIB,V. Alonzo Echevarria-Garza,12
+austin:415,REP,Glenn Hegar,565
+bastrop:1003,,OVER VOTES,0
+bastrop:1003,,UNDER VOTES,24
+bastrop:1003,DEM,Janet T. Dudding,575
+bastrop:1003,LIB,V. Alonzo Echevarria-Garza,37
+bastrop:1003,REP,Glenn Hegar,971
+bastrop:1004,,OVER VOTES,0
+bastrop:1004,,UNDER VOTES,32
+bastrop:1004,DEM,Janet T. Dudding,641
+bastrop:1004,LIB,V. Alonzo Echevarria-Garza,34
+bastrop:1004,REP,Glenn Hegar,520
+bastrop:1006,,OVER VOTES,0
+bastrop:1006,,UNDER VOTES,31
+bastrop:1006,DEM,Janet T. Dudding,416
+bastrop:1006,LIB,V. Alonzo Echevarria-Garza,49
+bastrop:1006,REP,Glenn Hegar,530
+bastrop:2010,,OVER VOTES,0
+bastrop:2010,,UNDER VOTES,6
+bastrop:2010,DEM,Janet T. Dudding,146
+bastrop:2010,LIB,V. Alonzo Echevarria-Garza,11
+bastrop:2010,REP,Glenn Hegar,154
+bastrop:2013,,OVER VOTES,0
+bastrop:2013,,UNDER VOTES,26
+bastrop:2013,DEM,Janet T. Dudding,617
+bastrop:2013,LIB,V. Alonzo Echevarria-Garza,52
+bastrop:2013,REP,Glenn Hegar,1087
+bastrop:2014,,OVER VOTES,0
+bastrop:2014,,UNDER VOTES,24
+bastrop:2014,DEM,Janet T. Dudding,489
+bastrop:2014,LIB,V. Alonzo Echevarria-Garza,46
+bastrop:2014,REP,Glenn Hegar,1186
+bastrop:2015,,OVER VOTES,0
+bastrop:2015,,UNDER VOTES,34
+bastrop:2015,DEM,Janet T. Dudding,582
+bastrop:2015,LIB,V. Alonzo Echevarria-Garza,32
+bastrop:2015,REP,Glenn Hegar,1046
+bastrop:4021,,OVER VOTES,0
+bastrop:4021,,UNDER VOTES,26
+bastrop:4021,DEM,Janet T. Dudding,586
+bastrop:4021,LIB,V. Alonzo Echevarria-Garza,36
+bastrop:4021,REP,Glenn Hegar,752
+bastrop:4022,,OVER VOTES,0
+bastrop:4022,,UNDER VOTES,16
+bastrop:4022,DEM,Janet T. Dudding,470
+bastrop:4022,LIB,V. Alonzo Echevarria-Garza,38
+bastrop:4022,REP,Glenn Hegar,749
+bastrop:4023,,OVER VOTES,0
+bastrop:4023,,UNDER VOTES,8
+bastrop:4023,DEM,Janet T. Dudding,219
+bastrop:4023,LIB,V. Alonzo Echevarria-Garza,16
+bastrop:4023,REP,Glenn Hegar,539
+bastrop:4024,,OVER VOTES,0
+bastrop:4024,,UNDER VOTES,15
+bastrop:4024,DEM,Janet T. Dudding,280
+bastrop:4024,LIB,V. Alonzo Echevarria-Garza,23
+bastrop:4024,REP,Glenn Hegar,526
+bastrop:4025,,OVER VOTES,0
+bastrop:4025,,UNDER VOTES,27
+bastrop:4025,DEM,Janet T. Dudding,600
+bastrop:4025,LIB,V. Alonzo Echevarria-Garza,49
+bastrop:4025,REP,Glenn Hegar,369
+bastrop:4026,,OVER VOTES,0
+bastrop:4026,,UNDER VOTES,16
+bastrop:4026,DEM,Janet T. Dudding,600
+bastrop:4026,LIB,V. Alonzo Echevarria-Garza,42
+bastrop:4026,REP,Glenn Hegar,477
+colorado:101,,Over Votes,0
+colorado:101,,Under Votes,15
+colorado:101,DEM,Janet T. Dudding,213
+colorado:101,LIB,V. Alonzo Echevarria-Garza,18
+colorado:101,REP,Glenn Hegar,847
+colorado:102,,Over Votes,0
+colorado:102,,Under Votes,3
+colorado:102,DEM,Janet T. Dudding,23
+colorado:102,LIB,V. Alonzo Echevarria-Garza,3
+colorado:102,REP,Glenn Hegar,125
+colorado:103,,Over Votes,0
+colorado:103,,Under Votes,4
+colorado:103,DEM,Janet T. Dudding,26
+colorado:103,LIB,V. Alonzo Echevarria-Garza,4
+colorado:103,REP,Glenn Hegar,319
+colorado:201,,Over Votes,0
+colorado:201,,Under Votes,17
+colorado:201,DEM,Janet T. Dudding,269
+colorado:201,LIB,V. Alonzo Echevarria-Garza,15
+colorado:201,REP,Glenn Hegar,1497
+colorado:202,,Over Votes,0
+colorado:202,,Under Votes,3
+colorado:202,DEM,Janet T. Dudding,29
+colorado:202,LIB,V. Alonzo Echevarria-Garza,5
+colorado:202,REP,Glenn Hegar,313
+colorado:302,,Over Votes,0
+colorado:302,,Under Votes,10
+colorado:302,DEM,Janet T. Dudding,78
+colorado:302,LIB,V. Alonzo Echevarria-Garza,1
+colorado:302,REP,Glenn Hegar,673
+colorado:303,,Over Votes,0
+colorado:303,,Under Votes,5
+colorado:303,DEM,Janet T. Dudding,48
+colorado:303,LIB,V. Alonzo Echevarria-Garza,10
+colorado:303,REP,Glenn Hegar,346
+colorado:304,,Over Votes,0
+colorado:304,,Under Votes,4
+colorado:304,DEM,Janet T. Dudding,27
+colorado:304,LIB,V. Alonzo Echevarria-Garza,3
+colorado:304,REP,Glenn Hegar,322
+colorado:305,,Over Votes,0
+colorado:305,,Under Votes,8
+colorado:305,DEM,Janet T. Dudding,163
+colorado:305,LIB,V. Alonzo Echevarria-Garza,17
+colorado:305,REP,Glenn Hegar,835
+colorado:401,,Over Votes,0
+colorado:401,,Under Votes,3
+colorado:401,DEM,Janet T. Dudding,56
+colorado:401,LIB,V. Alonzo Echevarria-Garza,5
+colorado:401,REP,Glenn Hegar,186
+colorado:402,,Over Votes,0
+colorado:402,,Under Votes,21
+colorado:402,DEM,Janet T. Dudding,350
+colorado:402,LIB,V. Alonzo Echevarria-Garza,24
+colorado:402,REP,Glenn Hegar,648
+washington:101,,Over Votes,0
+washington:101,,Under Votes,15
+washington:101,DEM,Janet T. Dudding,196
+washington:101,LIB,V. Alonzo Echevarria-Garza,10
+washington:101,REP,Glenn Hegar,534
+washington:104,,Over Votes,0
+washington:104,,Under Votes,27
+washington:104,DEM,Janet T. Dudding,436
+washington:104,LIB,V. Alonzo Echevarria-Garza,10
+washington:104,REP,Glenn Hegar,317
+washington:109,,Over Votes,0
+washington:109,,Under Votes,17
+washington:109,DEM,Janet T. Dudding,83
+washington:109,LIB,V. Alonzo Echevarria-Garza,5
+washington:109,REP,Glenn Hegar,577
+washington:115,,Over Votes,0
+washington:115,,Under Votes,15
+washington:115,DEM,Janet T. Dudding,96
+washington:115,LIB,V. Alonzo Echevarria-Garza,5
+washington:115,REP,Glenn Hegar,455
+washington:117,,Over Votes,0
+washington:117,,Under Votes,0
+washington:117,DEM,Janet T. Dudding,18
+washington:117,LIB,V. Alonzo Echevarria-Garza,0
+washington:117,REP,Glenn Hegar,6
+washington:121,,Over Votes,0
+washington:121,,Under Votes,1
+washington:121,DEM,Janet T. Dudding,12
+washington:121,LIB,V. Alonzo Echevarria-Garza,1
+washington:121,REP,Glenn Hegar,37
+washington:202,,Over Votes,0
+washington:202,,Under Votes,1
+washington:202,DEM,Janet T. Dudding,0
+washington:202,LIB,V. Alonzo Echevarria-Garza,0
+washington:202,REP,Glenn Hegar,4
+washington:203,,Over Votes,0
+washington:203,,Under Votes,21
+washington:203,DEM,Janet T. Dudding,195
+washington:203,LIB,V. Alonzo Echevarria-Garza,22
+washington:203,REP,Glenn Hegar,1036
+washington:205,,Over Votes,0
+washington:205,,Under Votes,45
+washington:205,DEM,Janet T. Dudding,297
+washington:205,LIB,V. Alonzo Echevarria-Garza,18
+washington:205,REP,Glenn Hegar,1184
+washington:208,,Over Votes,0
+washington:208,,Under Votes,25
+washington:208,DEM,Janet T. Dudding,100
+washington:208,LIB,V. Alonzo Echevarria-Garza,15
+washington:208,REP,Glenn Hegar,852
+washington:307,,Over Votes,0
+washington:307,,Under Votes,33
+washington:307,DEM,Janet T. Dudding,207
+washington:307,LIB,V. Alonzo Echevarria-Garza,14
+washington:307,REP,Glenn Hegar,826
+washington:311,,Over Votes,0
+washington:311,,Under Votes,9
+washington:311,DEM,Janet T. Dudding,96
+washington:311,LIB,V. Alonzo Echevarria-Garza,16
+washington:311,REP,Glenn Hegar,645
+washington:312,,Over Votes,0
+washington:312,,Under Votes,13
+washington:312,DEM,Janet T. Dudding,78
+washington:312,LIB,V. Alonzo Echevarria-Garza,11
+washington:312,REP,Glenn Hegar,697
+washington:320,,Over Votes,0
+washington:320,,Under Votes,29
+washington:320,DEM,Janet T. Dudding,121
+washington:320,LIB,V. Alonzo Echevarria-Garza,8
+washington:320,REP,Glenn Hegar,1110
+washington:406,,Over Votes,0
+washington:406,,Under Votes,20
+washington:406,DEM,Janet T. Dudding,205
+washington:406,LIB,V. Alonzo Echevarria-Garza,12
+washington:406,REP,Glenn Hegar,714
+washington:410,,Over Votes,0
+washington:410,,Under Votes,18
+washington:410,DEM,Janet T. Dudding,99
+washington:410,LIB,V. Alonzo Echevarria-Garza,5
+washington:410,REP,Glenn Hegar,689
+washington:413,,Over Votes,0
+washington:413,,Under Votes,19
+washington:413,DEM,Janet T. Dudding,117
+washington:413,LIB,V. Alonzo Echevarria-Garza,17
+washington:413,REP,Glenn Hegar,1002
+washington:418,,Over Votes,0
+washington:418,,Under Votes,5
+washington:418,DEM,Janet T. Dudding,76
+washington:418,LIB,V. Alonzo Echevarria-Garza,10
+washington:418,REP,Glenn Hegar,224
+washington:419,,Over Votes,0
+washington:419,,Under Votes,8
+washington:419,DEM,Janet T. Dudding,68
+washington:419,LIB,V. Alonzo Echevarria-Garza,9
+washington:419,REP,Glenn Hegar,212
+williamson:116,,Over Votes,0
+williamson:116,,Under Votes,27
+williamson:116,DEM,Janet T. Dudding,447
+williamson:116,LIB,V. Alonzo Echavarria-Garza,18
+williamson:116,REP,Glenn Hegar,384
+williamson:122,,Over Votes,0
+williamson:122,,Under Votes,4
+williamson:122,DEM,Janet T. Dudding,106
+williamson:122,LIB,V. Alonzo Echavarria-Garza,5
+williamson:122,REP,Glenn Hegar,63
+williamson:138,,Over Votes,0
+williamson:138,,Under Votes,13
+williamson:138,DEM,Janet T. Dudding,300
+williamson:138,LIB,V. Alonzo Echavarria-Garza,16
+williamson:138,REP,Glenn Hegar,124
+williamson:166,,Over Votes,0
+williamson:166,,Under Votes,31
+williamson:166,DEM,Janet T. Dudding,505
+williamson:166,LIB,V. Alonzo Echavarria-Garza,24
+williamson:166,REP,Glenn Hegar,382
+williamson:173,,Over Votes,0
+williamson:173,,Under Votes,32
+williamson:173,DEM,Janet T. Dudding,750
+williamson:173,LIB,V. Alonzo Echavarria-Garza,34
+williamson:173,REP,Glenn Hegar,572
+williamson:189,,Over Votes,0
+williamson:189,,Under Votes,43
+williamson:189,DEM,Janet T. Dudding,1273
+williamson:189,LIB,V. Alonzo Echavarria-Garza,43
+williamson:189,REP,Glenn Hegar,775
+williamson:216,,Over Votes,0
+williamson:216,,Under Votes,15
+williamson:216,DEM,Janet T. Dudding,413
+williamson:216,LIB,V. Alonzo Echavarria-Garza,22
+williamson:216,REP,Glenn Hegar,398
+williamson:266,,Over Votes,0
+williamson:266,,Under Votes,56
+williamson:266,DEM,Janet T. Dudding,879
+williamson:266,LIB,V. Alonzo Echavarria-Garza,39
+williamson:266,REP,Glenn Hegar,769
+williamson:303,,Over Votes,0
+williamson:303,,Under Votes,42
+williamson:303,DEM,Janet T. Dudding,883
+williamson:303,LIB,V. Alonzo Echavarria-Garza,35
+williamson:303,REP,Glenn Hegar,632
+williamson:317,,Over Votes,0
+williamson:317,,Under Votes,17
+williamson:317,DEM,Janet T. Dudding,300
+williamson:317,LIB,V. Alonzo Echavarria-Garza,8
+williamson:317,REP,Glenn Hegar,231
+williamson:321,,Over Votes,0
+williamson:321,,Under Votes,1
+williamson:321,DEM,Janet T. Dudding,10
+williamson:321,LIB,V. Alonzo Echavarria-Garza,0
+williamson:321,REP,Glenn Hegar,12
+williamson:322,,Over Votes,0
+williamson:322,,Under Votes,21
+williamson:322,DEM,Janet T. Dudding,497
+williamson:322,LIB,V. Alonzo Echavarria-Garza,28
+williamson:322,REP,Glenn Hegar,546
+williamson:323,,Over Votes,0
+williamson:323,,Under Votes,0
+williamson:323,DEM,Janet T. Dudding,37
+williamson:323,LIB,V. Alonzo Echavarria-Garza,0
+williamson:323,REP,Glenn Hegar,19
+williamson:338,,Over Votes,0
+williamson:338,,Under Votes,49
+williamson:338,DEM,Janet T. Dudding,929
+williamson:338,LIB,V. Alonzo Echavarria-Garza,62
+williamson:338,REP,Glenn Hegar,1048
+williamson:340,,Over Votes,0
+williamson:340,,Under Votes,33
+williamson:340,DEM,Janet T. Dudding,669
+williamson:340,LIB,V. Alonzo Echavarria-Garza,36
+williamson:340,REP,Glenn Hegar,554
+williamson:398,,Over Votes,0
+williamson:398,,Under Votes,61
+williamson:398,DEM,Janet T. Dudding,1244
+williamson:398,LIB,V. Alonzo Echavarria-Garza,64
+williamson:398,REP,Glenn Hegar,984
+williamson:399,,Over Votes,0
+williamson:399,,Under Votes,12
+williamson:399,DEM,Janet T. Dudding,207
+williamson:399,LIB,V. Alonzo Echavarria-Garza,4
+williamson:399,REP,Glenn Hegar,81

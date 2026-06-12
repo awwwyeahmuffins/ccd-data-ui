@@ -1,0 +1,13 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANC2193",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "brazoria": 17,
+      "fort-bend": 43,
+      "harris": 136
+    },
+    "generated": "2026-06-12"
+  }
+}

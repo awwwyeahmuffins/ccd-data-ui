@@ -1,0 +1,3725 @@
+[
+  {
+    "slug": "cd-1",
+    "name": "Congressional District 1",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-1",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "323 precincts \u00b7 17 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 17 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-2",
+    "name": "Congressional District 2",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-2",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "128 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-3",
+    "name": "Congressional District 3",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-3",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "203 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-4",
+    "name": "Congressional District 4",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-4",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "244 precincts \u00b7 12 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 12 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-5",
+    "name": "Congressional District 5",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-5",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "205 precincts \u00b7 6 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 6 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-6",
+    "name": "Congressional District 6",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-6",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "280 precincts \u00b7 9 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 9 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-7",
+    "name": "Congressional District 7",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-7",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "131 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-8",
+    "name": "Congressional District 8",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-8",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "133 precincts \u00b7 5 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 5 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-9",
+    "name": "Congressional District 9",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-9",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "196 precincts \u00b7 3 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 3 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-10",
+    "name": "Congressional District 10",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-10",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "294 precincts \u00b7 13 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 13 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-11",
+    "name": "Congressional District 11",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-11",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "262 precincts \u00b7 20 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 20 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-12",
+    "name": "Congressional District 12",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-12",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "267 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-13",
+    "name": "Congressional District 13",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-13",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "385 precincts \u00b7 38 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 38 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-14",
+    "name": "Congressional District 14",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-14",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "242 precincts \u00b7 5 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 5 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-15",
+    "name": "Congressional District 15",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-15",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "290 precincts \u00b7 7 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 7 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-16",
+    "name": "Congressional District 16",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-16",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "198 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-17",
+    "name": "Congressional District 17",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-17",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "315 precincts \u00b7 14 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 14 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-18",
+    "name": "Congressional District 18",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-18",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "216 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-19",
+    "name": "Congressional District 19",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-19",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "396 precincts \u00b7 33 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 33 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-20",
+    "name": "Congressional District 20",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-20",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "236 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-21",
+    "name": "Congressional District 21",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-21",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "262 precincts \u00b7 10 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 10 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-22",
+    "name": "Congressional District 22",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-22",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "149 precincts \u00b7 5 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 5 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-23",
+    "name": "Congressional District 23",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-23",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "332 precincts \u00b7 29 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 29 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-24",
+    "name": "Congressional District 24",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-24",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "270 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-25",
+    "name": "Congressional District 25",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-25",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "296 precincts \u00b7 13 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 13 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-26",
+    "name": "Congressional District 26",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-26",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "171 precincts \u00b7 4 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 4 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-27",
+    "name": "Congressional District 27",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-27",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "325 precincts \u00b7 14 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 14 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-28",
+    "name": "Congressional District 28",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-28",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "256 precincts \u00b7 9 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 9 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-29",
+    "name": "Congressional District 29",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-29",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "189 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-30",
+    "name": "Congressional District 30",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-30",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "288 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-31",
+    "name": "Congressional District 31",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-31",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "209 precincts \u00b7 6 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 6 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-32",
+    "name": "Congressional District 32",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-32",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "220 precincts \u00b7 3 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 3 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-33",
+    "name": "Congressional District 33",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-33",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "306 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-34",
+    "name": "Congressional District 34",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-34",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "221 precincts \u00b7 5 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 5 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-35",
+    "name": "Congressional District 35",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-35",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "234 precincts \u00b7 4 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 4 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-36",
+    "name": "Congressional District 36",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-36",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "247 precincts \u00b7 8 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 8 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-37",
+    "name": "Congressional District 37",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-37",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "161 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "cd-38",
+    "name": "Congressional District 38",
+    "kind": "district",
+    "group": "Congressional Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/cd-38",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "144 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-1",
+    "name": "State Senate District 1",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-1",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "409 precincts \u00b7 19 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 19 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-2",
+    "name": "State Senate District 2",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-2",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "250 precincts \u00b7 7 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 7 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-3",
+    "name": "State Senate District 3",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-3",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "452 precincts \u00b7 18 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 18 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-4",
+    "name": "State Senate District 4",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-4",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "194 precincts \u00b7 5 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 5 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-5",
+    "name": "State Senate District 5",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-5",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "340 precincts \u00b7 11 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 11 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-6",
+    "name": "State Senate District 6",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-6",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "249 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-7",
+    "name": "State Senate District 7",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-7",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "152 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-8",
+    "name": "State Senate District 8",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-8",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "253 precincts \u00b7 3 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 3 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-9",
+    "name": "State Senate District 9",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-9",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "366 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-10",
+    "name": "State Senate District 10",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-10",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "350 precincts \u00b7 8 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 8 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-11",
+    "name": "State Senate District 11",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-11",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "212 precincts \u00b7 3 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 3 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-12",
+    "name": "State Senate District 12",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-12",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "272 precincts \u00b7 4 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 4 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-13",
+    "name": "State Senate District 13",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-13",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "236 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-14",
+    "name": "State Senate District 14",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-14",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "194 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-15",
+    "name": "State Senate District 15",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-15",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "225 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-16",
+    "name": "State Senate District 16",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-16",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "316 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-17",
+    "name": "State Senate District 17",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-17",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "199 precincts \u00b7 8 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 8 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-18",
+    "name": "State Senate District 18",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-18",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "312 precincts \u00b7 18 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 18 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-19",
+    "name": "State Senate District 19",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-19",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "363 precincts \u00b7 14 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 14 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-20",
+    "name": "State Senate District 20",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-20",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "297 precincts \u00b7 4 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 4 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-21",
+    "name": "State Senate District 21",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-21",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "280 precincts \u00b7 16 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 16 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-22",
+    "name": "State Senate District 22",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-22",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "354 precincts \u00b7 12 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 12 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-23",
+    "name": "State Senate District 23",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-23",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "369 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-24",
+    "name": "State Senate District 24",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-24",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "247 precincts \u00b7 13 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 13 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-25",
+    "name": "State Senate District 25",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-25",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "249 precincts \u00b7 7 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 7 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-26",
+    "name": "State Senate District 26",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-26",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "363 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-27",
+    "name": "State Senate District 27",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-27",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "286 precincts \u00b7 8 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 8 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-28",
+    "name": "State Senate District 28",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-28",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "462 precincts \u00b7 41 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 41 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-29",
+    "name": "State Senate District 29",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-29",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "268 precincts \u00b7 8 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 8 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-30",
+    "name": "State Senate District 30",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-30",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "282 precincts \u00b7 11 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 11 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "sd-31",
+    "name": "State Senate District 31",
+    "kind": "district",
+    "group": "State Senate Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/sd-31",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "423 precincts \u00b7 45 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 45 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-1",
+    "name": "State House District 1",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-1",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "129 precincts \u00b7 5 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 5 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-2",
+    "name": "State House District 2",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-2",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "73 precincts \u00b7 3 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 3 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-3",
+    "name": "State House District 3",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-3",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "30 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-4",
+    "name": "State House District 4",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-4",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "55 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-5",
+    "name": "State House District 5",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-5",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "81 precincts \u00b7 6 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 6 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-6",
+    "name": "State House District 6",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-6",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "57 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-7",
+    "name": "State House District 7",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-7",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "57 precincts \u00b7 3 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 3 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-8",
+    "name": "State House District 8",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-8",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "89 precincts \u00b7 4 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 4 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-9",
+    "name": "State House District 9",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-9",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "131 precincts \u00b7 6 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 6 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-10",
+    "name": "State House District 10",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-10",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "59 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-11",
+    "name": "State House District 11",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-11",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "110 precincts \u00b7 6 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 6 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-12",
+    "name": "State House District 12",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-12",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "96 precincts \u00b7 6 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 6 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-13",
+    "name": "State House District 13",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-13",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "124 precincts \u00b7 7 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 7 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-14",
+    "name": "State House District 14",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-14",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "68 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-15",
+    "name": "State House District 15",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-15",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "33 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-16",
+    "name": "State House District 16",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-16",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "33 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-17",
+    "name": "State House District 17",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-17",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "89 precincts \u00b7 5 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 5 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-18",
+    "name": "State House District 18",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-18",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "64 precincts \u00b7 4 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 4 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-19",
+    "name": "State House District 19",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-19",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "62 precincts \u00b7 5 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 5 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-20",
+    "name": "State House District 20",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-20",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "57 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-21",
+    "name": "State House District 21",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-21",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "84 precincts \u00b7 3 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 3 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-22",
+    "name": "State House District 22",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-22",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "79 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-23",
+    "name": "State House District 23",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-23",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "62 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-24",
+    "name": "State House District 24",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-24",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "45 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-25",
+    "name": "State House District 25",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-25",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "40 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-26",
+    "name": "State House District 26",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-26",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "28 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-27",
+    "name": "State House District 27",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-27",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "51 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-28",
+    "name": "State House District 28",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-28",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "36 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-29",
+    "name": "State House District 29",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-29",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "38 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-30",
+    "name": "State House District 30",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-30",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "100 precincts \u00b7 6 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 6 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-31",
+    "name": "State House District 31",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-31",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "96 precincts \u00b7 11 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 11 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-32",
+    "name": "State House District 32",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-32",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "44 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-33",
+    "name": "State House District 33",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-33",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "39 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-34",
+    "name": "State House District 34",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-34",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "89 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-35",
+    "name": "State House District 35",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-35",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "58 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-36",
+    "name": "State House District 36",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-36",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "49 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-37",
+    "name": "State House District 37",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-37",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "58 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-38",
+    "name": "State House District 38",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-38",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "38 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-39",
+    "name": "State House District 39",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-39",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "67 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-40",
+    "name": "State House District 40",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-40",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "32 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-41",
+    "name": "State House District 41",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-41",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "66 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-42",
+    "name": "State House District 42",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-42",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "50 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-43",
+    "name": "State House District 43",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-43",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "98 precincts \u00b7 6 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 6 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-44",
+    "name": "State House District 44",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-44",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "90 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-45",
+    "name": "State House District 45",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-45",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "57 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-46",
+    "name": "State House District 46",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-46",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "30 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-47",
+    "name": "State House District 47",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-47",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "37 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-48",
+    "name": "State House District 48",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-48",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "51 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-49",
+    "name": "State House District 49",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-49",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "47 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-50",
+    "name": "State House District 50",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-50",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "35 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-51",
+    "name": "State House District 51",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-51",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "35 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-52",
+    "name": "State House District 52",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-52",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "58 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-53",
+    "name": "State House District 53",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-53",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "120 precincts \u00b7 16 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 16 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-54",
+    "name": "State House District 54",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-54",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "33 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-55",
+    "name": "State House District 55",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-55",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "29 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-56",
+    "name": "State House District 56",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-56",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "62 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-57",
+    "name": "State House District 57",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-57",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "38 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-58",
+    "name": "State House District 58",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-58",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "40 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-59",
+    "name": "State House District 59",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-59",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "63 precincts \u00b7 4 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 4 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-60",
+    "name": "State House District 60",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-60",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "80 precincts \u00b7 3 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 3 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-61",
+    "name": "State House District 61",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-61",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "47 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-62",
+    "name": "State House District 62",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-62",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "67 precincts \u00b7 4 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 4 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-63",
+    "name": "State House District 63",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-63",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "40 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-64",
+    "name": "State House District 64",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-64",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "54 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-65",
+    "name": "State House District 65",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-65",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "41 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-66",
+    "name": "State House District 66",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-66",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "41 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-67",
+    "name": "State House District 67",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-67",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "55 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-68",
+    "name": "State House District 68",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-68",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "123 precincts \u00b7 12 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 12 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-69",
+    "name": "State House District 69",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-69",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "142 precincts \u00b7 14 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 14 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-70",
+    "name": "State House District 70",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-70",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "44 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-71",
+    "name": "State House District 71",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-71",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "54 precincts \u00b7 4 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 4 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-72",
+    "name": "State House District 72",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-72",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "112 precincts \u00b7 10 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 10 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-73",
+    "name": "State House District 73",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-73",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "40 precincts \u00b7 2 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 2 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-74",
+    "name": "State House District 74",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-74",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "90 precincts \u00b7 11 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 11 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-75",
+    "name": "State House District 75",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-75",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "46 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-76",
+    "name": "State House District 76",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-76",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "36 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-77",
+    "name": "State House District 77",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-77",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "63 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-78",
+    "name": "State House District 78",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-78",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "50 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-79",
+    "name": "State House District 79",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-79",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "51 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-80",
+    "name": "State House District 80",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-80",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "75 precincts \u00b7 6 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 6 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-81",
+    "name": "State House District 81",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-81",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "58 precincts \u00b7 4 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 4 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-82",
+    "name": "State House District 82",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-82",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "60 precincts \u00b7 3 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 3 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-83",
+    "name": "State House District 83",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-83",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "113 precincts \u00b7 11 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 11 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-84",
+    "name": "State House District 84",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-84",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "57 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-85",
+    "name": "State House District 85",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-85",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "93 precincts \u00b7 6 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 6 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-86",
+    "name": "State House District 86",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-86",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "72 precincts \u00b7 7 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 7 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-87",
+    "name": "State House District 87",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-87",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "73 precincts \u00b7 8 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 8 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-88",
+    "name": "State House District 88",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-88",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "156 precincts \u00b7 19 counties",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 19 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-89",
+    "name": "State House District 89",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-89",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "49 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-90",
+    "name": "State House District 90",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-90",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "102 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-91",
+    "name": "State House District 91",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-91",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "62 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-92",
+    "name": "State House District 92",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-92",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "61 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-93",
+    "name": "State House District 93",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-93",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "47 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-94",
+    "name": "State House District 94",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-94",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "79 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-95",
+    "name": "State House District 95",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-95",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "98 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-96",
+    "name": "State House District 96",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-96",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "60 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-97",
+    "name": "State House District 97",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-97",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "60 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-98",
+    "name": "State House District 98",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-98",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "59 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-99",
+    "name": "State House District 99",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-99",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "72 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-100",
+    "name": "State House District 100",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-100",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "79 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-101",
+    "name": "State House District 101",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-101",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "58 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-102",
+    "name": "State House District 102",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-102",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "46 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-103",
+    "name": "State House District 103",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-103",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "85 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-104",
+    "name": "State House District 104",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-104",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "66 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-105",
+    "name": "State House District 105",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-105",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "59 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-106",
+    "name": "State House District 106",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-106",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "37 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-107",
+    "name": "State House District 107",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-107",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "56 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-108",
+    "name": "State House District 108",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-108",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "80 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-109",
+    "name": "State House District 109",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-109",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "58 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-110",
+    "name": "State House District 110",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-110",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "73 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-111",
+    "name": "State House District 111",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-111",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "63 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-112",
+    "name": "State House District 112",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-112",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "52 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-113",
+    "name": "State House District 113",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-113",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "41 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-114",
+    "name": "State House District 114",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-114",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "69 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-115",
+    "name": "State House District 115",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-115",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "58 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-116",
+    "name": "State House District 116",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-116",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "68 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-117",
+    "name": "State House District 117",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-117",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "54 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-118",
+    "name": "State House District 118",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-118",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "82 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-119",
+    "name": "State House District 119",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-119",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "77 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-120",
+    "name": "State House District 120",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-120",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "90 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-121",
+    "name": "State House District 121",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-121",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "70 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-122",
+    "name": "State House District 122",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-122",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "75 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-123",
+    "name": "State House District 123",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-123",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "106 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-124",
+    "name": "State House District 124",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-124",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "51 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-125",
+    "name": "State House District 125",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-125",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "61 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-126",
+    "name": "State House District 126",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-126",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "36 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-127",
+    "name": "State House District 127",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-127",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "35 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-128",
+    "name": "State House District 128",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-128",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "35 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-129",
+    "name": "State House District 129",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-129",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "49 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-130",
+    "name": "State House District 130",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-130",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "28 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-131",
+    "name": "State House District 131",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-131",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "35 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-132",
+    "name": "State House District 132",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-132",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "24 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-133",
+    "name": "State House District 133",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-133",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "32 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-134",
+    "name": "State House District 134",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-134",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "58 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-135",
+    "name": "State House District 135",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-135",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "25 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-136",
+    "name": "State House District 136",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-136",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "48 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-137",
+    "name": "State House District 137",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-137",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "27 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-138",
+    "name": "State House District 138",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-138",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "44 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-139",
+    "name": "State House District 139",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-139",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "51 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-140",
+    "name": "State House District 140",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-140",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "47 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-141",
+    "name": "State House District 141",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-141",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "54 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-142",
+    "name": "State House District 142",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-142",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "55 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-143",
+    "name": "State House District 143",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-143",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "53 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-144",
+    "name": "State House District 144",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-144",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "41 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-145",
+    "name": "State House District 145",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-145",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "73 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-146",
+    "name": "State House District 146",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-146",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "57 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-147",
+    "name": "State House District 147",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-147",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "60 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-148",
+    "name": "State House District 148",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-148",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "36 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-149",
+    "name": "State House District 149",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-149",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "25 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  },
+  {
+    "slug": "hd-150",
+    "name": "State House District 150",
+    "kind": "district",
+    "group": "State House Districts",
+    "status": "live",
+    "dataRoot": "data/tx/districts/hd-150",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "31 precincts \u00b7 1 county",
+        "geojson": "boundaries/members.geojson",
+        "dataDir": "data"
+      }
+    },
+    "notes": "District view across 1 counties; races merged from member counties (see profile/provenance.json)"
+  }
+]

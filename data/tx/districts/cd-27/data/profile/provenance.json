@@ -1,0 +1,24 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANC2193",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "aransas": 6,
+      "bastrop": 13,
+      "bee": 13,
+      "caldwell": 24,
+      "calhoun": 11,
+      "dewitt": 10,
+      "goliad": 9,
+      "gonzales": 14,
+      "jackson": 9,
+      "lavaca": 19,
+      "nueces": 127,
+      "refugio": 10,
+      "san-patricio": 25,
+      "victoria": 35
+    },
+    "generated": "2026-06-12"
+  }
+}

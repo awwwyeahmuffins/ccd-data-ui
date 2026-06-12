@@ -1,0 +1,21 @@
+precinct,party,candidate,votes
+brooks:1,,Delilah Barrios,3
+brooks:1,LIB,Mark Tippetts,2
+brooks:1,DEM,Beto O'rourke,308
+brooks:1,REP,Greg Abbott,154
+brooks:2,,Delilah Barrios,2
+brooks:2,LIB,Mark Tippetts,5
+brooks:2,DEM,Beto O'rourke,309
+brooks:2,REP,Greg Abbott,249
+brooks:3,,Delilah Barrios,4
+brooks:3,LIB,Mark Tippetts,0
+brooks:3,DEM,Beto O'rourke,228
+brooks:3,REP,Greg Abbott,113
+brooks:3S,,Delilah Barrios,0
+brooks:3S,LIB,Mark Tippetts,0
+brooks:3S,DEM,Beto O'rourke,49
+brooks:3S,REP,Greg Abbott,63
+brooks:4,,Delilah Barrios,1
+brooks:4,LIB,Mark Tippetts,2
+brooks:4,DEM,Beto O'rourke,310
+brooks:4,REP,Greg Abbott,206

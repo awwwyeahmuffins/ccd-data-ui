@@ -1,0 +1,133 @@
+precinct,party,candidate,votes
+collin:23,DEM,Beto O'Rourke,736
+collin:23,GRN,Delilah Barrios,5
+collin:23,LIB,Mark Tippetts,6
+collin:23,REP,Greg Abbott,274
+collin:23,,Write-in,0
+collin:23,,Over Votes,0
+collin:23,,Under Votes,1
+collin:48,DEM,Beto O'Rourke,1150
+collin:48,GRN,Delilah Barrios,4
+collin:48,LIB,Mark Tippetts,25
+collin:48,REP,Greg Abbott,972
+collin:48,,Write-in,2
+collin:48,,Over Votes,0
+collin:48,,Under Votes,7
+collin:52,DEM,Beto O'Rourke,1077
+collin:52,GRN,Delilah Barrios,8
+collin:52,LIB,Mark Tippetts,25
+collin:52,REP,Greg Abbott,667
+collin:52,,Write-in,2
+collin:52,,Over Votes,0
+collin:52,,Under Votes,10
+collin:56,DEM,Beto O'Rourke,673
+collin:56,GRN,Delilah Barrios,5
+collin:56,LIB,Mark Tippetts,15
+collin:56,REP,Greg Abbott,1001
+collin:56,,Write-in,8
+collin:56,,Over Votes,0
+collin:56,,Under Votes,9
+collin:68,DEM,Beto O'Rourke,459
+collin:68,GRN,Delilah Barrios,5
+collin:68,LIB,Mark Tippetts,18
+collin:68,REP,Greg Abbott,446
+collin:68,,Write-in,0
+collin:68,,Over Votes,0
+collin:68,,Under Votes,2
+collin:78,DEM,Beto O'Rourke,1330
+collin:78,GRN,Delilah Barrios,5
+collin:78,LIB,Mark Tippetts,19
+collin:78,REP,Greg Abbott,886
+collin:78,,Write-in,1
+collin:78,,Over Votes,0
+collin:78,,Under Votes,5
+collin:94,DEM,Beto O'Rourke,1356
+collin:94,GRN,Delilah Barrios,4
+collin:94,LIB,Mark Tippetts,16
+collin:94,REP,Greg Abbott,1057
+collin:94,,Write-in,2
+collin:94,,Over Votes,0
+collin:94,,Under Votes,10
+collin:103,DEM,Beto O'Rourke,313
+collin:103,GRN,Delilah Barrios,1
+collin:103,LIB,Mark Tippetts,9
+collin:103,REP,Greg Abbott,246
+collin:103,,Write-in,1
+collin:103,,Over Votes,0
+collin:103,,Under Votes,0
+collin:110,DEM,Beto O'Rourke,743
+collin:110,GRN,Delilah Barrios,7
+collin:110,LIB,Mark Tippetts,17
+collin:110,REP,Greg Abbott,793
+collin:110,,Write-in,2
+collin:110,,Over Votes,0
+collin:110,,Under Votes,1
+collin:125,DEM,Beto O'Rourke,1489
+collin:125,GRN,Delilah Barrios,10
+collin:125,LIB,Mark Tippetts,25
+collin:125,REP,Greg Abbott,1136
+collin:125,,Write-in,5
+collin:125,,Over Votes,0
+collin:125,,Under Votes,9
+collin:144,DEM,Beto O'Rourke,688
+collin:144,GRN,Delilah Barrios,7
+collin:144,LIB,Mark Tippetts,18
+collin:144,REP,Greg Abbott,876
+collin:144,,Write-in,2
+collin:144,,Over Votes,0
+collin:144,,Under Votes,3
+collin:148,DEM,Beto O'Rourke,157
+collin:148,GRN,Delilah Barrios,1
+collin:148,LIB,Mark Tippetts,2
+collin:148,REP,Greg Abbott,242
+collin:148,,Write-in,0
+collin:148,,Over Votes,0
+collin:148,,Under Votes,3
+collin:153,DEM,Beto O'Rourke,1085
+collin:153,GRN,Delilah Barrios,8
+collin:153,LIB,Mark Tippetts,25
+collin:153,REP,Greg Abbott,1371
+collin:153,,Write-in,1
+collin:153,,Over Votes,0
+collin:153,,Under Votes,13
+collin:170,DEM,Beto O'Rourke,383
+collin:170,GRN,Delilah Barrios,2
+collin:170,LIB,Mark Tippetts,12
+collin:170,REP,Greg Abbott,607
+collin:170,,Write-in,1
+collin:170,,Over Votes,0
+collin:170,,Under Votes,2
+collin:217,DEM,Beto O'Rourke,610
+collin:217,GRN,Delilah Barrios,4
+collin:217,LIB,Mark Tippetts,28
+collin:217,REP,Greg Abbott,899
+collin:217,,Write-in,3
+collin:217,,Over Votes,0
+collin:217,,Under Votes,6
+collin:232,DEM,Beto O'Rourke,816
+collin:232,GRN,Delilah Barrios,7
+collin:232,LIB,Mark Tippetts,22
+collin:232,REP,Greg Abbott,1137
+collin:232,,Write-in,1
+collin:232,,Over Votes,0
+collin:232,,Under Votes,8
+rockwall:1,,Write-in,20
+rockwall:1,DEM,Beto O'Rourke,3330
+rockwall:1,GRN,Delilah Barrios,16
+rockwall:1,LIB,Mark Tippetts,119
+rockwall:1,REP,Greg Abbott,8449
+rockwall:2,,Write-in,5
+rockwall:2,DEM,Beto O'Rourke,3151
+rockwall:2,GRN,Delilah Barrios,22
+rockwall:2,LIB,Mark Tippetts,112
+rockwall:2,REP,Greg Abbott,6155
+rockwall:3,,Write-in,8
+rockwall:3,DEM,Beto O'Rourke,2789
+rockwall:3,GRN,Delilah Barrios,19
+rockwall:3,LIB,Mark Tippetts,105
+rockwall:3,REP,Greg Abbott,9341
+rockwall:4,,Write-in,7
+rockwall:4,DEM,Beto O'Rourke,2862
+rockwall:4,GRN,Delilah Barrios,24
+rockwall:4,LIB,Mark Tippetts,111
+rockwall:4,REP,Greg Abbott,6266

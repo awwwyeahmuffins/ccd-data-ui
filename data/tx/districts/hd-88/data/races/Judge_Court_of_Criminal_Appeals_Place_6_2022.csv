@@ -1,0 +1,99 @@
+precinct,party,candidate,votes
+cochran:101,DEM,ROBERT JOHNSON,21
+cochran:101,REP,"JESSE F. MCCLURE, III",137
+cochran:202,DEM,ROBERT JOHNSON,25
+cochran:202,REP,"JESSE F. MCCLURE, III",174
+cochran:303,DEM,ROBERT JOHNSON,2
+cochran:303,REP,"JESSE F. MCCLURE, III",37
+cochran:306,DEM,ROBERT JOHNSON,17
+cochran:306,REP,"JESSE F. MCCLURE, III",108
+cochran:404,DEM,ROBERT JOHNSON,28
+cochran:404,REP,"JESSE F. MCCLURE, III",48
+gaines:2,DEM,Robert Johnson,60
+gaines:2,REP,Jesse F. McClure III,769
+gaines:3,DEM,Robert Johnson,71
+gaines:3,REP,Jesse F. McClure III,1318
+gaines:4,DEM,Robert Johnson,43
+gaines:4,REP,Jesse F. McClure III,652
+gaines:5,DEM,Robert Johnson,7
+gaines:5,REP,Jesse F. McClure III,112
+gaines:6,DEM,Robert Johnson,14
+gaines:6,REP,Jesse F. McClure III,89
+gaines:8,DEM,Robert Johnson,79
+gaines:8,REP,Jesse F. McClure III,480
+gaines:9,DEM,Robert Johnson,34
+gaines:9,REP,Jesse F. McClure III,298
+gray:1,DEM,Robert Johnson,9
+gray:1,REP,Jesse F. McClure III,191
+gray:2,DEM,Robert Johnson,104
+gray:2,REP,Jesse F. McClure III,1051
+gray:3,DEM,Robert Johnson,2
+gray:3,REP,Jesse F. McClure III,77
+gray:4,DEM,Robert Johnson,23
+gray:4,REP,Jesse F. McClure III,344
+gray:5,DEM,Robert Johnson,127
+gray:5,REP,Jesse F. McClure III,1403
+gray:6,DEM,Robert Johnson,115
+gray:6,REP,Jesse F. McClure III,1294
+gray:7,DEM,Robert Johnson,110
+gray:7,REP,Jesse F. McClure III,654
+hale:101,DEM,Robert Johnson,16
+hale:101,REP,Jesse F. McClure III,126
+hale:102,DEM,Robert Johnson,5
+hale:102,REP,Jesse F. McClure III,30
+hale:103,DEM,Robert Johnson,53
+hale:103,REP,Jesse F. McClure III,67
+hale:104,DEM,Robert Johnson,64
+hale:104,REP,Jesse F. McClure III,103
+hale:105,DEM,Robert Johnson,21
+hale:105,REP,Jesse F. McClure III,52
+hale:108,DEM,Robert Johnson,3
+hale:108,REP,Jesse F. McClure III,15
+hale:110,DEM,Robert Johnson,17
+hale:110,REP,Jesse F. McClure III,201
+hale:111,DEM,Robert Johnson,37
+hale:111,REP,Jesse F. McClure III,210
+hale:112,DEM,Robert Johnson,17
+hale:112,REP,Jesse F. McClure III,304
+hale:202,DEM,Robert Johnson,30
+hale:202,REP,Jesse F. McClure III,32
+hale:203,DEM,Robert Johnson,60
+hale:203,REP,Jesse F. McClure III,59
+hale:204,DEM,Robert Johnson,50
+hale:204,REP,Jesse F. McClure III,125
+hale:205,DEM,Robert Johnson,27
+hale:205,REP,Jesse F. McClure III,38
+hale:206,DEM,Robert Johnson,1
+hale:206,REP,Jesse F. McClure III,9
+hale:213,DEM,Robert Johnson,12
+hale:213,REP,Jesse F. McClure III,94
+hale:214,DEM,Robert Johnson,46
+hale:214,REP,Jesse F. McClure III,232
+hale:215,DEM,Robert Johnson,27
+hale:215,REP,Jesse F. McClure III,118
+hale:304,DEM,Robert Johnson,85
+hale:304,REP,Jesse F. McClure III,309
+hale:305,DEM,Robert Johnson,68
+hale:305,REP,Jesse F. McClure III,500
+hale:306,DEM,Robert Johnson,15
+hale:306,REP,Jesse F. McClure III,16
+hale:307,DEM,Robert Johnson,26
+hale:307,REP,Jesse F. McClure III,87
+hale:316,DEM,Robert Johnson,78
+hale:316,REP,Jesse F. McClure III,382
+hale:317,DEM,Robert Johnson,7
+hale:317,REP,Jesse F. McClure III,59
+hale:318,DEM,Robert Johnson,66
+hale:318,REP,Jesse F. McClure III,477
+hale:406,DEM,Robert Johnson,56
+hale:406,REP,Jesse F. McClure III,116
+hale:407,DEM,Robert Johnson,126
+hale:407,REP,Jesse F. McClure III,521
+hale:408,DEM,Robert Johnson,61
+hale:408,REP,Jesse F. McClure III,280
+hale:409,DEM,Robert Johnson,65
+hale:409,REP,Jesse F. McClure III,201
+hale:419,DEM,Robert Johnson,9
+hale:419,REP,Jesse F. McClure III,88
+hale:420,DEM,Robert Johnson,11
+hale:420,REP,Jesse F. McClure III,206

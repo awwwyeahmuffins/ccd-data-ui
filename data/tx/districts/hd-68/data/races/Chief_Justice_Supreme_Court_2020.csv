@@ -1,0 +1,174 @@
+precinct,party,candidate,votes
+brown:101,,Amy Clark Meachum,247
+brown:101,,Mark Ash,18
+brown:101,,Nathan Hecht,1438
+brown:105,,Amy Clark Meachum,169
+brown:105,,Mark Ash,17
+brown:105,,Nathan Hecht,967
+brown:109,,Amy Clark Meachum,13
+brown:109,,Mark Ash,1
+brown:109,,Nathan Hecht,210
+brown:113,,Amy Clark Meachum,193
+brown:113,,Mark Ash,21
+brown:113,,Nathan Hecht,1063
+brown:202,,Amy Clark Meachum,131
+brown:202,,Mark Ash,15
+brown:202,,Nathan Hecht,592
+brown:204,,Amy Clark Meachum,193
+brown:204,,Mark Ash,23
+brown:204,,Nathan Hecht,523
+brown:212,,Amy Clark Meachum,54
+brown:212,,Mark Ash,4
+brown:212,,Nathan Hecht,544
+brown:214,,Amy Clark Meachum,53
+brown:214,,Mark Ash,8
+brown:214,,Nathan Hecht,483
+brown:215,,Amy Clark Meachum,10
+brown:215,,Mark Ash,2
+brown:215,,Nathan Hecht,189
+brown:303,,Amy Clark Meachum,133
+brown:303,,Mark Ash,27
+brown:303,,Nathan Hecht,612
+brown:306,,Amy Clark Meachum,140
+brown:306,,Mark Ash,23
+brown:306,,Nathan Hecht,1166
+brown:307,,Amy Clark Meachum,58
+brown:307,,Mark Ash,12
+brown:307,,Nathan Hecht,453
+brown:308,,Amy Clark Meachum,31
+brown:308,,Mark Ash,8
+brown:308,,Nathan Hecht,418
+brown:316,,Amy Clark Meachum,15
+brown:316,,Mark Ash,4
+brown:316,,Nathan Hecht,181
+brown:318,,Amy Clark Meachum,139
+brown:318,,Mark Ash,31
+brown:318,,Nathan Hecht,1043
+brown:410,,Amy Clark Meachum,173
+brown:410,,Mark Ash,24
+brown:410,,Nathan Hecht,1498
+brown:411,,Amy Clark Meachum,129
+brown:411,,Mark Ash,25
+brown:411,,Nathan Hecht,547
+brown:417,,Amy Clark Meachum,146
+brown:417,,Mark Ash,21
+brown:417,,Nathan Hecht,1277
+comanche:1,DEM,Amy Clark Meachum,131
+comanche:1,LIB,Mark Ash,14
+comanche:1,REP,Nathan Hecht,868
+comanche:10,DEM,Amy Clark Meachum,38
+comanche:10,LIB,Mark Ash,9
+comanche:10,REP,Nathan Hecht,252
+comanche:11,DEM,Amy Clark Meachum,71
+comanche:11,LIB,Mark Ash,9
+comanche:11,REP,Nathan Hecht,315
+comanche:12,DEM,Amy Clark Meachum,213
+comanche:12,LIB,Mark Ash,20
+comanche:12,REP,Nathan Hecht,1079
+comanche:13,DEM,Amy Clark Meachum,28
+comanche:13,LIB,Mark Ash,3
+comanche:13,REP,Nathan Hecht,149
+comanche:14,DEM,Amy Clark Meachum,13
+comanche:14,LIB,Mark Ash,0
+comanche:14,REP,Nathan Hecht,78
+comanche:15,DEM,Amy Clark Meachum,29
+comanche:15,LIB,Mark Ash,13
+comanche:15,REP,Nathan Hecht,298
+comanche:16,DEM,Amy Clark Meachum,3
+comanche:16,LIB,Mark Ash,1
+comanche:16,REP,Nathan Hecht,73
+comanche:2,DEM,Amy Clark Meachum,146
+comanche:2,LIB,Mark Ash,16
+comanche:2,REP,Nathan Hecht,901
+comanche:4,DEM,Amy Clark Meachum,12
+comanche:4,LIB,Mark Ash,2
+comanche:4,REP,Nathan Hecht,53
+comanche:5,DEM,Amy Clark Meachum,75
+comanche:5,LIB,Mark Ash,5
+comanche:5,REP,Nathan Hecht,393
+comanche:6,DEM,Amy Clark Meachum,30
+comanche:6,LIB,Mark Ash,4
+comanche:6,REP,Nathan Hecht,226
+comanche:7,DEM,Amy Clark Meachum,30
+comanche:7,LIB,Mark Ash,3
+comanche:7,REP,Nathan Hecht,177
+comanche:9,DEM,Amy Clark Meachum,13
+comanche:9,LIB,Mark Ash,3
+comanche:9,REP,Nathan Hecht,97
+shackelford:101,,Over Votes,1
+shackelford:101,,Under Votes,11
+shackelford:101,DEM,Amy Clark Meachum,29
+shackelford:101,LIB,Mark Ash,1
+shackelford:101,REP,Nathan Hecht,335
+shackelford:202,,Over Votes,0
+shackelford:202,,Under Votes,8
+shackelford:202,DEM,Amy Clark Meachum,24
+shackelford:202,LIB,Mark Ash,3
+shackelford:202,REP,Nathan Hecht,422
+shackelford:303,,Over Votes,0
+shackelford:303,,Under Votes,6
+shackelford:303,DEM,Amy Clark Meachum,13
+shackelford:303,LIB,Mark Ash,4
+shackelford:303,REP,Nathan Hecht,175
+shackelford:307,,Over Votes,2
+shackelford:307,,Under Votes,5
+shackelford:307,DEM,Amy Clark Meachum,14
+shackelford:307,LIB,Mark Ash,0
+shackelford:307,REP,Nathan Hecht,189
+shackelford:404,,Over Votes,0
+shackelford:404,,Under Votes,1
+shackelford:404,DEM,Amy Clark Meachum,0
+shackelford:404,LIB,Mark Ash,0
+shackelford:404,REP,Nathan Hecht,27
+shackelford:405,,Over Votes,0
+shackelford:405,,Under Votes,2
+shackelford:405,DEM,Amy Clark Meachum,17
+shackelford:405,LIB,Mark Ash,5
+shackelford:405,REP,Nathan Hecht,148
+shackelford:406,,Over Votes,0
+shackelford:406,,Under Votes,7
+shackelford:406,DEM,Amy Clark Meachum,23
+shackelford:406,LIB,Mark Ash,1
+shackelford:406,REP,Nathan Hecht,162
+throckmorton:1,DEM,Amy Clark Meachum,9
+throckmorton:1,LIB,Mark Ash,0
+throckmorton:1,REP,Nathan Hecht,221
+throckmorton:2,DEM,Amy Clark Meachum,19
+throckmorton:2,LIB,Mark Ash,4
+throckmorton:2,REP,Nathan Hecht,182
+throckmorton:3003,DEM,Amy Clark Meachum,21
+throckmorton:3003,LIB,Mark Ash,5
+throckmorton:3003,REP,Nathan Hecht,193
+throckmorton:4005,DEM,Amy Clark Meachum,13
+throckmorton:4005,LIB,Mark Ash,1
+throckmorton:4005,REP,Nathan Hecht,44
+throckmorton:4006,DEM,Amy Clark Meachum,9
+throckmorton:4006,LIB,Mark Ash,1
+throckmorton:4006,REP,Nathan Hecht,129
+young:10,DEM,Amy Clark Meachum,21
+young:10,LIB,Mark Ash,3
+young:10,REP,Nathan Hecht,283
+young:16,DEM,Amy Clark Meachum,7
+young:16,LIB,Mark Ash,2
+young:16,REP,Nathan Hecht,185
+young:20,DEM,Amy Clark Meachum,18
+young:20,LIB,Mark Ash,7
+young:20,REP,Nathan Hecht,152
+young:22,DEM,Amy Clark Meachum,228
+young:22,LIB,Mark Ash,36
+young:22,REP,Nathan Hecht,2072
+young:23,DEM,Amy Clark Meachum,208
+young:23,LIB,Mark Ash,33
+young:23,REP,Nathan Hecht,1162
+young:24,DEM,Amy Clark Meachum,201
+young:24,LIB,Mark Ash,21
+young:24,REP,Nathan Hecht,1018
+young:5,DEM,Amy Clark Meachum,269
+young:5,LIB,Mark Ash,39
+young:5,REP,Nathan Hecht,1769
+young:6,DEM,Amy Clark Meachum,15
+young:6,LIB,Mark Ash,0
+young:6,REP,Nathan Hecht,150
+young:7,DEM,Amy Clark Meachum,8
+young:7,LIB,Mark Ash,1
+young:7,REP,Nathan Hecht,127

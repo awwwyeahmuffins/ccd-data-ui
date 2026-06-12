@@ -1,0 +1,118 @@
+precinct,party,candidate,votes
+culberson:1,DEM,Amy Clark Meachum,86
+culberson:1,LIB,Mark Ash,5
+culberson:1,REP,Nathan Hecht,69
+culberson:2,DEM,Amy Clark Meachum,103
+culberson:2,LIB,Mark Ash,13
+culberson:2,REP,Nathan Hecht,91
+culberson:3-3,DEM,Amy Clark Meachum,13
+culberson:3-3,LIB,Mark Ash,1
+culberson:3-3,REP,Nathan Hecht,16
+culberson:3-5,DEM,Amy Clark Meachum,84
+culberson:3-5,LIB,Mark Ash,6
+culberson:3-5,REP,Nathan Hecht,105
+culberson:4,DEM,Amy Clark Meachum,91
+culberson:4,LIB,Mark Ash,4
+culberson:4,REP,Nathan Hecht,56
+hudspeth:1,DEM,Amy Clark Meachum,93
+hudspeth:1,LIB,Mark Ash,15
+hudspeth:1,REP,Nathan Hecht,212
+hudspeth:2,DEM,Amy Clark Meachum,135
+hudspeth:2,LIB,Mark Ash,12
+hudspeth:2,REP,Nathan Hecht,157
+hudspeth:3N,DEM,Amy Clark Meachum,35
+hudspeth:3N,LIB,Mark Ash,4
+hudspeth:3N,REP,Nathan Hecht,77
+hudspeth:3S,DEM,Amy Clark Meachum,38
+hudspeth:3S,LIB,Mark Ash,3
+hudspeth:3S,REP,Nathan Hecht,67
+hudspeth:4,DEM,Amy Clark Meachum,64
+hudspeth:4,LIB,Mark Ash,10
+hudspeth:4,REP,Nathan Hecht,133
+kinney:1,DEM,Amy Clark Meachum,97
+kinney:1,LIB,Mark Ash,6
+kinney:1,REP,Nathan Hecht,322
+kinney:2,DEM,Amy Clark Meachum,99
+kinney:2,LIB,Mark Ash,10
+kinney:2,REP,Nathan Hecht,192
+kinney:3,DEM,Amy Clark Meachum,118
+kinney:3,LIB,Mark Ash,19
+kinney:3,REP,Nathan Hecht,133
+kinney:4,DEM,Amy Clark Meachum,82
+kinney:4,LIB,Mark Ash,10
+kinney:4,REP,Nathan Hecht,361
+maverick:1A,DEM,Amy Clark Meachum,206
+maverick:1A,LIB,Mark Ash,13
+maverick:1A,REP,Nathan Hecht,101
+maverick:1B,DEM,Amy Clark Meachum,730
+maverick:1B,LIB,Mark Ash,25
+maverick:1B,REP,Nathan Hecht,459
+maverick:1C,DEM,Amy Clark Meachum,1321
+maverick:1C,LIB,Mark Ash,70
+maverick:1C,REP,Nathan Hecht,742
+maverick:2A,DEM,Amy Clark Meachum,211
+maverick:2A,LIB,Mark Ash,14
+maverick:2A,REP,Nathan Hecht,99
+maverick:2B,DEM,Amy Clark Meachum,853
+maverick:2B,LIB,Mark Ash,59
+maverick:2B,REP,Nathan Hecht,518
+maverick:2C,DEM,Amy Clark Meachum,584
+maverick:2C,LIB,Mark Ash,41
+maverick:2C,REP,Nathan Hecht,358
+maverick:2D,DEM,Amy Clark Meachum,30
+maverick:2D,LIB,Mark Ash,0
+maverick:2D,REP,Nathan Hecht,42
+maverick:3A,DEM,Amy Clark Meachum,977
+maverick:3A,LIB,Mark Ash,43
+maverick:3A,REP,Nathan Hecht,611
+maverick:3B,DEM,Amy Clark Meachum,1119
+maverick:3B,LIB,Mark Ash,67
+maverick:3B,REP,Nathan Hecht,725
+maverick:3C,DEM,Amy Clark Meachum,116
+maverick:3C,LIB,Mark Ash,4
+maverick:3C,REP,Nathan Hecht,193
+maverick:4A,DEM,Amy Clark Meachum,245
+maverick:4A,LIB,Mark Ash,12
+maverick:4A,REP,Nathan Hecht,133
+maverick:4B,DEM,Amy Clark Meachum,1001
+maverick:4B,LIB,Mark Ash,50
+maverick:4B,REP,Nathan Hecht,626
+maverick:4C,DEM,Amy Clark Meachum,335
+maverick:4C,LIB,Mark Ash,16
+maverick:4C,REP,Nathan Hecht,182
+maverick:4D,DEM,Amy Clark Meachum,595
+maverick:4D,LIB,Mark Ash,29
+maverick:4D,REP,Nathan Hecht,337
+presidio:1,DEM,Amy Clark Meachum,140
+presidio:1,LIB,Mark Ash,4
+presidio:1,REP,Nathan Hecht,83
+presidio:2,DEM,Amy Clark Meachum,159
+presidio:2,LIB,Mark Ash,10
+presidio:2,REP,Nathan Hecht,91
+presidio:3,DEM,Amy Clark Meachum,17
+presidio:3,LIB,Mark Ash,0
+presidio:3,REP,Nathan Hecht,5
+presidio:4,DEM,Amy Clark Meachum,251
+presidio:4,LIB,Mark Ash,11
+presidio:4,REP,Nathan Hecht,90
+presidio:5,DEM,Amy Clark Meachum,164
+presidio:5,LIB,Mark Ash,10
+presidio:5,REP,Nathan Hecht,88
+presidio:6,DEM,Amy Clark Meachum,4
+presidio:6,LIB,Mark Ash,0
+presidio:6,REP,Nathan Hecht,12
+presidio:7,DEM,Amy Clark Meachum,653
+presidio:7,LIB,Mark Ash,19
+presidio:7,REP,Nathan Hecht,218
+terrell:1,DEM,Amy Clark Meachum,41
+terrell:1,LIB,Mark Ash,0
+terrell:1,REP,Nathan Hecht,76
+terrell:2,DEM,Amy Clark Meachum,47
+terrell:2,LIB,Mark Ash,3
+terrell:2,REP,Nathan Hecht,50
+terrell:3,DEM,Amy Clark Meachum,16
+terrell:3,LIB,Mark Ash,3
+terrell:3,REP,Nathan Hecht,89
+terrell:4,DEM,Amy Clark Meachum,14
+terrell:4,LIB,Mark Ash,1
+terrell:4,REP,Nathan Hecht,95

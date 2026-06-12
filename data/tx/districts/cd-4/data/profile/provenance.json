@@ -1,0 +1,22 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANC2193",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "bowie": 12,
+      "collin": 65,
+      "delta": 7,
+      "denton": 10,
+      "fannin": 16,
+      "grayson": 36,
+      "hopkins": 21,
+      "hunt": 4,
+      "lamar": 32,
+      "rains": 8,
+      "red-river": 10,
+      "rockwall": 23
+    },
+    "generated": "2026-06-12"
+  }
+}

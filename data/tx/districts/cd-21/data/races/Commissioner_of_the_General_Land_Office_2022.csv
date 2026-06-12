@@ -1,0 +1,61 @@
+precinct,party,candidate,votes
+bandera:101,,Carrie Evelyn Menger,2
+bandera:101,,Rejected write-ins,0
+bandera:101,,Unassigned write-ins,0
+bandera:101,DEM,Jay Kleberg,186
+bandera:101,GRN,"Alfred Molison, Jr.",11
+bandera:101,REP,Dawn Buckingham,866
+bandera:102,,Carrie Evelyn Menger,0
+bandera:102,,Rejected write-ins,1
+bandera:102,,Unassigned write-ins,0
+bandera:102,DEM,Jay Kleberg,275
+bandera:102,GRN,"Alfred Molison, Jr.",16
+bandera:102,REP,Dawn Buckingham,1400
+bandera:203,,Carrie Evelyn Menger,0
+bandera:203,,Rejected write-ins,0
+bandera:203,,Unassigned write-ins,0
+bandera:203,DEM,Jay Kleberg,278
+bandera:203,GRN,"Alfred Molison, Jr.",19
+bandera:203,REP,Dawn Buckingham,1054
+bandera:204,,Carrie Evelyn Menger,0
+bandera:204,,Rejected write-ins,0
+bandera:204,,Unassigned write-ins,1
+bandera:204,DEM,Jay Kleberg,215
+bandera:204,GRN,"Alfred Molison, Jr.",10
+bandera:204,REP,Dawn Buckingham,832
+bandera:305,,Carrie Evelyn Menger,1
+bandera:305,,Rejected write-ins,2
+bandera:305,,Unassigned write-ins,0
+bandera:305,DEM,Jay Kleberg,226
+bandera:305,GRN,"Alfred Molison, Jr.",18
+bandera:305,REP,Dawn Buckingham,1317
+bandera:306,,Carrie Evelyn Menger,1
+bandera:306,,Rejected write-ins,0
+bandera:306,,Unassigned write-ins,0
+bandera:306,DEM,Jay Kleberg,102
+bandera:306,GRN,"Alfred Molison, Jr.",14
+bandera:306,REP,Dawn Buckingham,819
+bandera:407,,Carrie Evelyn Menger,0
+bandera:407,,Rejected write-ins,0
+bandera:407,,Unassigned write-ins,0
+bandera:407,DEM,Jay Kleberg,262
+bandera:407,GRN,"Alfred Molison, Jr.",10
+bandera:407,REP,Dawn Buckingham,1418
+bandera:408,,Carrie Evelyn Menger,0
+bandera:408,,Rejected write-ins,0
+bandera:408,,Unassigned write-ins,0
+bandera:408,DEM,Jay Kleberg,46
+bandera:408,GRN,"Alfred Molison, Jr.",2
+bandera:408,REP,Dawn Buckingham,144
+bandera:409,,Carrie Evelyn Menger,0
+bandera:409,,Rejected write-ins,0
+bandera:409,,Unassigned write-ins,0
+bandera:409,DEM,Jay Kleberg,98
+bandera:409,GRN,"Alfred Molison, Jr.",8
+bandera:409,REP,Dawn Buckingham,380
+bandera:410,,Carrie Evelyn Menger,0
+bandera:410,,Rejected write-ins,0
+bandera:410,,Unassigned write-ins,0
+bandera:410,DEM,Jay Kleberg,61
+bandera:410,GRN,"Alfred Molison, Jr.",3
+bandera:410,REP,Dawn Buckingham,309

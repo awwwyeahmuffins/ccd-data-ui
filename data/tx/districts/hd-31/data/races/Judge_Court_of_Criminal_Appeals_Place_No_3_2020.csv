@@ -1,0 +1,95 @@
+precinct,party,candidate,votes
+karnes:1,DEM,Elizabeth Davis Frizell,241
+karnes:1,REP,Bert Richardson,581
+karnes:10,DEM,Elizabeth Davis Frizell,23
+karnes:10,REP,Bert Richardson,216
+karnes:11,DEM,Elizabeth Davis Frizell,102
+karnes:11,REP,Bert Richardson,312
+karnes:12,DEM,Elizabeth Davis Frizell,101
+karnes:12,REP,Bert Richardson,348
+karnes:13,DEM,Elizabeth Davis Frizell,2
+karnes:13,REP,Bert Richardson,26
+karnes:14,DEM,Elizabeth Davis Frizell,247
+karnes:14,REP,Bert Richardson,273
+karnes:15,DEM,Elizabeth Davis Frizell,26
+karnes:15,REP,Bert Richardson,46
+karnes:2,DEM,Elizabeth Davis Frizell,14
+karnes:2,REP,Bert Richardson,113
+karnes:3,DEM,Elizabeth Davis Frizell,4
+karnes:3,REP,Bert Richardson,108
+karnes:4,DEM,Elizabeth Davis Frizell,203
+karnes:4,REP,Bert Richardson,480
+karnes:5,DEM,Elizabeth Davis Frizell,136
+karnes:5,REP,Bert Richardson,315
+karnes:6,DEM,Elizabeth Davis Frizell,6
+karnes:6,REP,Bert Richardson,205
+karnes:7,DEM,Elizabeth Davis Frizell,55
+karnes:7,REP,Bert Richardson,440
+karnes:8,DEM,Elizabeth Davis Frizell,27
+karnes:8,REP,Bert Richardson,108
+karnes:9,DEM,Elizabeth Davis Frizell,19
+karnes:9,REP,Bert Richardson,153
+la-salle:1,,Over Votes,0
+la-salle:1,,Under Votes,172
+la-salle:1,DEM,Elizabeth Davis Frizell,288
+la-salle:1,REP,Bert Richardson,348
+la-salle:2,,Over Votes,0
+la-salle:2,,Under Votes,36
+la-salle:2,DEM,Elizabeth Davis Frizell,145
+la-salle:2,REP,Bert Richardson,110
+la-salle:3,,Over Votes,0
+la-salle:3,,Under Votes,87
+la-salle:3,DEM,Elizabeth Davis Frizell,259
+la-salle:3,REP,Bert Richardson,185
+la-salle:4,,Over Votes,0
+la-salle:4,,Under Votes,8
+la-salle:4,DEM,Elizabeth Davis Frizell,7
+la-salle:4,REP,Bert Richardson,47
+la-salle:5,,Over Votes,0
+la-salle:5,,Under Votes,78
+la-salle:5,DEM,Elizabeth Davis Frizell,207
+la-salle:5,REP,Bert Richardson,201
+la-salle:6,,Over Votes,0
+la-salle:6,,Under Votes,45
+la-salle:6,DEM,Elizabeth Davis Frizell,115
+la-salle:6,REP,Bert Richardson,101
+mcmullen:1,DEM,Elizabeth Davis Frizell,7
+mcmullen:1,REP,Bert Richardson,84
+mcmullen:2A,DEM,Elizabeth Davis Frizell,4
+mcmullen:2A,REP,Bert Richardson,53
+mcmullen:2B,DEM,Elizabeth Davis Frizell,6
+mcmullen:2B,REP,Bert Richardson,70
+mcmullen:3,DEM,Elizabeth Davis Frizell,13
+mcmullen:3,REP,Bert Richardson,111
+mcmullen:4A,DEM,Elizabeth Davis Frizell,3
+mcmullen:4A,REP,Bert Richardson,52
+mcmullen:4B,DEM,Elizabeth Davis Frizell,4
+mcmullen:4B,REP,Bert Richardson,66
+starr:1,DEM,Elizabeth Davis Frizell,842
+starr:1,REP,Bert Richardson,506
+starr:10,DEM,Elizabeth Davis Frizell,1763
+starr:10,REP,Bert Richardson,1187
+starr:2,DEM,Elizabeth Davis Frizell,1168
+starr:2,REP,Bert Richardson,729
+starr:3,DEM,Elizabeth Davis Frizell,509
+starr:3,REP,Bert Richardson,267
+starr:4,DEM,Elizabeth Davis Frizell,168
+starr:4,REP,Bert Richardson,171
+starr:5,DEM,Elizabeth Davis Frizell,34
+starr:5,REP,Bert Richardson,27
+starr:6,DEM,Elizabeth Davis Frizell,2112
+starr:6,REP,Bert Richardson,1000
+starr:7,DEM,Elizabeth Davis Frizell,244
+starr:7,REP,Bert Richardson,113
+starr:8,DEM,Elizabeth Davis Frizell,799
+starr:8,REP,Bert Richardson,491
+starr:9,DEM,Elizabeth Davis Frizell,1030
+starr:9,REP,Bert Richardson,673
+zapata:1,DEM,Elizabeth Davis Frizell,496
+zapata:1,REP,Bert Richardson,340
+zapata:2,DEM,Elizabeth Davis Frizell,485
+zapata:2,REP,Bert Richardson,338
+zapata:3,DEM,Elizabeth Davis Frizell,467
+zapata:3,REP,Bert Richardson,493
+zapata:4,DEM,Elizabeth Davis Frizell,363
+zapata:4,REP,Bert Richardson,214

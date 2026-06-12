@@ -1,0 +1,1039 @@
+precinct,party,candidate,votes
+collin:1,Dem,Colin Allred,872
+collin:1,Lib,Ted Brown,36
+collin:1,Rep,Ted Cruz,994
+collin:1,,Write-in,1
+collin:1,,Over Votes,0
+collin:1,,Under Votes,23
+collin:10,Dem,Colin Allred,117
+collin:10,Lib,Ted Brown,14
+collin:10,Rep,Ted Cruz,489
+collin:10,,Write-in,2
+collin:10,,Over Votes,0
+collin:10,,Under Votes,3
+collin:100,Dem,Colin Allred,7
+collin:100,Lib,Ted Brown,0
+collin:100,Rep,Ted Cruz,1
+collin:100,,Write-in,0
+collin:100,,Over Votes,0
+collin:100,,Under Votes,0
+collin:101,Dem,Colin Allred,1416
+collin:101,Lib,Ted Brown,50
+collin:101,Rep,Ted Cruz,1357
+collin:101,,Write-in,0
+collin:101,,Over Votes,0
+collin:101,,Under Votes,42
+collin:102,Dem,Colin Allred,732
+collin:102,Lib,Ted Brown,22
+collin:102,Rep,Ted Cruz,1185
+collin:102,,Write-in,2
+collin:102,,Over Votes,0
+collin:102,,Under Votes,16
+collin:106,Dem,Colin Allred,633
+collin:106,Lib,Ted Brown,28
+collin:106,Rep,Ted Cruz,578
+collin:106,,Write-in,1
+collin:106,,Over Votes,0
+collin:106,,Under Votes,15
+collin:107,Dem,Colin Allred,1316
+collin:107,Lib,Ted Brown,38
+collin:107,Rep,Ted Cruz,1022
+collin:107,,Write-in,5
+collin:107,,Over Votes,0
+collin:107,,Under Votes,36
+collin:11,Dem,Colin Allred,797
+collin:11,Lib,Ted Brown,67
+collin:11,Rep,Ted Cruz,2491
+collin:11,,Write-in,0
+collin:11,,Over Votes,0
+collin:11,,Under Votes,66
+collin:112,Dem,Colin Allred,1164
+collin:112,Lib,Ted Brown,35
+collin:112,Rep,Ted Cruz,1084
+collin:112,,Write-in,3
+collin:112,,Over Votes,0
+collin:112,,Under Votes,36
+collin:113,Dem,Colin Allred,1059
+collin:113,Lib,Ted Brown,68
+collin:113,Rep,Ted Cruz,921
+collin:113,,Write-in,2
+collin:113,,Over Votes,0
+collin:113,,Under Votes,37
+collin:114,Dem,Colin Allred,1291
+collin:114,Lib,Ted Brown,66
+collin:114,Rep,Ted Cruz,1663
+collin:114,,Write-in,4
+collin:114,,Over Votes,0
+collin:114,,Under Votes,38
+collin:116,Dem,Colin Allred,1706
+collin:116,Lib,Ted Brown,49
+collin:116,Rep,Ted Cruz,1750
+collin:116,,Write-in,1
+collin:116,,Over Votes,0
+collin:116,,Under Votes,47
+collin:117,Dem,Colin Allred,1463
+collin:117,Lib,Ted Brown,55
+collin:117,Rep,Ted Cruz,1346
+collin:117,,Write-in,6
+collin:117,,Over Votes,0
+collin:117,,Under Votes,64
+collin:118,Dem,Colin Allred,1358
+collin:118,Lib,Ted Brown,50
+collin:118,Rep,Ted Cruz,1540
+collin:118,,Write-in,3
+collin:118,,Over Votes,0
+collin:118,,Under Votes,45
+collin:119,Dem,Colin Allred,854
+collin:119,Lib,Ted Brown,37
+collin:119,Rep,Ted Cruz,785
+collin:119,,Write-in,1
+collin:119,,Over Votes,0
+collin:119,,Under Votes,19
+collin:12,Dem,Colin Allred,611
+collin:12,Lib,Ted Brown,32
+collin:12,Rep,Ted Cruz,957
+collin:12,,Write-in,2
+collin:12,,Over Votes,0
+collin:12,,Under Votes,16
+collin:120,Dem,Colin Allred,1184
+collin:120,Lib,Ted Brown,60
+collin:120,Rep,Ted Cruz,1414
+collin:120,,Write-in,2
+collin:120,,Over Votes,0
+collin:120,,Under Votes,33
+collin:121,Dem,Colin Allred,1139
+collin:121,Lib,Ted Brown,44
+collin:121,Rep,Ted Cruz,725
+collin:121,,Write-in,1
+collin:121,,Over Votes,0
+collin:121,,Under Votes,43
+collin:122,Dem,Colin Allred,1376
+collin:122,Lib,Ted Brown,58
+collin:122,Rep,Ted Cruz,2220
+collin:122,,Write-in,2
+collin:122,,Over Votes,0
+collin:122,,Under Votes,52
+collin:126,Dem,Colin Allred,1681
+collin:126,Lib,Ted Brown,87
+collin:126,Rep,Ted Cruz,1610
+collin:126,,Write-in,4
+collin:126,,Over Votes,0
+collin:126,,Under Votes,61
+collin:127,Dem,Colin Allred,1359
+collin:127,Lib,Ted Brown,50
+collin:127,Rep,Ted Cruz,1208
+collin:127,,Write-in,0
+collin:127,,Over Votes,0
+collin:127,,Under Votes,54
+collin:128,Dem,Colin Allred,657
+collin:128,Lib,Ted Brown,35
+collin:128,Rep,Ted Cruz,1661
+collin:128,,Write-in,3
+collin:128,,Over Votes,0
+collin:128,,Under Votes,39
+collin:129,Dem,Colin Allred,1431
+collin:129,Lib,Ted Brown,68
+collin:129,Rep,Ted Cruz,1518
+collin:129,,Write-in,1
+collin:129,,Over Votes,0
+collin:129,,Under Votes,54
+collin:13,Dem,Colin Allred,808
+collin:13,Lib,Ted Brown,29
+collin:13,Rep,Ted Cruz,1667
+collin:13,,Write-in,0
+collin:13,,Over Votes,0
+collin:13,,Under Votes,17
+collin:130,Dem,Colin Allred,1477
+collin:130,Lib,Ted Brown,53
+collin:130,Rep,Ted Cruz,1224
+collin:130,,Write-in,7
+collin:130,,Over Votes,0
+collin:130,,Under Votes,52
+collin:131,Dem,Colin Allred,869
+collin:131,Lib,Ted Brown,37
+collin:131,Rep,Ted Cruz,1204
+collin:131,,Write-in,0
+collin:131,,Over Votes,0
+collin:131,,Under Votes,26
+collin:133,Dem,Colin Allred,824
+collin:133,Lib,Ted Brown,45
+collin:133,Rep,Ted Cruz,883
+collin:133,,Write-in,0
+collin:133,,Over Votes,0
+collin:133,,Under Votes,39
+collin:137,Dem,Colin Allred,650
+collin:137,Lib,Ted Brown,17
+collin:137,Rep,Ted Cruz,739
+collin:137,,Write-in,0
+collin:137,,Over Votes,0
+collin:137,,Under Votes,12
+collin:140,Dem,Colin Allred,1367
+collin:140,Lib,Ted Brown,51
+collin:140,Rep,Ted Cruz,2134
+collin:140,,Write-in,2
+collin:140,,Over Votes,0
+collin:140,,Under Votes,37
+collin:141,Dem,Colin Allred,1308
+collin:141,Lib,Ted Brown,55
+collin:141,Rep,Ted Cruz,1111
+collin:141,,Write-in,5
+collin:141,,Over Votes,0
+collin:141,,Under Votes,32
+collin:144,Dem,Colin Allred,943
+collin:144,Lib,Ted Brown,57
+collin:144,Rep,Ted Cruz,1044
+collin:144,,Write-in,1
+collin:144,,Over Votes,0
+collin:144,,Under Votes,27
+collin:145,Dem,Colin Allred,638
+collin:145,Lib,Ted Brown,27
+collin:145,Rep,Ted Cruz,534
+collin:145,,Write-in,1
+collin:145,,Over Votes,0
+collin:145,,Under Votes,37
+collin:146,Dem,Colin Allred,1605
+collin:146,Lib,Ted Brown,56
+collin:146,Rep,Ted Cruz,1507
+collin:146,,Write-in,4
+collin:146,,Over Votes,0
+collin:146,,Under Votes,61
+collin:147,Dem,Colin Allred,714
+collin:147,Lib,Ted Brown,56
+collin:147,Rep,Ted Cruz,611
+collin:147,,Write-in,0
+collin:147,,Over Votes,0
+collin:147,,Under Votes,28
+collin:148,Dem,Colin Allred,393
+collin:148,Lib,Ted Brown,51
+collin:148,Rep,Ted Cruz,383
+collin:148,,Write-in,1
+collin:148,,Over Votes,0
+collin:148,,Under Votes,23
+collin:149,Dem,Colin Allred,1384
+collin:149,Lib,Ted Brown,68
+collin:149,Rep,Ted Cruz,1797
+collin:149,,Write-in,0
+collin:149,,Over Votes,0
+collin:149,,Under Votes,61
+collin:15,Dem,Colin Allred,511
+collin:15,Lib,Ted Brown,25
+collin:15,Rep,Ted Cruz,417
+collin:15,,Write-in,0
+collin:15,,Over Votes,1
+collin:15,,Under Votes,27
+collin:150,Dem,Colin Allred,1570
+collin:150,Lib,Ted Brown,77
+collin:150,Rep,Ted Cruz,2263
+collin:150,,Write-in,3
+collin:150,,Over Votes,0
+collin:150,,Under Votes,35
+collin:151,Dem,Colin Allred,682
+collin:151,Lib,Ted Brown,29
+collin:151,Rep,Ted Cruz,551
+collin:151,,Write-in,1
+collin:151,,Over Votes,0
+collin:151,,Under Votes,33
+collin:153,Dem,Colin Allred,1721
+collin:153,Lib,Ted Brown,126
+collin:153,Rep,Ted Cruz,1817
+collin:153,,Write-in,3
+collin:153,,Over Votes,0
+collin:153,,Under Votes,72
+collin:155,Dem,Colin Allred,901
+collin:155,Lib,Ted Brown,31
+collin:155,Rep,Ted Cruz,1155
+collin:155,,Write-in,2
+collin:155,,Over Votes,0
+collin:155,,Under Votes,40
+collin:156,Dem,Colin Allred,1201
+collin:156,Lib,Ted Brown,65
+collin:156,Rep,Ted Cruz,1250
+collin:156,,Write-in,5
+collin:156,,Over Votes,0
+collin:156,,Under Votes,48
+collin:157,Dem,Colin Allred,1603
+collin:157,Lib,Ted Brown,65
+collin:157,Rep,Ted Cruz,1391
+collin:157,,Write-in,3
+collin:157,,Over Votes,0
+collin:157,,Under Votes,49
+collin:159,Dem,Colin Allred,1032
+collin:159,Lib,Ted Brown,54
+collin:159,Rep,Ted Cruz,899
+collin:159,,Write-in,1
+collin:159,,Over Votes,0
+collin:159,,Under Votes,63
+collin:16,Dem,Colin Allred,1533
+collin:16,Lib,Ted Brown,95
+collin:16,Rep,Ted Cruz,2581
+collin:16,,Write-in,7
+collin:16,,Over Votes,0
+collin:16,,Under Votes,74
+collin:160,Dem,Colin Allred,83
+collin:160,Lib,Ted Brown,4
+collin:160,Rep,Ted Cruz,340
+collin:160,,Write-in,0
+collin:160,,Over Votes,0
+collin:160,,Under Votes,3
+collin:161,Dem,Colin Allred,60
+collin:161,Lib,Ted Brown,4
+collin:161,Rep,Ted Cruz,126
+collin:161,,Write-in,0
+collin:161,,Over Votes,0
+collin:161,,Under Votes,2
+collin:162,Dem,Colin Allred,180
+collin:162,Lib,Ted Brown,10
+collin:162,Rep,Ted Cruz,362
+collin:162,,Write-in,0
+collin:162,,Over Votes,0
+collin:162,,Under Votes,6
+collin:165,Dem,Colin Allred,272
+collin:165,Lib,Ted Brown,28
+collin:165,Rep,Ted Cruz,425
+collin:165,,Write-in,0
+collin:165,,Over Votes,0
+collin:165,,Under Votes,11
+collin:166,Dem,Colin Allred,1429
+collin:166,Lib,Ted Brown,106
+collin:166,Rep,Ted Cruz,1420
+collin:166,,Write-in,7
+collin:166,,Over Votes,0
+collin:166,,Under Votes,89
+collin:168,Dem,Colin Allred,483
+collin:168,Lib,Ted Brown,28
+collin:168,Rep,Ted Cruz,882
+collin:168,,Write-in,1
+collin:168,,Over Votes,0
+collin:168,,Under Votes,24
+collin:169,Dem,Colin Allred,1264
+collin:169,Lib,Ted Brown,47
+collin:169,Rep,Ted Cruz,1132
+collin:169,,Write-in,2
+collin:169,,Over Votes,0
+collin:169,,Under Votes,40
+collin:17,Dem,Colin Allred,1517
+collin:17,Lib,Ted Brown,82
+collin:17,Rep,Ted Cruz,2229
+collin:17,,Write-in,5
+collin:17,,Over Votes,0
+collin:17,,Under Votes,69
+collin:170,Dem,Colin Allred,541
+collin:170,Lib,Ted Brown,20
+collin:170,Rep,Ted Cruz,782
+collin:170,,Write-in,1
+collin:170,,Over Votes,0
+collin:170,,Under Votes,20
+collin:171,Dem,Colin Allred,980
+collin:171,Lib,Ted Brown,43
+collin:171,Rep,Ted Cruz,876
+collin:171,,Write-in,1
+collin:171,,Over Votes,0
+collin:171,,Under Votes,65
+collin:172,Dem,Colin Allred,738
+collin:172,Lib,Ted Brown,47
+collin:172,Rep,Ted Cruz,1393
+collin:172,,Write-in,0
+collin:172,,Over Votes,0
+collin:172,,Under Votes,24
+collin:173,Dem,Colin Allred,172
+collin:173,Lib,Ted Brown,5
+collin:173,Rep,Ted Cruz,309
+collin:173,,Write-in,0
+collin:173,,Over Votes,0
+collin:173,,Under Votes,6
+collin:174,Dem,Colin Allred,1287
+collin:174,Lib,Ted Brown,64
+collin:174,Rep,Ted Cruz,1539
+collin:174,,Write-in,6
+collin:174,,Over Votes,0
+collin:174,,Under Votes,55
+collin:175,Dem,Colin Allred,595
+collin:175,Lib,Ted Brown,44
+collin:175,Rep,Ted Cruz,825
+collin:175,,Write-in,2
+collin:175,,Over Votes,0
+collin:175,,Under Votes,26
+collin:178,Dem,Colin Allred,721
+collin:178,Lib,Ted Brown,49
+collin:178,Rep,Ted Cruz,1599
+collin:178,,Write-in,4
+collin:178,,Over Votes,0
+collin:178,,Under Votes,31
+collin:179,Dem,Colin Allred,1175
+collin:179,Lib,Ted Brown,37
+collin:179,Rep,Ted Cruz,2506
+collin:179,,Write-in,3
+collin:179,,Over Votes,0
+collin:179,,Under Votes,45
+collin:18,Dem,Colin Allred,143
+collin:18,Lib,Ted Brown,18
+collin:18,Rep,Ted Cruz,500
+collin:18,,Write-in,0
+collin:18,,Over Votes,0
+collin:18,,Under Votes,10
+collin:181,Dem,Colin Allred,769
+collin:181,Lib,Ted Brown,44
+collin:181,Rep,Ted Cruz,1199
+collin:181,,Write-in,1
+collin:181,,Over Votes,0
+collin:181,,Under Votes,36
+collin:182,Dem,Colin Allred,1365
+collin:182,Lib,Ted Brown,52
+collin:182,Rep,Ted Cruz,1300
+collin:182,,Write-in,1
+collin:182,,Over Votes,0
+collin:182,,Under Votes,47
+collin:183,Dem,Colin Allred,19
+collin:183,Lib,Ted Brown,0
+collin:183,Rep,Ted Cruz,59
+collin:183,,Write-in,0
+collin:183,,Over Votes,0
+collin:183,,Under Votes,2
+collin:185,Dem,Colin Allred,17
+collin:185,Lib,Ted Brown,1
+collin:185,Rep,Ted Cruz,22
+collin:185,,Write-in,0
+collin:185,,Over Votes,0
+collin:185,,Under Votes,0
+collin:186,Dem,Colin Allred,15
+collin:186,Lib,Ted Brown,2
+collin:186,Rep,Ted Cruz,70
+collin:186,,Write-in,0
+collin:186,,Over Votes,0
+collin:186,,Under Votes,2
+collin:187,Dem,Colin Allred,62
+collin:187,Lib,Ted Brown,6
+collin:187,Rep,Ted Cruz,371
+collin:187,,Write-in,0
+collin:187,,Over Votes,0
+collin:187,,Under Votes,8
+collin:188,Dem,Colin Allred,8
+collin:188,Lib,Ted Brown,4
+collin:188,Rep,Ted Cruz,48
+collin:188,,Write-in,0
+collin:188,,Over Votes,0
+collin:188,,Under Votes,0
+collin:189,Dem,Colin Allred,190
+collin:189,Lib,Ted Brown,20
+collin:189,Rep,Ted Cruz,641
+collin:189,,Write-in,0
+collin:189,,Over Votes,0
+collin:189,,Under Votes,12
+collin:19,Dem,Colin Allred,563
+collin:19,Lib,Ted Brown,16
+collin:19,Rep,Ted Cruz,616
+collin:19,,Write-in,0
+collin:19,,Over Votes,0
+collin:19,,Under Votes,13
+collin:190,Dem,Colin Allred,7
+collin:190,Lib,Ted Brown,1
+collin:190,Rep,Ted Cruz,37
+collin:190,,Write-in,0
+collin:190,,Over Votes,0
+collin:190,,Under Votes,1
+collin:191,Dem,Colin Allred,223
+collin:191,Lib,Ted Brown,16
+collin:191,Rep,Ted Cruz,332
+collin:191,,Write-in,0
+collin:191,,Over Votes,0
+collin:191,,Under Votes,11
+collin:192,Dem,Colin Allred,925
+collin:192,Lib,Ted Brown,80
+collin:192,Rep,Ted Cruz,2390
+collin:192,,Write-in,3
+collin:192,,Over Votes,0
+collin:192,,Under Votes,38
+collin:193,Dem,Colin Allred,208
+collin:193,Lib,Ted Brown,23
+collin:193,Rep,Ted Cruz,627
+collin:193,,Write-in,2
+collin:193,,Over Votes,0
+collin:193,,Under Votes,17
+collin:194,Dem,Colin Allred,3
+collin:194,Lib,Ted Brown,0
+collin:194,Rep,Ted Cruz,16
+collin:194,,Write-in,0
+collin:194,,Over Votes,0
+collin:194,,Under Votes,0
+collin:195,Dem,Colin Allred,182
+collin:195,Lib,Ted Brown,14
+collin:195,Rep,Ted Cruz,469
+collin:195,,Write-in,0
+collin:195,,Over Votes,0
+collin:195,,Under Votes,9
+collin:196,Dem,Colin Allred,610
+collin:196,Lib,Ted Brown,33
+collin:196,Rep,Ted Cruz,684
+collin:196,,Write-in,2
+collin:196,,Over Votes,0
+collin:196,,Under Votes,23
+collin:197,Dem,Colin Allred,479
+collin:197,Lib,Ted Brown,25
+collin:197,Rep,Ted Cruz,343
+collin:197,,Write-in,0
+collin:197,,Over Votes,0
+collin:197,,Under Votes,11
+collin:198,Dem,Colin Allred,14
+collin:198,Lib,Ted Brown,1
+collin:198,Rep,Ted Cruz,74
+collin:198,,Write-in,0
+collin:198,,Over Votes,0
+collin:198,,Under Votes,1
+collin:2,Dem,Colin Allred,1471
+collin:2,Lib,Ted Brown,73
+collin:2,Rep,Ted Cruz,1397
+collin:2,,Write-in,2
+collin:2,,Over Votes,0
+collin:2,,Under Votes,46
+collin:20,Dem,Colin Allred,574
+collin:20,Lib,Ted Brown,42
+collin:20,Rep,Ted Cruz,1043
+collin:20,,Write-in,0
+collin:20,,Over Votes,0
+collin:20,,Under Votes,25
+collin:200,Dem,Colin Allred,618
+collin:200,Lib,Ted Brown,39
+collin:200,Rep,Ted Cruz,1205
+collin:200,,Write-in,1
+collin:200,,Over Votes,0
+collin:200,,Under Votes,31
+collin:202,Dem,Colin Allred,2
+collin:202,Lib,Ted Brown,0
+collin:202,Rep,Ted Cruz,0
+collin:202,,Write-in,0
+collin:202,,Over Votes,0
+collin:202,,Under Votes,0
+collin:203,Dem,Colin Allred,899
+collin:203,Lib,Ted Brown,25
+collin:203,Rep,Ted Cruz,1386
+collin:203,,Write-in,4
+collin:203,,Over Votes,0
+collin:203,,Under Votes,30
+collin:204,Dem,Colin Allred,116
+collin:204,Lib,Ted Brown,1
+collin:204,Rep,Ted Cruz,163
+collin:204,,Write-in,0
+collin:204,,Over Votes,0
+collin:204,,Under Votes,2
+collin:205,Dem,Colin Allred,11
+collin:205,Lib,Ted Brown,0
+collin:205,Rep,Ted Cruz,15
+collin:205,,Write-in,0
+collin:205,,Over Votes,0
+collin:205,,Under Votes,1
+collin:206,Dem,Colin Allred,551
+collin:206,Lib,Ted Brown,39
+collin:206,Rep,Ted Cruz,816
+collin:206,,Write-in,2
+collin:206,,Over Votes,0
+collin:206,,Under Votes,23
+collin:207,Dem,Colin Allred,1166
+collin:207,Lib,Ted Brown,78
+collin:207,Rep,Ted Cruz,1630
+collin:207,,Write-in,3
+collin:207,,Over Votes,0
+collin:207,,Under Votes,48
+collin:208,Dem,Colin Allred,1285
+collin:208,Lib,Ted Brown,84
+collin:208,Rep,Ted Cruz,1907
+collin:208,,Write-in,1
+collin:208,,Over Votes,0
+collin:208,,Under Votes,46
+collin:210,Dem,Colin Allred,692
+collin:210,Lib,Ted Brown,51
+collin:210,Rep,Ted Cruz,512
+collin:210,,Write-in,0
+collin:210,,Over Votes,0
+collin:210,,Under Votes,35
+collin:211,Dem,Colin Allred,1083
+collin:211,Lib,Ted Brown,50
+collin:211,Rep,Ted Cruz,1267
+collin:211,,Write-in,0
+collin:211,,Over Votes,0
+collin:211,,Under Votes,55
+collin:214,Dem,Colin Allred,988
+collin:214,Lib,Ted Brown,38
+collin:214,Rep,Ted Cruz,2656
+collin:214,,Write-in,0
+collin:214,,Over Votes,0
+collin:214,,Under Votes,40
+collin:215,Dem,Colin Allred,815
+collin:215,Lib,Ted Brown,40
+collin:215,Rep,Ted Cruz,1189
+collin:215,,Write-in,1
+collin:215,,Over Votes,0
+collin:215,,Under Votes,47
+collin:216,Dem,Colin Allred,1173
+collin:216,Lib,Ted Brown,60
+collin:216,Rep,Ted Cruz,2276
+collin:216,,Write-in,3
+collin:216,,Over Votes,1
+collin:216,,Under Votes,52
+collin:217,Dem,Colin Allred,931
+collin:217,Lib,Ted Brown,45
+collin:217,Rep,Ted Cruz,1177
+collin:217,,Write-in,2
+collin:217,,Over Votes,0
+collin:217,,Under Votes,35
+collin:218,Dem,Colin Allred,1536
+collin:218,Lib,Ted Brown,96
+collin:218,Rep,Ted Cruz,1416
+collin:218,,Write-in,1
+collin:218,,Over Votes,0
+collin:218,,Under Votes,44
+collin:219,Dem,Colin Allred,1628
+collin:219,Lib,Ted Brown,53
+collin:219,Rep,Ted Cruz,1404
+collin:219,,Write-in,2
+collin:219,,Over Votes,0
+collin:219,,Under Votes,50
+collin:221,Dem,Colin Allred,1491
+collin:221,Lib,Ted Brown,53
+collin:221,Rep,Ted Cruz,2186
+collin:221,,Write-in,3
+collin:221,,Over Votes,0
+collin:221,,Under Votes,43
+collin:222,Dem,Colin Allred,1462
+collin:222,Lib,Ted Brown,72
+collin:222,Rep,Ted Cruz,1277
+collin:222,,Write-in,4
+collin:222,,Over Votes,0
+collin:222,,Under Votes,55
+collin:223,Dem,Colin Allred,926
+collin:223,Lib,Ted Brown,35
+collin:223,Rep,Ted Cruz,843
+collin:223,,Write-in,4
+collin:223,,Over Votes,0
+collin:223,,Under Votes,31
+collin:224,Dem,Colin Allred,721
+collin:224,Lib,Ted Brown,31
+collin:224,Rep,Ted Cruz,1785
+collin:224,,Write-in,1
+collin:224,,Over Votes,0
+collin:224,,Under Votes,30
+collin:227,Dem,Colin Allred,1503
+collin:227,Lib,Ted Brown,56
+collin:227,Rep,Ted Cruz,1543
+collin:227,,Write-in,4
+collin:227,,Over Votes,0
+collin:227,,Under Votes,54
+collin:228,Dem,Colin Allred,1872
+collin:228,Lib,Ted Brown,110
+collin:228,Rep,Ted Cruz,1785
+collin:228,,Write-in,1
+collin:228,,Over Votes,0
+collin:228,,Under Votes,75
+collin:230,Dem,Colin Allred,1600
+collin:230,Lib,Ted Brown,71
+collin:230,Rep,Ted Cruz,1293
+collin:230,,Write-in,4
+collin:230,,Over Votes,0
+collin:230,,Under Votes,53
+collin:231,Dem,Colin Allred,1301
+collin:231,Lib,Ted Brown,70
+collin:231,Rep,Ted Cruz,1436
+collin:231,,Write-in,0
+collin:231,,Over Votes,0
+collin:231,,Under Votes,43
+collin:232,Dem,Colin Allred,1181
+collin:232,Lib,Ted Brown,44
+collin:232,Rep,Ted Cruz,1477
+collin:232,,Write-in,3
+collin:232,,Over Votes,0
+collin:232,,Under Votes,50
+collin:233,Dem,Colin Allred,597
+collin:233,Lib,Ted Brown,43
+collin:233,Rep,Ted Cruz,774
+collin:233,,Write-in,1
+collin:233,,Over Votes,0
+collin:233,,Under Votes,28
+collin:234,Dem,Colin Allred,1450
+collin:234,Lib,Ted Brown,53
+collin:234,Rep,Ted Cruz,1042
+collin:234,,Write-in,1
+collin:234,,Over Votes,0
+collin:234,,Under Votes,39
+collin:236,Dem,Colin Allred,876
+collin:236,Lib,Ted Brown,41
+collin:236,Rep,Ted Cruz,1273
+collin:236,,Write-in,3
+collin:236,,Over Votes,0
+collin:236,,Under Votes,24
+collin:237,Dem,Colin Allred,723
+collin:237,Lib,Ted Brown,32
+collin:237,Rep,Ted Cruz,716
+collin:237,,Write-in,2
+collin:237,,Over Votes,0
+collin:237,,Under Votes,49
+collin:238,Dem,Colin Allred,1393
+collin:238,Lib,Ted Brown,63
+collin:238,Rep,Ted Cruz,1076
+collin:238,,Write-in,4
+collin:238,,Over Votes,0
+collin:238,,Under Votes,47
+collin:239,Dem,Colin Allred,937
+collin:239,Lib,Ted Brown,56
+collin:239,Rep,Ted Cruz,2012
+collin:239,,Write-in,3
+collin:239,,Over Votes,0
+collin:239,,Under Votes,43
+collin:240,Dem,Colin Allred,1007
+collin:240,Lib,Ted Brown,60
+collin:240,Rep,Ted Cruz,2099
+collin:240,,Write-in,1
+collin:240,,Over Votes,0
+collin:240,,Under Votes,45
+collin:241,Dem,Colin Allred,533
+collin:241,Lib,Ted Brown,39
+collin:241,Rep,Ted Cruz,521
+collin:241,,Write-in,3
+collin:241,,Over Votes,0
+collin:241,,Under Votes,19
+collin:242,Dem,Colin Allred,1205
+collin:242,Lib,Ted Brown,61
+collin:242,Rep,Ted Cruz,1291
+collin:242,,Write-in,1
+collin:242,,Over Votes,0
+collin:242,,Under Votes,46
+collin:243,Dem,Colin Allred,427
+collin:243,Lib,Ted Brown,34
+collin:243,Rep,Ted Cruz,790
+collin:243,,Write-in,0
+collin:243,,Over Votes,0
+collin:243,,Under Votes,21
+collin:244,Dem,Colin Allred,1055
+collin:244,Lib,Ted Brown,39
+collin:244,Rep,Ted Cruz,1200
+collin:244,,Write-in,2
+collin:244,,Over Votes,0
+collin:244,,Under Votes,41
+collin:246,Dem,Colin Allred,1035
+collin:246,Lib,Ted Brown,44
+collin:246,Rep,Ted Cruz,1019
+collin:246,,Write-in,4
+collin:246,,Over Votes,0
+collin:246,,Under Votes,35
+collin:247,Dem,Colin Allred,606
+collin:247,Lib,Ted Brown,31
+collin:247,Rep,Ted Cruz,1215
+collin:247,,Write-in,3
+collin:247,,Over Votes,0
+collin:247,,Under Votes,21
+collin:249,Dem,Colin Allred,1166
+collin:249,Lib,Ted Brown,82
+collin:249,Rep,Ted Cruz,1760
+collin:249,,Write-in,1
+collin:249,,Over Votes,0
+collin:249,,Under Votes,44
+collin:25,Dem,Colin Allred,1442
+collin:25,Lib,Ted Brown,136
+collin:25,Rep,Ted Cruz,1259
+collin:25,,Write-in,5
+collin:25,,Over Votes,0
+collin:25,,Under Votes,58
+collin:251,Dem,Colin Allred,660
+collin:251,Lib,Ted Brown,29
+collin:251,Rep,Ted Cruz,1137
+collin:251,,Write-in,1
+collin:251,,Over Votes,0
+collin:251,,Under Votes,25
+collin:252,Dem,Colin Allred,740
+collin:252,Lib,Ted Brown,37
+collin:252,Rep,Ted Cruz,1528
+collin:252,,Write-in,0
+collin:252,,Over Votes,0
+collin:252,,Under Votes,33
+collin:27,Dem,Colin Allred,807
+collin:27,Lib,Ted Brown,39
+collin:27,Rep,Ted Cruz,994
+collin:27,,Write-in,1
+collin:27,,Over Votes,0
+collin:27,,Under Votes,39
+collin:28,Dem,Colin Allred,1286
+collin:28,Lib,Ted Brown,42
+collin:28,Rep,Ted Cruz,1072
+collin:28,,Write-in,1
+collin:28,,Over Votes,0
+collin:28,,Under Votes,44
+collin:3,Dem,Colin Allred,847
+collin:3,Lib,Ted Brown,28
+collin:3,Rep,Ted Cruz,435
+collin:3,,Write-in,2
+collin:3,,Over Votes,0
+collin:3,,Under Votes,51
+collin:31,Dem,Colin Allred,736
+collin:31,Lib,Ted Brown,25
+collin:31,Rep,Ted Cruz,806
+collin:31,,Write-in,1
+collin:31,,Over Votes,0
+collin:31,,Under Votes,9
+collin:32,Dem,Colin Allred,892
+collin:32,Lib,Ted Brown,43
+collin:32,Rep,Ted Cruz,912
+collin:32,,Write-in,1
+collin:32,,Over Votes,0
+collin:32,,Under Votes,17
+collin:33,Dem,Colin Allred,1698
+collin:33,Lib,Ted Brown,97
+collin:33,Rep,Ted Cruz,2941
+collin:33,,Write-in,2
+collin:33,,Over Votes,0
+collin:33,,Under Votes,76
+collin:34,Dem,Colin Allred,1732
+collin:34,Lib,Ted Brown,70
+collin:34,Rep,Ted Cruz,1175
+collin:34,,Write-in,6
+collin:34,,Over Votes,0
+collin:34,,Under Votes,58
+collin:35,Dem,Colin Allred,259
+collin:35,Lib,Ted Brown,22
+collin:35,Rep,Ted Cruz,997
+collin:35,,Write-in,2
+collin:35,,Over Votes,0
+collin:35,,Under Votes,13
+collin:37,Dem,Colin Allred,353
+collin:37,Lib,Ted Brown,36
+collin:37,Rep,Ted Cruz,1548
+collin:37,,Write-in,0
+collin:37,,Over Votes,0
+collin:37,,Under Votes,29
+collin:38,Dem,Colin Allred,1260
+collin:38,Lib,Ted Brown,71
+collin:38,Rep,Ted Cruz,1017
+collin:38,,Write-in,1
+collin:38,,Over Votes,0
+collin:38,,Under Votes,38
+collin:4,Dem,Colin Allred,980
+collin:4,Lib,Ted Brown,58
+collin:4,Rep,Ted Cruz,1778
+collin:4,,Write-in,2
+collin:4,,Over Votes,0
+collin:4,,Under Votes,40
+collin:40,Dem,Colin Allred,979
+collin:40,Lib,Ted Brown,66
+collin:40,Rep,Ted Cruz,1487
+collin:40,,Write-in,0
+collin:40,,Over Votes,0
+collin:40,,Under Votes,24
+collin:41,Dem,Colin Allred,1406
+collin:41,Lib,Ted Brown,78
+collin:41,Rep,Ted Cruz,2294
+collin:41,,Write-in,0
+collin:41,,Over Votes,0
+collin:41,,Under Votes,48
+collin:42,Dem,Colin Allred,413
+collin:42,Lib,Ted Brown,36
+collin:42,Rep,Ted Cruz,1070
+collin:42,,Write-in,4
+collin:42,,Over Votes,0
+collin:42,,Under Votes,25
+collin:43,Dem,Colin Allred,1116
+collin:43,Lib,Ted Brown,53
+collin:43,Rep,Ted Cruz,918
+collin:43,,Write-in,1
+collin:43,,Over Votes,0
+collin:43,,Under Votes,33
+collin:44,Dem,Colin Allred,455
+collin:44,Lib,Ted Brown,22
+collin:44,Rep,Ted Cruz,421
+collin:44,,Write-in,0
+collin:44,,Over Votes,0
+collin:44,,Under Votes,26
+collin:45,Dem,Colin Allred,1020
+collin:45,Lib,Ted Brown,47
+collin:45,Rep,Ted Cruz,1377
+collin:45,,Write-in,2
+collin:45,,Over Votes,0
+collin:45,,Under Votes,29
+collin:47,Dem,Colin Allred,997
+collin:47,Lib,Ted Brown,47
+collin:47,Rep,Ted Cruz,748
+collin:47,,Write-in,2
+collin:47,,Over Votes,0
+collin:47,,Under Votes,28
+collin:5,Dem,Colin Allred,268
+collin:5,Lib,Ted Brown,22
+collin:5,Rep,Ted Cruz,426
+collin:5,,Write-in,0
+collin:5,,Over Votes,0
+collin:5,,Under Votes,17
+collin:53,Dem,Colin Allred,851
+collin:53,Lib,Ted Brown,27
+collin:53,Rep,Ted Cruz,756
+collin:53,,Write-in,2
+collin:53,,Over Votes,0
+collin:53,,Under Votes,26
+collin:56,Dem,Colin Allred,1011
+collin:56,Lib,Ted Brown,44
+collin:56,Rep,Ted Cruz,1337
+collin:56,,Write-in,0
+collin:56,,Over Votes,0
+collin:56,,Under Votes,37
+collin:57,Dem,Colin Allred,1560
+collin:57,Lib,Ted Brown,78
+collin:57,Rep,Ted Cruz,1752
+collin:57,,Write-in,1
+collin:57,,Over Votes,0
+collin:57,,Under Votes,64
+collin:59,Dem,Colin Allred,1192
+collin:59,Lib,Ted Brown,82
+collin:59,Rep,Ted Cruz,1407
+collin:59,,Write-in,1
+collin:59,,Over Votes,0
+collin:59,,Under Votes,43
+collin:6,Dem,Colin Allred,596
+collin:6,Lib,Ted Brown,35
+collin:6,Rep,Ted Cruz,458
+collin:6,,Write-in,1
+collin:6,,Over Votes,0
+collin:6,,Under Votes,19
+collin:60,Dem,Colin Allred,966
+collin:60,Lib,Ted Brown,75
+collin:60,Rep,Ted Cruz,1420
+collin:60,,Write-in,2
+collin:60,,Over Votes,0
+collin:60,,Under Votes,26
+collin:61,Dem,Colin Allred,563
+collin:61,Lib,Ted Brown,27
+collin:61,Rep,Ted Cruz,609
+collin:61,,Write-in,4
+collin:61,,Over Votes,0
+collin:61,,Under Votes,11
+collin:63,Dem,Colin Allred,738
+collin:63,Lib,Ted Brown,20
+collin:63,Rep,Ted Cruz,830
+collin:63,,Write-in,2
+collin:63,,Over Votes,0
+collin:63,,Under Votes,14
+collin:64,Dem,Colin Allred,974
+collin:64,Lib,Ted Brown,60
+collin:64,Rep,Ted Cruz,774
+collin:64,,Write-in,2
+collin:64,,Over Votes,0
+collin:64,,Under Votes,30
+collin:65,Dem,Colin Allred,433
+collin:65,Lib,Ted Brown,20
+collin:65,Rep,Ted Cruz,384
+collin:65,,Write-in,0
+collin:65,,Over Votes,0
+collin:65,,Under Votes,10
+collin:69,Dem,Colin Allred,1396
+collin:69,Lib,Ted Brown,38
+collin:69,Rep,Ted Cruz,1352
+collin:69,,Write-in,7
+collin:69,,Over Votes,0
+collin:69,,Under Votes,38
+collin:7,Dem,Colin Allred,489
+collin:7,Lib,Ted Brown,23
+collin:7,Rep,Ted Cruz,496
+collin:7,,Write-in,1
+collin:7,,Over Votes,0
+collin:7,,Under Votes,26
+collin:71,Dem,Colin Allred,672
+collin:71,Lib,Ted Brown,27
+collin:71,Rep,Ted Cruz,598
+collin:71,,Write-in,0
+collin:71,,Over Votes,0
+collin:71,,Under Votes,17
+collin:76,Dem,Colin Allred,1098
+collin:76,Lib,Ted Brown,53
+collin:76,Rep,Ted Cruz,1168
+collin:76,,Write-in,3
+collin:76,,Over Votes,0
+collin:76,,Under Votes,41
+collin:8,Dem,Colin Allred,1550
+collin:8,Lib,Ted Brown,108
+collin:8,Rep,Ted Cruz,2400
+collin:8,,Write-in,4
+collin:8,,Over Votes,0
+collin:8,,Under Votes,67
+collin:80,Dem,Colin Allred,1219
+collin:80,Lib,Ted Brown,59
+collin:80,Rep,Ted Cruz,1188
+collin:80,,Write-in,2
+collin:80,,Over Votes,0
+collin:80,,Under Votes,41
+collin:81,Dem,Colin Allred,1132
+collin:81,Lib,Ted Brown,57
+collin:81,Rep,Ted Cruz,820
+collin:81,,Write-in,0
+collin:81,,Over Votes,0
+collin:81,,Under Votes,22
+collin:82,Dem,Colin Allred,963
+collin:82,Lib,Ted Brown,45
+collin:82,Rep,Ted Cruz,830
+collin:82,,Write-in,0
+collin:82,,Over Votes,0
+collin:82,,Under Votes,32
+collin:83,Dem,Colin Allred,1098
+collin:83,Lib,Ted Brown,62
+collin:83,Rep,Ted Cruz,1712
+collin:83,,Write-in,4
+collin:83,,Over Votes,0
+collin:83,,Under Votes,38
+collin:86,Dem,Colin Allred,1094
+collin:86,Lib,Ted Brown,51
+collin:86,Rep,Ted Cruz,1011
+collin:86,,Write-in,1
+collin:86,,Over Votes,0
+collin:86,,Under Votes,37
+collin:87,Dem,Colin Allred,1379
+collin:87,Lib,Ted Brown,65
+collin:87,Rep,Ted Cruz,1014
+collin:87,,Write-in,3
+collin:87,,Over Votes,0
+collin:87,,Under Votes,70
+collin:9,Dem,Colin Allred,1438
+collin:9,Lib,Ted Brown,67
+collin:9,Rep,Ted Cruz,1681
+collin:9,,Write-in,2
+collin:9,,Over Votes,0
+collin:9,,Under Votes,65
+collin:90,Dem,Colin Allred,993
+collin:90,Lib,Ted Brown,32
+collin:90,Rep,Ted Cruz,1349
+collin:90,,Write-in,2
+collin:90,,Over Votes,0
+collin:90,,Under Votes,24
+collin:91,Dem,Colin Allred,913
+collin:91,Lib,Ted Brown,26
+collin:91,Rep,Ted Cruz,700
+collin:91,,Write-in,2
+collin:91,,Over Votes,0
+collin:91,,Under Votes,18
+collin:93,Dem,Colin Allred,29
+collin:93,Lib,Ted Brown,3
+collin:93,Rep,Ted Cruz,186
+collin:93,,Write-in,0
+collin:93,,Over Votes,0
+collin:93,,Under Votes,4
+collin:95,Dem,Colin Allred,1125
+collin:95,Lib,Ted Brown,60
+collin:95,Rep,Ted Cruz,1002
+collin:95,,Write-in,2
+collin:95,,Over Votes,0
+collin:95,,Under Votes,48
+collin:96,Dem,Colin Allred,347
+collin:96,Lib,Ted Brown,26
+collin:96,Rep,Ted Cruz,392
+collin:96,,Write-in,2
+collin:96,,Over Votes,0
+collin:96,,Under Votes,15
+collin:97,Dem,Colin Allred,339
+collin:97,Lib,Ted Brown,11
+collin:97,Rep,Ted Cruz,710
+collin:97,,Write-in,1
+collin:97,,Over Votes,0
+collin:97,,Under Votes,9
+collin:98,Dem,Colin Allred,478
+collin:98,Lib,Ted Brown,13
+collin:98,Rep,Ted Cruz,510
+collin:98,,Write-in,0
+collin:98,,Over Votes,0
+collin:98,,Under Votes,18
+collin:99,Dem,Colin Allred,151
+collin:99,Lib,Ted Brown,4
+collin:99,Rep,Ted Cruz,95
+collin:99,,Write-in,0
+collin:99,,Over Votes,0
+collin:99,,Under Votes,7

@@ -1,0 +1,34 @@
+precinct,party,candidate,votes
+brooks:1,,Alfred Molison Jr.,16
+brooks:1,DEM,Jay Kleberg,314
+brooks:1,REP,Dawn Buckingham,89
+brooks:2,,Alfred Molison Jr.,23
+brooks:2,DEM,Jay Kleberg,312
+brooks:2,REP,Dawn Buckingham,175
+brooks:3,,Alfred Molison Jr.,7
+brooks:3,DEM,Jay Kleberg,226
+brooks:3,REP,Dawn Buckingham,85
+brooks:3S,,Alfred Molison Jr.,4
+brooks:3S,DEM,Jay Kleberg,56
+brooks:3S,REP,Dawn Buckingham,51
+brooks:4,,Alfred Molison Jr.,13
+brooks:4,DEM,Jay Kleberg,327
+brooks:4,REP,Dawn Buckingham,143
+kenedy:1,DEM,Jay Kleberg,30
+kenedy:1,GRN,"Alfred Molison, Jr",0
+kenedy:1,REP,Dawn Buckingham,20
+kenedy:2,DEM,Jay Kleberg,18
+kenedy:2,GRN,"Alfred Molison, Jr",1
+kenedy:2,REP,Dawn Buckingham,6
+kenedy:3,DEM,Jay Kleberg,6
+kenedy:3,GRN,"Alfred Molison, Jr",0
+kenedy:3,REP,Dawn Buckingham,4
+kenedy:4,DEM,Jay Kleberg,6
+kenedy:4,GRN,"Alfred Molison, Jr",0
+kenedy:4,REP,Dawn Buckingham,28
+kenedy:5,DEM,Jay Kleberg,6
+kenedy:5,GRN,"Alfred Molison, Jr",1
+kenedy:5,REP,Dawn Buckingham,3
+kenedy:6,DEM,Jay Kleberg,9
+kenedy:6,GRN,"Alfred Molison, Jr",0
+kenedy:6,REP,Dawn Buckingham,2

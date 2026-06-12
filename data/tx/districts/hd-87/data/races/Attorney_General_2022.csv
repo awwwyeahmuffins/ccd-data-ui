@@ -1,0 +1,158 @@
+precinct,party,candidate,votes
+hansford:1,REP,Ken Paxton,315
+hansford:1,LIB,Mark Ash,4
+hansford:1,DEM,Rochelle Mercedes Garza,13
+hansford:2,REP,Ken Paxton,25
+hansford:2,LIB,Mark Ash,0
+hansford:2,DEM,Rochelle Mercedes Garza,1
+hansford:3,REP,Ken Paxton,133
+hansford:3,LIB,Mark Ash,2
+hansford:3,DEM,Rochelle Mercedes Garza,8
+hansford:4,REP,Ken Paxton,311
+hansford:4,LIB,Mark Ash,6
+hansford:4,DEM,Rochelle Mercedes Garza,19
+hansford:5,REP,Ken Paxton,211
+hansford:5,LIB,Mark Ash,2
+hansford:5,DEM,Rochelle Mercedes Garza,13
+hansford:6,REP,Ken Paxton,308
+hansford:6,LIB,Mark Ash,5
+hansford:6,DEM,Rochelle Mercedes Garza,26
+hansford:7,REP,Ken Paxton,27
+hansford:7,LIB,Mark Ash,1
+hansford:7,DEM,Rochelle Mercedes Garza,1
+hansford:9,REP,Ken Paxton,57
+hansford:9,LIB,Mark Ash,0
+hansford:9,DEM,Rochelle Mercedes Garza,11
+hutchinson:11,,Over Votes,0
+hutchinson:11,,Under Votes,9
+hutchinson:11,DEM,Rochelle Mercedes Garza,82
+hutchinson:11,LIB,Mark Ash,22
+hutchinson:11,REP,Ken Paxton,757
+hutchinson:14,,Over Votes,0
+hutchinson:14,,Under Votes,9
+hutchinson:14,DEM,Rochelle Mercedes Garza,97
+hutchinson:14,LIB,Mark Ash,23
+hutchinson:14,REP,Ken Paxton,879
+hutchinson:21,,Over Votes,0
+hutchinson:21,,Under Votes,15
+hutchinson:21,DEM,Rochelle Mercedes Garza,117
+hutchinson:21,LIB,Mark Ash,36
+hutchinson:21,REP,Ken Paxton,1560
+hutchinson:23,,Over Votes,0
+hutchinson:23,,Under Votes,4
+hutchinson:23,DEM,Rochelle Mercedes Garza,21
+hutchinson:23,LIB,Mark Ash,7
+hutchinson:23,REP,Ken Paxton,229
+hutchinson:31,,Over Votes,0
+hutchinson:31,,Under Votes,9
+hutchinson:31,DEM,Rochelle Mercedes Garza,57
+hutchinson:31,LIB,Mark Ash,26
+hutchinson:31,REP,Ken Paxton,752
+hutchinson:33,,Over Votes,0
+hutchinson:33,,Under Votes,3
+hutchinson:33,DEM,Rochelle Mercedes Garza,52
+hutchinson:33,LIB,Mark Ash,12
+hutchinson:33,REP,Ken Paxton,525
+hutchinson:41,,Over Votes,0
+hutchinson:41,,Under Votes,0
+hutchinson:41,DEM,Rochelle Mercedes Garza,4
+hutchinson:41,LIB,Mark Ash,0
+hutchinson:41,REP,Ken Paxton,37
+hutchinson:42,,Over Votes,0
+hutchinson:42,,Under Votes,13
+hutchinson:42,DEM,Rochelle Mercedes Garza,130
+hutchinson:42,LIB,Mark Ash,18
+hutchinson:42,REP,Ken Paxton,590
+moore:101,DEM,Rochelle Mercedes Garza,143
+moore:101,LIB,Mark Ash,14
+moore:101,REP,Ken Paxton,626
+moore:201,DEM,Rochelle Mercedes Garza,80
+moore:201,LIB,Mark Ash,9
+moore:201,REP,Ken Paxton,617
+moore:202,DEM,Rochelle Mercedes Garza,68
+moore:202,LIB,Mark Ash,27
+moore:202,REP,Ken Paxton,740
+moore:203,DEM,Rochelle Mercedes Garza,6
+moore:203,LIB,Mark Ash,0
+moore:203,REP,Ken Paxton,35
+moore:301,DEM,Rochelle Mercedes Garza,127
+moore:301,LIB,Mark Ash,7
+moore:301,REP,Ken Paxton,489
+moore:401,DEM,Rochelle Mercedes Garza,40
+moore:401,LIB,Mark Ash,8
+moore:401,REP,Ken Paxton,475
+moore:402,DEM,Rochelle Mercedes Garza,34
+moore:402,LIB,Mark Ash,0
+moore:402,REP,Ken Paxton,26
+potter:121,DEM,Rochelle Mercedes Garza,197
+potter:121,LIB,Mark Ash,31
+potter:121,REP,Ken Paxton,914
+potter:122,DEM,Rochelle Mercedes Garza,234
+potter:122,LIB,Mark Ash,26
+potter:122,REP,Ken Paxton,751
+potter:123,DEM,Rochelle Mercedes Garza,573
+potter:123,LIB,Mark Ash,65
+potter:123,REP,Ken Paxton,1046
+potter:124,DEM,Rochelle Mercedes Garza,277
+potter:124,LIB,Mark Ash,43
+potter:124,REP,Ken Paxton,869
+potter:125,DEM,Rochelle Mercedes Garza,532
+potter:125,LIB,Mark Ash,49
+potter:125,REP,Ken Paxton,984
+potter:126,DEM,Rochelle Mercedes Garza,321
+potter:126,LIB,Mark Ash,21
+potter:126,REP,Ken Paxton,603
+potter:221,DEM,Rochelle Mercedes Garza,128
+potter:221,LIB,Mark Ash,9
+potter:221,REP,Ken Paxton,214
+potter:222,DEM,Rochelle Mercedes Garza,100
+potter:222,LIB,Mark Ash,6
+potter:222,REP,Ken Paxton,248
+potter:223,DEM,Rochelle Mercedes Garza,202
+potter:223,LIB,Mark Ash,18
+potter:223,REP,Ken Paxton,254
+potter:224,DEM,Rochelle Mercedes Garza,285
+potter:224,LIB,Mark Ash,14
+potter:224,REP,Ken Paxton,526
+potter:225,DEM,Rochelle Mercedes Garza,154
+potter:225,LIB,Mark Ash,4
+potter:225,REP,Ken Paxton,221
+potter:321,DEM,Rochelle Mercedes Garza,147
+potter:321,LIB,Mark Ash,35
+potter:321,REP,Ken Paxton,1622
+potter:322,DEM,Rochelle Mercedes Garza,14
+potter:322,LIB,Mark Ash,0
+potter:322,REP,Ken Paxton,123
+potter:323,DEM,Rochelle Mercedes Garza,231
+potter:323,LIB,Mark Ash,45
+potter:323,REP,Ken Paxton,1859
+potter:324,DEM,Rochelle Mercedes Garza,429
+potter:324,LIB,Mark Ash,48
+potter:324,REP,Ken Paxton,1982
+potter:325,DEM,Rochelle Mercedes Garza,276
+potter:325,LIB,Mark Ash,26
+potter:325,REP,Ken Paxton,834
+potter:326,DEM,Rochelle Mercedes Garza,175
+potter:326,LIB,Mark Ash,31
+potter:326,REP,Ken Paxton,1127
+potter:327,DEM,Rochelle Mercedes Garza,93
+potter:327,LIB,Mark Ash,23
+potter:327,REP,Ken Paxton,394
+potter:421,DEM,Rochelle Mercedes Garza,130
+potter:421,LIB,Mark Ash,6
+potter:421,REP,Ken Paxton,135
+potter:422,DEM,Rochelle Mercedes Garza,456
+potter:422,LIB,Mark Ash,19
+potter:422,REP,Ken Paxton,407
+potter:424,DEM,Rochelle Mercedes Garza,194
+potter:424,LIB,Mark Ash,11
+potter:424,REP,Ken Paxton,154
+potter:425,DEM,Rochelle Mercedes Garza,188
+potter:425,LIB,Mark Ash,14
+potter:425,REP,Ken Paxton,217
+potter:426,DEM,Rochelle Mercedes Garza,59
+potter:426,LIB,Mark Ash,2
+potter:426,REP,Ken Paxton,97
+potter:427,DEM,Rochelle Mercedes Garza,68
+potter:427,LIB,Mark Ash,3
+potter:427,REP,Ken Paxton,73

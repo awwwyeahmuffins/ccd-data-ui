@@ -1,0 +1,30 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANC2193",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "bell": 27,
+      "brown": 18,
+      "coke": 4,
+      "coleman": 5,
+      "concho": 8,
+      "ector": 41,
+      "glasscock": 4,
+      "irion": 4,
+      "kimble": 7,
+      "lampasas": 9,
+      "llano": 9,
+      "mason": 4,
+      "mcculloch": 9,
+      "menard": 6,
+      "midland": 45,
+      "mills": 7,
+      "runnels": 10,
+      "san-saba": 7,
+      "sterling": 4,
+      "tom-green": 34
+    },
+    "generated": "2026-06-12"
+  }
+}

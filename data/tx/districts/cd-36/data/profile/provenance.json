@@ -1,0 +1,18 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANC2193",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "chambers": 14,
+      "hardin": 19,
+      "harris": 96,
+      "jasper": 20,
+      "jefferson": 29,
+      "liberty": 30,
+      "newton": 22,
+      "tyler": 17
+    },
+    "generated": "2026-06-12"
+  }
+}

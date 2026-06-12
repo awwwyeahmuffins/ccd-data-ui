@@ -42,13 +42,18 @@ export function getActiveCounty() {
   return activeCounty;
 }
 
-/** Load (and cache) the statewide county registry. */
+/** Load (and cache) the statewide registry: 254 counties plus the
+ * cross-county district views (congressional / state senate / state house),
+ * which behave exactly like counties. */
 export function loadCountyRegistry() {
   if (!countyRegistryPromise) {
-    countyRegistryPromise = fetch("data/tx/counties.json").then(r => {
-      if (!r.ok) throw new Error("Failed to fetch county registry");
-      return r.json();
-    });
+    countyRegistryPromise = Promise.all([
+      fetch("data/tx/counties.json").then(r => {
+        if (!r.ok) throw new Error("Failed to fetch county registry");
+        return r.json();
+      }),
+      fetch("data/tx/districts.json").then(r => r.ok ? r.json() : []).catch(() => []),
+    ]).then(([counties, districts]) => [...counties, ...districts]);
   }
   return countyRegistryPromise;
 }

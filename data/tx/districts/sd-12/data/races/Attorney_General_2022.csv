@@ -1,0 +1,533 @@
+precinct,party,candidate,votes
+dallas:2001,DEM,Rochelle Mercedes Garza,12
+dallas:2001,REP,Ken Paxton,4
+dallas:2002,,Under Votes,7
+dallas:2002,DEM,Rochelle Mercedes Garza,502
+dallas:2002,LIB,Mark Ash,43
+dallas:2002,REP,Ken Paxton,278
+dallas:2003,,Under Votes,28
+dallas:2003,DEM,Rochelle Mercedes Garza,933
+dallas:2003,LIB,Mark Ash,76
+dallas:2003,REP,Ken Paxton,779
+dallas:2004,,Under Votes,20
+dallas:2004,DEM,Rochelle Mercedes Garza,708
+dallas:2004,LIB,Mark Ash,75
+dallas:2004,REP,Ken Paxton,666
+dallas:2005,,Under Votes,5
+dallas:2005,DEM,Rochelle Mercedes Garza,402
+dallas:2005,LIB,Mark Ash,37
+dallas:2005,REP,Ken Paxton,271
+dallas:2006,,Under Votes,19
+dallas:2006,DEM,Rochelle Mercedes Garza,576
+dallas:2006,LIB,Mark Ash,35
+dallas:2006,REP,Ken Paxton,452
+dallas:2007,,Under Votes,37
+dallas:2007,DEM,Rochelle Mercedes Garza,971
+dallas:2007,LIB,Mark Ash,113
+dallas:2007,REP,Ken Paxton,1022
+dallas:2008,,Under Votes,21
+dallas:2008,DEM,Rochelle Mercedes Garza,468
+dallas:2008,LIB,Mark Ash,41
+dallas:2008,REP,Ken Paxton,454
+dallas:2011,,Under Votes,22
+dallas:2011,DEM,Rochelle Mercedes Garza,648
+dallas:2011,LIB,Mark Ash,63
+dallas:2011,REP,Ken Paxton,685
+dallas:2015,,Under Votes,9
+dallas:2015,DEM,Rochelle Mercedes Garza,346
+dallas:2015,LIB,Mark Ash,29
+dallas:2015,REP,Ken Paxton,270
+dallas:2016,,Under Votes,50
+dallas:2016,DEM,Rochelle Mercedes Garza,1083
+dallas:2016,LIB,Mark Ash,72
+dallas:2016,REP,Ken Paxton,1177
+dallas:2018,,Under Votes,5
+dallas:2018,DEM,Rochelle Mercedes Garza,318
+dallas:2018,LIB,Mark Ash,21
+dallas:2018,REP,Ken Paxton,293
+dallas:2019,,Under Votes,19
+dallas:2019,DEM,Rochelle Mercedes Garza,633
+dallas:2019,LIB,Mark Ash,50
+dallas:2019,REP,Ken Paxton,560
+dallas:2025,,Under Votes,38
+dallas:2025,DEM,Rochelle Mercedes Garza,832
+dallas:2025,LIB,Mark Ash,62
+dallas:2025,REP,Ken Paxton,984
+dallas:2026,,Under Votes,47
+dallas:2026,DEM,Rochelle Mercedes Garza,828
+dallas:2026,LIB,Mark Ash,91
+dallas:2026,REP,Ken Paxton,1151
+dallas:2027,,Under Votes,22
+dallas:2027,DEM,Rochelle Mercedes Garza,470
+dallas:2027,LIB,Mark Ash,46
+dallas:2027,REP,Ken Paxton,623
+dallas:2028,DEM,Rochelle Mercedes Garza,1
+dallas:2030,,Under Votes,39
+dallas:2030,DEM,Rochelle Mercedes Garza,472
+dallas:2030,LIB,Mark Ash,57
+dallas:2030,REP,Ken Paxton,958
+dallas:2041,,Under Votes,46
+dallas:2041,DEM,Rochelle Mercedes Garza,1224
+dallas:2041,LIB,Mark Ash,83
+dallas:2041,REP,Ken Paxton,1382
+dallas:2048,,Under Votes,28
+dallas:2048,DEM,Rochelle Mercedes Garza,1256
+dallas:2048,LIB,Mark Ash,61
+dallas:2048,REP,Ken Paxton,627
+dallas:2049,,Under Votes,12
+dallas:2049,DEM,Rochelle Mercedes Garza,548
+dallas:2049,LIB,Mark Ash,47
+dallas:2049,REP,Ken Paxton,409
+dallas:2050,,Under Votes,6
+dallas:2050,DEM,Rochelle Mercedes Garza,528
+dallas:2050,LIB,Mark Ash,41
+dallas:2050,REP,Ken Paxton,426
+dallas:2051,,Under Votes,18
+dallas:2051,DEM,Rochelle Mercedes Garza,902
+dallas:2051,LIB,Mark Ash,62
+dallas:2051,REP,Ken Paxton,677
+dallas:2052,,Under Votes,14
+dallas:2052,DEM,Rochelle Mercedes Garza,411
+dallas:2052,LIB,Mark Ash,40
+dallas:2052,REP,Ken Paxton,513
+dallas:2053,,Under Votes,6
+dallas:2053,DEM,Rochelle Mercedes Garza,796
+dallas:2053,LIB,Mark Ash,45
+dallas:2053,REP,Ken Paxton,296
+dallas:2054,,Under Votes,4
+dallas:2054,DEM,Rochelle Mercedes Garza,744
+dallas:2054,LIB,Mark Ash,36
+dallas:2054,REP,Ken Paxton,273
+dallas:2055,,Under Votes,4
+dallas:2055,DEM,Rochelle Mercedes Garza,357
+dallas:2055,LIB,Mark Ash,17
+dallas:2055,REP,Ken Paxton,158
+dallas:2056,,Under Votes,13
+dallas:2056,DEM,Rochelle Mercedes Garza,426
+dallas:2056,LIB,Mark Ash,32
+dallas:2056,REP,Ken Paxton,456
+dallas:2057,,Under Votes,4
+dallas:2057,DEM,Rochelle Mercedes Garza,173
+dallas:2057,LIB,Mark Ash,18
+dallas:2057,REP,Ken Paxton,194
+dallas:2058,,Under Votes,7
+dallas:2058,DEM,Rochelle Mercedes Garza,362
+dallas:2058,LIB,Mark Ash,14
+dallas:2058,REP,Ken Paxton,271
+dallas:2074,,Under Votes,3
+dallas:2074,DEM,Rochelle Mercedes Garza,365
+dallas:2074,LIB,Mark Ash,14
+dallas:2074,REP,Ken Paxton,175
+dallas:2076,REP,Ken Paxton,1
+dallas:2077,,Under Votes,16
+dallas:2077,DEM,Rochelle Mercedes Garza,400
+dallas:2077,LIB,Mark Ash,36
+dallas:2077,REP,Ken Paxton,383
+dallas:2079,,Under Votes,5
+dallas:2079,DEM,Rochelle Mercedes Garza,545
+dallas:2079,LIB,Mark Ash,20
+dallas:2079,REP,Ken Paxton,135
+dallas:2080,DEM,Rochelle Mercedes Garza,67
+dallas:2080,LIB,Mark Ash,1
+dallas:2080,REP,Ken Paxton,33
+dallas:2090,DEM,Rochelle Mercedes Garza,14
+dallas:2090,LIB,Mark Ash,1
+dallas:2090,REP,Ken Paxton,7
+dallas:2091,,Under Votes,9
+dallas:2091,DEM,Rochelle Mercedes Garza,284
+dallas:2091,LIB,Mark Ash,28
+dallas:2091,REP,Ken Paxton,270
+dallas:2108,,Under Votes,2
+dallas:2108,DEM,Rochelle Mercedes Garza,203
+dallas:2108,LIB,Mark Ash,12
+dallas:2108,REP,Ken Paxton,158
+dallas:2119,,Under Votes,1
+dallas:2119,DEM,Rochelle Mercedes Garza,73
+dallas:2119,LIB,Mark Ash,4
+dallas:2119,REP,Ken Paxton,47
+dallas:2133,DEM,Rochelle Mercedes Garza,40
+dallas:2133,LIB,Mark Ash,2
+dallas:2133,REP,Ken Paxton,9
+dallas:2200,,Under Votes,29
+dallas:2200,DEM,Rochelle Mercedes Garza,435
+dallas:2200,LIB,Mark Ash,50
+dallas:2200,REP,Ken Paxton,781
+dallas:2201,,Under Votes,31
+dallas:2201,DEM,Rochelle Mercedes Garza,423
+dallas:2201,LIB,Mark Ash,50
+dallas:2201,REP,Ken Paxton,812
+dallas:2202,,Under Votes,29
+dallas:2202,DEM,Rochelle Mercedes Garza,441
+dallas:2202,LIB,Mark Ash,64
+dallas:2202,REP,Ken Paxton,775
+dallas:2203,,Under Votes,28
+dallas:2203,DEM,Rochelle Mercedes Garza,394
+dallas:2203,LIB,Mark Ash,48
+dallas:2203,REP,Ken Paxton,634
+dallas:2220,,Under Votes,23
+dallas:2220,DEM,Rochelle Mercedes Garza,329
+dallas:2220,LIB,Mark Ash,71
+dallas:2220,REP,Ken Paxton,811
+dallas:2221,,Under Votes,41
+dallas:2221,DEM,Rochelle Mercedes Garza,735
+dallas:2221,LIB,Mark Ash,118
+dallas:2221,REP,Ken Paxton,1625
+dallas:2222,,Under Votes,46
+dallas:2222,DEM,Rochelle Mercedes Garza,630
+dallas:2222,LIB,Mark Ash,82
+dallas:2222,REP,Ken Paxton,1327
+dallas:2223,,Under Votes,15
+dallas:2223,DEM,Rochelle Mercedes Garza,420
+dallas:2223,LIB,Mark Ash,60
+dallas:2223,REP,Ken Paxton,629
+dallas:2224,,Under Votes,11
+dallas:2224,DEM,Rochelle Mercedes Garza,463
+dallas:2224,LIB,Mark Ash,44
+dallas:2224,REP,Ken Paxton,523
+dallas:2225,,Under Votes,28
+dallas:2225,DEM,Rochelle Mercedes Garza,391
+dallas:2225,LIB,Mark Ash,46
+dallas:2225,REP,Ken Paxton,682
+dallas:2226,,Under Votes,44
+dallas:2226,DEM,Rochelle Mercedes Garza,612
+dallas:2226,LIB,Mark Ash,92
+dallas:2226,REP,Ken Paxton,1154
+dallas:2300,,Under Votes,9
+dallas:2300,DEM,Rochelle Mercedes Garza,346
+dallas:2300,LIB,Mark Ash,22
+dallas:2300,REP,Ken Paxton,203
+dallas:2301,,Under Votes,21
+dallas:2301,DEM,Rochelle Mercedes Garza,677
+dallas:2301,LIB,Mark Ash,56
+dallas:2301,REP,Ken Paxton,786
+dallas:2302,,Under Votes,7
+dallas:2302,DEM,Rochelle Mercedes Garza,517
+dallas:2302,LIB,Mark Ash,28
+dallas:2302,REP,Ken Paxton,177
+dallas:2303,,Under Votes,13
+dallas:2303,DEM,Rochelle Mercedes Garza,659
+dallas:2303,LIB,Mark Ash,46
+dallas:2303,REP,Ken Paxton,555
+dallas:2305,,Under Votes,7
+dallas:2305,DEM,Rochelle Mercedes Garza,711
+dallas:2305,LIB,Mark Ash,41
+dallas:2305,REP,Ken Paxton,344
+dallas:2306,,Under Votes,7
+dallas:2306,DEM,Rochelle Mercedes Garza,394
+dallas:2306,LIB,Mark Ash,40
+dallas:2306,REP,Ken Paxton,334
+dallas:2307,,Under Votes,13
+dallas:2307,DEM,Rochelle Mercedes Garza,204
+dallas:2307,LIB,Mark Ash,12
+dallas:2307,REP,Ken Paxton,156
+dallas:2308,,Under Votes,2
+dallas:2308,DEM,Rochelle Mercedes Garza,667
+dallas:2308,LIB,Mark Ash,27
+dallas:2308,REP,Ken Paxton,323
+dallas:2309,,Under Votes,5
+dallas:2309,DEM,Rochelle Mercedes Garza,538
+dallas:2309,LIB,Mark Ash,26
+dallas:2309,REP,Ken Paxton,195
+dallas:2310,,Under Votes,11
+dallas:2310,DEM,Rochelle Mercedes Garza,610
+dallas:2310,LIB,Mark Ash,46
+dallas:2310,REP,Ken Paxton,589
+dallas:2311,DEM,Rochelle Mercedes Garza,86
+dallas:2311,LIB,Mark Ash,10
+dallas:2311,REP,Ken Paxton,52
+dallas:2311,,Under Votes,1
+dallas:2312,,Under Votes,1
+dallas:2312,DEM,Rochelle Mercedes Garza,9
+dallas:2312,LIB,Mark Ash,1
+dallas:2312,REP,Ken Paxton,4
+dallas:2315,,Under Votes,1
+dallas:2315,DEM,Rochelle Mercedes Garza,47
+dallas:2315,LIB,Mark Ash,3
+dallas:2315,REP,Ken Paxton,21
+dallas:2316,,Under Votes,24
+dallas:2316,DEM,Rochelle Mercedes Garza,489
+dallas:2316,LIB,Mark Ash,48
+dallas:2316,REP,Ken Paxton,494
+dallas:2400,,Under Votes,1
+dallas:2400,DEM,Rochelle Mercedes Garza,27
+dallas:2400,LIB,Mark Ash,2
+dallas:2400,REP,Ken Paxton,55
+dallas:2401,,Under Votes,27
+dallas:2401,DEM,Rochelle Mercedes Garza,1025
+dallas:2401,LIB,Mark Ash,74
+dallas:2401,REP,Ken Paxton,835
+dallas:2402,,Under Votes,22
+dallas:2402,DEM,Rochelle Mercedes Garza,837
+dallas:2402,LIB,Mark Ash,55
+dallas:2402,REP,Ken Paxton,642
+dallas:2403,REP,Ken Paxton,1
+dallas:2404,,Under Votes,12
+dallas:2404,DEM,Rochelle Mercedes Garza,504
+dallas:2404,LIB,Mark Ash,33
+dallas:2404,REP,Ken Paxton,324
+dallas:2405,,Under Votes,19
+dallas:2405,DEM,Rochelle Mercedes Garza,976
+dallas:2405,LIB,Mark Ash,77
+dallas:2405,REP,Ken Paxton,874
+dallas:2406,,Under Votes,16
+dallas:2406,DEM,Rochelle Mercedes Garza,947
+dallas:2406,LIB,Mark Ash,46
+dallas:2406,REP,Ken Paxton,600
+dallas:2407,,Under Votes,28
+dallas:2407,DEM,Rochelle Mercedes Garza,1083
+dallas:2407,LIB,Mark Ash,84
+dallas:2407,REP,Ken Paxton,733
+dallas:2408,,Under Votes,7
+dallas:2408,DEM,Rochelle Mercedes Garza,516
+dallas:2408,LIB,Mark Ash,21
+dallas:2408,REP,Ken Paxton,226
+dallas:2409,,Under Votes,8
+dallas:2409,DEM,Rochelle Mercedes Garza,519
+dallas:2409,LIB,Mark Ash,21
+dallas:2409,REP,Ken Paxton,276
+dallas:2410,,Under Votes,4
+dallas:2410,DEM,Rochelle Mercedes Garza,433
+dallas:2410,LIB,Mark Ash,34
+dallas:2410,REP,Ken Paxton,243
+dallas:2411,,Under Votes,1
+dallas:2411,DEM,Rochelle Mercedes Garza,147
+dallas:2411,LIB,Mark Ash,9
+dallas:2411,REP,Ken Paxton,67
+dallas:2417,,Under Votes,1
+dallas:2417,DEM,Rochelle Mercedes Garza,53
+dallas:2417,LIB,Mark Ash,3
+dallas:2417,REP,Ken Paxton,54
+dallas:2601,,Under Votes,3
+dallas:2601,DEM,Rochelle Mercedes Garza,581
+dallas:2601,LIB,Mark Ash,25
+dallas:2601,REP,Ken Paxton,249
+dallas:2602,,Under Votes,13
+dallas:2602,DEM,Rochelle Mercedes Garza,904
+dallas:2602,LIB,Mark Ash,36
+dallas:2602,REP,Ken Paxton,441
+dallas:2603,,Under Votes,10
+dallas:2603,DEM,Rochelle Mercedes Garza,951
+dallas:2603,LIB,Mark Ash,34
+dallas:2603,REP,Ken Paxton,470
+dallas:2604,,Under Votes,8
+dallas:2604,DEM,Rochelle Mercedes Garza,971
+dallas:2604,LIB,Mark Ash,49
+dallas:2604,REP,Ken Paxton,445
+dallas:2605,,Under Votes,6
+dallas:2605,DEM,Rochelle Mercedes Garza,927
+dallas:2605,LIB,Mark Ash,33
+dallas:2605,REP,Ken Paxton,415
+dallas:2608,,Under Votes,22
+dallas:2608,DEM,Rochelle Mercedes Garza,884
+dallas:2608,LIB,Mark Ash,70
+dallas:2608,REP,Ken Paxton,814
+dallas:2609,DEM,Rochelle Mercedes Garza,1
+dallas:2609,REP,Ken Paxton,3
+dallas:2611,,Under Votes,6
+dallas:2611,DEM,Rochelle Mercedes Garza,442
+dallas:2611,LIB,Mark Ash,22
+dallas:2611,REP,Ken Paxton,242
+dallas:2612,,Under Votes,1
+dallas:2612,DEM,Rochelle Mercedes Garza,77
+dallas:2612,LIB,Mark Ash,3
+dallas:2612,REP,Ken Paxton,25
+dallas:2613,,Under Votes,18
+dallas:2613,DEM,Rochelle Mercedes Garza,1190
+dallas:2613,LIB,Mark Ash,64
+dallas:2613,REP,Ken Paxton,664
+dallas:2614,DEM,Rochelle Mercedes Garza,53
+dallas:2614,LIB,Mark Ash,5
+dallas:2614,REP,Ken Paxton,20
+dallas:2801,,Under Votes,22
+dallas:2801,DEM,Rochelle Mercedes Garza,979
+dallas:2801,LIB,Mark Ash,99
+dallas:2801,REP,Ken Paxton,1018
+dallas:2802,,Under Votes,24
+dallas:2802,DEM,Rochelle Mercedes Garza,1331
+dallas:2802,LIB,Mark Ash,103
+dallas:2802,REP,Ken Paxton,1277
+dallas:2803,,Under Votes,3
+dallas:2803,DEM,Rochelle Mercedes Garza,366
+dallas:2803,LIB,Mark Ash,45
+dallas:2803,REP,Ken Paxton,472
+dallas:2804,,Under Votes,14
+dallas:2804,DEM,Rochelle Mercedes Garza,725
+dallas:2804,LIB,Mark Ash,66
+dallas:2804,REP,Ken Paxton,713
+dallas:2805,,Under Votes,23
+dallas:2805,DEM,Rochelle Mercedes Garza,1166
+dallas:2805,LIB,Mark Ash,76
+dallas:2805,REP,Ken Paxton,1111
+dallas:2806,,Under Votes,25
+dallas:2806,DEM,Rochelle Mercedes Garza,752
+dallas:2806,LIB,Mark Ash,65
+dallas:2806,REP,Ken Paxton,752
+dallas:2807,,Under Votes,13
+dallas:2807,DEM,Rochelle Mercedes Garza,771
+dallas:2807,LIB,Mark Ash,58
+dallas:2807,REP,Ken Paxton,633
+dallas:2808,,Under Votes,15
+dallas:2808,DEM,Rochelle Mercedes Garza,913
+dallas:2808,LIB,Mark Ash,52
+dallas:2808,REP,Ken Paxton,918
+dallas:2809,,Under Votes,22
+dallas:2809,DEM,Rochelle Mercedes Garza,809
+dallas:2809,LIB,Mark Ash,51
+dallas:2809,REP,Ken Paxton,626
+dallas:2810,DEM,Rochelle Mercedes Garza,1
+dallas:2810,REP,Ken Paxton,12
+dallas:2900,,Under Votes,17
+dallas:2900,DEM,Rochelle Mercedes Garza,942
+dallas:2900,LIB,Mark Ash,84
+dallas:2900,REP,Ken Paxton,857
+dallas:2901,,Under Votes,7
+dallas:2901,DEM,Rochelle Mercedes Garza,447
+dallas:2901,LIB,Mark Ash,23
+dallas:2901,REP,Ken Paxton,163
+dallas:2902,,Under Votes,8
+dallas:2902,DEM,Rochelle Mercedes Garza,521
+dallas:2902,LIB,Mark Ash,27
+dallas:2902,REP,Ken Paxton,270
+dallas:2903,,Under Votes,17
+dallas:2903,DEM,Rochelle Mercedes Garza,915
+dallas:2903,LIB,Mark Ash,50
+dallas:2903,REP,Ken Paxton,460
+dallas:2904,DEM,Rochelle Mercedes Garza,1
+dallas:2904,REP,Ken Paxton,3
+dallas:2905,,Under Votes,6
+dallas:2905,DEM,Rochelle Mercedes Garza,154
+dallas:2905,LIB,Mark Ash,11
+dallas:2905,REP,Ken Paxton,189
+dallas:2910,DEM,Rochelle Mercedes Garza,7
+dallas:2910,LIB,Mark Ash,3
+dallas:2910,REP,Ken Paxton,10
+dallas:2911,DEM,Rochelle Mercedes Garza,63
+dallas:2911,LIB,Mark Ash,3
+dallas:2911,REP,Ken Paxton,59
+dallas:2913,REP,Ken Paxton,2
+dallas:4005,,Under Votes,4
+dallas:4005,DEM,Rochelle Mercedes Garza,255
+dallas:4005,LIB,Mark Ash,10
+dallas:4005,REP,Ken Paxton,110
+dallas:4014,,Under Votes,22
+dallas:4014,DEM,Rochelle Mercedes Garza,676
+dallas:4014,LIB,Mark Ash,57
+dallas:4014,REP,Ken Paxton,679
+dallas:4094,,Under Votes,3
+dallas:4094,DEM,Rochelle Mercedes Garza,156
+dallas:4094,LIB,Mark Ash,7
+dallas:4094,REP,Ken Paxton,59
+dallas:4096,,Under Votes,1
+dallas:4096,REP,Ken Paxton,2
+dallas:4126,,Under Votes,20
+dallas:4126,DEM,Rochelle Mercedes Garza,485
+dallas:4126,LIB,Mark Ash,48
+dallas:4126,REP,Ken Paxton,520
+dallas:4127,,Under Votes,7
+dallas:4127,DEM,Rochelle Mercedes Garza,138
+dallas:4127,LIB,Mark Ash,9
+dallas:4127,REP,Ken Paxton,177
+dallas:4128,,Under Votes,19
+dallas:4128,DEM,Rochelle Mercedes Garza,398
+dallas:4128,LIB,Mark Ash,31
+dallas:4128,REP,Ken Paxton,433
+dallas:4129,,Under Votes,33
+dallas:4129,DEM,Rochelle Mercedes Garza,447
+dallas:4129,LIB,Mark Ash,63
+dallas:4129,REP,Ken Paxton,723
+tarrant:3035,DEM,Rochelle Mercedes Garza,914
+tarrant:3035,LIB,Mark Ash,119
+tarrant:3035,REP,Ken Paxton,1480
+tarrant:3037,DEM,Rochelle Mercedes Garza,643
+tarrant:3037,LIB,Mark Ash,58
+tarrant:3037,REP,Ken Paxton,992
+tarrant:3038,DEM,Rochelle Mercedes Garza,823
+tarrant:3038,LIB,Mark Ash,85
+tarrant:3038,REP,Ken Paxton,857
+tarrant:3114,DEM,Rochelle Mercedes Garza,628
+tarrant:3114,LIB,Mark Ash,74
+tarrant:3114,REP,Ken Paxton,1014
+tarrant:3193,DEM,Rochelle Mercedes Garza,652
+tarrant:3193,LIB,Mark Ash,84
+tarrant:3193,REP,Ken Paxton,1541
+tarrant:3260,DEM,Rochelle Mercedes Garza,312
+tarrant:3260,LIB,Mark Ash,37
+tarrant:3260,REP,Ken Paxton,597
+tarrant:3283,DEM,Rochelle Mercedes Garza,386
+tarrant:3283,LIB,Mark Ash,58
+tarrant:3283,REP,Ken Paxton,612
+tarrant:3321,DEM,Rochelle Mercedes Garza,629
+tarrant:3321,LIB,Mark Ash,89
+tarrant:3321,REP,Ken Paxton,1014
+tarrant:3322,DEM,Rochelle Mercedes Garza,532
+tarrant:3322,LIB,Mark Ash,64
+tarrant:3322,REP,Ken Paxton,753
+tarrant:3323,DEM,Rochelle Mercedes Garza,754
+tarrant:3323,LIB,Mark Ash,98
+tarrant:3323,REP,Ken Paxton,1572
+tarrant:3330,DEM,Rochelle Mercedes Garza,256
+tarrant:3330,LIB,Mark Ash,25
+tarrant:3330,REP,Ken Paxton,509
+tarrant:3331,DEM,Rochelle Mercedes Garza,639
+tarrant:3331,LIB,Mark Ash,78
+tarrant:3331,REP,Ken Paxton,1447
+tarrant:3361,DEM,Rochelle Mercedes Garza,674
+tarrant:3361,LIB,Mark Ash,61
+tarrant:3361,REP,Ken Paxton,1051
+tarrant:3368,DEM,Rochelle Mercedes Garza,182
+tarrant:3368,LIB,Mark Ash,28
+tarrant:3368,REP,Ken Paxton,313
+tarrant:3384,DEM,Rochelle Mercedes Garza,441
+tarrant:3384,LIB,Mark Ash,52
+tarrant:3384,REP,Ken Paxton,525
+tarrant:3385,DEM,Rochelle Mercedes Garza,765
+tarrant:3385,LIB,Mark Ash,107
+tarrant:3385,REP,Ken Paxton,1196
+tarrant:3390,DEM,Rochelle Mercedes Garza,971
+tarrant:3390,LIB,Mark Ash,115
+tarrant:3390,REP,Ken Paxton,1816
+tarrant:3396,DEM,Rochelle Mercedes Garza,1002
+tarrant:3396,LIB,Mark Ash,98
+tarrant:3396,REP,Ken Paxton,1178
+tarrant:3421,DEM,Rochelle Mercedes Garza,302
+tarrant:3421,LIB,Mark Ash,47
+tarrant:3421,REP,Ken Paxton,655
+tarrant:3443,DEM,Rochelle Mercedes Garza,607
+tarrant:3443,LIB,Mark Ash,57
+tarrant:3443,REP,Ken Paxton,682
+tarrant:3469,DEM,Rochelle Mercedes Garza,347
+tarrant:3469,LIB,Mark Ash,36
+tarrant:3469,REP,Ken Paxton,454
+tarrant:3510,DEM,Rochelle Mercedes Garza,617
+tarrant:3510,LIB,Mark Ash,85
+tarrant:3510,REP,Ken Paxton,1326
+tarrant:3516,DEM,Rochelle Mercedes Garza,454
+tarrant:3516,LIB,Mark Ash,62
+tarrant:3516,REP,Ken Paxton,772
+tarrant:3530,DEM,Rochelle Mercedes Garza,741
+tarrant:3530,LIB,Mark Ash,69
+tarrant:3530,REP,Ken Paxton,943
+tarrant:3539,DEM,Rochelle Mercedes Garza,0
+tarrant:3539,LIB,Mark Ash,0
+tarrant:3539,REP,Ken Paxton,8
+tarrant:3542,DEM,Rochelle Mercedes Garza,567
+tarrant:3542,LIB,Mark Ash,56
+tarrant:3542,REP,Ken Paxton,753
+tarrant:3562,DEM,Rochelle Mercedes Garza,32
+tarrant:3562,LIB,Mark Ash,3
+tarrant:3562,REP,Ken Paxton,72
+tarrant:3566,DEM,Rochelle Mercedes Garza,0
+tarrant:3566,LIB,Mark Ash,0
+tarrant:3566,REP,Ken Paxton,0
+tarrant:3574,DEM,Rochelle Mercedes Garza,235
+tarrant:3574,LIB,Mark Ash,13
+tarrant:3574,REP,Ken Paxton,205
+tarrant:3663,DEM,Rochelle Mercedes Garza,2
+tarrant:3663,LIB,Mark Ash,0
+tarrant:3663,REP,Ken Paxton,3
+tarrant:3706,DEM,Rochelle Mercedes Garza,731
+tarrant:3706,LIB,Mark Ash,55
+tarrant:3706,REP,Ken Paxton,785
+tarrant:3735,DEM,Rochelle Mercedes Garza,244
+tarrant:3735,LIB,Mark Ash,30
+tarrant:3735,REP,Ken Paxton,533

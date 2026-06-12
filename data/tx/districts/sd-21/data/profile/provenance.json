@@ -1,0 +1,26 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANS2168",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "bexar": 7,
+      "caldwell": 24,
+      "dimmit": 7,
+      "duval": 9,
+      "guadalupe": 11,
+      "hays": 45,
+      "jim-hogg": 5,
+      "karnes": 15,
+      "la-salle": 6,
+      "live-oak": 14,
+      "mcmullen": 6,
+      "starr": 10,
+      "travis": 32,
+      "webb": 69,
+      "wilson": 13,
+      "zapata": 7
+    },
+    "generated": "2026-06-12"
+  }
+}

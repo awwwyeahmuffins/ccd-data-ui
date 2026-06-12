@@ -1,0 +1,697 @@
+precinct,party,candidate,votes
+collin:1,DEM,Robert Johnson,592
+collin:1,REP,"Jesse F. McClure, III",846
+collin:1,,Over Votes,0
+collin:1,,Under Votes,53
+collin:2,DEM,Robert Johnson,992
+collin:2,REP,"Jesse F. McClure, III",1043
+collin:2,,Over Votes,0
+collin:2,,Under Votes,49
+collin:3,DEM,Robert Johnson,545
+collin:3,REP,"Jesse F. McClure, III",239
+collin:3,,Over Votes,0
+collin:3,,Under Votes,51
+collin:4,DEM,Robert Johnson,483
+collin:4,REP,"Jesse F. McClure, III",1171
+collin:4,,Over Votes,0
+collin:4,,Under Votes,40
+collin:5,DEM,Robert Johnson,182
+collin:5,REP,"Jesse F. McClure, III",375
+collin:5,,Over Votes,0
+collin:5,,Under Votes,19
+collin:6,DEM,Robert Johnson,400
+collin:6,REP,"Jesse F. McClure, III",324
+collin:6,,Over Votes,0
+collin:6,,Under Votes,20
+collin:7,DEM,Robert Johnson,366
+collin:7,REP,"Jesse F. McClure, III",394
+collin:7,,Over Votes,0
+collin:7,,Under Votes,30
+collin:8,DEM,Robert Johnson,467
+collin:8,REP,"Jesse F. McClure, III",1123
+collin:8,,Over Votes,0
+collin:8,,Under Votes,69
+collin:9,DEM,Robert Johnson,606
+collin:9,REP,"Jesse F. McClure, III",950
+collin:9,,Over Votes,0
+collin:9,,Under Votes,55
+collin:10,DEM,Robert Johnson,67
+collin:10,REP,"Jesse F. McClure, III",375
+collin:10,,Over Votes,0
+collin:10,,Under Votes,13
+collin:11,DEM,Robert Johnson,408
+collin:11,REP,"Jesse F. McClure, III",1807
+collin:11,,Over Votes,0
+collin:11,,Under Votes,76
+collin:12,DEM,Robert Johnson,429
+collin:12,REP,"Jesse F. McClure, III",781
+collin:12,,Over Votes,0
+collin:12,,Under Votes,43
+collin:13,DEM,Robert Johnson,338
+collin:13,REP,"Jesse F. McClure, III",997
+collin:13,,Over Votes,0
+collin:13,,Under Votes,23
+collin:15,DEM,Robert Johnson,375
+collin:15,REP,"Jesse F. McClure, III",359
+collin:15,,Over Votes,0
+collin:15,,Under Votes,32
+collin:16,DEM,Robert Johnson,740
+collin:16,REP,"Jesse F. McClure, III",1657
+collin:16,,Over Votes,0
+collin:16,,Under Votes,68
+collin:17,DEM,Robert Johnson,833
+collin:17,REP,"Jesse F. McClure, III",1388
+collin:17,,Over Votes,0
+collin:17,,Under Votes,69
+collin:18,DEM,Robert Johnson,73
+collin:18,REP,"Jesse F. McClure, III",367
+collin:18,,Over Votes,0
+collin:18,,Under Votes,17
+collin:19,DEM,Robert Johnson,445
+collin:19,REP,"Jesse F. McClure, III",549
+collin:19,,Over Votes,0
+collin:19,,Under Votes,44
+collin:20,DEM,Robert Johnson,125
+collin:20,REP,"Jesse F. McClure, III",507
+collin:20,,Over Votes,0
+collin:20,,Under Votes,23
+collin:25,DEM,Robert Johnson,990
+collin:25,REP,"Jesse F. McClure, III",1080
+collin:25,,Over Votes,0
+collin:25,,Under Votes,80
+collin:27,DEM,Robert Johnson,531
+collin:27,REP,"Jesse F. McClure, III",730
+collin:27,,Over Votes,0
+collin:27,,Under Votes,56
+collin:28,DEM,Robert Johnson,942
+collin:28,REP,"Jesse F. McClure, III",1004
+collin:28,,Over Votes,0
+collin:28,,Under Votes,86
+collin:31,DEM,Robert Johnson,566
+collin:31,REP,"Jesse F. McClure, III",757
+collin:31,,Over Votes,0
+collin:31,,Under Votes,42
+collin:32,DEM,Robert Johnson,638
+collin:32,REP,"Jesse F. McClure, III",841
+collin:32,,Over Votes,0
+collin:32,,Under Votes,67
+collin:33,DEM,Robert Johnson,732
+collin:33,REP,"Jesse F. McClure, III",1916
+collin:33,,Over Votes,0
+collin:33,,Under Votes,95
+collin:34,DEM,Robert Johnson,1289
+collin:34,REP,"Jesse F. McClure, III",1064
+collin:34,,Over Votes,0
+collin:34,,Under Votes,95
+collin:35,DEM,Robert Johnson,142
+collin:35,REP,"Jesse F. McClure, III",715
+collin:35,,Over Votes,0
+collin:35,,Under Votes,30
+collin:37,DEM,Robert Johnson,180
+collin:37,REP,"Jesse F. McClure, III",1166
+collin:37,,Over Votes,0
+collin:37,,Under Votes,46
+collin:38,DEM,Robert Johnson,696
+collin:38,REP,"Jesse F. McClure, III",626
+collin:38,,Over Votes,0
+collin:38,,Under Votes,47
+collin:40,DEM,Robert Johnson,699
+collin:40,REP,"Jesse F. McClure, III",1253
+collin:40,,Over Votes,0
+collin:40,,Under Votes,88
+collin:41,DEM,Robert Johnson,788
+collin:41,REP,"Jesse F. McClure, III",1687
+collin:41,,Over Votes,0
+collin:41,,Under Votes,70
+collin:42,DEM,Robert Johnson,201
+collin:42,REP,"Jesse F. McClure, III",750
+collin:42,,Over Votes,0
+collin:42,,Under Votes,28
+collin:43,DEM,Robert Johnson,737
+collin:43,REP,"Jesse F. McClure, III",678
+collin:43,,Over Votes,0
+collin:43,,Under Votes,52
+collin:44,DEM,Robert Johnson,294
+collin:44,REP,"Jesse F. McClure, III",333
+collin:44,,Over Votes,0
+collin:44,,Under Votes,37
+collin:45,DEM,Robert Johnson,671
+collin:45,REP,"Jesse F. McClure, III",1182
+collin:45,,Over Votes,0
+collin:45,,Under Votes,57
+collin:47,DEM,Robert Johnson,697
+collin:47,REP,"Jesse F. McClure, III",653
+collin:47,,Over Votes,0
+collin:47,,Under Votes,41
+collin:53,DEM,Robert Johnson,621
+collin:53,REP,"Jesse F. McClure, III",722
+collin:53,,Over Votes,0
+collin:53,,Under Votes,70
+collin:56,DEM,Robert Johnson,611
+collin:56,REP,"Jesse F. McClure, III",1029
+collin:56,,Over Votes,0
+collin:56,,Under Votes,71
+collin:57,DEM,Robert Johnson,1018
+collin:57,REP,"Jesse F. McClure, III",1385
+collin:57,,Over Votes,0
+collin:57,,Under Votes,86
+collin:59,DEM,Robert Johnson,820
+collin:59,REP,"Jesse F. McClure, III",1185
+collin:59,,Over Votes,0
+collin:59,,Under Votes,73
+collin:60,DEM,Robert Johnson,586
+collin:60,REP,"Jesse F. McClure, III",1140
+collin:60,,Over Votes,0
+collin:60,,Under Votes,66
+collin:61,DEM,Robert Johnson,386
+collin:61,REP,"Jesse F. McClure, III",567
+collin:61,,Over Votes,0
+collin:61,,Under Votes,41
+collin:63,DEM,Robert Johnson,560
+collin:63,REP,"Jesse F. McClure, III",741
+collin:63,,Over Votes,0
+collin:63,,Under Votes,64
+collin:64,DEM,Robert Johnson,716
+collin:64,REP,"Jesse F. McClure, III",667
+collin:64,,Over Votes,0
+collin:64,,Under Votes,63
+collin:65,DEM,Robert Johnson,339
+collin:65,REP,"Jesse F. McClure, III",359
+collin:65,,Over Votes,0
+collin:65,,Under Votes,23
+collin:69,DEM,Robert Johnson,1004
+collin:69,REP,"Jesse F. McClure, III",1199
+collin:69,,Over Votes,0
+collin:69,,Under Votes,94
+collin:71,DEM,Robert Johnson,514
+collin:71,REP,"Jesse F. McClure, III",545
+collin:71,,Over Votes,0
+collin:71,,Under Votes,52
+collin:76,DEM,Robert Johnson,785
+collin:76,REP,"Jesse F. McClure, III",1065
+collin:76,,Over Votes,0
+collin:76,,Under Votes,102
+collin:80,DEM,Robert Johnson,847
+collin:80,REP,"Jesse F. McClure, III",948
+collin:80,,Over Votes,0
+collin:80,,Under Votes,59
+collin:81,DEM,Robert Johnson,758
+collin:81,REP,"Jesse F. McClure, III",703
+collin:81,,Over Votes,0
+collin:81,,Under Votes,74
+collin:82,DEM,Robert Johnson,684
+collin:82,REP,"Jesse F. McClure, III",666
+collin:82,,Over Votes,0
+collin:82,,Under Votes,40
+collin:83,DEM,Robert Johnson,641
+collin:83,REP,"Jesse F. McClure, III",1344
+collin:83,,Over Votes,0
+collin:83,,Under Votes,78
+collin:86,DEM,Robert Johnson,760
+collin:86,REP,"Jesse F. McClure, III",902
+collin:86,,Over Votes,0
+collin:86,,Under Votes,66
+collin:87,DEM,Robert Johnson,882
+collin:87,REP,"Jesse F. McClure, III",538
+collin:87,,Over Votes,0
+collin:87,,Under Votes,42
+collin:90,DEM,Robert Johnson,631
+collin:90,REP,"Jesse F. McClure, III",1225
+collin:90,,Over Votes,0
+collin:90,,Under Votes,78
+collin:91,DEM,Robert Johnson,678
+collin:91,REP,"Jesse F. McClure, III",658
+collin:91,,Over Votes,0
+collin:91,,Under Votes,48
+collin:93,DEM,Robert Johnson,23
+collin:93,REP,"Jesse F. McClure, III",123
+collin:93,,Over Votes,0
+collin:93,,Under Votes,11
+collin:95,DEM,Robert Johnson,745
+collin:95,REP,"Jesse F. McClure, III",805
+collin:95,,Over Votes,0
+collin:95,,Under Votes,64
+collin:96,DEM,Robert Johnson,219
+collin:96,REP,"Jesse F. McClure, III",288
+collin:96,,Over Votes,0
+collin:96,,Under Votes,18
+collin:97,DEM,Robert Johnson,238
+collin:97,REP,"Jesse F. McClure, III",647
+collin:97,,Over Votes,0
+collin:97,,Under Votes,42
+collin:98,DEM,Robert Johnson,264
+collin:98,REP,"Jesse F. McClure, III",414
+collin:98,,Over Votes,0
+collin:98,,Under Votes,33
+collin:99,DEM,Robert Johnson,82
+collin:99,REP,"Jesse F. McClure, III",42
+collin:99,,Over Votes,0
+collin:99,,Under Votes,2
+collin:100,DEM,Robert Johnson,2
+collin:100,REP,"Jesse F. McClure, III",3
+collin:100,,Over Votes,0
+collin:100,,Under Votes,0
+collin:101,DEM,Robert Johnson,911
+collin:101,REP,"Jesse F. McClure, III",1048
+collin:101,,Over Votes,0
+collin:101,,Under Votes,63
+collin:102,DEM,Robert Johnson,492
+collin:102,REP,"Jesse F. McClure, III",1098
+collin:102,,Over Votes,0
+collin:102,,Under Votes,64
+collin:106,DEM,Robert Johnson,478
+collin:106,REP,"Jesse F. McClure, III",496
+collin:106,,Over Votes,0
+collin:106,,Under Votes,29
+collin:107,DEM,Robert Johnson,962
+collin:107,REP,"Jesse F. McClure, III",931
+collin:107,,Over Votes,0
+collin:107,,Under Votes,58
+collin:112,DEM,Robert Johnson,819
+collin:112,REP,"Jesse F. McClure, III",987
+collin:112,,Over Votes,0
+collin:112,,Under Votes,66
+collin:113,DEM,Robert Johnson,709
+collin:113,REP,"Jesse F. McClure, III",735
+collin:113,,Over Votes,0
+collin:113,,Under Votes,62
+collin:114,DEM,Robert Johnson,467
+collin:114,REP,"Jesse F. McClure, III",880
+collin:114,,Over Votes,0
+collin:114,,Under Votes,49
+collin:116,DEM,Robert Johnson,1114
+collin:116,REP,"Jesse F. McClure, III",1522
+collin:116,,Over Votes,0
+collin:116,,Under Votes,112
+collin:117,DEM,Robert Johnson,991
+collin:117,REP,"Jesse F. McClure, III",1053
+collin:117,,Over Votes,0
+collin:117,,Under Votes,76
+collin:118,DEM,Robert Johnson,906
+collin:118,REP,"Jesse F. McClure, III",1292
+collin:118,,Over Votes,0
+collin:118,,Under Votes,83
+collin:119,DEM,Robert Johnson,638
+collin:119,REP,"Jesse F. McClure, III",719
+collin:119,,Over Votes,0
+collin:119,,Under Votes,54
+collin:120,DEM,Robert Johnson,814
+collin:120,REP,"Jesse F. McClure, III",1243
+collin:120,,Over Votes,0
+collin:120,,Under Votes,69
+collin:121,DEM,Robert Johnson,903
+collin:121,REP,"Jesse F. McClure, III",594
+collin:121,,Over Votes,0
+collin:121,,Under Votes,48
+collin:122,DEM,Robert Johnson,891
+collin:122,REP,"Jesse F. McClure, III",2012
+collin:122,,Over Votes,0
+collin:122,,Under Votes,121
+collin:126,DEM,Robert Johnson,1152
+collin:126,REP,"Jesse F. McClure, III",1305
+collin:126,,Over Votes,0
+collin:126,,Under Votes,64
+collin:127,DEM,Robert Johnson,884
+collin:127,REP,"Jesse F. McClure, III",949
+collin:127,,Over Votes,0
+collin:127,,Under Votes,79
+collin:128,DEM,Robert Johnson,457
+collin:128,REP,"Jesse F. McClure, III",1460
+collin:128,,Over Votes,0
+collin:128,,Under Votes,82
+collin:129,DEM,Robert Johnson,983
+collin:129,REP,"Jesse F. McClure, III",1262
+collin:129,,Over Votes,0
+collin:129,,Under Votes,74
+collin:130,DEM,Robert Johnson,1024
+collin:130,REP,"Jesse F. McClure, III",1034
+collin:130,,Over Votes,0
+collin:130,,Under Votes,80
+collin:131,DEM,Robert Johnson,538
+collin:131,REP,"Jesse F. McClure, III",1049
+collin:131,,Over Votes,0
+collin:131,,Under Votes,60
+collin:133,DEM,Robert Johnson,476
+collin:133,REP,"Jesse F. McClure, III",648
+collin:133,,Over Votes,0
+collin:133,,Under Votes,53
+collin:137,DEM,Robert Johnson,411
+collin:137,REP,"Jesse F. McClure, III",646
+collin:137,,Over Votes,0
+collin:137,,Under Votes,42
+collin:140,DEM,Robert Johnson,852
+collin:140,REP,"Jesse F. McClure, III",1801
+collin:140,,Over Votes,0
+collin:140,,Under Votes,91
+collin:141,DEM,Robert Johnson,956
+collin:141,REP,"Jesse F. McClure, III",998
+collin:141,,Over Votes,0
+collin:141,,Under Votes,72
+collin:144,DEM,Robert Johnson,640
+collin:144,REP,"Jesse F. McClure, III",885
+collin:144,,Over Votes,0
+collin:144,,Under Votes,69
+collin:145,DEM,Robert Johnson,469
+collin:145,REP,"Jesse F. McClure, III",397
+collin:145,,Over Votes,0
+collin:145,,Under Votes,30
+collin:146,DEM,Robert Johnson,1102
+collin:146,REP,"Jesse F. McClure, III",1189
+collin:146,,Over Votes,0
+collin:146,,Under Votes,80
+collin:147,DEM,Robert Johnson,442
+collin:147,REP,"Jesse F. McClure, III",506
+collin:147,,Over Votes,0
+collin:147,,Under Votes,32
+collin:148,DEM,Robert Johnson,147
+collin:148,REP,"Jesse F. McClure, III",234
+collin:148,,Over Votes,0
+collin:148,,Under Votes,24
+collin:149,DEM,Robert Johnson,932
+collin:149,REP,"Jesse F. McClure, III",1445
+collin:149,,Over Votes,0
+collin:149,,Under Votes,83
+collin:150,DEM,Robert Johnson,590
+collin:150,REP,"Jesse F. McClure, III",1253
+collin:150,,Over Votes,0
+collin:150,,Under Votes,59
+collin:151,DEM,Robert Johnson,442
+collin:151,REP,"Jesse F. McClure, III",425
+collin:151,,Over Votes,0
+collin:151,,Under Votes,26
+collin:153,DEM,Robert Johnson,1006
+collin:153,REP,"Jesse F. McClure, III",1406
+collin:153,,Over Votes,0
+collin:153,,Under Votes,91
+collin:155,DEM,Robert Johnson,618
+collin:155,REP,"Jesse F. McClure, III",894
+collin:155,,Over Votes,0
+collin:155,,Under Votes,41
+collin:156,DEM,Robert Johnson,795
+collin:156,REP,"Jesse F. McClure, III",1002
+collin:156,,Over Votes,0
+collin:156,,Under Votes,73
+collin:157,DEM,Robert Johnson,1004
+collin:157,REP,"Jesse F. McClure, III",1084
+collin:157,,Over Votes,0
+collin:157,,Under Votes,76
+collin:159,DEM,Robert Johnson,677
+collin:159,REP,"Jesse F. McClure, III",712
+collin:159,,Over Votes,0
+collin:159,,Under Votes,56
+collin:160,DEM,Robert Johnson,26
+collin:160,REP,"Jesse F. McClure, III",248
+collin:160,,Over Votes,0
+collin:160,,Under Votes,9
+collin:161,DEM,Robert Johnson,43
+collin:161,REP,"Jesse F. McClure, III",105
+collin:161,,Over Votes,0
+collin:161,,Under Votes,4
+collin:162,DEM,Robert Johnson,36
+collin:162,REP,"Jesse F. McClure, III",186
+collin:162,,Over Votes,0
+collin:162,,Under Votes,7
+collin:165,DEM,Robert Johnson,183
+collin:165,REP,"Jesse F. McClure, III",356
+collin:165,,Over Votes,0
+collin:165,,Under Votes,18
+collin:166,DEM,Robert Johnson,905
+collin:166,REP,"Jesse F. McClure, III",1144
+collin:166,,Over Votes,0
+collin:166,,Under Votes,78
+collin:168,DEM,Robert Johnson,291
+collin:168,REP,"Jesse F. McClure, III",761
+collin:168,,Over Votes,0
+collin:168,,Under Votes,61
+collin:169,DEM,Robert Johnson,864
+collin:169,REP,"Jesse F. McClure, III",855
+collin:169,,Over Votes,0
+collin:169,,Under Votes,53
+collin:170,DEM,Robert Johnson,350
+collin:170,REP,"Jesse F. McClure, III",603
+collin:170,,Over Votes,0
+collin:170,,Under Votes,54
+collin:171,DEM,Robert Johnson,556
+collin:171,REP,"Jesse F. McClure, III",612
+collin:171,,Over Votes,0
+collin:171,,Under Votes,54
+collin:172,DEM,Robert Johnson,974
+collin:172,REP,"Jesse F. McClure, III",1918
+collin:172,,Over Votes,0
+collin:172,,Under Votes,95
+collin:173,DEM,Robert Johnson,113
+collin:173,REP,"Jesse F. McClure, III",268
+collin:173,,Over Votes,0
+collin:173,,Under Votes,8
+collin:174,DEM,Robert Johnson,838
+collin:174,REP,"Jesse F. McClure, III",1210
+collin:174,,Over Votes,0
+collin:174,,Under Votes,81
+collin:175,DEM,Robert Johnson,412
+collin:175,REP,"Jesse F. McClure, III",658
+collin:175,,Over Votes,0
+collin:175,,Under Votes,46
+collin:178,DEM,Robert Johnson,369
+collin:178,REP,"Jesse F. McClure, III",1143
+collin:178,,Over Votes,0
+collin:178,,Under Votes,44
+collin:179,DEM,Robert Johnson,776
+collin:179,REP,"Jesse F. McClure, III",2313
+collin:179,,Over Votes,0
+collin:179,,Under Votes,148
+collin:181,DEM,Robert Johnson,386
+collin:181,REP,"Jesse F. McClure, III",726
+collin:181,,Over Votes,0
+collin:181,,Under Votes,35
+collin:182,DEM,Robert Johnson,863
+collin:182,REP,"Jesse F. McClure, III",1064
+collin:182,,Over Votes,0
+collin:182,,Under Votes,77
+collin:183,DEM,Robert Johnson,9
+collin:183,REP,"Jesse F. McClure, III",36
+collin:183,,Over Votes,0
+collin:183,,Under Votes,1
+collin:185,DEM,Robert Johnson,8
+collin:185,REP,"Jesse F. McClure, III",14
+collin:185,,Over Votes,0
+collin:185,,Under Votes,0
+collin:186,DEM,Robert Johnson,10
+collin:186,REP,"Jesse F. McClure, III",56
+collin:186,,Over Votes,0
+collin:186,,Under Votes,2
+collin:187,DEM,Robert Johnson,35
+collin:187,REP,"Jesse F. McClure, III",297
+collin:187,,Over Votes,0
+collin:187,,Under Votes,5
+collin:188,DEM,Robert Johnson,5
+collin:188,REP,"Jesse F. McClure, III",35
+collin:188,,Over Votes,0
+collin:188,,Under Votes,1
+collin:189,DEM,Robert Johnson,60
+collin:189,REP,"Jesse F. McClure, III",366
+collin:189,,Over Votes,0
+collin:189,,Under Votes,14
+collin:190,DEM,Robert Johnson,6
+collin:190,REP,"Jesse F. McClure, III",34
+collin:190,,Over Votes,0
+collin:190,,Under Votes,2
+collin:191,DEM,Robert Johnson,50
+collin:191,REP,"Jesse F. McClure, III",170
+collin:191,,Over Votes,0
+collin:191,,Under Votes,7
+collin:192,DEM,Robert Johnson,413
+collin:192,REP,"Jesse F. McClure, III",1367
+collin:192,,Over Votes,0
+collin:192,,Under Votes,61
+collin:193,DEM,Robert Johnson,124
+collin:193,REP,"Jesse F. McClure, III",456
+collin:193,,Over Votes,0
+collin:193,,Under Votes,24
+collin:194,DEM,Robert Johnson,2
+collin:194,REP,"Jesse F. McClure, III",14
+collin:194,,Over Votes,0
+collin:194,,Under Votes,1
+collin:195,DEM,Robert Johnson,117
+collin:195,REP,"Jesse F. McClure, III",404
+collin:195,,Over Votes,0
+collin:195,,Under Votes,20
+collin:196,DEM,Robert Johnson,395
+collin:196,REP,"Jesse F. McClure, III",571
+collin:196,,Over Votes,0
+collin:196,,Under Votes,28
+collin:197,DEM,Robert Johnson,366
+collin:197,REP,"Jesse F. McClure, III",287
+collin:197,,Over Votes,0
+collin:197,,Under Votes,28
+collin:198,DEM,Robert Johnson,5
+collin:198,REP,"Jesse F. McClure, III",59
+collin:198,,Over Votes,0
+collin:198,,Under Votes,1
+collin:200,DEM,Robert Johnson,246
+collin:200,REP,"Jesse F. McClure, III",703
+collin:200,,Over Votes,0
+collin:200,,Under Votes,42
+collin:202,DEM,Robert Johnson,2
+collin:202,REP,"Jesse F. McClure, III",0
+collin:202,,Over Votes,0
+collin:202,,Under Votes,0
+collin:203,DEM,Robert Johnson,617
+collin:203,REP,"Jesse F. McClure, III",1157
+collin:203,,Over Votes,0
+collin:203,,Under Votes,79
+collin:204,DEM,Robert Johnson,69
+collin:204,REP,"Jesse F. McClure, III",151
+collin:204,,Over Votes,0
+collin:204,,Under Votes,10
+collin:205,DEM,Robert Johnson,5
+collin:205,REP,"Jesse F. McClure, III",13
+collin:205,,Over Votes,0
+collin:205,,Under Votes,0
+collin:205,DEM,Robert Johnson,0
+collin:205,REP,"Jesse F. McClure, III",0
+collin:205,,Over Votes,0
+collin:205,,Under Votes,0
+collin:206,DEM,Robert Johnson,364
+collin:206,REP,"Jesse F. McClure, III",586
+collin:206,,Over Votes,0
+collin:206,,Under Votes,46
+collin:207,DEM,Robert Johnson,752
+collin:207,REP,"Jesse F. McClure, III",1304
+collin:207,,Over Votes,0
+collin:207,,Under Votes,69
+collin:208,DEM,Robert Johnson,710
+collin:208,REP,"Jesse F. McClure, III",1350
+collin:208,,Over Votes,0
+collin:208,,Under Votes,80
+collin:210,DEM,Robert Johnson,473
+collin:210,REP,"Jesse F. McClure, III",403
+collin:210,,Over Votes,0
+collin:210,,Under Votes,38
+collin:211,DEM,Robert Johnson,680
+collin:211,REP,"Jesse F. McClure, III",1015
+collin:211,,Over Votes,0
+collin:211,,Under Votes,63
+collin:214,DEM,Robert Johnson,549
+collin:214,REP,"Jesse F. McClure, III",2098
+collin:214,,Over Votes,0
+collin:214,,Under Votes,69
+collin:215,DEM,Robert Johnson,318
+collin:215,REP,"Jesse F. McClure, III",702
+collin:215,,Over Votes,0
+collin:215,,Under Votes,36
+collin:216,DEM,Robert Johnson,996
+collin:216,REP,"Jesse F. McClure, III",2239
+collin:216,,Over Votes,0
+collin:216,,Under Votes,97
+collin:217,DEM,Robert Johnson,571
+collin:217,REP,"Jesse F. McClure, III",933
+collin:217,,Over Votes,0
+collin:217,,Under Votes,46
+collin:218,DEM,Robert Johnson,1057
+collin:218,REP,"Jesse F. McClure, III",1150
+collin:218,,Over Votes,0
+collin:218,,Under Votes,74
+collin:219,DEM,Robert Johnson,1035
+collin:219,REP,"Jesse F. McClure, III",1126
+collin:219,,Over Votes,0
+collin:219,,Under Votes,73
+collin:221,DEM,Robert Johnson,919
+collin:221,REP,"Jesse F. McClure, III",1856
+collin:221,,Over Votes,0
+collin:221,,Under Votes,99
+collin:222,DEM,Robert Johnson,897
+collin:222,REP,"Jesse F. McClure, III",979
+collin:222,,Over Votes,0
+collin:222,,Under Votes,57
+collin:223,DEM,Robert Johnson,504
+collin:223,REP,"Jesse F. McClure, III",657
+collin:223,,Over Votes,0
+collin:223,,Under Votes,35
+collin:224,DEM,Robert Johnson,416
+collin:224,REP,"Jesse F. McClure, III",1345
+collin:224,,Over Votes,0
+collin:224,,Under Votes,47
+collin:227,DEM,Robert Johnson,1025
+collin:227,REP,"Jesse F. McClure, III",1175
+collin:227,,Over Votes,0
+collin:227,,Under Votes,85
+collin:228,DEM,Robert Johnson,1036
+collin:228,REP,"Jesse F. McClure, III",1049
+collin:228,,Over Votes,0
+collin:228,,Under Votes,70
+collin:230,DEM,Robert Johnson,1017
+collin:230,REP,"Jesse F. McClure, III",962
+collin:230,,Over Votes,0
+collin:230,,Under Votes,60
+collin:231,DEM,Robert Johnson,692
+collin:231,REP,"Jesse F. McClure, III",1006
+collin:231,,Over Votes,0
+collin:231,,Under Votes,56
+collin:232,DEM,Robert Johnson,746
+collin:232,REP,"Jesse F. McClure, III",1165
+collin:232,,Over Votes,0
+collin:232,,Under Votes,80
+collin:233,DEM,Robert Johnson,367
+collin:233,REP,"Jesse F. McClure, III",572
+collin:233,,Over Votes,0
+collin:233,,Under Votes,29
+collin:234,DEM,Robert Johnson,749
+collin:234,REP,"Jesse F. McClure, III",701
+collin:234,,Over Votes,0
+collin:234,,Under Votes,34
+collin:236,DEM,Robert Johnson,535
+collin:236,REP,"Jesse F. McClure, III",1080
+collin:236,,Over Votes,0
+collin:236,,Under Votes,63
+collin:237,DEM,Robert Johnson,473
+collin:237,REP,"Jesse F. McClure, III",489
+collin:237,,Over Votes,0
+collin:237,,Under Votes,49
+collin:238,DEM,Robert Johnson,887
+collin:238,REP,"Jesse F. McClure, III",769
+collin:238,,Over Votes,0
+collin:238,,Under Votes,59
+collin:239,DEM,Robert Johnson,608
+collin:239,REP,"Jesse F. McClure, III",1615
+collin:239,,Over Votes,0
+collin:239,,Under Votes,61
+collin:240,DEM,Robert Johnson,848
+collin:240,REP,"Jesse F. McClure, III",2402
+collin:240,,Over Votes,0
+collin:240,,Under Votes,98
+collin:241,DEM,Robert Johnson,367
+collin:241,REP,"Jesse F. McClure, III",458
+collin:241,,Over Votes,0
+collin:241,,Under Votes,45
+collin:242,DEM,Robert Johnson,789
+collin:242,REP,"Jesse F. McClure, III",1064
+collin:242,,Over Votes,0
+collin:242,,Under Votes,59
+collin:243,DEM,Robert Johnson,252
+collin:243,REP,"Jesse F. McClure, III",633
+collin:243,,Over Votes,0
+collin:243,,Under Votes,30
+collin:244,DEM,Robert Johnson,730
+collin:244,REP,"Jesse F. McClure, III",962
+collin:244,,Over Votes,0
+collin:244,,Under Votes,70
+collin:246,DEM,Robert Johnson,740
+collin:246,REP,"Jesse F. McClure, III",908
+collin:246,,Over Votes,0
+collin:246,,Under Votes,43
+collin:247,DEM,Robert Johnson,352
+collin:247,REP,"Jesse F. McClure, III",969
+collin:247,,Over Votes,0
+collin:247,,Under Votes,43
+collin:249,DEM,Robert Johnson,216
+collin:249,REP,"Jesse F. McClure, III",155
+collin:249,,Over Votes,0
+collin:249,,Under Votes,9
+collin:251,DEM,Robert Johnson,2
+collin:251,REP,"Jesse F. McClure, III",6
+collin:251,,Over Votes,0
+collin:251,,Under Votes,1
+collin:252,DEM,Robert Johnson,0
+collin:252,REP,"Jesse F. McClure, III",0
+collin:252,,Over Votes,0
+collin:252,,Under Votes,0

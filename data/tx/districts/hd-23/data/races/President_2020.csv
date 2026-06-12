@@ -1,0 +1,311 @@
+precinct,party,candidate,votes
+chambers:1,,Write-in,0
+chambers:1,DEM,Joseph R Biden,68
+chambers:1,GRN,Howie Hawkins,0
+chambers:1,LIB,Jo Jorgensen,6
+chambers:1,REP,Donald J Trump,402
+chambers:10,,Write-in,0
+chambers:10,DEM,Joseph R Biden,590
+chambers:10,GRN,Howie Hawkins,8
+chambers:10,LIB,Jo Jorgensen,55
+chambers:10,REP,Donald J Trump,3289
+chambers:11,,Write-in,1
+chambers:11,DEM,Joseph R Biden,397
+chambers:11,GRN,Howie Hawkins,0
+chambers:11,LIB,Jo Jorgensen,13
+chambers:11,REP,Donald J Trump,1172
+chambers:12,,Write-in,0
+chambers:12,DEM,Joseph R Biden,262
+chambers:12,GRN,Howie Hawkins,7
+chambers:12,LIB,Jo Jorgensen,7
+chambers:12,REP,Donald J Trump,704
+chambers:13,,Write-in,0
+chambers:13,DEM,Joseph R Biden,0
+chambers:13,GRN,Howie Hawkins,0
+chambers:13,LIB,Jo Jorgensen,0
+chambers:13,REP,Donald J Trump,0
+chambers:14,,Write-in,0
+chambers:14,DEM,Joseph R Biden,55
+chambers:14,GRN,Howie Hawkins,2
+chambers:14,LIB,Jo Jorgensen,0
+chambers:14,REP,Donald J Trump,297
+chambers:15,,Write-in,1
+chambers:15,DEM,Joseph R Biden,651
+chambers:15,GRN,Howie Hawkins,3
+chambers:15,LIB,Jo Jorgensen,22
+chambers:15,REP,Donald J Trump,1021
+chambers:2,,Write-in,0
+chambers:2,DEM,Joseph R Biden,150
+chambers:2,GRN,Howie Hawkins,2
+chambers:2,LIB,Jo Jorgensen,3
+chambers:2,REP,Donald J Trump,346
+chambers:3,,Write-in,0
+chambers:3,DEM,Joseph R Biden,114
+chambers:3,GRN,Howie Hawkins,1
+chambers:3,LIB,Jo Jorgensen,3
+chambers:3,REP,Donald J Trump,203
+chambers:4,,Write-in,0
+chambers:4,DEM,Joseph R Biden,373
+chambers:4,GRN,Howie Hawkins,4
+chambers:4,LIB,Jo Jorgensen,52
+chambers:4,REP,Donald J Trump,2547
+chambers:5,,Write-in,0
+chambers:5,DEM,Joseph R Biden,230
+chambers:5,GRN,Howie Hawkins,4
+chambers:5,LIB,Jo Jorgensen,24
+chambers:5,REP,Donald J Trump,1644
+chambers:6,,Write-in,0
+chambers:6,DEM,Joseph R Biden,349
+chambers:6,GRN,Howie Hawkins,7
+chambers:6,LIB,Jo Jorgensen,14
+chambers:6,REP,Donald J Trump,1140
+chambers:7,,Write-in,0
+chambers:7,DEM,Joseph R Biden,232
+chambers:7,GRN,Howie Hawkins,3
+chambers:7,LIB,Jo Jorgensen,11
+chambers:7,REP,Donald J Trump,1283
+chambers:8,,Write-in,0
+chambers:8,DEM,Joseph R Biden,497
+chambers:8,GRN,Howie Hawkins,9
+chambers:8,LIB,Jo Jorgensen,38
+chambers:8,REP,Donald J Trump,3067
+chambers:9,,Write-in,0
+chambers:9,DEM,Joseph R Biden,29
+chambers:9,GRN,Howie Hawkins,0
+chambers:9,LIB,Jo Jorgensen,2
+chambers:9,REP,Donald J Trump,238
+galveston:103,,Write-in,0
+galveston:103,DEM,Joseph R Biden,158
+galveston:103,GRN,Howie Hawkins,0
+galveston:103,LIB,Jo Jorgensen,7
+galveston:103,REP,Donald J Trump,860
+galveston:104,,Write-in,0
+galveston:104,DEM,Joseph R Biden,137
+galveston:104,GRN,Howie Hawkins,2
+galveston:104,LIB,Jo Jorgensen,5
+galveston:104,REP,Donald J Trump,620
+galveston:105,,Write-in,0
+galveston:105,DEM,Joseph R Biden,78
+galveston:105,GRN,Howie Hawkins,2
+galveston:105,LIB,Jo Jorgensen,7
+galveston:105,REP,Donald J Trump,83
+galveston:1051,,Write-in,3
+galveston:1051,DEM,Joseph R Biden,247
+galveston:1051,GRN,Howie Hawkins,3
+galveston:1051,LIB,Jo Jorgensen,8
+galveston:1051,REP,Donald J Trump,207
+galveston:142,,Write-in,3
+galveston:142,DEM,Joseph R Biden,711
+galveston:142,GRN,Howie Hawkins,5
+galveston:142,LIB,Jo Jorgensen,25
+galveston:142,REP,Donald J Trump,868
+galveston:146,,Write-in,4
+galveston:146,DEM,Joseph R Biden,786
+galveston:146,GRN,Howie Hawkins,5
+galveston:146,LIB,Jo Jorgensen,25
+galveston:146,REP,Donald J Trump,1294
+galveston:148,,Write-in,2
+galveston:148,DEM,Joseph R Biden,966
+galveston:148,GRN,Howie Hawkins,7
+galveston:148,LIB,Jo Jorgensen,48
+galveston:148,REP,Donald J Trump,1534
+galveston:150,,Write-in,4
+galveston:150,DEM,Joseph R Biden,621
+galveston:150,GRN,Howie Hawkins,3
+galveston:150,LIB,Jo Jorgensen,19
+galveston:150,REP,Donald J Trump,985
+galveston:151,,Write-in,2
+galveston:151,DEM,Joseph R Biden,574
+galveston:151,GRN,Howie Hawkins,6
+galveston:151,LIB,Jo Jorgensen,24
+galveston:151,REP,Donald J Trump,1724
+galveston:159,,Write-in,3
+galveston:159,DEM,Joseph R Biden,948
+galveston:159,GRN,Howie Hawkins,3
+galveston:159,LIB,Jo Jorgensen,29
+galveston:159,REP,Donald J Trump,1809
+galveston:165,,Write-in,10
+galveston:165,DEM,Joseph R Biden,1323
+galveston:165,GRN,Howie Hawkins,6
+galveston:165,LIB,Jo Jorgensen,52
+galveston:165,REP,Donald J Trump,2868
+galveston:1651,,Write-in,0
+galveston:1651,DEM,Joseph R Biden,0
+galveston:1651,GRN,Howie Hawkins,0
+galveston:1651,LIB,Jo Jorgensen,0
+galveston:1651,REP,Donald J Trump,0
+galveston:168,,Write-in,0
+galveston:168,DEM,Joseph R Biden,0
+galveston:168,GRN,Howie Hawkins,0
+galveston:168,LIB,Jo Jorgensen,0
+galveston:168,REP,Donald J Trump,2
+galveston:169,,Write-in,0
+galveston:169,DEM,Joseph R Biden,0
+galveston:169,GRN,Howie Hawkins,0
+galveston:169,LIB,Jo Jorgensen,0
+galveston:169,REP,Donald J Trump,1
+galveston:170,,Write-in,2
+galveston:170,DEM,Joseph R Biden,726
+galveston:170,GRN,Howie Hawkins,2
+galveston:170,LIB,Jo Jorgensen,37
+galveston:170,REP,Donald J Trump,1486
+galveston:172,,Write-in,0
+galveston:172,DEM,Joseph R Biden,90
+galveston:172,GRN,Howie Hawkins,2
+galveston:172,LIB,Jo Jorgensen,0
+galveston:172,REP,Donald J Trump,282
+galveston:192,,Write-in,0
+galveston:192,DEM,Joseph R Biden,173
+galveston:192,GRN,Howie Hawkins,1
+galveston:192,LIB,Jo Jorgensen,2
+galveston:192,REP,Donald J Trump,295
+galveston:193,,Write-in,3
+galveston:193,DEM,Joseph R Biden,693
+galveston:193,GRN,Howie Hawkins,3
+galveston:193,LIB,Jo Jorgensen,36
+galveston:193,REP,Donald J Trump,1324
+galveston:197,,Write-in,0
+galveston:197,DEM,Joseph R Biden,193
+galveston:197,GRN,Howie Hawkins,2
+galveston:197,LIB,Jo Jorgensen,13
+galveston:197,REP,Donald J Trump,411
+galveston:218,,Write-in,2
+galveston:218,DEM,Joseph R Biden,1243
+galveston:218,GRN,Howie Hawkins,8
+galveston:218,LIB,Jo Jorgensen,36
+galveston:218,REP,Donald J Trump,1049
+galveston:219,,Write-in,1
+galveston:219,DEM,Joseph R Biden,934
+galveston:219,GRN,Howie Hawkins,9
+galveston:219,LIB,Jo Jorgensen,24
+galveston:219,REP,Donald J Trump,1097
+galveston:221,,Write-in,3
+galveston:221,DEM,Joseph R Biden,520
+galveston:221,GRN,Howie Hawkins,2
+galveston:221,LIB,Jo Jorgensen,7
+galveston:221,REP,Donald J Trump,1211
+galveston:223,,Write-in,3
+galveston:223,DEM,Joseph R Biden,1150
+galveston:223,GRN,Howie Hawkins,5
+galveston:223,LIB,Jo Jorgensen,25
+galveston:223,REP,Donald J Trump,1047
+galveston:224,,Write-in,2
+galveston:224,DEM,Joseph R Biden,1194
+galveston:224,GRN,Howie Hawkins,4
+galveston:224,LIB,Jo Jorgensen,23
+galveston:224,REP,Donald J Trump,1152
+galveston:232,,Write-in,0
+galveston:232,DEM,Joseph R Biden,643
+galveston:232,GRN,Howie Hawkins,5
+galveston:232,LIB,Jo Jorgensen,15
+galveston:232,REP,Donald J Trump,698
+galveston:2321,,Write-in,0
+galveston:2321,DEM,Joseph R Biden,0
+galveston:2321,GRN,Howie Hawkins,0
+galveston:2321,LIB,Jo Jorgensen,0
+galveston:2321,REP,Donald J Trump,0
+galveston:2322,,Write-in,0
+galveston:2322,DEM,Joseph R Biden,0
+galveston:2322,GRN,Howie Hawkins,0
+galveston:2322,LIB,Jo Jorgensen,0
+galveston:2322,REP,Donald J Trump,0
+galveston:2323,,Write-in,1
+galveston:2323,DEM,Joseph R Biden,54
+galveston:2323,GRN,Howie Hawkins,1
+galveston:2323,LIB,Jo Jorgensen,2
+galveston:2323,REP,Donald J Trump,287
+galveston:274,,Write-in,0
+galveston:274,DEM,Joseph R Biden,167
+galveston:274,GRN,Howie Hawkins,0
+galveston:274,LIB,Jo Jorgensen,6
+galveston:274,REP,Donald J Trump,458
+galveston:275,,Write-in,0
+galveston:275,DEM,Joseph R Biden,97
+galveston:275,GRN,Howie Hawkins,0
+galveston:275,LIB,Jo Jorgensen,1
+galveston:275,REP,Donald J Trump,195
+galveston:276,,Write-in,6
+galveston:276,DEM,Joseph R Biden,766
+galveston:276,GRN,Howie Hawkins,5
+galveston:276,LIB,Jo Jorgensen,17
+galveston:276,REP,Donald J Trump,972
+galveston:301,,Write-in,2
+galveston:301,DEM,Joseph R Biden,520
+galveston:301,GRN,Howie Hawkins,3
+galveston:301,LIB,Jo Jorgensen,10
+galveston:301,REP,Donald J Trump,397
+galveston:306,,Write-in,12
+galveston:306,DEM,Joseph R Biden,2039
+galveston:306,GRN,Howie Hawkins,14
+galveston:306,LIB,Jo Jorgensen,51
+galveston:306,REP,Donald J Trump,1316
+galveston:3061,,Write-in,0
+galveston:3061,DEM,Joseph R Biden,0
+galveston:3061,GRN,Howie Hawkins,0
+galveston:3061,LIB,Jo Jorgensen,0
+galveston:3061,REP,Donald J Trump,0
+galveston:309,,Write-in,1
+galveston:309,DEM,Joseph R Biden,27
+galveston:309,GRN,Howie Hawkins,0
+galveston:309,LIB,Jo Jorgensen,0
+galveston:309,REP,Donald J Trump,54
+galveston:311,,Write-in,1
+galveston:311,DEM,Joseph R Biden,502
+galveston:311,GRN,Howie Hawkins,6
+galveston:311,LIB,Jo Jorgensen,11
+galveston:311,REP,Donald J Trump,145
+galveston:312,,Write-in,0
+galveston:312,DEM,Joseph R Biden,6
+galveston:312,GRN,Howie Hawkins,0
+galveston:312,LIB,Jo Jorgensen,0
+galveston:312,REP,Donald J Trump,1
+galveston:314,,Write-in,4
+galveston:314,DEM,Joseph R Biden,1778
+galveston:314,GRN,Howie Hawkins,6
+galveston:314,LIB,Jo Jorgensen,32
+galveston:314,REP,Donald J Trump,666
+galveston:315,,Write-in,0
+galveston:315,DEM,Joseph R Biden,1615
+galveston:315,GRN,Howie Hawkins,14
+galveston:315,LIB,Jo Jorgensen,37
+galveston:315,REP,Donald J Trump,866
+galveston:316,,Write-in,2
+galveston:316,DEM,Joseph R Biden,926
+galveston:316,GRN,Howie Hawkins,0
+galveston:316,LIB,Jo Jorgensen,19
+galveston:316,REP,Donald J Trump,534
+galveston:330,,Write-in,1
+galveston:330,DEM,Joseph R Biden,1018
+galveston:330,GRN,Howie Hawkins,6
+galveston:330,LIB,Jo Jorgensen,10
+galveston:330,REP,Donald J Trump,569
+galveston:338,,Write-in,4
+galveston:338,DEM,Joseph R Biden,1499
+galveston:338,GRN,Howie Hawkins,6
+galveston:338,LIB,Jo Jorgensen,33
+galveston:338,REP,Donald J Trump,952
+galveston:343,,Write-in,2
+galveston:343,DEM,Joseph R Biden,672
+galveston:343,GRN,Howie Hawkins,2
+galveston:343,LIB,Jo Jorgensen,13
+galveston:343,REP,Donald J Trump,550
+galveston:345,,Write-in,1
+galveston:345,DEM,Joseph R Biden,408
+galveston:345,GRN,Howie Hawkins,1
+galveston:345,LIB,Jo Jorgensen,3
+galveston:345,REP,Donald J Trump,83
+galveston:347,,Write-in,1
+galveston:347,DEM,Joseph R Biden,632
+galveston:347,GRN,Howie Hawkins,3
+galveston:347,LIB,Jo Jorgensen,9
+galveston:347,REP,Donald J Trump,253
+galveston:391,,Write-in,0
+galveston:391,DEM,Joseph R Biden,49
+galveston:391,GRN,Howie Hawkins,0
+galveston:391,LIB,Jo Jorgensen,0
+galveston:391,REP,Donald J Trump,48
+galveston:394,,Write-in,0
+galveston:394,DEM,Joseph R Biden,11
+galveston:394,GRN,Howie Hawkins,0
+galveston:394,LIB,Jo Jorgensen,0
+galveston:394,REP,Donald J Trump,8

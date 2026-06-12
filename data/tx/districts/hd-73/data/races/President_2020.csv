@@ -1,0 +1,201 @@
+precinct,party,candidate,votes
+comal:101,,Write-in,1
+comal:101,DEM,Joseph R Biden,1073
+comal:101,GRN,Howie Hawkins,9
+comal:101,LIB,Jo Jorgensen,46
+comal:101,REP,Donald J Trump,1926
+comal:102,,Write-in,3
+comal:102,DEM,Joseph R Biden,707
+comal:102,GRN,Howie Hawkins,12
+comal:102,LIB,Jo Jorgensen,30
+comal:102,REP,Donald J Trump,2708
+comal:103,,Write-in,0
+comal:103,DEM,Joseph R Biden,810
+comal:103,GRN,Howie Hawkins,2
+comal:103,LIB,Jo Jorgensen,47
+comal:103,REP,Donald J Trump,2610
+comal:104,,Write-in,0
+comal:104,DEM,Joseph R Biden,404
+comal:104,GRN,Howie Hawkins,4
+comal:104,LIB,Jo Jorgensen,17
+comal:104,REP,Donald J Trump,1303
+comal:105,,Write-in,2
+comal:105,DEM,Joseph R Biden,695
+comal:105,GRN,Howie Hawkins,7
+comal:105,LIB,Jo Jorgensen,31
+comal:105,REP,Donald J Trump,2261
+comal:106,,Write-in,0
+comal:106,DEM,Joseph R Biden,868
+comal:106,GRN,Howie Hawkins,10
+comal:106,LIB,Jo Jorgensen,50
+comal:106,REP,Donald J Trump,3452
+comal:107,,Write-in,0
+comal:107,DEM,Joseph R Biden,846
+comal:107,GRN,Howie Hawkins,4
+comal:107,LIB,Jo Jorgensen,22
+comal:107,REP,Donald J Trump,2149
+comal:108,,Write-in,0
+comal:108,DEM,Joseph R Biden,367
+comal:108,GRN,Howie Hawkins,3
+comal:108,LIB,Jo Jorgensen,15
+comal:108,REP,Donald J Trump,1118
+comal:201,,Write-in,4
+comal:201,DEM,Joseph R Biden,1313
+comal:201,GRN,Howie Hawkins,8
+comal:201,LIB,Jo Jorgensen,51
+comal:201,REP,Donald J Trump,2525
+comal:202,,Write-in,0
+comal:202,DEM,Joseph R Biden,311
+comal:202,GRN,Howie Hawkins,5
+comal:202,LIB,Jo Jorgensen,9
+comal:202,REP,Donald J Trump,649
+comal:203,,Write-in,0
+comal:203,DEM,Joseph R Biden,1048
+comal:203,GRN,Howie Hawkins,5
+comal:203,LIB,Jo Jorgensen,47
+comal:203,REP,Donald J Trump,2962
+comal:204,,Write-in,3
+comal:204,DEM,Joseph R Biden,744
+comal:204,GRN,Howie Hawkins,10
+comal:204,LIB,Jo Jorgensen,35
+comal:204,REP,Donald J Trump,2414
+comal:205,,Write-in,0
+comal:205,DEM,Joseph R Biden,1431
+comal:205,GRN,Howie Hawkins,10
+comal:205,LIB,Jo Jorgensen,39
+comal:205,REP,Donald J Trump,3080
+comal:206,,Write-in,0
+comal:206,DEM,Joseph R Biden,1238
+comal:206,GRN,Howie Hawkins,8
+comal:206,LIB,Jo Jorgensen,52
+comal:206,REP,Donald J Trump,3990
+comal:207,,Write-in,0
+comal:207,DEM,Joseph R Biden,438
+comal:207,GRN,Howie Hawkins,3
+comal:207,LIB,Jo Jorgensen,19
+comal:207,REP,Donald J Trump,1509
+comal:208,,Write-in,2
+comal:208,DEM,Joseph R Biden,438
+comal:208,GRN,Howie Hawkins,2
+comal:208,LIB,Jo Jorgensen,17
+comal:208,REP,Donald J Trump,1374
+comal:301,,Write-in,1
+comal:301,DEM,Joseph R Biden,1363
+comal:301,GRN,Howie Hawkins,8
+comal:301,LIB,Jo Jorgensen,72
+comal:301,REP,Donald J Trump,1537
+comal:302,,Write-in,4
+comal:302,DEM,Joseph R Biden,1399
+comal:302,GRN,Howie Hawkins,10
+comal:302,LIB,Jo Jorgensen,59
+comal:302,REP,Donald J Trump,2185
+comal:303,,Write-in,0
+comal:303,DEM,Joseph R Biden,365
+comal:303,GRN,Howie Hawkins,1
+comal:303,LIB,Jo Jorgensen,15
+comal:303,REP,Donald J Trump,314
+comal:304,,Write-in,0
+comal:304,DEM,Joseph R Biden,1248
+comal:304,GRN,Howie Hawkins,15
+comal:304,LIB,Jo Jorgensen,64
+comal:304,REP,Donald J Trump,1903
+comal:305,,Write-in,0
+comal:305,DEM,Joseph R Biden,826
+comal:305,GRN,Howie Hawkins,6
+comal:305,LIB,Jo Jorgensen,46
+comal:305,REP,Donald J Trump,1697
+comal:306,,Write-in,0
+comal:306,DEM,Joseph R Biden,666
+comal:306,GRN,Howie Hawkins,4
+comal:306,LIB,Jo Jorgensen,36
+comal:306,REP,Donald J Trump,1086
+comal:401,,Write-in,3
+comal:401,DEM,Joseph R Biden,568
+comal:401,GRN,Howie Hawkins,5
+comal:401,LIB,Jo Jorgensen,24
+comal:401,REP,Donald J Trump,1204
+comal:402,,Write-in,2
+comal:402,DEM,Joseph R Biden,1007
+comal:402,GRN,Howie Hawkins,5
+comal:402,LIB,Jo Jorgensen,43
+comal:402,REP,Donald J Trump,2888
+comal:403,,Write-in,1
+comal:403,DEM,Joseph R Biden,1199
+comal:403,GRN,Howie Hawkins,14
+comal:403,LIB,Jo Jorgensen,58
+comal:403,REP,Donald J Trump,3870
+comal:404,,Write-in,0
+comal:404,DEM,Joseph R Biden,835
+comal:404,GRN,Howie Hawkins,10
+comal:404,LIB,Jo Jorgensen,35
+comal:404,REP,Donald J Trump,2424
+comal:405,,Write-in,2
+comal:405,DEM,Joseph R Biden,776
+comal:405,GRN,Howie Hawkins,3
+comal:405,LIB,Jo Jorgensen,36
+comal:405,REP,Donald J Trump,2824
+comal:406,,Write-in,1
+comal:406,DEM,Joseph R Biden,1232
+comal:406,GRN,Howie Hawkins,8
+comal:406,LIB,Jo Jorgensen,64
+comal:406,REP,Donald J Trump,2849
+comal:407,,Write-in,0
+comal:407,DEM,Joseph R Biden,611
+comal:407,GRN,Howie Hawkins,0
+comal:407,LIB,Jo Jorgensen,27
+comal:407,REP,Donald J Trump,1929
+hays:333,,Write-in,0
+hays:333,DEM,Joseph R Biden,1497
+hays:333,GRN,Howie Hawkins,12
+hays:333,LIB,Jo Jorgensen,30
+hays:333,REP,Donald J Trump,1990
+hays:335,,Write-in,0
+hays:335,DEM,Joseph R Biden,1188
+hays:335,GRN,Howie Hawkins,5
+hays:335,LIB,Jo Jorgensen,46
+hays:335,REP,Donald J Trump,1596
+hays:337,,Write-in,1
+hays:337,DEM,Joseph R Biden,913
+hays:337,GRN,Howie Hawkins,6
+hays:337,LIB,Jo Jorgensen,39
+hays:337,REP,Donald J Trump,1476
+hays:338,,Write-in,0
+hays:338,DEM,Joseph R Biden,863
+hays:338,GRN,Howie Hawkins,4
+hays:338,LIB,Jo Jorgensen,20
+hays:338,REP,Donald J Trump,1051
+hays:339,,Write-in,0
+hays:339,DEM,Joseph R Biden,357
+hays:339,GRN,Howie Hawkins,4
+hays:339,LIB,Jo Jorgensen,12
+hays:339,REP,Donald J Trump,663
+hays:440,,Write-in,0
+hays:440,DEM,Joseph R Biden,722
+hays:440,GRN,Howie Hawkins,5
+hays:440,LIB,Jo Jorgensen,22
+hays:440,REP,Donald J Trump,1103
+hays:441,,Write-in,0
+hays:441,DEM,Joseph R Biden,1066
+hays:441,GRN,Howie Hawkins,3
+hays:441,LIB,Jo Jorgensen,46
+hays:441,REP,Donald J Trump,1560
+hays:444,,Write-in,1
+hays:444,DEM,Joseph R Biden,1043
+hays:444,GRN,Howie Hawkins,3
+hays:444,LIB,Jo Jorgensen,27
+hays:444,REP,Donald J Trump,1335
+hays:445,,Write-in,0
+hays:445,DEM,Joseph R Biden,866
+hays:445,GRN,Howie Hawkins,1
+hays:445,LIB,Jo Jorgensen,30
+hays:445,REP,Donald J Trump,931
+hays:448,,Write-in,0
+hays:448,DEM,Joseph R Biden,662
+hays:448,GRN,Howie Hawkins,4
+hays:448,LIB,Jo Jorgensen,24
+hays:448,REP,Donald J Trump,929
+hays:449,,Write-in,4
+hays:449,DEM,Joseph R Biden,1589
+hays:449,GRN,Howie Hawkins,3
+hays:449,LIB,Jo Jorgensen,47
+hays:449,REP,Donald J Trump,2348

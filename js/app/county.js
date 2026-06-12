@@ -95,7 +95,8 @@ async function switchCounty(slug) {
     hideMapLoading();
 
     if (entry.status === 'live') {
-      showNotification(`Switched to ${entry.name} County (${geojson.features.length} precincts)`);
+      const label = entry.kind === 'district' ? entry.name : `${entry.name} County`;
+      showNotification(`Switched to ${label} (${geojson.features.length} precincts)`);
     } else {
       showNotification(`${entry.name} County is a PLACEHOLDER — no precinct data loaded yet`);
     }
@@ -119,14 +120,29 @@ export async function initCountySwitching() {
     return;
   }
 
-  // Live counties first, then a placeholder optgroup with the other 253
-  const live = registry.filter(c => c.status === 'live');
+  // Counties first, then cross-county district views grouped by chamber,
+  // then any data-less placeholders
+  const counties = registry.filter(c => c.status === 'live' && c.kind !== 'district');
   const placeholders = registry.filter(c => c.status !== 'live');
-  select.innerHTML =
-    live.map(c => `<option value="${c.slug}">${c.name} County</option>`).join('') +
-    `<optgroup label="No data yet (placeholders)">` +
-    placeholders.map(c => `<option value="${c.slug}">${c.name} (placeholder)</option>`).join('') +
-    `</optgroup>`;
+  const districtGroups = new Map();
+  for (const d of registry.filter(c => c.kind === 'district')) {
+    if (!districtGroups.has(d.group)) districtGroups.set(d.group, []);
+    districtGroups.get(d.group).push(d);
+  }
+  const districtNum = s => Number(String(s.slug).split('-').pop()) || 0;
+  let html = counties.map(c => `<option value="${c.slug}">${c.name} County</option>`).join('');
+  for (const [group, ds] of districtGroups) {
+    html += `<optgroup label="${group}">` +
+      ds.sort((a, b) => districtNum(a) - districtNum(b))
+        .map(d => `<option value="${d.slug}">${d.name}</option>`).join('') +
+      `</optgroup>`;
+  }
+  if (placeholders.length) {
+    html += `<optgroup label="No data yet (placeholders)">` +
+      placeholders.map(c => `<option value="${c.slug}">${c.name} (placeholder)</option>`).join('') +
+      `</optgroup>`;
+  }
+  select.innerHTML = html;
   select.value = getActiveCounty();
 
   select.addEventListener('change', () => switchCounty(select.value));

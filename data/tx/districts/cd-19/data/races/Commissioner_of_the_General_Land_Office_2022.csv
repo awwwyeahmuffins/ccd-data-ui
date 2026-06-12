@@ -1,0 +1,687 @@
+precinct,party,candidate,votes
+cochran:101,DEM,JAY KLEBERG,21
+cochran:101,GRN,"ALFRED MOLISON, JR.",0
+cochran:101,REP,DAWN BUCKINGHAM,137
+cochran:202,DEM,JAY KLEBERG,22
+cochran:202,GRN,"ALFRED MOLISON, JR.",4
+cochran:202,REP,DAWN BUCKINGHAM,174
+cochran:303,DEM,JAY KLEBERG,1
+cochran:303,GRN,"ALFRED MOLISON, JR.",0
+cochran:303,REP,DAWN BUCKINGHAM,39
+cochran:306,DEM,JAY KLEBERG,17
+cochran:306,GRN,"ALFRED MOLISON, JR.",1
+cochran:306,REP,DAWN BUCKINGHAM,106
+cochran:404,DEM,JAY KLEBERG,28
+cochran:404,GRN,"ALFRED MOLISON, JR.",2
+cochran:404,REP,DAWN BUCKINGHAM,45
+floyd:1,,Rejected write-ins,0
+floyd:1,,Unassigned write-ins,0
+floyd:1,DEM,Jay Kleberg,59
+floyd:1,GRN,"Alfred Molison, Jr.",3
+floyd:1,REP,Dawn Buckingham,450
+floyd:2,,Rejected write-ins,0
+floyd:2,,Unassigned write-ins,0
+floyd:2,DEM,Jay Kleberg,39
+floyd:2,GRN,"Alfred Molison, Jr.",2
+floyd:2,REP,Dawn Buckingham,398
+floyd:3,,Rejected write-ins,0
+floyd:3,,Unassigned write-ins,0
+floyd:3,DEM,Jay Kleberg,46
+floyd:3,GRN,"Alfred Molison, Jr.",2
+floyd:3,REP,Dawn Buckingham,168
+floyd:4,,Rejected write-ins,1
+floyd:4,,Unassigned write-ins,0
+floyd:4,DEM,Jay Kleberg,51
+floyd:4,GRN,"Alfred Molison, Jr.",8
+floyd:4,REP,Dawn Buckingham,217
+gaines:2,,Rejected write-ins,0
+gaines:2,,Unassigned write-ins,0
+gaines:2,DEM,Jay Kleberg,56
+gaines:2,GRN,"Alfred Molison, Jr.",4
+gaines:2,REP,Dawn Buckingham,763
+gaines:3,,Rejected write-ins,0
+gaines:3,,Unassigned write-ins,0
+gaines:3,DEM,Jay Kleberg,69
+gaines:3,GRN,"Alfred Molison, Jr.",3
+gaines:3,REP,Dawn Buckingham,1329
+gaines:4,,Rejected write-ins,0
+gaines:4,,Unassigned write-ins,0
+gaines:4,DEM,Jay Kleberg,43
+gaines:4,GRN,"Alfred Molison, Jr.",6
+gaines:4,REP,Dawn Buckingham,646
+gaines:5,,Rejected write-ins,0
+gaines:5,,Unassigned write-ins,0
+gaines:5,DEM,Jay Kleberg,7
+gaines:5,GRN,"Alfred Molison, Jr.",0
+gaines:5,REP,Dawn Buckingham,115
+gaines:6,,Rejected write-ins,0
+gaines:6,,Unassigned write-ins,0
+gaines:6,DEM,Jay Kleberg,14
+gaines:6,GRN,"Alfred Molison, Jr.",1
+gaines:6,REP,Dawn Buckingham,89
+gaines:8,,Rejected write-ins,0
+gaines:8,,Unassigned write-ins,0
+gaines:8,DEM,Jay Kleberg,74
+gaines:8,GRN,"Alfred Molison, Jr.",6
+gaines:8,REP,Dawn Buckingham,482
+gaines:9,,Rejected write-ins,0
+gaines:9,,Unassigned write-ins,0
+gaines:9,DEM,Jay Kleberg,32
+gaines:9,GRN,"Alfred Molison, Jr.",0
+gaines:9,REP,Dawn Buckingham,301
+hale:101,,Carrie Evelyn Menger,0
+hale:101,,Rejected write-ins,0
+hale:101,,Unassigned write-ins,0
+hale:101,DEM,Jay Kleberg,16
+hale:101,GRN,"Alfred Molison, Jr.",1
+hale:101,REP,Dawn Buckingham,125
+hale:102,,Carrie Evelyn Menger,0
+hale:102,,Rejected write-ins,0
+hale:102,,Unassigned write-ins,0
+hale:102,DEM,Jay Kleberg,4
+hale:102,GRN,"Alfred Molison, Jr.",1
+hale:102,REP,Dawn Buckingham,31
+hale:103,,Carrie Evelyn Menger,0
+hale:103,,Rejected write-ins,0
+hale:103,,Unassigned write-ins,0
+hale:103,DEM,Jay Kleberg,49
+hale:103,GRN,"Alfred Molison, Jr.",5
+hale:103,REP,Dawn Buckingham,67
+hale:104,,Carrie Evelyn Menger,0
+hale:104,,Rejected write-ins,0
+hale:104,,Unassigned write-ins,0
+hale:104,DEM,Jay Kleberg,61
+hale:104,GRN,"Alfred Molison, Jr.",2
+hale:104,REP,Dawn Buckingham,103
+hale:105,,Carrie Evelyn Menger,0
+hale:105,,Rejected write-ins,0
+hale:105,,Unassigned write-ins,0
+hale:105,DEM,Jay Kleberg,20
+hale:105,GRN,"Alfred Molison, Jr.",1
+hale:105,REP,Dawn Buckingham,53
+hale:108,,Carrie Evelyn Menger,0
+hale:108,,Rejected write-ins,0
+hale:108,,Unassigned write-ins,0
+hale:108,DEM,Jay Kleberg,2
+hale:108,GRN,"Alfred Molison, Jr.",2
+hale:108,REP,Dawn Buckingham,15
+hale:110,,Carrie Evelyn Menger,0
+hale:110,,Rejected write-ins,0
+hale:110,,Unassigned write-ins,0
+hale:110,DEM,Jay Kleberg,16
+hale:110,GRN,"Alfred Molison, Jr.",0
+hale:110,REP,Dawn Buckingham,201
+hale:111,,Carrie Evelyn Menger,0
+hale:111,,Rejected write-ins,0
+hale:111,,Unassigned write-ins,0
+hale:111,DEM,Jay Kleberg,35
+hale:111,GRN,"Alfred Molison, Jr.",0
+hale:111,REP,Dawn Buckingham,211
+hale:112,,Carrie Evelyn Menger,0
+hale:112,,Rejected write-ins,0
+hale:112,,Unassigned write-ins,0
+hale:112,DEM,Jay Kleberg,17
+hale:112,GRN,"Alfred Molison, Jr.",0
+hale:112,REP,Dawn Buckingham,303
+hale:202,,Carrie Evelyn Menger,0
+hale:202,,Rejected write-ins,0
+hale:202,,Unassigned write-ins,0
+hale:202,DEM,Jay Kleberg,31
+hale:202,GRN,"Alfred Molison, Jr.",5
+hale:202,REP,Dawn Buckingham,29
+hale:203,,Carrie Evelyn Menger,0
+hale:203,,Rejected write-ins,0
+hale:203,,Unassigned write-ins,0
+hale:203,DEM,Jay Kleberg,57
+hale:203,GRN,"Alfred Molison, Jr.",4
+hale:203,REP,Dawn Buckingham,60
+hale:204,,Carrie Evelyn Menger,0
+hale:204,,Rejected write-ins,0
+hale:204,,Unassigned write-ins,0
+hale:204,DEM,Jay Kleberg,46
+hale:204,GRN,"Alfred Molison, Jr.",3
+hale:204,REP,Dawn Buckingham,126
+hale:205,,Carrie Evelyn Menger,0
+hale:205,,Rejected write-ins,0
+hale:205,,Unassigned write-ins,0
+hale:205,DEM,Jay Kleberg,28
+hale:205,GRN,"Alfred Molison, Jr.",1
+hale:205,REP,Dawn Buckingham,37
+hale:206,,Carrie Evelyn Menger,0
+hale:206,,Rejected write-ins,0
+hale:206,,Unassigned write-ins,0
+hale:206,DEM,Jay Kleberg,1
+hale:206,GRN,"Alfred Molison, Jr.",0
+hale:206,REP,Dawn Buckingham,9
+hale:213,,Carrie Evelyn Menger,0
+hale:213,,Rejected write-ins,0
+hale:213,,Unassigned write-ins,0
+hale:213,DEM,Jay Kleberg,11
+hale:213,GRN,"Alfred Molison, Jr.",0
+hale:213,REP,Dawn Buckingham,95
+hale:214,,Carrie Evelyn Menger,0
+hale:214,,Rejected write-ins,0
+hale:214,,Unassigned write-ins,0
+hale:214,DEM,Jay Kleberg,39
+hale:214,GRN,"Alfred Molison, Jr.",7
+hale:214,REP,Dawn Buckingham,234
+hale:215,,Carrie Evelyn Menger,0
+hale:215,,Rejected write-ins,0
+hale:215,,Unassigned write-ins,0
+hale:215,DEM,Jay Kleberg,29
+hale:215,GRN,"Alfred Molison, Jr.",0
+hale:215,REP,Dawn Buckingham,115
+hale:304,,Carrie Evelyn Menger,0
+hale:304,,Rejected write-ins,0
+hale:304,,Unassigned write-ins,0
+hale:304,DEM,Jay Kleberg,86
+hale:304,GRN,"Alfred Molison, Jr.",4
+hale:304,REP,Dawn Buckingham,305
+hale:305,,Carrie Evelyn Menger,0
+hale:305,,Rejected write-ins,1
+hale:305,,Unassigned write-ins,0
+hale:305,DEM,Jay Kleberg,66
+hale:305,GRN,"Alfred Molison, Jr.",4
+hale:305,REP,Dawn Buckingham,498
+hale:306,,Carrie Evelyn Menger,0
+hale:306,,Rejected write-ins,0
+hale:306,,Unassigned write-ins,0
+hale:306,DEM,Jay Kleberg,15
+hale:306,GRN,"Alfred Molison, Jr.",0
+hale:306,REP,Dawn Buckingham,15
+hale:307,,Carrie Evelyn Menger,0
+hale:307,,Rejected write-ins,0
+hale:307,,Unassigned write-ins,0
+hale:307,DEM,Jay Kleberg,23
+hale:307,GRN,"Alfred Molison, Jr.",1
+hale:307,REP,Dawn Buckingham,90
+hale:316,,Carrie Evelyn Menger,0
+hale:316,,Rejected write-ins,0
+hale:316,,Unassigned write-ins,0
+hale:316,DEM,Jay Kleberg,81
+hale:316,GRN,"Alfred Molison, Jr.",2
+hale:316,REP,Dawn Buckingham,380
+hale:317,,Carrie Evelyn Menger,0
+hale:317,,Rejected write-ins,0
+hale:317,,Unassigned write-ins,0
+hale:317,DEM,Jay Kleberg,8
+hale:317,GRN,"Alfred Molison, Jr.",0
+hale:317,REP,Dawn Buckingham,58
+hale:318,,Carrie Evelyn Menger,0
+hale:318,,Rejected write-ins,1
+hale:318,,Unassigned write-ins,0
+hale:318,DEM,Jay Kleberg,61
+hale:318,GRN,"Alfred Molison, Jr.",6
+hale:318,REP,Dawn Buckingham,473
+hale:406,,Carrie Evelyn Menger,0
+hale:406,,Rejected write-ins,0
+hale:406,,Unassigned write-ins,0
+hale:406,DEM,Jay Kleberg,51
+hale:406,GRN,"Alfred Molison, Jr.",3
+hale:406,REP,Dawn Buckingham,117
+hale:407,,Carrie Evelyn Menger,0
+hale:407,,Rejected write-ins,1
+hale:407,,Unassigned write-ins,0
+hale:407,DEM,Jay Kleberg,120
+hale:407,GRN,"Alfred Molison, Jr.",7
+hale:407,REP,Dawn Buckingham,518
+hale:408,,Carrie Evelyn Menger,0
+hale:408,,Rejected write-ins,0
+hale:408,,Unassigned write-ins,0
+hale:408,DEM,Jay Kleberg,65
+hale:408,GRN,"Alfred Molison, Jr.",1
+hale:408,REP,Dawn Buckingham,277
+hale:409,,Carrie Evelyn Menger,0
+hale:409,,Rejected write-ins,0
+hale:409,,Unassigned write-ins,0
+hale:409,DEM,Jay Kleberg,61
+hale:409,GRN,"Alfred Molison, Jr.",7
+hale:409,REP,Dawn Buckingham,200
+hale:419,,Carrie Evelyn Menger,0
+hale:419,,Rejected write-ins,0
+hale:419,,Unassigned write-ins,0
+hale:419,DEM,Jay Kleberg,8
+hale:419,GRN,"Alfred Molison, Jr.",0
+hale:419,REP,Dawn Buckingham,90
+hale:420,,Carrie Evelyn Menger,0
+hale:420,,Rejected write-ins,0
+hale:420,,Unassigned write-ins,0
+hale:420,DEM,Jay Kleberg,12
+hale:420,GRN,"Alfred Molison, Jr.",0
+hale:420,REP,Dawn Buckingham,204
+jones:1,,Over Votes,0
+jones:1,,Under Votes,12
+jones:1,,Write-in,1
+jones:1,DEM,Jay Kleberg,156
+jones:1,GRN,"Alfred Molison, Jr.",6
+jones:1,REP,Dawn Buckingham,705
+jones:2,,Over Votes,0
+jones:2,,Under Votes,12
+jones:2,,Write-in,1
+jones:2,DEM,Jay Kleberg,171
+jones:2,GRN,"Alfred Molison, Jr.",7
+jones:2,REP,Dawn Buckingham,1025
+jones:3,,Over Votes,0
+jones:3,,Under Votes,20
+jones:3,,Write-in,1
+jones:3,DEM,Jay Kleberg,113
+jones:3,GRN,"Alfred Molison, Jr.",21
+jones:3,REP,Dawn Buckingham,1317
+jones:4,,Over Votes,0
+jones:4,,Under Votes,19
+jones:4,,Write-in,2
+jones:4,DEM,Jay Kleberg,153
+jones:4,GRN,"Alfred Molison, Jr.",10
+jones:4,REP,Dawn Buckingham,1255
+lubbock:1,,"Alfred Molison, Jr.",29
+lubbock:1,,Carrie Evelyn Menger,0
+lubbock:1,,Dawn Buckingham,474
+lubbock:1,,Jay Kleberg,465
+lubbock:2,,"Alfred Molison, Jr.",10
+lubbock:2,,Carrie Evelyn Menger,0
+lubbock:2,,Dawn Buckingham,431
+lubbock:2,,Jay Kleberg,243
+lubbock:3,,"Alfred Molison, Jr.",35
+lubbock:3,,Carrie Evelyn Menger,0
+lubbock:3,,Dawn Buckingham,186
+lubbock:3,,Jay Kleberg,400
+lubbock:4,,"Alfred Molison, Jr.",5
+lubbock:4,,Carrie Evelyn Menger,0
+lubbock:4,,Dawn Buckingham,74
+lubbock:4,,Jay Kleberg,167
+lubbock:5,,"Alfred Molison, Jr.",7
+lubbock:5,,Carrie Evelyn Menger,0
+lubbock:5,,Dawn Buckingham,99
+lubbock:5,,Jay Kleberg,174
+lubbock:6,,"Alfred Molison, Jr.",4
+lubbock:6,,Carrie Evelyn Menger,0
+lubbock:6,,Dawn Buckingham,43
+lubbock:6,,Jay Kleberg,240
+lubbock:7,,"Alfred Molison, Jr.",32
+lubbock:7,,Carrie Evelyn Menger,0
+lubbock:7,,Dawn Buckingham,1032
+lubbock:7,,Jay Kleberg,415
+lubbock:8,,"Alfred Molison, Jr.",48
+lubbock:8,,Carrie Evelyn Menger,0
+lubbock:8,,Dawn Buckingham,278
+lubbock:8,,Jay Kleberg,499
+lubbock:9,,"Alfred Molison, Jr.",30
+lubbock:9,,Carrie Evelyn Menger,0
+lubbock:9,,Dawn Buckingham,838
+lubbock:9,,Jay Kleberg,459
+lubbock:10,,"Alfred Molison, Jr.",12
+lubbock:10,,Carrie Evelyn Menger,0
+lubbock:10,,Dawn Buckingham,98
+lubbock:10,,Jay Kleberg,164
+lubbock:11,,"Alfred Molison, Jr.",1
+lubbock:11,,Carrie Evelyn Menger,0
+lubbock:11,,Dawn Buckingham,22
+lubbock:11,,Jay Kleberg,43
+lubbock:12,,"Alfred Molison, Jr.",20
+lubbock:12,,Carrie Evelyn Menger,1
+lubbock:12,,Dawn Buckingham,678
+lubbock:12,,Jay Kleberg,325
+lubbock:13,,"Alfred Molison, Jr.",7
+lubbock:13,,Carrie Evelyn Menger,0
+lubbock:13,,Dawn Buckingham,192
+lubbock:13,,Jay Kleberg,78
+lubbock:14,,"Alfred Molison, Jr.",19
+lubbock:14,,Carrie Evelyn Menger,0
+lubbock:14,,Dawn Buckingham,278
+lubbock:14,,Jay Kleberg,222
+lubbock:15,,"Alfred Molison, Jr.",46
+lubbock:15,,Carrie Evelyn Menger,0
+lubbock:15,,Dawn Buckingham,573
+lubbock:15,,Jay Kleberg,684
+lubbock:17,,"Alfred Molison, Jr.",46
+lubbock:17,,Carrie Evelyn Menger,0
+lubbock:17,,Dawn Buckingham,379
+lubbock:17,,Jay Kleberg,482
+lubbock:19,,"Alfred Molison, Jr.",5
+lubbock:19,,Carrie Evelyn Menger,0
+lubbock:19,,Dawn Buckingham,89
+lubbock:19,,Jay Kleberg,90
+lubbock:20,,"Alfred Molison, Jr.",7
+lubbock:20,,Carrie Evelyn Menger,0
+lubbock:20,,Dawn Buckingham,26
+lubbock:20,,Jay Kleberg,227
+lubbock:21,,"Alfred Molison, Jr.",19
+lubbock:21,,Carrie Evelyn Menger,0
+lubbock:21,,Dawn Buckingham,417
+lubbock:21,,Jay Kleberg,247
+lubbock:22,,"Alfred Molison, Jr.",27
+lubbock:22,,Carrie Evelyn Menger,0
+lubbock:22,,Dawn Buckingham,729
+lubbock:22,,Jay Kleberg,388
+lubbock:23,,"Alfred Molison, Jr.",15
+lubbock:23,,Carrie Evelyn Menger,0
+lubbock:23,,Dawn Buckingham,406
+lubbock:23,,Jay Kleberg,246
+lubbock:24,,"Alfred Molison, Jr.",23
+lubbock:24,,Carrie Evelyn Menger,0
+lubbock:24,,Dawn Buckingham,297
+lubbock:24,,Jay Kleberg,285
+lubbock:25,,"Alfred Molison, Jr.",11
+lubbock:25,,Carrie Evelyn Menger,0
+lubbock:25,,Dawn Buckingham,109
+lubbock:25,,Jay Kleberg,147
+lubbock:26,,"Alfred Molison, Jr.",16
+lubbock:26,,Carrie Evelyn Menger,1
+lubbock:26,,Dawn Buckingham,294
+lubbock:26,,Jay Kleberg,272
+lubbock:27,,"Alfred Molison, Jr.",29
+lubbock:27,,Carrie Evelyn Menger,0
+lubbock:27,,Dawn Buckingham,620
+lubbock:27,,Jay Kleberg,401
+lubbock:28,,"Alfred Molison, Jr.",15
+lubbock:28,,Carrie Evelyn Menger,0
+lubbock:28,,Dawn Buckingham,676
+lubbock:28,,Jay Kleberg,263
+lubbock:29,,"Alfred Molison, Jr.",30
+lubbock:29,,Carrie Evelyn Menger,0
+lubbock:29,,Dawn Buckingham,426
+lubbock:29,,Jay Kleberg,366
+lubbock:30,,"Alfred Molison, Jr.",22
+lubbock:30,,Carrie Evelyn Menger,1
+lubbock:30,,Dawn Buckingham,647
+lubbock:30,,Jay Kleberg,311
+lubbock:31,,"Alfred Molison, Jr.",6
+lubbock:31,,Carrie Evelyn Menger,0
+lubbock:31,,Dawn Buckingham,684
+lubbock:31,,Jay Kleberg,103
+lubbock:32,,"Alfred Molison, Jr.",18
+lubbock:32,,Carrie Evelyn Menger,1
+lubbock:32,,Dawn Buckingham,637
+lubbock:32,,Jay Kleberg,184
+lubbock:34,,"Alfred Molison, Jr.",5
+lubbock:34,,Carrie Evelyn Menger,0
+lubbock:34,,Dawn Buckingham,224
+lubbock:34,,Jay Kleberg,27
+lubbock:36,,"Alfred Molison, Jr.",7
+lubbock:36,,Carrie Evelyn Menger,0
+lubbock:36,,Dawn Buckingham,700
+lubbock:36,,Jay Kleberg,176
+lubbock:37,,"Alfred Molison, Jr.",8
+lubbock:37,,Carrie Evelyn Menger,0
+lubbock:37,,Dawn Buckingham,464
+lubbock:37,,Jay Kleberg,95
+lubbock:38,,"Alfred Molison, Jr.",7
+lubbock:38,,Carrie Evelyn Menger,0
+lubbock:38,,Dawn Buckingham,289
+lubbock:38,,Jay Kleberg,171
+lubbock:40,,"Alfred Molison, Jr.",3
+lubbock:40,,Carrie Evelyn Menger,0
+lubbock:40,,Dawn Buckingham,32
+lubbock:40,,Jay Kleberg,148
+lubbock:47,,"Alfred Molison, Jr.",22
+lubbock:47,,Carrie Evelyn Menger,0
+lubbock:47,,Dawn Buckingham,689
+lubbock:47,,Jay Kleberg,375
+lubbock:49,,"Alfred Molison, Jr.",19
+lubbock:49,,Carrie Evelyn Menger,0
+lubbock:49,,Dawn Buckingham,108
+lubbock:49,,Jay Kleberg,183
+lubbock:50,,"Alfred Molison, Jr.",26
+lubbock:50,,Carrie Evelyn Menger,0
+lubbock:50,,Dawn Buckingham,133
+lubbock:50,,Jay Kleberg,191
+lubbock:52,,"Alfred Molison, Jr.",23
+lubbock:52,,Carrie Evelyn Menger,0
+lubbock:52,,Dawn Buckingham,997
+lubbock:52,,Jay Kleberg,328
+lubbock:53,,"Alfred Molison, Jr.",31
+lubbock:53,,Carrie Evelyn Menger,0
+lubbock:53,,Dawn Buckingham,573
+lubbock:53,,Jay Kleberg,376
+lubbock:54,,"Alfred Molison, Jr.",23
+lubbock:54,,Carrie Evelyn Menger,0
+lubbock:54,,Dawn Buckingham,1474
+lubbock:54,,Jay Kleberg,402
+lubbock:57,,"Alfred Molison, Jr.",30
+lubbock:57,,Carrie Evelyn Menger,0
+lubbock:57,,Dawn Buckingham,801
+lubbock:57,,Jay Kleberg,403
+lubbock:58,,"Alfred Molison, Jr.",13
+lubbock:58,,Carrie Evelyn Menger,0
+lubbock:58,,Dawn Buckingham,476
+lubbock:58,,Jay Kleberg,176
+lubbock:59,,"Alfred Molison, Jr.",16
+lubbock:59,,Carrie Evelyn Menger,0
+lubbock:59,,Dawn Buckingham,632
+lubbock:59,,Jay Kleberg,398
+lubbock:60,,"Alfred Molison, Jr.",12
+lubbock:60,,Carrie Evelyn Menger,0
+lubbock:60,,Dawn Buckingham,529
+lubbock:60,,Jay Kleberg,153
+lubbock:62,,"Alfred Molison, Jr.",21
+lubbock:62,,Carrie Evelyn Menger,0
+lubbock:62,,Dawn Buckingham,821
+lubbock:62,,Jay Kleberg,279
+lubbock:63,,"Alfred Molison, Jr.",1
+lubbock:63,,Carrie Evelyn Menger,0
+lubbock:63,,Dawn Buckingham,39
+lubbock:63,,Jay Kleberg,10
+lubbock:66,,"Alfred Molison, Jr.",10
+lubbock:66,,Carrie Evelyn Menger,0
+lubbock:66,,Dawn Buckingham,1237
+lubbock:66,,Jay Kleberg,306
+lubbock:67,,"Alfred Molison, Jr.",14
+lubbock:67,,Carrie Evelyn Menger,2
+lubbock:67,,Dawn Buckingham,576
+lubbock:67,,Jay Kleberg,269
+lubbock:72,,"Alfred Molison, Jr.",22
+lubbock:72,,Carrie Evelyn Menger,0
+lubbock:72,,Dawn Buckingham,786
+lubbock:72,,Jay Kleberg,341
+lubbock:75,,"Alfred Molison, Jr.",4
+lubbock:75,,Carrie Evelyn Menger,0
+lubbock:75,,Dawn Buckingham,587
+lubbock:75,,Jay Kleberg,119
+lubbock:76,,"Alfred Molison, Jr.",17
+lubbock:76,,Carrie Evelyn Menger,0
+lubbock:76,,Dawn Buckingham,658
+lubbock:76,,Jay Kleberg,266
+lubbock:78,,"Alfred Molison, Jr.",22
+lubbock:78,,Carrie Evelyn Menger,0
+lubbock:78,,Dawn Buckingham,1641
+lubbock:78,,Jay Kleberg,376
+lubbock:92,,"Alfred Molison, Jr.",1
+lubbock:92,,Carrie Evelyn Menger,0
+lubbock:92,,Dawn Buckingham,121
+lubbock:92,,Jay Kleberg,24
+lubbock:102,,"Alfred Molison, Jr.",3
+lubbock:102,,Carrie Evelyn Menger,0
+lubbock:102,,Dawn Buckingham,279
+lubbock:102,,Jay Kleberg,17
+lubbock:103,,"Alfred Molison, Jr.",2
+lubbock:103,,Carrie Evelyn Menger,0
+lubbock:103,,Dawn Buckingham,235
+lubbock:103,,Jay Kleberg,44
+lubbock:104,,"Alfred Molison, Jr.",3
+lubbock:104,,Carrie Evelyn Menger,0
+lubbock:104,,Dawn Buckingham,485
+lubbock:104,,Jay Kleberg,121
+lubbock:108,,"Alfred Molison, Jr.",9
+lubbock:108,,Carrie Evelyn Menger,0
+lubbock:108,,Dawn Buckingham,283
+lubbock:108,,Jay Kleberg,150
+lubbock:109,,"Alfred Molison, Jr.",17
+lubbock:109,,Carrie Evelyn Menger,0
+lubbock:109,,Dawn Buckingham,1753
+lubbock:109,,Jay Kleberg,349
+lubbock:110,,"Alfred Molison, Jr.",15
+lubbock:110,,Carrie Evelyn Menger,0
+lubbock:110,,Dawn Buckingham,2069
+lubbock:110,,Jay Kleberg,423
+lubbock:111,,"Alfred Molison, Jr.",18
+lubbock:111,,Carrie Evelyn Menger,0
+lubbock:111,,Dawn Buckingham,1065
+lubbock:111,,Jay Kleberg,226
+lubbock:112,,"Alfred Molison, Jr.",10
+lubbock:112,,Carrie Evelyn Menger,0
+lubbock:112,,Dawn Buckingham,521
+lubbock:112,,Jay Kleberg,180
+lubbock:113,,"Alfred Molison, Jr.",17
+lubbock:113,,Carrie Evelyn Menger,0
+lubbock:113,,Dawn Buckingham,575
+lubbock:113,,Jay Kleberg,399
+lubbock:114,,"Alfred Molison, Jr.",6
+lubbock:114,,Carrie Evelyn Menger,0
+lubbock:114,,Dawn Buckingham,99
+lubbock:114,,Jay Kleberg,141
+lubbock:118,,"Alfred Molison, Jr.",12
+lubbock:118,,Carrie Evelyn Menger,0
+lubbock:118,,Dawn Buckingham,454
+lubbock:118,,Jay Kleberg,235
+lubbock:119,,"Alfred Molison, Jr.",25
+lubbock:119,,Carrie Evelyn Menger,0
+lubbock:119,,Dawn Buckingham,687
+lubbock:119,,Jay Kleberg,427
+lubbock:120,,"Alfred Molison, Jr.",19
+lubbock:120,,Carrie Evelyn Menger,0
+lubbock:120,,Dawn Buckingham,1451
+lubbock:120,,Jay Kleberg,234
+lubbock:121,,"Alfred Molison, Jr.",25
+lubbock:121,,Carrie Evelyn Menger,0
+lubbock:121,,Dawn Buckingham,1574
+lubbock:121,,Jay Kleberg,284
+lubbock:122,,"Alfred Molison, Jr.",23
+lubbock:122,,Carrie Evelyn Menger,0
+lubbock:122,,Dawn Buckingham,509
+lubbock:122,,Jay Kleberg,274
+lubbock:123,,"Alfred Molison, Jr.",19
+lubbock:123,,Carrie Evelyn Menger,0
+lubbock:123,,Dawn Buckingham,695
+lubbock:123,,Jay Kleberg,286
+lubbock:124,,"Alfred Molison, Jr.",17
+lubbock:124,,Carrie Evelyn Menger,1
+lubbock:124,,Dawn Buckingham,789
+lubbock:124,,Jay Kleberg,214
+lubbock:125,,"Alfred Molison, Jr.",9
+lubbock:125,,Carrie Evelyn Menger,0
+lubbock:125,,Dawn Buckingham,841
+lubbock:125,,Jay Kleberg,259
+lubbock:126,,"Alfred Molison, Jr.",14
+lubbock:126,,Carrie Evelyn Menger,0
+lubbock:126,,Dawn Buckingham,441
+lubbock:126,,Jay Kleberg,156
+lubbock:127,,"Alfred Molison, Jr.",22
+lubbock:127,,Carrie Evelyn Menger,0
+lubbock:127,,Dawn Buckingham,1021
+lubbock:127,,Jay Kleberg,348
+lubbock:128,,"Alfred Molison, Jr.",11
+lubbock:128,,Carrie Evelyn Menger,0
+lubbock:128,,Dawn Buckingham,877
+lubbock:128,,Jay Kleberg,219
+lubbock:129,,"Alfred Molison, Jr.",18
+lubbock:129,,Carrie Evelyn Menger,0
+lubbock:129,,Dawn Buckingham,1222
+lubbock:129,,Jay Kleberg,380
+lubbock:135,,"Alfred Molison, Jr.",5
+lubbock:135,,Carrie Evelyn Menger,0
+lubbock:135,,Dawn Buckingham,245
+lubbock:135,,Jay Kleberg,45
+lubbock:138,,"Alfred Molison, Jr.",0
+lubbock:138,,Carrie Evelyn Menger,0
+lubbock:138,,Dawn Buckingham,238
+lubbock:138,,Jay Kleberg,18
+lubbock:139,,"Alfred Molison, Jr.",11
+lubbock:139,,Carrie Evelyn Menger,0
+lubbock:139,,Dawn Buckingham,896
+lubbock:139,,Jay Kleberg,192
+lubbock:140,,"Alfred Molison, Jr.",13
+lubbock:140,,Carrie Evelyn Menger,0
+lubbock:140,,Dawn Buckingham,1110
+lubbock:140,,Jay Kleberg,264
+lubbock:141,,"Alfred Molison, Jr.",32
+lubbock:141,,Carrie Evelyn Menger,0
+lubbock:141,,Dawn Buckingham,834
+lubbock:141,,Jay Kleberg,371
+lubbock:142,,"Alfred Molison, Jr.",0
+lubbock:142,,Carrie Evelyn Menger,0
+lubbock:142,,Dawn Buckingham,36
+lubbock:142,,Jay Kleberg,15
+lubbock:151,,"Alfred Molison, Jr.",8
+lubbock:151,,Carrie Evelyn Menger,0
+lubbock:151,,Dawn Buckingham,421
+lubbock:151,,Jay Kleberg,56
+lubbock:152,,"Alfred Molison, Jr.",10
+lubbock:152,,Carrie Evelyn Menger,0
+lubbock:152,,Dawn Buckingham,318
+lubbock:152,,Jay Kleberg,244
+lubbock:153,,"Alfred Molison, Jr.",7
+lubbock:153,,Carrie Evelyn Menger,0
+lubbock:153,,Dawn Buckingham,53
+lubbock:153,,Jay Kleberg,213
+lubbock:154,,"Alfred Molison, Jr.",26
+lubbock:154,,Carrie Evelyn Menger,0
+lubbock:154,,Dawn Buckingham,1339
+lubbock:154,,Jay Kleberg,382
+lubbock:155,,"Alfred Molison, Jr.",9
+lubbock:155,,Carrie Evelyn Menger,0
+lubbock:155,,Dawn Buckingham,1215
+lubbock:155,,Jay Kleberg,132
+lubbock:178,,"Alfred Molison, Jr.",3
+lubbock:178,,Carrie Evelyn Menger,0
+lubbock:178,,Dawn Buckingham,143
+lubbock:178,,Jay Kleberg,12
+lubbock:33,,"Alfred Molison, Jr.",14
+lubbock:33,,Carrie Evelyn Menger,0
+lubbock:33,,Dawn Buckingham,1675
+lubbock:33,,Jay Kleberg,212
+lubbock:35,,"Alfred Molison, Jr.",6
+lubbock:35,,Carrie Evelyn Menger,0
+lubbock:35,,Dawn Buckingham,415
+lubbock:35,,Jay Kleberg,70
+lubbock:39,,"Alfred Molison, Jr.",4
+lubbock:39,,Carrie Evelyn Menger,0
+lubbock:39,,Dawn Buckingham,867
+lubbock:39,,Jay Kleberg,143
+lubbock:41,,"Alfred Molison, Jr.",14
+lubbock:41,,Carrie Evelyn Menger,0
+lubbock:41,,Dawn Buckingham,1122
+lubbock:41,,Jay Kleberg,141
+lubbock:43,,"Alfred Molison, Jr.",3
+lubbock:43,,Carrie Evelyn Menger,0
+lubbock:43,,Dawn Buckingham,301
+lubbock:43,,Jay Kleberg,37
+lubbock:44,,"Alfred Molison, Jr.",6
+lubbock:44,,Carrie Evelyn Menger,0
+lubbock:44,,Dawn Buckingham,506
+lubbock:44,,Jay Kleberg,99
+lubbock:45,,"Alfred Molison, Jr.",1
+lubbock:45,,Carrie Evelyn Menger,0
+lubbock:45,,Dawn Buckingham,185
+lubbock:45,,Jay Kleberg,41
+lubbock:46,,"Alfred Molison, Jr.",20
+lubbock:46,,Carrie Evelyn Menger,0
+lubbock:46,,Dawn Buckingham,1408
+lubbock:46,,Jay Kleberg,187
+lubbock:51,,"Alfred Molison, Jr.",2
+lubbock:51,,Carrie Evelyn Menger,0
+lubbock:51,,Dawn Buckingham,43
+lubbock:51,,Jay Kleberg,16
+lubbock:56,,"Alfred Molison, Jr.",6
+lubbock:56,,Carrie Evelyn Menger,0
+lubbock:56,,Dawn Buckingham,317
+lubbock:56,,Jay Kleberg,77
+lubbock:65,,"Alfred Molison, Jr.",7
+lubbock:65,,Carrie Evelyn Menger,0
+lubbock:65,,Dawn Buckingham,292
+lubbock:65,,Jay Kleberg,72
+stonewall:1,,Alfred Molison Jr,0
+stonewall:1,,Carrie Evelyn Menger,0
+stonewall:1,,Dawn Buckingham,124
+stonewall:1,,Jay Kleberg,10
+stonewall:2,,Alfred Molison Jr,0
+stonewall:2,,Carrie Evelyn Menger,0
+stonewall:2,,Dawn Buckingham,128
+stonewall:2,,Jay Kleberg,27
+stonewall:3,,Alfred Molison Jr,1
+stonewall:3,,Carrie Evelyn Menger,0
+stonewall:3,,Dawn Buckingham,117
+stonewall:3,,Jay Kleberg,13
+stonewall:4,,Alfred Molison Jr,2
+stonewall:4,,Carrie Evelyn Menger,0
+stonewall:4,,Dawn Buckingham,100
+stonewall:4,,Jay Kleberg,35

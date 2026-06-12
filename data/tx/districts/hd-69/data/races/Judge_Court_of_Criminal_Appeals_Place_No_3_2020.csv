@@ -1,0 +1,189 @@
+precinct,party,candidate,votes
+archer:1,DEM,Elizabeth Davis Frizell,93
+archer:1,REP,Bert Richardson,822
+archer:10,DEM,Elizabeth Davis Frizell,81
+archer:10,REP,Bert Richardson,524
+archer:11,DEM,Elizabeth Davis Frizell,7
+archer:11,REP,Bert Richardson,67
+archer:2,DEM,Elizabeth Davis Frizell,64
+archer:2,REP,Bert Richardson,713
+archer:3,DEM,Elizabeth Davis Frizell,29
+archer:3,REP,Bert Richardson,243
+archer:4,DEM,Elizabeth Davis Frizell,24
+archer:4,REP,Bert Richardson,482
+archer:5,DEM,Elizabeth Davis Frizell,8
+archer:5,REP,Bert Richardson,120
+archer:6,DEM,Elizabeth Davis Frizell,75
+archer:6,REP,Bert Richardson,729
+archer:7,DEM,Elizabeth Davis Frizell,10
+archer:7,REP,Bert Richardson,133
+archer:8,DEM,Elizabeth Davis Frizell,33
+archer:8,REP,Bert Richardson,220
+archer:9,DEM,Elizabeth Davis Frizell,14
+archer:9,REP,Bert Richardson,122
+cottle:101,DEM,Elizabeth Davis Frizell,33
+cottle:101,REP,Bert Richardson,182
+cottle:201,DEM,Elizabeth Davis Frizell,18
+cottle:201,REP,Bert Richardson,156
+cottle:301,DEM,Elizabeth Davis Frizell,34
+cottle:301,REP,Bert Richardson,86
+cottle:401,DEM,Elizabeth Davis Frizell,34
+cottle:401,REP,Bert Richardson,110
+hardeman:1,DEM,Elizabeth Davis Frizell,64
+hardeman:1,REP,Bert Richardson,367
+hardeman:2,DEM,Elizabeth Davis Frizell,43
+hardeman:2,REP,Bert Richardson,275
+hardeman:3,DEM,Elizabeth Davis Frizell,52
+hardeman:3,REP,Bert Richardson,291
+hardeman:4,DEM,Elizabeth Davis Frizell,60
+hardeman:4,REP,Bert Richardson,369
+haskell:1,DEM,Elizabeth Davis Frizell,33
+haskell:1,REP,Bert Richardson,231
+haskell:10,DEM,Elizabeth Davis Frizell,14
+haskell:10,REP,Bert Richardson,95
+haskell:2,DEM,Elizabeth Davis Frizell,82
+haskell:2,REP,Bert Richardson,371
+haskell:3,DEM,Elizabeth Davis Frizell,71
+haskell:3,REP,Bert Richardson,284
+haskell:4,DEM,Elizabeth Davis Frizell,39
+haskell:4,REP,Bert Richardson,140
+haskell:5,DEM,Elizabeth Davis Frizell,57
+haskell:5,REP,Bert Richardson,171
+haskell:6,DEM,Elizabeth Davis Frizell,30
+haskell:6,REP,Bert Richardson,182
+haskell:7,DEM,Elizabeth Davis Frizell,5
+haskell:7,REP,Bert Richardson,63
+haskell:8,DEM,Elizabeth Davis Frizell,22
+haskell:8,REP,Bert Richardson,64
+haskell:9,DEM,Elizabeth Davis Frizell,15
+haskell:9,REP,Bert Richardson,156
+wichita:101,DEM,Elizabeth Davis Frizell,39
+wichita:101,REP,Bert Richardson,173
+wichita:102,DEM,Elizabeth Davis Frizell,161
+wichita:102,REP,Bert Richardson,473
+wichita:103,DEM,Elizabeth Davis Frizell,916
+wichita:103,REP,Bert Richardson,2538
+wichita:104,DEM,Elizabeth Davis Frizell,212
+wichita:104,REP,Bert Richardson,596
+wichita:105,DEM,Elizabeth Davis Frizell,626
+wichita:105,REP,Bert Richardson,1486
+wichita:106,DEM,Elizabeth Davis Frizell,75
+wichita:106,REP,Bert Richardson,580
+wichita:107,DEM,Elizabeth Davis Frizell,9
+wichita:107,REP,Bert Richardson,28
+wichita:108,DEM,Elizabeth Davis Frizell,560
+wichita:108,REP,Bert Richardson,1927
+wichita:109,DEM,Elizabeth Davis Frizell,707
+wichita:109,REP,Bert Richardson,2005
+wichita:110,DEM,Elizabeth Davis Frizell,146
+wichita:110,REP,Bert Richardson,275
+wichita:111,DEM,Elizabeth Davis Frizell,177
+wichita:111,REP,Bert Richardson,178
+wichita:112,DEM,Elizabeth Davis Frizell,10
+wichita:112,REP,Bert Richardson,7
+wichita:113,DEM,Elizabeth Davis Frizell,146
+wichita:113,REP,Bert Richardson,255
+wichita:114,DEM,Elizabeth Davis Frizell,3
+wichita:114,REP,Bert Richardson,31
+wichita:115,DEM,Elizabeth Davis Frizell,5
+wichita:115,REP,Bert Richardson,0
+wichita:116,DEM,Elizabeth Davis Frizell,2
+wichita:116,REP,Bert Richardson,31
+wichita:117,DEM,Elizabeth Davis Frizell,4
+wichita:117,REP,Bert Richardson,31
+wichita:201,DEM,Elizabeth Davis Frizell,621
+wichita:201,REP,Bert Richardson,986
+wichita:202,DEM,Elizabeth Davis Frizell,331
+wichita:202,REP,Bert Richardson,781
+wichita:203,DEM,Elizabeth Davis Frizell,393
+wichita:203,REP,Bert Richardson,569
+wichita:204,DEM,Elizabeth Davis Frizell,53
+wichita:204,REP,Bert Richardson,413
+wichita:205,DEM,Elizabeth Davis Frizell,511
+wichita:205,REP,Bert Richardson,2171
+wichita:206,DEM,Elizabeth Davis Frizell,376
+wichita:206,REP,Bert Richardson,1568
+wichita:207,DEM,Elizabeth Davis Frizell,148
+wichita:207,REP,Bert Richardson,255
+wichita:208,DEM,Elizabeth Davis Frizell,19
+wichita:208,REP,Bert Richardson,82
+wichita:209,DEM,Elizabeth Davis Frizell,0
+wichita:209,REP,Bert Richardson,0
+wichita:210,DEM,Elizabeth Davis Frizell,0
+wichita:210,REP,Bert Richardson,0
+wichita:211,DEM,Elizabeth Davis Frizell,48
+wichita:211,REP,Bert Richardson,99
+wichita:301,DEM,Elizabeth Davis Frizell,7
+wichita:301,REP,Bert Richardson,11
+wichita:302,DEM,Elizabeth Davis Frizell,371
+wichita:302,REP,Bert Richardson,481
+wichita:303,DEM,Elizabeth Davis Frizell,581
+wichita:303,REP,Bert Richardson,368
+wichita:304,DEM,Elizabeth Davis Frizell,67
+wichita:304,REP,Bert Richardson,75
+wichita:305,DEM,Elizabeth Davis Frizell,82
+wichita:305,REP,Bert Richardson,141
+wichita:306,DEM,Elizabeth Davis Frizell,410
+wichita:306,REP,Bert Richardson,132
+wichita:307,DEM,Elizabeth Davis Frizell,40
+wichita:307,REP,Bert Richardson,119
+wichita:308,DEM,Elizabeth Davis Frizell,166
+wichita:308,REP,Bert Richardson,141
+wichita:309,DEM,Elizabeth Davis Frizell,310
+wichita:309,REP,Bert Richardson,2431
+wichita:310,DEM,Elizabeth Davis Frizell,133
+wichita:310,REP,Bert Richardson,971
+wichita:311,DEM,Elizabeth Davis Frizell,552
+wichita:311,REP,Bert Richardson,258
+wichita:312,DEM,Elizabeth Davis Frizell,11
+wichita:312,REP,Bert Richardson,14
+wichita:313,DEM,Elizabeth Davis Frizell,8
+wichita:313,REP,Bert Richardson,4
+wichita:314,DEM,Elizabeth Davis Frizell,3
+wichita:314,REP,Bert Richardson,8
+wichita:315,DEM,Elizabeth Davis Frizell,20
+wichita:315,REP,Bert Richardson,78
+wichita:316,DEM,Elizabeth Davis Frizell,12
+wichita:316,REP,Bert Richardson,14
+wichita:317,DEM,Elizabeth Davis Frizell,11
+wichita:317,REP,Bert Richardson,49
+wichita:318,DEM,Elizabeth Davis Frizell,60
+wichita:318,REP,Bert Richardson,203
+wichita:319,DEM,Elizabeth Davis Frizell,9
+wichita:319,REP,Bert Richardson,26
+wichita:401,DEM,Elizabeth Davis Frizell,387
+wichita:401,REP,Bert Richardson,1168
+wichita:402,DEM,Elizabeth Davis Frizell,134
+wichita:402,REP,Bert Richardson,354
+wichita:403,DEM,Elizabeth Davis Frizell,438
+wichita:403,REP,Bert Richardson,1128
+wichita:404,DEM,Elizabeth Davis Frizell,452
+wichita:404,REP,Bert Richardson,1550
+wichita:405,DEM,Elizabeth Davis Frizell,429
+wichita:405,REP,Bert Richardson,699
+wichita:406,DEM,Elizabeth Davis Frizell,569
+wichita:406,REP,Bert Richardson,1420
+wichita:407,DEM,Elizabeth Davis Frizell,387
+wichita:407,REP,Bert Richardson,623
+wichita:408,DEM,Elizabeth Davis Frizell,3
+wichita:408,REP,Bert Richardson,7
+wichita:409,DEM,Elizabeth Davis Frizell,2
+wichita:409,REP,Bert Richardson,12
+wichita:410,DEM,Elizabeth Davis Frizell,47
+wichita:410,REP,Bert Richardson,171
+wichita:411,DEM,Elizabeth Davis Frizell,163
+wichita:411,REP,Bert Richardson,344
+wichita:412,DEM,Elizabeth Davis Frizell,59
+wichita:412,REP,Bert Richardson,445
+wichita:413,DEM,Elizabeth Davis Frizell,90
+wichita:413,REP,Bert Richardson,426
+wichita:414,DEM,Elizabeth Davis Frizell,81
+wichita:414,REP,Bert Richardson,410
+wilbarger:1,DEM,Elizabeth Davis Frizell,251
+wilbarger:1,REP,Bert Richardson,1078
+wilbarger:19,DEM,Elizabeth Davis Frizell,302
+wilbarger:19,REP,Bert Richardson,679
+wilbarger:20,DEM,Elizabeth Davis Frizell,157
+wilbarger:20,REP,Bert Richardson,494
+wilbarger:21,DEM,Elizabeth Davis Frizell,187
+wilbarger:21,REP,Bert Richardson,1172

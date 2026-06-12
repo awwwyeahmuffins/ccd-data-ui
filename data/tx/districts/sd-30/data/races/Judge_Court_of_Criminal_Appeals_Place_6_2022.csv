@@ -1,0 +1,123 @@
+precinct,party,candidate,votes
+collin:30,DEM,Robert Johnson,975
+collin:30,REP,"Jesse F. McClure, III",1535
+collin:30,,Over Votes,0
+collin:30,,Under Votes,87
+collin:87,DEM,Robert Johnson,882
+collin:87,REP,"Jesse F. McClure, III",538
+collin:87,,Over Votes,0
+collin:87,,Under Votes,42
+collin:92,DEM,Robert Johnson,856
+collin:92,REP,"Jesse F. McClure, III",821
+collin:92,,Over Votes,0
+collin:92,,Under Votes,56
+collin:101,DEM,Robert Johnson,911
+collin:101,REP,"Jesse F. McClure, III",1048
+collin:101,,Over Votes,0
+collin:101,,Under Votes,63
+collin:111,DEM,Robert Johnson,471
+collin:111,REP,"Jesse F. McClure, III",1123
+collin:111,,Over Votes,0
+collin:111,,Under Votes,37
+collin:117,DEM,Robert Johnson,991
+collin:117,REP,"Jesse F. McClure, III",1053
+collin:117,,Over Votes,0
+collin:117,,Under Votes,76
+collin:118,DEM,Robert Johnson,906
+collin:118,REP,"Jesse F. McClure, III",1292
+collin:118,,Over Votes,0
+collin:118,,Under Votes,83
+collin:127,DEM,Robert Johnson,884
+collin:127,REP,"Jesse F. McClure, III",949
+collin:127,,Over Votes,0
+collin:127,,Under Votes,79
+collin:134,DEM,Robert Johnson,992
+collin:134,REP,"Jesse F. McClure, III",865
+collin:134,,Over Votes,0
+collin:134,,Under Votes,49
+collin:146,DEM,Robert Johnson,1102
+collin:146,REP,"Jesse F. McClure, III",1189
+collin:146,,Over Votes,0
+collin:146,,Under Votes,80
+collin:177,DEM,Robert Johnson,525
+collin:177,REP,"Jesse F. McClure, III",937
+collin:177,,Over Votes,0
+collin:177,,Under Votes,38
+collin:184,DEM,Robert Johnson,667
+collin:184,REP,"Jesse F. McClure, III",596
+collin:184,,Over Votes,0
+collin:184,,Under Votes,44
+collin:209,DEM,Robert Johnson,233
+collin:209,REP,"Jesse F. McClure, III",374
+collin:209,,Over Votes,0
+collin:209,,Under Votes,7
+collin:212,DEM,Robert Johnson,1468
+collin:212,REP,"Jesse F. McClure, III",1222
+collin:212,,Over Votes,0
+collin:212,,Under Votes,109
+collin:220,DEM,Robert Johnson,1166
+collin:220,REP,"Jesse F. McClure, III",994
+collin:220,,Over Votes,0
+collin:220,,Under Votes,59
+collin:225,DEM,Robert Johnson,916
+collin:225,REP,"Jesse F. McClure, III",856
+collin:225,,Over Votes,0
+collin:225,,Under Votes,47
+collin:229,DEM,Robert Johnson,402
+collin:229,REP,"Jesse F. McClure, III",433
+collin:229,,Over Votes,0
+collin:229,,Under Votes,31
+collin:234,DEM,Robert Johnson,749
+collin:234,REP,"Jesse F. McClure, III",701
+collin:234,,Over Votes,0
+collin:234,,Under Votes,34
+collin:244,DEM,Robert Johnson,730
+collin:244,REP,"Jesse F. McClure, III",962
+collin:244,,Over Votes,0
+collin:244,,Under Votes,70
+collin:245,DEM,Robert Johnson,512
+collin:245,REP,"Jesse F. McClure, III",591
+collin:245,,Over Votes,0
+collin:245,,Under Votes,48
+collin:248,DEM,Robert Johnson,461
+collin:248,REP,"Jesse F. McClure, III",588
+collin:248,,Over Votes,0
+collin:248,,Under Votes,38
+collin:250,DEM,Robert Johnson,109
+collin:250,REP,"Jesse F. McClure, III",74
+collin:250,,Over Votes,0
+collin:250,,Under Votes,5
+cooke:1,DEM,Robert Johnson,36
+cooke:1,REP,"Jesse F. McClure, III",207
+cooke:10,DEM,Robert Johnson,183
+cooke:10,REP,"Jesse F. McClure, III",1189
+cooke:11,DEM,Robert Johnson,215
+cooke:11,REP,"Jesse F. McClure, III",1213
+cooke:12,DEM,Robert Johnson,94
+cooke:12,REP,"Jesse F. McClure, III",668
+cooke:17,DEM,Robert Johnson,10
+cooke:17,REP,"Jesse F. McClure, III",329
+cooke:18,DEM,Robert Johnson,75
+cooke:18,REP,"Jesse F. McClure, III",1116
+cooke:1C,DEM,Robert Johnson,440
+cooke:1C,REP,"Jesse F. McClure, III",1257
+cooke:2,DEM,Robert Johnson,217
+cooke:2,REP,"Jesse F. McClure, III",483
+cooke:21,DEM,Robert Johnson,68
+cooke:21,REP,"Jesse F. McClure, III",823
+cooke:22,DEM,Robert Johnson,204
+cooke:22,REP,"Jesse F. McClure, III",1355
+cooke:3,DEM,Robert Johnson,48
+cooke:3,REP,"Jesse F. McClure, III",395
+cooke:33,DEM,Robert Johnson,25
+cooke:33,REP,"Jesse F. McClure, III",273
+cooke:4,DEM,Robert Johnson,26
+cooke:4,REP,"Jesse F. McClure, III",182
+cooke:4C,DEM,Robert Johnson,237
+cooke:4C,REP,"Jesse F. McClure, III",817
+cooke:6,DEM,Robert Johnson,128
+cooke:6,REP,"Jesse F. McClure, III",1138
+cooke:7,DEM,Robert Johnson,99
+cooke:7,REP,"Jesse F. McClure, III",776
+cooke:8,DEM,Robert Johnson,63
+cooke:8,REP,"Jesse F. McClure, III",554

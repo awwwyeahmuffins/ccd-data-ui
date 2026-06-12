@@ -1,0 +1,225 @@
+precinct,party,candidate,votes
+culberson:1,DEM,Chrysta Castaneda,89
+culberson:1,GRN,"Katija ""Kat"" Gruene",4
+culberson:1,LIB,Matt Sterett,1
+culberson:1,REP,"James ""Jim"" Wright",69
+culberson:2,DEM,Chrysta Castaneda,100
+culberson:2,GRN,"Katija ""Kat"" Gruene",2
+culberson:2,LIB,Matt Sterett,6
+culberson:2,REP,"James ""Jim"" Wright",98
+culberson:3-3,DEM,Chrysta Castaneda,10
+culberson:3-3,GRN,"Katija ""Kat"" Gruene",2
+culberson:3-3,LIB,Matt Sterett,1
+culberson:3-3,REP,"James ""Jim"" Wright",17
+culberson:3-5,DEM,Chrysta Castaneda,91
+culberson:3-5,GRN,"Katija ""Kat"" Gruene",1
+culberson:3-5,LIB,Matt Sterett,4
+culberson:3-5,REP,"James ""Jim"" Wright",100
+culberson:4,DEM,Chrysta Castaneda,91
+culberson:4,GRN,"Katija ""Kat"" Gruene",2
+culberson:4,LIB,Matt Sterett,3
+culberson:4,REP,"James ""Jim"" Wright",56
+hudspeth:1,DEM,Chrysta Castaneda,89
+hudspeth:1,GRN,"Katija ""Kat"" Gruene",6
+hudspeth:1,LIB,Matt Sterett,17
+hudspeth:1,REP,"James ""Jim"" Wright",212
+hudspeth:2,DEM,Chrysta Castaneda,135
+hudspeth:2,GRN,"Katija ""Kat"" Gruene",5
+hudspeth:2,LIB,Matt Sterett,10
+hudspeth:2,REP,"James ""Jim"" Wright",158
+hudspeth:3N,DEM,Chrysta Castaneda,31
+hudspeth:3N,GRN,"Katija ""Kat"" Gruene",2
+hudspeth:3N,LIB,Matt Sterett,3
+hudspeth:3N,REP,"James ""Jim"" Wright",80
+hudspeth:3S,DEM,Chrysta Castaneda,38
+hudspeth:3S,GRN,"Katija ""Kat"" Gruene",1
+hudspeth:3S,LIB,Matt Sterett,3
+hudspeth:3S,REP,"James ""Jim"" Wright",70
+hudspeth:4,DEM,Chrysta Castaneda,64
+hudspeth:4,GRN,"Katija ""Kat"" Gruene",1
+hudspeth:4,LIB,Matt Sterett,6
+hudspeth:4,REP,"James ""Jim"" Wright",138
+kinney:1,DEM,Chrysta Castaneda,99
+kinney:1,GRN,"Katija ""Kat"" Gruene",3
+kinney:1,LIB,Matt Sterett,5
+kinney:1,REP,"James ""Jim"" Wright",318
+kinney:2,DEM,Chrysta Castaneda,104
+kinney:2,GRN,"Katija ""Kat"" Gruene",2
+kinney:2,LIB,Matt Sterett,12
+kinney:2,REP,"James ""Jim"" Wright",189
+kinney:3,DEM,Chrysta Castaneda,116
+kinney:3,GRN,"Katija ""Kat"" Gruene",4
+kinney:3,LIB,Matt Sterett,9
+kinney:3,REP,"James ""Jim"" Wright",150
+kinney:4,DEM,Chrysta Castaneda,80
+kinney:4,GRN,"Katija ""Kat"" Gruene",5
+kinney:4,LIB,Matt Sterett,5
+kinney:4,REP,"James ""Jim"" Wright",366
+maverick:1A,DEM,Chrysta Castaneda,219
+maverick:1A,GRN,"Katija ""Kat"" Gruene",2
+maverick:1A,LIB,Matt Sterett,8
+maverick:1A,REP,"James ""Jim"" Wright",103
+maverick:1B,DEM,Chrysta Castaneda,736
+maverick:1B,GRN,"Katija ""Kat"" Gruene",9
+maverick:1B,LIB,Matt Sterett,13
+maverick:1B,REP,"James ""Jim"" Wright",460
+maverick:1C,DEM,Chrysta Castaneda,1300
+maverick:1C,GRN,"Katija ""Kat"" Gruene",32
+maverick:1C,LIB,Matt Sterett,41
+maverick:1C,REP,"James ""Jim"" Wright",784
+maverick:2A,DEM,Chrysta Castaneda,203
+maverick:2A,GRN,"Katija ""Kat"" Gruene",8
+maverick:2A,LIB,Matt Sterett,11
+maverick:2A,REP,"James ""Jim"" Wright",105
+maverick:2B,DEM,Chrysta Castaneda,862
+maverick:2B,GRN,"Katija ""Kat"" Gruene",18
+maverick:2B,LIB,Matt Sterett,27
+maverick:2B,REP,"James ""Jim"" Wright",549
+maverick:2C,DEM,Chrysta Castaneda,531
+maverick:2C,GRN,"Katija ""Kat"" Gruene",23
+maverick:2C,LIB,Matt Sterett,32
+maverick:2C,REP,"James ""Jim"" Wright",412
+maverick:2D,DEM,Chrysta Castaneda,29
+maverick:2D,GRN,"Katija ""Kat"" Gruene",0
+maverick:2D,LIB,Matt Sterett,1
+maverick:2D,REP,"James ""Jim"" Wright",44
+maverick:3A,DEM,Chrysta Castaneda,952
+maverick:3A,GRN,"Katija ""Kat"" Gruene",29
+maverick:3A,LIB,Matt Sterett,24
+maverick:3A,REP,"James ""Jim"" Wright",646
+maverick:3B,DEM,Chrysta Castaneda,1132
+maverick:3B,GRN,"Katija ""Kat"" Gruene",30
+maverick:3B,LIB,Matt Sterett,31
+maverick:3B,REP,"James ""Jim"" Wright",757
+maverick:3C,DEM,Chrysta Castaneda,120
+maverick:3C,GRN,"Katija ""Kat"" Gruene",2
+maverick:3C,LIB,Matt Sterett,7
+maverick:3C,REP,"James ""Jim"" Wright",192
+maverick:4A,DEM,Chrysta Castaneda,245
+maverick:4A,GRN,"Katija ""Kat"" Gruene",4
+maverick:4A,LIB,Matt Sterett,8
+maverick:4A,REP,"James ""Jim"" Wright",136
+maverick:4B,DEM,Chrysta Castaneda,1000
+maverick:4B,GRN,"Katija ""Kat"" Gruene",23
+maverick:4B,LIB,Matt Sterett,18
+maverick:4B,REP,"James ""Jim"" Wright",642
+maverick:4C,DEM,Chrysta Castaneda,336
+maverick:4C,GRN,"Katija ""Kat"" Gruene",6
+maverick:4C,LIB,Matt Sterett,11
+maverick:4C,REP,"James ""Jim"" Wright",187
+maverick:4D,DEM,Chrysta Castaneda,585
+maverick:4D,GRN,"Katija ""Kat"" Gruene",18
+maverick:4D,LIB,Matt Sterett,18
+maverick:4D,REP,"James ""Jim"" Wright",358
+presidio:1,DEM,Chrysta Castaneda,136
+presidio:1,GRN,"Katija ""Kat"" Gruene",3
+presidio:1,LIB,Matt Sterett,4
+presidio:1,REP,"James ""Jim"" Wright",85
+presidio:2,DEM,Chrysta Castaneda,162
+presidio:2,GRN,"Katija ""Kat"" Gruene",7
+presidio:2,LIB,Matt Sterett,4
+presidio:2,REP,"James ""Jim"" Wright",89
+presidio:3,DEM,Chrysta Castaneda,16
+presidio:3,GRN,"Katija ""Kat"" Gruene",0
+presidio:3,LIB,Matt Sterett,0
+presidio:3,REP,"James ""Jim"" Wright",6
+presidio:4,DEM,Chrysta Castaneda,261
+presidio:4,GRN,"Katija ""Kat"" Gruene",6
+presidio:4,LIB,Matt Sterett,6
+presidio:4,REP,"James ""Jim"" Wright",88
+presidio:5,DEM,Chrysta Castaneda,180
+presidio:5,GRN,"Katija ""Kat"" Gruene",0
+presidio:5,LIB,Matt Sterett,6
+presidio:5,REP,"James ""Jim"" Wright",86
+presidio:6,DEM,Chrysta Castaneda,3
+presidio:6,GRN,"Katija ""Kat"" Gruene",0
+presidio:6,LIB,Matt Sterett,1
+presidio:6,REP,"James ""Jim"" Wright",11
+presidio:7,DEM,Chrysta Castaneda,633
+presidio:7,GRN,"Katija ""Kat"" Gruene",14
+presidio:7,LIB,Matt Sterett,21
+presidio:7,REP,"James ""Jim"" Wright",227
+terrell:1,DEM,Chrysta Castaneda,38
+terrell:1,GRN,"Katija ""Kat"" Gruene",0
+terrell:1,LIB,Matt Sterett,2
+terrell:1,REP,"James ""Jim"" Wright",78
+terrell:2,DEM,Chrysta Castaneda,49
+terrell:2,GRN,"Katija ""Kat"" Gruene",0
+terrell:2,LIB,Matt Sterett,1
+terrell:2,REP,"James ""Jim"" Wright",48
+terrell:3,DEM,Chrysta Castaneda,16
+terrell:3,GRN,"Katija ""Kat"" Gruene",1
+terrell:3,LIB,Matt Sterett,4
+terrell:3,REP,"James ""Jim"" Wright",89
+terrell:4,DEM,Chrysta Castaneda,16
+terrell:4,GRN,"Katija ""Kat"" Gruene",1
+terrell:4,LIB,Matt Sterett,0
+terrell:4,REP,"James ""Jim"" Wright",93
+val-verde:10,DEM,CHRYSTA CASTAÑEDA,557
+val-verde:10,GRN,"KATIJA ""KAT"" GRUENE",12
+val-verde:10,LIB,MATT STERETT,21
+val-verde:10,REP,"JAMES ""JIM"" WRIGHT",488
+val-verde:11,DEM,CHRYSTA CASTAÑEDA,562
+val-verde:11,GRN,"KATIJA ""KAT"" GRUENE",12
+val-verde:11,LIB,MATT STERETT,17
+val-verde:11,REP,"JAMES ""JIM"" WRIGHT",281
+val-verde:12,DEM,CHRYSTA CASTAÑEDA,78
+val-verde:12,GRN,"KATIJA ""KAT"" GRUENE",2
+val-verde:12,LIB,MATT STERETT,4
+val-verde:12,REP,"JAMES ""JIM"" WRIGHT",80
+val-verde:13,DEM,CHRYSTA CASTAÑEDA,268
+val-verde:13,GRN,"KATIJA ""KAT"" GRUENE",12
+val-verde:13,LIB,MATT STERETT,49
+val-verde:13,REP,"JAMES ""JIM"" WRIGHT",507
+val-verde:20,DEM,CHRYSTA CASTAÑEDA,16
+val-verde:20,GRN,"KATIJA ""KAT"" GRUENE",0
+val-verde:20,LIB,MATT STERETT,0
+val-verde:20,REP,"JAMES ""JIM"" WRIGHT",109
+val-verde:21,DEM,CHRYSTA CASTAÑEDA,533
+val-verde:21,GRN,"KATIJA ""KAT"" GRUENE",6
+val-verde:21,LIB,MATT STERETT,11
+val-verde:21,REP,"JAMES ""JIM"" WRIGHT",342
+val-verde:22,DEM,CHRYSTA CASTAÑEDA,518
+val-verde:22,GRN,"KATIJA ""KAT"" GRUENE",8
+val-verde:22,LIB,MATT STERETT,16
+val-verde:22,REP,"JAMES ""JIM"" WRIGHT",454
+val-verde:23,DEM,CHRYSTA CASTAÑEDA,59
+val-verde:23,GRN,"KATIJA ""KAT"" GRUENE",2
+val-verde:23,LIB,MATT STERETT,4
+val-verde:23,REP,"JAMES ""JIM"" WRIGHT",149
+val-verde:24,DEM,CHRYSTA CASTAÑEDA,345
+val-verde:24,GRN,"KATIJA ""KAT"" GRUENE",7
+val-verde:24,LIB,MATT STERETT,20
+val-verde:24,REP,"JAMES ""JIM"" WRIGHT",326
+val-verde:30,DEM,CHRYSTA CASTAÑEDA,417
+val-verde:30,GRN,"KATIJA ""KAT"" GRUENE",13
+val-verde:30,LIB,MATT STERETT,13
+val-verde:30,REP,"JAMES ""JIM"" WRIGHT",445
+val-verde:31,DEM,CHRYSTA CASTAÑEDA,1212
+val-verde:31,GRN,"KATIJA ""KAT"" GRUENE",53
+val-verde:31,LIB,MATT STERETT,66
+val-verde:31,REP,"JAMES ""JIM"" WRIGHT",1907
+val-verde:32,DEM,CHRYSTA CASTAÑEDA,39
+val-verde:32,GRN,"KATIJA ""KAT"" GRUENE",1
+val-verde:32,LIB,MATT STERETT,1
+val-verde:32,REP,"JAMES ""JIM"" WRIGHT",147
+val-verde:33,DEM,CHRYSTA CASTAÑEDA,301
+val-verde:33,GRN,"KATIJA ""KAT"" GRUENE",9
+val-verde:33,LIB,MATT STERETT,21
+val-verde:33,REP,"JAMES ""JIM"" WRIGHT",912
+val-verde:40,DEM,CHRYSTA CASTAÑEDA,1347
+val-verde:40,GRN,"KATIJA ""KAT"" GRUENE",33
+val-verde:40,LIB,MATT STERETT,43
+val-verde:40,REP,"JAMES ""JIM"" WRIGHT",989
+val-verde:41,DEM,CHRYSTA CASTAÑEDA,389
+val-verde:41,GRN,"KATIJA ""KAT"" GRUENE",10
+val-verde:41,LIB,MATT STERETT,13
+val-verde:41,REP,"JAMES ""JIM"" WRIGHT",349
+val-verde:42,DEM,CHRYSTA CASTAÑEDA,2
+val-verde:42,GRN,"KATIJA ""KAT"" GRUENE",0
+val-verde:42,LIB,MATT STERETT,1
+val-verde:42,REP,"JAMES ""JIM"" WRIGHT",19
+val-verde:43,DEM,CHRYSTA CASTAÑEDA,3
+val-verde:43,GRN,"KATIJA ""KAT"" GRUENE",0
+val-verde:43,LIB,MATT STERETT,0
+val-verde:43,REP,"JAMES ""JIM"" WRIGHT",45

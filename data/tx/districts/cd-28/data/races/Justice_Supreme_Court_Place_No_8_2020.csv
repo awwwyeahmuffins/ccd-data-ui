@@ -1,0 +1,583 @@
+precinct,party,candidate,votes
+bexar:1010,DEM,Gisela D. Triana,316
+bexar:1010,LIB,Tom Oxford,10
+bexar:1010,REP,Brett Busby,67
+bexar:1017,DEM,Gisela D. Triana,78
+bexar:1017,LIB,Tom Oxford,5
+bexar:1017,REP,Brett Busby,43
+bexar:1019,DEM,Gisela D. Triana,299
+bexar:1019,LIB,Tom Oxford,15
+bexar:1019,REP,Brett Busby,93
+bexar:1020,DEM,Gisela D. Triana,928
+bexar:1020,LIB,Tom Oxford,29
+bexar:1020,REP,Brett Busby,315
+bexar:1050,DEM,Gisela D. Triana,531
+bexar:1050,LIB,Tom Oxford,25
+bexar:1050,REP,Brett Busby,218
+bexar:1051,DEM,Gisela D. Triana,688
+bexar:1051,LIB,Tom Oxford,19
+bexar:1051,REP,Brett Busby,389
+bexar:1052,DEM,Gisela D. Triana,815
+bexar:1052,LIB,Tom Oxford,22
+bexar:1052,REP,Brett Busby,359
+bexar:1053,DEM,Gisela D. Triana,87
+bexar:1053,LIB,Tom Oxford,4
+bexar:1053,REP,Brett Busby,34
+bexar:1054,DEM,Gisela D. Triana,1039
+bexar:1054,LIB,Tom Oxford,31
+bexar:1054,REP,Brett Busby,375
+bexar:1056,DEM,Gisela D. Triana,1141
+bexar:1056,LIB,Tom Oxford,62
+bexar:1056,REP,Brett Busby,658
+bexar:1057,DEM,Gisela D. Triana,636
+bexar:1057,LIB,Tom Oxford,30
+bexar:1057,REP,Brett Busby,643
+bexar:1089,DEM,Gisela D. Triana,598
+bexar:1089,LIB,Tom Oxford,33
+bexar:1089,REP,Brett Busby,432
+bexar:1091,DEM,Gisela D. Triana,937
+bexar:1091,LIB,Tom Oxford,35
+bexar:1091,REP,Brett Busby,427
+bexar:1102,DEM,Gisela D. Triana,274
+bexar:1102,LIB,Tom Oxford,19
+bexar:1102,REP,Brett Busby,296
+bexar:1107,DEM,Gisela D. Triana,898
+bexar:1107,LIB,Tom Oxford,38
+bexar:1107,REP,Brett Busby,718
+bexar:1115,DEM,Gisela D. Triana,51
+bexar:1115,LIB,Tom Oxford,1
+bexar:1115,REP,Brett Busby,52
+bexar:1117,DEM,Gisela D. Triana,122
+bexar:1117,LIB,Tom Oxford,3
+bexar:1117,REP,Brett Busby,74
+bexar:1124,DEM,Gisela D. Triana,266
+bexar:1124,LIB,Tom Oxford,15
+bexar:1124,REP,Brett Busby,164
+bexar:1126,DEM,Gisela D. Triana,0
+bexar:1126,LIB,Tom Oxford,0
+bexar:1126,REP,Brett Busby,0
+bexar:4002,DEM,Gisela D. Triana,356
+bexar:4002,LIB,Tom Oxford,15
+bexar:4002,REP,Brett Busby,91
+bexar:4003,DEM,Gisela D. Triana,543
+bexar:4003,LIB,Tom Oxford,28
+bexar:4003,REP,Brett Busby,99
+bexar:4004,DEM,Gisela D. Triana,486
+bexar:4004,LIB,Tom Oxford,20
+bexar:4004,REP,Brett Busby,165
+bexar:4011,DEM,Gisela D. Triana,606
+bexar:4011,LIB,Tom Oxford,17
+bexar:4011,REP,Brett Busby,83
+bexar:4012,DEM,Gisela D. Triana,324
+bexar:4012,LIB,Tom Oxford,15
+bexar:4012,REP,Brett Busby,73
+bexar:4013,DEM,Gisela D. Triana,383
+bexar:4013,LIB,Tom Oxford,15
+bexar:4013,REP,Brett Busby,126
+bexar:4014,DEM,Gisela D. Triana,174
+bexar:4014,LIB,Tom Oxford,12
+bexar:4014,REP,Brett Busby,53
+bexar:4016,DEM,Gisela D. Triana,1001
+bexar:4016,LIB,Tom Oxford,39
+bexar:4016,REP,Brett Busby,300
+bexar:4019,DEM,Gisela D. Triana,974
+bexar:4019,LIB,Tom Oxford,38
+bexar:4019,REP,Brett Busby,394
+bexar:4020,DEM,Gisela D. Triana,470
+bexar:4020,LIB,Tom Oxford,23
+bexar:4020,REP,Brett Busby,276
+bexar:4023,DEM,Gisela D. Triana,912
+bexar:4023,LIB,Tom Oxford,23
+bexar:4023,REP,Brett Busby,536
+bexar:4024,DEM,Gisela D. Triana,1038
+bexar:4024,LIB,Tom Oxford,41
+bexar:4024,REP,Brett Busby,519
+bexar:4025,DEM,Gisela D. Triana,444
+bexar:4025,LIB,Tom Oxford,27
+bexar:4025,REP,Brett Busby,224
+bexar:4026,DEM,Gisela D. Triana,1307
+bexar:4026,LIB,Tom Oxford,45
+bexar:4026,REP,Brett Busby,483
+bexar:4027,DEM,Gisela D. Triana,673
+bexar:4027,LIB,Tom Oxford,26
+bexar:4027,REP,Brett Busby,266
+bexar:4028,DEM,Gisela D. Triana,1085
+bexar:4028,LIB,Tom Oxford,37
+bexar:4028,REP,Brett Busby,332
+bexar:4029,DEM,Gisela D. Triana,963
+bexar:4029,LIB,Tom Oxford,27
+bexar:4029,REP,Brett Busby,176
+bexar:4030,DEM,Gisela D. Triana,153
+bexar:4030,LIB,Tom Oxford,2
+bexar:4030,REP,Brett Busby,15
+bexar:4031,DEM,Gisela D. Triana,693
+bexar:4031,LIB,Tom Oxford,24
+bexar:4031,REP,Brett Busby,239
+bexar:4032,DEM,Gisela D. Triana,674
+bexar:4032,LIB,Tom Oxford,15
+bexar:4032,REP,Brett Busby,325
+bexar:4033,DEM,Gisela D. Triana,1301
+bexar:4033,LIB,Tom Oxford,43
+bexar:4033,REP,Brett Busby,602
+bexar:4034,DEM,Gisela D. Triana,625
+bexar:4034,LIB,Tom Oxford,29
+bexar:4034,REP,Brett Busby,298
+bexar:4036,DEM,Gisela D. Triana,1213
+bexar:4036,LIB,Tom Oxford,42
+bexar:4036,REP,Brett Busby,271
+bexar:4037,DEM,Gisela D. Triana,696
+bexar:4037,LIB,Tom Oxford,21
+bexar:4037,REP,Brett Busby,107
+bexar:4039,DEM,Gisela D. Triana,569
+bexar:4039,LIB,Tom Oxford,13
+bexar:4039,REP,Brett Busby,59
+bexar:4041,DEM,Gisela D. Triana,914
+bexar:4041,LIB,Tom Oxford,15
+bexar:4041,REP,Brett Busby,142
+bexar:4048,DEM,Gisela D. Triana,748
+bexar:4048,LIB,Tom Oxford,25
+bexar:4048,REP,Brett Busby,213
+bexar:4055,DEM,Gisela D. Triana,454
+bexar:4055,LIB,Tom Oxford,53
+bexar:4055,REP,Brett Busby,546
+bexar:4056,DEM,Gisela D. Triana,958
+bexar:4056,LIB,Tom Oxford,69
+bexar:4056,REP,Brett Busby,1033
+bexar:4057,DEM,Gisela D. Triana,463
+bexar:4057,LIB,Tom Oxford,24
+bexar:4057,REP,Brett Busby,825
+bexar:4058,DEM,Gisela D. Triana,441
+bexar:4058,LIB,Tom Oxford,47
+bexar:4058,REP,Brett Busby,763
+bexar:4059,DEM,Gisela D. Triana,753
+bexar:4059,LIB,Tom Oxford,54
+bexar:4059,REP,Brett Busby,663
+bexar:4062,DEM,Gisela D. Triana,294
+bexar:4062,LIB,Tom Oxford,9
+bexar:4062,REP,Brett Busby,126
+bexar:4069,DEM,Gisela D. Triana,280
+bexar:4069,LIB,Tom Oxford,13
+bexar:4069,REP,Brett Busby,448
+bexar:4070,DEM,Gisela D. Triana,1421
+bexar:4070,LIB,Tom Oxford,58
+bexar:4070,REP,Brett Busby,561
+bexar:4071,DEM,Gisela D. Triana,178
+bexar:4071,LIB,Tom Oxford,17
+bexar:4071,REP,Brett Busby,960
+bexar:4072,DEM,Gisela D. Triana,600
+bexar:4072,LIB,Tom Oxford,37
+bexar:4072,REP,Brett Busby,1521
+bexar:4073,DEM,Gisela D. Triana,512
+bexar:4073,LIB,Tom Oxford,38
+bexar:4073,REP,Brett Busby,514
+bexar:4074,DEM,Gisela D. Triana,556
+bexar:4074,LIB,Tom Oxford,31
+bexar:4074,REP,Brett Busby,682
+bexar:4075,DEM,Gisela D. Triana,291
+bexar:4075,LIB,Tom Oxford,9
+bexar:4075,REP,Brett Busby,78
+bexar:4077,DEM,Gisela D. Triana,1297
+bexar:4077,LIB,Tom Oxford,66
+bexar:4077,REP,Brett Busby,750
+bexar:4078,DEM,Gisela D. Triana,214
+bexar:4078,LIB,Tom Oxford,21
+bexar:4078,REP,Brett Busby,713
+bexar:4079,DEM,Gisela D. Triana,447
+bexar:4079,LIB,Tom Oxford,31
+bexar:4079,REP,Brett Busby,573
+bexar:4081,DEM,Gisela D. Triana,146
+bexar:4081,LIB,Tom Oxford,23
+bexar:4081,REP,Brett Busby,211
+bexar:4084,DEM,Gisela D. Triana,268
+bexar:4084,LIB,Tom Oxford,10
+bexar:4084,REP,Brett Busby,90
+bexar:4085,DEM,Gisela D. Triana,2
+bexar:4085,LIB,Tom Oxford,0
+bexar:4085,REP,Brett Busby,36
+bexar:4086,DEM,Gisela D. Triana,120
+bexar:4086,LIB,Tom Oxford,8
+bexar:4086,REP,Brett Busby,191
+bexar:4089,DEM,Gisela D. Triana,1155
+bexar:4089,LIB,Tom Oxford,74
+bexar:4089,REP,Brett Busby,919
+bexar:4090,DEM,Gisela D. Triana,694
+bexar:4090,LIB,Tom Oxford,46
+bexar:4090,REP,Brett Busby,603
+bexar:4092,DEM,Gisela D. Triana,532
+bexar:4092,LIB,Tom Oxford,21
+bexar:4092,REP,Brett Busby,603
+bexar:4101,DEM,Gisela D. Triana,275
+bexar:4101,LIB,Tom Oxford,14
+bexar:4101,REP,Brett Busby,418
+bexar:4103,DEM,Gisela D. Triana,0
+bexar:4103,LIB,Tom Oxford,0
+bexar:4103,REP,Brett Busby,0
+bexar:4113,DEM,Gisela D. Triana,398
+bexar:4113,LIB,Tom Oxford,9
+bexar:4113,REP,Brett Busby,82
+bexar:4116,DEM,Gisela D. Triana,18
+bexar:4116,LIB,Tom Oxford,0
+bexar:4116,REP,Brett Busby,17
+bexar:4118,DEM,Gisela D. Triana,10
+bexar:4118,LIB,Tom Oxford,1
+bexar:4118,REP,Brett Busby,44
+bexar:4121,DEM,Gisela D. Triana,46
+bexar:4121,LIB,Tom Oxford,3
+bexar:4121,REP,Brett Busby,85
+bexar:4124,DEM,Gisela D. Triana,784
+bexar:4124,LIB,Tom Oxford,35
+bexar:4124,REP,Brett Busby,267
+bexar:4126,DEM,Gisela D. Triana,544
+bexar:4126,LIB,Tom Oxford,33
+bexar:4126,REP,Brett Busby,641
+bexar:4127,DEM,Gisela D. Triana,21
+bexar:4127,LIB,Tom Oxford,0
+bexar:4127,REP,Brett Busby,11
+bexar:4129,DEM,Gisela D. Triana,25
+bexar:4129,LIB,Tom Oxford,1
+bexar:4129,REP,Brett Busby,54
+bexar:4130,DEM,Gisela D. Triana,280
+bexar:4130,LIB,Tom Oxford,26
+bexar:4130,REP,Brett Busby,235
+bexar:4133,DEM,Gisela D. Triana,2
+bexar:4133,LIB,Tom Oxford,0
+bexar:4133,REP,Brett Busby,14
+bexar:4136,DEM,Gisela D. Triana,335
+bexar:4136,LIB,Tom Oxford,24
+bexar:4136,REP,Brett Busby,367
+bexar:4137,DEM,Gisela D. Triana,13
+bexar:4137,LIB,Tom Oxford,2
+bexar:4137,REP,Brett Busby,71
+bexar:4141,DEM,Gisela D. Triana,114
+bexar:4141,LIB,Tom Oxford,5
+bexar:4141,REP,Brett Busby,29
+bexar:4144,DEM,Gisela D. Triana,134
+bexar:4144,LIB,Tom Oxford,20
+bexar:4144,REP,Brett Busby,233
+bexar:4151,DEM,Gisela D. Triana,86
+bexar:4151,LIB,Tom Oxford,6
+bexar:4151,REP,Brett Busby,345
+bexar:4153,DEM,Gisela D. Triana,52
+bexar:4153,LIB,Tom Oxford,1
+bexar:4153,REP,Brett Busby,50
+bexar:4159,DEM,Gisela D. Triana,6
+bexar:4159,LIB,Tom Oxford,0
+bexar:4159,REP,Brett Busby,7
+bexar:4162,DEM,Gisela D. Triana,832
+bexar:4162,LIB,Tom Oxford,57
+bexar:4162,REP,Brett Busby,662
+bexar:4164,DEM,Gisela D. Triana,627
+bexar:4164,LIB,Tom Oxford,45
+bexar:4164,REP,Brett Busby,912
+bexar:4165,DEM,Gisela D. Triana,26
+bexar:4165,LIB,Tom Oxford,1
+bexar:4165,REP,Brett Busby,42
+bexar:4167,DEM,Gisela D. Triana,6
+bexar:4167,LIB,Tom Oxford,0
+bexar:4167,REP,Brett Busby,10
+bexar:4177,DEM,Gisela D. Triana,26
+bexar:4177,LIB,Tom Oxford,0
+bexar:4177,REP,Brett Busby,2
+bexar:4180,DEM,Gisela D. Triana,0
+bexar:4180,LIB,Tom Oxford,0
+bexar:4180,REP,Brett Busby,3
+bexar:4187,DEM,Gisela D. Triana,0
+bexar:4187,LIB,Tom Oxford,0
+bexar:4187,REP,Brett Busby,0
+bexar:4188,DEM,Gisela D. Triana,0
+bexar:4188,LIB,Tom Oxford,0
+bexar:4188,REP,Brett Busby,0
+bexar:4194,DEM,Gisela D. Triana,225
+bexar:4194,LIB,Tom Oxford,18
+bexar:4194,REP,Brett Busby,207
+bexar:4200,DEM,Gisela D. Triana,1271
+bexar:4200,LIB,Tom Oxford,49
+bexar:4200,REP,Brett Busby,636
+bexar:4201,DEM,Gisela D. Triana,3
+bexar:4201,LIB,Tom Oxford,0
+bexar:4201,REP,Brett Busby,7
+bexar:4202,DEM,Gisela D. Triana,0
+bexar:4202,LIB,Tom Oxford,0
+bexar:4202,REP,Brett Busby,0
+bexar:4204,DEM,Gisela D. Triana,2
+bexar:4204,LIB,Tom Oxford,1
+bexar:4204,REP,Brett Busby,1
+bexar:4207,DEM,Gisela D. Triana,0
+bexar:4207,LIB,Tom Oxford,0
+bexar:4207,REP,Brett Busby,0
+bexar:4208,DEM,Gisela D. Triana,0
+bexar:4208,LIB,Tom Oxford,0
+bexar:4208,REP,Brett Busby,0
+bexar:4209,DEM,Gisela D. Triana,11
+bexar:4209,LIB,Tom Oxford,0
+bexar:4209,REP,Brett Busby,35
+bexar:4212,DEM,Gisela D. Triana,0
+bexar:4212,LIB,Tom Oxford,0
+bexar:4212,REP,Brett Busby,0
+mcmullen:1,DEM,Gisela D. Triana,8
+mcmullen:1,LIB,Tom Oxford,2
+mcmullen:1,REP,Brett Busby,83
+mcmullen:2A,DEM,Gisela D. Triana,3
+mcmullen:2A,LIB,Tom Oxford,0
+mcmullen:2A,REP,Brett Busby,54
+mcmullen:2B,DEM,Gisela D. Triana,5
+mcmullen:2B,LIB,Tom Oxford,0
+mcmullen:2B,REP,Brett Busby,71
+mcmullen:3,DEM,Gisela D. Triana,13
+mcmullen:3,LIB,Tom Oxford,1
+mcmullen:3,REP,Brett Busby,110
+mcmullen:4A,DEM,Gisela D. Triana,3
+mcmullen:4A,LIB,Tom Oxford,0
+mcmullen:4A,REP,Brett Busby,52
+mcmullen:4B,DEM,Gisela D. Triana,4
+mcmullen:4B,LIB,Tom Oxford,0
+mcmullen:4B,REP,Brett Busby,66
+starr:1,DEM,Gisela D. Triana,863
+starr:1,LIB,Tom Oxford,43
+starr:1,REP,Brett Busby,466
+starr:10,DEM,Gisela D. Triana,1785
+starr:10,LIB,Tom Oxford,96
+starr:10,REP,Brett Busby,1122
+starr:2,DEM,Gisela D. Triana,1181
+starr:2,LIB,Tom Oxford,64
+starr:2,REP,Brett Busby,692
+starr:3,DEM,Gisela D. Triana,514
+starr:3,LIB,Tom Oxford,38
+starr:3,REP,Brett Busby,238
+starr:4,DEM,Gisela D. Triana,178
+starr:4,LIB,Tom Oxford,3
+starr:4,REP,Brett Busby,160
+starr:5,DEM,Gisela D. Triana,34
+starr:5,LIB,Tom Oxford,1
+starr:5,REP,Brett Busby,26
+starr:6,DEM,Gisela D. Triana,2136
+starr:6,LIB,Tom Oxford,125
+starr:6,REP,Brett Busby,916
+starr:7,DEM,Gisela D. Triana,245
+starr:7,LIB,Tom Oxford,12
+starr:7,REP,Brett Busby,112
+starr:8,DEM,Gisela D. Triana,814
+starr:8,LIB,Tom Oxford,55
+starr:8,REP,Brett Busby,441
+starr:9,DEM,Gisela D. Triana,1043
+starr:9,LIB,Tom Oxford,63
+starr:9,REP,Brett Busby,621
+webb:122,DEM,Gisela D. Triana,203
+webb:122,LIB,Tom Oxford,5
+webb:122,REP,Brett Busby,92
+webb:124,DEM,Gisela D. Triana,644
+webb:124,LIB,Tom Oxford,37
+webb:124,REP,Brett Busby,182
+webb:125,DEM,Gisela D. Triana,342
+webb:125,LIB,Tom Oxford,14
+webb:125,REP,Brett Busby,107
+webb:128,DEM,Gisela D. Triana,198
+webb:128,LIB,Tom Oxford,7
+webb:128,REP,Brett Busby,56
+webb:129,DEM,Gisela D. Triana,790
+webb:129,LIB,Tom Oxford,40
+webb:129,REP,Brett Busby,214
+webb:130,DEM,Gisela D. Triana,1295
+webb:130,LIB,Tom Oxford,60
+webb:130,REP,Brett Busby,382
+webb:132,DEM,Gisela D. Triana,1290
+webb:132,LIB,Tom Oxford,79
+webb:132,REP,Brett Busby,473
+webb:133,DEM,Gisela D. Triana,1297
+webb:133,LIB,Tom Oxford,58
+webb:133,REP,Brett Busby,488
+webb:134,DEM,Gisela D. Triana,547
+webb:134,LIB,Tom Oxford,29
+webb:134,REP,Brett Busby,186
+webb:135,DEM,Gisela D. Triana,324
+webb:135,LIB,Tom Oxford,23
+webb:135,REP,Brett Busby,107
+webb:136,DEM,Gisela D. Triana,114
+webb:136,LIB,Tom Oxford,6
+webb:136,REP,Brett Busby,79
+webb:154,DEM,Gisela D. Triana,413
+webb:154,LIB,Tom Oxford,23
+webb:154,REP,Brett Busby,168
+webb:164,DEM,Gisela D. Triana,341
+webb:164,LIB,Tom Oxford,16
+webb:164,REP,Brett Busby,121
+webb:169,DEM,Gisela D. Triana,413
+webb:169,LIB,Tom Oxford,18
+webb:169,REP,Brett Busby,169
+webb:215,DEM,Gisela D. Triana,496
+webb:215,LIB,Tom Oxford,17
+webb:215,REP,Brett Busby,183
+webb:218,DEM,Gisela D. Triana,693
+webb:218,LIB,Tom Oxford,36
+webb:218,REP,Brett Busby,282
+webb:219,DEM,Gisela D. Triana,578
+webb:219,LIB,Tom Oxford,20
+webb:219,REP,Brett Busby,210
+webb:220,DEM,Gisela D. Triana,420
+webb:220,LIB,Tom Oxford,21
+webb:220,REP,Brett Busby,132
+webb:221,DEM,Gisela D. Triana,427
+webb:221,LIB,Tom Oxford,14
+webb:221,REP,Brett Busby,182
+webb:226,DEM,Gisela D. Triana,422
+webb:226,LIB,Tom Oxford,16
+webb:226,REP,Brett Busby,149
+webb:227,DEM,Gisela D. Triana,1684
+webb:227,LIB,Tom Oxford,70
+webb:227,REP,Brett Busby,765
+webb:231,DEM,Gisela D. Triana,1367
+webb:231,LIB,Tom Oxford,58
+webb:231,REP,Brett Busby,584
+webb:237,DEM,Gisela D. Triana,199
+webb:237,LIB,Tom Oxford,8
+webb:237,REP,Brett Busby,117
+webb:239,DEM,Gisela D. Triana,1988
+webb:239,LIB,Tom Oxford,66
+webb:239,REP,Brett Busby,1041
+webb:252,DEM,Gisela D. Triana,1092
+webb:252,LIB,Tom Oxford,39
+webb:252,REP,Brett Busby,445
+webb:255,DEM,Gisela D. Triana,848
+webb:255,LIB,Tom Oxford,31
+webb:255,REP,Brett Busby,530
+webb:266,DEM,Gisela D. Triana,490
+webb:266,LIB,Tom Oxford,15
+webb:266,REP,Brett Busby,181
+webb:267,DEM,Gisela D. Triana,678
+webb:267,LIB,Tom Oxford,24
+webb:267,REP,Brett Busby,269
+webb:268,DEM,Gisela D. Triana,95
+webb:268,LIB,Tom Oxford,2
+webb:268,REP,Brett Busby,62
+webb:308,DEM,Gisela D. Triana,328
+webb:308,LIB,Tom Oxford,16
+webb:308,REP,Brett Busby,180
+webb:309,DEM,Gisela D. Triana,1235
+webb:309,LIB,Tom Oxford,35
+webb:309,REP,Brett Busby,433
+webb:310,DEM,Gisela D. Triana,179
+webb:310,LIB,Tom Oxford,6
+webb:310,REP,Brett Busby,59
+webb:311,DEM,Gisela D. Triana,576
+webb:311,LIB,Tom Oxford,21
+webb:311,REP,Brett Busby,191
+webb:312,DEM,Gisela D. Triana,389
+webb:312,LIB,Tom Oxford,9
+webb:312,REP,Brett Busby,117
+webb:338,DEM,Gisela D. Triana,73
+webb:338,LIB,Tom Oxford,3
+webb:338,REP,Brett Busby,22
+webb:340,DEM,Gisela D. Triana,817
+webb:340,LIB,Tom Oxford,36
+webb:340,REP,Brett Busby,624
+webb:341,DEM,Gisela D. Triana,529
+webb:341,LIB,Tom Oxford,15
+webb:341,REP,Brett Busby,438
+webb:342,DEM,Gisela D. Triana,856
+webb:342,LIB,Tom Oxford,24
+webb:342,REP,Brett Busby,462
+webb:343,DEM,Gisela D. Triana,1026
+webb:343,LIB,Tom Oxford,34
+webb:343,REP,Brett Busby,544
+webb:344,DEM,Gisela D. Triana,2039
+webb:344,LIB,Tom Oxford,72
+webb:344,REP,Brett Busby,1405
+webb:345,DEM,Gisela D. Triana,943
+webb:345,LIB,Tom Oxford,38
+webb:345,REP,Brett Busby,500
+webb:349,DEM,Gisela D. Triana,1001
+webb:349,LIB,Tom Oxford,29
+webb:349,REP,Brett Busby,853
+webb:350,DEM,Gisela D. Triana,12
+webb:350,LIB,Tom Oxford,0
+webb:350,REP,Brett Busby,24
+webb:351,DEM,Gisela D. Triana,185
+webb:351,LIB,Tom Oxford,6
+webb:351,REP,Brett Busby,55
+webb:356,DEM,Gisela D. Triana,1870
+webb:356,LIB,Tom Oxford,62
+webb:356,REP,Brett Busby,1265
+webb:359,DEM,Gisela D. Triana,1550
+webb:359,LIB,Tom Oxford,58
+webb:359,REP,Brett Busby,839
+webb:360,DEM,Gisela D. Triana,179
+webb:360,LIB,Tom Oxford,11
+webb:360,REP,Brett Busby,75
+webb:361,DEM,Gisela D. Triana,533
+webb:361,LIB,Tom Oxford,18
+webb:361,REP,Brett Busby,229
+webb:362,DEM,Gisela D. Triana,142
+webb:362,LIB,Tom Oxford,3
+webb:362,REP,Brett Busby,40
+webb:363,DEM,Gisela D. Triana,304
+webb:363,LIB,Tom Oxford,16
+webb:363,REP,Brett Busby,109
+webb:401,DEM,Gisela D. Triana,471
+webb:401,LIB,Tom Oxford,26
+webb:401,REP,Brett Busby,142
+webb:402,DEM,Gisela D. Triana,524
+webb:402,LIB,Tom Oxford,30
+webb:402,REP,Brett Busby,141
+webb:403,DEM,Gisela D. Triana,403
+webb:403,LIB,Tom Oxford,13
+webb:403,REP,Brett Busby,107
+webb:404,DEM,Gisela D. Triana,608
+webb:404,LIB,Tom Oxford,19
+webb:404,REP,Brett Busby,139
+webb:405,DEM,Gisela D. Triana,586
+webb:405,LIB,Tom Oxford,32
+webb:405,REP,Brett Busby,181
+webb:406,DEM,Gisela D. Triana,294
+webb:406,LIB,Tom Oxford,15
+webb:406,REP,Brett Busby,80
+webb:407,DEM,Gisela D. Triana,162
+webb:407,LIB,Tom Oxford,9
+webb:407,REP,Brett Busby,63
+webb:413,DEM,Gisela D. Triana,634
+webb:413,LIB,Tom Oxford,25
+webb:413,REP,Brett Busby,190
+webb:414,DEM,Gisela D. Triana,326
+webb:414,LIB,Tom Oxford,11
+webb:414,REP,Brett Busby,95
+webb:416,DEM,Gisela D. Triana,320
+webb:416,LIB,Tom Oxford,13
+webb:416,REP,Brett Busby,84
+webb:417,DEM,Gisela D. Triana,190
+webb:417,LIB,Tom Oxford,9
+webb:417,REP,Brett Busby,74
+webb:423,DEM,Gisela D. Triana,322
+webb:423,LIB,Tom Oxford,10
+webb:423,REP,Brett Busby,82
+webb:446,DEM,Gisela D. Triana,1295
+webb:446,LIB,Tom Oxford,50
+webb:446,REP,Brett Busby,531
+webb:447,DEM,Gisela D. Triana,1020
+webb:447,LIB,Tom Oxford,65
+webb:447,REP,Brett Busby,709
+webb:448,DEM,Gisela D. Triana,113
+webb:448,LIB,Tom Oxford,7
+webb:448,REP,Brett Busby,80
+webb:453,DEM,Gisela D. Triana,151
+webb:453,LIB,Tom Oxford,10
+webb:453,REP,Brett Busby,51
+webb:457,DEM,Gisela D. Triana,21
+webb:457,LIB,Tom Oxford,0
+webb:457,REP,Brett Busby,26
+webb:458,DEM,Gisela D. Triana,1296
+webb:458,LIB,Tom Oxford,63
+webb:458,REP,Brett Busby,677
+webb:465,DEM,Gisela D. Triana,269
+webb:465,LIB,Tom Oxford,10
+webb:465,REP,Brett Busby,76
+zapata:1,DEM,Gisela D. Triana,530
+zapata:1,LIB,Tom Oxford,19
+zapata:1,REP,Brett Busby,317
+zapata:2,DEM,Gisela D. Triana,506
+zapata:2,LIB,Tom Oxford,8
+zapata:2,REP,Brett Busby,332
+zapata:3,DEM,Gisela D. Triana,476
+zapata:3,LIB,Tom Oxford,14
+zapata:3,REP,Brett Busby,469
+zapata:4,DEM,Gisela D. Triana,363
+zapata:4,LIB,Tom Oxford,19
+zapata:4,REP,Brett Busby,203

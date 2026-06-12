@@ -1,0 +1,26 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANH2316",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "bandera": 10,
+      "crane": 4,
+      "crockett": 4,
+      "edwards": 4,
+      "kerr": 20,
+      "kimble": 7,
+      "llano": 9,
+      "mason": 4,
+      "mcculloch": 9,
+      "medina": 14,
+      "menard": 6,
+      "pecos": 9,
+      "real": 6,
+      "schleicher": 4,
+      "sutton": 4,
+      "upton": 6
+    },
+    "generated": "2026-06-12"
+  }
+}

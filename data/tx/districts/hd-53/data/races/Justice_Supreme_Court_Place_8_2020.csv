@@ -1,0 +1,33 @@
+precinct,party,candidate,votes
+edwards:1,,Over Votes,0
+edwards:1,,Under Votes,32
+edwards:1,DEM,Gisela D. Triana,27
+edwards:1,LIB,Tom Oxford,4
+edwards:1,REP,Brett Busby,105
+edwards:2,,Over Votes,0
+edwards:2,,Under Votes,17
+edwards:2,DEM,Gisela D. Triana,36
+edwards:2,LIB,Tom Oxford,0
+edwards:2,REP,Brett Busby,306
+edwards:3,,Over Votes,0
+edwards:3,,Under Votes,33
+edwards:3,DEM,Gisela D. Triana,36
+edwards:3,LIB,Tom Oxford,5
+edwards:3,REP,Brett Busby,248
+edwards:4,,Over Votes,0
+edwards:4,,Under Votes,47
+edwards:4,DEM,Gisela D. Triana,45
+edwards:4,LIB,Tom Oxford,3
+edwards:4,REP,Brett Busby,128
+real:2,,Brett Busby,501
+real:2,,Gisela D. Triana,78
+real:2,,Tom Oxford,9
+real:3,,Brett Busby,246
+real:3,,Gisela D. Triana,69
+real:3,,Tom Oxford,6
+real:4,,Brett Busby,217
+real:4,,Gisela D. Triana,22
+real:4,,Tom Oxford,1
+real:6,,Brett Busby,196
+real:6,,Gisela D. Triana,40
+real:6,,Tom Oxford,4

@@ -135,6 +135,11 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    /* Above the icon-only breakpoint the wordmark must never ellipsize —
+       everything else in the row compresses first */
+    @media (min-width: 1281px) {
+      .header-brand { flex-shrink: 0; }
+    }
 
     .header-brand-icon {
       flex-shrink: 0;

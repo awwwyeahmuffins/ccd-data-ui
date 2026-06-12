@@ -1,0 +1,21 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANS2168",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "archer": 11,
+      "clay": 16,
+      "collin": 22,
+      "cooke": 17,
+      "denton": 94,
+      "grayson": 36,
+      "jack": 6,
+      "montague": 15,
+      "parker": 26,
+      "wichita": 30,
+      "young": 9
+    },
+    "generated": "2026-06-12"
+  }
+}

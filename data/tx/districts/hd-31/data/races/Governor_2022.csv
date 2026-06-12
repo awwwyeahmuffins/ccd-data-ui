@@ -1,0 +1,136 @@
+precinct,party,candidate,votes
+brooks:1,,Delilah Barrios,3
+brooks:1,LIB,Mark Tippetts,2
+brooks:1,DEM,Beto O'rourke,308
+brooks:1,REP,Greg Abbott,154
+brooks:2,,Delilah Barrios,2
+brooks:2,LIB,Mark Tippetts,5
+brooks:2,DEM,Beto O'rourke,309
+brooks:2,REP,Greg Abbott,249
+brooks:3,,Delilah Barrios,4
+brooks:3,LIB,Mark Tippetts,0
+brooks:3,DEM,Beto O'rourke,228
+brooks:3,REP,Greg Abbott,113
+brooks:3S,,Delilah Barrios,0
+brooks:3S,LIB,Mark Tippetts,0
+brooks:3S,DEM,Beto O'rourke,49
+brooks:3S,REP,Greg Abbott,63
+brooks:4,,Delilah Barrios,1
+brooks:4,LIB,Mark Tippetts,2
+brooks:4,DEM,Beto O'rourke,310
+brooks:4,REP,Greg Abbott,206
+kenedy:1,DEM,Beto O'Rourke,12
+kenedy:1,GRN,Delilah Barrios,0
+kenedy:1,LIB,Mark Tippetts,1
+kenedy:1,REP,Greg Abbott,42
+kenedy:2,DEM,Beto O'Rourke,16
+kenedy:2,GRN,Delilah Barrios,0
+kenedy:2,LIB,Mark Tippetts,0
+kenedy:2,REP,Greg Abbott,12
+kenedy:3,DEM,Beto O'Rourke,4
+kenedy:3,GRN,Delilah Barrios,0
+kenedy:3,LIB,Mark Tippetts,0
+kenedy:3,REP,Greg Abbott,11
+kenedy:4,DEM,Beto O'Rourke,3
+kenedy:4,GRN,Delilah Barrios,0
+kenedy:4,LIB,Mark Tippetts,0
+kenedy:4,REP,Greg Abbott,32
+kenedy:5,DEM,Beto O'Rourke,4
+kenedy:5,GRN,Delilah Barrios,1
+kenedy:5,LIB,Mark Tippetts,0
+kenedy:5,REP,Greg Abbott,5
+kenedy:6,DEM,Beto O'Rourke,3
+kenedy:6,GRN,Delilah Barrios,0
+kenedy:6,LIB,Mark Tippetts,0
+kenedy:6,REP,Greg Abbott,7
+wilson:101,,Over Votes,2
+wilson:101,,Under Votes,10
+wilson:101,,Write-in,0
+wilson:101,DEM,Beto O'Rourke,663
+wilson:101,GRN,Delilah Barrios,6
+wilson:101,LIB,Mark Tippetts,16
+wilson:101,REP,Greg Abbott,1350
+wilson:102,,Over Votes,2
+wilson:102,,Under Votes,15
+wilson:102,,Write-in,0
+wilson:102,DEM,Beto O'Rourke,481
+wilson:102,GRN,Delilah Barrios,2
+wilson:102,LIB,Mark Tippetts,5
+wilson:102,REP,Greg Abbott,423
+wilson:103,,Over Votes,4
+wilson:103,,Under Votes,8
+wilson:103,,Write-in,0
+wilson:103,DEM,Beto O'Rourke,308
+wilson:103,GRN,Delilah Barrios,8
+wilson:103,LIB,Mark Tippetts,11
+wilson:103,REP,Greg Abbott,610
+wilson:104,,Over Votes,3
+wilson:104,,Under Votes,7
+wilson:104,,Write-in,0
+wilson:104,DEM,Beto O'Rourke,167
+wilson:104,GRN,Delilah Barrios,6
+wilson:104,LIB,Mark Tippetts,4
+wilson:104,REP,Greg Abbott,526
+wilson:205,,Over Votes,0
+wilson:205,,Under Votes,10
+wilson:205,,Write-in,1
+wilson:205,DEM,Beto O'Rourke,245
+wilson:205,GRN,Delilah Barrios,5
+wilson:205,LIB,Mark Tippetts,9
+wilson:205,REP,Greg Abbott,1456
+wilson:206,,Over Votes,1
+wilson:206,,Under Votes,7
+wilson:206,,Write-in,0
+wilson:206,DEM,Beto O'Rourke,401
+wilson:206,GRN,Delilah Barrios,2
+wilson:206,LIB,Mark Tippetts,7
+wilson:206,REP,Greg Abbott,791
+wilson:207,,Over Votes,3
+wilson:207,,Under Votes,10
+wilson:207,,Write-in,1
+wilson:207,DEM,Beto O'Rourke,457
+wilson:207,GRN,Delilah Barrios,5
+wilson:207,LIB,Mark Tippetts,10
+wilson:207,REP,Greg Abbott,1370
+wilson:311,,Over Votes,1
+wilson:311,,Under Votes,9
+wilson:311,,Write-in,0
+wilson:311,DEM,Beto O'Rourke,206
+wilson:311,GRN,Delilah Barrios,1
+wilson:311,LIB,Mark Tippetts,17
+wilson:311,REP,Greg Abbott,1328
+wilson:312,,Over Votes,2
+wilson:312,,Under Votes,10
+wilson:312,,Write-in,1
+wilson:312,DEM,Beto O'Rourke,215
+wilson:312,GRN,Delilah Barrios,3
+wilson:312,LIB,Mark Tippetts,12
+wilson:312,REP,Greg Abbott,1394
+wilson:313,,Over Votes,2
+wilson:313,,Under Votes,9
+wilson:313,,Write-in,1
+wilson:313,DEM,Beto O'Rourke,306
+wilson:313,GRN,Delilah Barrios,5
+wilson:313,LIB,Mark Tippetts,13
+wilson:313,REP,Greg Abbott,1705
+wilson:414,,Over Votes,4
+wilson:414,,Under Votes,12
+wilson:414,,Write-in,1
+wilson:414,DEM,Beto O'Rourke,215
+wilson:414,GRN,Delilah Barrios,2
+wilson:414,LIB,Mark Tippetts,10
+wilson:414,REP,Greg Abbott,1318
+wilson:415,,Over Votes,6
+wilson:415,,Under Votes,8
+wilson:415,,Write-in,0
+wilson:415,DEM,Beto O'Rourke,423
+wilson:415,GRN,Delilah Barrios,6
+wilson:415,LIB,Mark Tippetts,18
+wilson:415,REP,Greg Abbott,1677
+wilson:416,,Over Votes,2
+wilson:416,,Under Votes,4
+wilson:416,,Write-in,0
+wilson:416,DEM,Beto O'Rourke,230
+wilson:416,GRN,Delilah Barrios,4
+wilson:416,LIB,Mark Tippetts,9
+wilson:416,REP,Greg Abbott,1004

@@ -237,6 +237,19 @@ async function init() {
     });
   });
 
+  // Keep the county fitted when the window is resized (until the user has
+  // engaged with a specific precinct) — a resized window otherwise strands
+  // the county small and off-center
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (state.geojsonLayer && !state.selectedPrecinct) {
+        state.map.fitBounds(state.geojsonLayer.getBounds(), { padding: [24, 24] });
+      }
+    }, 250);
+  });
+
   // Restore state from URL
   restoreFromURL();
   updateForecastButton();

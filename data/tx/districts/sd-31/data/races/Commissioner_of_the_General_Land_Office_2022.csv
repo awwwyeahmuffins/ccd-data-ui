@@ -1,0 +1,581 @@
+precinct,party,candidate,votes
+cochran:101,DEM,JAY KLEBERG,21
+cochran:101,GRN,"ALFRED MOLISON, JR.",0
+cochran:101,REP,DAWN BUCKINGHAM,137
+cochran:202,DEM,JAY KLEBERG,22
+cochran:202,GRN,"ALFRED MOLISON, JR.",4
+cochran:202,REP,DAWN BUCKINGHAM,174
+cochran:303,DEM,JAY KLEBERG,1
+cochran:303,GRN,"ALFRED MOLISON, JR.",0
+cochran:303,REP,DAWN BUCKINGHAM,39
+cochran:306,DEM,JAY KLEBERG,17
+cochran:306,GRN,"ALFRED MOLISON, JR.",1
+cochran:306,REP,DAWN BUCKINGHAM,106
+cochran:404,DEM,JAY KLEBERG,28
+cochran:404,GRN,"ALFRED MOLISON, JR.",2
+cochran:404,REP,DAWN BUCKINGHAM,45
+ector:101,,Carrie Evelyn Menger,0
+ector:101,DEM,Jay Kleberg,159
+ector:101,GRN,"Alfred Molison, Jr.",11
+ector:101,REP,Dawn Buckingham,695
+ector:102,,Carrie Evelyn Menger,0
+ector:102,DEM,Jay Kleberg,130
+ector:102,GRN,"Alfred Molison, Jr.",9
+ector:102,REP,Dawn Buckingham,369
+ector:103,,Carrie Evelyn Menger,0
+ector:103,DEM,Jay Kleberg,73
+ector:103,GRN,"Alfred Molison, Jr.",6
+ector:103,REP,Dawn Buckingham,351
+ector:104,,Carrie Evelyn Menger,0
+ector:104,DEM,Jay Kleberg,129
+ector:104,GRN,"Alfred Molison, Jr.",7
+ector:104,REP,Dawn Buckingham,531
+ector:108,,Carrie Evelyn Menger,0
+ector:108,DEM,Jay Kleberg,98
+ector:108,GRN,"Alfred Molison, Jr.",7
+ector:108,REP,Dawn Buckingham,745
+ector:109,,Carrie Evelyn Menger,0
+ector:109,DEM,Jay Kleberg,3
+ector:109,GRN,"Alfred Molison, Jr.",0
+ector:109,REP,Dawn Buckingham,45
+ector:110,,Carrie Evelyn Menger,0
+ector:110,DEM,Jay Kleberg,240
+ector:110,GRN,"Alfred Molison, Jr.",18
+ector:110,REP,Dawn Buckingham,1068
+ector:111,,Carrie Evelyn Menger,0
+ector:111,DEM,Jay Kleberg,179
+ector:111,GRN,"Alfred Molison, Jr.",7
+ector:111,REP,Dawn Buckingham,481
+ector:201,,Carrie Evelyn Menger,0
+ector:201,DEM,Jay Kleberg,233
+ector:201,GRN,"Alfred Molison, Jr.",15
+ector:201,REP,Dawn Buckingham,1203
+ector:202,,Carrie Evelyn Menger,0
+ector:202,DEM,Jay Kleberg,217
+ector:202,GRN,"Alfred Molison, Jr.",15
+ector:202,REP,Dawn Buckingham,976
+ector:203,,Carrie Evelyn Menger,0
+ector:203,DEM,Jay Kleberg,303
+ector:203,GRN,"Alfred Molison, Jr.",11
+ector:203,REP,Dawn Buckingham,1556
+ector:204,,Carrie Evelyn Menger,0
+ector:204,DEM,Jay Kleberg,231
+ector:204,GRN,"Alfred Molison, Jr.",24
+ector:204,REP,Dawn Buckingham,1187
+ector:205,,Carrie Evelyn Menger,0
+ector:205,DEM,Jay Kleberg,169
+ector:205,GRN,"Alfred Molison, Jr.",13
+ector:205,REP,Dawn Buckingham,657
+ector:206,,Carrie Evelyn Menger,0
+ector:206,DEM,Jay Kleberg,86
+ector:206,GRN,"Alfred Molison, Jr.",6
+ector:206,REP,Dawn Buckingham,444
+ector:207,,Carrie Evelyn Menger,0
+ector:207,DEM,Jay Kleberg,80
+ector:207,GRN,"Alfred Molison, Jr.",6
+ector:207,REP,Dawn Buckingham,914
+ector:208,,Carrie Evelyn Menger,0
+ector:208,DEM,Jay Kleberg,264
+ector:208,GRN,"Alfred Molison, Jr.",16
+ector:208,REP,Dawn Buckingham,1069
+ector:209,,Carrie Evelyn Menger,0
+ector:209,DEM,Jay Kleberg,114
+ector:209,GRN,"Alfred Molison, Jr.",7
+ector:209,REP,Dawn Buckingham,570
+ector:301,,Carrie Evelyn Menger,0
+ector:301,DEM,Jay Kleberg,250
+ector:301,GRN,"Alfred Molison, Jr.",11
+ector:301,REP,Dawn Buckingham,522
+ector:302,,Carrie Evelyn Menger,0
+ector:302,DEM,Jay Kleberg,113
+ector:302,GRN,"Alfred Molison, Jr.",4
+ector:302,REP,Dawn Buckingham,235
+ector:303,,Carrie Evelyn Menger,0
+ector:303,DEM,Jay Kleberg,146
+ector:303,GRN,"Alfred Molison, Jr.",11
+ector:303,REP,Dawn Buckingham,358
+ector:304,,Carrie Evelyn Menger,0
+ector:304,DEM,Jay Kleberg,36
+ector:304,GRN,"Alfred Molison, Jr.",5
+ector:304,REP,Dawn Buckingham,75
+ector:305,,Carrie Evelyn Menger,0
+ector:305,DEM,Jay Kleberg,46
+ector:305,GRN,"Alfred Molison, Jr.",5
+ector:305,REP,Dawn Buckingham,68
+ector:306,,Carrie Evelyn Menger,0
+ector:306,DEM,Jay Kleberg,89
+ector:306,GRN,"Alfred Molison, Jr.",7
+ector:306,REP,Dawn Buckingham,161
+ector:307,,Carrie Evelyn Menger,0
+ector:307,DEM,Jay Kleberg,207
+ector:307,GRN,"Alfred Molison, Jr.",7
+ector:307,REP,Dawn Buckingham,392
+ector:308,,Carrie Evelyn Menger,0
+ector:308,DEM,Jay Kleberg,68
+ector:308,GRN,"Alfred Molison, Jr.",3
+ector:308,REP,Dawn Buckingham,250
+ector:309,,Carrie Evelyn Menger,0
+ector:309,DEM,Jay Kleberg,101
+ector:309,GRN,"Alfred Molison, Jr.",8
+ector:309,REP,Dawn Buckingham,304
+ector:310,,Carrie Evelyn Menger,1
+ector:310,DEM,Jay Kleberg,107
+ector:310,GRN,"Alfred Molison, Jr.",6
+ector:310,REP,Dawn Buckingham,278
+ector:311,,Carrie Evelyn Menger,0
+ector:311,DEM,Jay Kleberg,102
+ector:311,GRN,"Alfred Molison, Jr.",3
+ector:311,REP,Dawn Buckingham,243
+ector:312,,Carrie Evelyn Menger,0
+ector:312,DEM,Jay Kleberg,126
+ector:312,GRN,"Alfred Molison, Jr.",5
+ector:312,REP,Dawn Buckingham,409
+ector:313,,Carrie Evelyn Menger,0
+ector:313,DEM,Jay Kleberg,40
+ector:313,GRN,"Alfred Molison, Jr.",3
+ector:313,REP,Dawn Buckingham,309
+ector:314,,Carrie Evelyn Menger,0
+ector:314,DEM,Jay Kleberg,107
+ector:314,GRN,"Alfred Molison, Jr.",5
+ector:314,REP,Dawn Buckingham,415
+ector:401,,Carrie Evelyn Menger,0
+ector:401,DEM,Jay Kleberg,57
+ector:401,GRN,"Alfred Molison, Jr.",4
+ector:401,REP,Dawn Buckingham,165
+ector:402,,Carrie Evelyn Menger,0
+ector:402,DEM,Jay Kleberg,240
+ector:402,GRN,"Alfred Molison, Jr.",2
+ector:402,REP,Dawn Buckingham,186
+ector:403,,Carrie Evelyn Menger,0
+ector:403,DEM,Jay Kleberg,321
+ector:403,GRN,"Alfred Molison, Jr.",20
+ector:403,REP,Dawn Buckingham,184
+ector:404,,Carrie Evelyn Menger,1
+ector:404,DEM,Jay Kleberg,103
+ector:404,GRN,"Alfred Molison, Jr.",5
+ector:404,REP,Dawn Buckingham,325
+ector:405,,Carrie Evelyn Menger,0
+ector:405,DEM,Jay Kleberg,78
+ector:405,GRN,"Alfred Molison, Jr.",5
+ector:405,REP,Dawn Buckingham,63
+ector:406,,Carrie Evelyn Menger,0
+ector:406,DEM,Jay Kleberg,213
+ector:406,GRN,"Alfred Molison, Jr.",14
+ector:406,REP,Dawn Buckingham,343
+ector:407,,Carrie Evelyn Menger,0
+ector:407,DEM,Jay Kleberg,138
+ector:407,GRN,"Alfred Molison, Jr.",10
+ector:407,REP,Dawn Buckingham,543
+ector:408,,Carrie Evelyn Menger,0
+ector:408,DEM,Jay Kleberg,67
+ector:408,GRN,"Alfred Molison, Jr.",5
+ector:408,REP,Dawn Buckingham,72
+ector:409,,Carrie Evelyn Menger,0
+ector:409,DEM,Jay Kleberg,97
+ector:409,GRN,"Alfred Molison, Jr.",12
+ector:409,REP,Dawn Buckingham,209
+ector:412,,Carrie Evelyn Menger,0
+ector:412,DEM,Jay Kleberg,67
+ector:412,GRN,"Alfred Molison, Jr.",8
+ector:412,REP,Dawn Buckingham,89
+gaines:2,,Rejected write-ins,0
+gaines:2,,Unassigned write-ins,0
+gaines:2,DEM,Jay Kleberg,56
+gaines:2,GRN,"Alfred Molison, Jr.",4
+gaines:2,REP,Dawn Buckingham,763
+gaines:3,,Rejected write-ins,0
+gaines:3,,Unassigned write-ins,0
+gaines:3,DEM,Jay Kleberg,69
+gaines:3,GRN,"Alfred Molison, Jr.",3
+gaines:3,REP,Dawn Buckingham,1329
+gaines:4,,Rejected write-ins,0
+gaines:4,,Unassigned write-ins,0
+gaines:4,DEM,Jay Kleberg,43
+gaines:4,GRN,"Alfred Molison, Jr.",6
+gaines:4,REP,Dawn Buckingham,646
+gaines:5,,Rejected write-ins,0
+gaines:5,,Unassigned write-ins,0
+gaines:5,DEM,Jay Kleberg,7
+gaines:5,GRN,"Alfred Molison, Jr.",0
+gaines:5,REP,Dawn Buckingham,115
+gaines:6,,Rejected write-ins,0
+gaines:6,,Unassigned write-ins,0
+gaines:6,DEM,Jay Kleberg,14
+gaines:6,GRN,"Alfred Molison, Jr.",1
+gaines:6,REP,Dawn Buckingham,89
+gaines:8,,Rejected write-ins,0
+gaines:8,,Unassigned write-ins,0
+gaines:8,DEM,Jay Kleberg,74
+gaines:8,GRN,"Alfred Molison, Jr.",6
+gaines:8,REP,Dawn Buckingham,482
+gaines:9,,Rejected write-ins,0
+gaines:9,,Unassigned write-ins,0
+gaines:9,DEM,Jay Kleberg,32
+gaines:9,GRN,"Alfred Molison, Jr.",0
+gaines:9,REP,Dawn Buckingham,301
+hansford:1,,Alfred Molison Jr,2
+hansford:1,,Carrie Evelyn Menger,0
+hansford:1,,Dawn Buckingham,310
+hansford:1,,Jay Kleberg,15
+hansford:2,,Alfred Molison Jr,0
+hansford:2,,Carrie Evelyn Menger,0
+hansford:2,,Dawn Buckingham,23
+hansford:2,,Jay Kleberg,3
+hansford:3,,Alfred Molison Jr,2
+hansford:3,,Carrie Evelyn Menger,0
+hansford:3,,Dawn Buckingham,133
+hansford:3,,Jay Kleberg,8
+hansford:4,,Alfred Molison Jr,0
+hansford:4,,Carrie Evelyn Menger,0
+hansford:4,,Dawn Buckingham,311
+hansford:4,,Jay Kleberg,18
+hansford:5,,Alfred Molison Jr,0
+hansford:5,,Carrie Evelyn Menger,0
+hansford:5,,Dawn Buckingham,212
+hansford:5,,Jay Kleberg,11
+hansford:6,,Alfred Molison Jr,2
+hansford:6,,Carrie Evelyn Menger,0
+hansford:6,,Dawn Buckingham,310
+hansford:6,,Jay Kleberg,19
+hansford:7,,Alfred Molison Jr,0
+hansford:7,,Carrie Evelyn Menger,0
+hansford:7,,Dawn Buckingham,28
+hansford:7,,Jay Kleberg,1
+hansford:9,,Alfred Molison Jr,0
+hansford:9,,Carrie Evelyn Menger,0
+hansford:9,,Dawn Buckingham,63
+hansford:9,,Jay Kleberg,5
+potter:121,,Carrie Evelyn Menger,0
+potter:121,DEM,Jay Kleberg,178
+potter:121,GRN,"Alfred Molison, Jr.",14
+potter:121,REP,Dawn Buckingham,946
+potter:122,,Carrie Evelyn Menger,1
+potter:122,DEM,Jay Kleberg,233
+potter:122,GRN,"Alfred Molison, Jr.",16
+potter:122,REP,Dawn Buckingham,762
+potter:123,,Carrie Evelyn Menger,5
+potter:123,DEM,Jay Kleberg,522
+potter:123,GRN,"Alfred Molison, Jr.",29
+potter:123,REP,Dawn Buckingham,1115
+potter:124,,Carrie Evelyn Menger,0
+potter:124,DEM,Jay Kleberg,260
+potter:124,GRN,"Alfred Molison, Jr.",22
+potter:124,REP,Dawn Buckingham,902
+potter:125,,Carrie Evelyn Menger,0
+potter:125,DEM,Jay Kleberg,476
+potter:125,GRN,"Alfred Molison, Jr.",34
+potter:125,REP,Dawn Buckingham,1046
+potter:126,,Carrie Evelyn Menger,0
+potter:126,DEM,Jay Kleberg,293
+potter:126,GRN,"Alfred Molison, Jr.",27
+potter:126,REP,Dawn Buckingham,614
+potter:221,,Carrie Evelyn Menger,0
+potter:221,DEM,Jay Kleberg,120
+potter:221,GRN,"Alfred Molison, Jr.",7
+potter:221,REP,Dawn Buckingham,224
+potter:222,,Carrie Evelyn Menger,0
+potter:222,DEM,Jay Kleberg,93
+potter:222,GRN,"Alfred Molison, Jr.",8
+potter:222,REP,Dawn Buckingham,254
+potter:223,,Carrie Evelyn Menger,0
+potter:223,DEM,Jay Kleberg,195
+potter:223,GRN,"Alfred Molison, Jr.",11
+potter:223,REP,Dawn Buckingham,266
+potter:224,,Carrie Evelyn Menger,0
+potter:224,DEM,Jay Kleberg,267
+potter:224,GRN,"Alfred Molison, Jr.",9
+potter:224,REP,Dawn Buckingham,539
+potter:225,,Carrie Evelyn Menger,1
+potter:225,DEM,Jay Kleberg,145
+potter:225,GRN,"Alfred Molison, Jr.",4
+potter:225,REP,Dawn Buckingham,226
+potter:321,,Carrie Evelyn Menger,0
+potter:321,DEM,Jay Kleberg,134
+potter:321,GRN,"Alfred Molison, Jr.",12
+potter:321,REP,Dawn Buckingham,1653
+potter:322,,Carrie Evelyn Menger,0
+potter:322,DEM,Jay Kleberg,16
+potter:322,GRN,"Alfred Molison, Jr.",0
+potter:322,REP,Dawn Buckingham,121
+potter:323,,Carrie Evelyn Menger,0
+potter:323,DEM,Jay Kleberg,225
+potter:323,GRN,"Alfred Molison, Jr.",13
+potter:323,REP,Dawn Buckingham,1875
+potter:324,,Carrie Evelyn Menger,1
+potter:324,DEM,Jay Kleberg,396
+potter:324,GRN,"Alfred Molison, Jr.",22
+potter:324,REP,Dawn Buckingham,2025
+potter:325,,Carrie Evelyn Menger,0
+potter:325,DEM,Jay Kleberg,252
+potter:325,GRN,"Alfred Molison, Jr.",26
+potter:325,REP,Dawn Buckingham,853
+potter:326,,Carrie Evelyn Menger,0
+potter:326,DEM,Jay Kleberg,166
+potter:326,GRN,"Alfred Molison, Jr.",12
+potter:326,REP,Dawn Buckingham,1149
+potter:327,,Carrie Evelyn Menger,0
+potter:327,DEM,Jay Kleberg,81
+potter:327,GRN,"Alfred Molison, Jr.",19
+potter:327,REP,Dawn Buckingham,410
+potter:421,,Carrie Evelyn Menger,0
+potter:421,DEM,Jay Kleberg,123
+potter:421,GRN,"Alfred Molison, Jr.",8
+potter:421,REP,Dawn Buckingham,139
+potter:422,,Carrie Evelyn Menger,0
+potter:422,DEM,Jay Kleberg,441
+potter:422,GRN,"Alfred Molison, Jr.",23
+potter:422,REP,Dawn Buckingham,410
+potter:424,,Carrie Evelyn Menger,0
+potter:424,DEM,Jay Kleberg,189
+potter:424,GRN,"Alfred Molison, Jr.",10
+potter:424,REP,Dawn Buckingham,158
+potter:425,,Carrie Evelyn Menger,0
+potter:425,DEM,Jay Kleberg,185
+potter:425,GRN,"Alfred Molison, Jr.",6
+potter:425,REP,Dawn Buckingham,220
+potter:426,,Carrie Evelyn Menger,0
+potter:426,DEM,Jay Kleberg,56
+potter:426,GRN,"Alfred Molison, Jr.",3
+potter:426,REP,Dawn Buckingham,100
+potter:427,,Carrie Evelyn Menger,0
+potter:427,DEM,Jay Kleberg,66
+potter:427,GRN,"Alfred Molison, Jr.",3
+potter:427,REP,Dawn Buckingham,73
+randall:103,,Carrie Evelyn Menger,0
+randall:103,,Rejected write-ins,0
+randall:103,,Unassigned write-ins,0
+randall:103,DEM,Jay Kleberg,111
+randall:103,GRN,"Alfred Molison, Jr.",11
+randall:103,REP,Dawn Buckingham,203
+randall:110,,Carrie Evelyn Menger,0
+randall:110,,Rejected write-ins,1
+randall:110,,Unassigned write-ins,0
+randall:110,DEM,Jay Kleberg,173
+randall:110,GRN,"Alfred Molison, Jr.",19
+randall:110,REP,Dawn Buckingham,1716
+randall:111,,Carrie Evelyn Menger,0
+randall:111,,Rejected write-ins,3
+randall:111,,Unassigned write-ins,0
+randall:111,DEM,Jay Kleberg,394
+randall:111,GRN,"Alfred Molison, Jr.",24
+randall:111,REP,Dawn Buckingham,1230
+randall:112,,Carrie Evelyn Menger,0
+randall:112,,Rejected write-ins,0
+randall:112,,Unassigned write-ins,0
+randall:112,DEM,Jay Kleberg,312
+randall:112,GRN,"Alfred Molison, Jr.",28
+randall:112,REP,Dawn Buckingham,930
+randall:114,,Carrie Evelyn Menger,0
+randall:114,,Rejected write-ins,0
+randall:114,,Unassigned write-ins,0
+randall:114,DEM,Jay Kleberg,358
+randall:114,GRN,"Alfred Molison, Jr.",35
+randall:114,REP,Dawn Buckingham,1091
+randall:123,,Carrie Evelyn Menger,0
+randall:123,,Rejected write-ins,0
+randall:123,,Unassigned write-ins,0
+randall:123,DEM,Jay Kleberg,46
+randall:123,GRN,"Alfred Molison, Jr.",1
+randall:123,REP,Dawn Buckingham,584
+randall:131,,Carrie Evelyn Menger,0
+randall:131,,Rejected write-ins,2
+randall:131,,Unassigned write-ins,0
+randall:131,DEM,Jay Kleberg,117
+randall:131,GRN,"Alfred Molison, Jr.",5
+randall:131,REP,Dawn Buckingham,949
+randall:204,,Carrie Evelyn Menger,0
+randall:204,,Rejected write-ins,0
+randall:204,,Unassigned write-ins,0
+randall:204,DEM,Jay Kleberg,356
+randall:204,GRN,"Alfred Molison, Jr.",17
+randall:204,REP,Dawn Buckingham,2075
+randall:208,,Carrie Evelyn Menger,0
+randall:208,,Rejected write-ins,0
+randall:208,,Unassigned write-ins,0
+randall:208,DEM,Jay Kleberg,70
+randall:208,GRN,"Alfred Molison, Jr.",1
+randall:208,REP,Dawn Buckingham,826
+randall:216,,Carrie Evelyn Menger,0
+randall:216,,Rejected write-ins,0
+randall:216,,Unassigned write-ins,0
+randall:216,DEM,Jay Kleberg,214
+randall:216,GRN,"Alfred Molison, Jr.",6
+randall:216,REP,Dawn Buckingham,670
+randall:222,,Carrie Evelyn Menger,1
+randall:222,,Rejected write-ins,2
+randall:222,,Unassigned write-ins,0
+randall:222,DEM,Jay Kleberg,392
+randall:222,GRN,"Alfred Molison, Jr.",24
+randall:222,REP,Dawn Buckingham,2039
+randall:227,,Carrie Evelyn Menger,0
+randall:227,,Rejected write-ins,0
+randall:227,,Unassigned write-ins,0
+randall:227,DEM,Jay Kleberg,295
+randall:227,GRN,"Alfred Molison, Jr.",14
+randall:227,REP,Dawn Buckingham,1784
+randall:228,,Carrie Evelyn Menger,0
+randall:228,,Rejected write-ins,0
+randall:228,,Unassigned write-ins,0
+randall:228,DEM,Jay Kleberg,498
+randall:228,GRN,"Alfred Molison, Jr.",26
+randall:228,REP,Dawn Buckingham,2332
+randall:230,,Carrie Evelyn Menger,0
+randall:230,,Rejected write-ins,1
+randall:230,,Unassigned write-ins,0
+randall:230,DEM,Jay Kleberg,431
+randall:230,GRN,"Alfred Molison, Jr.",31
+randall:230,REP,Dawn Buckingham,2266
+randall:301,,Carrie Evelyn Menger,0
+randall:301,,Rejected write-ins,0
+randall:301,,Unassigned write-ins,0
+randall:301,DEM,Jay Kleberg,77
+randall:301,GRN,"Alfred Molison, Jr.",10
+randall:301,REP,Dawn Buckingham,969
+randall:302,,Carrie Evelyn Menger,0
+randall:302,,Rejected write-ins,0
+randall:302,,Unassigned write-ins,0
+randall:302,DEM,Jay Kleberg,246
+randall:302,GRN,"Alfred Molison, Jr.",17
+randall:302,REP,Dawn Buckingham,1118
+randall:305,,Carrie Evelyn Menger,0
+randall:305,,Rejected write-ins,0
+randall:305,,Unassigned write-ins,0
+randall:305,DEM,Jay Kleberg,272
+randall:305,GRN,"Alfred Molison, Jr.",23
+randall:305,REP,Dawn Buckingham,1044
+randall:306,,Carrie Evelyn Menger,0
+randall:306,,Rejected write-ins,0
+randall:306,,Unassigned write-ins,0
+randall:306,DEM,Jay Kleberg,222
+randall:306,GRN,"Alfred Molison, Jr.",13
+randall:306,REP,Dawn Buckingham,1317
+randall:307,,Carrie Evelyn Menger,0
+randall:307,,Rejected write-ins,0
+randall:307,,Unassigned write-ins,0
+randall:307,DEM,Jay Kleberg,58
+randall:307,GRN,"Alfred Molison, Jr.",3
+randall:307,REP,Dawn Buckingham,615
+randall:309,,Carrie Evelyn Menger,0
+randall:309,,Rejected write-ins,0
+randall:309,,Unassigned write-ins,0
+randall:309,DEM,Jay Kleberg,167
+randall:309,GRN,"Alfred Molison, Jr.",18
+randall:309,REP,Dawn Buckingham,1621
+randall:315,,Carrie Evelyn Menger,0
+randall:315,,Rejected write-ins,0
+randall:315,,Unassigned write-ins,0
+randall:315,DEM,Jay Kleberg,18
+randall:315,GRN,"Alfred Molison, Jr.",1
+randall:315,REP,Dawn Buckingham,168
+randall:317,,Carrie Evelyn Menger,0
+randall:317,,Rejected write-ins,0
+randall:317,,Unassigned write-ins,0
+randall:317,DEM,Jay Kleberg,7
+randall:317,GRN,"Alfred Molison, Jr.",1
+randall:317,REP,Dawn Buckingham,27
+randall:324,,Carrie Evelyn Menger,0
+randall:324,,Rejected write-ins,0
+randall:324,,Unassigned write-ins,0
+randall:324,DEM,Jay Kleberg,429
+randall:324,GRN,"Alfred Molison, Jr.",31
+randall:324,REP,Dawn Buckingham,2346
+randall:325,,Carrie Evelyn Menger,0
+randall:325,,Rejected write-ins,0
+randall:325,,Unassigned write-ins,0
+randall:325,DEM,Jay Kleberg,139
+randall:325,GRN,"Alfred Molison, Jr.",8
+randall:325,REP,Dawn Buckingham,1247
+randall:332,,Carrie Evelyn Menger,0
+randall:332,,Rejected write-ins,0
+randall:332,,Unassigned write-ins,0
+randall:332,DEM,Jay Kleberg,115
+randall:332,GRN,"Alfred Molison, Jr.",8
+randall:332,REP,Dawn Buckingham,1316
+randall:415,,Carrie Evelyn Menger,0
+randall:415,,Rejected write-ins,0
+randall:415,,Unassigned write-ins,0
+randall:415,DEM,Jay Kleberg,331
+randall:415,GRN,"Alfred Molison, Jr.",22
+randall:415,REP,Dawn Buckingham,1308
+randall:418,,Carrie Evelyn Menger,0
+randall:418,,Rejected write-ins,1
+randall:418,,Unassigned write-ins,0
+randall:418,DEM,Jay Kleberg,348
+randall:418,GRN,"Alfred Molison, Jr.",23
+randall:418,REP,Dawn Buckingham,1173
+randall:420,,Carrie Evelyn Menger,0
+randall:420,,Rejected write-ins,2
+randall:420,,Unassigned write-ins,0
+randall:420,DEM,Jay Kleberg,358
+randall:420,GRN,"Alfred Molison, Jr.",25
+randall:420,REP,Dawn Buckingham,1557
+randall:421,,Carrie Evelyn Menger,0
+randall:421,,Rejected write-ins,0
+randall:421,,Unassigned write-ins,0
+randall:421,DEM,Jay Kleberg,305
+randall:421,GRN,"Alfred Molison, Jr.",25
+randall:421,REP,Dawn Buckingham,1156
+randall:426,,Carrie Evelyn Menger,1
+randall:426,,Rejected write-ins,0
+randall:426,,Unassigned write-ins,0
+randall:426,DEM,Jay Kleberg,319
+randall:426,GRN,"Alfred Molison, Jr.",22
+randall:426,REP,Dawn Buckingham,2006
+randall:429,,Carrie Evelyn Menger,0
+randall:429,,Rejected write-ins,4
+randall:429,,Unassigned write-ins,0
+randall:429,DEM,Jay Kleberg,523
+randall:429,GRN,"Alfred Molison, Jr.",25
+randall:429,REP,Dawn Buckingham,1616
+reagan:1,,Rejected write-ins,0
+reagan:1,,Unassigned write-ins,0
+reagan:1,DEM,Jay Kleberg,20
+reagan:1,GRN,"Alfred Molison, Jr.",2
+reagan:1,REP,Dawn Buckingham,59
+reagan:2,,Rejected write-ins,0
+reagan:2,,Unassigned write-ins,0
+reagan:2,DEM,Jay Kleberg,25
+reagan:2,GRN,"Alfred Molison, Jr.",2
+reagan:2,REP,Dawn Buckingham,218
+reagan:3,,Rejected write-ins,0
+reagan:3,,Unassigned write-ins,0
+reagan:3,DEM,Jay Kleberg,29
+reagan:3,GRN,"Alfred Molison, Jr.",3
+reagan:3,REP,Dawn Buckingham,181
+reagan:4,,Rejected write-ins,0
+reagan:4,,Unassigned write-ins,0
+reagan:4,DEM,Jay Kleberg,11
+reagan:4,GRN,"Alfred Molison, Jr.",2
+reagan:4,REP,Dawn Buckingham,136
+ward:1E,,Alfred Molison Jr,4
+ward:1E,,Carrie Evelyn Menger,1
+ward:1E,,Dawn Buckingham,221
+ward:1E,,Jay Kleberg,91
+ward:1W,,Alfred Molison Jr,0
+ward:1W,,Carrie Evelyn Menger,0
+ward:1W,,Dawn Buckingham,42
+ward:1W,,Jay Kleberg,30
+ward:2,,Alfred Molison Jr,10
+ward:2,,Carrie Evelyn Menger,2
+ward:2,,Dawn Buckingham,722
+ward:2,,Jay Kleberg,124
+ward:3N,,Alfred Molison Jr,5
+ward:3N,,Carrie Evelyn Menger,0
+ward:3N,,Dawn Buckingham,507
+ward:3N,,Jay Kleberg,64
+ward:3S,,Alfred Molison Jr,1
+ward:3S,,Carrie Evelyn Menger,0
+ward:3S,,Dawn Buckingham,116
+ward:3S,,Jay Kleberg,20
+ward:4E,,Alfred Molison Jr,4
+ward:4E,,Carrie Evelyn Menger,0
+ward:4E,,Dawn Buckingham,317
+ward:4E,,Jay Kleberg,58
+ward:4M,,Alfred Molison Jr,1
+ward:4M,,Carrie Evelyn Menger,0
+ward:4M,,Dawn Buckingham,81
+ward:4M,,Jay Kleberg,16
+ward:4W,,Alfred Molison Jr,1
+ward:4W,,Carrie Evelyn Menger,0
+ward:4W,,Dawn Buckingham,38
+ward:4W,,Jay Kleberg,7

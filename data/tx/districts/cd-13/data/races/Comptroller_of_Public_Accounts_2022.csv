@@ -1,0 +1,514 @@
+precinct,party,candidate,votes
+armstrong:101,DEM,Janet T. Dudding,8
+armstrong:101,LIB,V. Alonzo Echevarria-Garza,3
+armstrong:101,REP,Glenn Hegar,218
+armstrong:201,DEM,Janet T. Dudding,10
+armstrong:201,LIB,V. Alonzo Echevarria-Garza,3
+armstrong:201,REP,Glenn Hegar,112
+armstrong:202,DEM,Janet T. Dudding,10
+armstrong:202,LIB,V. Alonzo Echevarria-Garza,1
+armstrong:202,REP,Glenn Hegar,42
+armstrong:301,DEM,Janet T. Dudding,10
+armstrong:301,LIB,V. Alonzo Echevarria-Garza,2
+armstrong:301,REP,Glenn Hegar,168
+armstrong:303,DEM,Janet T. Dudding,4
+armstrong:303,LIB,V. Alonzo Echevarria-Garza,0
+armstrong:303,REP,Glenn Hegar,33
+armstrong:401,DEM,Janet T. Dudding,1
+armstrong:401,LIB,V. Alonzo Echevarria-Garza,5
+armstrong:401,REP,Glenn Hegar,125
+armstrong:402,DEM,Janet T. Dudding,6
+armstrong:402,LIB,V. Alonzo Echevarria-Garza,2
+armstrong:402,REP,Glenn Hegar,99
+armstrong:404,DEM,Janet T. Dudding,0
+armstrong:404,LIB,V. Alonzo Echevarria-Garza,0
+armstrong:404,REP,Glenn Hegar,21
+baylor:1,LIB,V. Alonzo Echevarria-Garza,4
+baylor:1,DEM,Janet T. Dudding,20
+baylor:1,REP,Glenn Hegar,341
+baylor:2,LIB,V. Alonzo Echevarria-Garza,0
+baylor:2,DEM,Janet T. Dudding,26
+baylor:2,REP,Glenn Hegar,297
+baylor:3,LIB,V. Alonzo Echevarria-Garza,9
+baylor:3,DEM,Janet T. Dudding,30
+baylor:3,REP,Glenn Hegar,238
+baylor:4,LIB,V. Alonzo Echevarria-Garza,4
+baylor:4,DEM,Janet T. Dudding,30
+baylor:4,REP,Glenn Hegar,276
+briscoe:1,DEM,Janet T. Dudding,6
+briscoe:1,LIB,V. Alonzo Echevarria-Garza,2
+briscoe:1,REP,Glenn Hegar,72
+briscoe:2,DEM,Janet T. Dudding,12
+briscoe:2,LIB,V. Alonzo Echevarria-Garza,0
+briscoe:2,REP,Glenn Hegar,120
+briscoe:3,DEM,Janet T. Dudding,11
+briscoe:3,LIB,V. Alonzo Echevarria-Garza,2
+briscoe:3,REP,Glenn Hegar,145
+briscoe:4,DEM,Janet T. Dudding,17
+briscoe:4,LIB,V. Alonzo Echevarria-Garza,0
+briscoe:4,REP,Glenn Hegar,163
+briscoe:6,DEM,Janet T. Dudding,0
+briscoe:6,LIB,V. Alonzo Echevarria-Garza,0
+briscoe:6,REP,Glenn Hegar,37
+childress:101,DEM,Janet T. Dudding,35
+childress:101,LIB,V. Alonzo Echevarria-Garza,5
+childress:101,REP,Glenn Hegar,323
+childress:201,DEM,Janet T. Dudding,44
+childress:201,LIB,V. Alonzo Echevarria-Garza,7
+childress:201,REP,Glenn Hegar,390
+childress:301,DEM,Janet T. Dudding,40
+childress:301,LIB,V. Alonzo Echevarria-Garza,10
+childress:301,REP,Glenn Hegar,409
+childress:401,DEM,Janet T. Dudding,38
+childress:401,LIB,V. Alonzo Echevarria-Garza,8
+childress:401,REP,Glenn Hegar,406
+dallam:1,DEM,Janet T. Dudding,7
+dallam:1,LIB,V. Alonzo Echevarria-Garza,4
+dallam:1,REP,Glenn Hegar,163
+dallam:2,DEM,Janet T. Dudding,2
+dallam:2,LIB,V. Alonzo Echevarria-Garza,0
+dallam:2,REP,Glenn Hegar,43
+dallam:3,DEM,Janet T. Dudding,0
+dallam:3,LIB,V. Alonzo Echevarria-Garza,0
+dallam:3,REP,Glenn Hegar,18
+dallam:4,DEM,Janet T. Dudding,0
+dallam:4,LIB,V. Alonzo Echevarria-Garza,0
+dallam:4,REP,Glenn Hegar,22
+dallam:5,DEM,Janet T. Dudding,1
+dallam:5,LIB,V. Alonzo Echevarria-Garza,0
+dallam:5,REP,Glenn Hegar,16
+dallam:6,DEM,Janet T. Dudding,8
+dallam:6,LIB,V. Alonzo Echevarria-Garza,1
+dallam:6,REP,Glenn Hegar,111
+dallam:7,DEM,Janet T. Dudding,26
+dallam:7,LIB,V. Alonzo Echevarria-Garza,4
+dallam:7,REP,Glenn Hegar,177
+dallam:8,DEM,Janet T. Dudding,17
+dallam:8,LIB,V. Alonzo Echevarria-Garza,2
+dallam:8,REP,Glenn Hegar,230
+dallam:9,DEM,Janet T. Dudding,15
+dallam:9,LIB,V. Alonzo Echevarria-Garza,4
+dallam:9,REP,Glenn Hegar,167
+gray:1,DEM,Janet T. Dudding,11
+gray:1,LIB,V. Alonzo Echevarria-Garza,1
+gray:1,REP,Glenn Hegar,192
+gray:2,DEM,Janet T. Dudding,99
+gray:2,LIB,V. Alonzo Echevarria-Garza,28
+gray:2,REP,Glenn Hegar,1034
+gray:3,DEM,Janet T. Dudding,2
+gray:3,LIB,V. Alonzo Echevarria-Garza,3
+gray:3,REP,Glenn Hegar,74
+gray:4,DEM,Janet T. Dudding,22
+gray:4,LIB,V. Alonzo Echevarria-Garza,2
+gray:4,REP,Glenn Hegar,343
+gray:5,DEM,Janet T. Dudding,122
+gray:5,LIB,V. Alonzo Echevarria-Garza,30
+gray:5,REP,Glenn Hegar,1378
+gray:6,DEM,Janet T. Dudding,105
+gray:6,LIB,V. Alonzo Echevarria-Garza,18
+gray:6,REP,Glenn Hegar,1285
+gray:7,DEM,Janet T. Dudding,97
+gray:7,LIB,V. Alonzo Echevarria-Garza,19
+gray:7,REP,Glenn Hegar,648
+hansford:1,REP,Glenn Hegar,310
+hansford:1,DEM,Janet T. Dudding,9
+hansford:1,LIB,V. Alonzo Echevarria Garza,4
+hansford:2,REP,Glenn Hegar,25
+hansford:2,DEM,Janet T. Dudding,1
+hansford:2,LIB,V. Alonzo Echevarria Garza,0
+hansford:3,REP,Glenn Hegar,135
+hansford:3,DEM,Janet T. Dudding,6
+hansford:3,LIB,V. Alonzo Echevarria Garza,2
+hansford:4,REP,Glenn Hegar,313
+hansford:4,DEM,Janet T. Dudding,16
+hansford:4,LIB,V. Alonzo Echevarria Garza,4
+hansford:5,REP,Glenn Hegar,211
+hansford:5,DEM,Janet T. Dudding,9
+hansford:5,LIB,V. Alonzo Echevarria Garza,2
+hansford:6,REP,Glenn Hegar,309
+hansford:6,DEM,Janet T. Dudding,23
+hansford:6,LIB,V. Alonzo Echevarria Garza,2
+hansford:7,REP,Glenn Hegar,27
+hansford:7,DEM,Janet T. Dudding,1
+hansford:7,LIB,V. Alonzo Echevarria Garza,1
+hansford:9,REP,Glenn Hegar,62
+hansford:9,DEM,Janet T. Dudding,7
+hansford:9,LIB,V. Alonzo Echevarria Garza,0
+hartley:101,DEM,Janet T. Dudding,7
+hartley:101,LIB,V. Alonzo Echevarria-Garza,1
+hartley:101,REP,Glenn Hegar,166
+hartley:102,DEM,Janet T. Dudding,10
+hartley:102,LIB,V. Alonzo Echevarria-Garza,1
+hartley:102,REP,Glenn Hegar,186
+hartley:201,DEM,Janet T. Dudding,6
+hartley:201,LIB,V. Alonzo Echevarria-Garza,0
+hartley:201,REP,Glenn Hegar,127
+hartley:202,DEM,Janet T. Dudding,13
+hartley:202,LIB,V. Alonzo Echevarria-Garza,3
+hartley:202,REP,Glenn Hegar,251
+hartley:301,DEM,Janet T. Dudding,38
+hartley:301,LIB,V. Alonzo Echevarria-Garza,2
+hartley:301,REP,Glenn Hegar,376
+hartley:401,DEM,Janet T. Dudding,26
+hartley:401,LIB,V. Alonzo Echevarria-Garza,5
+hartley:401,REP,Glenn Hegar,333
+hemphill:101,DEM,Janet T. Dudding,33
+hemphill:101,LIB,V. Alonzo Echevarria-Garza,1
+hemphill:101,REP,Glenn Hegar,235
+hemphill:201,DEM,Janet T. Dudding,32
+hemphill:201,LIB,V. Alonzo Echevarria-Garza,2
+hemphill:201,REP,Glenn Hegar,219
+hemphill:202,DEM,Janet T. Dudding,0
+hemphill:202,LIB,V. Alonzo Echevarria-Garza,0
+hemphill:202,REP,Glenn Hegar,19
+hemphill:301,DEM,Janet T. Dudding,28
+hemphill:301,LIB,V. Alonzo Echevarria-Garza,4
+hemphill:301,REP,Glenn Hegar,340
+hemphill:302,DEM,Janet T. Dudding,0
+hemphill:302,LIB,V. Alonzo Echevarria-Garza,1
+hemphill:302,REP,Glenn Hegar,21
+hemphill:303,DEM,Janet T. Dudding,6
+hemphill:303,LIB,V. Alonzo Echevarria-Garza,0
+hemphill:303,REP,Glenn Hegar,58
+hemphill:401,DEM,Janet T. Dudding,12
+hemphill:401,LIB,V. Alonzo Echevarria-Garza,5
+hemphill:401,REP,Glenn Hegar,200
+hemphill:402,DEM,Janet T. Dudding,13
+hemphill:402,LIB,V. Alonzo Echevarria-Garza,0
+hemphill:402,REP,Glenn Hegar,72
+hutchinson:11,,Over Votes,0
+hutchinson:11,,Under Votes,12
+hutchinson:11,DEM,Janet T. Dudding,72
+hutchinson:11,LIB,V. Alonzo Echevarria-Garza,16
+hutchinson:11,REP,Glenn Hegar,770
+hutchinson:14,,Over Votes,0
+hutchinson:14,,Under Votes,12
+hutchinson:14,DEM,Janet T. Dudding,92
+hutchinson:14,LIB,V. Alonzo Echevarria-Garza,13
+hutchinson:14,REP,Glenn Hegar,891
+hutchinson:21,,Over Votes,0
+hutchinson:21,,Under Votes,22
+hutchinson:21,DEM,Janet T. Dudding,106
+hutchinson:21,LIB,V. Alonzo Echevarria-Garza,24
+hutchinson:21,REP,Glenn Hegar,1576
+hutchinson:23,,Over Votes,0
+hutchinson:23,,Under Votes,7
+hutchinson:23,DEM,Janet T. Dudding,22
+hutchinson:23,LIB,V. Alonzo Echevarria-Garza,6
+hutchinson:23,REP,Glenn Hegar,226
+hutchinson:31,,Over Votes,0
+hutchinson:31,,Under Votes,11
+hutchinson:31,DEM,Janet T. Dudding,49
+hutchinson:31,LIB,V. Alonzo Echevarria-Garza,12
+hutchinson:31,REP,Glenn Hegar,772
+hutchinson:33,,Over Votes,0
+hutchinson:33,,Under Votes,7
+hutchinson:33,DEM,Janet T. Dudding,53
+hutchinson:33,LIB,V. Alonzo Echevarria-Garza,10
+hutchinson:33,REP,Glenn Hegar,522
+hutchinson:41,,Over Votes,0
+hutchinson:41,,Under Votes,0
+hutchinson:41,DEM,Janet T. Dudding,3
+hutchinson:41,LIB,V. Alonzo Echevarria-Garza,0
+hutchinson:41,REP,Glenn Hegar,38
+hutchinson:42,,Over Votes,0
+hutchinson:42,,Under Votes,17
+hutchinson:42,DEM,Janet T. Dudding,133
+hutchinson:42,LIB,V. Alonzo Echevarria-Garza,14
+hutchinson:42,REP,Glenn Hegar,587
+montague:10,,Over Votes,0
+montague:10,,Under Votes,10
+montague:10,DEM,Janet T. Dudding,56
+montague:10,LIB,V. Alonzo Echevarria-Garza,7
+montague:10,REP,Glenn Hegar,472
+montague:11,,Over Votes,0
+montague:11,,Under Votes,14
+montague:11,DEM,Janet T. Dudding,45
+montague:11,LIB,V. Alonzo Echevarria-Garza,6
+montague:11,REP,Glenn Hegar,422
+montague:12,,Over Votes,0
+montague:12,,Under Votes,0
+montague:12,DEM,Janet T. Dudding,2
+montague:12,LIB,V. Alonzo Echevarria-Garza,0
+montague:12,REP,Glenn Hegar,77
+montague:13,,Over Votes,0
+montague:13,,Under Votes,21
+montague:13,DEM,Janet T. Dudding,39
+montague:13,LIB,V. Alonzo Echevarria-Garza,12
+montague:13,REP,Glenn Hegar,571
+montague:14,,Over Votes,0
+montague:14,,Under Votes,4
+montague:14,DEM,Janet T. Dudding,6
+montague:14,LIB,V. Alonzo Echevarria-Garza,0
+montague:14,REP,Glenn Hegar,136
+montague:15,,Over Votes,0
+montague:15,,Under Votes,6
+montague:15,DEM,Janet T. Dudding,35
+montague:15,LIB,V. Alonzo Echevarria-Garza,6
+montague:15,REP,Glenn Hegar,295
+montague:16,,Over Votes,0
+montague:16,,Under Votes,3
+montague:16,DEM,Janet T. Dudding,16
+montague:16,LIB,V. Alonzo Echevarria-Garza,2
+montague:16,REP,Glenn Hegar,147
+montague:2,,Over Votes,0
+montague:2,,Under Votes,20
+montague:2,DEM,Janet T. Dudding,144
+montague:2,LIB,V. Alonzo Echevarria-Garza,9
+montague:2,REP,Glenn Hegar,1314
+montague:3,,Over Votes,0
+montague:3,,Under Votes,10
+montague:3,DEM,Janet T. Dudding,55
+montague:3,LIB,V. Alonzo Echevarria-Garza,7
+montague:3,REP,Glenn Hegar,673
+montague:4,,Over Votes,0
+montague:4,,Under Votes,4
+montague:4,DEM,Janet T. Dudding,23
+montague:4,LIB,V. Alonzo Echevarria-Garza,4
+montague:4,REP,Glenn Hegar,241
+montague:5,,Over Votes,0
+montague:5,,Under Votes,7
+montague:5,DEM,Janet T. Dudding,58
+montague:5,LIB,V. Alonzo Echevarria-Garza,9
+montague:5,REP,Glenn Hegar,468
+montague:6,,Over Votes,0
+montague:6,,Under Votes,8
+montague:6,DEM,Janet T. Dudding,49
+montague:6,LIB,V. Alonzo Echevarria-Garza,12
+montague:6,REP,Glenn Hegar,414
+montague:7,,Over Votes,0
+montague:7,,Under Votes,10
+montague:7,DEM,Janet T. Dudding,72
+montague:7,LIB,V. Alonzo Echevarria-Garza,7
+montague:7,REP,Glenn Hegar,602
+montague:8,,Over Votes,0
+montague:8,,Under Votes,8
+montague:8,DEM,Janet T. Dudding,54
+montague:8,LIB,V. Alonzo Echevarria-Garza,2
+montague:8,REP,Glenn Hegar,448
+montague:9,,Over Votes,0
+montague:9,,Under Votes,10
+montague:9,DEM,Janet T. Dudding,82
+montague:9,LIB,V. Alonzo Echevarria-Garza,6
+montague:9,REP,Glenn Hegar,641
+moore:101,DEM,Janet T. Dudding,134
+moore:101,LIB,V. Alonzo Echevarria-Garza,22
+moore:101,REP,Glenn Hegar,625
+moore:201,DEM,Janet T. Dudding,74
+moore:201,LIB,V. Alonzo Echevarria-Garza,11
+moore:201,REP,Glenn Hegar,610
+moore:202,DEM,Janet T. Dudding,62
+moore:202,LIB,V. Alonzo Echevarria-Garza,18
+moore:202,REP,Glenn Hegar,745
+moore:203,DEM,Janet T. Dudding,1
+moore:203,LIB,V. Alonzo Echevarria-Garza,1
+moore:203,REP,Glenn Hegar,39
+moore:301,DEM,Janet T. Dudding,108
+moore:301,LIB,V. Alonzo Echevarria-Garza,21
+moore:301,REP,Glenn Hegar,486
+moore:401,DEM,Janet T. Dudding,34
+moore:401,LIB,V. Alonzo Echevarria-Garza,11
+moore:401,REP,Glenn Hegar,474
+moore:402,DEM,Janet T. Dudding,29
+moore:402,LIB,V. Alonzo Echevarria-Garza,6
+moore:402,REP,Glenn Hegar,25
+oldham:101,,Over Votes,0
+oldham:101,,Under Votes,3
+oldham:101,DEM,Janet T. Dudding,9
+oldham:101,LIB,V. Alonzo Echevarria-Garza,0
+oldham:101,REP,Glenn Hegar,84
+oldham:103,,Over Votes,0
+oldham:103,,Under Votes,1
+oldham:103,DEM,Janet T. Dudding,2
+oldham:103,LIB,V. Alonzo Echevarria-Garza,0
+oldham:103,REP,Glenn Hegar,90
+oldham:202,,Over Votes,0
+oldham:202,,Under Votes,1
+oldham:202,DEM,Janet T. Dudding,13
+oldham:202,LIB,V. Alonzo Echevarria-Garza,0
+oldham:202,REP,Glenn Hegar,85
+oldham:203,,Over Votes,0
+oldham:203,,Under Votes,2
+oldham:203,DEM,Janet T. Dudding,5
+oldham:203,LIB,V. Alonzo Echevarria-Garza,1
+oldham:203,REP,Glenn Hegar,132
+oldham:303,,Over Votes,0
+oldham:303,,Under Votes,1
+oldham:303,DEM,Janet T. Dudding,15
+oldham:303,LIB,V. Alonzo Echevarria-Garza,1
+oldham:303,REP,Glenn Hegar,145
+oldham:403,,Over Votes,0
+oldham:403,,Under Votes,1
+oldham:403,DEM,Janet T. Dudding,4
+oldham:403,LIB,V. Alonzo Echevarria-Garza,2
+oldham:403,REP,Glenn Hegar,73
+oldham:404,,Over Votes,0
+oldham:404,,Under Votes,1
+oldham:404,DEM,Janet T. Dudding,5
+oldham:404,LIB,V. Alonzo Echevarria-Garza,0
+oldham:404,REP,Glenn Hegar,96
+potter:121,DEM,Janet T. Dudding,170
+potter:121,LIB,V. Alonzo Echevarria-Garza,29
+potter:121,REP,Glenn Hegar,941
+potter:122,DEM,Janet T. Dudding,225
+potter:122,LIB,V. Alonzo Echevarria-Garza,22
+potter:122,REP,Glenn Hegar,763
+potter:123,DEM,Janet T. Dudding,503
+potter:123,LIB,V. Alonzo Echevarria-Garza,50
+potter:123,REP,Glenn Hegar,1118
+potter:124,DEM,Janet T. Dudding,257
+potter:124,LIB,V. Alonzo Echevarria-Garza,35
+potter:124,REP,Glenn Hegar,896
+potter:125,DEM,Janet T. Dudding,482
+potter:125,LIB,V. Alonzo Echevarria-Garza,51
+potter:125,REP,Glenn Hegar,1022
+potter:126,DEM,Janet T. Dudding,304
+potter:126,LIB,V. Alonzo Echevarria-Garza,29
+potter:126,REP,Glenn Hegar,605
+potter:221,DEM,Janet T. Dudding,120
+potter:221,LIB,V. Alonzo Echevarria-Garza,14
+potter:221,REP,Glenn Hegar,215
+potter:222,DEM,Janet T. Dudding,94
+potter:222,LIB,V. Alonzo Echevarria-Garza,13
+potter:222,REP,Glenn Hegar,248
+potter:223,DEM,Janet T. Dudding,174
+potter:223,LIB,V. Alonzo Echevarria-Garza,42
+potter:223,REP,Glenn Hegar,257
+potter:224,DEM,Janet T. Dudding,261
+potter:224,LIB,V. Alonzo Echevarria-Garza,33
+potter:224,REP,Glenn Hegar,531
+potter:225,DEM,Janet T. Dudding,141
+potter:225,LIB,V. Alonzo Echevarria-Garza,14
+potter:225,REP,Glenn Hegar,223
+potter:321,DEM,Janet T. Dudding,132
+potter:321,LIB,V. Alonzo Echevarria-Garza,25
+potter:321,REP,Glenn Hegar,1646
+potter:322,DEM,Janet T. Dudding,16
+potter:322,LIB,V. Alonzo Echevarria-Garza,2
+potter:322,REP,Glenn Hegar,118
+potter:323,DEM,Janet T. Dudding,223
+potter:323,LIB,V. Alonzo Echevarria-Garza,44
+potter:323,REP,Glenn Hegar,1862
+potter:324,DEM,Janet T. Dudding,396
+potter:324,LIB,V. Alonzo Echevarria-Garza,38
+potter:324,REP,Glenn Hegar,2013
+potter:325,DEM,Janet T. Dudding,253
+potter:325,LIB,V. Alonzo Echevarria-Garza,26
+potter:325,REP,Glenn Hegar,858
+potter:326,DEM,Janet T. Dudding,166
+potter:326,LIB,V. Alonzo Echevarria-Garza,27
+potter:326,REP,Glenn Hegar,1134
+potter:327,DEM,Janet T. Dudding,83
+potter:327,LIB,V. Alonzo Echevarria-Garza,19
+potter:327,REP,Glenn Hegar,408
+potter:421,DEM,Janet T. Dudding,117
+potter:421,LIB,V. Alonzo Echevarria-Garza,18
+potter:421,REP,Glenn Hegar,134
+potter:422,DEM,Janet T. Dudding,447
+potter:422,LIB,V. Alonzo Echevarria-Garza,28
+potter:422,REP,Glenn Hegar,409
+potter:424,DEM,Janet T. Dudding,191
+potter:424,LIB,V. Alonzo Echevarria-Garza,8
+potter:424,REP,Glenn Hegar,159
+potter:425,DEM,Janet T. Dudding,181
+potter:425,LIB,V. Alonzo Echevarria-Garza,17
+potter:425,REP,Glenn Hegar,218
+potter:426,DEM,Janet T. Dudding,53
+potter:426,LIB,V. Alonzo Echevarria-Garza,4
+potter:426,REP,Glenn Hegar,101
+potter:427,DEM,Janet T. Dudding,62
+potter:427,LIB,V. Alonzo Echevarria-Garza,5
+potter:427,REP,Glenn Hegar,75
+randall:103,DEM,Janet T. Dudding,113
+randall:103,LIB,V. Alonzo Echevarria-Garza,15
+randall:103,REP,Glenn Hegar,199
+randall:110,DEM,Janet T. Dudding,176
+randall:110,LIB,V. Alonzo Echevarria-Garza,24
+randall:110,REP,Glenn Hegar,1709
+randall:111,DEM,Janet T. Dudding,396
+randall:111,LIB,V. Alonzo Echevarria-Garza,53
+randall:111,REP,Glenn Hegar,1207
+randall:112,DEM,Janet T. Dudding,301
+randall:112,LIB,V. Alonzo Echevarria-Garza,46
+randall:112,REP,Glenn Hegar,918
+randall:114,DEM,Janet T. Dudding,359
+randall:114,LIB,V. Alonzo Echevarria-Garza,62
+randall:114,REP,Glenn Hegar,1071
+randall:123,DEM,Janet T. Dudding,46
+randall:123,LIB,V. Alonzo Echevarria-Garza,7
+randall:123,REP,Glenn Hegar,580
+randall:131,DEM,Janet T. Dudding,115
+randall:131,LIB,V. Alonzo Echevarria-Garza,12
+randall:131,REP,Glenn Hegar,948
+randall:204,DEM,Janet T. Dudding,353
+randall:204,LIB,V. Alonzo Echevarria-Garza,39
+randall:204,REP,Glenn Hegar,2063
+randall:208,DEM,Janet T. Dudding,74
+randall:208,LIB,V. Alonzo Echevarria-Garza,5
+randall:208,REP,Glenn Hegar,821
+randall:216,DEM,Janet T. Dudding,214
+randall:216,LIB,V. Alonzo Echevarria-Garza,15
+randall:216,REP,Glenn Hegar,661
+randall:222,DEM,Janet T. Dudding,390
+randall:222,LIB,V. Alonzo Echevarria-Garza,48
+randall:222,REP,Glenn Hegar,2031
+randall:227,DEM,Janet T. Dudding,294
+randall:227,LIB,V. Alonzo Echevarria-Garza,27
+randall:227,REP,Glenn Hegar,1784
+randall:228,DEM,Janet T. Dudding,485
+randall:228,LIB,V. Alonzo Echevarria-Garza,42
+randall:228,REP,Glenn Hegar,2328
+randall:230,DEM,Janet T. Dudding,415
+randall:230,LIB,V. Alonzo Echevarria-Garza,55
+randall:230,REP,Glenn Hegar,2254
+randall:301,DEM,Janet T. Dudding,75
+randall:301,LIB,V. Alonzo Echevarria-Garza,13
+randall:301,REP,Glenn Hegar,969
+randall:302,DEM,Janet T. Dudding,245
+randall:302,LIB,V. Alonzo Echevarria-Garza,32
+randall:302,REP,Glenn Hegar,1108
+randall:305,DEM,Janet T. Dudding,285
+randall:305,LIB,V. Alonzo Echevarria-Garza,37
+randall:305,REP,Glenn Hegar,1022
+randall:306,DEM,Janet T. Dudding,215
+randall:306,LIB,V. Alonzo Echevarria-Garza,29
+randall:306,REP,Glenn Hegar,1309
+randall:307,DEM,Janet T. Dudding,57
+randall:307,LIB,V. Alonzo Echevarria-Garza,12
+randall:307,REP,Glenn Hegar,607
+randall:309,DEM,Janet T. Dudding,176
+randall:309,LIB,V. Alonzo Echevarria-Garza,29
+randall:309,REP,Glenn Hegar,1608
+randall:315,DEM,Janet T. Dudding,19
+randall:315,LIB,V. Alonzo Echevarria-Garza,0
+randall:315,REP,Glenn Hegar,167
+randall:317,DEM,Janet T. Dudding,7
+randall:317,LIB,V. Alonzo Echevarria-Garza,2
+randall:317,REP,Glenn Hegar,27
+randall:324,DEM,Janet T. Dudding,424
+randall:324,LIB,V. Alonzo Echevarria-Garza,43
+randall:324,REP,Glenn Hegar,2344
+randall:325,DEM,Janet T. Dudding,141
+randall:325,LIB,V. Alonzo Echevarria-Garza,21
+randall:325,REP,Glenn Hegar,1237
+randall:332,DEM,Janet T. Dudding,110
+randall:332,LIB,V. Alonzo Echevarria-Garza,16
+randall:332,REP,Glenn Hegar,1315
+randall:415,DEM,Janet T. Dudding,337
+randall:415,LIB,V. Alonzo Echevarria-Garza,26
+randall:415,REP,Glenn Hegar,1297
+randall:418,DEM,Janet T. Dudding,347
+randall:418,LIB,V. Alonzo Echevarria-Garza,35
+randall:418,REP,Glenn Hegar,1165
+randall:420,DEM,Janet T. Dudding,358
+randall:420,LIB,V. Alonzo Echevarria-Garza,40
+randall:420,REP,Glenn Hegar,1553
+randall:421,DEM,Janet T. Dudding,302
+randall:421,LIB,V. Alonzo Echevarria-Garza,42
+randall:421,REP,Glenn Hegar,1149
+randall:426,DEM,Janet T. Dudding,334
+randall:426,LIB,V. Alonzo Echevarria-Garza,54
+randall:426,REP,Glenn Hegar,1968
+randall:429,DEM,Janet T. Dudding,510
+randall:429,LIB,V. Alonzo Echevarria-Garza,50
+randall:429,REP,Glenn Hegar,1614

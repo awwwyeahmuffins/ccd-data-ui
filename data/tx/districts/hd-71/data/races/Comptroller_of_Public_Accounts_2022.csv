@@ -1,0 +1,66 @@
+precinct,party,candidate,votes
+jones:1,,Over Votes,0
+jones:1,,Under Votes,9
+jones:1,DEM,Janet T. Dudding,147
+jones:1,LIB,V. Alonzo Echevarria-Garza,20
+jones:1,REP,Glenn Hegar,704
+jones:2,,Over Votes,0
+jones:2,,Under Votes,16
+jones:2,DEM,Janet T. Dudding,158
+jones:2,LIB,V. Alonzo Echevarria-Garza,18
+jones:2,REP,Glenn Hegar,1024
+jones:3,,Over Votes,0
+jones:3,,Under Votes,22
+jones:3,DEM,Janet T. Dudding,126
+jones:3,LIB,V. Alonzo Echevarria-Garza,22
+jones:3,REP,Glenn Hegar,1302
+jones:4,,Over Votes,0
+jones:4,,Under Votes,20
+jones:4,DEM,Janet T. Dudding,154
+jones:4,LIB,V. Alonzo Echevarria-Garza,21
+jones:4,REP,Glenn Hegar,1244
+nolan:1,,Over Votes,0
+nolan:1,,Under Votes,11
+nolan:1,DEM,Janet T. Dudding,88
+nolan:1,LIB,V. Alonzo Echevarria-Garza,9
+nolan:1,REP,Glenn Hegar,271
+nolan:2,,Over Votes,0
+nolan:2,,Under Votes,11
+nolan:2,DEM,Janet T. Dudding,75
+nolan:2,LIB,V. Alonzo Echevarria-Garza,10
+nolan:2,REP,Glenn Hegar,485
+nolan:3,,Over Votes,0
+nolan:3,,Under Votes,13
+nolan:3,DEM,Janet T. Dudding,132
+nolan:3,LIB,V. Alonzo Echevarria-Garza,12
+nolan:3,REP,Glenn Hegar,491
+nolan:4,,Over Votes,0
+nolan:4,,Under Votes,13
+nolan:4,DEM,Janet T. Dudding,133
+nolan:4,LIB,V. Alonzo Echevarria-Garza,20
+nolan:4,REP,Glenn Hegar,387
+nolan:5,,Over Votes,0
+nolan:5,,Under Votes,6
+nolan:5,DEM,Janet T. Dudding,16
+nolan:5,LIB,V. Alonzo Echevarria-Garza,1
+nolan:5,REP,Glenn Hegar,82
+nolan:6,,Over Votes,0
+nolan:6,,Under Votes,13
+nolan:6,DEM,Janet T. Dudding,52
+nolan:6,LIB,V. Alonzo Echevarria-Garza,9
+nolan:6,REP,Glenn Hegar,405
+nolan:7,,Over Votes,0
+nolan:7,,Under Votes,4
+nolan:7,DEM,Janet T. Dudding,10
+nolan:7,LIB,V. Alonzo Echevarria-Garza,3
+nolan:7,REP,Glenn Hegar,173
+nolan:8,,Over Votes,0
+nolan:8,,Under Votes,3
+nolan:8,DEM,Janet T. Dudding,12
+nolan:8,LIB,V. Alonzo Echevarria-Garza,0
+nolan:8,REP,Glenn Hegar,100
+nolan:9,,Over Votes,0
+nolan:9,,Under Votes,15
+nolan:9,DEM,Janet T. Dudding,87
+nolan:9,LIB,V. Alonzo Echevarria-Garza,16
+nolan:9,REP,Glenn Hegar,652

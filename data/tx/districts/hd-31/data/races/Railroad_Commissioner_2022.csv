@@ -1,0 +1,123 @@
+precinct,party,candidate,votes
+brooks:1,,Hunter Wayne Crow,5
+brooks:1,,Jaime Andres Diez,29
+brooks:1,DEM,Luke Warford,283
+brooks:1,REP,Wayne Christian,98
+brooks:2,,Hunter Wayne Crow,10
+brooks:2,,Jaime Andres Diez,43
+brooks:2,DEM,Luke Warford,269
+brooks:2,REP,Wayne Christian,189
+brooks:3,,Hunter Wayne Crow,4
+brooks:3,,Jaime Andres Diez,22
+brooks:3,DEM,Luke Warford,199
+brooks:3,REP,Wayne Christian,87
+brooks:3S,,Hunter Wayne Crow,0
+brooks:3S,,Jaime Andres Diez,11
+brooks:3S,DEM,Luke Warford,44
+brooks:3S,REP,Wayne Christian,57
+brooks:4,,Hunter Wayne Crow,5
+brooks:4,,Jaime Andres Diez,26
+brooks:4,DEM,Luke Warford,293
+brooks:4,REP,Wayne Christian,153
+kenedy:1,DEM,Luke Warford,12
+kenedy:1,GRN,Hunter Wayne Crow,0
+kenedy:1,LIB,Jaime Andres Diez,4
+kenedy:1,REP,Wayne Christian,28
+kenedy:2,DEM,Luke Warford,8
+kenedy:2,GRN,Hunter Wayne Crow,0
+kenedy:2,LIB,Jaime Andres Diez,0
+kenedy:2,REP,Wayne Christian,12
+kenedy:3,DEM,Luke Warford,2
+kenedy:3,GRN,Hunter Wayne Crow,1
+kenedy:3,LIB,Jaime Andres Diez,2
+kenedy:3,REP,Wayne Christian,4
+kenedy:4,DEM,Luke Warford,1
+kenedy:4,GRN,Hunter Wayne Crow,0
+kenedy:4,LIB,Jaime Andres Diez,2
+kenedy:4,REP,Wayne Christian,32
+kenedy:5,DEM,Luke Warford,2
+kenedy:5,GRN,Hunter Wayne Crow,0
+kenedy:5,LIB,Jaime Andres Diez,1
+kenedy:5,REP,Wayne Christian,4
+kenedy:6,DEM,Luke Warford,4
+kenedy:6,GRN,Hunter Wayne Crow,0
+kenedy:6,LIB,Jaime Andres Diez,0
+kenedy:6,REP,Wayne Christian,5
+wilson:101,,Over Votes,0
+wilson:101,,Under Votes,26
+wilson:101,DEM,Luke Warford,608
+wilson:101,GRN,Hunter Wayne Crow,13
+wilson:101,LIB,Jaime Andres Diez,49
+wilson:101,REP,Wayne Christian,1351
+wilson:102,,Over Votes,0
+wilson:102,,Under Votes,37
+wilson:102,DEM,Luke Warford,445
+wilson:102,GRN,Hunter Wayne Crow,3
+wilson:102,LIB,Jaime Andres Diez,46
+wilson:102,REP,Wayne Christian,397
+wilson:103,,Over Votes,1
+wilson:103,,Under Votes,23
+wilson:103,DEM,Luke Warford,277
+wilson:103,GRN,Hunter Wayne Crow,12
+wilson:103,LIB,Jaime Andres Diez,43
+wilson:103,REP,Wayne Christian,593
+wilson:104,,Over Votes,0
+wilson:104,,Under Votes,18
+wilson:104,DEM,Luke Warford,147
+wilson:104,GRN,Hunter Wayne Crow,8
+wilson:104,LIB,Jaime Andres Diez,12
+wilson:104,REP,Wayne Christian,528
+wilson:205,,Over Votes,0
+wilson:205,,Under Votes,35
+wilson:205,DEM,Luke Warford,236
+wilson:205,GRN,Hunter Wayne Crow,11
+wilson:205,LIB,Jaime Andres Diez,17
+wilson:205,REP,Wayne Christian,1427
+wilson:206,,Over Votes,0
+wilson:206,,Under Votes,23
+wilson:206,DEM,Luke Warford,378
+wilson:206,GRN,Hunter Wayne Crow,8
+wilson:206,LIB,Jaime Andres Diez,24
+wilson:206,REP,Wayne Christian,776
+wilson:207,,Over Votes,0
+wilson:207,,Under Votes,36
+wilson:207,DEM,Luke Warford,405
+wilson:207,GRN,Hunter Wayne Crow,18
+wilson:207,LIB,Jaime Andres Diez,57
+wilson:207,REP,Wayne Christian,1340
+wilson:311,,Over Votes,0
+wilson:311,,Under Votes,29
+wilson:311,DEM,Luke Warford,176
+wilson:311,GRN,Hunter Wayne Crow,15
+wilson:311,LIB,Jaime Andres Diez,34
+wilson:311,REP,Wayne Christian,1308
+wilson:312,,Over Votes,0
+wilson:312,,Under Votes,25
+wilson:312,DEM,Luke Warford,186
+wilson:312,GRN,Hunter Wayne Crow,18
+wilson:312,LIB,Jaime Andres Diez,29
+wilson:312,REP,Wayne Christian,1379
+wilson:313,,Over Votes,1
+wilson:313,,Under Votes,29
+wilson:313,DEM,Luke Warford,268
+wilson:313,GRN,Hunter Wayne Crow,16
+wilson:313,LIB,Jaime Andres Diez,34
+wilson:313,REP,Wayne Christian,1693
+wilson:414,,Over Votes,0
+wilson:414,,Under Votes,22
+wilson:414,DEM,Luke Warford,205
+wilson:414,GRN,Hunter Wayne Crow,6
+wilson:414,LIB,Jaime Andres Diez,37
+wilson:414,REP,Wayne Christian,1292
+wilson:415,,Over Votes,0
+wilson:415,,Under Votes,27
+wilson:415,DEM,Luke Warford,398
+wilson:415,GRN,Hunter Wayne Crow,13
+wilson:415,LIB,Jaime Andres Diez,52
+wilson:415,REP,Wayne Christian,1648
+wilson:416,,Over Votes,0
+wilson:416,,Under Votes,11
+wilson:416,DEM,Luke Warford,215
+wilson:416,GRN,Hunter Wayne Crow,8
+wilson:416,LIB,Jaime Andres Diez,27
+wilson:416,REP,Wayne Christian,992

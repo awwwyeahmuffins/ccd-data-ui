@@ -1,0 +1,24 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANH2316",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "archer": 11,
+      "baylor": 4,
+      "clay": 16,
+      "cottle": 4,
+      "fisher": 4,
+      "foard": 4,
+      "hardeman": 4,
+      "haskell": 10,
+      "king": 4,
+      "knox": 6,
+      "motley": 6,
+      "stonewall": 4,
+      "wichita": 61,
+      "wilbarger": 4
+    },
+    "generated": "2026-06-12"
+  }
+}

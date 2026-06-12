@@ -1,0 +1,97 @@
+precinct,party,candidate,votes
+hardin:1,DEM,Joseph R. Biden Kamala D. Harris,291
+hardin:1,GRN,Howie Hawkins Angela Walker,0
+hardin:1,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",10
+hardin:1,REP,Donald J. Trump Michael R. Pence,776
+hardin:10,DEM,Joseph R. Biden Kamala D. Harris,594
+hardin:10,GRN,Howie Hawkins Angela Walker,2
+hardin:10,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",11
+hardin:10,REP,Donald J. Trump Michael R. Pence,581
+hardin:11,DEM,Joseph R. Biden Kamala D. Harris,78
+hardin:11,GRN,Howie Hawkins Angela Walker,1
+hardin:11,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",7
+hardin:11,REP,Donald J. Trump Michael R. Pence,650
+hardin:12,DEM,Joseph R. Biden Kamala D. Harris,94
+hardin:12,GRN,Howie Hawkins Angela Walker,1
+hardin:12,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",6
+hardin:12,REP,Donald J. Trump Michael R. Pence,651
+hardin:13,DEM,Joseph R. Biden Kamala D. Harris,154
+hardin:13,GRN,Howie Hawkins Angela Walker,2
+hardin:13,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",27
+hardin:13,REP,Donald J. Trump Michael R. Pence,1634
+hardin:14,DEM,Joseph R. Biden Kamala D. Harris,91
+hardin:14,GRN,Howie Hawkins Angela Walker,2
+hardin:14,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",3
+hardin:14,REP,Donald J. Trump Michael R. Pence,947
+hardin:15,DEM,Joseph R. Biden Kamala D. Harris,150
+hardin:15,GRN,Howie Hawkins Angela Walker,2
+hardin:15,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",13
+hardin:15,REP,Donald J. Trump Michael R. Pence,1288
+hardin:16,DEM,Joseph R. Biden Kamala D. Harris,155
+hardin:16,GRN,Howie Hawkins Angela Walker,1
+hardin:16,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",13
+hardin:16,REP,Donald J. Trump Michael R. Pence,1493
+hardin:17,DEM,Joseph R. Biden Kamala D. Harris,68
+hardin:17,GRN,Howie Hawkins Angela Walker,0
+hardin:17,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",9
+hardin:17,REP,Donald J. Trump Michael R. Pence,832
+hardin:18,DEM,Joseph R. Biden Kamala D. Harris,497
+hardin:18,GRN,Howie Hawkins Angela Walker,2
+hardin:18,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",48
+hardin:18,REP,Donald J. Trump Michael R. Pence,3922
+hardin:19,DEM,Joseph R. Biden Kamala D. Harris,73
+hardin:19,GRN,Howie Hawkins Angela Walker,1
+hardin:19,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",9
+hardin:19,REP,Donald J. Trump Michael R. Pence,676
+hardin:2,DEM,Joseph R. Biden Kamala D. Harris,361
+hardin:2,GRN,Howie Hawkins Angela Walker,6
+hardin:2,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",41
+hardin:2,REP,Donald J. Trump Michael R. Pence,3172
+hardin:3,DEM,Joseph R. Biden Kamala D. Harris,17
+hardin:3,GRN,Howie Hawkins Angela Walker,2
+hardin:3,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",4
+hardin:3,REP,Donald J. Trump Michael R. Pence,450
+hardin:4,DEM,Joseph R. Biden Kamala D. Harris,42
+hardin:4,GRN,Howie Hawkins Angela Walker,0
+hardin:4,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",2
+hardin:4,REP,Donald J. Trump Michael R. Pence,593
+hardin:5,DEM,Joseph R. Biden Kamala D. Harris,24
+hardin:5,GRN,Howie Hawkins Angela Walker,0
+hardin:5,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",2
+hardin:5,REP,Donald J. Trump Michael R. Pence,437
+hardin:6,DEM,Joseph R. Biden Kamala D. Harris,335
+hardin:6,GRN,Howie Hawkins Angela Walker,5
+hardin:6,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",41
+hardin:6,REP,Donald J. Trump Michael R. Pence,3206
+hardin:7,DEM,Joseph R. Biden Kamala D. Harris,32
+hardin:7,GRN,Howie Hawkins Angela Walker,0
+hardin:7,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",3
+hardin:7,REP,Donald J. Trump Michael R. Pence,542
+hardin:8,DEM,Joseph R. Biden Kamala D. Harris,69
+hardin:8,GRN,Howie Hawkins Angela Walker,0
+hardin:8,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",7
+hardin:8,REP,Donald J. Trump Michael R. Pence,594
+hardin:9,DEM,Joseph R. Biden Kamala D. Harris,349
+hardin:9,GRN,Howie Hawkins Angela Walker,0
+hardin:9,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",20
+hardin:9,REP,Donald J. Trump Michael R. Pence,1414
+montgomery:16,,Write-in,0
+montgomery:16,DEM,Joseph R Biden,385
+montgomery:16,GRN,Howie Hawkins,6
+montgomery:16,LIB,Jo Jorgensen,22
+montgomery:16,REP,Donald J Trump,2212
+montgomery:41,,Write-in,0
+montgomery:41,DEM,Joseph R Biden,316
+montgomery:41,GRN,Howie Hawkins,1
+montgomery:41,LIB,Jo Jorgensen,24
+montgomery:41,REP,Donald J Trump,2213
+montgomery:53,,Write-in,0
+montgomery:53,DEM,Joseph R Biden,778
+montgomery:53,GRN,Howie Hawkins,8
+montgomery:53,LIB,Jo Jorgensen,30
+montgomery:53,REP,Donald J Trump,2472
+montgomery:54,,Write-in,0
+montgomery:54,DEM,Joseph R Biden,227
+montgomery:54,GRN,Howie Hawkins,5
+montgomery:54,LIB,Jo Jorgensen,11
+montgomery:54,REP,Donald J Trump,679

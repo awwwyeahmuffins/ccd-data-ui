@@ -1,0 +1,25 @@
+precinct,party,candidate,votes
+jones:1,,Over Votes,0
+jones:1,,Under Votes,12
+jones:1,,Write-in,1
+jones:1,DEM,Jay Kleberg,156
+jones:1,GRN,"Alfred Molison, Jr.",6
+jones:1,REP,Dawn Buckingham,705
+jones:2,,Over Votes,0
+jones:2,,Under Votes,12
+jones:2,,Write-in,1
+jones:2,DEM,Jay Kleberg,171
+jones:2,GRN,"Alfred Molison, Jr.",7
+jones:2,REP,Dawn Buckingham,1025
+jones:3,,Over Votes,0
+jones:3,,Under Votes,20
+jones:3,,Write-in,1
+jones:3,DEM,Jay Kleberg,113
+jones:3,GRN,"Alfred Molison, Jr.",21
+jones:3,REP,Dawn Buckingham,1317
+jones:4,,Over Votes,0
+jones:4,,Under Votes,19
+jones:4,,Write-in,2
+jones:4,DEM,Jay Kleberg,153
+jones:4,GRN,"Alfred Molison, Jr.",10
+jones:4,REP,Dawn Buckingham,1255

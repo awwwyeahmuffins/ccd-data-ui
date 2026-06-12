@@ -1,0 +1,131 @@
+precinct,party,candidate,votes
+carson:101,DEM,DEM Joseph R. Biden / Kamala D. Harri,35
+carson:101,GRN,GRN Howie Hawkins / Angela Walker,1
+carson:101,LIB,"LIB Jo Jorgensen / Jeremy ""Spike"" Coh",4
+carson:101,REP,REP Donald J. Trump / Michael R. Penc,328
+carson:102,DEM,DEM Joseph R. Biden / Kamala D. Harri,1
+carson:102,GRN,GRN Howie Hawkins / Angela Walker,0
+carson:102,LIB,"LIB Jo Jorgensen / Jeremy ""Spike"" Coh",1
+carson:102,REP,REP Donald J. Trump / Michael R. Penc,58
+carson:103,DEM,DEM Joseph R. Biden / Kamala D. Harri,39
+carson:103,GRN,GRN Howie Hawkins / Angela Walker,0
+carson:103,LIB,"LIB Jo Jorgensen / Jeremy ""Spike"" Coh",3
+carson:103,REP,REP Donald J. Trump / Michael R. Penc,260
+carson:201,DEM,DEM Joseph R. Biden / Kamala D. Harri,75
+carson:201,GRN,GRN Howie Hawkins / Angela Walker,1
+carson:201,LIB,"LIB Jo Jorgensen / Jeremy ""Spike"" Coh",16
+carson:201,REP,REP Donald J. Trump / Michael R. Penc,788
+carson:301,DEM,DEM Joseph R. Biden / Kamala D. Harri,58
+carson:301,GRN,GRN Howie Hawkins / Angela Walker,0
+carson:301,LIB,"LIB Jo Jorgensen / Jeremy ""Spike"" Coh",7
+carson:301,REP,REP Donald J. Trump / Michael R. Penc,429
+carson:302,DEM,DEM Joseph R. Biden / Kamala D. Harri,20
+carson:302,GRN,GRN Howie Hawkins / Angela Walker,0
+carson:302,LIB,"LIB Jo Jorgensen / Jeremy ""Spike"" Coh",1
+carson:302,REP,REP Donald J. Trump / Michael R. Penc,228
+carson:401,DEM,DEM Joseph R. Biden / Kamala D. Harri,59
+carson:401,GRN,GRN Howie Hawkins / Angela Walker,1
+carson:401,LIB,"LIB Jo Jorgensen / Jeremy ""Spike"" Coh",3
+carson:401,REP,REP Donald J. Trump / Michael R. Penc,488
+carson:402,DEM,DEM Joseph R. Biden / Kamala D. Harri,10
+carson:402,GRN,GRN Howie Hawkins / Angela Walker,0
+carson:402,LIB,"LIB Jo Jorgensen / Jeremy ""Spike"" Coh",2
+carson:402,REP,REP Donald J. Trump / Michael R. Penc,200
+lipscomb:106,,Write-in,0
+lipscomb:106,DEM,Joseph R Biden,25
+lipscomb:106,GRN,Howie Hawkins,0
+lipscomb:106,LIB,Jo Jorgensen,4
+lipscomb:106,REP,Donald J Trump,189
+lipscomb:202,,Write-in,0
+lipscomb:202,DEM,Joseph R Biden,10
+lipscomb:202,GRN,Howie Hawkins,0
+lipscomb:202,LIB,Jo Jorgensen,2
+lipscomb:202,REP,Donald J Trump,106
+lipscomb:207,,Write-in,0
+lipscomb:207,DEM,Joseph R Biden,16
+lipscomb:207,GRN,Howie Hawkins,0
+lipscomb:207,LIB,Jo Jorgensen,3
+lipscomb:207,REP,Donald J Trump,236
+lipscomb:303,,Write-in,0
+lipscomb:303,DEM,Joseph R Biden,26
+lipscomb:303,GRN,Howie Hawkins,0
+lipscomb:303,LIB,Jo Jorgensen,2
+lipscomb:303,REP,Donald J Trump,278
+lipscomb:308,,Write-in,0
+lipscomb:308,DEM,Joseph R Biden,17
+lipscomb:308,GRN,Howie Hawkins,0
+lipscomb:308,LIB,Jo Jorgensen,0
+lipscomb:308,REP,Donald J Trump,95
+lipscomb:404,,Write-in,0
+lipscomb:404,DEM,Joseph R Biden,30
+lipscomb:404,GRN,Howie Hawkins,0
+lipscomb:404,LIB,Jo Jorgensen,3
+lipscomb:404,REP,Donald J Trump,228
+lipscomb:409,,Write-in,0
+lipscomb:409,DEM,Joseph R Biden,7
+lipscomb:409,GRN,Howie Hawkins,0
+lipscomb:409,LIB,Jo Jorgensen,3
+lipscomb:409,REP,Donald J Trump,73
+ochiltree:1,,Over Votes,0
+ochiltree:1,,Under Votes,0
+ochiltree:1,,Write-in,0
+ochiltree:1,DEM,Joseph R. Biden / Kamala D. Harris,52
+ochiltree:1,GRN,Howie Hawkins / Angela Walker,2
+ochiltree:1,LIB,"Jo Jorgensen / Jeremy ""Spike""",9
+ochiltree:1,REP,Donald J. Trump / Michael R. Pence,394
+ochiltree:2,,Over Votes,0
+ochiltree:2,,Under Votes,3
+ochiltree:2,,Write-in,1
+ochiltree:2,DEM,Joseph R. Biden / Kamala D. Harris,69
+ochiltree:2,GRN,Howie Hawkins / Angela Walker,1
+ochiltree:2,LIB,"Jo Jorgensen / Jeremy ""Spike""",3
+ochiltree:2,REP,Donald J. Trump / Michael R. Pence,591
+ochiltree:3,,Over Votes,0
+ochiltree:3,,Under Votes,2
+ochiltree:3,,Write-in,2
+ochiltree:3,DEM,Joseph R. Biden / Kamala D. Harris,98
+ochiltree:3,GRN,Howie Hawkins / Angela Walker,0
+ochiltree:3,LIB,"Jo Jorgensen / Jeremy ""Spike""",16
+ochiltree:3,REP,Donald J. Trump / Michael R. Pence,1057
+ochiltree:4,,Over Votes,0
+ochiltree:4,,Under Votes,0
+ochiltree:4,,Write-in,2
+ochiltree:4,DEM,Joseph R. Biden / Kamala D. Harris,83
+ochiltree:4,GRN,Howie Hawkins / Angela Walker,0
+ochiltree:4,LIB,"Jo Jorgensen / Jeremy ""Spike""",9
+ochiltree:4,REP,Donald J. Trump / Michael R. Pence,770
+sherman:101,,Write-in,1
+sherman:101,DEM,Joseph R. Biden / Kamala D. Harris,3
+sherman:101,GRN,Howie Hawkins / Angela Walker,0
+sherman:101,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",0
+sherman:101,REP,Donald J. Trump / Michael R. Pence,40
+sherman:102,,Write-in,0
+sherman:102,DEM,Joseph R. Biden / Kamala D. Harris,24
+sherman:102,GRN,Howie Hawkins / Angela Walker,1
+sherman:102,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",0
+sherman:102,REP,Donald J. Trump / Michael R. Pence,151
+sherman:201,,Write-in,0
+sherman:201,DEM,Joseph R. Biden / Kamala D. Harris,16
+sherman:201,GRN,Howie Hawkins / Angela Walker,2
+sherman:201,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",1
+sherman:201,REP,Donald J. Trump / Michael R. Pence,96
+sherman:202,,Write-in,0
+sherman:202,DEM,Joseph R. Biden / Kamala D. Harris,3
+sherman:202,GRN,Howie Hawkins / Angela Walker,0
+sherman:202,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",1
+sherman:202,REP,Donald J. Trump / Michael R. Pence,79
+sherman:301,,Write-in,0
+sherman:301,DEM,Joseph R. Biden / Kamala D. Harris,6
+sherman:301,GRN,Howie Hawkins / Angela Walker,0
+sherman:301,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",2
+sherman:301,REP,Donald J. Trump / Michael R. Pence,77
+sherman:302,,Write-in,0
+sherman:302,DEM,Joseph R. Biden / Kamala D. Harris,13
+sherman:302,GRN,Howie Hawkins / Angela Walker,1
+sherman:302,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",1
+sherman:302,REP,Donald J. Trump / Michael R. Pence,135
+sherman:401,,Write-in,0
+sherman:401,DEM,Joseph R. Biden / Kamala D. Harris,26
+sherman:401,GRN,Howie Hawkins / Angela Walker,1
+sherman:401,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",4
+sherman:401,REP,Donald J. Trump / Michael R. Pence,308

@@ -1,0 +1,377 @@
+precinct,party,candidate,votes
+hardin:1,DEM,Tina Clinton,269
+hardin:1,REP,Kevin Patrick Yeary,776
+hardin:10,DEM,Tina Clinton,582
+hardin:10,REP,Kevin Patrick Yeary,581
+hardin:11,DEM,Tina Clinton,86
+hardin:11,REP,Kevin Patrick Yeary,634
+hardin:12,DEM,Tina Clinton,98
+hardin:12,REP,Kevin Patrick Yeary,629
+hardin:13,DEM,Tina Clinton,148
+hardin:13,REP,Kevin Patrick Yeary,1617
+hardin:14,DEM,Tina Clinton,90
+hardin:14,REP,Kevin Patrick Yeary,935
+hardin:15,DEM,Tina Clinton,142
+hardin:15,REP,Kevin Patrick Yeary,1285
+hardin:16,DEM,Tina Clinton,152
+hardin:16,REP,Kevin Patrick Yeary,1473
+hardin:17,DEM,Tina Clinton,63
+hardin:17,REP,Kevin Patrick Yeary,826
+hardin:18,DEM,Tina Clinton,462
+hardin:18,REP,Kevin Patrick Yeary,3925
+hardin:19,DEM,Tina Clinton,75
+hardin:19,REP,Kevin Patrick Yeary,671
+hardin:2,DEM,Tina Clinton,352
+hardin:2,REP,Kevin Patrick Yeary,3167
+hardin:3,DEM,Tina Clinton,20
+hardin:3,REP,Kevin Patrick Yeary,441
+hardin:4,DEM,Tina Clinton,41
+hardin:4,REP,Kevin Patrick Yeary,579
+hardin:5,DEM,Tina Clinton,24
+hardin:5,REP,Kevin Patrick Yeary,428
+hardin:6,DEM,Tina Clinton,322
+hardin:6,REP,Kevin Patrick Yeary,3180
+hardin:7,DEM,Tina Clinton,30
+hardin:7,REP,Kevin Patrick Yeary,529
+hardin:8,DEM,Tina Clinton,64
+hardin:8,REP,Kevin Patrick Yeary,594
+hardin:9,DEM,Tina Clinton,348
+hardin:9,REP,Kevin Patrick Yeary,1399
+jefferson:1,DEM,Tina Clinton,840
+jefferson:1,REP,Kevin Patrick Yeary,111
+jefferson:10,DEM,Tina Clinton,267
+jefferson:10,REP,Kevin Patrick Yeary,63
+jefferson:100,DEM,Tina Clinton,907
+jefferson:100,REP,Kevin Patrick Yeary,1224
+jefferson:102,DEM,Tina Clinton,24
+jefferson:102,REP,Kevin Patrick Yeary,95
+jefferson:103,DEM,Tina Clinton,4
+jefferson:103,REP,Kevin Patrick Yeary,19
+jefferson:105,DEM,Tina Clinton,113
+jefferson:105,REP,Kevin Patrick Yeary,25
+jefferson:106,DEM,Tina Clinton,9
+jefferson:106,REP,Kevin Patrick Yeary,13
+jefferson:107,DEM,Tina Clinton,0
+jefferson:107,REP,Kevin Patrick Yeary,1
+jefferson:109,DEM,Tina Clinton,33
+jefferson:109,REP,Kevin Patrick Yeary,149
+jefferson:11,DEM,Tina Clinton,165
+jefferson:11,REP,Kevin Patrick Yeary,39
+jefferson:12,DEM,Tina Clinton,253
+jefferson:12,REP,Kevin Patrick Yeary,12
+jefferson:13,DEM,Tina Clinton,187
+jefferson:13,REP,Kevin Patrick Yeary,10
+jefferson:14,DEM,Tina Clinton,691
+jefferson:14,REP,Kevin Patrick Yeary,60
+jefferson:15,DEM,Tina Clinton,574
+jefferson:15,REP,Kevin Patrick Yeary,96
+jefferson:16,DEM,Tina Clinton,189
+jefferson:16,REP,Kevin Patrick Yeary,36
+jefferson:17,DEM,Tina Clinton,1027
+jefferson:17,REP,Kevin Patrick Yeary,725
+jefferson:18,DEM,Tina Clinton,824
+jefferson:18,REP,Kevin Patrick Yeary,27
+jefferson:19,DEM,Tina Clinton,724
+jefferson:19,REP,Kevin Patrick Yeary,76
+jefferson:2,DEM,Tina Clinton,470
+jefferson:2,REP,Kevin Patrick Yeary,108
+jefferson:20,DEM,Tina Clinton,546
+jefferson:20,REP,Kevin Patrick Yeary,59
+jefferson:21,DEM,Tina Clinton,63
+jefferson:21,REP,Kevin Patrick Yeary,99
+jefferson:22,DEM,Tina Clinton,1704
+jefferson:22,REP,Kevin Patrick Yeary,1070
+jefferson:23,DEM,Tina Clinton,1077
+jefferson:23,REP,Kevin Patrick Yeary,371
+jefferson:27,DEM,Tina Clinton,471
+jefferson:27,REP,Kevin Patrick Yeary,403
+jefferson:3,DEM,Tina Clinton,983
+jefferson:3,REP,Kevin Patrick Yeary,62
+jefferson:35,DEM,Tina Clinton,117
+jefferson:35,REP,Kevin Patrick Yeary,554
+jefferson:36,DEM,Tina Clinton,214
+jefferson:36,REP,Kevin Patrick Yeary,837
+jefferson:37,DEM,Tina Clinton,350
+jefferson:37,REP,Kevin Patrick Yeary,1333
+jefferson:38,DEM,Tina Clinton,219
+jefferson:38,REP,Kevin Patrick Yeary,1288
+jefferson:39,DEM,Tina Clinton,1027
+jefferson:39,REP,Kevin Patrick Yeary,48
+jefferson:4,DEM,Tina Clinton,419
+jefferson:4,REP,Kevin Patrick Yeary,656
+jefferson:40,DEM,Tina Clinton,344
+jefferson:40,REP,Kevin Patrick Yeary,1692
+jefferson:41,DEM,Tina Clinton,27
+jefferson:41,REP,Kevin Patrick Yeary,79
+jefferson:42,DEM,Tina Clinton,328
+jefferson:42,REP,Kevin Patrick Yeary,1321
+jefferson:43,DEM,Tina Clinton,333
+jefferson:43,REP,Kevin Patrick Yeary,1199
+jefferson:5,DEM,Tina Clinton,554
+jefferson:5,REP,Kevin Patrick Yeary,458
+jefferson:56,DEM,Tina Clinton,443
+jefferson:56,REP,Kevin Patrick Yeary,1850
+jefferson:6,DEM,Tina Clinton,486
+jefferson:6,REP,Kevin Patrick Yeary,218
+jefferson:60,DEM,Tina Clinton,450
+jefferson:60,REP,Kevin Patrick Yeary,1616
+jefferson:61,DEM,Tina Clinton,405
+jefferson:61,REP,Kevin Patrick Yeary,623
+jefferson:62,DEM,Tina Clinton,645
+jefferson:62,REP,Kevin Patrick Yeary,1228
+jefferson:63,DEM,Tina Clinton,712
+jefferson:63,REP,Kevin Patrick Yeary,34
+jefferson:64,DEM,Tina Clinton,382
+jefferson:64,REP,Kevin Patrick Yeary,98
+jefferson:65,DEM,Tina Clinton,373
+jefferson:65,REP,Kevin Patrick Yeary,969
+jefferson:67,DEM,Tina Clinton,1122
+jefferson:67,REP,Kevin Patrick Yeary,134
+jefferson:68,DEM,Tina Clinton,740
+jefferson:68,REP,Kevin Patrick Yeary,866
+jefferson:69,DEM,Tina Clinton,526
+jefferson:69,REP,Kevin Patrick Yeary,1629
+jefferson:7,DEM,Tina Clinton,527
+jefferson:7,REP,Kevin Patrick Yeary,341
+jefferson:70,DEM,Tina Clinton,826
+jefferson:70,REP,Kevin Patrick Yeary,525
+jefferson:71,DEM,Tina Clinton,10
+jefferson:71,REP,Kevin Patrick Yeary,55
+jefferson:72,DEM,Tina Clinton,955
+jefferson:72,REP,Kevin Patrick Yeary,665
+jefferson:73,DEM,Tina Clinton,579
+jefferson:73,REP,Kevin Patrick Yeary,1157
+jefferson:74,DEM,Tina Clinton,284
+jefferson:74,REP,Kevin Patrick Yeary,1646
+jefferson:75,DEM,Tina Clinton,358
+jefferson:75,REP,Kevin Patrick Yeary,67
+jefferson:76,DEM,Tina Clinton,366
+jefferson:76,REP,Kevin Patrick Yeary,79
+jefferson:77,DEM,Tina Clinton,666
+jefferson:77,REP,Kevin Patrick Yeary,52
+jefferson:78,DEM,Tina Clinton,763
+jefferson:78,REP,Kevin Patrick Yeary,416
+jefferson:79,DEM,Tina Clinton,607
+jefferson:79,REP,Kevin Patrick Yeary,871
+jefferson:8,DEM,Tina Clinton,334
+jefferson:8,REP,Kevin Patrick Yeary,33
+jefferson:82,DEM,Tina Clinton,907
+jefferson:82,REP,Kevin Patrick Yeary,532
+jefferson:83,DEM,Tina Clinton,141
+jefferson:83,REP,Kevin Patrick Yeary,687
+jefferson:84,DEM,Tina Clinton,635
+jefferson:84,REP,Kevin Patrick Yeary,33
+jefferson:85,DEM,Tina Clinton,715
+jefferson:85,REP,Kevin Patrick Yeary,107
+jefferson:86,DEM,Tina Clinton,407
+jefferson:86,REP,Kevin Patrick Yeary,394
+jefferson:87,DEM,Tina Clinton,565
+jefferson:87,REP,Kevin Patrick Yeary,93
+jefferson:88,DEM,Tina Clinton,515
+jefferson:88,REP,Kevin Patrick Yeary,222
+jefferson:89,DEM,Tina Clinton,166
+jefferson:89,REP,Kevin Patrick Yeary,72
+jefferson:9,DEM,Tina Clinton,423
+jefferson:9,REP,Kevin Patrick Yeary,2249
+jefferson:94,DEM,Tina Clinton,472
+jefferson:94,REP,Kevin Patrick Yeary,1041
+jefferson:95,DEM,Tina Clinton,140
+jefferson:95,REP,Kevin Patrick Yeary,238
+jefferson:98,DEM,Tina Clinton,130
+jefferson:98,REP,Kevin Patrick Yeary,259
+jefferson:99,DEM,Tina Clinton,297
+jefferson:99,REP,Kevin Patrick Yeary,104
+liberty:1,DEM,Tina Clinton,58
+liberty:1,REP,Kevin Patrick Yeary,433
+liberty:10,DEM,Tina Clinton,427
+liberty:10,REP,Kevin Patrick Yeary,1553
+liberty:11,DEM,Tina Clinton,220
+liberty:11,REP,Kevin Patrick Yeary,302
+liberty:12,DEM,Tina Clinton,229
+liberty:12,REP,Kevin Patrick Yeary,665
+liberty:13,DEM,Tina Clinton,26
+liberty:13,REP,Kevin Patrick Yeary,361
+liberty:14,DEM,Tina Clinton,60
+liberty:14,REP,Kevin Patrick Yeary,272
+liberty:15,DEM,Tina Clinton,67
+liberty:15,REP,Kevin Patrick Yeary,226
+liberty:16,DEM,Tina Clinton,33
+liberty:16,REP,Kevin Patrick Yeary,257
+liberty:17,DEM,Tina Clinton,26
+liberty:17,REP,Kevin Patrick Yeary,357
+liberty:18,DEM,Tina Clinton,485
+liberty:18,REP,Kevin Patrick Yeary,249
+liberty:19,DEM,Tina Clinton,298
+liberty:19,REP,Kevin Patrick Yeary,770
+liberty:2,DEM,Tina Clinton,78
+liberty:2,REP,Kevin Patrick Yeary,730
+liberty:20,DEM,Tina Clinton,364
+liberty:20,REP,Kevin Patrick Yeary,39
+liberty:21,DEM,Tina Clinton,285
+liberty:21,REP,Kevin Patrick Yeary,2107
+liberty:22,DEM,Tina Clinton,569
+liberty:22,REP,Kevin Patrick Yeary,1749
+liberty:23,DEM,Tina Clinton,444
+liberty:23,REP,Kevin Patrick Yeary,992
+liberty:24,DEM,Tina Clinton,64
+liberty:24,REP,Kevin Patrick Yeary,480
+liberty:25,DEM,Tina Clinton,61
+liberty:25,REP,Kevin Patrick Yeary,590
+liberty:26,DEM,Tina Clinton,257
+liberty:26,REP,Kevin Patrick Yeary,1231
+liberty:27,DEM,Tina Clinton,35
+liberty:27,REP,Kevin Patrick Yeary,191
+liberty:28,DEM,Tina Clinton,27
+liberty:28,REP,Kevin Patrick Yeary,490
+liberty:29,DEM,Tina Clinton,85
+liberty:29,REP,Kevin Patrick Yeary,793
+liberty:3,DEM,Tina Clinton,143
+liberty:3,REP,Kevin Patrick Yeary,1380
+liberty:30,DEM,Tina Clinton,305
+liberty:30,REP,Kevin Patrick Yeary,867
+liberty:4,DEM,Tina Clinton,60
+liberty:4,REP,Kevin Patrick Yeary,321
+liberty:5,DEM,Tina Clinton,256
+liberty:5,REP,Kevin Patrick Yeary,1189
+liberty:6,DEM,Tina Clinton,50
+liberty:6,REP,Kevin Patrick Yeary,574
+liberty:7,DEM,Tina Clinton,338
+liberty:7,REP,Kevin Patrick Yeary,754
+liberty:8,DEM,Tina Clinton,139
+liberty:8,REP,Kevin Patrick Yeary,1326
+liberty:9,DEM,Tina Clinton,163
+liberty:9,REP,Kevin Patrick Yeary,1569
+newton:1,DEM,Tina Clinton,88
+newton:1,REP,Kevin Patrick Yeary,542
+newton:10,DEM,Tina Clinton,27
+newton:10,REP,Kevin Patrick Yeary,237
+newton:11,DEM,Tina Clinton,35
+newton:11,REP,Kevin Patrick Yeary,354
+newton:12,DEM,Tina Clinton,23
+newton:12,REP,Kevin Patrick Yeary,119
+newton:13,DEM,Tina Clinton,51
+newton:13,REP,Kevin Patrick Yeary,516
+newton:14,DEM,Tina Clinton,97
+newton:14,REP,Kevin Patrick Yeary,96
+newton:15,DEM,Tina Clinton,47
+newton:15,REP,Kevin Patrick Yeary,243
+newton:16,DEM,Tina Clinton,32
+newton:16,REP,Kevin Patrick Yeary,191
+newton:17,DEM,Tina Clinton,34
+newton:17,REP,Kevin Patrick Yeary,16
+newton:18,DEM,Tina Clinton,8
+newton:18,REP,Kevin Patrick Yeary,170
+newton:19,DEM,Tina Clinton,10
+newton:19,REP,Kevin Patrick Yeary,155
+newton:2,DEM,Tina Clinton,42
+newton:2,REP,Kevin Patrick Yeary,184
+newton:20,DEM,Tina Clinton,92
+newton:20,REP,Kevin Patrick Yeary,30
+newton:21,DEM,Tina Clinton,19
+newton:21,REP,Kevin Patrick Yeary,189
+newton:22,DEM,Tina Clinton,136
+newton:22,REP,Kevin Patrick Yeary,115
+newton:3,DEM,Tina Clinton,32
+newton:3,REP,Kevin Patrick Yeary,382
+newton:4,DEM,Tina Clinton,25
+newton:4,REP,Kevin Patrick Yeary,108
+newton:5,DEM,Tina Clinton,23
+newton:5,REP,Kevin Patrick Yeary,320
+newton:6,DEM,Tina Clinton,178
+newton:6,REP,Kevin Patrick Yeary,289
+newton:7,DEM,Tina Clinton,27
+newton:7,REP,Kevin Patrick Yeary,106
+newton:8,DEM,Tina Clinton,66
+newton:8,REP,Kevin Patrick Yeary,206
+newton:9,DEM,Tina Clinton,46
+newton:9,REP,Kevin Patrick Yeary,156
+san-augustine:1,DEM,Tina Clinton,271
+san-augustine:1,REP,Kevin Patrick Yeary,524
+san-augustine:10,DEM,Tina Clinton,24
+san-augustine:10,REP,Kevin Patrick Yeary,267
+san-augustine:11,DEM,Tina Clinton,191
+san-augustine:11,REP,Kevin Patrick Yeary,8
+san-augustine:2,DEM,Tina Clinton,112
+san-augustine:2,REP,Kevin Patrick Yeary,123
+san-augustine:3,DEM,Tina Clinton,50
+san-augustine:3,REP,Kevin Patrick Yeary,117
+san-augustine:4,DEM,Tina Clinton,89
+san-augustine:4,REP,Kevin Patrick Yeary,180
+san-augustine:5,DEM,Tina Clinton,42
+san-augustine:5,REP,Kevin Patrick Yeary,219
+san-augustine:6,DEM,Tina Clinton,16
+san-augustine:6,REP,Kevin Patrick Yeary,194
+san-augustine:7,DEM,Tina Clinton,26
+san-augustine:7,REP,Kevin Patrick Yeary,206
+san-augustine:8,DEM,Tina Clinton,40
+san-augustine:8,REP,Kevin Patrick Yeary,417
+san-augustine:9,DEM,Tina Clinton,67
+san-augustine:9,REP,Kevin Patrick Yeary,581
+shelby:1N,DEM,Tina Clinton,144
+shelby:1N,REP,Kevin Patrick Yeary,749
+shelby:1S,DEM,Tina Clinton,234
+shelby:1S,REP,Kevin Patrick Yeary,909
+shelby:1SE,DEM,Tina Clinton,490
+shelby:1SE,REP,Kevin Patrick Yeary,349
+shelby:1SW,DEM,Tina Clinton,120
+shelby:1SW,REP,Kevin Patrick Yeary,788
+shelby:1W,DEM,Tina Clinton,48
+shelby:1W,REP,Kevin Patrick Yeary,245
+shelby:2,DEM,Tina Clinton,50
+shelby:2,REP,Kevin Patrick Yeary,505
+shelby:3,DEM,Tina Clinton,11
+shelby:3,REP,Kevin Patrick Yeary,215
+shelby:4,DEM,Tina Clinton,99
+shelby:4,REP,Kevin Patrick Yeary,445
+shelby:5,DEM,Tina Clinton,128
+shelby:5,REP,Kevin Patrick Yeary,1274
+shelby:6,DEM,Tina Clinton,63
+shelby:6,REP,Kevin Patrick Yeary,345
+shelby:7,DEM,Tina Clinton,151
+shelby:7,REP,Kevin Patrick Yeary,420
+shelby:8,DEM,Tina Clinton,227
+shelby:8,REP,Kevin Patrick Yeary,486
+shelby:9N,DEM,Tina Clinton,140
+shelby:9N,REP,Kevin Patrick Yeary,592
+shelby:9S,DEM,Tina Clinton,91
+shelby:9S,REP,Kevin Patrick Yeary,536
+trinity:1,DEM,Tina Clinton,72
+trinity:1,REP,Kevin Patrick Yeary,367
+trinity:10,DEM,Tina Clinton,13
+trinity:10,REP,Kevin Patrick Yeary,208
+trinity:11,DEM,Tina Clinton,196
+trinity:11,REP,Kevin Patrick Yeary,1065
+trinity:12,DEM,Tina Clinton,19
+trinity:12,REP,Kevin Patrick Yeary,69
+trinity:14,DEM,Tina Clinton,73
+trinity:14,REP,Kevin Patrick Yeary,331
+trinity:15,DEM,Tina Clinton,9
+trinity:15,REP,Kevin Patrick Yeary,73
+trinity:16,DEM,Tina Clinton,82
+trinity:16,REP,Kevin Patrick Yeary,239
+trinity:17,DEM,Tina Clinton,264
+trinity:17,REP,Kevin Patrick Yeary,89
+trinity:18,DEM,Tina Clinton,46
+trinity:18,REP,Kevin Patrick Yeary,17
+trinity:19,DEM,Tina Clinton,164
+trinity:19,REP,Kevin Patrick Yeary,723
+trinity:2,DEM,Tina Clinton,56
+trinity:2,REP,Kevin Patrick Yeary,477
+trinity:20,DEM,Tina Clinton,14
+trinity:20,REP,Kevin Patrick Yeary,37
+trinity:21,DEM,Tina Clinton,40
+trinity:21,REP,Kevin Patrick Yeary,217
+trinity:3,DEM,Tina Clinton,36
+trinity:3,REP,Kevin Patrick Yeary,270
+trinity:4,DEM,Tina Clinton,21
+trinity:4,REP,Kevin Patrick Yeary,185
+trinity:5,DEM,Tina Clinton,37
+trinity:5,REP,Kevin Patrick Yeary,111
+trinity:6,DEM,Tina Clinton,10
+trinity:6,REP,Kevin Patrick Yeary,140
+trinity:7,DEM,Tina Clinton,13
+trinity:7,REP,Kevin Patrick Yeary,145
+trinity:8,DEM,Tina Clinton,14
+trinity:8,REP,Kevin Patrick Yeary,290
+trinity:9,DEM,Tina Clinton,43
+trinity:9,REP,Kevin Patrick Yeary,375

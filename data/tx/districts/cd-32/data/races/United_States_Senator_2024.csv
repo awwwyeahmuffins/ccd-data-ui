@@ -1,0 +1,85 @@
+precinct,party,candidate,votes
+collin:103,Dem,Colin Allred,435
+collin:103,Lib,Ted Brown,20
+collin:103,Rep,Ted Cruz,330
+collin:103,,Write-in,1
+collin:103,,Over Votes,0
+collin:103,,Under Votes,24
+collin:110,Dem,Colin Allred,974
+collin:110,Lib,Ted Brown,46
+collin:110,Rep,Ted Cruz,895
+collin:110,,Write-in,2
+collin:110,,Over Votes,0
+collin:110,,Under Votes,30
+collin:125,Dem,Colin Allred,2028
+collin:125,Lib,Ted Brown,125
+collin:125,Rep,Ted Cruz,1363
+collin:125,,Write-in,7
+collin:125,,Over Votes,0
+collin:125,,Under Votes,82
+collin:152,Dem,Colin Allred,84
+collin:152,Lib,Ted Brown,3
+collin:152,Rep,Ted Cruz,29
+collin:152,,Write-in,0
+collin:152,,Over Votes,0
+collin:152,,Under Votes,3
+collin:23,Dem,Colin Allred,1283
+collin:23,Lib,Ted Brown,58
+collin:23,Rep,Ted Cruz,502
+collin:23,,Write-in,2
+collin:23,,Over Votes,0
+collin:23,,Under Votes,29
+collin:26,Dem,Colin Allred,361
+collin:26,Lib,Ted Brown,16
+collin:26,Rep,Ted Cruz,347
+collin:26,,Write-in,1
+collin:26,,Over Votes,0
+collin:26,,Under Votes,14
+collin:46,Dem,Colin Allred,1040
+collin:46,Lib,Ted Brown,46
+collin:46,Rep,Ted Cruz,654
+collin:46,,Write-in,6
+collin:46,,Over Votes,0
+collin:46,,Under Votes,51
+collin:48,Dem,Colin Allred,1541
+collin:48,Lib,Ted Brown,41
+collin:48,Rep,Ted Cruz,1101
+collin:48,,Write-in,4
+collin:48,,Over Votes,0
+collin:48,,Under Votes,25
+collin:51,Dem,Colin Allred,582
+collin:51,Lib,Ted Brown,14
+collin:51,Rep,Ted Cruz,373
+collin:51,,Write-in,6
+collin:51,,Over Votes,0
+collin:51,,Under Votes,31
+collin:52,Dem,Colin Allred,1636
+collin:52,Lib,Ted Brown,196
+collin:52,Rep,Ted Cruz,954
+collin:52,,Write-in,2
+collin:52,,Over Votes,0
+collin:52,,Under Votes,121
+collin:55,Dem,Colin Allred,1820
+collin:55,Lib,Ted Brown,45
+collin:55,Rep,Ted Cruz,841
+collin:55,,Write-in,3
+collin:55,,Over Votes,0
+collin:55,,Under Votes,82
+collin:68,Dem,Colin Allred,670
+collin:68,Lib,Ted Brown,38
+collin:68,Rep,Ted Cruz,549
+collin:68,,Write-in,3
+collin:68,,Over Votes,0
+collin:68,,Under Votes,25
+collin:78,Dem,Colin Allred,1837
+collin:78,Lib,Ted Brown,63
+collin:78,Rep,Ted Cruz,1097
+collin:78,,Write-in,7
+collin:78,,Over Votes,0
+collin:78,,Under Votes,49
+collin:94,Dem,Colin Allred,1714
+collin:94,Lib,Ted Brown,89
+collin:94,Rep,Ted Cruz,1240
+collin:94,,Write-in,4
+collin:94,,Over Votes,0
+collin:94,,Under Votes,41

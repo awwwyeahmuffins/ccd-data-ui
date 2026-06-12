@@ -1,0 +1,16 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANH2316",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "brazos": 30,
+      "grimes": 14,
+      "madison": 4,
+      "robertson": 13,
+      "walker": 16,
+      "washington": 19
+    },
+    "generated": "2026-06-12"
+  }
+}

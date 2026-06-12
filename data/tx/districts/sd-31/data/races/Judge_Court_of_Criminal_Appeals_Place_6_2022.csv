@@ -1,0 +1,311 @@
+precinct,party,candidate,votes
+cochran:101,DEM,ROBERT JOHNSON,21
+cochran:101,REP,"JESSE F. MCCLURE, III",137
+cochran:202,DEM,ROBERT JOHNSON,25
+cochran:202,REP,"JESSE F. MCCLURE, III",174
+cochran:303,DEM,ROBERT JOHNSON,2
+cochran:303,REP,"JESSE F. MCCLURE, III",37
+cochran:306,DEM,ROBERT JOHNSON,17
+cochran:306,REP,"JESSE F. MCCLURE, III",108
+cochran:404,DEM,ROBERT JOHNSON,28
+cochran:404,REP,"JESSE F. MCCLURE, III",48
+ector:101,DEM,Robert Johnson,166
+ector:101,REP,"Jesse F. McClure, III",699
+ector:102,DEM,Robert Johnson,132
+ector:102,REP,"Jesse F. McClure, III",373
+ector:103,DEM,Robert Johnson,79
+ector:103,REP,"Jesse F. McClure, III",349
+ector:104,DEM,Robert Johnson,132
+ector:104,REP,"Jesse F. McClure, III",528
+ector:108,DEM,Robert Johnson,101
+ector:108,REP,"Jesse F. McClure, III",738
+ector:109,DEM,Robert Johnson,3
+ector:109,REP,"Jesse F. McClure, III",46
+ector:110,DEM,Robert Johnson,266
+ector:110,REP,"Jesse F. McClure, III",1060
+ector:111,DEM,Robert Johnson,185
+ector:111,REP,"Jesse F. McClure, III",483
+ector:201,DEM,Robert Johnson,239
+ector:201,REP,"Jesse F. McClure, III",1212
+ector:202,DEM,Robert Johnson,227
+ector:202,REP,"Jesse F. McClure, III",982
+ector:203,DEM,Robert Johnson,307
+ector:203,REP,"Jesse F. McClure, III",1557
+ector:204,DEM,Robert Johnson,263
+ector:204,REP,"Jesse F. McClure, III",1177
+ector:205,DEM,Robert Johnson,173
+ector:205,REP,"Jesse F. McClure, III",664
+ector:206,DEM,Robert Johnson,91
+ector:206,REP,"Jesse F. McClure, III",444
+ector:207,DEM,Robert Johnson,76
+ector:207,REP,"Jesse F. McClure, III",920
+ector:208,DEM,Robert Johnson,280
+ector:208,REP,"Jesse F. McClure, III",1068
+ector:209,DEM,Robert Johnson,123
+ector:209,REP,"Jesse F. McClure, III",559
+ector:301,DEM,Robert Johnson,261
+ector:301,REP,"Jesse F. McClure, III",529
+ector:302,DEM,Robert Johnson,116
+ector:302,REP,"Jesse F. McClure, III",233
+ector:303,DEM,Robert Johnson,146
+ector:303,REP,"Jesse F. McClure, III",368
+ector:304,DEM,Robert Johnson,41
+ector:304,REP,"Jesse F. McClure, III",74
+ector:305,DEM,Robert Johnson,46
+ector:305,REP,"Jesse F. McClure, III",72
+ector:306,DEM,Robert Johnson,94
+ector:306,REP,"Jesse F. McClure, III",163
+ector:307,DEM,Robert Johnson,208
+ector:307,REP,"Jesse F. McClure, III",396
+ector:308,DEM,Robert Johnson,71
+ector:308,REP,"Jesse F. McClure, III",252
+ector:309,DEM,Robert Johnson,103
+ector:309,REP,"Jesse F. McClure, III",311
+ector:310,DEM,Robert Johnson,106
+ector:310,REP,"Jesse F. McClure, III",281
+ector:311,DEM,Robert Johnson,103
+ector:311,REP,"Jesse F. McClure, III",248
+ector:312,DEM,Robert Johnson,134
+ector:312,REP,"Jesse F. McClure, III",405
+ector:313,DEM,Robert Johnson,42
+ector:313,REP,"Jesse F. McClure, III",310
+ector:314,DEM,Robert Johnson,113
+ector:314,REP,"Jesse F. McClure, III",415
+ector:401,DEM,Robert Johnson,61
+ector:401,REP,"Jesse F. McClure, III",162
+ector:402,DEM,Robert Johnson,251
+ector:402,REP,"Jesse F. McClure, III",177
+ector:403,DEM,Robert Johnson,334
+ector:403,REP,"Jesse F. McClure, III",194
+ector:404,DEM,Robert Johnson,104
+ector:404,REP,"Jesse F. McClure, III",328
+ector:405,DEM,Robert Johnson,82
+ector:405,REP,"Jesse F. McClure, III",66
+ector:406,DEM,Robert Johnson,226
+ector:406,REP,"Jesse F. McClure, III",344
+ector:407,DEM,Robert Johnson,139
+ector:407,REP,"Jesse F. McClure, III",552
+ector:408,DEM,Robert Johnson,71
+ector:408,REP,"Jesse F. McClure, III",73
+ector:409,DEM,Robert Johnson,113
+ector:409,REP,"Jesse F. McClure, III",211
+ector:412,DEM,Robert Johnson,73
+ector:412,REP,"Jesse F. McClure, III",93
+gaines:2,DEM,Robert Johnson,60
+gaines:2,REP,Jesse F. McClure III,769
+gaines:3,DEM,Robert Johnson,71
+gaines:3,REP,Jesse F. McClure III,1318
+gaines:4,DEM,Robert Johnson,43
+gaines:4,REP,Jesse F. McClure III,652
+gaines:5,DEM,Robert Johnson,7
+gaines:5,REP,Jesse F. McClure III,112
+gaines:6,DEM,Robert Johnson,14
+gaines:6,REP,Jesse F. McClure III,89
+gaines:8,DEM,Robert Johnson,79
+gaines:8,REP,Jesse F. McClure III,480
+gaines:9,DEM,Robert Johnson,34
+gaines:9,REP,Jesse F. McClure III,298
+hansford:1,,Jesse F. Mcclure Iii,317
+hansford:1,,Robert Johnson,11
+hansford:2,,Jesse F. Mcclure Iii,23
+hansford:2,,Robert Johnson,3
+hansford:3,,Jesse F. Mcclure Iii,134
+hansford:3,,Robert Johnson,7
+hansford:4,,Jesse F. Mcclure Iii,312
+hansford:4,,Robert Johnson,15
+hansford:5,,Jesse F. Mcclure Iii,209
+hansford:5,,Robert Johnson,10
+hansford:6,,Jesse F. Mcclure Iii,303
+hansford:6,,Robert Johnson,25
+hansford:7,,Jesse F. Mcclure Iii,28
+hansford:7,,Robert Johnson,1
+hansford:9,,Jesse F. Mcclure Iii,62
+hansford:9,,Robert Johnson,6
+howard:103,DEM,Robert Johnson,12
+howard:103,REP,"Jesse F. McClure, III",58
+howard:104,DEM,Robert Johnson,3
+howard:104,REP,"Jesse F. McClure, III",61
+howard:11,DEM,Robert Johnson,121
+howard:11,REP,"Jesse F. McClure, III",146
+howard:12,DEM,Robert Johnson,72
+howard:12,REP,"Jesse F. McClure, III",100
+howard:13,DEM,Robert Johnson,30
+howard:13,REP,"Jesse F. McClure, III",82
+howard:14,DEM,Robert Johnson,7
+howard:14,REP,"Jesse F. McClure, III",32
+howard:16,DEM,Robert Johnson,14
+howard:16,REP,"Jesse F. McClure, III",30
+howard:205,DEM,Robert Johnson,47
+howard:205,REP,"Jesse F. McClure, III",633
+howard:207,DEM,Robert Johnson,72
+howard:207,REP,"Jesse F. McClure, III",752
+howard:208,DEM,Robert Johnson,8
+howard:208,REP,"Jesse F. McClure, III",82
+howard:24,DEM,Robert Johnson,41
+howard:24,REP,"Jesse F. McClure, III",215
+howard:25,DEM,Robert Johnson,123
+howard:25,REP,"Jesse F. McClure, III",441
+howard:26,DEM,Robert Johnson,11
+howard:26,REP,"Jesse F. McClure, III",89
+howard:304,DEM,Robert Johnson,26
+howard:304,REP,"Jesse F. McClure, III",266
+howard:31,DEM,Robert Johnson,25
+howard:31,REP,"Jesse F. McClure, III",45
+howard:32,DEM,Robert Johnson,10
+howard:32,REP,"Jesse F. McClure, III",34
+howard:33,DEM,Robert Johnson,126
+howard:33,REP,"Jesse F. McClure, III",427
+howard:34,DEM,Robert Johnson,121
+howard:34,REP,"Jesse F. McClure, III",447
+howard:35,DEM,Robert Johnson,16
+howard:35,REP,"Jesse F. McClure, III",92
+howard:404,DEM,Robert Johnson,27
+howard:404,REP,"Jesse F. McClure, III",238
+howard:405,DEM,Robert Johnson,13
+howard:405,REP,"Jesse F. McClure, III",125
+howard:408,DEM,Robert Johnson,0
+howard:408,REP,"Jesse F. McClure, III",33
+howard:409,DEM,Robert Johnson,14
+howard:409,REP,"Jesse F. McClure, III",225
+howard:41,DEM,Robert Johnson,3
+howard:41,REP,"Jesse F. McClure, III",4
+howard:42,DEM,Robert Johnson,66
+howard:42,REP,"Jesse F. McClure, III",143
+howard:45,DEM,Robert Johnson,49
+howard:45,REP,"Jesse F. McClure, III",176
+howard:46,DEM,Robert Johnson,69
+howard:46,REP,"Jesse F. McClure, III",293
+potter:121,DEM,Robert Johnson,184
+potter:121,REP,"Jesse F. McClure, III",948
+potter:122,DEM,Robert Johnson,233
+potter:122,REP,"Jesse F. McClure, III",771
+potter:123,DEM,Robert Johnson,539
+potter:123,REP,"Jesse F. McClure, III",1132
+potter:124,DEM,Robert Johnson,281
+potter:124,REP,"Jesse F. McClure, III",901
+potter:125,DEM,Robert Johnson,512
+potter:125,REP,"Jesse F. McClure, III",1040
+potter:126,DEM,Robert Johnson,320
+potter:126,REP,"Jesse F. McClure, III",614
+potter:221,DEM,Robert Johnson,131
+potter:221,REP,"Jesse F. McClure, III",220
+potter:222,DEM,Robert Johnson,98
+potter:222,REP,"Jesse F. McClure, III",254
+potter:223,DEM,Robert Johnson,211
+potter:223,REP,"Jesse F. McClure, III",259
+potter:224,DEM,Robert Johnson,278
+potter:224,REP,"Jesse F. McClure, III",538
+potter:225,DEM,Robert Johnson,155
+potter:225,REP,"Jesse F. McClure, III",224
+potter:321,DEM,Robert Johnson,141
+potter:321,REP,"Jesse F. McClure, III",1655
+potter:322,DEM,Robert Johnson,15
+potter:322,REP,"Jesse F. McClure, III",119
+potter:323,DEM,Robert Johnson,238
+potter:323,REP,"Jesse F. McClure, III",1877
+potter:324,DEM,Robert Johnson,408
+potter:324,REP,"Jesse F. McClure, III",2041
+potter:325,DEM,Robert Johnson,279
+potter:325,REP,"Jesse F. McClure, III",855
+potter:326,DEM,Robert Johnson,182
+potter:326,REP,"Jesse F. McClure, III",1142
+potter:327,DEM,Robert Johnson,99
+potter:327,REP,"Jesse F. McClure, III",410
+potter:421,DEM,Robert Johnson,129
+potter:421,REP,"Jesse F. McClure, III",141
+potter:422,DEM,Robert Johnson,464
+potter:422,REP,"Jesse F. McClure, III",416
+potter:424,DEM,Robert Johnson,195
+potter:424,REP,"Jesse F. McClure, III",162
+potter:425,DEM,Robert Johnson,193
+potter:425,REP,"Jesse F. McClure, III",220
+potter:426,DEM,Robert Johnson,58
+potter:426,REP,"Jesse F. McClure, III",99
+potter:427,DEM,Robert Johnson,67
+potter:427,REP,"Jesse F. McClure, III",76
+randall:103,DEM,Robert Johnson,123
+randall:103,REP,"Jesse F. McClure, III",203
+randall:110,DEM,Robert Johnson,194
+randall:110,REP,"Jesse F. McClure, III",1713
+randall:111,DEM,Robert Johnson,418
+randall:111,REP,"Jesse F. McClure, III",1229
+randall:112,DEM,Robert Johnson,336
+randall:112,REP,"Jesse F. McClure, III",929
+randall:114,DEM,Robert Johnson,395
+randall:114,REP,"Jesse F. McClure, III",1095
+randall:123,DEM,Robert Johnson,44
+randall:123,REP,"Jesse F. McClure, III",588
+randall:131,DEM,Robert Johnson,121
+randall:131,REP,"Jesse F. McClure, III",952
+randall:204,DEM,Robert Johnson,389
+randall:204,REP,"Jesse F. McClure, III",2058
+randall:208,DEM,Robert Johnson,70
+randall:208,REP,"Jesse F. McClure, III",829
+randall:216,DEM,Robert Johnson,219
+randall:216,REP,"Jesse F. McClure, III",669
+randall:222,DEM,Robert Johnson,418
+randall:222,REP,"Jesse F. McClure, III",2047
+randall:227,DEM,Robert Johnson,300
+randall:227,REP,"Jesse F. McClure, III",1793
+randall:228,DEM,Robert Johnson,504
+randall:228,REP,"Jesse F. McClure, III",2340
+randall:230,DEM,Robert Johnson,450
+randall:230,REP,"Jesse F. McClure, III",2273
+randall:301,DEM,Robert Johnson,81
+randall:301,REP,"Jesse F. McClure, III",973
+randall:302,DEM,Robert Johnson,268
+randall:302,REP,"Jesse F. McClure, III",1108
+randall:305,DEM,Robert Johnson,300
+randall:305,REP,"Jesse F. McClure, III",1037
+randall:306,DEM,Robert Johnson,232
+randall:306,REP,"Jesse F. McClure, III",1314
+randall:307,DEM,Robert Johnson,59
+randall:307,REP,"Jesse F. McClure, III",613
+randall:309,DEM,Robert Johnson,179
+randall:309,REP,"Jesse F. McClure, III",1618
+randall:315,DEM,Robert Johnson,17
+randall:315,REP,"Jesse F. McClure, III",169
+randall:317,DEM,Robert Johnson,7
+randall:317,REP,"Jesse F. McClure, III",28
+randall:324,DEM,Robert Johnson,446
+randall:324,REP,"Jesse F. McClure, III",2357
+randall:325,DEM,Robert Johnson,147
+randall:325,REP,"Jesse F. McClure, III",1248
+randall:332,DEM,Robert Johnson,117
+randall:332,REP,"Jesse F. McClure, III",1322
+randall:415,DEM,Robert Johnson,350
+randall:415,REP,"Jesse F. McClure, III",1316
+randall:418,DEM,Robert Johnson,368
+randall:418,REP,"Jesse F. McClure, III",1173
+randall:420,DEM,Robert Johnson,371
+randall:420,REP,"Jesse F. McClure, III",1570
+randall:421,DEM,Robert Johnson,331
+randall:421,REP,"Jesse F. McClure, III",1161
+randall:426,DEM,Robert Johnson,343
+randall:426,REP,"Jesse F. McClure, III",2002
+randall:429,DEM,Robert Johnson,532
+randall:429,REP,"Jesse F. McClure, III",1631
+reagan:1,DEM,Robert Johnson,20
+reagan:1,REP,Jesse F. McClure III,59
+reagan:2,DEM,Robert Johnson,28
+reagan:2,REP,Jesse F. McClure III,220
+reagan:3,DEM,Robert Johnson,26
+reagan:3,REP,Jesse F. McClure III,186
+reagan:4,DEM,Robert Johnson,16
+reagan:4,REP,Jesse F. McClure III,133
+ward:1E,,Jesse F. Mcclure Iii,220
+ward:1E,,Robert Johnson,97
+ward:1W,,Jesse F. Mcclure Iii,41
+ward:1W,,Robert Johnson,33
+ward:2,,Jesse F. Mcclure Iii,720
+ward:2,,Robert Johnson,135
+ward:3N,,Jesse F. Mcclure Iii,509
+ward:3N,,Robert Johnson,64
+ward:3S,,Jesse F. Mcclure Iii,113
+ward:3S,,Robert Johnson,22
+ward:4E,,Jesse F. Mcclure Iii,313
+ward:4E,,Robert Johnson,65
+ward:4M,,Jesse F. Mcclure Iii,82
+ward:4M,,Robert Johnson,15
+ward:4W,,Jesse F. Mcclure Iii,38
+ward:4W,,Robert Johnson,8

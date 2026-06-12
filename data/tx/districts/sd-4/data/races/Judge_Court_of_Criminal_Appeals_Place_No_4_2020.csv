@@ -1,0 +1,277 @@
+precinct,party,candidate,votes
+chambers:1,DEM,Tina Clinton,69
+chambers:1,REP,Kevin Patrick Yeary,389
+chambers:10,DEM,Tina Clinton,549
+chambers:10,REP,Kevin Patrick Yeary,3310
+chambers:11,DEM,Tina Clinton,377
+chambers:11,REP,Kevin Patrick Yeary,1158
+chambers:12,DEM,Tina Clinton,249
+chambers:12,REP,Kevin Patrick Yeary,682
+chambers:13,DEM,Tina Clinton,0
+chambers:13,REP,Kevin Patrick Yeary,0
+chambers:14,DEM,Tina Clinton,49
+chambers:14,REP,Kevin Patrick Yeary,274
+chambers:15,DEM,Tina Clinton,647
+chambers:15,REP,Kevin Patrick Yeary,1010
+chambers:2,DEM,Tina Clinton,138
+chambers:2,REP,Kevin Patrick Yeary,335
+chambers:3,DEM,Tina Clinton,118
+chambers:3,REP,Kevin Patrick Yeary,183
+chambers:4,DEM,Tina Clinton,356
+chambers:4,REP,Kevin Patrick Yeary,2566
+chambers:5,DEM,Tina Clinton,221
+chambers:5,REP,Kevin Patrick Yeary,1638
+chambers:6,DEM,Tina Clinton,323
+chambers:6,REP,Kevin Patrick Yeary,1110
+chambers:7,DEM,Tina Clinton,209
+chambers:7,REP,Kevin Patrick Yeary,1262
+chambers:8,DEM,Tina Clinton,462
+chambers:8,REP,Kevin Patrick Yeary,3061
+chambers:9,DEM,Tina Clinton,28
+chambers:9,REP,Kevin Patrick Yeary,227
+galveston:103,DEM,Tina Clinton,158
+galveston:103,REP,Kevin Patrick Yeary,836
+galveston:104,DEM,Tina Clinton,129
+galveston:104,REP,Kevin Patrick Yeary,610
+jefferson:101,DEM,Tina Clinton,0
+jefferson:101,REP,Kevin Patrick Yeary,0
+jefferson:104,DEM,Tina Clinton,6
+jefferson:104,REP,Kevin Patrick Yeary,48
+jefferson:108,DEM,Tina Clinton,41
+jefferson:108,REP,Kevin Patrick Yeary,314
+jefferson:24,DEM,Tina Clinton,80
+jefferson:24,REP,Kevin Patrick Yeary,288
+jefferson:25,DEM,Tina Clinton,362
+jefferson:25,REP,Kevin Patrick Yeary,1236
+jefferson:26,DEM,Tina Clinton,811
+jefferson:26,REP,Kevin Patrick Yeary,1113
+jefferson:28,DEM,Tina Clinton,379
+jefferson:28,REP,Kevin Patrick Yeary,203
+jefferson:29,DEM,Tina Clinton,178
+jefferson:29,REP,Kevin Patrick Yeary,1282
+jefferson:30,DEM,Tina Clinton,83
+jefferson:30,REP,Kevin Patrick Yeary,745
+jefferson:31,DEM,Tina Clinton,108
+jefferson:31,REP,Kevin Patrick Yeary,799
+jefferson:32,DEM,Tina Clinton,31
+jefferson:32,REP,Kevin Patrick Yeary,124
+jefferson:33,DEM,Tina Clinton,458
+jefferson:33,REP,Kevin Patrick Yeary,963
+jefferson:34,DEM,Tina Clinton,973
+jefferson:34,REP,Kevin Patrick Yeary,56
+jefferson:44,DEM,Tina Clinton,249
+jefferson:44,REP,Kevin Patrick Yeary,184
+jefferson:45,DEM,Tina Clinton,433
+jefferson:45,REP,Kevin Patrick Yeary,231
+jefferson:46,DEM,Tina Clinton,400
+jefferson:46,REP,Kevin Patrick Yeary,194
+jefferson:47,DEM,Tina Clinton,492
+jefferson:47,REP,Kevin Patrick Yeary,255
+jefferson:48,DEM,Tina Clinton,365
+jefferson:48,REP,Kevin Patrick Yeary,82
+jefferson:49,DEM,Tina Clinton,159
+jefferson:49,REP,Kevin Patrick Yeary,71
+jefferson:50,DEM,Tina Clinton,976
+jefferson:50,REP,Kevin Patrick Yeary,250
+jefferson:51,DEM,Tina Clinton,178
+jefferson:51,REP,Kevin Patrick Yeary,30
+jefferson:52,DEM,Tina Clinton,244
+jefferson:52,REP,Kevin Patrick Yeary,16
+jefferson:53,DEM,Tina Clinton,672
+jefferson:53,REP,Kevin Patrick Yeary,60
+jefferson:54,DEM,Tina Clinton,259
+jefferson:54,REP,Kevin Patrick Yeary,10
+jefferson:55,DEM,Tina Clinton,196
+jefferson:55,REP,Kevin Patrick Yeary,9
+jefferson:57,DEM,Tina Clinton,389
+jefferson:57,REP,Kevin Patrick Yeary,14
+jefferson:58,DEM,Tina Clinton,6
+jefferson:58,REP,Kevin Patrick Yeary,32
+jefferson:59,DEM,Tina Clinton,540
+jefferson:59,REP,Kevin Patrick Yeary,20
+jefferson:66,DEM,Tina Clinton,238
+jefferson:66,REP,Kevin Patrick Yeary,769
+jefferson:80,DEM,Tina Clinton,5
+jefferson:80,REP,Kevin Patrick Yeary,2
+jefferson:81,DEM,Tina Clinton,396
+jefferson:81,REP,Kevin Patrick Yeary,11
+jefferson:90,DEM,Tina Clinton,46
+jefferson:90,REP,Kevin Patrick Yeary,73
+jefferson:91,DEM,Tina Clinton,57
+jefferson:91,REP,Kevin Patrick Yeary,495
+jefferson:92,DEM,Tina Clinton,294
+jefferson:92,REP,Kevin Patrick Yeary,602
+jefferson:93,DEM,Tina Clinton,292
+jefferson:93,REP,Kevin Patrick Yeary,82
+jefferson:96,DEM,Tina Clinton,203
+jefferson:96,REP,Kevin Patrick Yeary,45
+jefferson:97,DEM,Tina Clinton,0
+jefferson:97,REP,Kevin Patrick Yeary,0
+montgomery:1,DEM,Tina Clinton,718
+montgomery:1,REP,Kevin Patrick Yeary,1833
+montgomery:10,DEM,Tina Clinton,868
+montgomery:10,REP,Kevin Patrick Yeary,428
+montgomery:100,DEM,Tina Clinton,1133
+montgomery:100,REP,Kevin Patrick Yeary,2258
+montgomery:11,DEM,Tina Clinton,274
+montgomery:11,REP,Kevin Patrick Yeary,1138
+montgomery:12,DEM,Tina Clinton,294
+montgomery:12,REP,Kevin Patrick Yeary,965
+montgomery:14,DEM,Tina Clinton,805
+montgomery:14,REP,Kevin Patrick Yeary,2091
+montgomery:15,DEM,Tina Clinton,784
+montgomery:15,REP,Kevin Patrick Yeary,2966
+montgomery:16,DEM,Tina Clinton,360
+montgomery:16,REP,Kevin Patrick Yeary,2200
+montgomery:17,DEM,Tina Clinton,395
+montgomery:17,REP,Kevin Patrick Yeary,2272
+montgomery:19,DEM,Tina Clinton,504
+montgomery:19,REP,Kevin Patrick Yeary,2238
+montgomery:2,DEM,Tina Clinton,501
+montgomery:2,REP,Kevin Patrick Yeary,1371
+montgomery:20,DEM,Tina Clinton,469
+montgomery:20,REP,Kevin Patrick Yeary,824
+montgomery:21,DEM,Tina Clinton,769
+montgomery:21,REP,Kevin Patrick Yeary,1756
+montgomery:22,DEM,Tina Clinton,612
+montgomery:22,REP,Kevin Patrick Yeary,2913
+montgomery:23,DEM,Tina Clinton,752
+montgomery:23,REP,Kevin Patrick Yeary,1838
+montgomery:24,DEM,Tina Clinton,649
+montgomery:24,REP,Kevin Patrick Yeary,1589
+montgomery:25,DEM,Tina Clinton,329
+montgomery:25,REP,Kevin Patrick Yeary,1831
+montgomery:26,DEM,Tina Clinton,380
+montgomery:26,REP,Kevin Patrick Yeary,1103
+montgomery:27,DEM,Tina Clinton,844
+montgomery:27,REP,Kevin Patrick Yeary,2129
+montgomery:31,DEM,Tina Clinton,1103
+montgomery:31,REP,Kevin Patrick Yeary,2465
+montgomery:32,DEM,Tina Clinton,792
+montgomery:32,REP,Kevin Patrick Yeary,1217
+montgomery:33,DEM,Tina Clinton,740
+montgomery:33,REP,Kevin Patrick Yeary,1741
+montgomery:34,DEM,Tina Clinton,445
+montgomery:34,REP,Kevin Patrick Yeary,1562
+montgomery:35,DEM,Tina Clinton,1027
+montgomery:35,REP,Kevin Patrick Yeary,2465
+montgomery:36,DEM,Tina Clinton,442
+montgomery:36,REP,Kevin Patrick Yeary,1645
+montgomery:37,DEM,Tina Clinton,545
+montgomery:37,REP,Kevin Patrick Yeary,1395
+montgomery:38,DEM,Tina Clinton,670
+montgomery:38,REP,Kevin Patrick Yeary,3820
+montgomery:4,DEM,Tina Clinton,553
+montgomery:4,REP,Kevin Patrick Yeary,756
+montgomery:40,DEM,Tina Clinton,1049
+montgomery:40,REP,Kevin Patrick Yeary,3612
+montgomery:41,DEM,Tina Clinton,298
+montgomery:41,REP,Kevin Patrick Yeary,2181
+montgomery:42,DEM,Tina Clinton,72
+montgomery:42,REP,Kevin Patrick Yeary,458
+montgomery:43,DEM,Tina Clinton,784
+montgomery:43,REP,Kevin Patrick Yeary,3562
+montgomery:44,DEM,Tina Clinton,501
+montgomery:44,REP,Kevin Patrick Yeary,1100
+montgomery:45,DEM,Tina Clinton,627
+montgomery:45,REP,Kevin Patrick Yeary,1496
+montgomery:46,DEM,Tina Clinton,1592
+montgomery:46,REP,Kevin Patrick Yeary,2908
+montgomery:47,DEM,Tina Clinton,1151
+montgomery:47,REP,Kevin Patrick Yeary,1710
+montgomery:48,DEM,Tina Clinton,578
+montgomery:48,REP,Kevin Patrick Yeary,1255
+montgomery:49,DEM,Tina Clinton,612
+montgomery:49,REP,Kevin Patrick Yeary,1125
+montgomery:5,DEM,Tina Clinton,23
+montgomery:5,REP,Kevin Patrick Yeary,221
+montgomery:50,DEM,Tina Clinton,460
+montgomery:50,REP,Kevin Patrick Yeary,2640
+montgomery:51,DEM,Tina Clinton,567
+montgomery:51,REP,Kevin Patrick Yeary,795
+montgomery:52,DEM,Tina Clinton,476
+montgomery:52,REP,Kevin Patrick Yeary,1744
+montgomery:53,DEM,Tina Clinton,709
+montgomery:53,REP,Kevin Patrick Yeary,2468
+montgomery:54,DEM,Tina Clinton,218
+montgomery:54,REP,Kevin Patrick Yeary,659
+montgomery:55,DEM,Tina Clinton,180
+montgomery:55,REP,Kevin Patrick Yeary,667
+montgomery:56,DEM,Tina Clinton,730
+montgomery:56,REP,Kevin Patrick Yeary,1562
+montgomery:57,DEM,Tina Clinton,309
+montgomery:57,REP,Kevin Patrick Yeary,1681
+montgomery:58,DEM,Tina Clinton,544
+montgomery:58,REP,Kevin Patrick Yeary,1422
+montgomery:59,DEM,Tina Clinton,376
+montgomery:59,REP,Kevin Patrick Yeary,912
+montgomery:6,DEM,Tina Clinton,969
+montgomery:6,REP,Kevin Patrick Yeary,1956
+montgomery:60,DEM,Tina Clinton,462
+montgomery:60,REP,Kevin Patrick Yeary,795
+montgomery:61,DEM,Tina Clinton,1400
+montgomery:61,REP,Kevin Patrick Yeary,2301
+montgomery:62,DEM,Tina Clinton,677
+montgomery:62,REP,Kevin Patrick Yeary,1361
+montgomery:63,DEM,Tina Clinton,709
+montgomery:63,REP,Kevin Patrick Yeary,3636
+montgomery:64,DEM,Tina Clinton,266
+montgomery:64,REP,Kevin Patrick Yeary,946
+montgomery:67,DEM,Tina Clinton,753
+montgomery:67,REP,Kevin Patrick Yeary,1296
+montgomery:68,DEM,Tina Clinton,1044
+montgomery:68,REP,Kevin Patrick Yeary,2518
+montgomery:69,DEM,Tina Clinton,1130
+montgomery:69,REP,Kevin Patrick Yeary,2096
+montgomery:7,DEM,Tina Clinton,258
+montgomery:7,REP,Kevin Patrick Yeary,1155
+montgomery:70,DEM,Tina Clinton,736
+montgomery:70,REP,Kevin Patrick Yeary,1461
+montgomery:71,DEM,Tina Clinton,1108
+montgomery:71,REP,Kevin Patrick Yeary,2370
+montgomery:72,DEM,Tina Clinton,472
+montgomery:72,REP,Kevin Patrick Yeary,3000
+montgomery:73,DEM,Tina Clinton,380
+montgomery:73,REP,Kevin Patrick Yeary,949
+montgomery:75,DEM,Tina Clinton,999
+montgomery:75,REP,Kevin Patrick Yeary,2056
+montgomery:77,DEM,Tina Clinton,538
+montgomery:77,REP,Kevin Patrick Yeary,2883
+montgomery:78,DEM,Tina Clinton,1241
+montgomery:78,REP,Kevin Patrick Yeary,2684
+montgomery:79,DEM,Tina Clinton,543
+montgomery:79,REP,Kevin Patrick Yeary,1010
+montgomery:8,DEM,Tina Clinton,287
+montgomery:8,REP,Kevin Patrick Yeary,1893
+montgomery:80,DEM,Tina Clinton,1116
+montgomery:80,REP,Kevin Patrick Yeary,2916
+montgomery:81,DEM,Tina Clinton,954
+montgomery:81,REP,Kevin Patrick Yeary,2233
+montgomery:82,DEM,Tina Clinton,1130
+montgomery:82,REP,Kevin Patrick Yeary,3139
+montgomery:83,DEM,Tina Clinton,152
+montgomery:83,REP,Kevin Patrick Yeary,878
+montgomery:84,DEM,Tina Clinton,1328
+montgomery:84,REP,Kevin Patrick Yeary,1511
+montgomery:85,DEM,Tina Clinton,415
+montgomery:85,REP,Kevin Patrick Yeary,2024
+montgomery:86,DEM,Tina Clinton,331
+montgomery:86,REP,Kevin Patrick Yeary,1469
+montgomery:87,DEM,Tina Clinton,930
+montgomery:87,REP,Kevin Patrick Yeary,2056
+montgomery:88,DEM,Tina Clinton,1124
+montgomery:88,REP,Kevin Patrick Yeary,2076
+montgomery:90,DEM,Tina Clinton,775
+montgomery:90,REP,Kevin Patrick Yeary,4288
+montgomery:92,DEM,Tina Clinton,1418
+montgomery:92,REP,Kevin Patrick Yeary,2144
+montgomery:93,DEM,Tina Clinton,693
+montgomery:93,REP,Kevin Patrick Yeary,2071
+montgomery:94,DEM,Tina Clinton,415
+montgomery:94,REP,Kevin Patrick Yeary,743
+montgomery:95,DEM,Tina Clinton,1096
+montgomery:95,REP,Kevin Patrick Yeary,1645
+montgomery:96,DEM,Tina Clinton,1505
+montgomery:96,REP,Kevin Patrick Yeary,2633
+montgomery:98,DEM,Tina Clinton,1283
+montgomery:98,REP,Kevin Patrick Yeary,2425

@@ -1,0 +1,121 @@
+precinct,party,candidate,votes
+aransas:1,,Over Votes,0
+aransas:1,,Under Votes,15
+aransas:1,DEM,Robert Johnson,211
+aransas:1,REP,Jesse F. McClure III,1099
+aransas:1A,,Over Votes,0
+aransas:1A,,Under Votes,11
+aransas:1A,DEM,Robert Johnson,123
+aransas:1A,REP,Jesse F. McClure III,589
+aransas:2,,Over Votes,0
+aransas:2,,Under Votes,34
+aransas:2,DEM,Robert Johnson,375
+aransas:2,REP,Jesse F. McClure III,1203
+aransas:3,,Over Votes,0
+aransas:3,,Under Votes,53
+aransas:3,DEM,Robert Johnson,597
+aransas:3,REP,Jesse F. McClure III,2155
+aransas:4,,Over Votes,0
+aransas:4,,Under Votes,52
+aransas:4,DEM,Robert Johnson,479
+aransas:4,REP,Jesse F. McClure III,1901
+aransas:4A,,Over Votes,0
+aransas:4A,,Under Votes,11
+aransas:4A,DEM,Robert Johnson,131
+aransas:4A,REP,Jesse F. McClure III,647
+bee:1,DEM,Robert Johnson,292
+bee:1,REP,Jesse F. McClure III,612
+bee:10,DEM,Robert Johnson,195
+bee:10,REP,Jesse F. McClure III,177
+bee:13,DEM,Robert Johnson,203
+bee:13,REP,Jesse F. McClure III,441
+bee:16,DEM,Robert Johnson,140
+bee:16,REP,Jesse F. McClure III,286
+bee:17,DEM,Robert Johnson,185
+bee:17,REP,Jesse F. McClure III,256
+bee:18,DEM,Robert Johnson,214
+bee:18,REP,Jesse F. McClure III,637
+bee:19,DEM,Robert Johnson,81
+bee:19,REP,Jesse F. McClure III,65
+bee:2,DEM,Robert Johnson,39
+bee:2,REP,Jesse F. McClure III,255
+bee:3,DEM,Robert Johnson,215
+bee:3,REP,Jesse F. McClure III,430
+bee:4,DEM,Robert Johnson,53
+bee:4,REP,Jesse F. McClure III,242
+bee:5,DEM,Robert Johnson,103
+bee:5,REP,Jesse F. McClure III,313
+bee:6,DEM,Robert Johnson,140
+bee:6,REP,Jesse F. McClure III,387
+bee:9,DEM,Robert Johnson,179
+bee:9,REP,Jesse F. McClure III,81
+refugio:1,DEM,Robert Johnson,65
+refugio:1,REP,Jesse F. McClure III,98
+refugio:1A,DEM,Robert Johnson,109
+refugio:1A,REP,Jesse F. McClure III,105
+refugio:2,DEM,Robert Johnson,89
+refugio:2,REP,Jesse F. McClure III,371
+refugio:2A,DEM,Robert Johnson,9
+refugio:2A,REP,Jesse F. McClure III,119
+refugio:2B,DEM,Robert Johnson,46
+refugio:2B,REP,Jesse F. McClure III,124
+refugio:3,DEM,Robert Johnson,43
+refugio:3,REP,Jesse F. McClure III,212
+refugio:3A,DEM,Robert Johnson,58
+refugio:3A,REP,Jesse F. McClure III,256
+refugio:4,DEM,Robert Johnson,114
+refugio:4,REP,Jesse F. McClure III,95
+refugio:4A,DEM,Robert Johnson,79
+refugio:4A,REP,Jesse F. McClure III,130
+refugio:4B,DEM,Robert Johnson,43
+refugio:4B,REP,Jesse F. McClure III,70
+san-patricio:101,DEM,Robert Johnson,81
+san-patricio:101,REP,"Jesse F. McClure, III",124
+san-patricio:102,DEM,Robert Johnson,393
+san-patricio:102,REP,"Jesse F. McClure, III",631
+san-patricio:103,DEM,Robert Johnson,37
+san-patricio:103,REP,"Jesse F. McClure, III",196
+san-patricio:104,DEM,Robert Johnson,201
+san-patricio:104,REP,"Jesse F. McClure, III",461
+san-patricio:105,DEM,Robert Johnson,266
+san-patricio:105,REP,"Jesse F. McClure, III",209
+san-patricio:106,DEM,Robert Johnson,84
+san-patricio:106,REP,"Jesse F. McClure, III",304
+san-patricio:107,DEM,Robert Johnson,40
+san-patricio:107,REP,"Jesse F. McClure, III",106
+san-patricio:108,DEM,Robert Johnson,494
+san-patricio:108,REP,"Jesse F. McClure, III",1290
+san-patricio:109,DEM,Robert Johnson,295
+san-patricio:109,REP,"Jesse F. McClure, III",903
+san-patricio:110,DEM,Robert Johnson,298
+san-patricio:110,REP,"Jesse F. McClure, III",412
+san-patricio:111,DEM,Robert Johnson,20
+san-patricio:111,REP,"Jesse F. McClure, III",105
+san-patricio:112,DEM,Robert Johnson,289
+san-patricio:112,REP,"Jesse F. McClure, III",210
+san-patricio:113,DEM,Robert Johnson,348
+san-patricio:113,REP,"Jesse F. McClure, III",528
+san-patricio:114,DEM,Robert Johnson,227
+san-patricio:114,REP,"Jesse F. McClure, III",722
+san-patricio:115,DEM,Robert Johnson,506
+san-patricio:115,REP,"Jesse F. McClure, III",1585
+san-patricio:116,DEM,Robert Johnson,363
+san-patricio:116,REP,"Jesse F. McClure, III",1353
+san-patricio:117,DEM,Robert Johnson,62
+san-patricio:117,REP,"Jesse F. McClure, III",188
+san-patricio:118,DEM,Robert Johnson,477
+san-patricio:118,REP,"Jesse F. McClure, III",566
+san-patricio:119,DEM,Robert Johnson,179
+san-patricio:119,REP,"Jesse F. McClure, III",454
+san-patricio:120,DEM,Robert Johnson,85
+san-patricio:120,REP,"Jesse F. McClure, III",302
+san-patricio:121,DEM,Robert Johnson,277
+san-patricio:121,REP,"Jesse F. McClure, III",584
+san-patricio:122,DEM,Robert Johnson,1
+san-patricio:122,REP,"Jesse F. McClure, III",10
+san-patricio:123,DEM,Robert Johnson,17
+san-patricio:123,REP,"Jesse F. McClure, III",31
+san-patricio:124,DEM,Robert Johnson,570
+san-patricio:124,REP,"Jesse F. McClure, III",617
+san-patricio:125,DEM,Robert Johnson,7
+san-patricio:125,REP,"Jesse F. McClure, III",14

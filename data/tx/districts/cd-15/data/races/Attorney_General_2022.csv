@@ -1,0 +1,336 @@
+precinct,party,candidate,votes
+brooks:1,LIB,Mark Ash,10
+brooks:1,DEM,Rochelle Mercedes Garza,296
+brooks:1,REP,Ken Paxton,112
+brooks:2,LIB,Mark Ash,17
+brooks:2,DEM,Rochelle Mercedes Garza,296
+brooks:2,REP,Ken Paxton,203
+brooks:3,LIB,Mark Ash,6
+brooks:3,DEM,Rochelle Mercedes Garza,235
+brooks:3,REP,Ken Paxton,86
+brooks:3S,LIB,Mark Ash,2
+brooks:3S,DEM,Rochelle Mercedes Garza,50
+brooks:3S,REP,Ken Paxton,57
+brooks:4,LIB,Mark Ash,5
+brooks:4,DEM,Rochelle Mercedes Garza,321
+brooks:4,REP,Ken Paxton,160
+guadalupe:102,,Over Votes,0
+guadalupe:102,,Under Votes,16
+guadalupe:102,DEM,Rochelle Mercedes Garza,209
+guadalupe:102,LIB,Mark Ash,23
+guadalupe:102,REP,Ken Paxton,495
+guadalupe:103,,Over Votes,0
+guadalupe:103,,Under Votes,8
+guadalupe:103,DEM,Rochelle Mercedes Garza,106
+guadalupe:103,LIB,Mark Ash,12
+guadalupe:103,REP,Ken Paxton,291
+guadalupe:104,,Over Votes,0
+guadalupe:104,,Under Votes,6
+guadalupe:104,DEM,Rochelle Mercedes Garza,177
+guadalupe:104,LIB,Mark Ash,13
+guadalupe:104,REP,Ken Paxton,217
+guadalupe:105,,Over Votes,0
+guadalupe:105,,Under Votes,32
+guadalupe:105,DEM,Rochelle Mercedes Garza,304
+guadalupe:105,LIB,Mark Ash,37
+guadalupe:105,REP,Ken Paxton,1284
+guadalupe:106,,Over Votes,0
+guadalupe:106,,Under Votes,36
+guadalupe:106,DEM,Rochelle Mercedes Garza,577
+guadalupe:106,LIB,Mark Ash,63
+guadalupe:106,REP,Ken Paxton,1235
+guadalupe:107,,Over Votes,0
+guadalupe:107,,Under Votes,16
+guadalupe:107,DEM,Rochelle Mercedes Garza,121
+guadalupe:107,LIB,Mark Ash,26
+guadalupe:107,REP,Ken Paxton,576
+guadalupe:109,,Over Votes,0
+guadalupe:109,,Under Votes,4
+guadalupe:109,DEM,Rochelle Mercedes Garza,50
+guadalupe:109,LIB,Mark Ash,14
+guadalupe:109,REP,Ken Paxton,248
+guadalupe:110,,Over Votes,0
+guadalupe:110,,Under Votes,3
+guadalupe:110,DEM,Rochelle Mercedes Garza,50
+guadalupe:110,LIB,Mark Ash,7
+guadalupe:110,REP,Ken Paxton,78
+guadalupe:112,,Over Votes,0
+guadalupe:112,,Under Votes,4
+guadalupe:112,DEM,Rochelle Mercedes Garza,24
+guadalupe:112,LIB,Mark Ash,1
+guadalupe:112,REP,Ken Paxton,5
+guadalupe:115,,Over Votes,0
+guadalupe:115,,Under Votes,3
+guadalupe:115,DEM,Rochelle Mercedes Garza,35
+guadalupe:115,LIB,Mark Ash,5
+guadalupe:115,REP,Ken Paxton,189
+guadalupe:119,,Over Votes,0
+guadalupe:119,,Under Votes,22
+guadalupe:119,DEM,Rochelle Mercedes Garza,228
+guadalupe:119,LIB,Mark Ash,33
+guadalupe:119,REP,Ken Paxton,859
+guadalupe:120,,Over Votes,0
+guadalupe:120,,Under Votes,6
+guadalupe:120,DEM,Rochelle Mercedes Garza,153
+guadalupe:120,LIB,Mark Ash,23
+guadalupe:120,REP,Ken Paxton,572
+guadalupe:123,,Over Votes,0
+guadalupe:123,,Under Votes,0
+guadalupe:123,DEM,Rochelle Mercedes Garza,1
+guadalupe:123,LIB,Mark Ash,0
+guadalupe:123,REP,Ken Paxton,0
+guadalupe:124,,Over Votes,0
+guadalupe:124,,Under Votes,0
+guadalupe:124,DEM,Rochelle Mercedes Garza,0
+guadalupe:124,LIB,Mark Ash,0
+guadalupe:124,REP,Ken Paxton,2
+guadalupe:125,,Over Votes,0
+guadalupe:125,,Under Votes,0
+guadalupe:125,DEM,Rochelle Mercedes Garza,18
+guadalupe:125,LIB,Mark Ash,2
+guadalupe:125,REP,Ken Paxton,94
+guadalupe:126,,Over Votes,0
+guadalupe:126,,Under Votes,1
+guadalupe:126,DEM,Rochelle Mercedes Garza,4
+guadalupe:126,LIB,Mark Ash,0
+guadalupe:126,REP,Ken Paxton,10
+guadalupe:127,,Over Votes,0
+guadalupe:127,,Under Votes,0
+guadalupe:127,DEM,Rochelle Mercedes Garza,0
+guadalupe:127,LIB,Mark Ash,2
+guadalupe:127,REP,Ken Paxton,7
+guadalupe:201,,Over Votes,0
+guadalupe:201,,Under Votes,5
+guadalupe:201,DEM,Rochelle Mercedes Garza,71
+guadalupe:201,LIB,Mark Ash,7
+guadalupe:201,REP,Ken Paxton,118
+guadalupe:202,,Over Votes,0
+guadalupe:202,,Under Votes,6
+guadalupe:202,DEM,Rochelle Mercedes Garza,231
+guadalupe:202,LIB,Mark Ash,16
+guadalupe:202,REP,Ken Paxton,131
+guadalupe:203,,Over Votes,0
+guadalupe:203,,Under Votes,7
+guadalupe:203,DEM,Rochelle Mercedes Garza,112
+guadalupe:203,LIB,Mark Ash,8
+guadalupe:203,REP,Ken Paxton,81
+guadalupe:204,,Over Votes,0
+guadalupe:204,,Under Votes,9
+guadalupe:204,DEM,Rochelle Mercedes Garza,300
+guadalupe:204,LIB,Mark Ash,17
+guadalupe:204,REP,Ken Paxton,303
+guadalupe:205,,Over Votes,0
+guadalupe:205,,Under Votes,11
+guadalupe:205,DEM,Rochelle Mercedes Garza,172
+guadalupe:205,LIB,Mark Ash,23
+guadalupe:205,REP,Ken Paxton,534
+guadalupe:206,,Over Votes,0
+guadalupe:206,,Under Votes,19
+guadalupe:206,DEM,Rochelle Mercedes Garza,499
+guadalupe:206,LIB,Mark Ash,32
+guadalupe:206,REP,Ken Paxton,424
+guadalupe:207,,Over Votes,0
+guadalupe:207,,Under Votes,10
+guadalupe:207,DEM,Rochelle Mercedes Garza,216
+guadalupe:207,LIB,Mark Ash,13
+guadalupe:207,REP,Ken Paxton,176
+guadalupe:208,,Over Votes,0
+guadalupe:208,,Under Votes,21
+guadalupe:208,DEM,Rochelle Mercedes Garza,539
+guadalupe:208,LIB,Mark Ash,82
+guadalupe:208,REP,Ken Paxton,1723
+guadalupe:209,,Over Votes,0
+guadalupe:209,,Under Votes,13
+guadalupe:209,DEM,Rochelle Mercedes Garza,139
+guadalupe:209,LIB,Mark Ash,9
+guadalupe:209,REP,Ken Paxton,80
+guadalupe:210,,Over Votes,0
+guadalupe:210,,Under Votes,10
+guadalupe:210,DEM,Rochelle Mercedes Garza,182
+guadalupe:210,LIB,Mark Ash,23
+guadalupe:210,REP,Ken Paxton,229
+guadalupe:211,,Over Votes,0
+guadalupe:211,,Under Votes,2
+guadalupe:211,DEM,Rochelle Mercedes Garza,37
+guadalupe:211,LIB,Mark Ash,4
+guadalupe:211,REP,Ken Paxton,33
+guadalupe:212,,Over Votes,0
+guadalupe:212,,Under Votes,1
+guadalupe:212,DEM,Rochelle Mercedes Garza,41
+guadalupe:212,LIB,Mark Ash,4
+guadalupe:212,REP,Ken Paxton,39
+guadalupe:213,,Over Votes,0
+guadalupe:213,,Under Votes,15
+guadalupe:213,DEM,Rochelle Mercedes Garza,448
+guadalupe:213,LIB,Mark Ash,47
+guadalupe:213,REP,Ken Paxton,1047
+guadalupe:214,,Over Votes,0
+guadalupe:214,,Under Votes,7
+guadalupe:214,DEM,Rochelle Mercedes Garza,95
+guadalupe:214,LIB,Mark Ash,15
+guadalupe:214,REP,Ken Paxton,304
+guadalupe:215,,Over Votes,0
+guadalupe:215,,Under Votes,7
+guadalupe:215,DEM,Rochelle Mercedes Garza,163
+guadalupe:215,LIB,Mark Ash,12
+guadalupe:215,REP,Ken Paxton,405
+guadalupe:216,,Over Votes,0
+guadalupe:216,,Under Votes,4
+guadalupe:216,DEM,Rochelle Mercedes Garza,34
+guadalupe:216,LIB,Mark Ash,6
+guadalupe:216,REP,Ken Paxton,98
+guadalupe:217,,Over Votes,0
+guadalupe:217,,Under Votes,3
+guadalupe:217,DEM,Rochelle Mercedes Garza,35
+guadalupe:217,LIB,Mark Ash,1
+guadalupe:217,REP,Ken Paxton,28
+guadalupe:218,,Over Votes,0
+guadalupe:218,,Under Votes,0
+guadalupe:218,DEM,Rochelle Mercedes Garza,18
+guadalupe:218,LIB,Mark Ash,0
+guadalupe:218,REP,Ken Paxton,12
+guadalupe:219,,Over Votes,0
+guadalupe:219,,Under Votes,0
+guadalupe:219,DEM,Rochelle Mercedes Garza,23
+guadalupe:219,LIB,Mark Ash,4
+guadalupe:219,REP,Ken Paxton,24
+guadalupe:220,,Over Votes,0
+guadalupe:220,,Under Votes,0
+guadalupe:220,DEM,Rochelle Mercedes Garza,12
+guadalupe:220,LIB,Mark Ash,1
+guadalupe:220,REP,Ken Paxton,18
+guadalupe:221,,Over Votes,0
+guadalupe:221,,Under Votes,1
+guadalupe:221,DEM,Rochelle Mercedes Garza,4
+guadalupe:221,LIB,Mark Ash,2
+guadalupe:221,REP,Ken Paxton,10
+guadalupe:222,,Over Votes,0
+guadalupe:222,,Under Votes,0
+guadalupe:222,DEM,Rochelle Mercedes Garza,0
+guadalupe:222,LIB,Mark Ash,0
+guadalupe:222,REP,Ken Paxton,0
+guadalupe:223,,Over Votes,0
+guadalupe:223,,Under Votes,6
+guadalupe:223,DEM,Rochelle Mercedes Garza,76
+guadalupe:223,LIB,Mark Ash,5
+guadalupe:223,REP,Ken Paxton,60
+guadalupe:224,,Over Votes,0
+guadalupe:224,,Under Votes,1
+guadalupe:224,DEM,Rochelle Mercedes Garza,36
+guadalupe:224,LIB,Mark Ash,4
+guadalupe:224,REP,Ken Paxton,16
+guadalupe:225,,Over Votes,0
+guadalupe:225,,Under Votes,1
+guadalupe:225,DEM,Rochelle Mercedes Garza,6
+guadalupe:225,LIB,Mark Ash,0
+guadalupe:225,REP,Ken Paxton,4
+guadalupe:226,,Over Votes,0
+guadalupe:226,,Under Votes,3
+guadalupe:226,DEM,Rochelle Mercedes Garza,40
+guadalupe:226,LIB,Mark Ash,1
+guadalupe:226,REP,Ken Paxton,105
+guadalupe:227,,Over Votes,0
+guadalupe:227,,Under Votes,7
+guadalupe:227,DEM,Rochelle Mercedes Garza,88
+guadalupe:227,LIB,Mark Ash,8
+guadalupe:227,REP,Ken Paxton,255
+guadalupe:228,,Over Votes,0
+guadalupe:228,,Under Votes,4
+guadalupe:228,DEM,Rochelle Mercedes Garza,144
+guadalupe:228,LIB,Mark Ash,6
+guadalupe:228,REP,Ken Paxton,310
+guadalupe:229,,Over Votes,0
+guadalupe:229,,Under Votes,3
+guadalupe:229,DEM,Rochelle Mercedes Garza,15
+guadalupe:229,LIB,Mark Ash,1
+guadalupe:229,REP,Ken Paxton,37
+guadalupe:230,,Over Votes,0
+guadalupe:230,,Under Votes,2
+guadalupe:230,DEM,Rochelle Mercedes Garza,20
+guadalupe:230,LIB,Mark Ash,1
+guadalupe:230,REP,Ken Paxton,51
+guadalupe:231,,Over Votes,0
+guadalupe:231,,Under Votes,2
+guadalupe:231,DEM,Rochelle Mercedes Garza,22
+guadalupe:231,LIB,Mark Ash,2
+guadalupe:231,REP,Ken Paxton,62
+guadalupe:232,,Over Votes,0
+guadalupe:232,,Under Votes,0
+guadalupe:232,DEM,Rochelle Mercedes Garza,12
+guadalupe:232,LIB,Mark Ash,0
+guadalupe:232,REP,Ken Paxton,16
+guadalupe:407,,Over Votes,0
+guadalupe:407,,Under Votes,16
+guadalupe:407,DEM,Rochelle Mercedes Garza,172
+guadalupe:407,LIB,Mark Ash,33
+guadalupe:407,REP,Ken Paxton,894
+guadalupe:413,,Over Votes,0
+guadalupe:413,,Under Votes,1
+guadalupe:413,DEM,Rochelle Mercedes Garza,55
+guadalupe:413,LIB,Mark Ash,9
+guadalupe:413,REP,Ken Paxton,419
+wilson:101,,Over Votes,0
+wilson:101,,Under Votes,13
+wilson:101,DEM,Rochelle Mercedes Garza,667
+wilson:101,LIB,Mark Ash,34
+wilson:101,REP,Ken Paxton,1333
+wilson:102,,Over Votes,0
+wilson:102,,Under Votes,31
+wilson:102,DEM,Rochelle Mercedes Garza,470
+wilson:102,LIB,Mark Ash,23
+wilson:102,REP,Ken Paxton,404
+wilson:103,,Over Votes,0
+wilson:103,,Under Votes,25
+wilson:103,DEM,Rochelle Mercedes Garza,303
+wilson:103,LIB,Mark Ash,32
+wilson:103,REP,Ken Paxton,589
+wilson:104,,Over Votes,0
+wilson:104,,Under Votes,8
+wilson:104,DEM,Rochelle Mercedes Garza,173
+wilson:104,LIB,Mark Ash,13
+wilson:104,REP,Ken Paxton,519
+wilson:205,,Over Votes,1
+wilson:205,,Under Votes,25
+wilson:205,DEM,Rochelle Mercedes Garza,251
+wilson:205,LIB,Mark Ash,29
+wilson:205,REP,Ken Paxton,1420
+wilson:206,,Over Votes,2
+wilson:206,,Under Votes,21
+wilson:206,DEM,Rochelle Mercedes Garza,403
+wilson:206,LIB,Mark Ash,21
+wilson:206,REP,Ken Paxton,762
+wilson:207,,Over Votes,0
+wilson:207,,Under Votes,17
+wilson:207,DEM,Rochelle Mercedes Garza,445
+wilson:207,LIB,Mark Ash,43
+wilson:207,REP,Ken Paxton,1351
+wilson:311,,Over Votes,0
+wilson:311,,Under Votes,23
+wilson:311,DEM,Rochelle Mercedes Garza,209
+wilson:311,LIB,Mark Ash,33
+wilson:311,REP,Ken Paxton,1297
+wilson:312,,Over Votes,1
+wilson:312,,Under Votes,21
+wilson:312,DEM,Rochelle Mercedes Garza,214
+wilson:312,LIB,Mark Ash,40
+wilson:312,REP,Ken Paxton,1361
+wilson:313,,Over Votes,0
+wilson:313,,Under Votes,22
+wilson:313,DEM,Rochelle Mercedes Garza,308
+wilson:313,LIB,Mark Ash,38
+wilson:313,REP,Ken Paxton,1673
+wilson:414,,Over Votes,0
+wilson:414,,Under Votes,16
+wilson:414,DEM,Rochelle Mercedes Garza,221
+wilson:414,LIB,Mark Ash,30
+wilson:414,REP,Ken Paxton,1295
+wilson:415,,Over Votes,0
+wilson:415,,Under Votes,16
+wilson:415,DEM,Rochelle Mercedes Garza,431
+wilson:415,LIB,Mark Ash,48
+wilson:415,REP,Ken Paxton,1643
+wilson:416,,Over Votes,0
+wilson:416,,Under Votes,4
+wilson:416,DEM,Rochelle Mercedes Garza,239
+wilson:416,LIB,Mark Ash,25
+wilson:416,REP,Ken Paxton,985

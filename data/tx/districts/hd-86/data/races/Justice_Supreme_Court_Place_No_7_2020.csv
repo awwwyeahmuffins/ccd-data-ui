@@ -1,0 +1,21 @@
+precinct,party,candidate,votes
+deaf-smith:1,,Overvotes:,0
+deaf-smith:1,,Undervotes:,31
+deaf-smith:1,DEM,Staci Williams,245
+deaf-smith:1,LIB,William Bryan Strange III,16
+deaf-smith:1,REP,Jeff Boyd,544
+deaf-smith:2,,Overvotes:,0
+deaf-smith:2,,Undervotes:,31
+deaf-smith:2,DEM,Staci Williams,292
+deaf-smith:2,LIB,William Bryan Strange III,21
+deaf-smith:2,REP,Jeff Boyd,547
+deaf-smith:3,,Overvotes:,0
+deaf-smith:3,,Undervotes:,40
+deaf-smith:3,DEM,Staci Williams,341
+deaf-smith:3,LIB,William Bryan Strange III,34
+deaf-smith:3,REP,Jeff Boyd,1470
+deaf-smith:4,,Overvotes:,1
+deaf-smith:4,,Undervotes:,35
+deaf-smith:4,DEM,Staci Williams,308
+deaf-smith:4,LIB,William Bryan Strange III,18
+deaf-smith:4,REP,Jeff Boyd,667

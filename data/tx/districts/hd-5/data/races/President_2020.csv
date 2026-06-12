@@ -1,0 +1,529 @@
+precinct,party,candidate,votes
+camp:1001,,Write-in,0
+camp:1001,DEM,Joseph R Biden,341
+camp:1001,GRN,Howie Hawkins,2
+camp:1001,LIB,Jo Jorgensen,9
+camp:1001,REP,Donald J Trump,906
+camp:2002,,Write-in,0
+camp:2002,DEM,Joseph R Biden,298
+camp:2002,GRN,Howie Hawkins,1
+camp:2002,LIB,Jo Jorgensen,2
+camp:2002,REP,Donald J Trump,1195
+camp:3003,,Write-in,0
+camp:3003,DEM,Joseph R Biden,446
+camp:3003,GRN,Howie Hawkins,3
+camp:3003,LIB,Jo Jorgensen,12
+camp:3003,REP,Donald J Trump,570
+camp:4004,,Write-in,0
+camp:4004,DEM,Joseph R Biden,309
+camp:4004,GRN,Howie Hawkins,1
+camp:4004,LIB,Jo Jorgensen,8
+camp:4004,REP,Donald J Trump,955
+rains:101,,Over Votes,0
+rains:101,,Under Votes,3
+rains:101,DEM,Joseph R. Biden / Kamala D. Harris,75
+rains:101,GRN,Howie Hawkins / Angela Walker,3
+rains:101,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",11
+rains:101,REP,Donald J. Trump / Michael R. Pence,866
+rains:102,,Over Votes,0
+rains:102,,Under Votes,2
+rains:102,DEM,Joseph R. Biden / Kamala D. Harris,103
+rains:102,GRN,Howie Hawkins / Angela Walker,0
+rains:102,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",6
+rains:102,REP,Donald J. Trump / Michael R. Pence,475
+rains:203,,Over Votes,1
+rains:203,,Under Votes,5
+rains:203,DEM,Joseph R. Biden / Kamala D. Harris,135
+rains:203,GRN,Howie Hawkins / Angela Walker,4
+rains:203,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",5
+rains:203,REP,Donald J. Trump / Michael R. Pence,989
+rains:204,,Over Votes,0
+rains:204,,Under Votes,5
+rains:204,DEM,Joseph R. Biden / Kamala D. Harris,61
+rains:204,GRN,Howie Hawkins / Angela Walker,0
+rains:204,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",3
+rains:204,REP,Donald J. Trump / Michael R. Pence,416
+rains:305,,Over Votes,0
+rains:305,,Under Votes,14
+rains:305,DEM,Joseph R. Biden / Kamala D. Harris,109
+rains:305,GRN,Howie Hawkins / Angela Walker,1
+rains:305,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",5
+rains:305,REP,Donald J. Trump / Michael R. Pence,576
+rains:306,,Over Votes,0
+rains:306,,Under Votes,0
+rains:306,DEM,Joseph R. Biden / Kamala D. Harris,163
+rains:306,GRN,Howie Hawkins / Angela Walker,3
+rains:306,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",3
+rains:306,REP,Donald J. Trump / Michael R. Pence,589
+rains:407,,Over Votes,0
+rains:407,,Under Votes,2
+rains:407,DEM,Joseph R. Biden / Kamala D. Harris,99
+rains:407,GRN,Howie Hawkins / Angela Walker,1
+rains:407,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",4
+rains:407,REP,Donald J. Trump / Michael R. Pence,674
+rains:408,,Over Votes,0
+rains:408,,Under Votes,3
+rains:408,DEM,Joseph R. Biden / Kamala D. Harris,97
+rains:408,GRN,Howie Hawkins / Angela Walker,1
+rains:408,LIB,"Jo Jorgensen / Jeremy ""Spike"" Cohen",6
+rains:408,REP,Donald J. Trump / Michael R. Pence,570
+titus:1,,Abram Loeb (W),0
+titus:1,,Brian Carroll (W),0
+titus:1,,Gloria La Riva (W),0
+titus:1,,Jesse Cuellar (W),0
+titus:1,,Kasey Wells (W),0
+titus:1,,Over Votes,7
+titus:1,,President R. Boddie (W),0
+titus:1,,Robert Morrow (W),0
+titus:1,,Todd Cella (W),0
+titus:1,,Tom Hoefling (W),0
+titus:1,,Under Votes,1
+titus:1,DEM,Joseph R Biden,238
+titus:1,GRN,Howie Hawkins,2
+titus:1,LIB,Jo Jorgensen,3
+titus:1,REP,Donald J Trump,80
+titus:10,,Abram Loeb (W),0
+titus:10,,Brian Carroll (W),0
+titus:10,,Gloria La Riva (W),0
+titus:10,,Jesse Cuellar (W),0
+titus:10,,Kasey Wells (W),0
+titus:10,,Over Votes,0
+titus:10,,President R. Boddie (W),0
+titus:10,,Robert Morrow (W),0
+titus:10,,Todd Cella (W),0
+titus:10,,Tom Hoefling (W),0
+titus:10,,Under Votes,2
+titus:10,DEM,Joseph R Biden,69
+titus:10,GRN,Howie Hawkins,1
+titus:10,LIB,Jo Jorgensen,2
+titus:10,REP,Donald J Trump,593
+titus:11,,Abram Loeb (W),0
+titus:11,,Brian Carroll (W),0
+titus:11,,Gloria La Riva (W),0
+titus:11,,Jesse Cuellar (W),0
+titus:11,,Kasey Wells (W),0
+titus:11,,Over Votes,2
+titus:11,,President R. Boddie (W),0
+titus:11,,Robert Morrow (W),0
+titus:11,,Todd Cella (W),0
+titus:11,,Tom Hoefling (W),0
+titus:11,,Under Votes,1
+titus:11,DEM,Joseph R Biden,23
+titus:11,GRN,Howie Hawkins,0
+titus:11,LIB,Jo Jorgensen,1
+titus:11,REP,Donald J Trump,103
+titus:12,,Abram Loeb (W),0
+titus:12,,Brian Carroll (W),0
+titus:12,,Gloria La Riva (W),0
+titus:12,,Jesse Cuellar (W),0
+titus:12,,Kasey Wells (W),0
+titus:12,,Over Votes,0
+titus:12,,President R. Boddie (W),0
+titus:12,,Robert Morrow (W),0
+titus:12,,Todd Cella (W),0
+titus:12,,Tom Hoefling (W),0
+titus:12,,Under Votes,1
+titus:12,DEM,Joseph R Biden,29
+titus:12,GRN,Howie Hawkins,0
+titus:12,LIB,Jo Jorgensen,1
+titus:12,REP,Donald J Trump,171
+titus:14,,Abram Loeb (W),0
+titus:14,,Brian Carroll (W),0
+titus:14,,Gloria La Riva (W),0
+titus:14,,Jesse Cuellar (W),0
+titus:14,,Kasey Wells (W),0
+titus:14,,Over Votes,2
+titus:14,,President R. Boddie (W),0
+titus:14,,Robert Morrow (W),0
+titus:14,,Todd Cella (W),1
+titus:14,,Tom Hoefling (W),0
+titus:14,,Under Votes,3
+titus:14,DEM,Joseph R Biden,390
+titus:14,GRN,Howie Hawkins,3
+titus:14,LIB,Jo Jorgensen,9
+titus:14,REP,Donald J Trump,621
+titus:15,,Abram Loeb (W),0
+titus:15,,Brian Carroll (W),0
+titus:15,,Gloria La Riva (W),0
+titus:15,,Jesse Cuellar (W),0
+titus:15,,Kasey Wells (W),0
+titus:15,,Over Votes,0
+titus:15,,President R. Boddie (W),0
+titus:15,,Robert Morrow (W),0
+titus:15,,Todd Cella (W),0
+titus:15,,Tom Hoefling (W),0
+titus:15,,Under Votes,2
+titus:15,DEM,Joseph R Biden,86
+titus:15,GRN,Howie Hawkins,0
+titus:15,LIB,Jo Jorgensen,6
+titus:15,REP,Donald J Trump,451
+titus:16,,Abram Loeb (W),0
+titus:16,,Brian Carroll (W),0
+titus:16,,Gloria La Riva (W),0
+titus:16,,Jesse Cuellar (W),0
+titus:16,,Kasey Wells (W),0
+titus:16,,Over Votes,4
+titus:16,,President R. Boddie (W),0
+titus:16,,Robert Morrow (W),0
+titus:16,,Todd Cella (W),0
+titus:16,,Tom Hoefling (W),0
+titus:16,,Under Votes,7
+titus:16,DEM,Joseph R Biden,388
+titus:16,GRN,Howie Hawkins,6
+titus:16,LIB,Jo Jorgensen,11
+titus:16,REP,Donald J Trump,1237
+titus:17,,Abram Loeb (W),0
+titus:17,,Brian Carroll (W),0
+titus:17,,Gloria La Riva (W),0
+titus:17,,Jesse Cuellar (W),0
+titus:17,,Kasey Wells (W),0
+titus:17,,Over Votes,0
+titus:17,,President R. Boddie (W),0
+titus:17,,Robert Morrow (W),0
+titus:17,,Todd Cella (W),0
+titus:17,,Tom Hoefling (W),0
+titus:17,,Under Votes,2
+titus:17,DEM,Joseph R Biden,180
+titus:17,GRN,Howie Hawkins,1
+titus:17,LIB,Jo Jorgensen,5
+titus:17,REP,Donald J Trump,116
+titus:18,,Abram Loeb (W),0
+titus:18,,Brian Carroll (W),0
+titus:18,,Gloria La Riva (W),0
+titus:18,,Jesse Cuellar (W),0
+titus:18,,Kasey Wells (W),0
+titus:18,,Over Votes,0
+titus:18,,President R. Boddie (W),0
+titus:18,,Robert Morrow (W),0
+titus:18,,Todd Cella (W),0
+titus:18,,Tom Hoefling (W),0
+titus:18,,Under Votes,0
+titus:18,DEM,Joseph R Biden,31
+titus:18,GRN,Howie Hawkins,0
+titus:18,LIB,Jo Jorgensen,3
+titus:18,REP,Donald J Trump,112
+titus:19,,Abram Loeb (W),0
+titus:19,,Brian Carroll (W),0
+titus:19,,Gloria La Riva (W),0
+titus:19,,Jesse Cuellar (W),0
+titus:19,,Kasey Wells (W),0
+titus:19,,Over Votes,3
+titus:19,,President R. Boddie (W),0
+titus:19,,Robert Morrow (W),0
+titus:19,,Todd Cella (W),0
+titus:19,,Tom Hoefling (W),0
+titus:19,,Under Votes,2
+titus:19,DEM,Joseph R Biden,156
+titus:19,GRN,Howie Hawkins,0
+titus:19,LIB,Jo Jorgensen,10
+titus:19,REP,Donald J Trump,305
+titus:2,,Abram Loeb (W),0
+titus:2,,Brian Carroll (W),0
+titus:2,,Gloria La Riva (W),0
+titus:2,,Jesse Cuellar (W),0
+titus:2,,Kasey Wells (W),0
+titus:2,,Over Votes,2
+titus:2,,President R. Boddie (W),0
+titus:2,,Robert Morrow (W),0
+titus:2,,Todd Cella (W),0
+titus:2,,Tom Hoefling (W),0
+titus:2,,Under Votes,2
+titus:2,DEM,Joseph R Biden,139
+titus:2,GRN,Howie Hawkins,0
+titus:2,LIB,Jo Jorgensen,1
+titus:2,REP,Donald J Trump,273
+titus:20,,Abram Loeb (W),0
+titus:20,,Brian Carroll (W),0
+titus:20,,Gloria La Riva (W),0
+titus:20,,Jesse Cuellar (W),0
+titus:20,,Kasey Wells (W),0
+titus:20,,Over Votes,4
+titus:20,,President R. Boddie (W),0
+titus:20,,Robert Morrow (W),0
+titus:20,,Todd Cella (W),0
+titus:20,,Tom Hoefling (W),0
+titus:20,,Under Votes,5
+titus:20,DEM,Joseph R Biden,289
+titus:20,GRN,Howie Hawkins,0
+titus:20,LIB,Jo Jorgensen,10
+titus:20,REP,Donald J Trump,622
+titus:3,,Abram Loeb (W),0
+titus:3,,Brian Carroll (W),0
+titus:3,,Gloria La Riva (W),0
+titus:3,,Jesse Cuellar (W),0
+titus:3,,Kasey Wells (W),0
+titus:3,,Over Votes,3
+titus:3,,President R. Boddie (W),0
+titus:3,,Robert Morrow (W),0
+titus:3,,Todd Cella (W),0
+titus:3,,Tom Hoefling (W),0
+titus:3,,Under Votes,2
+titus:3,DEM,Joseph R Biden,90
+titus:3,GRN,Howie Hawkins,0
+titus:3,LIB,Jo Jorgensen,4
+titus:3,REP,Donald J Trump,367
+titus:4,,Abram Loeb (W),0
+titus:4,,Brian Carroll (W),0
+titus:4,,Gloria La Riva (W),0
+titus:4,,Jesse Cuellar (W),0
+titus:4,,Kasey Wells (W),0
+titus:4,,Over Votes,1
+titus:4,,President R. Boddie (W),0
+titus:4,,Robert Morrow (W),0
+titus:4,,Todd Cella (W),1
+titus:4,,Tom Hoefling (W),0
+titus:4,,Under Votes,1
+titus:4,DEM,Joseph R Biden,92
+titus:4,GRN,Howie Hawkins,0
+titus:4,LIB,Jo Jorgensen,2
+titus:4,REP,Donald J Trump,430
+titus:5,,Abram Loeb (W),0
+titus:5,,Brian Carroll (W),0
+titus:5,,Gloria La Riva (W),0
+titus:5,,Jesse Cuellar (W),0
+titus:5,,Kasey Wells (W),0
+titus:5,,Over Votes,0
+titus:5,,President R. Boddie (W),0
+titus:5,,Robert Morrow (W),0
+titus:5,,Todd Cella (W),0
+titus:5,,Tom Hoefling (W),0
+titus:5,,Under Votes,0
+titus:5,DEM,Joseph R Biden,21
+titus:5,GRN,Howie Hawkins,0
+titus:5,LIB,Jo Jorgensen,3
+titus:5,REP,Donald J Trump,203
+titus:6,,Abram Loeb (W),0
+titus:6,,Brian Carroll (W),0
+titus:6,,Gloria La Riva (W),0
+titus:6,,Jesse Cuellar (W),0
+titus:6,,Kasey Wells (W),0
+titus:6,,Over Votes,2
+titus:6,,President R. Boddie (W),0
+titus:6,,Robert Morrow (W),0
+titus:6,,Todd Cella (W),0
+titus:6,,Tom Hoefling (W),0
+titus:6,,Under Votes,5
+titus:6,DEM,Joseph R Biden,126
+titus:6,GRN,Howie Hawkins,1
+titus:6,LIB,Jo Jorgensen,5
+titus:6,REP,Donald J Trump,730
+titus:7,,Abram Loeb (W),0
+titus:7,,Brian Carroll (W),0
+titus:7,,Gloria La Riva (W),0
+titus:7,,Jesse Cuellar (W),0
+titus:7,,Kasey Wells (W),0
+titus:7,,Over Votes,5
+titus:7,,President R. Boddie (W),0
+titus:7,,Robert Morrow (W),0
+titus:7,,Todd Cella (W),0
+titus:7,,Tom Hoefling (W),0
+titus:7,,Under Votes,3
+titus:7,DEM,Joseph R Biden,137
+titus:7,GRN,Howie Hawkins,0
+titus:7,LIB,Jo Jorgensen,6
+titus:7,REP,Donald J Trump,658
+titus:8,,Abram Loeb (W),0
+titus:8,,Brian Carroll (W),0
+titus:8,,Gloria La Riva (W),0
+titus:8,,Jesse Cuellar (W),0
+titus:8,,Kasey Wells (W),0
+titus:8,,Over Votes,5
+titus:8,,President R. Boddie (W),0
+titus:8,,Robert Morrow (W),0
+titus:8,,Todd Cella (W),0
+titus:8,,Tom Hoefling (W),0
+titus:8,,Under Votes,1
+titus:8,DEM,Joseph R Biden,306
+titus:8,GRN,Howie Hawkins,5
+titus:8,LIB,Jo Jorgensen,7
+titus:8,REP,Donald J Trump,280
+titus:9,,Abram Loeb (W),0
+titus:9,,Brian Carroll (W),0
+titus:9,,Gloria La Riva (W),0
+titus:9,,Jesse Cuellar (W),0
+titus:9,,Kasey Wells (W),0
+titus:9,,Over Votes,0
+titus:9,,President R. Boddie (W),0
+titus:9,,Robert Morrow (W),0
+titus:9,,Todd Cella (W),0
+titus:9,,Tom Hoefling (W),0
+titus:9,,Under Votes,1
+titus:9,DEM,Joseph R Biden,66
+titus:9,GRN,Howie Hawkins,0
+titus:9,LIB,Jo Jorgensen,5
+titus:9,REP,Donald J Trump,218
+upshur:1,,Write-in,0
+upshur:1,DEM,Joseph R Biden,223
+upshur:1,GRN,Howie Hawkins,1
+upshur:1,LIB,Jo Jorgensen,20
+upshur:1,REP,Donald J Trump,1347
+upshur:10,,Write-in,0
+upshur:10,DEM,Joseph R Biden,169
+upshur:10,GRN,Howie Hawkins,4
+upshur:10,LIB,Jo Jorgensen,16
+upshur:10,REP,Donald J Trump,1471
+upshur:11,,Write-in,0
+upshur:11,DEM,Joseph R Biden,97
+upshur:11,GRN,Howie Hawkins,0
+upshur:11,LIB,Jo Jorgensen,8
+upshur:11,REP,Donald J Trump,390
+upshur:12,,Write-in,0
+upshur:12,DEM,Joseph R Biden,78
+upshur:12,GRN,Howie Hawkins,0
+upshur:12,LIB,Jo Jorgensen,2
+upshur:12,REP,Donald J Trump,672
+upshur:13,,Write-in,0
+upshur:13,DEM,Joseph R Biden,140
+upshur:13,GRN,Howie Hawkins,0
+upshur:13,LIB,Jo Jorgensen,7
+upshur:13,REP,Donald J Trump,505
+upshur:14,,Write-in,0
+upshur:14,DEM,Joseph R Biden,64
+upshur:14,GRN,Howie Hawkins,1
+upshur:14,LIB,Jo Jorgensen,3
+upshur:14,REP,Donald J Trump,309
+upshur:15,,Write-in,1
+upshur:15,DEM,Joseph R Biden,114
+upshur:15,GRN,Howie Hawkins,0
+upshur:15,LIB,Jo Jorgensen,14
+upshur:15,REP,Donald J Trump,1253
+upshur:16,,Write-in,0
+upshur:16,DEM,Joseph R Biden,243
+upshur:16,GRN,Howie Hawkins,2
+upshur:16,LIB,Jo Jorgensen,7
+upshur:16,REP,Donald J Trump,809
+upshur:17,,Write-in,1
+upshur:17,DEM,Joseph R Biden,369
+upshur:17,GRN,Howie Hawkins,1
+upshur:17,LIB,Jo Jorgensen,17
+upshur:17,REP,Donald J Trump,1038
+upshur:18,,Write-in,2
+upshur:18,DEM,Joseph R Biden,128
+upshur:18,GRN,Howie Hawkins,0
+upshur:18,LIB,Jo Jorgensen,3
+upshur:18,REP,Donald J Trump,272
+upshur:19,,Write-in,0
+upshur:19,DEM,Joseph R Biden,3
+upshur:19,GRN,Howie Hawkins,0
+upshur:19,LIB,Jo Jorgensen,0
+upshur:19,REP,Donald J Trump,4
+upshur:2,,Write-in,0
+upshur:2,DEM,Joseph R Biden,120
+upshur:2,GRN,Howie Hawkins,3
+upshur:2,LIB,Jo Jorgensen,13
+upshur:2,REP,Donald J Trump,1604
+upshur:20,,Write-in,0
+upshur:20,DEM,Joseph R Biden,10
+upshur:20,GRN,Howie Hawkins,0
+upshur:20,LIB,Jo Jorgensen,0
+upshur:20,REP,Donald J Trump,100
+upshur:21,,Write-in,0
+upshur:21,DEM,Joseph R Biden,0
+upshur:21,GRN,Howie Hawkins,0
+upshur:21,LIB,Jo Jorgensen,0
+upshur:21,REP,Donald J Trump,0
+upshur:3,,Write-in,0
+upshur:3,DEM,Joseph R Biden,126
+upshur:3,GRN,Howie Hawkins,1
+upshur:3,LIB,Jo Jorgensen,7
+upshur:3,REP,Donald J Trump,942
+upshur:4,,Write-in,0
+upshur:4,DEM,Joseph R Biden,142
+upshur:4,GRN,Howie Hawkins,2
+upshur:4,LIB,Jo Jorgensen,10
+upshur:4,REP,Donald J Trump,718
+upshur:5,,Write-in,1
+upshur:5,DEM,Joseph R Biden,100
+upshur:5,GRN,Howie Hawkins,0
+upshur:5,LIB,Jo Jorgensen,3
+upshur:5,REP,Donald J Trump,401
+upshur:6,,Write-in,0
+upshur:6,DEM,Joseph R Biden,155
+upshur:6,GRN,Howie Hawkins,1
+upshur:6,LIB,Jo Jorgensen,6
+upshur:6,REP,Donald J Trump,888
+upshur:7,,Write-in,0
+upshur:7,DEM,Joseph R Biden,258
+upshur:7,GRN,Howie Hawkins,2
+upshur:7,LIB,Jo Jorgensen,18
+upshur:7,REP,Donald J Trump,1422
+upshur:8,,Write-in,0
+upshur:8,DEM,Joseph R Biden,116
+upshur:8,GRN,Howie Hawkins,1
+upshur:8,LIB,Jo Jorgensen,5
+upshur:8,REP,Donald J Trump,552
+upshur:9,,Write-in,0
+upshur:9,DEM,Joseph R Biden,222
+upshur:9,GRN,Howie Hawkins,3
+upshur:9,LIB,Jo Jorgensen,20
+upshur:9,REP,Donald J Trump,1112
+wood:1-1,,Write-in,0
+wood:1-1,DEM,Joseph R Biden,341
+wood:1-1,GRN,Howie Hawkins,5
+wood:1-1,LIB,Jo Jorgensen,15
+wood:1-1,REP,Donald J Trump,1866
+wood:1-2,,Write-in,2
+wood:1-2,DEM,Joseph R Biden,259
+wood:1-2,GRN,Howie Hawkins,4
+wood:1-2,LIB,Jo Jorgensen,7
+wood:1-2,REP,Donald J Trump,1687
+wood:1-3,,Write-in,1
+wood:1-3,DEM,Joseph R Biden,220
+wood:1-3,GRN,Howie Hawkins,2
+wood:1-3,LIB,Jo Jorgensen,12
+wood:1-3,REP,Donald J Trump,1423
+wood:1-4,,Write-in,0
+wood:1-4,DEM,Joseph R Biden,45
+wood:1-4,GRN,Howie Hawkins,0
+wood:1-4,LIB,Jo Jorgensen,3
+wood:1-4,REP,Donald J Trump,506
+wood:2-1,,Write-in,0
+wood:2-1,DEM,Joseph R Biden,35
+wood:2-1,GRN,Howie Hawkins,1
+wood:2-1,LIB,Jo Jorgensen,2
+wood:2-1,REP,Donald J Trump,310
+wood:2-2,,Write-in,0
+wood:2-2,DEM,Joseph R Biden,424
+wood:2-2,GRN,Howie Hawkins,4
+wood:2-2,LIB,Jo Jorgensen,33
+wood:2-2,REP,Donald J Trump,2260
+wood:2-3,,Write-in,1
+wood:2-3,DEM,Joseph R Biden,452
+wood:2-3,GRN,Howie Hawkins,3
+wood:2-3,LIB,Jo Jorgensen,16
+wood:2-3,REP,Donald J Trump,1733
+wood:3-1,,Write-in,0
+wood:3-1,DEM,Joseph R Biden,128
+wood:3-1,GRN,Howie Hawkins,4
+wood:3-1,LIB,Jo Jorgensen,5
+wood:3-1,REP,Donald J Trump,771
+wood:3-2,,Write-in,1
+wood:3-2,DEM,Joseph R Biden,431
+wood:3-2,GRN,Howie Hawkins,5
+wood:3-2,LIB,Jo Jorgensen,5
+wood:3-2,REP,Donald J Trump,2064
+wood:3-3,,Write-in,0
+wood:3-3,DEM,Joseph R Biden,446
+wood:3-3,GRN,Howie Hawkins,6
+wood:3-3,LIB,Jo Jorgensen,31
+wood:3-3,REP,Donald J Trump,1983
+wood:4-1,,Write-in,0
+wood:4-1,DEM,Joseph R Biden,69
+wood:4-1,GRN,Howie Hawkins,0
+wood:4-1,LIB,Jo Jorgensen,2
+wood:4-1,REP,Donald J Trump,518
+wood:4-2,,Write-in,1
+wood:4-2,DEM,Joseph R Biden,267
+wood:4-2,GRN,Howie Hawkins,2
+wood:4-2,LIB,Jo Jorgensen,14
+wood:4-2,REP,Donald J Trump,1648
+wood:4-3,,Write-in,0
+wood:4-3,DEM,Joseph R Biden,337
+wood:4-3,GRN,Howie Hawkins,3
+wood:4-3,LIB,Jo Jorgensen,26
+wood:4-3,REP,Donald J Trump,1851
+wood:4-4,,Write-in,0
+wood:4-4,DEM,Joseph R Biden,55
+wood:4-4,GRN,Howie Hawkins,1
+wood:4-4,LIB,Jo Jorgensen,4
+wood:4-4,REP,Donald J Trump,429

@@ -1,0 +1,853 @@
+precinct,party,candidate,votes
+bee:1,,Carrie Evelyn Menger,0
+bee:1,,Rejected write-ins,0
+bee:1,,Unassigned write-ins,1
+bee:1,DEM,Jay Kleberg,306
+bee:1,GRN,"Alfred Molison, Jr.",10
+bee:1,REP,Dawn Buckingham,589
+bee:10,,Carrie Evelyn Menger,0
+bee:10,,Rejected write-ins,0
+bee:10,,Unassigned write-ins,1
+bee:10,DEM,Jay Kleberg,198
+bee:10,GRN,"Alfred Molison, Jr.",9
+bee:10,REP,Dawn Buckingham,161
+bee:13,,Carrie Evelyn Menger,0
+bee:13,,Rejected write-ins,0
+bee:13,,Unassigned write-ins,0
+bee:13,DEM,Jay Kleberg,223
+bee:13,GRN,"Alfred Molison, Jr.",5
+bee:13,REP,Dawn Buckingham,422
+bee:16,,Carrie Evelyn Menger,0
+bee:16,,Rejected write-ins,0
+bee:16,,Unassigned write-ins,0
+bee:16,DEM,Jay Kleberg,146
+bee:16,GRN,"Alfred Molison, Jr.",2
+bee:16,REP,Dawn Buckingham,283
+bee:17,,Carrie Evelyn Menger,0
+bee:17,,Rejected write-ins,0
+bee:17,,Unassigned write-ins,1
+bee:17,DEM,Jay Kleberg,186
+bee:17,GRN,"Alfred Molison, Jr.",7
+bee:17,REP,Dawn Buckingham,249
+bee:18,,Carrie Evelyn Menger,0
+bee:18,,Rejected write-ins,0
+bee:18,,Unassigned write-ins,0
+bee:18,DEM,Jay Kleberg,225
+bee:18,GRN,"Alfred Molison, Jr.",6
+bee:18,REP,Dawn Buckingham,632
+bee:19,,Carrie Evelyn Menger,0
+bee:19,,Rejected write-ins,0
+bee:19,,Unassigned write-ins,0
+bee:19,DEM,Jay Kleberg,85
+bee:19,GRN,"Alfred Molison, Jr.",0
+bee:19,REP,Dawn Buckingham,64
+bee:2,,Carrie Evelyn Menger,0
+bee:2,,Rejected write-ins,0
+bee:2,,Unassigned write-ins,0
+bee:2,DEM,Jay Kleberg,42
+bee:2,GRN,"Alfred Molison, Jr.",5
+bee:2,REP,Dawn Buckingham,252
+bee:3,,Carrie Evelyn Menger,0
+bee:3,,Rejected write-ins,0
+bee:3,,Unassigned write-ins,0
+bee:3,DEM,Jay Kleberg,229
+bee:3,GRN,"Alfred Molison, Jr.",11
+bee:3,REP,Dawn Buckingham,413
+bee:4,,Carrie Evelyn Menger,0
+bee:4,,Rejected write-ins,0
+bee:4,,Unassigned write-ins,0
+bee:4,DEM,Jay Kleberg,60
+bee:4,GRN,"Alfred Molison, Jr.",3
+bee:4,REP,Dawn Buckingham,236
+bee:5,,Carrie Evelyn Menger,0
+bee:5,,Rejected write-ins,0
+bee:5,,Unassigned write-ins,0
+bee:5,DEM,Jay Kleberg,106
+bee:5,GRN,"Alfred Molison, Jr.",7
+bee:5,REP,Dawn Buckingham,302
+bee:6,,Carrie Evelyn Menger,0
+bee:6,,Rejected write-ins,0
+bee:6,,Unassigned write-ins,0
+bee:6,DEM,Jay Kleberg,144
+bee:6,GRN,"Alfred Molison, Jr.",8
+bee:6,REP,Dawn Buckingham,379
+bee:9,,Carrie Evelyn Menger,0
+bee:9,,Rejected write-ins,0
+bee:9,,Unassigned write-ins,0
+bee:9,DEM,Jay Kleberg,177
+bee:9,GRN,"Alfred Molison, Jr.",3
+bee:9,REP,Dawn Buckingham,81
+cameron:1,,Over Votes,0
+cameron:1,,Under Votes,42
+cameron:1,,Write-in,1
+cameron:1,DEM,Jay Kleberg,357
+cameron:1,GRN,"Alfred Molison, Jr.",14
+cameron:1,REP,Dawn Buckingham,207
+cameron:10,,Over Votes,3
+cameron:10,,Under Votes,37
+cameron:10,,Write-in,0
+cameron:10,DEM,Jay Kleberg,363
+cameron:10,GRN,"Alfred Molison, Jr.",29
+cameron:10,REP,Dawn Buckingham,138
+cameron:100,,Over Votes,0
+cameron:100,,Under Votes,43
+cameron:100,,Write-in,0
+cameron:100,DEM,Jay Kleberg,752
+cameron:100,GRN,"Alfred Molison, Jr.",34
+cameron:100,REP,Dawn Buckingham,586
+cameron:101,,Over Votes,0
+cameron:101,,Under Votes,8
+cameron:101,,Write-in,0
+cameron:101,DEM,Jay Kleberg,205
+cameron:101,GRN,"Alfred Molison, Jr.",7
+cameron:101,REP,Dawn Buckingham,125
+cameron:11,,Over Votes,0
+cameron:11,,Under Votes,27
+cameron:11,,Write-in,0
+cameron:11,DEM,Jay Kleberg,320
+cameron:11,GRN,"Alfred Molison, Jr.",18
+cameron:11,REP,Dawn Buckingham,172
+cameron:12,,Over Votes,0
+cameron:12,,Under Votes,47
+cameron:12,,Write-in,1
+cameron:12,DEM,Jay Kleberg,513
+cameron:12,GRN,"Alfred Molison, Jr.",16
+cameron:12,REP,Dawn Buckingham,366
+cameron:13,,Over Votes,0
+cameron:13,,Under Votes,11
+cameron:13,,Write-in,0
+cameron:13,DEM,Jay Kleberg,119
+cameron:13,GRN,"Alfred Molison, Jr.",6
+cameron:13,REP,Dawn Buckingham,55
+cameron:14,,Over Votes,2
+cameron:14,,Under Votes,32
+cameron:14,,Write-in,0
+cameron:14,DEM,Jay Kleberg,463
+cameron:14,GRN,"Alfred Molison, Jr.",35
+cameron:14,REP,Dawn Buckingham,278
+cameron:15,,Over Votes,1
+cameron:15,,Under Votes,33
+cameron:15,,Write-in,1
+cameron:15,DEM,Jay Kleberg,477
+cameron:15,GRN,"Alfred Molison, Jr.",23
+cameron:15,REP,Dawn Buckingham,259
+cameron:16,,Over Votes,1
+cameron:16,,Under Votes,11
+cameron:16,,Write-in,0
+cameron:16,DEM,Jay Kleberg,103
+cameron:16,GRN,"Alfred Molison, Jr.",7
+cameron:16,REP,Dawn Buckingham,197
+cameron:17,,Over Votes,1
+cameron:17,,Under Votes,53
+cameron:17,,Write-in,0
+cameron:17,DEM,Jay Kleberg,643
+cameron:17,GRN,"Alfred Molison, Jr.",40
+cameron:17,REP,Dawn Buckingham,426
+cameron:18,,Over Votes,1
+cameron:18,,Under Votes,24
+cameron:18,,Write-in,0
+cameron:18,DEM,Jay Kleberg,405
+cameron:18,GRN,"Alfred Molison, Jr.",11
+cameron:18,REP,Dawn Buckingham,261
+cameron:19,,Over Votes,0
+cameron:19,,Under Votes,25
+cameron:19,,Write-in,0
+cameron:19,DEM,Jay Kleberg,318
+cameron:19,GRN,"Alfred Molison, Jr.",12
+cameron:19,REP,Dawn Buckingham,203
+cameron:2,,Over Votes,0
+cameron:2,,Under Votes,5
+cameron:2,,Write-in,0
+cameron:2,DEM,Jay Kleberg,104
+cameron:2,GRN,"Alfred Molison, Jr.",2
+cameron:2,REP,Dawn Buckingham,173
+cameron:20,,Over Votes,0
+cameron:20,,Under Votes,20
+cameron:20,,Write-in,0
+cameron:20,DEM,Jay Kleberg,250
+cameron:20,GRN,"Alfred Molison, Jr.",5
+cameron:20,REP,Dawn Buckingham,251
+cameron:21,,Over Votes,0
+cameron:21,,Under Votes,7
+cameron:21,,Write-in,0
+cameron:21,DEM,Jay Kleberg,190
+cameron:21,GRN,"Alfred Molison, Jr.",11
+cameron:21,REP,Dawn Buckingham,90
+cameron:22,,Over Votes,0
+cameron:22,,Under Votes,30
+cameron:22,,Write-in,1
+cameron:22,DEM,Jay Kleberg,467
+cameron:22,GRN,"Alfred Molison, Jr.",23
+cameron:22,REP,Dawn Buckingham,255
+cameron:23,,Over Votes,0
+cameron:23,,Under Votes,0
+cameron:23,,Write-in,0
+cameron:23,DEM,Jay Kleberg,22
+cameron:23,GRN,"Alfred Molison, Jr.",2
+cameron:23,REP,Dawn Buckingham,58
+cameron:24,,Over Votes,0
+cameron:24,,Under Votes,111
+cameron:24,,Write-in,0
+cameron:24,DEM,Jay Kleberg,269
+cameron:24,GRN,"Alfred Molison, Jr.",28
+cameron:24,REP,Dawn Buckingham,151
+cameron:25,,Over Votes,0
+cameron:25,,Under Votes,17
+cameron:25,,Write-in,0
+cameron:25,DEM,Jay Kleberg,148
+cameron:25,GRN,"Alfred Molison, Jr.",5
+cameron:25,REP,Dawn Buckingham,102
+cameron:26,,Over Votes,0
+cameron:26,,Under Votes,47
+cameron:26,,Write-in,0
+cameron:26,DEM,Jay Kleberg,425
+cameron:26,GRN,"Alfred Molison, Jr.",21
+cameron:26,REP,Dawn Buckingham,380
+cameron:27,,Over Votes,1
+cameron:27,,Under Votes,75
+cameron:27,,Write-in,0
+cameron:27,DEM,Jay Kleberg,518
+cameron:27,GRN,"Alfred Molison, Jr.",22
+cameron:27,REP,Dawn Buckingham,305
+cameron:28,,Over Votes,0
+cameron:28,,Under Votes,26
+cameron:28,,Write-in,0
+cameron:28,DEM,Jay Kleberg,414
+cameron:28,GRN,"Alfred Molison, Jr.",19
+cameron:28,REP,Dawn Buckingham,358
+cameron:29,,Over Votes,1
+cameron:29,,Under Votes,16
+cameron:29,,Write-in,0
+cameron:29,DEM,Jay Kleberg,393
+cameron:29,GRN,"Alfred Molison, Jr.",22
+cameron:29,REP,Dawn Buckingham,622
+cameron:3,,Over Votes,1
+cameron:3,,Under Votes,67
+cameron:3,,Write-in,3
+cameron:3,DEM,Jay Kleberg,856
+cameron:3,GRN,"Alfred Molison, Jr.",37
+cameron:3,REP,Dawn Buckingham,787
+cameron:30,,Over Votes,0
+cameron:30,,Under Votes,12
+cameron:30,,Write-in,0
+cameron:30,DEM,Jay Kleberg,195
+cameron:30,GRN,"Alfred Molison, Jr.",6
+cameron:30,REP,Dawn Buckingham,277
+cameron:31,,Over Votes,0
+cameron:31,,Under Votes,3
+cameron:31,,Write-in,0
+cameron:31,DEM,Jay Kleberg,67
+cameron:31,GRN,"Alfred Molison, Jr.",1
+cameron:31,REP,Dawn Buckingham,51
+cameron:32,,Over Votes,1
+cameron:32,,Under Votes,31
+cameron:32,,Write-in,1
+cameron:32,DEM,Jay Kleberg,503
+cameron:32,GRN,"Alfred Molison, Jr.",17
+cameron:32,REP,Dawn Buckingham,470
+cameron:33,,Over Votes,0
+cameron:33,,Under Votes,10
+cameron:33,,Write-in,0
+cameron:33,DEM,Jay Kleberg,124
+cameron:33,GRN,"Alfred Molison, Jr.",3
+cameron:33,REP,Dawn Buckingham,76
+cameron:34,,Over Votes,0
+cameron:34,,Under Votes,18
+cameron:34,,Write-in,0
+cameron:34,DEM,Jay Kleberg,281
+cameron:34,GRN,"Alfred Molison, Jr.",6
+cameron:34,REP,Dawn Buckingham,475
+cameron:35,,Over Votes,0
+cameron:35,,Under Votes,14
+cameron:35,,Write-in,0
+cameron:35,DEM,Jay Kleberg,256
+cameron:35,GRN,"Alfred Molison, Jr.",5
+cameron:35,REP,Dawn Buckingham,282
+cameron:36,,Over Votes,0
+cameron:36,,Under Votes,25
+cameron:36,,Write-in,0
+cameron:36,DEM,Jay Kleberg,510
+cameron:36,GRN,"Alfred Molison, Jr.",20
+cameron:36,REP,Dawn Buckingham,459
+cameron:37,,Over Votes,1
+cameron:37,,Under Votes,27
+cameron:37,,Write-in,0
+cameron:37,DEM,Jay Kleberg,339
+cameron:37,GRN,"Alfred Molison, Jr.",14
+cameron:37,REP,Dawn Buckingham,136
+cameron:38,,Over Votes,0
+cameron:38,,Under Votes,8
+cameron:38,,Write-in,0
+cameron:38,DEM,Jay Kleberg,201
+cameron:38,GRN,"Alfred Molison, Jr.",10
+cameron:38,REP,Dawn Buckingham,160
+cameron:39,,Over Votes,0
+cameron:39,,Under Votes,18
+cameron:39,,Write-in,0
+cameron:39,DEM,Jay Kleberg,209
+cameron:39,GRN,"Alfred Molison, Jr.",4
+cameron:39,REP,Dawn Buckingham,115
+cameron:4,,Over Votes,3
+cameron:4,,Under Votes,45
+cameron:4,,Write-in,0
+cameron:4,DEM,Jay Kleberg,592
+cameron:4,GRN,"Alfred Molison, Jr.",33
+cameron:4,REP,Dawn Buckingham,653
+cameron:40,,Over Votes,0
+cameron:40,,Under Votes,23
+cameron:40,,Write-in,1
+cameron:40,DEM,Jay Kleberg,445
+cameron:40,GRN,"Alfred Molison, Jr.",18
+cameron:40,REP,Dawn Buckingham,348
+cameron:41,,Over Votes,1
+cameron:41,,Under Votes,47
+cameron:41,,Write-in,1
+cameron:41,DEM,Jay Kleberg,807
+cameron:41,GRN,"Alfred Molison, Jr.",29
+cameron:41,REP,Dawn Buckingham,405
+cameron:42,,Over Votes,0
+cameron:42,,Under Votes,27
+cameron:42,,Write-in,0
+cameron:42,DEM,Jay Kleberg,193
+cameron:42,GRN,"Alfred Molison, Jr.",7
+cameron:42,REP,Dawn Buckingham,109
+cameron:43,,Over Votes,0
+cameron:43,,Under Votes,17
+cameron:43,,Write-in,1
+cameron:43,DEM,Jay Kleberg,179
+cameron:43,GRN,"Alfred Molison, Jr.",12
+cameron:43,REP,Dawn Buckingham,153
+cameron:44,,Over Votes,0
+cameron:44,,Under Votes,32
+cameron:44,,Write-in,1
+cameron:44,DEM,Jay Kleberg,646
+cameron:44,GRN,"Alfred Molison, Jr.",21
+cameron:44,REP,Dawn Buckingham,803
+cameron:45,,Over Votes,1
+cameron:45,,Under Votes,17
+cameron:45,,Write-in,1
+cameron:45,DEM,Jay Kleberg,332
+cameron:45,GRN,"Alfred Molison, Jr.",24
+cameron:45,REP,Dawn Buckingham,141
+cameron:46,,Over Votes,0
+cameron:46,,Under Votes,37
+cameron:46,,Write-in,0
+cameron:46,DEM,Jay Kleberg,778
+cameron:46,GRN,"Alfred Molison, Jr.",34
+cameron:46,REP,Dawn Buckingham,472
+cameron:47,,Over Votes,0
+cameron:47,,Under Votes,29
+cameron:47,,Write-in,1
+cameron:47,DEM,Jay Kleberg,339
+cameron:47,GRN,"Alfred Molison, Jr.",16
+cameron:47,REP,Dawn Buckingham,197
+cameron:48,,Over Votes,1
+cameron:48,,Under Votes,42
+cameron:48,,Write-in,2
+cameron:48,DEM,Jay Kleberg,766
+cameron:48,GRN,"Alfred Molison, Jr.",36
+cameron:48,REP,Dawn Buckingham,536
+cameron:49,,Over Votes,1
+cameron:49,,Under Votes,11
+cameron:49,,Write-in,0
+cameron:49,DEM,Jay Kleberg,383
+cameron:49,GRN,"Alfred Molison, Jr.",17
+cameron:49,REP,Dawn Buckingham,368
+cameron:5,,Over Votes,0
+cameron:5,,Under Votes,25
+cameron:5,,Write-in,2
+cameron:5,DEM,Jay Kleberg,517
+cameron:5,GRN,"Alfred Molison, Jr.",30
+cameron:5,REP,Dawn Buckingham,467
+cameron:50,,Over Votes,0
+cameron:50,,Under Votes,18
+cameron:50,,Write-in,0
+cameron:50,DEM,Jay Kleberg,503
+cameron:50,GRN,"Alfred Molison, Jr.",12
+cameron:50,REP,Dawn Buckingham,426
+cameron:51,,Over Votes,0
+cameron:51,,Under Votes,20
+cameron:51,,Write-in,0
+cameron:51,DEM,Jay Kleberg,189
+cameron:51,GRN,"Alfred Molison, Jr.",15
+cameron:51,REP,Dawn Buckingham,128
+cameron:52,,Over Votes,0
+cameron:52,,Under Votes,32
+cameron:52,,Write-in,1
+cameron:52,DEM,Jay Kleberg,487
+cameron:52,GRN,"Alfred Molison, Jr.",18
+cameron:52,REP,Dawn Buckingham,792
+cameron:53,,Over Votes,1
+cameron:53,,Under Votes,40
+cameron:53,,Write-in,0
+cameron:53,DEM,Jay Kleberg,509
+cameron:53,GRN,"Alfred Molison, Jr.",43
+cameron:53,REP,Dawn Buckingham,256
+cameron:54,,Over Votes,1
+cameron:54,,Under Votes,51
+cameron:54,,Write-in,1
+cameron:54,DEM,Jay Kleberg,1068
+cameron:54,GRN,"Alfred Molison, Jr.",34
+cameron:54,REP,Dawn Buckingham,652
+cameron:55,,Over Votes,0
+cameron:55,,Under Votes,57
+cameron:55,,Write-in,0
+cameron:55,DEM,Jay Kleberg,654
+cameron:55,GRN,"Alfred Molison, Jr.",31
+cameron:55,REP,Dawn Buckingham,533
+cameron:56,,Over Votes,0
+cameron:56,,Under Votes,23
+cameron:56,,Write-in,3
+cameron:56,DEM,Jay Kleberg,447
+cameron:56,GRN,"Alfred Molison, Jr.",12
+cameron:56,REP,Dawn Buckingham,439
+cameron:57,,Over Votes,0
+cameron:57,,Under Votes,4
+cameron:57,,Write-in,0
+cameron:57,DEM,Jay Kleberg,73
+cameron:57,GRN,"Alfred Molison, Jr.",1
+cameron:57,REP,Dawn Buckingham,32
+cameron:58,,Over Votes,2
+cameron:58,,Under Votes,54
+cameron:58,,Write-in,0
+cameron:58,DEM,Jay Kleberg,467
+cameron:58,GRN,"Alfred Molison, Jr.",19
+cameron:58,REP,Dawn Buckingham,538
+cameron:59,,Over Votes,0
+cameron:59,,Under Votes,12
+cameron:59,,Write-in,0
+cameron:59,DEM,Jay Kleberg,81
+cameron:59,GRN,"Alfred Molison, Jr.",3
+cameron:59,REP,Dawn Buckingham,198
+cameron:6,,Over Votes,0
+cameron:6,,Under Votes,11
+cameron:6,,Write-in,1
+cameron:6,DEM,Jay Kleberg,164
+cameron:6,GRN,"Alfred Molison, Jr.",9
+cameron:6,REP,Dawn Buckingham,63
+cameron:60,,Over Votes,0
+cameron:60,,Under Votes,14
+cameron:60,,Write-in,1
+cameron:60,DEM,Jay Kleberg,190
+cameron:60,GRN,"Alfred Molison, Jr.",8
+cameron:60,REP,Dawn Buckingham,143
+cameron:61,,Over Votes,0
+cameron:61,,Under Votes,33
+cameron:61,,Write-in,0
+cameron:61,DEM,Jay Kleberg,494
+cameron:61,GRN,"Alfred Molison, Jr.",23
+cameron:61,REP,Dawn Buckingham,314
+cameron:62,,Over Votes,1
+cameron:62,,Under Votes,61
+cameron:62,,Write-in,1
+cameron:62,DEM,Jay Kleberg,695
+cameron:62,GRN,"Alfred Molison, Jr.",46
+cameron:62,REP,Dawn Buckingham,326
+cameron:63,,Over Votes,0
+cameron:63,,Under Votes,24
+cameron:63,,Write-in,0
+cameron:63,DEM,Jay Kleberg,441
+cameron:63,GRN,"Alfred Molison, Jr.",20
+cameron:63,REP,Dawn Buckingham,185
+cameron:64,,Over Votes,0
+cameron:64,,Under Votes,6
+cameron:64,,Write-in,0
+cameron:64,DEM,Jay Kleberg,92
+cameron:64,GRN,"Alfred Molison, Jr.",5
+cameron:64,REP,Dawn Buckingham,93
+cameron:65,,Over Votes,0
+cameron:65,,Under Votes,35
+cameron:65,,Write-in,0
+cameron:65,DEM,Jay Kleberg,385
+cameron:65,GRN,"Alfred Molison, Jr.",16
+cameron:65,REP,Dawn Buckingham,346
+cameron:66,,Over Votes,0
+cameron:66,,Under Votes,42
+cameron:66,,Write-in,1
+cameron:66,DEM,Jay Kleberg,455
+cameron:66,GRN,"Alfred Molison, Jr.",31
+cameron:66,REP,Dawn Buckingham,582
+cameron:67,,Over Votes,1
+cameron:67,,Under Votes,76
+cameron:67,,Write-in,2
+cameron:67,DEM,Jay Kleberg,758
+cameron:67,GRN,"Alfred Molison, Jr.",22
+cameron:67,REP,Dawn Buckingham,1104
+cameron:68,,Over Votes,2
+cameron:68,,Under Votes,31
+cameron:68,,Write-in,0
+cameron:68,DEM,Jay Kleberg,397
+cameron:68,GRN,"Alfred Molison, Jr.",34
+cameron:68,REP,Dawn Buckingham,199
+cameron:69,,Over Votes,5
+cameron:69,,Under Votes,40
+cameron:69,,Write-in,1
+cameron:69,DEM,Jay Kleberg,662
+cameron:69,GRN,"Alfred Molison, Jr.",30
+cameron:69,REP,Dawn Buckingham,286
+cameron:7,,Over Votes,0
+cameron:7,,Under Votes,29
+cameron:7,,Write-in,1
+cameron:7,DEM,Jay Kleberg,437
+cameron:7,GRN,"Alfred Molison, Jr.",25
+cameron:7,REP,Dawn Buckingham,358
+cameron:70,,Over Votes,1
+cameron:70,,Under Votes,13
+cameron:70,,Write-in,0
+cameron:70,DEM,Jay Kleberg,193
+cameron:70,GRN,"Alfred Molison, Jr.",13
+cameron:70,REP,Dawn Buckingham,83
+cameron:71,,Over Votes,0
+cameron:71,,Under Votes,41
+cameron:71,,Write-in,0
+cameron:71,DEM,Jay Kleberg,535
+cameron:71,GRN,"Alfred Molison, Jr.",33
+cameron:71,REP,Dawn Buckingham,274
+cameron:72,,Over Votes,1
+cameron:72,,Under Votes,45
+cameron:72,,Write-in,2
+cameron:72,DEM,Jay Kleberg,791
+cameron:72,GRN,"Alfred Molison, Jr.",45
+cameron:72,REP,Dawn Buckingham,533
+cameron:73,,Over Votes,0
+cameron:73,,Under Votes,39
+cameron:73,,Write-in,1
+cameron:73,DEM,Jay Kleberg,925
+cameron:73,GRN,"Alfred Molison, Jr.",34
+cameron:73,REP,Dawn Buckingham,573
+cameron:74,,Over Votes,1
+cameron:74,,Under Votes,61
+cameron:74,,Write-in,6
+cameron:74,DEM,Jay Kleberg,768
+cameron:74,GRN,"Alfred Molison, Jr.",50
+cameron:74,REP,Dawn Buckingham,487
+cameron:75,,Over Votes,2
+cameron:75,,Under Votes,59
+cameron:75,,Write-in,0
+cameron:75,DEM,Jay Kleberg,534
+cameron:75,GRN,"Alfred Molison, Jr.",46
+cameron:75,REP,Dawn Buckingham,253
+cameron:76,,Over Votes,0
+cameron:76,,Under Votes,46
+cameron:76,,Write-in,0
+cameron:76,DEM,Jay Kleberg,683
+cameron:76,GRN,"Alfred Molison, Jr.",40
+cameron:76,REP,Dawn Buckingham,396
+cameron:77,,Over Votes,1
+cameron:77,,Under Votes,35
+cameron:77,,Write-in,0
+cameron:77,DEM,Jay Kleberg,416
+cameron:77,GRN,"Alfred Molison, Jr.",29
+cameron:77,REP,Dawn Buckingham,221
+cameron:78,,Over Votes,0
+cameron:78,,Under Votes,23
+cameron:78,,Write-in,0
+cameron:78,DEM,Jay Kleberg,614
+cameron:78,GRN,"Alfred Molison, Jr.",24
+cameron:78,REP,Dawn Buckingham,565
+cameron:79,,Over Votes,1
+cameron:79,,Under Votes,37
+cameron:79,,Write-in,1
+cameron:79,DEM,Jay Kleberg,605
+cameron:79,GRN,"Alfred Molison, Jr.",23
+cameron:79,REP,Dawn Buckingham,641
+cameron:8,,Over Votes,0
+cameron:8,,Under Votes,5
+cameron:8,,Write-in,0
+cameron:8,DEM,Jay Kleberg,98
+cameron:8,GRN,"Alfred Molison, Jr.",3
+cameron:8,REP,Dawn Buckingham,37
+cameron:80,,Over Votes,1
+cameron:80,,Under Votes,40
+cameron:80,,Write-in,2
+cameron:80,DEM,Jay Kleberg,700
+cameron:80,GRN,"Alfred Molison, Jr.",24
+cameron:80,REP,Dawn Buckingham,1173
+cameron:81,,Over Votes,0
+cameron:81,,Under Votes,34
+cameron:81,,Write-in,1
+cameron:81,DEM,Jay Kleberg,299
+cameron:81,GRN,"Alfred Molison, Jr.",13
+cameron:81,REP,Dawn Buckingham,420
+cameron:82,,Over Votes,1
+cameron:82,,Under Votes,17
+cameron:82,,Write-in,0
+cameron:82,DEM,Jay Kleberg,327
+cameron:82,GRN,"Alfred Molison, Jr.",28
+cameron:82,REP,Dawn Buckingham,184
+cameron:83,,Over Votes,0
+cameron:83,,Under Votes,57
+cameron:83,,Write-in,0
+cameron:83,DEM,Jay Kleberg,385
+cameron:83,GRN,"Alfred Molison, Jr.",22
+cameron:83,REP,Dawn Buckingham,331
+cameron:84,,Over Votes,0
+cameron:84,,Under Votes,23
+cameron:84,,Write-in,2
+cameron:84,DEM,Jay Kleberg,427
+cameron:84,GRN,"Alfred Molison, Jr.",16
+cameron:84,REP,Dawn Buckingham,439
+cameron:85,,Over Votes,1
+cameron:85,,Under Votes,41
+cameron:85,,Write-in,1
+cameron:85,DEM,Jay Kleberg,519
+cameron:85,GRN,"Alfred Molison, Jr.",24
+cameron:85,REP,Dawn Buckingham,695
+cameron:86,,Over Votes,0
+cameron:86,,Under Votes,26
+cameron:86,,Write-in,3
+cameron:86,DEM,Jay Kleberg,261
+cameron:86,GRN,"Alfred Molison, Jr.",25
+cameron:86,REP,Dawn Buckingham,165
+cameron:87,,Over Votes,0
+cameron:87,,Under Votes,35
+cameron:87,,Write-in,1
+cameron:87,DEM,Jay Kleberg,413
+cameron:87,GRN,"Alfred Molison, Jr.",19
+cameron:87,REP,Dawn Buckingham,489
+cameron:88,,Over Votes,0
+cameron:88,,Under Votes,30
+cameron:88,,Write-in,1
+cameron:88,DEM,Jay Kleberg,553
+cameron:88,GRN,"Alfred Molison, Jr.",44
+cameron:88,REP,Dawn Buckingham,400
+cameron:89,,Over Votes,0
+cameron:89,,Under Votes,14
+cameron:89,,Write-in,0
+cameron:89,DEM,Jay Kleberg,231
+cameron:89,GRN,"Alfred Molison, Jr.",9
+cameron:89,REP,Dawn Buckingham,142
+cameron:9,,Over Votes,1
+cameron:9,,Under Votes,32
+cameron:9,,Write-in,1
+cameron:9,DEM,Jay Kleberg,430
+cameron:9,GRN,"Alfred Molison, Jr.",31
+cameron:9,REP,Dawn Buckingham,154
+cameron:90,,Over Votes,0
+cameron:90,,Under Votes,3
+cameron:90,,Write-in,0
+cameron:90,DEM,Jay Kleberg,79
+cameron:90,GRN,"Alfred Molison, Jr.",5
+cameron:90,REP,Dawn Buckingham,64
+cameron:91,,Over Votes,1
+cameron:91,,Under Votes,12
+cameron:91,,Write-in,0
+cameron:91,DEM,Jay Kleberg,238
+cameron:91,GRN,"Alfred Molison, Jr.",10
+cameron:91,REP,Dawn Buckingham,150
+cameron:92,,Over Votes,0
+cameron:92,,Under Votes,5
+cameron:92,,Write-in,0
+cameron:92,DEM,Jay Kleberg,38
+cameron:92,GRN,"Alfred Molison, Jr.",1
+cameron:92,REP,Dawn Buckingham,21
+cameron:93,,Over Votes,0
+cameron:93,,Under Votes,2
+cameron:93,,Write-in,0
+cameron:93,DEM,Jay Kleberg,77
+cameron:93,GRN,"Alfred Molison, Jr.",2
+cameron:93,REP,Dawn Buckingham,57
+cameron:94,,Over Votes,1
+cameron:94,,Under Votes,16
+cameron:94,,Write-in,0
+cameron:94,DEM,Jay Kleberg,228
+cameron:94,GRN,"Alfred Molison, Jr.",7
+cameron:94,REP,Dawn Buckingham,180
+cameron:95,,Over Votes,0
+cameron:95,,Under Votes,10
+cameron:95,,Write-in,0
+cameron:95,DEM,Jay Kleberg,94
+cameron:95,GRN,"Alfred Molison, Jr.",4
+cameron:95,REP,Dawn Buckingham,56
+cameron:96,,Over Votes,0
+cameron:96,,Under Votes,37
+cameron:96,,Write-in,1
+cameron:96,DEM,Jay Kleberg,554
+cameron:96,GRN,"Alfred Molison, Jr.",24
+cameron:96,REP,Dawn Buckingham,481
+cameron:97,,Over Votes,0
+cameron:97,,Under Votes,12
+cameron:97,,Write-in,0
+cameron:97,DEM,Jay Kleberg,148
+cameron:97,GRN,"Alfred Molison, Jr.",7
+cameron:97,REP,Dawn Buckingham,58
+cameron:98,,Over Votes,0
+cameron:98,,Under Votes,57
+cameron:98,,Write-in,2
+cameron:98,DEM,Jay Kleberg,966
+cameron:98,GRN,"Alfred Molison, Jr.",58
+cameron:98,REP,Dawn Buckingham,576
+cameron:99,,Over Votes,0
+cameron:99,,Under Votes,6
+cameron:99,,Write-in,0
+cameron:99,DEM,Jay Kleberg,71
+cameron:99,GRN,"Alfred Molison, Jr.",5
+cameron:99,REP,Dawn Buckingham,57
+kenedy:1,DEM,Jay Kleberg,30
+kenedy:1,GRN,"Alfred Molison, Jr",0
+kenedy:1,REP,Dawn Buckingham,20
+kenedy:2,DEM,Jay Kleberg,18
+kenedy:2,GRN,"Alfred Molison, Jr",1
+kenedy:2,REP,Dawn Buckingham,6
+kenedy:3,DEM,Jay Kleberg,6
+kenedy:3,GRN,"Alfred Molison, Jr",0
+kenedy:3,REP,Dawn Buckingham,4
+kenedy:4,DEM,Jay Kleberg,6
+kenedy:4,GRN,"Alfred Molison, Jr",0
+kenedy:4,REP,Dawn Buckingham,28
+kenedy:5,DEM,Jay Kleberg,6
+kenedy:5,GRN,"Alfred Molison, Jr",1
+kenedy:5,REP,Dawn Buckingham,3
+kenedy:6,DEM,Jay Kleberg,9
+kenedy:6,GRN,"Alfred Molison, Jr",0
+kenedy:6,REP,Dawn Buckingham,2
+san-patricio:101,,Carrie Evelyn Menger,0
+san-patricio:101,,Rejected write-ins,0
+san-patricio:101,,Unassigned write-ins,0
+san-patricio:101,DEM,Jay Kleberg,84
+san-patricio:101,GRN,"Alfred Molison, Jr.",1
+san-patricio:101,REP,Dawn Buckingham,119
+san-patricio:102,,Carrie Evelyn Menger,0
+san-patricio:102,,Rejected write-ins,2
+san-patricio:102,,Unassigned write-ins,0
+san-patricio:102,DEM,Jay Kleberg,428
+san-patricio:102,GRN,"Alfred Molison, Jr.",8
+san-patricio:102,REP,Dawn Buckingham,591
+san-patricio:103,,Carrie Evelyn Menger,0
+san-patricio:103,,Rejected write-ins,0
+san-patricio:103,,Unassigned write-ins,0
+san-patricio:103,DEM,Jay Kleberg,37
+san-patricio:103,GRN,"Alfred Molison, Jr.",2
+san-patricio:103,REP,Dawn Buckingham,193
+san-patricio:104,,Carrie Evelyn Menger,0
+san-patricio:104,,Rejected write-ins,0
+san-patricio:104,,Unassigned write-ins,0
+san-patricio:104,DEM,Jay Kleberg,209
+san-patricio:104,GRN,"Alfred Molison, Jr.",8
+san-patricio:104,REP,Dawn Buckingham,443
+san-patricio:105,,Carrie Evelyn Menger,0
+san-patricio:105,,Rejected write-ins,0
+san-patricio:105,,Unassigned write-ins,0
+san-patricio:105,DEM,Jay Kleberg,272
+san-patricio:105,GRN,"Alfred Molison, Jr.",5
+san-patricio:105,REP,Dawn Buckingham,204
+san-patricio:106,,Carrie Evelyn Menger,0
+san-patricio:106,,Rejected write-ins,0
+san-patricio:106,,Unassigned write-ins,0
+san-patricio:106,DEM,Jay Kleberg,94
+san-patricio:106,GRN,"Alfred Molison, Jr.",5
+san-patricio:106,REP,Dawn Buckingham,291
+san-patricio:107,,Carrie Evelyn Menger,0
+san-patricio:107,,Rejected write-ins,0
+san-patricio:107,,Unassigned write-ins,0
+san-patricio:107,DEM,Jay Kleberg,41
+san-patricio:107,GRN,"Alfred Molison, Jr.",1
+san-patricio:107,REP,Dawn Buckingham,105
+san-patricio:108,,Carrie Evelyn Menger,0
+san-patricio:108,,Rejected write-ins,0
+san-patricio:108,,Unassigned write-ins,0
+san-patricio:108,DEM,Jay Kleberg,541
+san-patricio:108,GRN,"Alfred Molison, Jr.",13
+san-patricio:108,REP,Dawn Buckingham,1233
+san-patricio:109,,Carrie Evelyn Menger,0
+san-patricio:109,,Rejected write-ins,0
+san-patricio:109,,Unassigned write-ins,0
+san-patricio:109,DEM,Jay Kleberg,312
+san-patricio:109,GRN,"Alfred Molison, Jr.",22
+san-patricio:109,REP,Dawn Buckingham,870
+san-patricio:110,,Carrie Evelyn Menger,0
+san-patricio:110,,Rejected write-ins,0
+san-patricio:110,,Unassigned write-ins,0
+san-patricio:110,DEM,Jay Kleberg,303
+san-patricio:110,GRN,"Alfred Molison, Jr.",9
+san-patricio:110,REP,Dawn Buckingham,401
+san-patricio:111,,Carrie Evelyn Menger,0
+san-patricio:111,,Rejected write-ins,0
+san-patricio:111,,Unassigned write-ins,0
+san-patricio:111,DEM,Jay Kleberg,23
+san-patricio:111,GRN,"Alfred Molison, Jr.",0
+san-patricio:111,REP,Dawn Buckingham,102
+san-patricio:112,,Carrie Evelyn Menger,0
+san-patricio:112,,Rejected write-ins,0
+san-patricio:112,,Unassigned write-ins,0
+san-patricio:112,DEM,Jay Kleberg,289
+san-patricio:112,GRN,"Alfred Molison, Jr.",8
+san-patricio:112,REP,Dawn Buckingham,202
+san-patricio:113,,Carrie Evelyn Menger,0
+san-patricio:113,,Rejected write-ins,1
+san-patricio:113,,Unassigned write-ins,0
+san-patricio:113,DEM,Jay Kleberg,353
+san-patricio:113,GRN,"Alfred Molison, Jr.",18
+san-patricio:113,REP,Dawn Buckingham,508
+san-patricio:114,,Carrie Evelyn Menger,0
+san-patricio:114,,Rejected write-ins,0
+san-patricio:114,,Unassigned write-ins,0
+san-patricio:114,DEM,Jay Kleberg,227
+san-patricio:114,GRN,"Alfred Molison, Jr.",13
+san-patricio:114,REP,Dawn Buckingham,715
+san-patricio:115,,Carrie Evelyn Menger,0
+san-patricio:115,,Rejected write-ins,2
+san-patricio:115,,Unassigned write-ins,0
+san-patricio:115,DEM,Jay Kleberg,532
+san-patricio:115,GRN,"Alfred Molison, Jr.",24
+san-patricio:115,REP,Dawn Buckingham,1537
+san-patricio:116,,Carrie Evelyn Menger,0
+san-patricio:116,,Rejected write-ins,0
+san-patricio:116,,Unassigned write-ins,0
+san-patricio:116,DEM,Jay Kleberg,390
+san-patricio:116,GRN,"Alfred Molison, Jr.",17
+san-patricio:116,REP,Dawn Buckingham,1323
+san-patricio:117,,Carrie Evelyn Menger,0
+san-patricio:117,,Rejected write-ins,0
+san-patricio:117,,Unassigned write-ins,0
+san-patricio:117,DEM,Jay Kleberg,69
+san-patricio:117,GRN,"Alfred Molison, Jr.",0
+san-patricio:117,REP,Dawn Buckingham,183
+san-patricio:118,,Carrie Evelyn Menger,0
+san-patricio:118,,Rejected write-ins,0
+san-patricio:118,,Unassigned write-ins,0
+san-patricio:118,DEM,Jay Kleberg,477
+san-patricio:118,GRN,"Alfred Molison, Jr.",17
+san-patricio:118,REP,Dawn Buckingham,547
+san-patricio:119,,Carrie Evelyn Menger,0
+san-patricio:119,,Rejected write-ins,1
+san-patricio:119,,Unassigned write-ins,0
+san-patricio:119,DEM,Jay Kleberg,182
+san-patricio:119,GRN,"Alfred Molison, Jr.",12
+san-patricio:119,REP,Dawn Buckingham,442
+san-patricio:120,,Carrie Evelyn Menger,0
+san-patricio:120,,Rejected write-ins,0
+san-patricio:120,,Unassigned write-ins,0
+san-patricio:120,DEM,Jay Kleberg,96
+san-patricio:120,GRN,"Alfred Molison, Jr.",2
+san-patricio:120,REP,Dawn Buckingham,296
+san-patricio:121,,Carrie Evelyn Menger,0
+san-patricio:121,,Rejected write-ins,0
+san-patricio:121,,Unassigned write-ins,0
+san-patricio:121,DEM,Jay Kleberg,283
+san-patricio:121,GRN,"Alfred Molison, Jr.",9
+san-patricio:121,REP,Dawn Buckingham,568
+san-patricio:122,,Carrie Evelyn Menger,0
+san-patricio:122,,Rejected write-ins,0
+san-patricio:122,,Unassigned write-ins,0
+san-patricio:122,DEM,Jay Kleberg,2
+san-patricio:122,GRN,"Alfred Molison, Jr.",0
+san-patricio:122,REP,Dawn Buckingham,9
+san-patricio:123,,Carrie Evelyn Menger,0
+san-patricio:123,,Rejected write-ins,0
+san-patricio:123,,Unassigned write-ins,0
+san-patricio:123,DEM,Jay Kleberg,16
+san-patricio:123,GRN,"Alfred Molison, Jr.",0
+san-patricio:123,REP,Dawn Buckingham,31
+san-patricio:124,,Carrie Evelyn Menger,0
+san-patricio:124,,Rejected write-ins,0
+san-patricio:124,,Unassigned write-ins,0
+san-patricio:124,DEM,Jay Kleberg,593
+san-patricio:124,GRN,"Alfred Molison, Jr.",9
+san-patricio:124,REP,Dawn Buckingham,587
+san-patricio:125,,Carrie Evelyn Menger,0
+san-patricio:125,,Rejected write-ins,0
+san-patricio:125,,Unassigned write-ins,0
+san-patricio:125,DEM,Jay Kleberg,7
+san-patricio:125,GRN,"Alfred Molison, Jr.",1
+san-patricio:125,REP,Dawn Buckingham,13

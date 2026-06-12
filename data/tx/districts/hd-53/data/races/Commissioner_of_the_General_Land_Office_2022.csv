@@ -1,0 +1,131 @@
+precinct,party,candidate,votes
+bandera:101,,Carrie Evelyn Menger,2
+bandera:101,,Rejected write-ins,0
+bandera:101,,Unassigned write-ins,0
+bandera:101,DEM,Jay Kleberg,186
+bandera:101,GRN,"Alfred Molison, Jr.",11
+bandera:101,REP,Dawn Buckingham,866
+bandera:102,,Carrie Evelyn Menger,0
+bandera:102,,Rejected write-ins,1
+bandera:102,,Unassigned write-ins,0
+bandera:102,DEM,Jay Kleberg,275
+bandera:102,GRN,"Alfred Molison, Jr.",16
+bandera:102,REP,Dawn Buckingham,1400
+bandera:203,,Carrie Evelyn Menger,0
+bandera:203,,Rejected write-ins,0
+bandera:203,,Unassigned write-ins,0
+bandera:203,DEM,Jay Kleberg,278
+bandera:203,GRN,"Alfred Molison, Jr.",19
+bandera:203,REP,Dawn Buckingham,1054
+bandera:204,,Carrie Evelyn Menger,0
+bandera:204,,Rejected write-ins,0
+bandera:204,,Unassigned write-ins,1
+bandera:204,DEM,Jay Kleberg,215
+bandera:204,GRN,"Alfred Molison, Jr.",10
+bandera:204,REP,Dawn Buckingham,832
+bandera:305,,Carrie Evelyn Menger,1
+bandera:305,,Rejected write-ins,2
+bandera:305,,Unassigned write-ins,0
+bandera:305,DEM,Jay Kleberg,226
+bandera:305,GRN,"Alfred Molison, Jr.",18
+bandera:305,REP,Dawn Buckingham,1317
+bandera:306,,Carrie Evelyn Menger,1
+bandera:306,,Rejected write-ins,0
+bandera:306,,Unassigned write-ins,0
+bandera:306,DEM,Jay Kleberg,102
+bandera:306,GRN,"Alfred Molison, Jr.",14
+bandera:306,REP,Dawn Buckingham,819
+bandera:407,,Carrie Evelyn Menger,0
+bandera:407,,Rejected write-ins,0
+bandera:407,,Unassigned write-ins,0
+bandera:407,DEM,Jay Kleberg,262
+bandera:407,GRN,"Alfred Molison, Jr.",10
+bandera:407,REP,Dawn Buckingham,1418
+bandera:408,,Carrie Evelyn Menger,0
+bandera:408,,Rejected write-ins,0
+bandera:408,,Unassigned write-ins,0
+bandera:408,DEM,Jay Kleberg,46
+bandera:408,GRN,"Alfred Molison, Jr.",2
+bandera:408,REP,Dawn Buckingham,144
+bandera:409,,Carrie Evelyn Menger,0
+bandera:409,,Rejected write-ins,0
+bandera:409,,Unassigned write-ins,0
+bandera:409,DEM,Jay Kleberg,98
+bandera:409,GRN,"Alfred Molison, Jr.",8
+bandera:409,REP,Dawn Buckingham,380
+bandera:410,,Carrie Evelyn Menger,0
+bandera:410,,Rejected write-ins,0
+bandera:410,,Unassigned write-ins,0
+bandera:410,DEM,Jay Kleberg,61
+bandera:410,GRN,"Alfred Molison, Jr.",3
+bandera:410,REP,Dawn Buckingham,309
+crockett:1,,Alfred Molison Jr,5
+crockett:1,,Carrie Evelyn Menger,0
+crockett:1,,Dawn Buckingham,194
+crockett:1,,Jay Kleberg,90
+crockett:2,,Alfred Molison Jr,2
+crockett:2,,Carrie Evelyn Menger,1
+crockett:2,,Dawn Buckingham,250
+crockett:2,,Jay Kleberg,61
+crockett:3,,Alfred Molison Jr,3
+crockett:3,,Carrie Evelyn Menger,0
+crockett:3,,Dawn Buckingham,281
+crockett:3,,Jay Kleberg,51
+crockett:4,,Alfred Molison Jr,9
+crockett:4,,Carrie Evelyn Menger,0
+crockett:4,,Dawn Buckingham,144
+crockett:4,,Jay Kleberg,70
+llano:101,,CARRIE EVELYN MENGER,0
+llano:101,,Rejected write-ins,0
+llano:101,,Unassigned write-ins,0
+llano:101,DEM,JAY KLEBERG,36
+llano:101,GRN,ALFRED MOLISON JR.,1
+llano:101,REP,DAWN BUCKINGHAM,184
+llano:102,,CARRIE EVELYN MENGER,0
+llano:102,,Rejected write-ins,0
+llano:102,,Unassigned write-ins,0
+llano:102,DEM,JAY KLEBERG,108
+llano:102,GRN,ALFRED MOLISON JR.,6
+llano:102,REP,DAWN BUCKINGHAM,352
+llano:108,,CARRIE EVELYN MENGER,1
+llano:108,,Rejected write-ins,0
+llano:108,,Unassigned write-ins,0
+llano:108,DEM,JAY KLEBERG,155
+llano:108,GRN,ALFRED MOLISON JR.,2
+llano:108,REP,DAWN BUCKINGHAM,601
+llano:109,,CARRIE EVELYN MENGER,0
+llano:109,,Rejected write-ins,1
+llano:109,,Unassigned write-ins,0
+llano:109,DEM,JAY KLEBERG,457
+llano:109,GRN,ALFRED MOLISON JR.,17
+llano:109,REP,DAWN BUCKINGHAM,2293
+llano:203,,CARRIE EVELYN MENGER,0
+llano:203,,Rejected write-ins,1
+llano:203,,Unassigned write-ins,0
+llano:203,DEM,JAY KLEBERG,236
+llano:203,GRN,ALFRED MOLISON JR.,10
+llano:203,REP,DAWN BUCKINGHAM,1289
+llano:204,,CARRIE EVELYN MENGER,0
+llano:204,,Rejected write-ins,0
+llano:204,,Unassigned write-ins,0
+llano:204,DEM,JAY KLEBERG,93
+llano:204,GRN,ALFRED MOLISON JR.,7
+llano:204,REP,DAWN BUCKINGHAM,475
+llano:205,,CARRIE EVELYN MENGER,0
+llano:205,,Rejected write-ins,0
+llano:205,,Unassigned write-ins,0
+llano:205,DEM,JAY KLEBERG,60
+llano:205,GRN,ALFRED MOLISON JR.,5
+llano:205,REP,DAWN BUCKINGHAM,393
+llano:307,,CARRIE EVELYN MENGER,1
+llano:307,,Rejected write-ins,0
+llano:307,,Unassigned write-ins,0
+llano:307,DEM,JAY KLEBERG,286
+llano:307,GRN,ALFRED MOLISON JR.,16
+llano:307,REP,DAWN BUCKINGHAM,1328
+llano:410,,CARRIE EVELYN MENGER,0
+llano:410,,Rejected write-ins,1
+llano:410,,Unassigned write-ins,0
+llano:410,DEM,JAY KLEBERG,429
+llano:410,GRN,ALFRED MOLISON JR.,25
+llano:410,REP,DAWN BUCKINGHAM,2071

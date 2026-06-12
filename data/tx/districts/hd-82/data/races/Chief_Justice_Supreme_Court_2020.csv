@@ -1,0 +1,46 @@
+precinct,party,candidate,votes
+dawson:1,DEM,Amy Clark Meachum,212
+dawson:1,LIB,Mark Ash,16
+dawson:1,REP,Nathan Hecht,335
+dawson:11,DEM,Amy Clark Meachum,15
+dawson:11,LIB,Mark Ash,1
+dawson:11,REP,Nathan Hecht,96
+dawson:12,DEM,Amy Clark Meachum,10
+dawson:12,LIB,Mark Ash,3
+dawson:12,REP,Nathan Hecht,45
+dawson:13,DEM,Amy Clark Meachum,8
+dawson:13,LIB,Mark Ash,2
+dawson:13,REP,Nathan Hecht,87
+dawson:17,DEM,Amy Clark Meachum,5
+dawson:17,LIB,Mark Ash,1
+dawson:17,REP,Nathan Hecht,59
+dawson:2,DEM,Amy Clark Meachum,189
+dawson:2,LIB,Mark Ash,24
+dawson:2,REP,Nathan Hecht,369
+dawson:3,DEM,Amy Clark Meachum,185
+dawson:3,LIB,Mark Ash,23
+dawson:3,REP,Nathan Hecht,848
+dawson:4,DEM,Amy Clark Meachum,131
+dawson:4,LIB,Mark Ash,12
+dawson:4,REP,Nathan Hecht,768
+dawson:5,DEM,Amy Clark Meachum,11
+dawson:5,LIB,Mark Ash,0
+dawson:5,REP,Nathan Hecht,93
+martin:1,DEM,Amy Clark Meachum,97
+martin:1,LIB,Mark Ash,9
+martin:1,REP,Nathan Hecht,455
+martin:2,DEM,Amy Clark Meachum,70
+martin:2,LIB,Mark Ash,6
+martin:2,REP,Nathan Hecht,299
+martin:3,DEM,Amy Clark Meachum,45
+martin:3,LIB,Mark Ash,8
+martin:3,REP,Nathan Hecht,420
+martin:3A,DEM,Amy Clark Meachum,8
+martin:3A,LIB,Mark Ash,1
+martin:3A,REP,Nathan Hecht,153
+martin:4,DEM,Amy Clark Meachum,53
+martin:4,LIB,Mark Ash,6
+martin:4,REP,Nathan Hecht,323
+martin:4A,DEM,Amy Clark Meachum,5
+martin:4A,LIB,Mark Ash,0
+martin:4A,REP,Nathan Hecht,131

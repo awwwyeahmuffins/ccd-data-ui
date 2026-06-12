@@ -1,0 +1,706 @@
+precinct,party,candidate,votes
+hidalgo:1,,Write-in,0
+hidalgo:1,DEM,Joseph R Biden,256
+hidalgo:1,GRN,Howie Hawkins,1
+hidalgo:1,LIB,Jo Jorgensen,2
+hidalgo:1,REP,Donald J Trump,120
+hidalgo:104,,Write-in,0
+hidalgo:104,DEM,Joseph R Biden,834
+hidalgo:104,GRN,Howie Hawkins,1
+hidalgo:104,LIB,Jo Jorgensen,8
+hidalgo:104,REP,Donald J Trump,612
+hidalgo:110,,Write-in,1
+hidalgo:110,DEM,Joseph R Biden,404
+hidalgo:110,GRN,Howie Hawkins,1
+hidalgo:110,LIB,Jo Jorgensen,7
+hidalgo:110,REP,Donald J Trump,202
+hidalgo:111,,Write-in,0
+hidalgo:111,DEM,Joseph R Biden,799
+hidalgo:111,GRN,Howie Hawkins,11
+hidalgo:111,LIB,Jo Jorgensen,7
+hidalgo:111,REP,Donald J Trump,623
+hidalgo:112,,Write-in,0
+hidalgo:112,DEM,Joseph R Biden,593
+hidalgo:112,GRN,Howie Hawkins,7
+hidalgo:112,LIB,Jo Jorgensen,7
+hidalgo:112,REP,Donald J Trump,250
+hidalgo:113,,Write-in,0
+hidalgo:113,DEM,Joseph R Biden,1361
+hidalgo:113,GRN,Howie Hawkins,11
+hidalgo:113,LIB,Jo Jorgensen,13
+hidalgo:113,REP,Donald J Trump,1017
+hidalgo:114,,Write-in,0
+hidalgo:114,DEM,Joseph R Biden,1243
+hidalgo:114,GRN,Howie Hawkins,4
+hidalgo:114,LIB,Jo Jorgensen,14
+hidalgo:114,REP,Donald J Trump,1154
+hidalgo:117,,Write-in,1
+hidalgo:117,DEM,Joseph R Biden,1404
+hidalgo:117,GRN,Howie Hawkins,12
+hidalgo:117,LIB,Jo Jorgensen,15
+hidalgo:117,REP,Donald J Trump,950
+hidalgo:118,,Write-in,0
+hidalgo:118,DEM,Joseph R Biden,712
+hidalgo:118,GRN,Howie Hawkins,6
+hidalgo:118,LIB,Jo Jorgensen,6
+hidalgo:118,REP,Donald J Trump,531
+hidalgo:119,,Write-in,0
+hidalgo:119,DEM,Joseph R Biden,479
+hidalgo:119,GRN,Howie Hawkins,1
+hidalgo:119,LIB,Jo Jorgensen,5
+hidalgo:119,REP,Donald J Trump,222
+hidalgo:120,,Write-in,3
+hidalgo:120,DEM,Joseph R Biden,757
+hidalgo:120,GRN,Howie Hawkins,9
+hidalgo:120,LIB,Jo Jorgensen,5
+hidalgo:120,REP,Donald J Trump,436
+hidalgo:121,,Write-in,0
+hidalgo:121,DEM,Joseph R Biden,63
+hidalgo:121,GRN,Howie Hawkins,1
+hidalgo:121,LIB,Jo Jorgensen,1
+hidalgo:121,REP,Donald J Trump,28
+hidalgo:123,,Write-in,1
+hidalgo:123,DEM,Joseph R Biden,351
+hidalgo:123,GRN,Howie Hawkins,1
+hidalgo:123,LIB,Jo Jorgensen,4
+hidalgo:123,REP,Donald J Trump,222
+hidalgo:126,,Write-in,1
+hidalgo:126,DEM,Joseph R Biden,543
+hidalgo:126,GRN,Howie Hawkins,6
+hidalgo:126,LIB,Jo Jorgensen,3
+hidalgo:126,REP,Donald J Trump,421
+hidalgo:127,,Write-in,0
+hidalgo:127,DEM,Joseph R Biden,378
+hidalgo:127,GRN,Howie Hawkins,5
+hidalgo:127,LIB,Jo Jorgensen,2
+hidalgo:127,REP,Donald J Trump,189
+hidalgo:130,,Write-in,0
+hidalgo:130,DEM,Joseph R Biden,348
+hidalgo:130,GRN,Howie Hawkins,1
+hidalgo:130,LIB,Jo Jorgensen,2
+hidalgo:130,REP,Donald J Trump,359
+hidalgo:132,,Write-in,0
+hidalgo:132,DEM,Joseph R Biden,343
+hidalgo:132,GRN,Howie Hawkins,3
+hidalgo:132,LIB,Jo Jorgensen,0
+hidalgo:132,REP,Donald J Trump,160
+hidalgo:137,,Write-in,0
+hidalgo:137,DEM,Joseph R Biden,12
+hidalgo:137,GRN,Howie Hawkins,0
+hidalgo:137,LIB,Jo Jorgensen,0
+hidalgo:137,REP,Donald J Trump,14
+hidalgo:144,,Write-in,0
+hidalgo:144,DEM,Joseph R Biden,12
+hidalgo:144,GRN,Howie Hawkins,1
+hidalgo:144,LIB,Jo Jorgensen,1
+hidalgo:144,REP,Donald J Trump,11
+hidalgo:15,,Write-in,0
+hidalgo:15,DEM,Joseph R Biden,217
+hidalgo:15,GRN,Howie Hawkins,1
+hidalgo:15,LIB,Jo Jorgensen,2
+hidalgo:15,REP,Donald J Trump,158
+hidalgo:153,,Write-in,0
+hidalgo:153,DEM,Joseph R Biden,112
+hidalgo:153,GRN,Howie Hawkins,0
+hidalgo:153,LIB,Jo Jorgensen,0
+hidalgo:153,REP,Donald J Trump,59
+hidalgo:155,,Write-in,0
+hidalgo:155,DEM,Joseph R Biden,216
+hidalgo:155,GRN,Howie Hawkins,2
+hidalgo:155,LIB,Jo Jorgensen,0
+hidalgo:155,REP,Donald J Trump,127
+hidalgo:156,,Write-in,0
+hidalgo:156,DEM,Joseph R Biden,701
+hidalgo:156,GRN,Howie Hawkins,10
+hidalgo:156,LIB,Jo Jorgensen,7
+hidalgo:156,REP,Donald J Trump,370
+hidalgo:157,,Write-in,0
+hidalgo:157,DEM,Joseph R Biden,432
+hidalgo:157,GRN,Howie Hawkins,4
+hidalgo:157,LIB,Jo Jorgensen,2
+hidalgo:157,REP,Donald J Trump,260
+hidalgo:16,,Write-in,0
+hidalgo:16,DEM,Joseph R Biden,1039
+hidalgo:16,GRN,Howie Hawkins,7
+hidalgo:16,LIB,Jo Jorgensen,8
+hidalgo:16,REP,Donald J Trump,422
+hidalgo:169,,Write-in,0
+hidalgo:169,DEM,Joseph R Biden,148
+hidalgo:169,GRN,Howie Hawkins,4
+hidalgo:169,LIB,Jo Jorgensen,2
+hidalgo:169,REP,Donald J Trump,135
+hidalgo:17,,Write-in,0
+hidalgo:17,DEM,Joseph R Biden,533
+hidalgo:17,GRN,Howie Hawkins,1
+hidalgo:17,LIB,Jo Jorgensen,6
+hidalgo:17,REP,Donald J Trump,371
+hidalgo:171,,Write-in,0
+hidalgo:171,DEM,Joseph R Biden,6
+hidalgo:171,GRN,Howie Hawkins,0
+hidalgo:171,LIB,Jo Jorgensen,0
+hidalgo:171,REP,Donald J Trump,5
+hidalgo:172,,Write-in,0
+hidalgo:172,DEM,Joseph R Biden,13
+hidalgo:172,GRN,Howie Hawkins,0
+hidalgo:172,LIB,Jo Jorgensen,0
+hidalgo:172,REP,Donald J Trump,11
+hidalgo:173,,Write-in,0
+hidalgo:173,DEM,Joseph R Biden,434
+hidalgo:173,GRN,Howie Hawkins,2
+hidalgo:173,LIB,Jo Jorgensen,6
+hidalgo:173,REP,Donald J Trump,396
+hidalgo:174,,Write-in,0
+hidalgo:174,DEM,Joseph R Biden,294
+hidalgo:174,GRN,Howie Hawkins,2
+hidalgo:174,LIB,Jo Jorgensen,6
+hidalgo:174,REP,Donald J Trump,175
+hidalgo:175,,Write-in,1
+hidalgo:175,DEM,Joseph R Biden,427
+hidalgo:175,GRN,Howie Hawkins,2
+hidalgo:175,LIB,Jo Jorgensen,2
+hidalgo:175,REP,Donald J Trump,254
+hidalgo:176,,Write-in,0
+hidalgo:176,DEM,Joseph R Biden,402
+hidalgo:176,GRN,Howie Hawkins,3
+hidalgo:176,LIB,Jo Jorgensen,2
+hidalgo:176,REP,Donald J Trump,248
+hidalgo:177,,Write-in,0
+hidalgo:177,DEM,Joseph R Biden,207
+hidalgo:177,GRN,Howie Hawkins,2
+hidalgo:177,LIB,Jo Jorgensen,2
+hidalgo:177,REP,Donald J Trump,149
+hidalgo:178,,Write-in,0
+hidalgo:178,DEM,Joseph R Biden,5
+hidalgo:178,GRN,Howie Hawkins,0
+hidalgo:178,LIB,Jo Jorgensen,0
+hidalgo:178,REP,Donald J Trump,12
+hidalgo:179,,Write-in,0
+hidalgo:179,DEM,Joseph R Biden,130
+hidalgo:179,GRN,Howie Hawkins,0
+hidalgo:179,LIB,Jo Jorgensen,1
+hidalgo:179,REP,Donald J Trump,82
+hidalgo:18,,Write-in,0
+hidalgo:18,DEM,Joseph R Biden,83
+hidalgo:18,GRN,Howie Hawkins,1
+hidalgo:18,LIB,Jo Jorgensen,1
+hidalgo:18,REP,Donald J Trump,85
+hidalgo:180,,Write-in,0
+hidalgo:180,DEM,Joseph R Biden,61
+hidalgo:180,GRN,Howie Hawkins,0
+hidalgo:180,LIB,Jo Jorgensen,4
+hidalgo:180,REP,Donald J Trump,35
+hidalgo:181,,Write-in,0
+hidalgo:181,DEM,Joseph R Biden,238
+hidalgo:181,GRN,Howie Hawkins,0
+hidalgo:181,LIB,Jo Jorgensen,1
+hidalgo:181,REP,Donald J Trump,375
+hidalgo:184,,Write-in,0
+hidalgo:184,DEM,Joseph R Biden,14
+hidalgo:184,GRN,Howie Hawkins,0
+hidalgo:184,LIB,Jo Jorgensen,0
+hidalgo:184,REP,Donald J Trump,13
+hidalgo:186,,Write-in,0
+hidalgo:186,DEM,Joseph R Biden,75
+hidalgo:186,GRN,Howie Hawkins,2
+hidalgo:186,LIB,Jo Jorgensen,1
+hidalgo:186,REP,Donald J Trump,28
+hidalgo:189,,Write-in,0
+hidalgo:189,DEM,Joseph R Biden,477
+hidalgo:189,GRN,Howie Hawkins,0
+hidalgo:189,LIB,Jo Jorgensen,5
+hidalgo:189,REP,Donald J Trump,262
+hidalgo:190,,Write-in,0
+hidalgo:190,DEM,Joseph R Biden,165
+hidalgo:190,GRN,Howie Hawkins,1
+hidalgo:190,LIB,Jo Jorgensen,0
+hidalgo:190,REP,Donald J Trump,127
+hidalgo:191,,Write-in,0
+hidalgo:191,DEM,Joseph R Biden,176
+hidalgo:191,GRN,Howie Hawkins,1
+hidalgo:191,LIB,Jo Jorgensen,1
+hidalgo:191,REP,Donald J Trump,128
+hidalgo:192,,Write-in,0
+hidalgo:192,DEM,Joseph R Biden,140
+hidalgo:192,GRN,Howie Hawkins,1
+hidalgo:192,LIB,Jo Jorgensen,1
+hidalgo:192,REP,Donald J Trump,114
+hidalgo:196,,Write-in,0
+hidalgo:196,DEM,Joseph R Biden,285
+hidalgo:196,GRN,Howie Hawkins,1
+hidalgo:196,LIB,Jo Jorgensen,5
+hidalgo:196,REP,Donald J Trump,239
+hidalgo:2,,Write-in,0
+hidalgo:2,DEM,Joseph R Biden,579
+hidalgo:2,GRN,Howie Hawkins,5
+hidalgo:2,LIB,Jo Jorgensen,3
+hidalgo:2,REP,Donald J Trump,496
+hidalgo:202,,Write-in,0
+hidalgo:202,DEM,Joseph R Biden,249
+hidalgo:202,GRN,Howie Hawkins,2
+hidalgo:202,LIB,Jo Jorgensen,0
+hidalgo:202,REP,Donald J Trump,318
+hidalgo:21,,Write-in,0
+hidalgo:21,DEM,Joseph R Biden,147
+hidalgo:21,GRN,Howie Hawkins,1
+hidalgo:21,LIB,Jo Jorgensen,1
+hidalgo:21,REP,Donald J Trump,92
+hidalgo:213,,Write-in,0
+hidalgo:213,DEM,Joseph R Biden,62
+hidalgo:213,GRN,Howie Hawkins,0
+hidalgo:213,LIB,Jo Jorgensen,2
+hidalgo:213,REP,Donald J Trump,37
+hidalgo:22,,Write-in,1
+hidalgo:22,DEM,Joseph R Biden,239
+hidalgo:22,GRN,Howie Hawkins,2
+hidalgo:22,LIB,Jo Jorgensen,2
+hidalgo:22,REP,Donald J Trump,121
+hidalgo:225,,Write-in,0
+hidalgo:225,DEM,Joseph R Biden,115
+hidalgo:225,GRN,Howie Hawkins,0
+hidalgo:225,LIB,Jo Jorgensen,1
+hidalgo:225,REP,Donald J Trump,43
+hidalgo:229,,Write-in,0
+hidalgo:229,DEM,Joseph R Biden,296
+hidalgo:229,GRN,Howie Hawkins,3
+hidalgo:229,LIB,Jo Jorgensen,4
+hidalgo:229,REP,Donald J Trump,217
+hidalgo:23,,Write-in,0
+hidalgo:23,DEM,Joseph R Biden,698
+hidalgo:23,GRN,Howie Hawkins,7
+hidalgo:23,LIB,Jo Jorgensen,10
+hidalgo:23,REP,Donald J Trump,353
+hidalgo:232,,Write-in,0
+hidalgo:232,DEM,Joseph R Biden,402
+hidalgo:232,GRN,Howie Hawkins,4
+hidalgo:232,LIB,Jo Jorgensen,7
+hidalgo:232,REP,Donald J Trump,234
+hidalgo:235,,Write-in,0
+hidalgo:235,DEM,Joseph R Biden,91
+hidalgo:235,GRN,Howie Hawkins,0
+hidalgo:235,LIB,Jo Jorgensen,2
+hidalgo:235,REP,Donald J Trump,93
+hidalgo:237,,Write-in,0
+hidalgo:237,DEM,Joseph R Biden,350
+hidalgo:237,GRN,Howie Hawkins,3
+hidalgo:237,LIB,Jo Jorgensen,2
+hidalgo:237,REP,Donald J Trump,180
+hidalgo:238,,Write-in,0
+hidalgo:238,DEM,Joseph R Biden,37
+hidalgo:238,GRN,Howie Hawkins,0
+hidalgo:238,LIB,Jo Jorgensen,0
+hidalgo:238,REP,Donald J Trump,49
+hidalgo:242,,Write-in,0
+hidalgo:242,DEM,Joseph R Biden,11
+hidalgo:242,GRN,Howie Hawkins,0
+hidalgo:242,LIB,Jo Jorgensen,0
+hidalgo:242,REP,Donald J Trump,9
+hidalgo:245,,Write-in,0
+hidalgo:245,DEM,Joseph R Biden,106
+hidalgo:245,GRN,Howie Hawkins,1
+hidalgo:245,LIB,Jo Jorgensen,0
+hidalgo:245,REP,Donald J Trump,52
+hidalgo:249,,Write-in,0
+hidalgo:249,DEM,Joseph R Biden,150
+hidalgo:249,GRN,Howie Hawkins,0
+hidalgo:249,LIB,Jo Jorgensen,1
+hidalgo:249,REP,Donald J Trump,88
+hidalgo:250,,Write-in,0
+hidalgo:250,DEM,Joseph R Biden,46
+hidalgo:250,GRN,Howie Hawkins,0
+hidalgo:250,LIB,Jo Jorgensen,0
+hidalgo:250,REP,Donald J Trump,27
+hidalgo:251,,Write-in,0
+hidalgo:251,DEM,Joseph R Biden,6
+hidalgo:251,GRN,Howie Hawkins,0
+hidalgo:251,LIB,Jo Jorgensen,0
+hidalgo:251,REP,Donald J Trump,0
+hidalgo:253,,Write-in,0
+hidalgo:253,DEM,Joseph R Biden,136
+hidalgo:253,GRN,Howie Hawkins,2
+hidalgo:253,LIB,Jo Jorgensen,3
+hidalgo:253,REP,Donald J Trump,99
+hidalgo:255,,Write-in,0
+hidalgo:255,DEM,Joseph R Biden,76
+hidalgo:255,GRN,Howie Hawkins,0
+hidalgo:255,LIB,Jo Jorgensen,2
+hidalgo:255,REP,Donald J Trump,72
+hidalgo:3,,Write-in,0
+hidalgo:3,DEM,Joseph R Biden,371
+hidalgo:3,GRN,Howie Hawkins,2
+hidalgo:3,LIB,Jo Jorgensen,3
+hidalgo:3,REP,Donald J Trump,198
+hidalgo:32,,Write-in,1
+hidalgo:32,DEM,Joseph R Biden,844
+hidalgo:32,GRN,Howie Hawkins,8
+hidalgo:32,LIB,Jo Jorgensen,13
+hidalgo:32,REP,Donald J Trump,480
+hidalgo:33,,Write-in,0
+hidalgo:33,DEM,Joseph R Biden,622
+hidalgo:33,GRN,Howie Hawkins,5
+hidalgo:33,LIB,Jo Jorgensen,5
+hidalgo:33,REP,Donald J Trump,249
+hidalgo:39,,Write-in,0
+hidalgo:39,DEM,Joseph R Biden,682
+hidalgo:39,GRN,Howie Hawkins,8
+hidalgo:39,LIB,Jo Jorgensen,9
+hidalgo:39,REP,Donald J Trump,364
+hidalgo:4,,Write-in,1
+hidalgo:4,DEM,Joseph R Biden,1764
+hidalgo:4,GRN,Howie Hawkins,16
+hidalgo:4,LIB,Jo Jorgensen,14
+hidalgo:4,REP,Donald J Trump,986
+hidalgo:40,,Write-in,0
+hidalgo:40,DEM,Joseph R Biden,767
+hidalgo:40,GRN,Howie Hawkins,8
+hidalgo:40,LIB,Jo Jorgensen,6
+hidalgo:40,REP,Donald J Trump,419
+hidalgo:41,,Write-in,0
+hidalgo:41,DEM,Joseph R Biden,1029
+hidalgo:41,GRN,Howie Hawkins,9
+hidalgo:41,LIB,Jo Jorgensen,10
+hidalgo:41,REP,Donald J Trump,592
+hidalgo:42,,Write-in,0
+hidalgo:42,DEM,Joseph R Biden,1028
+hidalgo:42,GRN,Howie Hawkins,5
+hidalgo:42,LIB,Jo Jorgensen,6
+hidalgo:42,REP,Donald J Trump,760
+hidalgo:43,,Write-in,0
+hidalgo:43,DEM,Joseph R Biden,1452
+hidalgo:43,GRN,Howie Hawkins,7
+hidalgo:43,LIB,Jo Jorgensen,21
+hidalgo:43,REP,Donald J Trump,1019
+hidalgo:44,,Write-in,0
+hidalgo:44,DEM,Joseph R Biden,327
+hidalgo:44,GRN,Howie Hawkins,0
+hidalgo:44,LIB,Jo Jorgensen,3
+hidalgo:44,REP,Donald J Trump,173
+hidalgo:45,,Write-in,0
+hidalgo:45,DEM,Joseph R Biden,508
+hidalgo:45,GRN,Howie Hawkins,6
+hidalgo:45,LIB,Jo Jorgensen,7
+hidalgo:45,REP,Donald J Trump,412
+hidalgo:46,,Write-in,0
+hidalgo:46,DEM,Joseph R Biden,117
+hidalgo:46,GRN,Howie Hawkins,2
+hidalgo:46,LIB,Jo Jorgensen,0
+hidalgo:46,REP,Donald J Trump,85
+hidalgo:55,,Write-in,1
+hidalgo:55,DEM,Joseph R Biden,844
+hidalgo:55,GRN,Howie Hawkins,8
+hidalgo:55,LIB,Jo Jorgensen,2
+hidalgo:55,REP,Donald J Trump,463
+hidalgo:56,,Write-in,0
+hidalgo:56,DEM,Joseph R Biden,924
+hidalgo:56,GRN,Howie Hawkins,8
+hidalgo:56,LIB,Jo Jorgensen,7
+hidalgo:56,REP,Donald J Trump,473
+hidalgo:57,,Write-in,0
+hidalgo:57,DEM,Joseph R Biden,270
+hidalgo:57,GRN,Howie Hawkins,3
+hidalgo:57,LIB,Jo Jorgensen,2
+hidalgo:57,REP,Donald J Trump,158
+hidalgo:58,,Write-in,0
+hidalgo:58,DEM,Joseph R Biden,1110
+hidalgo:58,GRN,Howie Hawkins,4
+hidalgo:58,LIB,Jo Jorgensen,7
+hidalgo:58,REP,Donald J Trump,767
+hidalgo:59,,Write-in,0
+hidalgo:59,DEM,Joseph R Biden,764
+hidalgo:59,GRN,Howie Hawkins,8
+hidalgo:59,LIB,Jo Jorgensen,6
+hidalgo:59,REP,Donald J Trump,488
+hidalgo:70,,Write-in,0
+hidalgo:70,DEM,Joseph R Biden,535
+hidalgo:70,GRN,Howie Hawkins,2
+hidalgo:70,LIB,Jo Jorgensen,3
+hidalgo:70,REP,Donald J Trump,355
+hidalgo:71,,Write-in,0
+hidalgo:71,DEM,Joseph R Biden,56
+hidalgo:71,GRN,Howie Hawkins,0
+hidalgo:71,LIB,Jo Jorgensen,0
+hidalgo:71,REP,Donald J Trump,33
+hidalgo:77,,Write-in,0
+hidalgo:77,DEM,Joseph R Biden,630
+hidalgo:77,GRN,Howie Hawkins,15
+hidalgo:77,LIB,Jo Jorgensen,3
+hidalgo:77,REP,Donald J Trump,430
+hidalgo:79,,Write-in,1
+hidalgo:79,DEM,Joseph R Biden,484
+hidalgo:79,GRN,Howie Hawkins,6
+hidalgo:79,LIB,Jo Jorgensen,4
+hidalgo:79,REP,Donald J Trump,245
+hidalgo:85,,Write-in,0
+hidalgo:85,DEM,Joseph R Biden,1175
+hidalgo:85,GRN,Howie Hawkins,6
+hidalgo:85,LIB,Jo Jorgensen,11
+hidalgo:85,REP,Donald J Trump,693
+hidalgo:87,,Write-in,0
+hidalgo:87,DEM,Joseph R Biden,1170
+hidalgo:87,GRN,Howie Hawkins,2
+hidalgo:87,LIB,Jo Jorgensen,8
+hidalgo:87,REP,Donald J Trump,703
+hidalgo:90,,Write-in,0
+hidalgo:90,DEM,Joseph R Biden,1703
+hidalgo:90,GRN,Howie Hawkins,7
+hidalgo:90,LIB,Jo Jorgensen,6
+hidalgo:90,REP,Donald J Trump,758
+hidalgo:91,,Write-in,0
+hidalgo:91,DEM,Joseph R Biden,289
+hidalgo:91,GRN,Howie Hawkins,7
+hidalgo:91,LIB,Jo Jorgensen,6
+hidalgo:91,REP,Donald J Trump,236
+hidalgo:92,,Write-in,0
+hidalgo:92,DEM,Joseph R Biden,88
+hidalgo:92,GRN,Howie Hawkins,2
+hidalgo:92,LIB,Jo Jorgensen,2
+hidalgo:92,REP,Donald J Trump,60
+kleberg:11,,Write-in,2
+kleberg:11,DEM,Joseph R Biden,538
+kleberg:11,GRN,Howie Hawkins,5
+kleberg:11,LIB,Jo Jorgensen,21
+kleberg:11,REP,Donald J Trump,718
+kleberg:12,,Write-in,2
+kleberg:12,DEM,Joseph R Biden,321
+kleberg:12,GRN,Howie Hawkins,1
+kleberg:12,LIB,Jo Jorgensen,9
+kleberg:12,REP,Donald J Trump,595
+kleberg:13,,Write-in,1
+kleberg:13,DEM,Joseph R Biden,466
+kleberg:13,GRN,Howie Hawkins,4
+kleberg:13,LIB,Jo Jorgensen,3
+kleberg:13,REP,Donald J Trump,372
+kleberg:14,,Write-in,1
+kleberg:14,DEM,Joseph R Biden,155
+kleberg:14,GRN,Howie Hawkins,0
+kleberg:14,LIB,Jo Jorgensen,1
+kleberg:14,REP,Donald J Trump,125
+kleberg:21,,Write-in,0
+kleberg:21,DEM,Joseph R Biden,129
+kleberg:21,GRN,Howie Hawkins,2
+kleberg:21,LIB,Jo Jorgensen,0
+kleberg:21,REP,Donald J Trump,52
+kleberg:22,,Write-in,1
+kleberg:22,DEM,Joseph R Biden,265
+kleberg:22,GRN,Howie Hawkins,3
+kleberg:22,LIB,Jo Jorgensen,5
+kleberg:22,REP,Donald J Trump,268
+kleberg:23,,Write-in,1
+kleberg:23,DEM,Joseph R Biden,399
+kleberg:23,GRN,Howie Hawkins,0
+kleberg:23,LIB,Jo Jorgensen,5
+kleberg:23,REP,Donald J Trump,283
+kleberg:24,,Write-in,1
+kleberg:24,DEM,Joseph R Biden,407
+kleberg:24,GRN,Howie Hawkins,3
+kleberg:24,LIB,Jo Jorgensen,10
+kleberg:24,REP,Donald J Trump,339
+kleberg:31,,Write-in,4
+kleberg:31,DEM,Joseph R Biden,373
+kleberg:31,GRN,Howie Hawkins,3
+kleberg:31,LIB,Jo Jorgensen,10
+kleberg:31,REP,Donald J Trump,523
+kleberg:32,,Write-in,0
+kleberg:32,DEM,Joseph R Biden,345
+kleberg:32,GRN,Howie Hawkins,2
+kleberg:32,LIB,Jo Jorgensen,6
+kleberg:32,REP,Donald J Trump,350
+kleberg:33,,Write-in,0
+kleberg:33,DEM,Joseph R Biden,151
+kleberg:33,GRN,Howie Hawkins,1
+kleberg:33,LIB,Jo Jorgensen,3
+kleberg:33,REP,Donald J Trump,318
+kleberg:34,,Write-in,0
+kleberg:34,DEM,Joseph R Biden,126
+kleberg:34,GRN,Howie Hawkins,0
+kleberg:34,LIB,Jo Jorgensen,2
+kleberg:34,REP,Donald J Trump,267
+kleberg:35,,Write-in,1
+kleberg:35,DEM,Joseph R Biden,268
+kleberg:35,GRN,Howie Hawkins,2
+kleberg:35,LIB,Jo Jorgensen,2
+kleberg:35,REP,Donald J Trump,429
+kleberg:41,,Write-in,1
+kleberg:41,DEM,Joseph R Biden,180
+kleberg:41,GRN,Howie Hawkins,1
+kleberg:41,LIB,Jo Jorgensen,2
+kleberg:41,REP,Donald J Trump,100
+kleberg:42,,Write-in,0
+kleberg:42,DEM,Joseph R Biden,287
+kleberg:42,GRN,Howie Hawkins,0
+kleberg:42,LIB,Jo Jorgensen,4
+kleberg:42,REP,Donald J Trump,162
+kleberg:43,,Write-in,0
+kleberg:43,DEM,Joseph R Biden,478
+kleberg:43,GRN,Howie Hawkins,1
+kleberg:43,LIB,Jo Jorgensen,9
+kleberg:43,REP,Donald J Trump,404
+kleberg:44,,Write-in,0
+kleberg:44,DEM,Joseph R Biden,171
+kleberg:44,GRN,Howie Hawkins,1
+kleberg:44,LIB,Jo Jorgensen,3
+kleberg:44,REP,Donald J Trump,124
+kleberg:45,,Write-in,0
+kleberg:45,DEM,Joseph R Biden,322
+kleberg:45,GRN,Howie Hawkins,0
+kleberg:45,LIB,Jo Jorgensen,2
+kleberg:45,REP,Donald J Trump,146
+nueces:102,,Write-in,1
+nueces:102,DEM,Joseph R Biden,375
+nueces:102,GRN,Howie Hawkins,2
+nueces:102,LIB,Jo Jorgensen,9
+nueces:102,REP,Donald J Trump,554
+nueces:11,,Write-in,0
+nueces:11,DEM,Joseph R Biden,167
+nueces:11,GRN,Howie Hawkins,0
+nueces:11,LIB,Jo Jorgensen,2
+nueces:11,REP,Donald J Trump,232
+nueces:114,,Write-in,0
+nueces:114,DEM,Joseph R Biden,179
+nueces:114,GRN,Howie Hawkins,1
+nueces:114,LIB,Jo Jorgensen,3
+nueces:114,REP,Donald J Trump,101
+nueces:117,,Write-in,3
+nueces:117,DEM,Joseph R Biden,590
+nueces:117,GRN,Howie Hawkins,8
+nueces:117,LIB,Jo Jorgensen,36
+nueces:117,REP,Donald J Trump,1470
+nueces:12,,Write-in,1
+nueces:12,DEM,Joseph R Biden,404
+nueces:12,GRN,Howie Hawkins,1
+nueces:12,LIB,Jo Jorgensen,5
+nueces:12,REP,Donald J Trump,335
+nueces:122,,Write-in,7
+nueces:122,DEM,Joseph R Biden,742
+nueces:122,GRN,Howie Hawkins,9
+nueces:122,LIB,Jo Jorgensen,36
+nueces:122,REP,Donald J Trump,1613
+nueces:125,,Write-in,7
+nueces:125,DEM,Joseph R Biden,1751
+nueces:125,GRN,Howie Hawkins,12
+nueces:125,LIB,Jo Jorgensen,42
+nueces:125,REP,Donald J Trump,2125
+nueces:126,,Write-in,5
+nueces:126,DEM,Joseph R Biden,1021
+nueces:126,GRN,Howie Hawkins,7
+nueces:126,LIB,Jo Jorgensen,39
+nueces:126,REP,Donald J Trump,1569
+nueces:127,,Write-in,9
+nueces:127,DEM,Joseph R Biden,353
+nueces:127,GRN,Howie Hawkins,4
+nueces:127,LIB,Jo Jorgensen,14
+nueces:127,REP,Donald J Trump,887
+nueces:14,,Write-in,1
+nueces:14,DEM,Joseph R Biden,60
+nueces:14,GRN,Howie Hawkins,0
+nueces:14,LIB,Jo Jorgensen,1
+nueces:14,REP,Donald J Trump,173
+nueces:15,,Write-in,0
+nueces:15,DEM,Joseph R Biden,221
+nueces:15,GRN,Howie Hawkins,5
+nueces:15,LIB,Jo Jorgensen,4
+nueces:15,REP,Donald J Trump,279
+nueces:16,,Write-in,0
+nueces:16,DEM,Joseph R Biden,195
+nueces:16,GRN,Howie Hawkins,0
+nueces:16,LIB,Jo Jorgensen,3
+nueces:16,REP,Donald J Trump,372
+nueces:19,,Write-in,3
+nueces:19,DEM,Joseph R Biden,692
+nueces:19,GRN,Howie Hawkins,12
+nueces:19,LIB,Jo Jorgensen,31
+nueces:19,REP,Donald J Trump,1649
+nueces:22,,Write-in,0
+nueces:22,DEM,Joseph R Biden,111
+nueces:22,GRN,Howie Hawkins,2
+nueces:22,LIB,Jo Jorgensen,3
+nueces:22,REP,Donald J Trump,137
+nueces:27,,Write-in,0
+nueces:27,DEM,Joseph R Biden,171
+nueces:27,GRN,Howie Hawkins,0
+nueces:27,LIB,Jo Jorgensen,4
+nueces:27,REP,Donald J Trump,190
+nueces:36,,Write-in,0
+nueces:36,DEM,Joseph R Biden,275
+nueces:36,GRN,Howie Hawkins,2
+nueces:36,LIB,Jo Jorgensen,2
+nueces:36,REP,Donald J Trump,181
+nueces:40,,Write-in,6
+nueces:40,DEM,Joseph R Biden,827
+nueces:40,GRN,Howie Hawkins,3
+nueces:40,LIB,Jo Jorgensen,39
+nueces:40,REP,Donald J Trump,2252
+nueces:6,,Write-in,1
+nueces:6,DEM,Joseph R Biden,675
+nueces:6,GRN,Howie Hawkins,6
+nueces:6,LIB,Jo Jorgensen,35
+nueces:6,REP,Donald J Trump,1463
+nueces:81,,Write-in,2
+nueces:81,DEM,Joseph R Biden,830
+nueces:81,GRN,Howie Hawkins,3
+nueces:81,LIB,Jo Jorgensen,40
+nueces:81,REP,Donald J Trump,2254
+nueces:93,,Write-in,5
+nueces:93,DEM,Joseph R Biden,899
+nueces:93,GRN,Howie Hawkins,6
+nueces:93,LIB,Jo Jorgensen,12
+nueces:93,REP,Donald J Trump,479
+willacy:1,,Write-in,0
+willacy:1,DEM,Joseph R Biden,440
+willacy:1,GRN,Howie Hawkins,4
+willacy:1,LIB,Jo Jorgensen,3
+willacy:1,REP,Donald J Trump,309
+willacy:10,,Write-in,0
+willacy:10,DEM,Joseph R Biden,43
+willacy:10,GRN,Howie Hawkins,1
+willacy:10,LIB,Jo Jorgensen,0
+willacy:10,REP,Donald J Trump,182
+willacy:11,,Write-in,0
+willacy:11,DEM,Joseph R Biden,166
+willacy:11,GRN,Howie Hawkins,0
+willacy:11,LIB,Jo Jorgensen,1
+willacy:11,REP,Donald J Trump,179
+willacy:12,,Write-in,0
+willacy:12,DEM,Joseph R Biden,26
+willacy:12,GRN,Howie Hawkins,0
+willacy:12,LIB,Jo Jorgensen,0
+willacy:12,REP,Donald J Trump,20
+willacy:2,,Write-in,0
+willacy:2,DEM,Joseph R Biden,481
+willacy:2,GRN,Howie Hawkins,2
+willacy:2,LIB,Jo Jorgensen,3
+willacy:2,REP,Donald J Trump,299
+willacy:3,,Write-in,0
+willacy:3,DEM,Joseph R Biden,269
+willacy:3,GRN,Howie Hawkins,2
+willacy:3,LIB,Jo Jorgensen,2
+willacy:3,REP,Donald J Trump,233
+willacy:4,,Write-in,0
+willacy:4,DEM,Joseph R Biden,492
+willacy:4,GRN,Howie Hawkins,3
+willacy:4,LIB,Jo Jorgensen,2
+willacy:4,REP,Donald J Trump,325
+willacy:5,,Write-in,0
+willacy:5,DEM,Joseph R Biden,245
+willacy:5,GRN,Howie Hawkins,0
+willacy:5,LIB,Jo Jorgensen,4
+willacy:5,REP,Donald J Trump,153
+willacy:6,,Write-in,0
+willacy:6,DEM,Joseph R Biden,121
+willacy:6,GRN,Howie Hawkins,0
+willacy:6,LIB,Jo Jorgensen,0
+willacy:6,REP,Donald J Trump,123
+willacy:7,,Write-in,0
+willacy:7,DEM,Joseph R Biden,334
+willacy:7,GRN,Howie Hawkins,1
+willacy:7,LIB,Jo Jorgensen,6
+willacy:7,REP,Donald J Trump,246
+willacy:8,,Write-in,0
+willacy:8,DEM,Joseph R Biden,219
+willacy:8,GRN,Howie Hawkins,2
+willacy:8,LIB,Jo Jorgensen,1
+willacy:8,REP,Donald J Trump,179
+willacy:9,,Write-in,0
+willacy:9,DEM,Joseph R Biden,272
+willacy:9,GRN,Howie Hawkins,1
+willacy:9,LIB,Jo Jorgensen,3
+willacy:9,REP,Donald J Trump,193

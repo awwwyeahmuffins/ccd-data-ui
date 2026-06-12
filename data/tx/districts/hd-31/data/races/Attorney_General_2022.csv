@@ -1,0 +1,99 @@
+precinct,party,candidate,votes
+brooks:1,LIB,Mark Ash,10
+brooks:1,DEM,Rochelle Mercedes Garza,296
+brooks:1,REP,Ken Paxton,112
+brooks:2,LIB,Mark Ash,17
+brooks:2,DEM,Rochelle Mercedes Garza,296
+brooks:2,REP,Ken Paxton,203
+brooks:3,LIB,Mark Ash,6
+brooks:3,DEM,Rochelle Mercedes Garza,235
+brooks:3,REP,Ken Paxton,86
+brooks:3S,LIB,Mark Ash,2
+brooks:3S,DEM,Rochelle Mercedes Garza,50
+brooks:3S,REP,Ken Paxton,57
+brooks:4,LIB,Mark Ash,5
+brooks:4,DEM,Rochelle Mercedes Garza,321
+brooks:4,REP,Ken Paxton,160
+kenedy:1,DEM,Rochelle Mercedes Garza,14
+kenedy:1,LIB,Mark Ash,0
+kenedy:1,REP,Ken Paxton,33
+kenedy:2,DEM,Rochelle Mercedes Garza,11
+kenedy:2,LIB,Mark Ash,1
+kenedy:2,REP,Ken Paxton,13
+kenedy:3,DEM,Rochelle Mercedes Garza,5
+kenedy:3,LIB,Mark Ash,0
+kenedy:3,REP,Ken Paxton,8
+kenedy:4,DEM,Rochelle Mercedes Garza,3
+kenedy:4,LIB,Mark Ash,1
+kenedy:4,REP,Ken Paxton,31
+kenedy:5,DEM,Rochelle Mercedes Garza,2
+kenedy:5,LIB,Mark Ash,1
+kenedy:5,REP,Ken Paxton,4
+kenedy:6,DEM,Rochelle Mercedes Garza,4
+kenedy:6,LIB,Mark Ash,0
+kenedy:6,REP,Ken Paxton,5
+wilson:101,,Over Votes,0
+wilson:101,,Under Votes,13
+wilson:101,DEM,Rochelle Mercedes Garza,667
+wilson:101,LIB,Mark Ash,34
+wilson:101,REP,Ken Paxton,1333
+wilson:102,,Over Votes,0
+wilson:102,,Under Votes,31
+wilson:102,DEM,Rochelle Mercedes Garza,470
+wilson:102,LIB,Mark Ash,23
+wilson:102,REP,Ken Paxton,404
+wilson:103,,Over Votes,0
+wilson:103,,Under Votes,25
+wilson:103,DEM,Rochelle Mercedes Garza,303
+wilson:103,LIB,Mark Ash,32
+wilson:103,REP,Ken Paxton,589
+wilson:104,,Over Votes,0
+wilson:104,,Under Votes,8
+wilson:104,DEM,Rochelle Mercedes Garza,173
+wilson:104,LIB,Mark Ash,13
+wilson:104,REP,Ken Paxton,519
+wilson:205,,Over Votes,1
+wilson:205,,Under Votes,25
+wilson:205,DEM,Rochelle Mercedes Garza,251
+wilson:205,LIB,Mark Ash,29
+wilson:205,REP,Ken Paxton,1420
+wilson:206,,Over Votes,2
+wilson:206,,Under Votes,21
+wilson:206,DEM,Rochelle Mercedes Garza,403
+wilson:206,LIB,Mark Ash,21
+wilson:206,REP,Ken Paxton,762
+wilson:207,,Over Votes,0
+wilson:207,,Under Votes,17
+wilson:207,DEM,Rochelle Mercedes Garza,445
+wilson:207,LIB,Mark Ash,43
+wilson:207,REP,Ken Paxton,1351
+wilson:311,,Over Votes,0
+wilson:311,,Under Votes,23
+wilson:311,DEM,Rochelle Mercedes Garza,209
+wilson:311,LIB,Mark Ash,33
+wilson:311,REP,Ken Paxton,1297
+wilson:312,,Over Votes,1
+wilson:312,,Under Votes,21
+wilson:312,DEM,Rochelle Mercedes Garza,214
+wilson:312,LIB,Mark Ash,40
+wilson:312,REP,Ken Paxton,1361
+wilson:313,,Over Votes,0
+wilson:313,,Under Votes,22
+wilson:313,DEM,Rochelle Mercedes Garza,308
+wilson:313,LIB,Mark Ash,38
+wilson:313,REP,Ken Paxton,1673
+wilson:414,,Over Votes,0
+wilson:414,,Under Votes,16
+wilson:414,DEM,Rochelle Mercedes Garza,221
+wilson:414,LIB,Mark Ash,30
+wilson:414,REP,Ken Paxton,1295
+wilson:415,,Over Votes,0
+wilson:415,,Under Votes,16
+wilson:415,DEM,Rochelle Mercedes Garza,431
+wilson:415,LIB,Mark Ash,48
+wilson:415,REP,Ken Paxton,1643
+wilson:416,,Over Votes,0
+wilson:416,,Under Votes,4
+wilson:416,DEM,Rochelle Mercedes Garza,239
+wilson:416,LIB,Mark Ash,25
+wilson:416,REP,Ken Paxton,985

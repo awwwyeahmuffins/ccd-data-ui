@@ -1,0 +1,16 @@
+precinct,party,candidate,votes
+brooks:1,LIB,Shanna Steele,15
+brooks:1,DEM,Mike Collier,295
+brooks:1,REP,Dan Patrick,113
+brooks:2,LIB,Shanna Steele,20
+brooks:2,DEM,Mike Collier,283
+brooks:2,REP,Dan Patrick,215
+brooks:3,LIB,Shanna Steele,9
+brooks:3,DEM,Mike Collier,216
+brooks:3,REP,Dan Patrick,96
+brooks:3S,LIB,Shanna Steele,3
+brooks:3S,DEM,Mike Collier,51
+brooks:3S,REP,Dan Patrick,58
+brooks:4,LIB,Shanna Steele,7
+brooks:4,DEM,Mike Collier,305
+brooks:4,REP,Dan Patrick,174

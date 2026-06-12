@@ -1,0 +1,19 @@
+precinct,party,candidate,votes
+real:2,,Brandon Birmingham,83
+real:2,,David Newell,508
+real:3,,Brandon Birmingham,69
+real:3,,David Newell,252
+real:4,,Brandon Birmingham,22
+real:4,,David Newell,219
+real:6,,Brandon Birmingham,40
+real:6,,David Newell,201
+travis:303,DEM,Brandon Birmingham,1478
+travis:303,REP,David Newell,1116
+travis:314,DEM,Brandon Birmingham,2678
+travis:314,REP,David Newell,2800
+travis:354,DEM,Brandon Birmingham,2306
+travis:354,REP,David Newell,1510
+travis:361,DEM,Brandon Birmingham,630
+travis:361,REP,David Newell,497
+travis:365,DEM,Brandon Birmingham,1279
+travis:365,REP,David Newell,950

@@ -1,0 +1,25 @@
+precinct,party,candidate,votes
+deaf-smith:1,,Overvotes:,2
+deaf-smith:1,,Undervotes:,20
+deaf-smith:1,DEM,Mary MJ Hegar,233
+deaf-smith:1,GRN,David B. Collins,6
+deaf-smith:1,LIB,Kerry Douglas McKennon,16
+deaf-smith:1,REP,John Cornyn,559
+deaf-smith:2,,Overvotes:,2
+deaf-smith:2,,Undervotes:,23
+deaf-smith:2,DEM,Mary MJ Hegar,288
+deaf-smith:2,GRN,David B. Collins,8
+deaf-smith:2,LIB,Kerry Douglas McKennon,17
+deaf-smith:2,REP,John Cornyn,553
+deaf-smith:3,,Overvotes:,0
+deaf-smith:3,,Undervotes:,27
+deaf-smith:3,DEM,Mary MJ Hegar,330
+deaf-smith:3,GRN,David B. Collins,11
+deaf-smith:3,LIB,Kerry Douglas McKennon,22
+deaf-smith:3,REP,John Cornyn,1495
+deaf-smith:4,,Overvotes:,0
+deaf-smith:4,,Undervotes:,34
+deaf-smith:4,DEM,Mary MJ Hegar,300
+deaf-smith:4,GRN,David B. Collins,11
+deaf-smith:4,LIB,Kerry Douglas McKennon,18
+deaf-smith:4,REP,John Cornyn,666

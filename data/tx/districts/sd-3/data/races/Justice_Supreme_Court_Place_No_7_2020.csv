@@ -1,0 +1,426 @@
+precinct,party,candidate,votes
+hardin:1,DEM,Staci Williams,272
+hardin:1,LIB,William Bryan Strange III,25
+hardin:1,REP,Jeff Boyd,754
+hardin:10,DEM,Staci Williams,578
+hardin:10,LIB,William Bryan Strange III,16
+hardin:10,REP,Jeff Boyd,573
+hardin:11,DEM,Staci Williams,80
+hardin:11,LIB,William Bryan Strange III,13
+hardin:11,REP,Jeff Boyd,631
+hardin:12,DEM,Staci Williams,95
+hardin:12,LIB,William Bryan Strange III,8
+hardin:12,REP,Jeff Boyd,625
+hardin:13,DEM,Staci Williams,145
+hardin:13,LIB,William Bryan Strange III,41
+hardin:13,REP,Jeff Boyd,1589
+hardin:14,DEM,Staci Williams,93
+hardin:14,LIB,William Bryan Strange III,16
+hardin:14,REP,Jeff Boyd,917
+hardin:15,DEM,Staci Williams,147
+hardin:15,LIB,William Bryan Strange III,17
+hardin:15,REP,Jeff Boyd,1272
+hardin:16,DEM,Staci Williams,147
+hardin:16,LIB,William Bryan Strange III,22
+hardin:16,REP,Jeff Boyd,1461
+hardin:17,DEM,Staci Williams,64
+hardin:17,LIB,William Bryan Strange III,13
+hardin:17,REP,Jeff Boyd,812
+hardin:18,DEM,Staci Williams,458
+hardin:18,LIB,William Bryan Strange III,73
+hardin:18,REP,Jeff Boyd,3869
+hardin:19,DEM,Staci Williams,71
+hardin:19,LIB,William Bryan Strange III,16
+hardin:19,REP,Jeff Boyd,663
+hardin:2,DEM,Staci Williams,348
+hardin:2,LIB,William Bryan Strange III,56
+hardin:2,REP,Jeff Boyd,3126
+hardin:3,DEM,Staci Williams,23
+hardin:3,LIB,William Bryan Strange III,6
+hardin:3,REP,Jeff Boyd,433
+hardin:4,DEM,Staci Williams,49
+hardin:4,LIB,William Bryan Strange III,8
+hardin:4,REP,Jeff Boyd,566
+hardin:5,DEM,Staci Williams,24
+hardin:5,LIB,William Bryan Strange III,3
+hardin:5,REP,Jeff Boyd,426
+hardin:6,DEM,Staci Williams,311
+hardin:6,LIB,William Bryan Strange III,67
+hardin:6,REP,Jeff Boyd,3137
+hardin:7,DEM,Staci Williams,28
+hardin:7,LIB,William Bryan Strange III,5
+hardin:7,REP,Jeff Boyd,526
+hardin:8,DEM,Staci Williams,63
+hardin:8,LIB,William Bryan Strange III,11
+hardin:8,REP,Jeff Boyd,588
+hardin:9,DEM,Staci Williams,332
+hardin:9,LIB,William Bryan Strange III,35
+hardin:9,REP,Jeff Boyd,1385
+jefferson:1,DEM,Staci Williams,839
+jefferson:1,REP,Jeff Boyd,100
+jefferson:10,DEM,Staci Williams,260
+jefferson:10,REP,Jeff Boyd,63
+jefferson:100,DEM,Staci Williams,907
+jefferson:100,REP,Jeff Boyd,1218
+jefferson:102,DEM,Staci Williams,23
+jefferson:102,REP,Jeff Boyd,92
+jefferson:103,DEM,Staci Williams,4
+jefferson:103,REP,Jeff Boyd,18
+jefferson:105,DEM,Staci Williams,110
+jefferson:105,REP,Jeff Boyd,26
+jefferson:106,DEM,Staci Williams,9
+jefferson:106,REP,Jeff Boyd,13
+jefferson:107,DEM,Staci Williams,0
+jefferson:107,REP,Jeff Boyd,1
+jefferson:109,DEM,Staci Williams,29
+jefferson:109,REP,Jeff Boyd,153
+jefferson:11,DEM,Staci Williams,166
+jefferson:11,REP,Jeff Boyd,36
+jefferson:12,DEM,Staci Williams,252
+jefferson:12,REP,Jeff Boyd,9
+jefferson:13,DEM,Staci Williams,186
+jefferson:13,REP,Jeff Boyd,10
+jefferson:14,DEM,Staci Williams,688
+jefferson:14,REP,Jeff Boyd,61
+jefferson:15,DEM,Staci Williams,569
+jefferson:15,REP,Jeff Boyd,97
+jefferson:16,DEM,Staci Williams,189
+jefferson:16,REP,Jeff Boyd,37
+jefferson:17,DEM,Staci Williams,1022
+jefferson:17,REP,Jeff Boyd,705
+jefferson:18,DEM,Staci Williams,818
+jefferson:18,REP,Jeff Boyd,25
+jefferson:19,DEM,Staci Williams,717
+jefferson:19,REP,Jeff Boyd,75
+jefferson:2,DEM,Staci Williams,462
+jefferson:2,REP,Jeff Boyd,105
+jefferson:20,DEM,Staci Williams,541
+jefferson:20,REP,Jeff Boyd,56
+jefferson:21,DEM,Staci Williams,61
+jefferson:21,REP,Jeff Boyd,101
+jefferson:22,DEM,Staci Williams,1682
+jefferson:22,REP,Jeff Boyd,1065
+jefferson:23,DEM,Staci Williams,1079
+jefferson:23,REP,Jeff Boyd,363
+jefferson:27,DEM,Staci Williams,476
+jefferson:27,REP,Jeff Boyd,382
+jefferson:3,DEM,Staci Williams,976
+jefferson:3,REP,Jeff Boyd,57
+jefferson:35,DEM,Staci Williams,111
+jefferson:35,REP,Jeff Boyd,551
+jefferson:36,DEM,Staci Williams,216
+jefferson:36,REP,Jeff Boyd,829
+jefferson:37,DEM,Staci Williams,344
+jefferson:37,REP,Jeff Boyd,1319
+jefferson:38,DEM,Staci Williams,213
+jefferson:38,REP,Jeff Boyd,1274
+jefferson:39,DEM,Staci Williams,1035
+jefferson:39,REP,Jeff Boyd,45
+jefferson:4,DEM,Staci Williams,409
+jefferson:4,REP,Jeff Boyd,659
+jefferson:40,DEM,Staci Williams,335
+jefferson:40,REP,Jeff Boyd,1669
+jefferson:41,DEM,Staci Williams,25
+jefferson:41,REP,Jeff Boyd,80
+jefferson:42,DEM,Staci Williams,329
+jefferson:42,REP,Jeff Boyd,1305
+jefferson:43,DEM,Staci Williams,327
+jefferson:43,REP,Jeff Boyd,1202
+jefferson:5,DEM,Staci Williams,536
+jefferson:5,REP,Jeff Boyd,457
+jefferson:56,DEM,Staci Williams,434
+jefferson:56,REP,Jeff Boyd,1848
+jefferson:6,DEM,Staci Williams,481
+jefferson:6,REP,Jeff Boyd,218
+jefferson:60,DEM,Staci Williams,439
+jefferson:60,REP,Jeff Boyd,1612
+jefferson:61,DEM,Staci Williams,401
+jefferson:61,REP,Jeff Boyd,615
+jefferson:62,DEM,Staci Williams,647
+jefferson:62,REP,Jeff Boyd,1206
+jefferson:63,DEM,Staci Williams,712
+jefferson:63,REP,Jeff Boyd,32
+jefferson:64,DEM,Staci Williams,376
+jefferson:64,REP,Jeff Boyd,100
+jefferson:65,DEM,Staci Williams,380
+jefferson:65,REP,Jeff Boyd,954
+jefferson:67,DEM,Staci Williams,1115
+jefferson:67,REP,Jeff Boyd,139
+jefferson:68,DEM,Staci Williams,738
+jefferson:68,REP,Jeff Boyd,844
+jefferson:69,DEM,Staci Williams,506
+jefferson:69,REP,Jeff Boyd,1601
+jefferson:7,DEM,Staci Williams,519
+jefferson:7,REP,Jeff Boyd,331
+jefferson:70,DEM,Staci Williams,828
+jefferson:70,REP,Jeff Boyd,517
+jefferson:71,DEM,Staci Williams,9
+jefferson:71,REP,Jeff Boyd,55
+jefferson:72,DEM,Staci Williams,957
+jefferson:72,REP,Jeff Boyd,639
+jefferson:73,DEM,Staci Williams,577
+jefferson:73,REP,Jeff Boyd,1137
+jefferson:74,DEM,Staci Williams,282
+jefferson:74,REP,Jeff Boyd,1636
+jefferson:75,DEM,Staci Williams,353
+jefferson:75,REP,Jeff Boyd,62
+jefferson:76,DEM,Staci Williams,357
+jefferson:76,REP,Jeff Boyd,84
+jefferson:77,DEM,Staci Williams,672
+jefferson:77,REP,Jeff Boyd,51
+jefferson:78,DEM,Staci Williams,753
+jefferson:78,REP,Jeff Boyd,415
+jefferson:79,DEM,Staci Williams,606
+jefferson:79,REP,Jeff Boyd,848
+jefferson:8,DEM,Staci Williams,333
+jefferson:8,REP,Jeff Boyd,32
+jefferson:82,DEM,Staci Williams,891
+jefferson:82,REP,Jeff Boyd,523
+jefferson:83,DEM,Staci Williams,142
+jefferson:83,REP,Jeff Boyd,678
+jefferson:84,DEM,Staci Williams,633
+jefferson:84,REP,Jeff Boyd,33
+jefferson:85,DEM,Staci Williams,714
+jefferson:85,REP,Jeff Boyd,107
+jefferson:86,DEM,Staci Williams,403
+jefferson:86,REP,Jeff Boyd,382
+jefferson:87,DEM,Staci Williams,567
+jefferson:87,REP,Jeff Boyd,87
+jefferson:88,DEM,Staci Williams,496
+jefferson:88,REP,Jeff Boyd,224
+jefferson:89,DEM,Staci Williams,167
+jefferson:89,REP,Jeff Boyd,68
+jefferson:9,DEM,Staci Williams,418
+jefferson:9,REP,Jeff Boyd,2245
+jefferson:94,DEM,Staci Williams,491
+jefferson:94,REP,Jeff Boyd,1005
+jefferson:95,DEM,Staci Williams,140
+jefferson:95,REP,Jeff Boyd,237
+jefferson:98,DEM,Staci Williams,125
+jefferson:98,REP,Jeff Boyd,257
+jefferson:99,DEM,Staci Williams,293
+jefferson:99,REP,Jeff Boyd,101
+liberty:1,DEM,Staci Williams,57
+liberty:1,LIB,William Bryan Strange III,8
+liberty:1,REP,Jeff Boyd,426
+liberty:10,DEM,Staci Williams,431
+liberty:10,LIB,William Bryan Strange III,34
+liberty:10,REP,Jeff Boyd,1527
+liberty:11,DEM,Staci Williams,222
+liberty:11,LIB,William Bryan Strange III,4
+liberty:11,REP,Jeff Boyd,296
+liberty:12,DEM,Staci Williams,227
+liberty:12,LIB,William Bryan Strange III,25
+liberty:12,REP,Jeff Boyd,644
+liberty:13,DEM,Staci Williams,28
+liberty:13,LIB,William Bryan Strange III,5
+liberty:13,REP,Jeff Boyd,359
+liberty:14,DEM,Staci Williams,58
+liberty:14,LIB,William Bryan Strange III,7
+liberty:14,REP,Jeff Boyd,267
+liberty:15,DEM,Staci Williams,64
+liberty:15,LIB,William Bryan Strange III,6
+liberty:15,REP,Jeff Boyd,224
+liberty:16,DEM,Staci Williams,29
+liberty:16,LIB,William Bryan Strange III,6
+liberty:16,REP,Jeff Boyd,257
+liberty:17,DEM,Staci Williams,23
+liberty:17,LIB,William Bryan Strange III,6
+liberty:17,REP,Jeff Boyd,359
+liberty:18,DEM,Staci Williams,490
+liberty:18,LIB,William Bryan Strange III,8
+liberty:18,REP,Jeff Boyd,244
+liberty:19,DEM,Staci Williams,291
+liberty:19,LIB,William Bryan Strange III,25
+liberty:19,REP,Jeff Boyd,757
+liberty:2,DEM,Staci Williams,80
+liberty:2,LIB,William Bryan Strange III,5
+liberty:2,REP,Jeff Boyd,724
+liberty:20,DEM,Staci Williams,367
+liberty:20,LIB,William Bryan Strange III,6
+liberty:20,REP,Jeff Boyd,37
+liberty:21,DEM,Staci Williams,275
+liberty:21,LIB,William Bryan Strange III,51
+liberty:21,REP,Jeff Boyd,2061
+liberty:22,DEM,Staci Williams,564
+liberty:22,LIB,William Bryan Strange III,37
+liberty:22,REP,Jeff Boyd,1724
+liberty:23,DEM,Staci Williams,438
+liberty:23,LIB,William Bryan Strange III,33
+liberty:23,REP,Jeff Boyd,965
+liberty:24,DEM,Staci Williams,61
+liberty:24,LIB,William Bryan Strange III,11
+liberty:24,REP,Jeff Boyd,469
+liberty:25,DEM,Staci Williams,62
+liberty:25,LIB,William Bryan Strange III,14
+liberty:25,REP,Jeff Boyd,576
+liberty:26,DEM,Staci Williams,260
+liberty:26,LIB,William Bryan Strange III,26
+liberty:26,REP,Jeff Boyd,1211
+liberty:27,DEM,Staci Williams,35
+liberty:27,LIB,William Bryan Strange III,5
+liberty:27,REP,Jeff Boyd,186
+liberty:28,DEM,Staci Williams,24
+liberty:28,LIB,William Bryan Strange III,5
+liberty:28,REP,Jeff Boyd,487
+liberty:29,DEM,Staci Williams,86
+liberty:29,LIB,William Bryan Strange III,9
+liberty:29,REP,Jeff Boyd,785
+liberty:3,DEM,Staci Williams,142
+liberty:3,LIB,William Bryan Strange III,28
+liberty:3,REP,Jeff Boyd,1361
+liberty:30,DEM,Staci Williams,296
+liberty:30,LIB,William Bryan Strange III,20
+liberty:30,REP,Jeff Boyd,862
+liberty:4,DEM,Staci Williams,61
+liberty:4,LIB,William Bryan Strange III,6
+liberty:4,REP,Jeff Boyd,315
+liberty:5,DEM,Staci Williams,253
+liberty:5,LIB,William Bryan Strange III,38
+liberty:5,REP,Jeff Boyd,1160
+liberty:6,DEM,Staci Williams,52
+liberty:6,LIB,William Bryan Strange III,8
+liberty:6,REP,Jeff Boyd,570
+liberty:7,DEM,Staci Williams,340
+liberty:7,LIB,William Bryan Strange III,26
+liberty:7,REP,Jeff Boyd,731
+liberty:8,DEM,Staci Williams,140
+liberty:8,LIB,William Bryan Strange III,28
+liberty:8,REP,Jeff Boyd,1313
+liberty:9,DEM,Staci Williams,158
+liberty:9,LIB,William Bryan Strange III,30
+liberty:9,REP,Jeff Boyd,1551
+newton:1,DEM,Staci Williams,86
+newton:1,REP,Jeff Boyd,541
+newton:10,DEM,Staci Williams,28
+newton:10,REP,Jeff Boyd,234
+newton:11,DEM,Staci Williams,39
+newton:11,REP,Jeff Boyd,351
+newton:12,DEM,Staci Williams,20
+newton:12,REP,Jeff Boyd,120
+newton:13,DEM,Staci Williams,56
+newton:13,REP,Jeff Boyd,511
+newton:14,DEM,Staci Williams,96
+newton:14,REP,Jeff Boyd,94
+newton:15,DEM,Staci Williams,50
+newton:15,REP,Jeff Boyd,241
+newton:16,DEM,Staci Williams,33
+newton:16,REP,Jeff Boyd,188
+newton:17,DEM,Staci Williams,37
+newton:17,REP,Jeff Boyd,12
+newton:18,DEM,Staci Williams,6
+newton:18,REP,Jeff Boyd,172
+newton:19,DEM,Staci Williams,9
+newton:19,REP,Jeff Boyd,156
+newton:2,DEM,Staci Williams,42
+newton:2,REP,Jeff Boyd,180
+newton:20,DEM,Staci Williams,95
+newton:20,REP,Jeff Boyd,28
+newton:21,DEM,Staci Williams,21
+newton:21,REP,Jeff Boyd,187
+newton:22,DEM,Staci Williams,135
+newton:22,REP,Jeff Boyd,119
+newton:3,DEM,Staci Williams,29
+newton:3,REP,Jeff Boyd,383
+newton:4,DEM,Staci Williams,25
+newton:4,REP,Jeff Boyd,106
+newton:5,DEM,Staci Williams,23
+newton:5,REP,Jeff Boyd,320
+newton:6,DEM,Staci Williams,178
+newton:6,REP,Jeff Boyd,290
+newton:7,DEM,Staci Williams,29
+newton:7,REP,Jeff Boyd,103
+newton:8,DEM,Staci Williams,67
+newton:8,REP,Jeff Boyd,208
+newton:9,DEM,Staci Williams,46
+newton:9,REP,Jeff Boyd,155
+san-augustine:1,DEM,Staci Williams,222
+san-augustine:1,REP,Jeff Boyd,598
+san-augustine:10,DEM,Staci Williams,14
+san-augustine:10,REP,Jeff Boyd,287
+san-augustine:11,DEM,Staci Williams,147
+san-augustine:11,REP,Jeff Boyd,55
+san-augustine:2,DEM,Staci Williams,98
+san-augustine:2,REP,Jeff Boyd,140
+san-augustine:3,DEM,Staci Williams,35
+san-augustine:3,REP,Jeff Boyd,130
+san-augustine:4,DEM,Staci Williams,73
+san-augustine:4,REP,Jeff Boyd,199
+san-augustine:5,DEM,Staci Williams,37
+san-augustine:5,REP,Jeff Boyd,225
+san-augustine:6,DEM,Staci Williams,12
+san-augustine:6,REP,Jeff Boyd,195
+san-augustine:7,DEM,Staci Williams,25
+san-augustine:7,REP,Jeff Boyd,218
+san-augustine:8,DEM,Staci Williams,36
+san-augustine:8,REP,Jeff Boyd,432
+san-augustine:9,DEM,Staci Williams,66
+san-augustine:9,REP,Jeff Boyd,594
+shelby:1N,DEM,Staci Williams,143
+shelby:1N,REP,Jeff Boyd,746
+shelby:1S,DEM,Staci Williams,226
+shelby:1S,REP,Jeff Boyd,907
+shelby:1SE,DEM,Staci Williams,483
+shelby:1SE,REP,Jeff Boyd,349
+shelby:1SW,DEM,Staci Williams,119
+shelby:1SW,REP,Jeff Boyd,778
+shelby:1W,DEM,Staci Williams,50
+shelby:1W,REP,Jeff Boyd,238
+shelby:2,DEM,Staci Williams,50
+shelby:2,REP,Jeff Boyd,501
+shelby:3,DEM,Staci Williams,12
+shelby:3,REP,Jeff Boyd,212
+shelby:4,DEM,Staci Williams,101
+shelby:4,REP,Jeff Boyd,443
+shelby:5,DEM,Staci Williams,125
+shelby:5,REP,Jeff Boyd,1269
+shelby:6,DEM,Staci Williams,64
+shelby:6,REP,Jeff Boyd,345
+shelby:7,DEM,Staci Williams,145
+shelby:7,REP,Jeff Boyd,419
+shelby:8,DEM,Staci Williams,225
+shelby:8,REP,Jeff Boyd,484
+shelby:9N,DEM,Staci Williams,138
+shelby:9N,REP,Jeff Boyd,589
+shelby:9S,DEM,Staci Williams,91
+shelby:9S,REP,Jeff Boyd,534
+trinity:1,DEM,Staci Williams,79
+trinity:1,REP,Jeff Boyd,356
+trinity:10,DEM,Staci Williams,13
+trinity:10,REP,Jeff Boyd,208
+trinity:11,DEM,Staci Williams,196
+trinity:11,REP,Jeff Boyd,1051
+trinity:12,DEM,Staci Williams,19
+trinity:12,REP,Jeff Boyd,71
+trinity:14,DEM,Staci Williams,73
+trinity:14,REP,Jeff Boyd,326
+trinity:15,DEM,Staci Williams,9
+trinity:15,REP,Jeff Boyd,72
+trinity:16,DEM,Staci Williams,82
+trinity:16,REP,Jeff Boyd,238
+trinity:17,DEM,Staci Williams,265
+trinity:17,REP,Jeff Boyd,87
+trinity:18,DEM,Staci Williams,48
+trinity:18,REP,Jeff Boyd,17
+trinity:19,DEM,Staci Williams,166
+trinity:19,REP,Jeff Boyd,704
+trinity:2,DEM,Staci Williams,56
+trinity:2,REP,Jeff Boyd,477
+trinity:20,DEM,Staci Williams,14
+trinity:20,REP,Jeff Boyd,39
+trinity:21,DEM,Staci Williams,40
+trinity:21,REP,Jeff Boyd,216
+trinity:3,DEM,Staci Williams,39
+trinity:3,REP,Jeff Boyd,266
+trinity:4,DEM,Staci Williams,20
+trinity:4,REP,Jeff Boyd,187
+trinity:5,DEM,Staci Williams,35
+trinity:5,REP,Jeff Boyd,113
+trinity:6,DEM,Staci Williams,10
+trinity:6,REP,Jeff Boyd,139
+trinity:7,DEM,Staci Williams,14
+trinity:7,REP,Jeff Boyd,141
+trinity:8,DEM,Staci Williams,14
+trinity:8,REP,Jeff Boyd,288
+trinity:9,DEM,Staci Williams,42
+trinity:9,REP,Jeff Boyd,373

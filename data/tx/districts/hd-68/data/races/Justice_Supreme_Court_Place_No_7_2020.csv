@@ -1,0 +1,165 @@
+precinct,party,candidate,votes
+brown:101,,Jeff Boyd,1440
+brown:101,,Staci Williams,238
+brown:101,,William Bryan Strange III,23
+brown:105,,Jeff Boyd,977
+brown:105,,Staci Williams,162
+brown:105,,William Bryan Strange III,14
+brown:109,,Jeff Boyd,209
+brown:109,,Staci Williams,13
+brown:109,,William Bryan Strange III,2
+brown:113,,Jeff Boyd,1063
+brown:113,,Staci Williams,190
+brown:113,,William Bryan Strange III,17
+brown:202,,Jeff Boyd,594
+brown:202,,Staci Williams,133
+brown:202,,William Bryan Strange III,11
+brown:204,,Jeff Boyd,527
+brown:204,,Staci Williams,184
+brown:204,,William Bryan Strange III,28
+brown:212,,Jeff Boyd,553
+brown:212,,Staci Williams,49
+brown:212,,William Bryan Strange III,2
+brown:214,,Jeff Boyd,486
+brown:214,,Staci Williams,49
+brown:214,,William Bryan Strange III,7
+brown:215,,Jeff Boyd,187
+brown:215,,Staci Williams,12
+brown:215,,William Bryan Strange III,2
+brown:303,,Jeff Boyd,616
+brown:303,,Staci Williams,130
+brown:303,,William Bryan Strange III,23
+brown:306,,Jeff Boyd,1173
+brown:306,,Staci Williams,127
+brown:306,,William Bryan Strange III,27
+brown:307,,Jeff Boyd,460
+brown:307,,Staci Williams,52
+brown:307,,William Bryan Strange III,10
+brown:308,,Jeff Boyd,421
+brown:308,,Staci Williams,31
+brown:308,,William Bryan Strange III,6
+brown:316,,Jeff Boyd,181
+brown:316,,Staci Williams,16
+brown:316,,William Bryan Strange III,3
+brown:318,,Jeff Boyd,1058
+brown:318,,Staci Williams,134
+brown:318,,William Bryan Strange III,20
+brown:410,,Jeff Boyd,1509
+brown:410,,Staci Williams,163
+brown:410,,William Bryan Strange III,19
+brown:411,,Jeff Boyd,554
+brown:411,,Staci Williams,121
+brown:411,,William Bryan Strange III,19
+brown:417,,Jeff Boyd,1278
+brown:417,,Staci Williams,143
+brown:417,,William Bryan Strange III,22
+comanche:1,DEM,Staci Williams,124
+comanche:1,LIB,William Bryan Strange Iii,18
+comanche:1,REP,Jeff Boyd,866
+comanche:10,DEM,Staci Williams,36
+comanche:10,LIB,William Bryan Strange Iii,6
+comanche:10,REP,Jeff Boyd,256
+comanche:11,DEM,Staci Williams,69
+comanche:11,LIB,William Bryan Strange Iii,8
+comanche:11,REP,Jeff Boyd,315
+comanche:12,DEM,Staci Williams,203
+comanche:12,LIB,William Bryan Strange Iii,15
+comanche:12,REP,Jeff Boyd,1086
+comanche:13,DEM,Staci Williams,25
+comanche:13,LIB,William Bryan Strange Iii,4
+comanche:13,REP,Jeff Boyd,150
+comanche:14,DEM,Staci Williams,15
+comanche:14,LIB,William Bryan Strange Iii,0
+comanche:14,REP,Jeff Boyd,76
+comanche:15,DEM,Staci Williams,24
+comanche:15,LIB,William Bryan Strange Iii,12
+comanche:15,REP,Jeff Boyd,305
+comanche:16,DEM,Staci Williams,3
+comanche:16,LIB,William Bryan Strange Iii,0
+comanche:16,REP,Jeff Boyd,75
+comanche:2,DEM,Staci Williams,140
+comanche:2,LIB,William Bryan Strange Iii,16
+comanche:2,REP,Jeff Boyd,909
+comanche:4,DEM,Staci Williams,11
+comanche:4,LIB,William Bryan Strange Iii,3
+comanche:4,REP,Jeff Boyd,53
+comanche:5,DEM,Staci Williams,65
+comanche:5,LIB,William Bryan Strange Iii,5
+comanche:5,REP,Jeff Boyd,407
+comanche:6,DEM,Staci Williams,30
+comanche:6,LIB,William Bryan Strange Iii,5
+comanche:6,REP,Jeff Boyd,225
+comanche:7,DEM,Staci Williams,29
+comanche:7,LIB,William Bryan Strange Iii,2
+comanche:7,REP,Jeff Boyd,177
+comanche:9,DEM,Staci Williams,12
+comanche:9,LIB,William Bryan Strange Iii,2
+comanche:9,REP,Jeff Boyd,98
+shackelford:101,,Over Votes,1
+shackelford:101,,Under Votes,12
+shackelford:101,DEM,Staci Williams,30
+shackelford:101,LIB,William Bryan Strange III,1
+shackelford:101,REP,Jeff Boyd,333
+shackelford:202,,Over Votes,0
+shackelford:202,,Under Votes,9
+shackelford:202,DEM,Staci Williams,22
+shackelford:202,LIB,William Bryan Strange III,2
+shackelford:202,REP,Jeff Boyd,424
+shackelford:303,,Over Votes,0
+shackelford:303,,Under Votes,6
+shackelford:303,DEM,Staci Williams,11
+shackelford:303,LIB,William Bryan Strange III,3
+shackelford:303,REP,Jeff Boyd,178
+shackelford:307,,Over Votes,2
+shackelford:307,,Under Votes,6
+shackelford:307,DEM,Staci Williams,13
+shackelford:307,LIB,William Bryan Strange III,0
+shackelford:307,REP,Jeff Boyd,189
+shackelford:404,,Over Votes,0
+shackelford:404,,Under Votes,1
+shackelford:404,DEM,Staci Williams,0
+shackelford:404,LIB,William Bryan Strange III,0
+shackelford:404,REP,Jeff Boyd,27
+shackelford:405,,Over Votes,0
+shackelford:405,,Under Votes,2
+shackelford:405,DEM,Staci Williams,16
+shackelford:405,LIB,William Bryan Strange III,4
+shackelford:405,REP,Jeff Boyd,150
+shackelford:406,,Over Votes,0
+shackelford:406,,Under Votes,6
+shackelford:406,DEM,Staci Williams,21
+shackelford:406,LIB,William Bryan Strange III,1
+shackelford:406,REP,Jeff Boyd,165
+throckmorton:1,DEM,Staci Williams,8
+throckmorton:1,LIB,William Bryan Strange Iii,1
+throckmorton:1,REP,Jeff Boyd,220
+throckmorton:2,DEM,Staci Williams,16
+throckmorton:2,LIB,William Bryan Strange Iii,0
+throckmorton:2,REP,Jeff Boyd,187
+throckmorton:3003,DEM,Staci Williams,24
+throckmorton:3003,LIB,William Bryan Strange Iii,4
+throckmorton:3003,REP,Jeff Boyd,194
+throckmorton:4005,DEM,Staci Williams,14
+throckmorton:4005,LIB,William Bryan Strange Iii,0
+throckmorton:4005,REP,Jeff Boyd,44
+throckmorton:4006,DEM,Staci Williams,9
+throckmorton:4006,LIB,William Bryan Strange Iii,0
+throckmorton:4006,REP,Jeff Boyd,132
+young:10,DEM,Staci Williams,22
+young:10,REP,Jeff Boyd,275
+young:16,DEM,Staci Williams,5
+young:16,REP,Jeff Boyd,184
+young:20,DEM,Staci Williams,18
+young:20,REP,Jeff Boyd,156
+young:22,DEM,Staci Williams,219
+young:22,REP,Jeff Boyd,2072
+young:23,DEM,Staci Williams,191
+young:23,REP,Jeff Boyd,1182
+young:24,DEM,Staci Williams,188
+young:24,REP,Jeff Boyd,1027
+young:5,DEM,Staci Williams,255
+young:5,REP,Jeff Boyd,1780
+young:6,DEM,Staci Williams,16
+young:6,REP,Jeff Boyd,149
+young:7,DEM,Staci Williams,8
+young:7,REP,Jeff Boyd,127

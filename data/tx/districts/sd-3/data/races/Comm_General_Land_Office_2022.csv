@@ -1,0 +1,719 @@
+precinct,party,candidate,votes
+anderson:1,,Write-in,1
+anderson:1,DEM,Jay Kleberg,194
+anderson:1,GRN,"Alfred Molison, Jr.",8
+anderson:1,REP,Dawn Buckingham,608
+anderson:10,,Write-in,0
+anderson:10,DEM,Jay Kleberg,28
+anderson:10,GRN,"Alfred Molison, Jr.",1
+anderson:10,REP,Dawn Buckingham,245
+anderson:11,,Write-in,1
+anderson:11,DEM,Jay Kleberg,123
+anderson:11,GRN,"Alfred Molison, Jr.",2
+anderson:11,REP,Dawn Buckingham,533
+anderson:13,,Write-in,0
+anderson:13,DEM,Jay Kleberg,183
+anderson:13,GRN,"Alfred Molison, Jr.",9
+anderson:13,REP,Dawn Buckingham,568
+anderson:15,,Write-in,0
+anderson:15,DEM,Jay Kleberg,60
+anderson:15,GRN,"Alfred Molison, Jr.",1
+anderson:15,REP,Dawn Buckingham,460
+anderson:16,,Write-in,0
+anderson:16,DEM,Jay Kleberg,84
+anderson:16,GRN,"Alfred Molison, Jr.",5
+anderson:16,REP,Dawn Buckingham,426
+anderson:17,,Write-in,0
+anderson:17,DEM,Jay Kleberg,73
+anderson:17,GRN,"Alfred Molison, Jr.",3
+anderson:17,REP,Dawn Buckingham,351
+anderson:18,,Write-in,0
+anderson:18,DEM,Jay Kleberg,145
+anderson:18,GRN,"Alfred Molison, Jr.",3
+anderson:18,REP,Dawn Buckingham,923
+anderson:19,,Write-in,0
+anderson:19,DEM,Jay Kleberg,212
+anderson:19,GRN,"Alfred Molison, Jr.",14
+anderson:19,REP,Dawn Buckingham,763
+anderson:2,,Write-in,0
+anderson:2,DEM,Jay Kleberg,133
+anderson:2,GRN,"Alfred Molison, Jr.",9
+anderson:2,REP,Dawn Buckingham,1161
+anderson:20,,Write-in,0
+anderson:20,DEM,Jay Kleberg,109
+anderson:20,GRN,"Alfred Molison, Jr.",9
+anderson:20,REP,Dawn Buckingham,435
+anderson:21,,Write-in,1
+anderson:21,DEM,Jay Kleberg,100
+anderson:21,GRN,"Alfred Molison, Jr.",10
+anderson:21,REP,Dawn Buckingham,820
+anderson:22,,Write-in,0
+anderson:22,DEM,Jay Kleberg,84
+anderson:22,GRN,"Alfred Molison, Jr.",2
+anderson:22,REP,Dawn Buckingham,563
+anderson:23,,Write-in,0
+anderson:23,DEM,Jay Kleberg,68
+anderson:23,GRN,"Alfred Molison, Jr.",5
+anderson:23,REP,Dawn Buckingham,717
+anderson:24,,Write-in,0
+anderson:24,DEM,Jay Kleberg,32
+anderson:24,GRN,"Alfred Molison, Jr.",4
+anderson:24,REP,Dawn Buckingham,485
+anderson:3,,Write-in,0
+anderson:3,DEM,Jay Kleberg,71
+anderson:3,GRN,"Alfred Molison, Jr.",2
+anderson:3,REP,Dawn Buckingham,571
+anderson:4,,Write-in,0
+anderson:4,DEM,Jay Kleberg,73
+anderson:4,GRN,"Alfred Molison, Jr.",5
+anderson:4,REP,Dawn Buckingham,793
+anderson:5,,Write-in,0
+anderson:5,DEM,Jay Kleberg,14
+anderson:5,GRN,"Alfred Molison, Jr.",2
+anderson:5,REP,Dawn Buckingham,154
+anderson:6,,Write-in,2
+anderson:6,DEM,Jay Kleberg,259
+anderson:6,GRN,"Alfred Molison, Jr.",8
+anderson:6,REP,Dawn Buckingham,286
+anderson:7,,Write-in,0
+anderson:7,DEM,Jay Kleberg,284
+anderson:7,GRN,"Alfred Molison, Jr.",5
+anderson:7,REP,Dawn Buckingham,86
+anderson:8,,Write-in,2
+anderson:8,DEM,Jay Kleberg,70
+anderson:8,GRN,"Alfred Molison, Jr.",2
+anderson:8,REP,Dawn Buckingham,62
+anderson:9,,Write-in,0
+anderson:9,DEM,Jay Kleberg,106
+anderson:9,GRN,"Alfred Molison, Jr.",3
+anderson:9,REP,Dawn Buckingham,576
+angelina:1,,Over Votes,0
+angelina:1,,Under Votes,8
+angelina:1,,Write-in,0
+angelina:1,DEM,Jay Kleberg,70
+angelina:1,GRN,"Alfred Molison, Jr.",3
+angelina:1,REP,Dawn Buckingham,142
+angelina:10,,Over Votes,0
+angelina:10,,Under Votes,11
+angelina:10,,Write-in,0
+angelina:10,DEM,Jay Kleberg,226
+angelina:10,GRN,"Alfred Molison, Jr.",7
+angelina:10,REP,Dawn Buckingham,290
+angelina:11,,Over Votes,0
+angelina:11,,Under Votes,15
+angelina:11,,Write-in,0
+angelina:11,DEM,Jay Kleberg,97
+angelina:11,GRN,"Alfred Molison, Jr.",3
+angelina:11,REP,Dawn Buckingham,1118
+angelina:11B,,Over Votes,0
+angelina:11B,,Under Votes,8
+angelina:11B,,Write-in,0
+angelina:11B,DEM,Jay Kleberg,80
+angelina:11B,GRN,"Alfred Molison, Jr.",7
+angelina:11B,REP,Dawn Buckingham,438
+angelina:12,,Over Votes,0
+angelina:12,,Under Votes,9
+angelina:12,,Write-in,2
+angelina:12,DEM,Jay Kleberg,73
+angelina:12,GRN,"Alfred Molison, Jr.",5
+angelina:12,REP,Dawn Buckingham,365
+angelina:13,,Over Votes,0
+angelina:13,,Under Votes,4
+angelina:13,,Write-in,0
+angelina:13,DEM,Jay Kleberg,69
+angelina:13,GRN,"Alfred Molison, Jr.",1
+angelina:13,REP,Dawn Buckingham,159
+angelina:14,,Over Votes,0
+angelina:14,,Under Votes,29
+angelina:14,,Write-in,0
+angelina:14,DEM,Jay Kleberg,290
+angelina:14,GRN,"Alfred Molison, Jr.",9
+angelina:14,REP,Dawn Buckingham,644
+angelina:15,,Over Votes,0
+angelina:15,,Under Votes,5
+angelina:15,,Write-in,0
+angelina:15,DEM,Jay Kleberg,38
+angelina:15,GRN,"Alfred Molison, Jr.",3
+angelina:15,REP,Dawn Buckingham,311
+angelina:16,,Over Votes,0
+angelina:16,,Under Votes,27
+angelina:16,,Write-in,0
+angelina:16,DEM,Jay Kleberg,266
+angelina:16,GRN,"Alfred Molison, Jr.",4
+angelina:16,REP,Dawn Buckingham,412
+angelina:17,,Over Votes,0
+angelina:17,,Under Votes,14
+angelina:17,,Write-in,0
+angelina:17,DEM,Jay Kleberg,81
+angelina:17,GRN,"Alfred Molison, Jr.",5
+angelina:17,REP,Dawn Buckingham,874
+angelina:17B,,Over Votes,0
+angelina:17B,,Under Votes,5
+angelina:17B,,Write-in,0
+angelina:17B,DEM,Jay Kleberg,7
+angelina:17B,GRN,"Alfred Molison, Jr.",0
+angelina:17B,REP,Dawn Buckingham,179
+angelina:18,,Over Votes,0
+angelina:18,,Under Votes,5
+angelina:18,,Write-in,0
+angelina:18,DEM,Jay Kleberg,88
+angelina:18,GRN,"Alfred Molison, Jr.",3
+angelina:18,REP,Dawn Buckingham,227
+angelina:19,,Over Votes,0
+angelina:19,,Under Votes,21
+angelina:19,,Write-in,1
+angelina:19,DEM,Jay Kleberg,245
+angelina:19,GRN,"Alfred Molison, Jr.",6
+angelina:19,REP,Dawn Buckingham,587
+angelina:2,,Over Votes,0
+angelina:2,,Under Votes,22
+angelina:2,,Write-in,0
+angelina:2,DEM,Jay Kleberg,517
+angelina:2,GRN,"Alfred Molison, Jr.",13
+angelina:2,REP,Dawn Buckingham,192
+angelina:20,,Over Votes,0
+angelina:20,,Under Votes,19
+angelina:20,,Write-in,0
+angelina:20,DEM,Jay Kleberg,588
+angelina:20,GRN,"Alfred Molison, Jr.",13
+angelina:20,REP,Dawn Buckingham,133
+angelina:21,,Over Votes,0
+angelina:21,,Under Votes,12
+angelina:21,,Write-in,0
+angelina:21,DEM,Jay Kleberg,123
+angelina:21,GRN,"Alfred Molison, Jr.",5
+angelina:21,REP,Dawn Buckingham,394
+angelina:22,,Over Votes,0
+angelina:22,,Under Votes,9
+angelina:22,,Write-in,0
+angelina:22,DEM,Jay Kleberg,71
+angelina:22,GRN,"Alfred Molison, Jr.",6
+angelina:22,REP,Dawn Buckingham,574
+angelina:23,,Over Votes,0
+angelina:23,,Under Votes,4
+angelina:23,,Write-in,0
+angelina:23,DEM,Jay Kleberg,50
+angelina:23,GRN,"Alfred Molison, Jr.",3
+angelina:23,REP,Dawn Buckingham,286
+angelina:24,,Over Votes,0
+angelina:24,,Under Votes,18
+angelina:24,,Write-in,1
+angelina:24,DEM,Jay Kleberg,185
+angelina:24,GRN,"Alfred Molison, Jr.",14
+angelina:24,REP,Dawn Buckingham,909
+angelina:25,,Over Votes,0
+angelina:25,,Under Votes,18
+angelina:25,,Write-in,0
+angelina:25,DEM,Jay Kleberg,156
+angelina:25,GRN,"Alfred Molison, Jr.",12
+angelina:25,REP,Dawn Buckingham,969
+angelina:26,,Over Votes,0
+angelina:26,,Under Votes,18
+angelina:26,,Write-in,1
+angelina:26,DEM,Jay Kleberg,122
+angelina:26,GRN,"Alfred Molison, Jr.",9
+angelina:26,REP,Dawn Buckingham,846
+angelina:27,,Over Votes,0
+angelina:27,,Under Votes,5
+angelina:27,,Write-in,0
+angelina:27,DEM,Jay Kleberg,16
+angelina:27,GRN,"Alfred Molison, Jr.",1
+angelina:27,REP,Dawn Buckingham,183
+angelina:28,,Over Votes,0
+angelina:28,,Under Votes,10
+angelina:28,,Write-in,0
+angelina:28,DEM,Jay Kleberg,105
+angelina:28,GRN,"Alfred Molison, Jr.",8
+angelina:28,REP,Dawn Buckingham,552
+angelina:29,,Over Votes,0
+angelina:29,,Under Votes,6
+angelina:29,,Write-in,0
+angelina:29,DEM,Jay Kleberg,95
+angelina:29,GRN,"Alfred Molison, Jr.",6
+angelina:29,REP,Dawn Buckingham,677
+angelina:3,,Over Votes,0
+angelina:3,,Under Votes,23
+angelina:3,,Write-in,0
+angelina:3,DEM,Jay Kleberg,122
+angelina:3,GRN,"Alfred Molison, Jr.",10
+angelina:3,REP,Dawn Buckingham,721
+angelina:30,,Over Votes,0
+angelina:30,,Under Votes,12
+angelina:30,,Write-in,0
+angelina:30,DEM,Jay Kleberg,51
+angelina:30,GRN,"Alfred Molison, Jr.",3
+angelina:30,REP,Dawn Buckingham,572
+angelina:31,,Over Votes,0
+angelina:31,,Under Votes,2
+angelina:31,,Write-in,0
+angelina:31,DEM,Jay Kleberg,25
+angelina:31,GRN,"Alfred Molison, Jr.",0
+angelina:31,REP,Dawn Buckingham,153
+angelina:32,,Over Votes,0
+angelina:32,,Under Votes,0
+angelina:32,,Write-in,0
+angelina:32,DEM,Jay Kleberg,4
+angelina:32,GRN,"Alfred Molison, Jr.",0
+angelina:32,REP,Dawn Buckingham,64
+angelina:33,,Over Votes,0
+angelina:33,,Under Votes,11
+angelina:33,,Write-in,1
+angelina:33,DEM,Jay Kleberg,51
+angelina:33,GRN,"Alfred Molison, Jr.",4
+angelina:33,REP,Dawn Buckingham,728
+angelina:34,,Over Votes,0
+angelina:34,,Under Votes,30
+angelina:34,,Write-in,0
+angelina:34,DEM,Jay Kleberg,310
+angelina:34,GRN,"Alfred Molison, Jr.",9
+angelina:34,REP,Dawn Buckingham,851
+angelina:35,,Over Votes,0
+angelina:35,,Under Votes,12
+angelina:35,,Write-in,0
+angelina:35,DEM,Jay Kleberg,212
+angelina:35,GRN,"Alfred Molison, Jr.",11
+angelina:35,REP,Dawn Buckingham,764
+angelina:37,,Over Votes,0
+angelina:37,,Under Votes,4
+angelina:37,,Write-in,0
+angelina:37,DEM,Jay Kleberg,41
+angelina:37,GRN,"Alfred Molison, Jr.",4
+angelina:37,REP,Dawn Buckingham,245
+angelina:38,,Over Votes,0
+angelina:38,,Under Votes,3
+angelina:38,,Write-in,0
+angelina:38,DEM,Jay Kleberg,19
+angelina:38,GRN,"Alfred Molison, Jr.",1
+angelina:38,REP,Dawn Buckingham,169
+angelina:39,,Over Votes,0
+angelina:39,,Under Votes,7
+angelina:39,,Write-in,0
+angelina:39,DEM,Jay Kleberg,60
+angelina:39,GRN,"Alfred Molison, Jr.",2
+angelina:39,REP,Dawn Buckingham,171
+angelina:4,,Over Votes,0
+angelina:4,,Under Votes,13
+angelina:4,,Write-in,0
+angelina:4,DEM,Jay Kleberg,212
+angelina:4,GRN,"Alfred Molison, Jr.",4
+angelina:4,REP,Dawn Buckingham,329
+angelina:40,,Over Votes,0
+angelina:40,,Under Votes,9
+angelina:40,,Write-in,1
+angelina:40,DEM,Jay Kleberg,113
+angelina:40,GRN,"Alfred Molison, Jr.",2
+angelina:40,REP,Dawn Buckingham,250
+angelina:5,,Over Votes,0
+angelina:5,,Under Votes,15
+angelina:5,,Write-in,2
+angelina:5,DEM,Jay Kleberg,230
+angelina:5,GRN,"Alfred Molison, Jr.",11
+angelina:5,REP,Dawn Buckingham,394
+angelina:6,,Over Votes,0
+angelina:6,,Under Votes,6
+angelina:6,,Write-in,0
+angelina:6,DEM,Jay Kleberg,41
+angelina:6,GRN,"Alfred Molison, Jr.",1
+angelina:6,REP,Dawn Buckingham,265
+angelina:7,,Over Votes,0
+angelina:7,,Under Votes,8
+angelina:7,,Write-in,0
+angelina:7,DEM,Jay Kleberg,78
+angelina:7,GRN,"Alfred Molison, Jr.",2
+angelina:7,REP,Dawn Buckingham,718
+angelina:8,,Over Votes,0
+angelina:8,,Under Votes,8
+angelina:8,,Write-in,0
+angelina:8,DEM,Jay Kleberg,68
+angelina:8,GRN,"Alfred Molison, Jr.",6
+angelina:8,REP,Dawn Buckingham,712
+angelina:9,,Over Votes,0
+angelina:9,,Under Votes,1
+angelina:9,,Write-in,0
+angelina:9,DEM,Jay Kleberg,42
+angelina:9,GRN,"Alfred Molison, Jr.",1
+angelina:9,REP,Dawn Buckingham,113
+henderson:1,,Over Votes,0
+henderson:1,,Under Votes,6
+henderson:1,,Write-in,0
+henderson:1,DEM,Jay Kleberg,62
+henderson:1,GRN,"Alfred Molison, Jr.",3
+henderson:1,REP,Dawn Buckingham,249
+henderson:1A,,Over Votes,0
+henderson:1A,,Under Votes,11
+henderson:1A,,Write-in,0
+henderson:1A,DEM,Jay Kleberg,104
+henderson:1A,GRN,"Alfred Molison, Jr.",5
+henderson:1A,REP,Dawn Buckingham,822
+henderson:1CR,,Over Votes,0
+henderson:1CR,,Under Votes,18
+henderson:1CR,,Write-in,1
+henderson:1CR,DEM,Jay Kleberg,124
+henderson:1CR,GRN,"Alfred Molison, Jr.",7
+henderson:1CR,REP,Dawn Buckingham,1014
+henderson:1M,,Over Votes,0
+henderson:1M,,Under Votes,36
+henderson:1M,,Write-in,1
+henderson:1M,DEM,Jay Kleberg,222
+henderson:1M,GRN,"Alfred Molison, Jr.",11
+henderson:1M,REP,Dawn Buckingham,809
+henderson:1MN,,Over Votes,0
+henderson:1MN,,Under Votes,8
+henderson:1MN,,Write-in,0
+henderson:1MN,DEM,Jay Kleberg,141
+henderson:1MN,GRN,"Alfred Molison, Jr.",2
+henderson:1MN,REP,Dawn Buckingham,569
+henderson:1T,,Over Votes,0
+henderson:1T,,Under Votes,23
+henderson:1T,,Write-in,0
+henderson:1T,DEM,Jay Kleberg,175
+henderson:1T,GRN,"Alfred Molison, Jr.",8
+henderson:1T,REP,Dawn Buckingham,974
+henderson:1TC,,Over Votes,0
+henderson:1TC,,Under Votes,30
+henderson:1TC,,Write-in,0
+henderson:1TC,DEM,Jay Kleberg,253
+henderson:1TC,GRN,"Alfred Molison, Jr.",22
+henderson:1TC,REP,Dawn Buckingham,1094
+henderson:2,,Over Votes,0
+henderson:2,,Under Votes,3
+henderson:2,,Write-in,0
+henderson:2,DEM,Jay Kleberg,32
+henderson:2,GRN,"Alfred Molison, Jr.",3
+henderson:2,REP,Dawn Buckingham,197
+henderson:2E,,Over Votes,0
+henderson:2E,,Under Votes,27
+henderson:2E,,Write-in,0
+henderson:2E,DEM,Jay Kleberg,173
+henderson:2E,GRN,"Alfred Molison, Jr.",3
+henderson:2E,REP,Dawn Buckingham,1003
+henderson:2GBN,,Over Votes,0
+henderson:2GBN,,Under Votes,27
+henderson:2GBN,,Write-in,0
+henderson:2GBN,DEM,Jay Kleberg,247
+henderson:2GBN,GRN,"Alfred Molison, Jr.",13
+henderson:2GBN,REP,Dawn Buckingham,956
+henderson:2GBS,,Over Votes,0
+henderson:2GBS,,Under Votes,22
+henderson:2GBS,,Write-in,0
+henderson:2GBS,DEM,Jay Kleberg,153
+henderson:2GBS,GRN,"Alfred Molison, Jr.",6
+henderson:2GBS,REP,Dawn Buckingham,814
+henderson:2M,,Over Votes,0
+henderson:2M,,Under Votes,9
+henderson:2M,,Write-in,0
+henderson:2M,DEM,Jay Kleberg,43
+henderson:2M,GRN,"Alfred Molison, Jr.",1
+henderson:2M,REP,Dawn Buckingham,235
+henderson:2PSN,,Over Votes,0
+henderson:2PSN,,Under Votes,17
+henderson:2PSN,,Write-in,0
+henderson:2PSN,DEM,Jay Kleberg,195
+henderson:2PSN,GRN,"Alfred Molison, Jr.",12
+henderson:2PSN,REP,Dawn Buckingham,859
+henderson:2PSS,,Over Votes,0
+henderson:2PSS,,Under Votes,27
+henderson:2PSS,,Write-in,0
+henderson:2PSS,DEM,Jay Kleberg,237
+henderson:2PSS,GRN,"Alfred Molison, Jr.",13
+henderson:2PSS,REP,Dawn Buckingham,1155
+henderson:3,,Over Votes,0
+henderson:3,,Under Votes,9
+henderson:3,,Write-in,0
+henderson:3,DEM,Jay Kleberg,241
+henderson:3,GRN,"Alfred Molison, Jr.",7
+henderson:3,REP,Dawn Buckingham,154
+henderson:3B,,Over Votes,0
+henderson:3B,,Under Votes,47
+henderson:3B,,Write-in,1
+henderson:3B,DEM,Jay Kleberg,148
+henderson:3B,GRN,"Alfred Molison, Jr.",13
+henderson:3B,REP,Dawn Buckingham,1434
+henderson:3C,,Over Votes,0
+henderson:3C,,Under Votes,43
+henderson:3C,,Write-in,0
+henderson:3C,DEM,Jay Kleberg,181
+henderson:3C,GRN,"Alfred Molison, Jr.",7
+henderson:3C,REP,Dawn Buckingham,939
+henderson:3CS,,Over Votes,0
+henderson:3CS,,Under Votes,31
+henderson:3CS,,Write-in,0
+henderson:3CS,DEM,Jay Kleberg,134
+henderson:3CS,GRN,"Alfred Molison, Jr.",3
+henderson:3CS,REP,Dawn Buckingham,967
+henderson:3M,,Over Votes,0
+henderson:3M,,Under Votes,23
+henderson:3M,,Write-in,0
+henderson:3M,DEM,Jay Kleberg,100
+henderson:3M,GRN,"Alfred Molison, Jr.",5
+henderson:3M,REP,Dawn Buckingham,721
+henderson:3N,,Over Votes,0
+henderson:3N,,Under Votes,11
+henderson:3N,,Write-in,0
+henderson:3N,DEM,Jay Kleberg,56
+henderson:3N,GRN,"Alfred Molison, Jr.",2
+henderson:3N,REP,Dawn Buckingham,597
+henderson:3NW,,Over Votes,0
+henderson:3NW,,Under Votes,9
+henderson:3NW,,Write-in,1
+henderson:3NW,DEM,Jay Kleberg,75
+henderson:3NW,GRN,"Alfred Molison, Jr.",2
+henderson:3NW,REP,Dawn Buckingham,332
+henderson:3WS,,Over Votes,0
+henderson:3WS,,Under Votes,17
+henderson:3WS,,Write-in,0
+henderson:3WS,DEM,Jay Kleberg,90
+henderson:3WS,GRN,"Alfred Molison, Jr.",9
+henderson:3WS,REP,Dawn Buckingham,579
+henderson:4,,Over Votes,0
+henderson:4,,Under Votes,43
+henderson:4,,Write-in,0
+henderson:4,DEM,Jay Kleberg,194
+henderson:4,GRN,"Alfred Molison, Jr.",8
+henderson:4,REP,Dawn Buckingham,719
+henderson:4A,,Over Votes,0
+henderson:4A,,Under Votes,4
+henderson:4A,,Write-in,0
+henderson:4A,DEM,Jay Kleberg,101
+henderson:4A,GRN,"Alfred Molison, Jr.",7
+henderson:4A,REP,Dawn Buckingham,230
+henderson:4B,,Over Votes,0
+henderson:4B,,Under Votes,27
+henderson:4B,,Write-in,0
+henderson:4B,DEM,Jay Kleberg,189
+henderson:4B,GRN,"Alfred Molison, Jr.",12
+henderson:4B,REP,Dawn Buckingham,598
+henderson:4LP,,Over Votes,0
+henderson:4LP,,Under Votes,16
+henderson:4LP,,Write-in,1
+henderson:4LP,DEM,Jay Kleberg,248
+henderson:4LP,GRN,"Alfred Molison, Jr.",6
+henderson:4LP,REP,Dawn Buckingham,1202
+henderson:4MS,,Over Votes,0
+henderson:4MS,,Under Votes,7
+henderson:4MS,,Write-in,0
+henderson:4MS,DEM,Jay Kleberg,204
+henderson:4MS,GRN,"Alfred Molison, Jr.",6
+henderson:4MS,REP,Dawn Buckingham,393
+henderson:4NLP,,Over Votes,0
+henderson:4NLP,,Under Votes,15
+henderson:4NLP,,Write-in,0
+henderson:4NLP,DEM,Jay Kleberg,73
+henderson:4NLP,GRN,"Alfred Molison, Jr.",4
+henderson:4NLP,REP,Dawn Buckingham,854
+henderson:4SE,,Over Votes,0
+henderson:4SE,,Under Votes,32
+henderson:4SE,,Write-in,0
+henderson:4SE,DEM,Jay Kleberg,267
+henderson:4SE,GRN,"Alfred Molison, Jr.",18
+henderson:4SE,REP,Dawn Buckingham,1762
+henderson:4W,,Over Votes,0
+henderson:4W,,Under Votes,7
+henderson:4W,,Write-in,0
+henderson:4W,DEM,Jay Kleberg,109
+henderson:4W,GRN,"Alfred Molison, Jr.",5
+henderson:4W,REP,Dawn Buckingham,489
+orange:1,,Over Votes,0
+orange:1,,Under Votes,3
+orange:1,,Write-in,0
+orange:1,DEM,Jay Kleberg,14
+orange:1,GRN,"Alfred Molison, Jr.",1
+orange:1,REP,Dawn Buckingham,119
+orange:10,,Over Votes,0
+orange:10,,Under Votes,9
+orange:10,,Write-in,0
+orange:10,DEM,Jay Kleberg,46
+orange:10,GRN,"Alfred Molison, Jr.",3
+orange:10,REP,Dawn Buckingham,325
+orange:11,,Over Votes,0
+orange:11,,Under Votes,5
+orange:11,,Write-in,0
+orange:11,DEM,Jay Kleberg,36
+orange:11,GRN,"Alfred Molison, Jr.",1
+orange:11,REP,Dawn Buckingham,146
+orange:12,,Over Votes,0
+orange:12,,Under Votes,11
+orange:12,,Write-in,0
+orange:12,DEM,Jay Kleberg,106
+orange:12,GRN,"Alfred Molison, Jr.",4
+orange:12,REP,Dawn Buckingham,385
+orange:13,,Over Votes,0
+orange:13,,Under Votes,6
+orange:13,,Write-in,0
+orange:13,DEM,Jay Kleberg,136
+orange:13,GRN,"Alfred Molison, Jr.",7
+orange:13,REP,Dawn Buckingham,320
+orange:14,,Over Votes,0
+orange:14,,Under Votes,9
+orange:14,,Write-in,0
+orange:14,DEM,Jay Kleberg,220
+orange:14,GRN,"Alfred Molison, Jr.",6
+orange:14,REP,Dawn Buckingham,510
+orange:15,,Over Votes,0
+orange:15,,Under Votes,12
+orange:15,,Write-in,0
+orange:15,DEM,Jay Kleberg,156
+orange:15,GRN,"Alfred Molison, Jr.",3
+orange:15,REP,Dawn Buckingham,708
+orange:16,,Over Votes,0
+orange:16,,Under Votes,15
+orange:16,,Write-in,0
+orange:16,DEM,Jay Kleberg,86
+orange:16,GRN,"Alfred Molison, Jr.",6
+orange:16,REP,Dawn Buckingham,1188
+orange:17,,Over Votes,0
+orange:17,,Under Votes,23
+orange:17,,Write-in,2
+orange:17,DEM,Jay Kleberg,64
+orange:17,GRN,"Alfred Molison, Jr.",11
+orange:17,REP,Dawn Buckingham,795
+orange:18,,Over Votes,0
+orange:18,,Under Votes,24
+orange:18,,Write-in,0
+orange:18,DEM,Jay Kleberg,107
+orange:18,GRN,"Alfred Molison, Jr.",6
+orange:18,REP,Dawn Buckingham,781
+orange:19,,Over Votes,0
+orange:19,,Under Votes,10
+orange:19,,Write-in,0
+orange:19,DEM,Jay Kleberg,83
+orange:19,GRN,"Alfred Molison, Jr.",6
+orange:19,REP,Dawn Buckingham,593
+orange:2,,Over Votes,0
+orange:2,,Under Votes,5
+orange:2,,Write-in,1
+orange:2,DEM,Jay Kleberg,228
+orange:2,GRN,"Alfred Molison, Jr.",4
+orange:2,REP,Dawn Buckingham,167
+orange:20,,Over Votes,0
+orange:20,,Under Votes,11
+orange:20,,Write-in,0
+orange:20,DEM,Jay Kleberg,80
+orange:20,GRN,"Alfred Molison, Jr.",5
+orange:20,REP,Dawn Buckingham,517
+orange:21,,Over Votes,0
+orange:21,,Under Votes,37
+orange:21,,Write-in,0
+orange:21,DEM,Jay Kleberg,20
+orange:21,GRN,"Alfred Molison, Jr.",1
+orange:21,REP,Dawn Buckingham,96
+orange:22,,Over Votes,0
+orange:22,,Under Votes,9
+orange:22,,Write-in,0
+orange:22,DEM,Jay Kleberg,47
+orange:22,GRN,"Alfred Molison, Jr.",3
+orange:22,REP,Dawn Buckingham,432
+orange:23,,Over Votes,0
+orange:23,,Under Votes,13
+orange:23,,Write-in,1
+orange:23,DEM,Jay Kleberg,115
+orange:23,GRN,"Alfred Molison, Jr.",5
+orange:23,REP,Dawn Buckingham,1454
+orange:24,,Over Votes,0
+orange:24,,Under Votes,6
+orange:24,,Write-in,2
+orange:24,DEM,Jay Kleberg,70
+orange:24,GRN,"Alfred Molison, Jr.",6
+orange:24,REP,Dawn Buckingham,647
+orange:25,,Over Votes,0
+orange:25,,Under Votes,11
+orange:25,,Write-in,0
+orange:25,DEM,Jay Kleberg,93
+orange:25,GRN,"Alfred Molison, Jr.",8
+orange:25,REP,Dawn Buckingham,684
+orange:26,,Over Votes,0
+orange:26,,Under Votes,19
+orange:26,,Write-in,1
+orange:26,DEM,Jay Kleberg,122
+orange:26,GRN,"Alfred Molison, Jr.",9
+orange:26,REP,Dawn Buckingham,926
+orange:27,,Over Votes,0
+orange:27,,Under Votes,18
+orange:27,,Write-in,0
+orange:27,DEM,Jay Kleberg,100
+orange:27,GRN,"Alfred Molison, Jr.",7
+orange:27,REP,Dawn Buckingham,898
+orange:28,,Over Votes,0
+orange:28,,Under Votes,22
+orange:28,,Write-in,0
+orange:28,DEM,Jay Kleberg,174
+orange:28,GRN,"Alfred Molison, Jr.",14
+orange:28,REP,Dawn Buckingham,1501
+orange:29,,Over Votes,0
+orange:29,,Under Votes,4
+orange:29,,Write-in,2
+orange:29,DEM,Jay Kleberg,41
+orange:29,GRN,"Alfred Molison, Jr.",2
+orange:29,REP,Dawn Buckingham,428
+orange:3,,Over Votes,0
+orange:3,,Under Votes,5
+orange:3,,Write-in,0
+orange:3,DEM,Jay Kleberg,313
+orange:3,GRN,"Alfred Molison, Jr.",2
+orange:3,REP,Dawn Buckingham,66
+orange:30,,Over Votes,0
+orange:30,,Under Votes,7
+orange:30,,Write-in,0
+orange:30,DEM,Jay Kleberg,63
+orange:30,GRN,"Alfred Molison, Jr.",2
+orange:30,REP,Dawn Buckingham,450
+orange:31,,Over Votes,0
+orange:31,,Under Votes,11
+orange:31,,Write-in,0
+orange:31,DEM,Jay Kleberg,84
+orange:31,GRN,"Alfred Molison, Jr.",1
+orange:31,REP,Dawn Buckingham,777
+orange:32,,Over Votes,0
+orange:32,,Under Votes,8
+orange:32,,Write-in,0
+orange:32,DEM,Jay Kleberg,79
+orange:32,GRN,"Alfred Molison, Jr.",4
+orange:32,REP,Dawn Buckingham,958
+orange:33,,Over Votes,0
+orange:33,,Under Votes,9
+orange:33,,Write-in,0
+orange:33,DEM,Jay Kleberg,65
+orange:33,GRN,"Alfred Molison, Jr.",7
+orange:33,REP,Dawn Buckingham,609
+orange:34,,Over Votes,0
+orange:34,,Under Votes,9
+orange:34,,Write-in,0
+orange:34,DEM,Jay Kleberg,69
+orange:34,GRN,"Alfred Molison, Jr.",4
+orange:34,REP,Dawn Buckingham,665
+orange:4,,Over Votes,1
+orange:4,,Under Votes,1
+orange:4,,Write-in,0
+orange:4,DEM,Jay Kleberg,105
+orange:4,GRN,"Alfred Molison, Jr.",1
+orange:4,REP,Dawn Buckingham,3
+orange:5,,Over Votes,0
+orange:5,,Under Votes,5
+orange:5,,Write-in,0
+orange:5,DEM,Jay Kleberg,278
+orange:5,GRN,"Alfred Molison, Jr.",4
+orange:5,REP,Dawn Buckingham,326
+orange:6,,Over Votes,0
+orange:6,,Under Votes,15
+orange:6,,Write-in,1
+orange:6,DEM,Jay Kleberg,115
+orange:6,GRN,"Alfred Molison, Jr.",6
+orange:6,REP,Dawn Buckingham,730
+orange:7,,Over Votes,0
+orange:7,,Under Votes,17
+orange:7,,Write-in,1
+orange:7,DEM,Jay Kleberg,180
+orange:7,GRN,"Alfred Molison, Jr.",10
+orange:7,REP,Dawn Buckingham,584
+orange:8,,Over Votes,0
+orange:8,,Under Votes,16
+orange:8,,Write-in,1
+orange:8,DEM,Jay Kleberg,162
+orange:8,GRN,"Alfred Molison, Jr.",5
+orange:8,REP,Dawn Buckingham,1109
+orange:9,,Over Votes,0
+orange:9,,Under Votes,15
+orange:9,,Write-in,0
+orange:9,DEM,Jay Kleberg,150
+orange:9,GRN,"Alfred Molison, Jr.",6
+orange:9,REP,Dawn Buckingham,975

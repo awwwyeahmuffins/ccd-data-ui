@@ -1,0 +1,26 @@
+precinct,party,candidate,votes
+travis:303,GRN,Howie Hawkins,8
+travis:303,,Write-in,6
+travis:303,DEM,Joseph R. Biden,1621
+travis:303,LIB,Jo Jorgensen,35
+travis:303,REP,Donald J. Trump,1055
+travis:314,GRN,Howie Hawkins,11
+travis:314,,Write-in,21
+travis:314,DEM,Joseph R. Biden,3148
+travis:314,LIB,Jo Jorgensen,74
+travis:314,REP,Donald J. Trump,2533
+travis:354,GRN,Howie Hawkins,6
+travis:354,,Write-in,18
+travis:354,DEM,Joseph R. Biden,2631
+travis:354,LIB,Jo Jorgensen,78
+travis:354,REP,Donald J. Trump,1306
+travis:361,GRN,Howie Hawkins,3
+travis:361,,Write-in,3
+travis:361,DEM,Joseph R. Biden,680
+travis:361,LIB,Jo Jorgensen,18
+travis:361,REP,Donald J. Trump,486
+travis:365,GRN,Howie Hawkins,6
+travis:365,,Write-in,12
+travis:365,DEM,Joseph R. Biden,1412
+travis:365,LIB,Jo Jorgensen,29
+travis:365,REP,Donald J. Trump,892

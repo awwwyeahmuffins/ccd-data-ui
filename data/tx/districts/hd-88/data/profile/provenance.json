@@ -1,0 +1,29 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANH2316",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "andrews": 4,
+      "bailey": 4,
+      "briscoe": 5,
+      "castro": 8,
+      "childress": 4,
+      "cochran": 5,
+      "collingsworth": 7,
+      "donley": 6,
+      "gaines": 7,
+      "gray": 7,
+      "hale": 30,
+      "hall": 7,
+      "hemphill": 8,
+      "hockley": 14,
+      "lamb": 11,
+      "roberts": 5,
+      "swisher": 8,
+      "wheeler": 10,
+      "yoakum": 6
+    },
+    "generated": "2026-06-12"
+  }
+}

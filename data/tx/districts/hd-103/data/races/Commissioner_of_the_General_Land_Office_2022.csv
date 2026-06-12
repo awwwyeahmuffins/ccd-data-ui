@@ -1,0 +1,300 @@
+precinct,party,candidate,votes
+dallas:2000,GRN,"Alfred Molison, Jr.",1
+dallas:2000,REP,Dawn Buckingham,4
+dallas:2001,DEM,Jay Kleberg,11
+dallas:2001,GRN,"Alfred Molison, Jr.",1
+dallas:2001,REP,Dawn Buckingham,4
+dallas:2002,,Under Votes,15
+dallas:2002,DEM,Jay Kleberg,487
+dallas:2002,GRN,"Alfred Molison, Jr.",13
+dallas:2002,REP,Dawn Buckingham,315
+dallas:2028,DEM,Jay Kleberg,1
+dallas:2076,REP,Dawn Buckingham,1
+dallas:2098,,Under Votes,16
+dallas:2098,DEM,Jay Kleberg,585
+dallas:2098,GRN,"Alfred Molison, Jr.",14
+dallas:2098,REP,Dawn Buckingham,380
+dallas:2099,,Under Votes,32
+dallas:2099,,Write-in,2
+dallas:2099,DEM,Jay Kleberg,1511
+dallas:2099,GRN,"Alfred Molison, Jr.",39
+dallas:2099,REP,Dawn Buckingham,548
+dallas:2100,,Under Votes,31
+dallas:2100,,Write-in,3
+dallas:2100,DEM,Jay Kleberg,1467
+dallas:2100,GRN,"Alfred Molison, Jr.",30
+dallas:2100,REP,Dawn Buckingham,385
+dallas:2111,DEM,Jay Kleberg,8
+dallas:2111,REP,Dawn Buckingham,4
+dallas:2112,DEM,Jay Kleberg,50
+dallas:2112,GRN,"Alfred Molison, Jr.",1
+dallas:2112,REP,Dawn Buckingham,8
+dallas:2300,,Under Votes,11
+dallas:2300,,Write-in,3
+dallas:2300,DEM,Jay Kleberg,336
+dallas:2300,GRN,"Alfred Molison, Jr.",9
+dallas:2300,REP,Dawn Buckingham,221
+dallas:2302,,Under Votes,21
+dallas:2302,DEM,Jay Kleberg,486
+dallas:2302,GRN,"Alfred Molison, Jr.",22
+dallas:2302,REP,Dawn Buckingham,199
+dallas:2302,,Write-in,1
+dallas:2306,,Under Votes,13
+dallas:2306,,Write-in,1
+dallas:2306,DEM,Jay Kleberg,382
+dallas:2306,GRN,"Alfred Molison, Jr.",13
+dallas:2306,REP,Dawn Buckingham,366
+dallas:2308,,Under Votes,11
+dallas:2308,,Write-in,2
+dallas:2308,DEM,Jay Kleberg,649
+dallas:2308,GRN,"Alfred Molison, Jr.",15
+dallas:2308,REP,Dawn Buckingham,342
+dallas:2309,,Under Votes,8
+dallas:2309,,Write-in,2
+dallas:2309,DEM,Jay Kleberg,528
+dallas:2309,GRN,"Alfred Molison, Jr.",14
+dallas:2309,REP,Dawn Buckingham,212
+dallas:2310,,Under Votes,24
+dallas:2310,,Write-in,1
+dallas:2310,DEM,Jay Kleberg,570
+dallas:2310,GRN,"Alfred Molison, Jr.",26
+dallas:2310,REP,Dawn Buckingham,635
+dallas:2311,,Under Votes,2
+dallas:2311,,Write-in,1
+dallas:2311,DEM,Jay Kleberg,82
+dallas:2311,GRN,"Alfred Molison, Jr.",6
+dallas:2311,REP,Dawn Buckingham,58
+dallas:2312,DEM,Jay Kleberg,8
+dallas:2312,GRN,"Alfred Molison, Jr.",1
+dallas:2312,REP,Dawn Buckingham,6
+dallas:2407,,Under Votes,37
+dallas:2407,,Write-in,3
+dallas:2407,DEM,Jay Kleberg,1050
+dallas:2407,GRN,"Alfred Molison, Jr.",39
+dallas:2407,REP,Dawn Buckingham,799
+dallas:2408,,Under Votes,15
+dallas:2408,DEM,Jay Kleberg,491
+dallas:2408,GRN,"Alfred Molison, Jr.",24
+dallas:2408,REP,Dawn Buckingham,240
+dallas:2409,,Under Votes,12
+dallas:2409,,Write-in,2
+dallas:2409,DEM,Jay Kleberg,499
+dallas:2409,GRN,"Alfred Molison, Jr.",19
+dallas:2409,REP,Dawn Buckingham,292
+dallas:2411,,Under Votes,3
+dallas:2411,,Write-in,1
+dallas:2411,DEM,Jay Kleberg,141
+dallas:2411,GRN,"Alfred Molison, Jr.",8
+dallas:2411,REP,Dawn Buckingham,71
+dallas:3084,,Under Votes,6
+dallas:3084,DEM,Jay Kleberg,494
+dallas:3084,GRN,"Alfred Molison, Jr.",18
+dallas:3084,REP,Dawn Buckingham,77
+dallas:3084,,Write-in,3
+dallas:4000,DEM,Jay Kleberg,74
+dallas:4000,REP,Dawn Buckingham,38
+dallas:4001,,Under Votes,6
+dallas:4001,DEM,Jay Kleberg,361
+dallas:4001,GRN,"Alfred Molison, Jr.",13
+dallas:4001,REP,Dawn Buckingham,105
+dallas:4002,,Under Votes,9
+dallas:4002,DEM,Jay Kleberg,394
+dallas:4002,GRN,"Alfred Molison, Jr.",11
+dallas:4002,REP,Dawn Buckingham,219
+dallas:4003,,Under Votes,1
+dallas:4003,DEM,Jay Kleberg,60
+dallas:4003,GRN,"Alfred Molison, Jr.",3
+dallas:4003,REP,Dawn Buckingham,12
+dallas:4004,,Under Votes,16
+dallas:4004,,Write-in,1
+dallas:4004,DEM,Jay Kleberg,561
+dallas:4004,GRN,"Alfred Molison, Jr.",18
+dallas:4004,REP,Dawn Buckingham,207
+dallas:4005,,Under Votes,9
+dallas:4005,,Write-in,2
+dallas:4005,DEM,Jay Kleberg,245
+dallas:4005,GRN,"Alfred Molison, Jr.",5
+dallas:4005,REP,Dawn Buckingham,118
+dallas:4006,,Under Votes,15
+dallas:4006,,Write-in,1
+dallas:4006,DEM,Jay Kleberg,472
+dallas:4006,GRN,"Alfred Molison, Jr.",9
+dallas:4006,REP,Dawn Buckingham,260
+dallas:4007,,Under Votes,1
+dallas:4007,DEM,Jay Kleberg,79
+dallas:4007,GRN,"Alfred Molison, Jr.",1
+dallas:4007,REP,Dawn Buckingham,45
+dallas:4008,,Under Votes,1
+dallas:4008,DEM,Jay Kleberg,116
+dallas:4008,GRN,"Alfred Molison, Jr.",2
+dallas:4008,REP,Dawn Buckingham,28
+dallas:4009,,Under Votes,15
+dallas:4009,,Write-in,1
+dallas:4009,DEM,Jay Kleberg,390
+dallas:4009,GRN,"Alfred Molison, Jr.",15
+dallas:4009,REP,Dawn Buckingham,90
+dallas:4010,,Under Votes,11
+dallas:4010,,Write-in,1
+dallas:4010,DEM,Jay Kleberg,493
+dallas:4010,GRN,"Alfred Molison, Jr.",10
+dallas:4010,REP,Dawn Buckingham,293
+dallas:4011,,Under Votes,3
+dallas:4011,DEM,Jay Kleberg,234
+dallas:4011,GRN,"Alfred Molison, Jr.",7
+dallas:4011,REP,Dawn Buckingham,83
+dallas:4012,,Under Votes,2
+dallas:4012,DEM,Jay Kleberg,26
+dallas:4012,REP,Dawn Buckingham,18
+dallas:4015,,Under Votes,8
+dallas:4015,,Write-in,3
+dallas:4015,DEM,Jay Kleberg,553
+dallas:4015,GRN,"Alfred Molison, Jr.",14
+dallas:4015,REP,Dawn Buckingham,224
+dallas:4016,,Under Votes,11
+dallas:4016,DEM,Jay Kleberg,627
+dallas:4016,GRN,"Alfred Molison, Jr.",16
+dallas:4016,REP,Dawn Buckingham,193
+dallas:4017,,Under Votes,2
+dallas:4017,DEM,Jay Kleberg,196
+dallas:4017,GRN,"Alfred Molison, Jr.",4
+dallas:4017,REP,Dawn Buckingham,91
+dallas:4019,,Under Votes,11
+dallas:4019,DEM,Jay Kleberg,957
+dallas:4019,GRN,"Alfred Molison, Jr.",16
+dallas:4019,REP,Dawn Buckingham,196
+dallas:4019,,Write-in,1
+dallas:4020,,Under Votes,12
+dallas:4020,DEM,Jay Kleberg,316
+dallas:4020,GRN,"Alfred Molison, Jr.",10
+dallas:4020,REP,Dawn Buckingham,93
+dallas:4021,,Under Votes,17
+dallas:4021,,Write-in,2
+dallas:4021,DEM,Jay Kleberg,1133
+dallas:4021,GRN,"Alfred Molison, Jr.",16
+dallas:4021,REP,Dawn Buckingham,214
+dallas:4022,,Under Votes,6
+dallas:4022,,Write-in,1
+dallas:4022,DEM,Jay Kleberg,470
+dallas:4022,GRN,"Alfred Molison, Jr.",16
+dallas:4022,REP,Dawn Buckingham,87
+dallas:4025,DEM,Jay Kleberg,103
+dallas:4025,GRN,"Alfred Molison, Jr.",4
+dallas:4025,REP,Dawn Buckingham,3
+dallas:4026,,Under Votes,1
+dallas:4026,DEM,Jay Kleberg,37
+dallas:4026,REP,Dawn Buckingham,6
+dallas:4027,,Under Votes,3
+dallas:4027,DEM,Jay Kleberg,69
+dallas:4027,GRN,"Alfred Molison, Jr.",3
+dallas:4027,REP,Dawn Buckingham,16
+dallas:4028,,Under Votes,6
+dallas:4028,,Write-in,1
+dallas:4028,DEM,Jay Kleberg,270
+dallas:4028,GRN,"Alfred Molison, Jr.",7
+dallas:4028,REP,Dawn Buckingham,26
+dallas:4065,,Under Votes,8
+dallas:4065,DEM,Jay Kleberg,144
+dallas:4065,GRN,"Alfred Molison, Jr.",6
+dallas:4065,REP,Dawn Buckingham,63
+dallas:4076,,Under Votes,19
+dallas:4076,DEM,Jay Kleberg,699
+dallas:4076,GRN,"Alfred Molison, Jr.",29
+dallas:4076,REP,Dawn Buckingham,187
+dallas:4076,,Write-in,1
+dallas:4077,,Under Votes,11
+dallas:4077,,Write-in,1
+dallas:4077,DEM,Jay Kleberg,449
+dallas:4077,GRN,"Alfred Molison, Jr.",10
+dallas:4077,REP,Dawn Buckingham,88
+dallas:4079,,Under Votes,41
+dallas:4079,,Write-in,9
+dallas:4079,DEM,Jay Kleberg,1843
+dallas:4079,GRN,"Alfred Molison, Jr.",48
+dallas:4079,REP,Dawn Buckingham,620
+dallas:4080,,Under Votes,5
+dallas:4080,,Write-in,1
+dallas:4080,DEM,Jay Kleberg,325
+dallas:4080,GRN,"Alfred Molison, Jr.",5
+dallas:4080,REP,Dawn Buckingham,192
+dallas:4081,,Under Votes,20
+dallas:4081,,Write-in,3
+dallas:4081,DEM,Jay Kleberg,702
+dallas:4081,GRN,"Alfred Molison, Jr.",32
+dallas:4081,REP,Dawn Buckingham,180
+dallas:4082,,Under Votes,13
+dallas:4082,DEM,Jay Kleberg,698
+dallas:4082,GRN,"Alfred Molison, Jr.",21
+dallas:4082,REP,Dawn Buckingham,137
+dallas:4083,,Under Votes,7
+dallas:4083,,Write-in,1
+dallas:4083,DEM,Jay Kleberg,485
+dallas:4083,GRN,"Alfred Molison, Jr.",12
+dallas:4083,REP,Dawn Buckingham,94
+dallas:4084,,Under Votes,3
+dallas:4084,DEM,Jay Kleberg,165
+dallas:4084,GRN,"Alfred Molison, Jr.",11
+dallas:4084,REP,Dawn Buckingham,30
+dallas:4085,,Under Votes,8
+dallas:4085,DEM,Jay Kleberg,216
+dallas:4085,GRN,"Alfred Molison, Jr.",5
+dallas:4085,REP,Dawn Buckingham,72
+dallas:4086,,Under Votes,15
+dallas:4086,DEM,Jay Kleberg,810
+dallas:4086,GRN,"Alfred Molison, Jr.",23
+dallas:4086,REP,Dawn Buckingham,203
+dallas:4087,,Under Votes,11
+dallas:4087,DEM,Jay Kleberg,167
+dallas:4087,GRN,"Alfred Molison, Jr.",9
+dallas:4087,REP,Dawn Buckingham,36
+dallas:4088,,Under Votes,3
+dallas:4088,DEM,Jay Kleberg,74
+dallas:4088,GRN,"Alfred Molison, Jr.",3
+dallas:4088,REP,Dawn Buckingham,16
+dallas:4092,DEM,Jay Kleberg,55
+dallas:4092,GRN,"Alfred Molison, Jr.",5
+dallas:4092,REP,Dawn Buckingham,22
+dallas:4094,,Under Votes,5
+dallas:4094,DEM,Jay Kleberg,149
+dallas:4094,GRN,"Alfred Molison, Jr.",2
+dallas:4094,REP,Dawn Buckingham,69
+dallas:4095,DEM,Jay Kleberg,15
+dallas:4095,REP,Dawn Buckingham,10
+dallas:4096,REP,Dawn Buckingham,3
+dallas:4097,,Under Votes,4
+dallas:4097,DEM,Jay Kleberg,322
+dallas:4097,GRN,"Alfred Molison, Jr.",4
+dallas:4097,REP,Dawn Buckingham,126
+dallas:4098,DEM,Jay Kleberg,14
+dallas:4098,GRN,"Alfred Molison, Jr.",2
+dallas:4098,REP,Dawn Buckingham,10
+dallas:4120,,Under Votes,4
+dallas:4120,DEM,Jay Kleberg,106
+dallas:4120,GRN,"Alfred Molison, Jr.",8
+dallas:4120,REP,Dawn Buckingham,20
+dallas:4149,DEM,Jay Kleberg,31
+dallas:4149,REP,Dawn Buckingham,7
+dallas:4149,GRN,"Alfred Molison, Jr.",1
+dallas:4153,DEM,Jay Kleberg,59
+dallas:4153,GRN,"Alfred Molison, Jr.",2
+dallas:4153,REP,Dawn Buckingham,9
+dallas:4603,DEM,Jay Kleberg,10
+dallas:4603,REP,Dawn Buckingham,7
+dallas:4617,,Under Votes,1
+dallas:4617,DEM,Jay Kleberg,47
+dallas:4617,GRN,"Alfred Molison, Jr.",3
+dallas:4617,REP,Dawn Buckingham,45
+dallas:4646,,Under Votes,4
+dallas:4646,DEM,Jay Kleberg,104
+dallas:4646,GRN,"Alfred Molison, Jr.",7
+dallas:4646,REP,Dawn Buckingham,95
+dallas:4662,,Under Votes,3
+dallas:4662,DEM,Jay Kleberg,81
+dallas:4662,REP,Dawn Buckingham,50
+dallas:4664,,Under Votes,6
+dallas:4664,DEM,Jay Kleberg,234
+dallas:4664,GRN,"Alfred Molison, Jr.",6
+dallas:4664,REP,Dawn Buckingham,199
+dallas:4664,,Write-in,1
+dallas:4675,DEM,Jay Kleberg,14
+dallas:4675,GRN,"Alfred Molison, Jr.",2
+dallas:4675,REP,Dawn Buckingham,15

@@ -1,0 +1,33 @@
+precinct,party,candidate,votes
+baylor:1,,Hunter Wayne Crow,5
+baylor:1,DEM,Luke Warford,17
+baylor:1,LIB,Jaime Andres Diez,7
+baylor:1,REP,Wayne Christian,333
+baylor:2,,Hunter Wayne Crow,3
+baylor:2,DEM,Luke Warford,23
+baylor:2,LIB,Jaime Andres Diez,3
+baylor:2,REP,Wayne Christian,294
+baylor:3,,Hunter Wayne Crow,0
+baylor:3,DEM,Luke Warford,28
+baylor:3,LIB,Jaime Andres Diez,10
+baylor:3,REP,Wayne Christian,240
+baylor:4,,Hunter Wayne Crow,6
+baylor:4,DEM,Luke Warford,27
+baylor:4,LIB,Jaime Andres Diez,10
+baylor:4,REP,Wayne Christian,269
+stonewall:1,,Hunter Wayne Crow,0
+stonewall:1,,Jaime Andres Diez,0
+stonewall:1,,Luke Warford,10
+stonewall:1,,Wayne Christian,122
+stonewall:2,,Hunter Wayne Crow,0
+stonewall:2,,Jaime Andres Diez,2
+stonewall:2,,Luke Warford,28
+stonewall:2,,Wayne Christian,124
+stonewall:3,,Hunter Wayne Crow,0
+stonewall:3,,Jaime Andres Diez,2
+stonewall:3,,Luke Warford,12
+stonewall:3,,Wayne Christian,117
+stonewall:4,,Hunter Wayne Crow,0
+stonewall:4,,Jaime Andres Diez,2
+stonewall:4,,Luke Warford,32
+stonewall:4,,Wayne Christian,103

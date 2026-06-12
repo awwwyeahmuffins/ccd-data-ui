@@ -1,0 +1,121 @@
+precinct,party,candidate,votes
+brown:101,,Bert Richardson,1450
+brown:101,,Elizabeth Davis Frizell,247
+brown:105,,Bert Richardson,988
+brown:105,,Elizabeth Davis Frizell,162
+brown:109,,Bert Richardson,210
+brown:109,,Elizabeth Davis Frizell,13
+brown:113,,Bert Richardson,1091
+brown:113,,Elizabeth Davis Frizell,180
+brown:202,,Bert Richardson,605
+brown:202,,Elizabeth Davis Frizell,137
+brown:204,,Bert Richardson,544
+brown:204,,Elizabeth Davis Frizell,190
+brown:212,,Bert Richardson,553
+brown:212,,Elizabeth Davis Frizell,51
+brown:214,,Bert Richardson,494
+brown:214,,Elizabeth Davis Frizell,47
+brown:215,,Bert Richardson,191
+brown:215,,Elizabeth Davis Frizell,12
+brown:303,,Bert Richardson,631
+brown:303,,Elizabeth Davis Frizell,142
+brown:306,,Bert Richardson,1188
+brown:306,,Elizabeth Davis Frizell,139
+brown:307,,Bert Richardson,471
+brown:307,,Elizabeth Davis Frizell,54
+brown:308,,Bert Richardson,425
+brown:308,,Elizabeth Davis Frizell,32
+brown:316,,Bert Richardson,184
+brown:316,,Elizabeth Davis Frizell,15
+brown:318,,Bert Richardson,1068
+brown:318,,Elizabeth Davis Frizell,139
+brown:410,,Bert Richardson,1520
+brown:410,,Elizabeth Davis Frizell,169
+brown:411,,Bert Richardson,564
+brown:411,,Elizabeth Davis Frizell,128
+brown:417,,Bert Richardson,1291
+brown:417,,Elizabeth Davis Frizell,147
+comanche:1,DEM,Elizabeth Davis Frizell,128
+comanche:1,REP,Bert Richardson,875
+comanche:10,DEM,Elizabeth Davis Frizell,37
+comanche:10,REP,Bert Richardson,262
+comanche:11,DEM,Elizabeth Davis Frizell,72
+comanche:11,REP,Bert Richardson,316
+comanche:12,DEM,Elizabeth Davis Frizell,212
+comanche:12,REP,Bert Richardson,1095
+comanche:13,DEM,Elizabeth Davis Frizell,28
+comanche:13,REP,Bert Richardson,152
+comanche:14,DEM,Elizabeth Davis Frizell,13
+comanche:14,REP,Bert Richardson,79
+comanche:15,DEM,Elizabeth Davis Frizell,29
+comanche:15,REP,Bert Richardson,310
+comanche:16,DEM,Elizabeth Davis Frizell,3
+comanche:16,REP,Bert Richardson,75
+comanche:2,DEM,Elizabeth Davis Frizell,141
+comanche:2,REP,Bert Richardson,920
+comanche:4,DEM,Elizabeth Davis Frizell,11
+comanche:4,REP,Bert Richardson,56
+comanche:5,DEM,Elizabeth Davis Frizell,60
+comanche:5,REP,Bert Richardson,414
+comanche:6,DEM,Elizabeth Davis Frizell,36
+comanche:6,REP,Bert Richardson,224
+comanche:7,DEM,Elizabeth Davis Frizell,32
+comanche:7,REP,Bert Richardson,176
+comanche:9,DEM,Elizabeth Davis Frizell,14
+comanche:9,REP,Bert Richardson,98
+shackelford:101,,Over Votes,1
+shackelford:101,,Under Votes,13
+shackelford:101,DEM,Elizabeth Davis Frizell,31
+shackelford:101,REP,Bert Richardson,332
+shackelford:202,,Over Votes,0
+shackelford:202,,Under Votes,10
+shackelford:202,DEM,Elizabeth Davis Frizell,22
+shackelford:202,REP,Bert Richardson,425
+shackelford:303,,Over Votes,0
+shackelford:303,,Under Votes,6
+shackelford:303,DEM,Elizabeth Davis Frizell,10
+shackelford:303,REP,Bert Richardson,182
+shackelford:307,,Over Votes,2
+shackelford:307,,Under Votes,11
+shackelford:307,DEM,Elizabeth Davis Frizell,13
+shackelford:307,REP,Bert Richardson,184
+shackelford:404,,Over Votes,0
+shackelford:404,,Under Votes,1
+shackelford:404,DEM,Elizabeth Davis Frizell,0
+shackelford:404,REP,Bert Richardson,27
+shackelford:405,,Over Votes,0
+shackelford:405,,Under Votes,3
+shackelford:405,DEM,Elizabeth Davis Frizell,20
+shackelford:405,REP,Bert Richardson,149
+shackelford:406,,Over Votes,0
+shackelford:406,,Under Votes,7
+shackelford:406,DEM,Elizabeth Davis Frizell,21
+shackelford:406,REP,Bert Richardson,165
+throckmorton:1,DEM,Elizabeth Davis Frizell,8
+throckmorton:1,REP,Bert Richardson,220
+throckmorton:2,DEM,Elizabeth Davis Frizell,17
+throckmorton:2,REP,Bert Richardson,186
+throckmorton:3003,DEM,Elizabeth Davis Frizell,23
+throckmorton:3003,REP,Bert Richardson,198
+throckmorton:4005,DEM,Elizabeth Davis Frizell,13
+throckmorton:4005,REP,Bert Richardson,45
+throckmorton:4006,DEM,Elizabeth Davis Frizell,9
+throckmorton:4006,REP,Bert Richardson,130
+young:10,DEM,Elizabeth Davis Frizell,20
+young:10,REP,Bert Richardson,283
+young:16,DEM,Elizabeth Davis Frizell,6
+young:16,REP,Bert Richardson,186
+young:20,DEM,Elizabeth Davis Frizell,20
+young:20,REP,Bert Richardson,156
+young:22,DEM,Elizabeth Davis Frizell,224
+young:22,REP,Bert Richardson,2097
+young:23,DEM,Elizabeth Davis Frizell,202
+young:23,REP,Bert Richardson,1191
+young:24,DEM,Elizabeth Davis Frizell,203
+young:24,REP,Bert Richardson,1031
+young:5,DEM,Elizabeth Davis Frizell,272
+young:5,REP,Bert Richardson,1793
+young:6,DEM,Elizabeth Davis Frizell,14
+young:6,REP,Bert Richardson,150
+young:7,DEM,Elizabeth Davis Frizell,8
+young:7,REP,Bert Richardson,128

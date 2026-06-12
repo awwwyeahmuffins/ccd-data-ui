@@ -1,0 +1,79 @@
+precinct,party,candidate,votes
+jones:1,,Over Votes,0
+jones:1,,Under Votes,15
+jones:1,DEM,Luke Warford,142
+jones:1,GRN,Hunter Wayne Crow,5
+jones:1,LIB,Jaime Andres Diez,24
+jones:1,REP,Wayne Christian,694
+jones:2,,Over Votes,0
+jones:2,,Under Votes,20
+jones:2,DEM,Luke Warford,159
+jones:2,GRN,Hunter Wayne Crow,8
+jones:2,LIB,Jaime Andres Diez,23
+jones:2,REP,Wayne Christian,1006
+jones:3,,Over Votes,0
+jones:3,,Under Votes,25
+jones:3,DEM,Luke Warford,115
+jones:3,GRN,Hunter Wayne Crow,11
+jones:3,LIB,Jaime Andres Diez,34
+jones:3,REP,Wayne Christian,1287
+jones:4,,Over Votes,0
+jones:4,,Under Votes,23
+jones:4,DEM,Luke Warford,154
+jones:4,GRN,Hunter Wayne Crow,10
+jones:4,LIB,Jaime Andres Diez,19
+jones:4,REP,Wayne Christian,1233
+nolan:1,,Over Votes,0
+nolan:1,,Under Votes,12
+nolan:1,DEM,Luke Warford,88
+nolan:1,GRN,Hunter Wayne Crow,2
+nolan:1,LIB,Jaime Andres Diez,11
+nolan:1,REP,Wayne Christian,266
+nolan:2,,Over Votes,0
+nolan:2,,Under Votes,16
+nolan:2,DEM,Luke Warford,65
+nolan:2,GRN,Hunter Wayne Crow,7
+nolan:2,LIB,Jaime Andres Diez,12
+nolan:2,REP,Wayne Christian,481
+nolan:3,,Over Votes,0
+nolan:3,,Under Votes,16
+nolan:3,DEM,Luke Warford,130
+nolan:3,GRN,Hunter Wayne Crow,7
+nolan:3,LIB,Jaime Andres Diez,18
+nolan:3,REP,Wayne Christian,477
+nolan:4,,Over Votes,0
+nolan:4,,Under Votes,17
+nolan:4,DEM,Luke Warford,142
+nolan:4,GRN,Hunter Wayne Crow,3
+nolan:4,LIB,Jaime Andres Diez,18
+nolan:4,REP,Wayne Christian,373
+nolan:5,,Over Votes,0
+nolan:5,,Under Votes,5
+nolan:5,DEM,Luke Warford,16
+nolan:5,GRN,Hunter Wayne Crow,0
+nolan:5,LIB,Jaime Andres Diez,2
+nolan:5,REP,Wayne Christian,82
+nolan:6,,Over Votes,0
+nolan:6,,Under Votes,9
+nolan:6,DEM,Luke Warford,53
+nolan:6,GRN,Hunter Wayne Crow,3
+nolan:6,LIB,Jaime Andres Diez,10
+nolan:6,REP,Wayne Christian,404
+nolan:7,,Over Votes,0
+nolan:7,,Under Votes,4
+nolan:7,DEM,Luke Warford,12
+nolan:7,GRN,Hunter Wayne Crow,0
+nolan:7,LIB,Jaime Andres Diez,6
+nolan:7,REP,Wayne Christian,168
+nolan:8,,Over Votes,0
+nolan:8,,Under Votes,2
+nolan:8,DEM,Luke Warford,11
+nolan:8,GRN,Hunter Wayne Crow,3
+nolan:8,LIB,Jaime Andres Diez,2
+nolan:8,REP,Wayne Christian,97
+nolan:9,,Over Votes,0
+nolan:9,,Under Votes,20
+nolan:9,DEM,Luke Warford,86
+nolan:9,GRN,Hunter Wayne Crow,6
+nolan:9,LIB,Jaime Andres Diez,20
+nolan:9,REP,Wayne Christian,638

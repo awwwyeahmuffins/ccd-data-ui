@@ -1,0 +1,17 @@
+precinct,party,candidate,votes
+bailey:1,DEM,Elizabeth Davis Frizell,105
+bailey:1,REP,Bert Richardson,433
+bailey:2,DEM,Elizabeth Davis Frizell,94
+bailey:2,REP,Bert Richardson,597
+bailey:3,DEM,Elizabeth Davis Frizell,107
+bailey:3,REP,Bert Richardson,248
+bailey:4,DEM,Elizabeth Davis Frizell,83
+bailey:4,REP,Bert Richardson,118
+sterling:1,,Bert Richardson,150
+sterling:1,,Elizabeth Davis Frizell,16
+sterling:2,,Bert Richardson,114
+sterling:2,,Elizabeth Davis Frizell,14
+sterling:3,,Bert Richardson,159
+sterling:3,,Elizabeth Davis Frizell,5
+sterling:4,,Bert Richardson,140
+sterling:4,,Elizabeth Davis Frizell,13

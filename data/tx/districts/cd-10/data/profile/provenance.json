@@ -1,0 +1,23 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANC2193",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "austin": 15,
+      "bastrop": 13,
+      "brazos": 98,
+      "burleson": 13,
+      "colorado": 11,
+      "fayette": 26,
+      "grimes": 14,
+      "lee": 15,
+      "madison": 4,
+      "travis": 29,
+      "waller": 20,
+      "washington": 19,
+      "williamson": 17
+    },
+    "generated": "2026-06-12"
+  }
+}

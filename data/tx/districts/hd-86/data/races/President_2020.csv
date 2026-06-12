@@ -1,0 +1,25 @@
+precinct,party,candidate,votes
+deaf-smith:1,,Overvotes:,4
+deaf-smith:1,,Undervotes:,3
+deaf-smith:1,DEM,Joseph R. Biden Kamala D. Harris,256
+deaf-smith:1,GRN,Howie Hawkins Angela Walker,1
+deaf-smith:1,LIB,Jo Jorgensen Jeremy Spike Cohen,7
+deaf-smith:1,REP,Donald J. Trump Michael R. Pence,565
+deaf-smith:2,,Overvotes:,2
+deaf-smith:2,,Undervotes:,1
+deaf-smith:2,DEM,Joseph R. Biden Kamala D. Harris,324
+deaf-smith:2,GRN,Howie Hawkins Angela Walker,4
+deaf-smith:2,LIB,Jo Jorgensen Jeremy Spike Cohen,10
+deaf-smith:2,REP,Donald J. Trump Michael R. Pence,550
+deaf-smith:3,,Overvotes:,3
+deaf-smith:3,,Undervotes:,14
+deaf-smith:3,DEM,Joseph R. Biden Kamala D. Harris,354
+deaf-smith:3,GRN,Howie Hawkins Angela Walker,6
+deaf-smith:3,LIB,Jo Jorgensen Jeremy Spike Cohen,11
+deaf-smith:3,REP,Donald J. Trump Michael R. Pence,1497
+deaf-smith:4,,Overvotes:,1
+deaf-smith:4,,Undervotes:,3
+deaf-smith:4,DEM,Joseph R. Biden Kamala D. Harris,330
+deaf-smith:4,GRN,Howie Hawkins Angela Walker,6
+deaf-smith:4,LIB,Jo Jorgensen Jeremy Spike Cohen,7
+deaf-smith:4,REP,Donald J. Trump Michael R. Pence,682

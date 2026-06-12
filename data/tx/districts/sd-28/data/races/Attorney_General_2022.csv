@@ -1,0 +1,580 @@
+precinct,party,candidate,votes
+baylor:1,DEM,Rochelle Mercedes Garza,22
+baylor:1,LIB,Mark Ash,7
+baylor:1,REP,Ken Paxton,341
+baylor:2,DEM,Rochelle Mercedes Garza,28
+baylor:2,LIB,Mark Ash,3
+baylor:2,REP,Ken Paxton,295
+baylor:3,DEM,Rochelle Mercedes Garza,33
+baylor:3,LIB,Mark Ash,11
+baylor:3,REP,Ken Paxton,234
+baylor:4,DEM,Rochelle Mercedes Garza,32
+baylor:4,LIB,Mark Ash,9
+baylor:4,REP,Ken Paxton,278
+childress:101,DEM,Rochelle Mercedes Garza,39
+childress:101,LIB,Mark Ash,2
+childress:101,REP,Ken Paxton,328
+childress:201,DEM,Rochelle Mercedes Garza,40
+childress:201,LIB,Mark Ash,10
+childress:201,REP,Ken Paxton,395
+childress:301,DEM,Rochelle Mercedes Garza,47
+childress:301,LIB,Mark Ash,5
+childress:301,REP,Ken Paxton,408
+childress:401,DEM,Rochelle Mercedes Garza,43
+childress:401,LIB,Mark Ash,7
+childress:401,REP,Ken Paxton,404
+coleman:1,,Over Votes,0
+coleman:1,,Under Votes,9
+coleman:1,DEM,Rochelle Mercedes Garza,54
+coleman:1,LIB,Mark Ash,8
+coleman:1,REP,Ken Paxton,749
+coleman:2,,Over Votes,0
+coleman:2,,Under Votes,6
+coleman:2,DEM,Rochelle Mercedes Garza,68
+coleman:2,LIB,Mark Ash,8
+coleman:2,REP,Ken Paxton,561
+coleman:2E,,Over Votes,0
+coleman:2E,,Under Votes,2
+coleman:2E,DEM,Rochelle Mercedes Garza,21
+coleman:2E,LIB,Mark Ash,4
+coleman:2E,REP,Ken Paxton,202
+coleman:3,,Over Votes,0
+coleman:3,,Under Votes,7
+coleman:3,DEM,Rochelle Mercedes Garza,65
+coleman:3,LIB,Mark Ash,7
+coleman:3,REP,Ken Paxton,591
+coleman:4,,Over Votes,0
+coleman:4,,Under Votes,9
+coleman:4,DEM,Rochelle Mercedes Garza,82
+coleman:4,LIB,Mark Ash,7
+coleman:4,REP,Ken Paxton,782
+floyd:1,DEM,Rochelle Mercedes Garza,59
+floyd:1,LIB,Mark Ash,12
+floyd:1,REP,Ken Paxton,444
+floyd:2,DEM,Rochelle Mercedes Garza,43
+floyd:2,LIB,Mark Ash,8
+floyd:2,REP,Ken Paxton,388
+floyd:3,DEM,Rochelle Mercedes Garza,45
+floyd:3,LIB,Mark Ash,2
+floyd:3,REP,Ken Paxton,171
+floyd:4,DEM,Rochelle Mercedes Garza,62
+floyd:4,LIB,Mark Ash,5
+floyd:4,REP,Ken Paxton,211
+gray:1,DEM,Rochelle Mercedes Garza,10
+gray:1,LIB,Mark Ash,5
+gray:1,REP,Ken Paxton,191
+gray:2,DEM,Rochelle Mercedes Garza,106
+gray:2,LIB,Mark Ash,24
+gray:2,REP,Ken Paxton,1031
+gray:3,DEM,Rochelle Mercedes Garza,1
+gray:3,LIB,Mark Ash,4
+gray:3,REP,Ken Paxton,76
+gray:4,DEM,Rochelle Mercedes Garza,21
+gray:4,LIB,Mark Ash,1
+gray:4,REP,Ken Paxton,344
+gray:5,DEM,Rochelle Mercedes Garza,134
+gray:5,LIB,Mark Ash,34
+gray:5,REP,Ken Paxton,1374
+gray:6,DEM,Rochelle Mercedes Garza,120
+gray:6,LIB,Mark Ash,20
+gray:6,REP,Ken Paxton,1273
+gray:7,DEM,Rochelle Mercedes Garza,104
+gray:7,LIB,Mark Ash,21
+gray:7,REP,Ken Paxton,643
+hale:101,DEM,Rochelle Mercedes Garza,16
+hale:101,LIB,Mark Ash,6
+hale:101,REP,Ken Paxton,118
+hale:102,DEM,Rochelle Mercedes Garza,5
+hale:102,LIB,Mark Ash,1
+hale:102,REP,Ken Paxton,30
+hale:103,DEM,Rochelle Mercedes Garza,55
+hale:103,LIB,Mark Ash,2
+hale:103,REP,Ken Paxton,64
+hale:104,DEM,Rochelle Mercedes Garza,63
+hale:104,LIB,Mark Ash,2
+hale:104,REP,Ken Paxton,103
+hale:105,DEM,Rochelle Mercedes Garza,24
+hale:105,LIB,Mark Ash,3
+hale:105,REP,Ken Paxton,47
+hale:108,DEM,Rochelle Mercedes Garza,2
+hale:108,LIB,Mark Ash,1
+hale:108,REP,Ken Paxton,16
+hale:110,DEM,Rochelle Mercedes Garza,18
+hale:110,LIB,Mark Ash,1
+hale:110,REP,Ken Paxton,200
+hale:111,DEM,Rochelle Mercedes Garza,39
+hale:111,LIB,Mark Ash,5
+hale:111,REP,Ken Paxton,202
+hale:112,DEM,Rochelle Mercedes Garza,14
+hale:112,LIB,Mark Ash,7
+hale:112,REP,Ken Paxton,305
+hale:202,DEM,Rochelle Mercedes Garza,29
+hale:202,LIB,Mark Ash,3
+hale:202,REP,Ken Paxton,32
+hale:203,DEM,Rochelle Mercedes Garza,64
+hale:203,LIB,Mark Ash,1
+hale:203,REP,Ken Paxton,56
+hale:204,DEM,Rochelle Mercedes Garza,52
+hale:204,LIB,Mark Ash,5
+hale:204,REP,Ken Paxton,118
+hale:205,DEM,Rochelle Mercedes Garza,25
+hale:205,LIB,Mark Ash,2
+hale:205,REP,Ken Paxton,39
+hale:206,DEM,Rochelle Mercedes Garza,4
+hale:206,LIB,Mark Ash,0
+hale:206,REP,Ken Paxton,6
+hale:213,DEM,Rochelle Mercedes Garza,11
+hale:213,LIB,Mark Ash,1
+hale:213,REP,Ken Paxton,96
+hale:214,DEM,Rochelle Mercedes Garza,57
+hale:214,LIB,Mark Ash,8
+hale:214,REP,Ken Paxton,225
+hale:215,DEM,Rochelle Mercedes Garza,29
+hale:215,LIB,Mark Ash,0
+hale:215,REP,Ken Paxton,115
+hale:304,DEM,Rochelle Mercedes Garza,90
+hale:304,LIB,Mark Ash,7
+hale:304,REP,Ken Paxton,301
+hale:305,DEM,Rochelle Mercedes Garza,75
+hale:305,LIB,Mark Ash,8
+hale:305,REP,Ken Paxton,484
+hale:306,DEM,Rochelle Mercedes Garza,15
+hale:306,LIB,Mark Ash,0
+hale:306,REP,Ken Paxton,16
+hale:307,DEM,Rochelle Mercedes Garza,27
+hale:307,LIB,Mark Ash,5
+hale:307,REP,Ken Paxton,84
+hale:316,DEM,Rochelle Mercedes Garza,88
+hale:316,LIB,Mark Ash,5
+hale:316,REP,Ken Paxton,368
+hale:317,DEM,Rochelle Mercedes Garza,7
+hale:317,LIB,Mark Ash,2
+hale:317,REP,Ken Paxton,58
+hale:318,DEM,Rochelle Mercedes Garza,71
+hale:318,LIB,Mark Ash,16
+hale:318,REP,Ken Paxton,460
+hale:406,DEM,Rochelle Mercedes Garza,57
+hale:406,LIB,Mark Ash,4
+hale:406,REP,Ken Paxton,113
+hale:407,DEM,Rochelle Mercedes Garza,127
+hale:407,LIB,Mark Ash,19
+hale:407,REP,Ken Paxton,506
+hale:408,DEM,Rochelle Mercedes Garza,61
+hale:408,LIB,Mark Ash,9
+hale:408,REP,Ken Paxton,274
+hale:409,DEM,Rochelle Mercedes Garza,66
+hale:409,LIB,Mark Ash,3
+hale:409,REP,Ken Paxton,199
+hale:419,DEM,Rochelle Mercedes Garza,11
+hale:419,LIB,Mark Ash,1
+hale:419,REP,Ken Paxton,85
+hale:420,DEM,Rochelle Mercedes Garza,11
+hale:420,LIB,Mark Ash,3
+hale:420,REP,Ken Paxton,202
+jones:1,,Over Votes,0
+jones:1,,Under Votes,6
+jones:1,DEM,Rochelle Mercedes Garza,151
+jones:1,LIB,Mark Ash,15
+jones:1,REP,Ken Paxton,708
+jones:2,,Over Votes,0
+jones:2,,Under Votes,13
+jones:2,DEM,Rochelle Mercedes Garza,176
+jones:2,LIB,Mark Ash,21
+jones:2,REP,Ken Paxton,1006
+jones:3,,Over Votes,0
+jones:3,,Under Votes,15
+jones:3,DEM,Rochelle Mercedes Garza,127
+jones:3,LIB,Mark Ash,31
+jones:3,REP,Ken Paxton,1299
+jones:4,,Over Votes,0
+jones:4,,Under Votes,9
+jones:4,DEM,Rochelle Mercedes Garza,171
+jones:4,LIB,Mark Ash,18
+jones:4,REP,Ken Paxton,1241
+lamb:1,DEM,Rochelle Mercedes Garza,31
+lamb:1,LIB,Mark Ash,8
+lamb:1,REP,Ken Paxton,288
+lamb:10,DEM,Rochelle Mercedes Garza,22
+lamb:10,LIB,Mark Ash,6
+lamb:10,REP,Ken Paxton,153
+lamb:11,DEM,Rochelle Mercedes Garza,28
+lamb:11,LIB,Mark Ash,2
+lamb:11,REP,Ken Paxton,322
+lamb:12,DEM,Rochelle Mercedes Garza,4
+lamb:12,LIB,Mark Ash,1
+lamb:12,REP,Ken Paxton,80
+lamb:2,DEM,Rochelle Mercedes Garza,69
+lamb:2,LIB,Mark Ash,4
+lamb:2,REP,Ken Paxton,120
+lamb:3,DEM,Rochelle Mercedes Garza,35
+lamb:3,LIB,Mark Ash,2
+lamb:3,REP,Ken Paxton,250
+lamb:4,DEM,Rochelle Mercedes Garza,1
+lamb:4,LIB,Mark Ash,0
+lamb:4,REP,Ken Paxton,44
+lamb:5,DEM,Rochelle Mercedes Garza,14
+lamb:5,LIB,Mark Ash,4
+lamb:5,REP,Ken Paxton,157
+lamb:6,DEM,Rochelle Mercedes Garza,21
+lamb:6,LIB,Mark Ash,3
+lamb:6,REP,Ken Paxton,105
+lamb:8,DEM,Rochelle Mercedes Garza,110
+lamb:8,LIB,Mark Ash,18
+lamb:8,REP,Ken Paxton,754
+lamb:9,DEM,Rochelle Mercedes Garza,91
+lamb:9,LIB,Mark Ash,5
+lamb:9,REP,Ken Paxton,299
+lubbock:1,REP,Ken Paxton,451
+lubbock:1,LIB,Mark Ash,20
+lubbock:1,DEM,Rochelle Mercedes Garza,510
+lubbock:2,REP,Ken Paxton,415
+lubbock:2,LIB,Mark Ash,13
+lubbock:2,DEM,Rochelle Mercedes Garza,262
+lubbock:3,REP,Ken Paxton,167
+lubbock:3,LIB,Mark Ash,24
+lubbock:3,DEM,Rochelle Mercedes Garza,437
+lubbock:4,REP,Ken Paxton,70
+lubbock:4,LIB,Mark Ash,7
+lubbock:4,DEM,Rochelle Mercedes Garza,169
+lubbock:5,REP,Ken Paxton,96
+lubbock:5,LIB,Mark Ash,9
+lubbock:5,DEM,Rochelle Mercedes Garza,177
+lubbock:6,REP,Ken Paxton,43
+lubbock:6,LIB,Mark Ash,4
+lubbock:6,DEM,Rochelle Mercedes Garza,242
+lubbock:7,REP,Ken Paxton,1007
+lubbock:7,LIB,Mark Ash,52
+lubbock:7,DEM,Rochelle Mercedes Garza,432
+lubbock:8,REP,Ken Paxton,260
+lubbock:8,LIB,Mark Ash,24
+lubbock:8,DEM,Rochelle Mercedes Garza,553
+lubbock:9,REP,Ken Paxton,798
+lubbock:9,LIB,Mark Ash,50
+lubbock:9,DEM,Rochelle Mercedes Garza,486
+lubbock:10,REP,Ken Paxton,91
+lubbock:10,LIB,Mark Ash,13
+lubbock:10,DEM,Rochelle Mercedes Garza,172
+lubbock:11,REP,Ken Paxton,23
+lubbock:11,LIB,Mark Ash,1
+lubbock:11,DEM,Rochelle Mercedes Garza,44
+lubbock:12,REP,Ken Paxton,647
+lubbock:12,LIB,Mark Ash,40
+lubbock:12,DEM,Rochelle Mercedes Garza,347
+lubbock:13,REP,Ken Paxton,181
+lubbock:13,LIB,Mark Ash,8
+lubbock:13,DEM,Rochelle Mercedes Garza,88
+lubbock:14,REP,Ken Paxton,270
+lubbock:14,LIB,Mark Ash,21
+lubbock:14,DEM,Rochelle Mercedes Garza,232
+lubbock:15,REP,Ken Paxton,527
+lubbock:15,LIB,Mark Ash,46
+lubbock:15,DEM,Rochelle Mercedes Garza,742
+lubbock:17,REP,Ken Paxton,361
+lubbock:17,LIB,Mark Ash,35
+lubbock:17,DEM,Rochelle Mercedes Garza,524
+lubbock:19,REP,Ken Paxton,86
+lubbock:19,LIB,Mark Ash,5
+lubbock:19,DEM,Rochelle Mercedes Garza,99
+lubbock:20,REP,Ken Paxton,32
+lubbock:20,LIB,Mark Ash,4
+lubbock:20,DEM,Rochelle Mercedes Garza,229
+lubbock:21,REP,Ken Paxton,407
+lubbock:21,LIB,Mark Ash,23
+lubbock:21,DEM,Rochelle Mercedes Garza,255
+lubbock:22,REP,Ken Paxton,717
+lubbock:22,LIB,Mark Ash,43
+lubbock:22,DEM,Rochelle Mercedes Garza,403
+lubbock:23,REP,Ken Paxton,392
+lubbock:23,LIB,Mark Ash,34
+lubbock:23,DEM,Rochelle Mercedes Garza,255
+lubbock:24,REP,Ken Paxton,277
+lubbock:24,LIB,Mark Ash,20
+lubbock:24,DEM,Rochelle Mercedes Garza,312
+lubbock:25,REP,Ken Paxton,106
+lubbock:25,LIB,Mark Ash,9
+lubbock:25,DEM,Rochelle Mercedes Garza,155
+lubbock:26,REP,Ken Paxton,285
+lubbock:26,LIB,Mark Ash,19
+lubbock:26,DEM,Rochelle Mercedes Garza,290
+lubbock:27,REP,Ken Paxton,600
+lubbock:27,LIB,Mark Ash,33
+lubbock:27,DEM,Rochelle Mercedes Garza,432
+lubbock:28,REP,Ken Paxton,655
+lubbock:28,LIB,Mark Ash,36
+lubbock:28,DEM,Rochelle Mercedes Garza,271
+lubbock:29,REP,Ken Paxton,424
+lubbock:29,LIB,Mark Ash,27
+lubbock:29,DEM,Rochelle Mercedes Garza,390
+lubbock:30,REP,Ken Paxton,621
+lubbock:30,LIB,Mark Ash,37
+lubbock:30,DEM,Rochelle Mercedes Garza,326
+lubbock:31,REP,Ken Paxton,665
+lubbock:31,LIB,Mark Ash,15
+lubbock:31,DEM,Rochelle Mercedes Garza,119
+lubbock:32,REP,Ken Paxton,627
+lubbock:32,LIB,Mark Ash,30
+lubbock:32,DEM,Rochelle Mercedes Garza,195
+lubbock:34,REP,Ken Paxton,220
+lubbock:34,LIB,Mark Ash,6
+lubbock:34,DEM,Rochelle Mercedes Garza,32
+lubbock:36,REP,Ken Paxton,690
+lubbock:36,LIB,Mark Ash,22
+lubbock:36,DEM,Rochelle Mercedes Garza,186
+lubbock:37,REP,Ken Paxton,444
+lubbock:37,LIB,Mark Ash,14
+lubbock:37,DEM,Rochelle Mercedes Garza,114
+lubbock:38,REP,Ken Paxton,279
+lubbock:38,LIB,Mark Ash,6
+lubbock:38,DEM,Rochelle Mercedes Garza,182
+lubbock:40,REP,Ken Paxton,35
+lubbock:40,LIB,Mark Ash,5
+lubbock:40,DEM,Rochelle Mercedes Garza,146
+lubbock:47,REP,Ken Paxton,666
+lubbock:47,LIB,Mark Ash,45
+lubbock:47,DEM,Rochelle Mercedes Garza,399
+lubbock:49,REP,Ken Paxton,105
+lubbock:49,LIB,Mark Ash,9
+lubbock:49,DEM,Rochelle Mercedes Garza,199
+lubbock:50,REP,Ken Paxton,120
+lubbock:50,LIB,Mark Ash,16
+lubbock:50,DEM,Rochelle Mercedes Garza,224
+lubbock:52,REP,Ken Paxton,966
+lubbock:52,LIB,Mark Ash,37
+lubbock:52,DEM,Rochelle Mercedes Garza,357
+lubbock:53,REP,Ken Paxton,560
+lubbock:53,LIB,Mark Ash,38
+lubbock:53,DEM,Rochelle Mercedes Garza,393
+lubbock:54,REP,Ken Paxton,1415
+lubbock:54,LIB,Mark Ash,60
+lubbock:54,DEM,Rochelle Mercedes Garza,440
+lubbock:57,REP,Ken Paxton,769
+lubbock:57,LIB,Mark Ash,35
+lubbock:57,DEM,Rochelle Mercedes Garza,446
+lubbock:58,REP,Ken Paxton,465
+lubbock:58,LIB,Mark Ash,20
+lubbock:58,DEM,Rochelle Mercedes Garza,184
+lubbock:59,REP,Ken Paxton,598
+lubbock:59,LIB,Mark Ash,39
+lubbock:59,DEM,Rochelle Mercedes Garza,416
+lubbock:60,REP,Ken Paxton,522
+lubbock:60,LIB,Mark Ash,23
+lubbock:60,DEM,Rochelle Mercedes Garza,166
+lubbock:62,REP,Ken Paxton,793
+lubbock:62,LIB,Mark Ash,31
+lubbock:62,DEM,Rochelle Mercedes Garza,309
+lubbock:63,REP,Ken Paxton,39
+lubbock:63,LIB,Mark Ash,3
+lubbock:63,DEM,Rochelle Mercedes Garza,9
+lubbock:66,REP,Ken Paxton,1176
+lubbock:66,LIB,Mark Ash,45
+lubbock:66,DEM,Rochelle Mercedes Garza,333
+lubbock:67,REP,Ken Paxton,559
+lubbock:67,LIB,Mark Ash,28
+lubbock:67,DEM,Rochelle Mercedes Garza,285
+lubbock:72,REP,Ken Paxton,752
+lubbock:72,LIB,Mark Ash,26
+lubbock:72,DEM,Rochelle Mercedes Garza,376
+lubbock:75,REP,Ken Paxton,561
+lubbock:75,LIB,Mark Ash,18
+lubbock:75,DEM,Rochelle Mercedes Garza,139
+lubbock:76,REP,Ken Paxton,633
+lubbock:76,LIB,Mark Ash,31
+lubbock:76,DEM,Rochelle Mercedes Garza,287
+lubbock:78,REP,Ken Paxton,1562
+lubbock:78,LIB,Mark Ash,57
+lubbock:78,DEM,Rochelle Mercedes Garza,427
+lubbock:92,REP,Ken Paxton,122
+lubbock:92,LIB,Mark Ash,2
+lubbock:92,DEM,Rochelle Mercedes Garza,27
+lubbock:102,REP,Ken Paxton,272
+lubbock:102,LIB,Mark Ash,5
+lubbock:102,DEM,Rochelle Mercedes Garza,24
+lubbock:103,REP,Ken Paxton,232
+lubbock:103,LIB,Mark Ash,9
+lubbock:103,DEM,Rochelle Mercedes Garza,41
+lubbock:104,REP,Ken Paxton,472
+lubbock:104,LIB,Mark Ash,16
+lubbock:104,DEM,Rochelle Mercedes Garza,125
+lubbock:108,REP,Ken Paxton,271
+lubbock:108,LIB,Mark Ash,21
+lubbock:108,DEM,Rochelle Mercedes Garza,157
+lubbock:109,REP,Ken Paxton,1692
+lubbock:109,LIB,Mark Ash,55
+lubbock:109,DEM,Rochelle Mercedes Garza,384
+lubbock:110,REP,Ken Paxton,1996
+lubbock:110,LIB,Mark Ash,64
+lubbock:110,DEM,Rochelle Mercedes Garza,466
+lubbock:111,REP,Ken Paxton,1021
+lubbock:111,LIB,Mark Ash,41
+lubbock:111,DEM,Rochelle Mercedes Garza,262
+lubbock:112,REP,Ken Paxton,508
+lubbock:112,LIB,Mark Ash,18
+lubbock:112,DEM,Rochelle Mercedes Garza,198
+lubbock:113,REP,Ken Paxton,539
+lubbock:113,LIB,Mark Ash,50
+lubbock:113,DEM,Rochelle Mercedes Garza,419
+lubbock:114,REP,Ken Paxton,96
+lubbock:114,LIB,Mark Ash,8
+lubbock:114,DEM,Rochelle Mercedes Garza,144
+lubbock:118,REP,Ken Paxton,440
+lubbock:118,LIB,Mark Ash,26
+lubbock:118,DEM,Rochelle Mercedes Garza,244
+lubbock:119,REP,Ken Paxton,660
+lubbock:119,LIB,Mark Ash,37
+lubbock:119,DEM,Rochelle Mercedes Garza,447
+lubbock:120,REP,Ken Paxton,1413
+lubbock:120,LIB,Mark Ash,52
+lubbock:120,DEM,Rochelle Mercedes Garza,243
+lubbock:121,REP,Ken Paxton,1544
+lubbock:121,LIB,Mark Ash,32
+lubbock:121,DEM,Rochelle Mercedes Garza,315
+lubbock:122,REP,Ken Paxton,486
+lubbock:122,LIB,Mark Ash,33
+lubbock:122,DEM,Rochelle Mercedes Garza,295
+lubbock:123,REP,Ken Paxton,659
+lubbock:123,LIB,Mark Ash,35
+lubbock:123,DEM,Rochelle Mercedes Garza,310
+lubbock:124,REP,Ken Paxton,748
+lubbock:124,LIB,Mark Ash,35
+lubbock:124,DEM,Rochelle Mercedes Garza,245
+lubbock:125,REP,Ken Paxton,818
+lubbock:125,LIB,Mark Ash,25
+lubbock:125,DEM,Rochelle Mercedes Garza,279
+lubbock:126,REP,Ken Paxton,423
+lubbock:126,LIB,Mark Ash,25
+lubbock:126,DEM,Rochelle Mercedes Garza,172
+lubbock:127,REP,Ken Paxton,994
+lubbock:127,LIB,Mark Ash,48
+lubbock:127,DEM,Rochelle Mercedes Garza,365
+lubbock:128,REP,Ken Paxton,859
+lubbock:128,LIB,Mark Ash,30
+lubbock:128,DEM,Rochelle Mercedes Garza,223
+lubbock:129,REP,Ken Paxton,1161
+lubbock:129,LIB,Mark Ash,54
+lubbock:129,DEM,Rochelle Mercedes Garza,418
+lubbock:135,REP,Ken Paxton,224
+lubbock:135,LIB,Mark Ash,6
+lubbock:135,DEM,Rochelle Mercedes Garza,64
+lubbock:138,REP,Ken Paxton,235
+lubbock:138,LIB,Mark Ash,4
+lubbock:138,DEM,Rochelle Mercedes Garza,18
+lubbock:139,REP,Ken Paxton,862
+lubbock:139,LIB,Mark Ash,46
+lubbock:139,DEM,Rochelle Mercedes Garza,203
+lubbock:140,REP,Ken Paxton,1079
+lubbock:140,LIB,Mark Ash,31
+lubbock:140,DEM,Rochelle Mercedes Garza,286
+lubbock:141,REP,Ken Paxton,808
+lubbock:141,LIB,Mark Ash,40
+lubbock:141,DEM,Rochelle Mercedes Garza,394
+lubbock:142,REP,Ken Paxton,35
+lubbock:142,LIB,Mark Ash,0
+lubbock:142,DEM,Rochelle Mercedes Garza,16
+lubbock:151,REP,Ken Paxton,415
+lubbock:151,LIB,Mark Ash,11
+lubbock:151,DEM,Rochelle Mercedes Garza,64
+lubbock:152,REP,Ken Paxton,303
+lubbock:152,LIB,Mark Ash,18
+lubbock:152,DEM,Rochelle Mercedes Garza,254
+lubbock:153,REP,Ken Paxton,54
+lubbock:153,LIB,Mark Ash,6
+lubbock:153,DEM,Rochelle Mercedes Garza,216
+lubbock:154,REP,Ken Paxton,1303
+lubbock:154,LIB,Mark Ash,54
+lubbock:154,DEM,Rochelle Mercedes Garza,413
+lubbock:155,REP,Ken Paxton,1190
+lubbock:155,LIB,Mark Ash,31
+lubbock:155,DEM,Rochelle Mercedes Garza,146
+lubbock:178,REP,Ken Paxton,142
+lubbock:178,LIB,Mark Ash,6
+lubbock:178,DEM,Rochelle Mercedes Garza,13
+lubbock:33,REP,Ken Paxton,1637
+lubbock:33,LIB,Mark Ash,40
+lubbock:33,DEM,Rochelle Mercedes Garza,228
+lubbock:35,REP,Ken Paxton,408
+lubbock:35,LIB,Mark Ash,15
+lubbock:35,DEM,Rochelle Mercedes Garza,71
+lubbock:39,REP,Ken Paxton,842
+lubbock:39,LIB,Mark Ash,28
+lubbock:39,DEM,Rochelle Mercedes Garza,144
+lubbock:41,REP,Ken Paxton,1104
+lubbock:41,LIB,Mark Ash,29
+lubbock:41,DEM,Rochelle Mercedes Garza,161
+lubbock:43,REP,Ken Paxton,293
+lubbock:43,LIB,Mark Ash,17
+lubbock:43,DEM,Rochelle Mercedes Garza,38
+lubbock:44,REP,Ken Paxton,498
+lubbock:44,LIB,Mark Ash,19
+lubbock:44,DEM,Rochelle Mercedes Garza,104
+lubbock:45,REP,Ken Paxton,183
+lubbock:45,LIB,Mark Ash,4
+lubbock:45,DEM,Rochelle Mercedes Garza,37
+lubbock:46,REP,Ken Paxton,1371
+lubbock:46,LIB,Mark Ash,47
+lubbock:46,DEM,Rochelle Mercedes Garza,206
+lubbock:51,REP,Ken Paxton,42
+lubbock:51,LIB,Mark Ash,2
+lubbock:51,DEM,Rochelle Mercedes Garza,16
+lubbock:56,REP,Ken Paxton,309
+lubbock:56,LIB,Mark Ash,16
+lubbock:56,DEM,Rochelle Mercedes Garza,81
+lubbock:65,REP,Ken Paxton,293
+lubbock:65,LIB,Mark Ash,6
+lubbock:65,DEM,Rochelle Mercedes Garza,76
+nolan:1,,Over Votes,0
+nolan:1,,Under Votes,6
+nolan:1,DEM,Rochelle Mercedes Garza,95
+nolan:1,LIB,Mark Ash,12
+nolan:1,REP,Ken Paxton,266
+nolan:2,,Over Votes,0
+nolan:2,,Under Votes,11
+nolan:2,DEM,Rochelle Mercedes Garza,83
+nolan:2,LIB,Mark Ash,13
+nolan:2,REP,Ken Paxton,474
+nolan:3,,Over Votes,0
+nolan:3,,Under Votes,9
+nolan:3,DEM,Rochelle Mercedes Garza,145
+nolan:3,LIB,Mark Ash,11
+nolan:3,REP,Ken Paxton,483
+nolan:4,,Over Votes,0
+nolan:4,,Under Votes,13
+nolan:4,DEM,Rochelle Mercedes Garza,157
+nolan:4,LIB,Mark Ash,6
+nolan:4,REP,Ken Paxton,377
+nolan:5,,Over Votes,0
+nolan:5,,Under Votes,3
+nolan:5,DEM,Rochelle Mercedes Garza,18
+nolan:5,LIB,Mark Ash,2
+nolan:5,REP,Ken Paxton,82
+nolan:6,,Over Votes,0
+nolan:6,,Under Votes,6
+nolan:6,DEM,Rochelle Mercedes Garza,63
+nolan:6,LIB,Mark Ash,7
+nolan:6,REP,Ken Paxton,403
+nolan:7,,Over Votes,0
+nolan:7,,Under Votes,6
+nolan:7,DEM,Rochelle Mercedes Garza,9
+nolan:7,LIB,Mark Ash,8
+nolan:7,REP,Ken Paxton,167
+nolan:8,,Over Votes,0
+nolan:8,,Under Votes,1
+nolan:8,DEM,Rochelle Mercedes Garza,12
+nolan:8,LIB,Mark Ash,1
+nolan:8,REP,Ken Paxton,101
+nolan:9,,Over Votes,0
+nolan:9,,Under Votes,15
+nolan:9,DEM,Rochelle Mercedes Garza,96
+nolan:9,LIB,Mark Ash,21
+nolan:9,REP,Ken Paxton,638
+stonewall:1,REP,Ken Paxton,123
+stonewall:1,LIB,Mark Ash,0
+stonewall:1,DEM,Rochelle Mercedes Garza,11
+stonewall:2,REP,Ken Paxton,127
+stonewall:2,LIB,Mark Ash,0
+stonewall:2,DEM,Rochelle Mercedes Garza,28
+stonewall:3,REP,Ken Paxton,118
+stonewall:3,LIB,Mark Ash,0
+stonewall:3,DEM,Rochelle Mercedes Garza,15
+stonewall:4,REP,Ken Paxton,105
+stonewall:4,LIB,Mark Ash,2
+stonewall:4,DEM,Rochelle Mercedes Garza,32

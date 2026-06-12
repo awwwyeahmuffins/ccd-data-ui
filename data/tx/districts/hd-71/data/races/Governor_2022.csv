@@ -1,0 +1,92 @@
+precinct,party,candidate,votes
+jones:1,,Over Votes,0
+jones:1,,Under Votes,5
+jones:1,,Write-in,0
+jones:1,DEM,Beto O'Rourke,145
+jones:1,GRN,Delilah Barrios,3
+jones:1,LIB,Mark Tippetts,11
+jones:1,REP,Greg Abbott,716
+jones:2,,Over Votes,0
+jones:2,,Under Votes,5
+jones:2,,Write-in,1
+jones:2,DEM,Beto O'Rourke,163
+jones:2,GRN,Delilah Barrios,2
+jones:2,LIB,Mark Tippetts,9
+jones:2,REP,Greg Abbott,1036
+jones:3,,Over Votes,0
+jones:3,,Under Votes,4
+jones:3,,Write-in,0
+jones:3,DEM,Beto O'Rourke,120
+jones:3,GRN,Delilah Barrios,2
+jones:3,LIB,Mark Tippetts,20
+jones:3,REP,Greg Abbott,1326
+jones:4,,Over Votes,0
+jones:4,,Under Votes,1
+jones:4,,Write-in,0
+jones:4,DEM,Beto O'Rourke,153
+jones:4,GRN,Delilah Barrios,2
+jones:4,LIB,Mark Tippetts,12
+jones:4,REP,Greg Abbott,1271
+nolan:1,,Over Votes,0
+nolan:1,,Under Votes,1
+nolan:1,,Write-in,1
+nolan:1,DEM,Beto O'Rourke,94
+nolan:1,GRN,Delilah Barrios,2
+nolan:1,LIB,Mark Tippetts,4
+nolan:1,REP,Greg Abbott,277
+nolan:2,,Over Votes,0
+nolan:2,,Under Votes,4
+nolan:2,,Write-in,0
+nolan:2,DEM,Beto O'Rourke,86
+nolan:2,GRN,Delilah Barrios,2
+nolan:2,LIB,Mark Tippetts,3
+nolan:2,REP,Greg Abbott,486
+nolan:3,,Over Votes,0
+nolan:3,,Under Votes,0
+nolan:3,,Write-in,0
+nolan:3,DEM,Beto O'Rourke,142
+nolan:3,GRN,Delilah Barrios,3
+nolan:3,LIB,Mark Tippetts,4
+nolan:3,REP,Greg Abbott,499
+nolan:4,,Over Votes,0
+nolan:4,,Under Votes,4
+nolan:4,,Write-in,0
+nolan:4,DEM,Beto O'Rourke,144
+nolan:4,GRN,Delilah Barrios,8
+nolan:4,LIB,Mark Tippetts,6
+nolan:4,REP,Greg Abbott,391
+nolan:5,,Over Votes,0
+nolan:5,,Under Votes,1
+nolan:5,,Write-in,0
+nolan:5,DEM,Beto O'Rourke,16
+nolan:5,GRN,Delilah Barrios,0
+nolan:5,LIB,Mark Tippetts,1
+nolan:5,REP,Greg Abbott,87
+nolan:6,,Over Votes,0
+nolan:6,,Under Votes,4
+nolan:6,,Write-in,0
+nolan:6,DEM,Beto O'Rourke,56
+nolan:6,GRN,Delilah Barrios,0
+nolan:6,LIB,Mark Tippetts,10
+nolan:6,REP,Greg Abbott,409
+nolan:7,,Over Votes,0
+nolan:7,,Under Votes,0
+nolan:7,,Write-in,1
+nolan:7,DEM,Beto O'Rourke,11
+nolan:7,GRN,Delilah Barrios,0
+nolan:7,LIB,Mark Tippetts,2
+nolan:7,REP,Greg Abbott,176
+nolan:8,,Over Votes,0
+nolan:8,,Under Votes,0
+nolan:8,,Write-in,0
+nolan:8,DEM,Beto O'Rourke,12
+nolan:8,GRN,Delilah Barrios,0
+nolan:8,LIB,Mark Tippetts,0
+nolan:8,REP,Greg Abbott,103
+nolan:9,,Over Votes,0
+nolan:9,,Under Votes,3
+nolan:9,,Write-in,0
+nolan:9,DEM,Beto O'Rourke,86
+nolan:9,GRN,Delilah Barrios,5
+nolan:9,LIB,Mark Tippetts,11
+nolan:9,REP,Greg Abbott,665

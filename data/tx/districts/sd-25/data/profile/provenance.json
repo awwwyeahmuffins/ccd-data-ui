@@ -1,0 +1,17 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANS2168",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "bexar": 130,
+      "blanco": 6,
+      "comal": 29,
+      "guadalupe": 29,
+      "hays": 23,
+      "kendall": 11,
+      "travis": 21
+    },
+    "generated": "2026-06-12"
+  }
+}

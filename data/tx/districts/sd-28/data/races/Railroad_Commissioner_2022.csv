@@ -1,0 +1,761 @@
+precinct,party,candidate,votes
+baylor:1,,Hunter Wayne Crow,5
+baylor:1,DEM,Luke Warford,17
+baylor:1,LIB,Jaime Andres Diez,7
+baylor:1,REP,Wayne Christian,333
+baylor:2,,Hunter Wayne Crow,3
+baylor:2,DEM,Luke Warford,23
+baylor:2,LIB,Jaime Andres Diez,3
+baylor:2,REP,Wayne Christian,294
+baylor:3,,Hunter Wayne Crow,0
+baylor:3,DEM,Luke Warford,28
+baylor:3,LIB,Jaime Andres Diez,10
+baylor:3,REP,Wayne Christian,240
+baylor:4,,Hunter Wayne Crow,6
+baylor:4,DEM,Luke Warford,27
+baylor:4,LIB,Jaime Andres Diez,10
+baylor:4,REP,Wayne Christian,269
+childress:101,DEM,Luke Warford,30
+childress:101,GRN,Hunter Wayne Crow,2
+childress:101,LIB,Jaime Andres Diez,5
+childress:101,REP,Wayne Christian,327
+childress:201,DEM,Luke Warford,35
+childress:201,GRN,Hunter Wayne Crow,3
+childress:201,LIB,Jaime Andres Diez,10
+childress:201,REP,Wayne Christian,392
+childress:301,DEM,Luke Warford,38
+childress:301,GRN,Hunter Wayne Crow,3
+childress:301,LIB,Jaime Andres Diez,8
+childress:301,REP,Wayne Christian,410
+childress:401,DEM,Luke Warford,37
+childress:401,GRN,Hunter Wayne Crow,0
+childress:401,LIB,Jaime Andres Diez,11
+childress:401,REP,Wayne Christian,404
+coleman:1,,Over Votes,0
+coleman:1,,Under Votes,11
+coleman:1,DEM,Luke Warford,50
+coleman:1,GRN,Hunter Wayne Crow,4
+coleman:1,LIB,Jaime Andres Diez,4
+coleman:1,REP,Wayne Christian,751
+coleman:2,,Over Votes,0
+coleman:2,,Under Votes,11
+coleman:2,DEM,Luke Warford,66
+coleman:2,GRN,Hunter Wayne Crow,4
+coleman:2,LIB,Jaime Andres Diez,7
+coleman:2,REP,Wayne Christian,555
+coleman:2E,,Over Votes,0
+coleman:2E,,Under Votes,6
+coleman:2E,DEM,Luke Warford,20
+coleman:2E,GRN,Hunter Wayne Crow,1
+coleman:2E,LIB,Jaime Andres Diez,4
+coleman:2E,REP,Wayne Christian,198
+coleman:3,,Over Votes,1
+coleman:3,,Under Votes,10
+coleman:3,DEM,Luke Warford,53
+coleman:3,GRN,Hunter Wayne Crow,5
+coleman:3,LIB,Jaime Andres Diez,13
+coleman:3,REP,Wayne Christian,588
+coleman:4,,Over Votes,0
+coleman:4,,Under Votes,18
+coleman:4,DEM,Luke Warford,67
+coleman:4,GRN,Hunter Wayne Crow,2
+coleman:4,LIB,Jaime Andres Diez,13
+coleman:4,REP,Wayne Christian,780
+floyd:1,DEM,Luke Warford,55
+floyd:1,GRN,Hunter Wayne Crow,0
+floyd:1,LIB,Jaime Andres Diez,11
+floyd:1,REP,Wayne Christian,448
+floyd:2,DEM,Luke Warford,36
+floyd:2,GRN,Hunter Wayne Crow,3
+floyd:2,LIB,Jaime Andres Diez,7
+floyd:2,REP,Wayne Christian,394
+floyd:3,DEM,Luke Warford,45
+floyd:3,GRN,Hunter Wayne Crow,0
+floyd:3,LIB,Jaime Andres Diez,1
+floyd:3,REP,Wayne Christian,169
+floyd:4,DEM,Luke Warford,53
+floyd:4,GRN,Hunter Wayne Crow,3
+floyd:4,LIB,Jaime Andres Diez,9
+floyd:4,REP,Wayne Christian,212
+gray:1,DEM,Luke Warford,8
+gray:1,GRN,Hunter Wayne Crow,1
+gray:1,LIB,Jaime Andres Diez,2
+gray:1,REP,Wayne Christian,191
+gray:2,DEM,Luke Warford,92
+gray:2,GRN,Hunter Wayne Crow,11
+gray:2,LIB,Jaime Andres Diez,22
+gray:2,REP,Wayne Christian,1035
+gray:3,DEM,Luke Warford,2
+gray:3,GRN,Hunter Wayne Crow,0
+gray:3,LIB,Jaime Andres Diez,2
+gray:3,REP,Wayne Christian,75
+gray:4,DEM,Luke Warford,19
+gray:4,GRN,Hunter Wayne Crow,2
+gray:4,LIB,Jaime Andres Diez,2
+gray:4,REP,Wayne Christian,344
+gray:5,DEM,Luke Warford,116
+gray:5,GRN,Hunter Wayne Crow,15
+gray:5,LIB,Jaime Andres Diez,32
+gray:5,REP,Wayne Christian,1368
+gray:6,DEM,Luke Warford,105
+gray:6,GRN,Hunter Wayne Crow,8
+gray:6,LIB,Jaime Andres Diez,15
+gray:6,REP,Wayne Christian,1274
+gray:7,DEM,Luke Warford,97
+gray:7,GRN,Hunter Wayne Crow,8
+gray:7,LIB,Jaime Andres Diez,19
+gray:7,REP,Wayne Christian,638
+hale:101,DEM,Luke Warford,14
+hale:101,GRN,Hunter Wayne Crow,0
+hale:101,LIB,Jaime Andres Diez,3
+hale:101,REP,Wayne Christian,126
+hale:102,DEM,Luke Warford,4
+hale:102,GRN,Hunter Wayne Crow,1
+hale:102,LIB,Jaime Andres Diez,1
+hale:102,REP,Wayne Christian,30
+hale:103,DEM,Luke Warford,44
+hale:103,GRN,Hunter Wayne Crow,1
+hale:103,LIB,Jaime Andres Diez,9
+hale:103,REP,Wayne Christian,67
+hale:104,DEM,Luke Warford,58
+hale:104,GRN,Hunter Wayne Crow,2
+hale:104,LIB,Jaime Andres Diez,6
+hale:104,REP,Wayne Christian,101
+hale:105,DEM,Luke Warford,20
+hale:105,GRN,Hunter Wayne Crow,3
+hale:105,LIB,Jaime Andres Diez,2
+hale:105,REP,Wayne Christian,48
+hale:108,DEM,Luke Warford,2
+hale:108,GRN,Hunter Wayne Crow,0
+hale:108,LIB,Jaime Andres Diez,1
+hale:108,REP,Wayne Christian,16
+hale:110,DEM,Luke Warford,14
+hale:110,GRN,Hunter Wayne Crow,0
+hale:110,LIB,Jaime Andres Diez,2
+hale:110,REP,Wayne Christian,202
+hale:111,DEM,Luke Warford,31
+hale:111,GRN,Hunter Wayne Crow,3
+hale:111,LIB,Jaime Andres Diez,4
+hale:111,REP,Wayne Christian,209
+hale:112,DEM,Luke Warford,14
+hale:112,GRN,Hunter Wayne Crow,2
+hale:112,LIB,Jaime Andres Diez,3
+hale:112,REP,Wayne Christian,301
+hale:202,DEM,Luke Warford,24
+hale:202,GRN,Hunter Wayne Crow,1
+hale:202,LIB,Jaime Andres Diez,8
+hale:202,REP,Wayne Christian,30
+hale:203,DEM,Luke Warford,54
+hale:203,GRN,Hunter Wayne Crow,2
+hale:203,LIB,Jaime Andres Diez,8
+hale:203,REP,Wayne Christian,58
+hale:204,DEM,Luke Warford,46
+hale:204,GRN,Hunter Wayne Crow,1
+hale:204,LIB,Jaime Andres Diez,7
+hale:204,REP,Wayne Christian,122
+hale:205,DEM,Luke Warford,24
+hale:205,GRN,Hunter Wayne Crow,0
+hale:205,LIB,Jaime Andres Diez,4
+hale:205,REP,Wayne Christian,37
+hale:206,DEM,Luke Warford,1
+hale:206,GRN,Hunter Wayne Crow,0
+hale:206,LIB,Jaime Andres Diez,1
+hale:206,REP,Wayne Christian,8
+hale:213,DEM,Luke Warford,10
+hale:213,GRN,Hunter Wayne Crow,0
+hale:213,LIB,Jaime Andres Diez,1
+hale:213,REP,Wayne Christian,93
+hale:214,DEM,Luke Warford,37
+hale:214,GRN,Hunter Wayne Crow,3
+hale:214,LIB,Jaime Andres Diez,14
+hale:214,REP,Wayne Christian,226
+hale:215,DEM,Luke Warford,24
+hale:215,GRN,Hunter Wayne Crow,1
+hale:215,LIB,Jaime Andres Diez,3
+hale:215,REP,Wayne Christian,115
+hale:304,DEM,Luke Warford,80
+hale:304,GRN,Hunter Wayne Crow,2
+hale:304,LIB,Jaime Andres Diez,12
+hale:304,REP,Wayne Christian,302
+hale:305,DEM,Luke Warford,66
+hale:305,GRN,Hunter Wayne Crow,5
+hale:305,LIB,Jaime Andres Diez,7
+hale:305,REP,Wayne Christian,490
+hale:306,DEM,Luke Warford,15
+hale:306,GRN,Hunter Wayne Crow,0
+hale:306,LIB,Jaime Andres Diez,0
+hale:306,REP,Wayne Christian,15
+hale:307,DEM,Luke Warford,20
+hale:307,GRN,Hunter Wayne Crow,0
+hale:307,LIB,Jaime Andres Diez,5
+hale:307,REP,Wayne Christian,89
+hale:316,DEM,Luke Warford,70
+hale:316,GRN,Hunter Wayne Crow,4
+hale:316,LIB,Jaime Andres Diez,13
+hale:316,REP,Wayne Christian,376
+hale:317,DEM,Luke Warford,8
+hale:317,GRN,Hunter Wayne Crow,1
+hale:317,LIB,Jaime Andres Diez,0
+hale:317,REP,Wayne Christian,57
+hale:318,DEM,Luke Warford,52
+hale:318,GRN,Hunter Wayne Crow,4
+hale:318,LIB,Jaime Andres Diez,11
+hale:318,REP,Wayne Christian,474
+hale:406,DEM,Luke Warford,48
+hale:406,GRN,Hunter Wayne Crow,6
+hale:406,LIB,Jaime Andres Diez,9
+hale:406,REP,Wayne Christian,106
+hale:407,DEM,Luke Warford,112
+hale:407,GRN,Hunter Wayne Crow,1
+hale:407,LIB,Jaime Andres Diez,24
+hale:407,REP,Wayne Christian,515
+hale:408,DEM,Luke Warford,55
+hale:408,GRN,Hunter Wayne Crow,2
+hale:408,LIB,Jaime Andres Diez,10
+hale:408,REP,Wayne Christian,271
+hale:409,DEM,Luke Warford,60
+hale:409,GRN,Hunter Wayne Crow,3
+hale:409,LIB,Jaime Andres Diez,8
+hale:409,REP,Wayne Christian,199
+hale:419,DEM,Luke Warford,6
+hale:419,GRN,Hunter Wayne Crow,0
+hale:419,LIB,Jaime Andres Diez,0
+hale:419,REP,Wayne Christian,90
+hale:420,DEM,Luke Warford,10
+hale:420,GRN,Hunter Wayne Crow,1
+hale:420,LIB,Jaime Andres Diez,0
+hale:420,REP,Wayne Christian,206
+jones:1,,Over Votes,0
+jones:1,,Under Votes,15
+jones:1,DEM,Luke Warford,142
+jones:1,GRN,Hunter Wayne Crow,5
+jones:1,LIB,Jaime Andres Diez,24
+jones:1,REP,Wayne Christian,694
+jones:2,,Over Votes,0
+jones:2,,Under Votes,20
+jones:2,DEM,Luke Warford,159
+jones:2,GRN,Hunter Wayne Crow,8
+jones:2,LIB,Jaime Andres Diez,23
+jones:2,REP,Wayne Christian,1006
+jones:3,,Over Votes,0
+jones:3,,Under Votes,25
+jones:3,DEM,Luke Warford,115
+jones:3,GRN,Hunter Wayne Crow,11
+jones:3,LIB,Jaime Andres Diez,34
+jones:3,REP,Wayne Christian,1287
+jones:4,,Over Votes,0
+jones:4,,Under Votes,23
+jones:4,DEM,Luke Warford,154
+jones:4,GRN,Hunter Wayne Crow,10
+jones:4,LIB,Jaime Andres Diez,19
+jones:4,REP,Wayne Christian,1233
+lamb:1,DEM,Luke Warford,28
+lamb:1,GRN,Hunter Wayne Crow,3
+lamb:1,LIB,Jaime Andres Diez,9
+lamb:1,REP,Wayne Christian,285
+lamb:10,DEM,Luke Warford,16
+lamb:10,GRN,Hunter Wayne Crow,3
+lamb:10,LIB,Jaime Andres Diez,5
+lamb:10,REP,Wayne Christian,156
+lamb:11,DEM,Luke Warford,30
+lamb:11,GRN,Hunter Wayne Crow,4
+lamb:11,LIB,Jaime Andres Diez,3
+lamb:11,REP,Wayne Christian,313
+lamb:12,DEM,Luke Warford,2
+lamb:12,GRN,Hunter Wayne Crow,2
+lamb:12,LIB,Jaime Andres Diez,0
+lamb:12,REP,Wayne Christian,81
+lamb:2,DEM,Luke Warford,64
+lamb:2,GRN,Hunter Wayne Crow,3
+lamb:2,LIB,Jaime Andres Diez,7
+lamb:2,REP,Wayne Christian,121
+lamb:3,DEM,Luke Warford,28
+lamb:3,GRN,Hunter Wayne Crow,0
+lamb:3,LIB,Jaime Andres Diez,3
+lamb:3,REP,Wayne Christian,252
+lamb:4,DEM,Luke Warford,1
+lamb:4,GRN,Hunter Wayne Crow,0
+lamb:4,LIB,Jaime Andres Diez,0
+lamb:4,REP,Wayne Christian,44
+lamb:5,DEM,Luke Warford,13
+lamb:5,GRN,Hunter Wayne Crow,0
+lamb:5,LIB,Jaime Andres Diez,5
+lamb:5,REP,Wayne Christian,157
+lamb:6,DEM,Luke Warford,20
+lamb:6,GRN,Hunter Wayne Crow,1
+lamb:6,LIB,Jaime Andres Diez,3
+lamb:6,REP,Wayne Christian,104
+lamb:8,DEM,Luke Warford,107
+lamb:8,GRN,Hunter Wayne Crow,4
+lamb:8,LIB,Jaime Andres Diez,19
+lamb:8,REP,Wayne Christian,738
+lamb:9,DEM,Luke Warford,87
+lamb:9,GRN,Hunter Wayne Crow,3
+lamb:9,LIB,Jaime Andres Diez,7
+lamb:9,REP,Wayne Christian,295
+lubbock:1,,Hunter Wayne Crow,21
+lubbock:1,,Jaime Andres Diez,48
+lubbock:1,,Luke Warford,439
+lubbock:1,,Wayne Christian,460
+lubbock:2,,Hunter Wayne Crow,4
+lubbock:2,,Jaime Andres Diez,39
+lubbock:2,,Luke Warford,223
+lubbock:2,,Wayne Christian,418
+lubbock:3,,Hunter Wayne Crow,14
+lubbock:3,,Jaime Andres Diez,70
+lubbock:3,,Luke Warford,363
+lubbock:3,,Wayne Christian,173
+lubbock:4,,Hunter Wayne Crow,4
+lubbock:4,,Jaime Andres Diez,18
+lubbock:4,,Luke Warford,154
+lubbock:4,,Wayne Christian,69
+lubbock:5,,Hunter Wayne Crow,1
+lubbock:5,,Jaime Andres Diez,25
+lubbock:5,,Luke Warford,161
+lubbock:5,,Wayne Christian,93
+lubbock:6,,Hunter Wayne Crow,1
+lubbock:6,,Jaime Andres Diez,12
+lubbock:6,,Luke Warford,233
+lubbock:6,,Wayne Christian,39
+lubbock:7,,Hunter Wayne Crow,25
+lubbock:7,,Jaime Andres Diez,35
+lubbock:7,,Luke Warford,398
+lubbock:7,,Wayne Christian,1022
+lubbock:8,,Hunter Wayne Crow,31
+lubbock:8,,Jaime Andres Diez,34
+lubbock:8,,Luke Warford,483
+lubbock:8,,Wayne Christian,276
+lubbock:9,,Hunter Wayne Crow,15
+lubbock:9,,Jaime Andres Diez,33
+lubbock:9,,Luke Warford,436
+lubbock:9,,Wayne Christian,837
+lubbock:10,,Hunter Wayne Crow,9
+lubbock:10,,Jaime Andres Diez,18
+lubbock:10,,Luke Warford,155
+lubbock:10,,Wayne Christian,88
+lubbock:11,,Hunter Wayne Crow,1
+lubbock:11,,Jaime Andres Diez,2
+lubbock:11,,Luke Warford,40
+lubbock:11,,Wayne Christian,21
+lubbock:12,,Hunter Wayne Crow,14
+lubbock:12,,Jaime Andres Diez,15
+lubbock:12,,Luke Warford,319
+lubbock:12,,Wayne Christian,681
+lubbock:13,,Hunter Wayne Crow,6
+lubbock:13,,Jaime Andres Diez,9
+lubbock:13,,Luke Warford,76
+lubbock:13,,Wayne Christian,187
+lubbock:14,,Hunter Wayne Crow,16
+lubbock:14,,Jaime Andres Diez,22
+lubbock:14,,Luke Warford,211
+lubbock:14,,Wayne Christian,270
+lubbock:15,,Hunter Wayne Crow,32
+lubbock:15,,Jaime Andres Diez,41
+lubbock:15,,Luke Warford,660
+lubbock:15,,Wayne Christian,561
+lubbock:17,,Hunter Wayne Crow,27
+lubbock:17,,Jaime Andres Diez,51
+lubbock:17,,Luke Warford,465
+lubbock:17,,Wayne Christian,365
+lubbock:19,,Hunter Wayne Crow,0
+lubbock:19,,Jaime Andres Diez,12
+lubbock:19,,Luke Warford,89
+lubbock:19,,Wayne Christian,87
+lubbock:20,,Hunter Wayne Crow,4
+lubbock:20,,Jaime Andres Diez,7
+lubbock:20,,Luke Warford,222
+lubbock:20,,Wayne Christian,26
+lubbock:21,,Hunter Wayne Crow,11
+lubbock:21,,Jaime Andres Diez,28
+lubbock:21,,Luke Warford,236
+lubbock:21,,Wayne Christian,408
+lubbock:22,,Hunter Wayne Crow,22
+lubbock:22,,Jaime Andres Diez,42
+lubbock:22,,Luke Warford,352
+lubbock:22,,Wayne Christian,734
+lubbock:23,,Hunter Wayne Crow,9
+lubbock:23,,Jaime Andres Diez,32
+lubbock:23,,Luke Warford,225
+lubbock:23,,Wayne Christian,401
+lubbock:24,,Hunter Wayne Crow,10
+lubbock:24,,Jaime Andres Diez,24
+lubbock:24,,Luke Warford,283
+lubbock:24,,Wayne Christian,287
+lubbock:25,,Hunter Wayne Crow,6
+lubbock:25,,Jaime Andres Diez,14
+lubbock:25,,Luke Warford,145
+lubbock:25,,Wayne Christian,104
+lubbock:26,,Hunter Wayne Crow,8
+lubbock:26,,Jaime Andres Diez,36
+lubbock:26,,Luke Warford,263
+lubbock:26,,Wayne Christian,278
+lubbock:27,,Hunter Wayne Crow,21
+lubbock:27,,Jaime Andres Diez,44
+lubbock:27,,Luke Warford,389
+lubbock:27,,Wayne Christian,605
+lubbock:28,,Hunter Wayne Crow,10
+lubbock:28,,Jaime Andres Diez,23
+lubbock:28,,Luke Warford,248
+lubbock:28,,Wayne Christian,674
+lubbock:29,,Hunter Wayne Crow,17
+lubbock:29,,Jaime Andres Diez,44
+lubbock:29,,Luke Warford,353
+lubbock:29,,Wayne Christian,411
+lubbock:30,,Hunter Wayne Crow,11
+lubbock:30,,Jaime Andres Diez,44
+lubbock:30,,Luke Warford,298
+lubbock:30,,Wayne Christian,624
+lubbock:31,,Hunter Wayne Crow,9
+lubbock:31,,Jaime Andres Diez,20
+lubbock:31,,Luke Warford,98
+lubbock:31,,Wayne Christian,670
+lubbock:32,,Hunter Wayne Crow,9
+lubbock:32,,Jaime Andres Diez,34
+lubbock:32,,Luke Warford,176
+lubbock:32,,Wayne Christian,622
+lubbock:34,,Hunter Wayne Crow,2
+lubbock:34,,Jaime Andres Diez,11
+lubbock:34,,Luke Warford,23
+lubbock:34,,Wayne Christian,221
+lubbock:36,,Hunter Wayne Crow,8
+lubbock:36,,Jaime Andres Diez,23
+lubbock:36,,Luke Warford,159
+lubbock:36,,Wayne Christian,699
+lubbock:37,,Hunter Wayne Crow,3
+lubbock:37,,Jaime Andres Diez,14
+lubbock:37,,Luke Warford,92
+lubbock:37,,Wayne Christian,460
+lubbock:38,,Hunter Wayne Crow,2
+lubbock:38,,Jaime Andres Diez,18
+lubbock:38,,Luke Warford,161
+lubbock:38,,Wayne Christian,282
+lubbock:40,,Hunter Wayne Crow,0
+lubbock:40,,Jaime Andres Diez,11
+lubbock:40,,Luke Warford,144
+lubbock:40,,Wayne Christian,33
+lubbock:47,,Hunter Wayne Crow,12
+lubbock:47,,Jaime Andres Diez,59
+lubbock:47,,Luke Warford,339
+lubbock:47,,Wayne Christian,682
+lubbock:49,,Hunter Wayne Crow,13
+lubbock:49,,Jaime Andres Diez,14
+lubbock:49,,Luke Warford,175
+lubbock:49,,Wayne Christian,106
+lubbock:50,,Hunter Wayne Crow,11
+lubbock:50,,Jaime Andres Diez,20
+lubbock:50,,Luke Warford,191
+lubbock:50,,Wayne Christian,129
+lubbock:52,,Hunter Wayne Crow,15
+lubbock:52,,Jaime Andres Diez,37
+lubbock:52,,Luke Warford,317
+lubbock:52,,Wayne Christian,978
+lubbock:53,,Hunter Wayne Crow,18
+lubbock:53,,Jaime Andres Diez,39
+lubbock:53,,Luke Warford,355
+lubbock:53,,Wayne Christian,569
+lubbock:54,,Hunter Wayne Crow,13
+lubbock:54,,Jaime Andres Diez,41
+lubbock:54,,Luke Warford,383
+lubbock:54,,Wayne Christian,1468
+lubbock:57,,Hunter Wayne Crow,22
+lubbock:57,,Jaime Andres Diez,42
+lubbock:57,,Luke Warford,388
+lubbock:57,,Wayne Christian,788
+lubbock:58,,Hunter Wayne Crow,11
+lubbock:58,,Jaime Andres Diez,17
+lubbock:58,,Luke Warford,165
+lubbock:58,,Wayne Christian,473
+lubbock:59,,Hunter Wayne Crow,9
+lubbock:59,,Jaime Andres Diez,49
+lubbock:59,,Luke Warford,378
+lubbock:59,,Wayne Christian,610
+lubbock:60,,Hunter Wayne Crow,8
+lubbock:60,,Jaime Andres Diez,18
+lubbock:60,,Luke Warford,142
+lubbock:60,,Wayne Christian,531
+lubbock:62,,Hunter Wayne Crow,12
+lubbock:62,,Jaime Andres Diez,23
+lubbock:62,,Luke Warford,269
+lubbock:62,,Wayne Christian,814
+lubbock:63,,Hunter Wayne Crow,0
+lubbock:63,,Jaime Andres Diez,1
+lubbock:63,,Luke Warford,10
+lubbock:63,,Wayne Christian,39
+lubbock:66,,Hunter Wayne Crow,4
+lubbock:66,,Jaime Andres Diez,25
+lubbock:66,,Luke Warford,289
+lubbock:66,,Wayne Christian,1234
+lubbock:67,,Hunter Wayne Crow,6
+lubbock:67,,Jaime Andres Diez,26
+lubbock:67,,Luke Warford,262
+lubbock:67,,Wayne Christian,570
+lubbock:72,,Hunter Wayne Crow,17
+lubbock:72,,Jaime Andres Diez,40
+lubbock:72,,Luke Warford,321
+lubbock:72,,Wayne Christian,767
+lubbock:75,,Hunter Wayne Crow,1
+lubbock:75,,Jaime Andres Diez,12
+lubbock:75,,Luke Warford,119
+lubbock:75,,Wayne Christian,579
+lubbock:76,,Hunter Wayne Crow,6
+lubbock:76,,Jaime Andres Diez,29
+lubbock:76,,Luke Warford,255
+lubbock:76,,Wayne Christian,654
+lubbock:78,,Hunter Wayne Crow,9
+lubbock:78,,Jaime Andres Diez,41
+lubbock:78,,Luke Warford,362
+lubbock:78,,Wayne Christian,1623
+lubbock:92,,Hunter Wayne Crow,0
+lubbock:92,,Jaime Andres Diez,4
+lubbock:92,,Luke Warford,23
+lubbock:92,,Wayne Christian,120
+lubbock:102,,Hunter Wayne Crow,0
+lubbock:102,,Jaime Andres Diez,7
+lubbock:102,,Luke Warford,16
+lubbock:102,,Wayne Christian,277
+lubbock:103,,Hunter Wayne Crow,1
+lubbock:103,,Jaime Andres Diez,3
+lubbock:103,,Luke Warford,40
+lubbock:103,,Wayne Christian,235
+lubbock:104,,Hunter Wayne Crow,3
+lubbock:104,,Jaime Andres Diez,14
+lubbock:104,,Luke Warford,106
+lubbock:104,,Wayne Christian,482
+lubbock:108,,Hunter Wayne Crow,6
+lubbock:108,,Jaime Andres Diez,18
+lubbock:108,,Luke Warford,140
+lubbock:108,,Wayne Christian,279
+lubbock:109,,Hunter Wayne Crow,13
+lubbock:109,,Jaime Andres Diez,29
+lubbock:109,,Luke Warford,340
+lubbock:109,,Wayne Christian,1729
+lubbock:110,,Hunter Wayne Crow,6
+lubbock:110,,Jaime Andres Diez,37
+lubbock:110,,Luke Warford,398
+lubbock:110,,Wayne Christian,2068
+lubbock:111,,Hunter Wayne Crow,9
+lubbock:111,,Jaime Andres Diez,37
+lubbock:111,,Luke Warford,211
+lubbock:111,,Wayne Christian,1049
+lubbock:112,,Hunter Wayne Crow,4
+lubbock:112,,Jaime Andres Diez,14
+lubbock:112,,Luke Warford,178
+lubbock:112,,Wayne Christian,522
+lubbock:113,,Hunter Wayne Crow,10
+lubbock:113,,Jaime Andres Diez,49
+lubbock:113,,Luke Warford,386
+lubbock:113,,Wayne Christian,551
+lubbock:114,,Hunter Wayne Crow,3
+lubbock:114,,Jaime Andres Diez,18
+lubbock:114,,Luke Warford,130
+lubbock:114,,Wayne Christian,97
+lubbock:118,,Hunter Wayne Crow,9
+lubbock:118,,Jaime Andres Diez,18
+lubbock:118,,Luke Warford,225
+lubbock:118,,Wayne Christian,439
+lubbock:119,,Hunter Wayne Crow,8
+lubbock:119,,Jaime Andres Diez,39
+lubbock:119,,Luke Warford,413
+lubbock:119,,Wayne Christian,676
+lubbock:120,,Hunter Wayne Crow,8
+lubbock:120,,Jaime Andres Diez,53
+lubbock:120,,Luke Warford,209
+lubbock:120,,Wayne Christian,1435
+lubbock:121,,Hunter Wayne Crow,17
+lubbock:121,,Jaime Andres Diez,45
+lubbock:121,,Luke Warford,270
+lubbock:121,,Wayne Christian,1558
+lubbock:122,,Hunter Wayne Crow,14
+lubbock:122,,Jaime Andres Diez,35
+lubbock:122,,Luke Warford,260
+lubbock:122,,Wayne Christian,492
+lubbock:123,,Hunter Wayne Crow,15
+lubbock:123,,Jaime Andres Diez,33
+lubbock:123,,Luke Warford,265
+lubbock:123,,Wayne Christian,693
+lubbock:124,,Hunter Wayne Crow,7
+lubbock:124,,Jaime Andres Diez,33
+lubbock:124,,Luke Warford,206
+lubbock:124,,Wayne Christian,769
+lubbock:125,,Hunter Wayne Crow,4
+lubbock:125,,Jaime Andres Diez,18
+lubbock:125,,Luke Warford,248
+lubbock:125,,Wayne Christian,843
+lubbock:126,,Hunter Wayne Crow,9
+lubbock:126,,Jaime Andres Diez,16
+lubbock:126,,Luke Warford,153
+lubbock:126,,Wayne Christian,432
+lubbock:127,,Hunter Wayne Crow,17
+lubbock:127,,Jaime Andres Diez,35
+lubbock:127,,Luke Warford,336
+lubbock:127,,Wayne Christian,1011
+lubbock:128,,Hunter Wayne Crow,7
+lubbock:128,,Jaime Andres Diez,20
+lubbock:128,,Luke Warford,203
+lubbock:128,,Wayne Christian,877
+lubbock:129,,Hunter Wayne Crow,13
+lubbock:129,,Jaime Andres Diez,40
+lubbock:129,,Luke Warford,362
+lubbock:129,,Wayne Christian,1209
+lubbock:135,,Hunter Wayne Crow,3
+lubbock:135,,Jaime Andres Diez,5
+lubbock:135,,Luke Warford,48
+lubbock:135,,Wayne Christian,237
+lubbock:138,,Hunter Wayne Crow,0
+lubbock:138,,Jaime Andres Diez,2
+lubbock:138,,Luke Warford,18
+lubbock:138,,Wayne Christian,232
+lubbock:139,,Hunter Wayne Crow,8
+lubbock:139,,Jaime Andres Diez,23
+lubbock:139,,Luke Warford,185
+lubbock:139,,Wayne Christian,884
+lubbock:140,,Hunter Wayne Crow,4
+lubbock:140,,Jaime Andres Diez,28
+lubbock:140,,Luke Warford,260
+lubbock:140,,Wayne Christian,1090
+lubbock:141,,Hunter Wayne Crow,14
+lubbock:141,,Jaime Andres Diez,41
+lubbock:141,,Luke Warford,355
+lubbock:141,,Wayne Christian,824
+lubbock:142,,Hunter Wayne Crow,0
+lubbock:142,,Jaime Andres Diez,0
+lubbock:142,,Luke Warford,14
+lubbock:142,,Wayne Christian,36
+lubbock:151,,Hunter Wayne Crow,6
+lubbock:151,,Jaime Andres Diez,11
+lubbock:151,,Luke Warford,50
+lubbock:151,,Wayne Christian,417
+lubbock:152,,Hunter Wayne Crow,6
+lubbock:152,,Jaime Andres Diez,17
+lubbock:152,,Luke Warford,235
+lubbock:152,,Wayne Christian,308
+lubbock:153,,Hunter Wayne Crow,3
+lubbock:153,,Jaime Andres Diez,13
+lubbock:153,,Luke Warford,206
+lubbock:153,,Wayne Christian,52
+lubbock:154,,Hunter Wayne Crow,15
+lubbock:154,,Jaime Andres Diez,59
+lubbock:154,,Luke Warford,364
+lubbock:154,,Wayne Christian,1306
+lubbock:155,,Hunter Wayne Crow,4
+lubbock:155,,Jaime Andres Diez,15
+lubbock:155,,Luke Warford,128
+lubbock:155,,Wayne Christian,1211
+lubbock:178,,Hunter Wayne Crow,0
+lubbock:178,,Jaime Andres Diez,3
+lubbock:178,,Luke Warford,10
+lubbock:178,,Wayne Christian,146
+lubbock:33,,Hunter Wayne Crow,12
+lubbock:33,,Jaime Andres Diez,35
+lubbock:33,,Luke Warford,205
+lubbock:33,,Wayne Christian,1655
+lubbock:35,,Hunter Wayne Crow,3
+lubbock:35,,Jaime Andres Diez,7
+lubbock:35,,Luke Warford,69
+lubbock:35,,Wayne Christian,410
+lubbock:39,,Hunter Wayne Crow,7
+lubbock:39,,Jaime Andres Diez,22
+lubbock:39,,Luke Warford,132
+lubbock:39,,Wayne Christian,849
+lubbock:41,,Hunter Wayne Crow,7
+lubbock:41,,Jaime Andres Diez,29
+lubbock:41,,Luke Warford,135
+lubbock:41,,Wayne Christian,1104
+lubbock:43,,Hunter Wayne Crow,4
+lubbock:43,,Jaime Andres Diez,10
+lubbock:43,,Luke Warford,32
+lubbock:43,,Wayne Christian,298
+lubbock:44,,Hunter Wayne Crow,2
+lubbock:44,,Jaime Andres Diez,18
+lubbock:44,,Luke Warford,92
+lubbock:44,,Wayne Christian,505
+lubbock:45,,Hunter Wayne Crow,1
+lubbock:45,,Jaime Andres Diez,3
+lubbock:45,,Luke Warford,36
+lubbock:45,,Wayne Christian,185
+lubbock:46,,Hunter Wayne Crow,15
+lubbock:46,,Jaime Andres Diez,32
+lubbock:46,,Luke Warford,167
+lubbock:46,,Wayne Christian,1407
+lubbock:51,,Hunter Wayne Crow,1
+lubbock:51,,Jaime Andres Diez,0
+lubbock:51,,Luke Warford,13
+lubbock:51,,Wayne Christian,46
+lubbock:56,,Hunter Wayne Crow,6
+lubbock:56,,Jaime Andres Diez,11
+lubbock:56,,Luke Warford,70
+lubbock:56,,Wayne Christian,315
+lubbock:65,,Hunter Wayne Crow,1
+lubbock:65,,Jaime Andres Diez,11
+lubbock:65,,Luke Warford,72
+lubbock:65,,Wayne Christian,292
+nolan:1,,Over Votes,0
+nolan:1,,Under Votes,12
+nolan:1,DEM,Luke Warford,88
+nolan:1,GRN,Hunter Wayne Crow,2
+nolan:1,LIB,Jaime Andres Diez,11
+nolan:1,REP,Wayne Christian,266
+nolan:2,,Over Votes,0
+nolan:2,,Under Votes,16
+nolan:2,DEM,Luke Warford,65
+nolan:2,GRN,Hunter Wayne Crow,7
+nolan:2,LIB,Jaime Andres Diez,12
+nolan:2,REP,Wayne Christian,481
+nolan:3,,Over Votes,0
+nolan:3,,Under Votes,16
+nolan:3,DEM,Luke Warford,130
+nolan:3,GRN,Hunter Wayne Crow,7
+nolan:3,LIB,Jaime Andres Diez,18
+nolan:3,REP,Wayne Christian,477
+nolan:4,,Over Votes,0
+nolan:4,,Under Votes,17
+nolan:4,DEM,Luke Warford,142
+nolan:4,GRN,Hunter Wayne Crow,3
+nolan:4,LIB,Jaime Andres Diez,18
+nolan:4,REP,Wayne Christian,373
+nolan:5,,Over Votes,0
+nolan:5,,Under Votes,5
+nolan:5,DEM,Luke Warford,16
+nolan:5,GRN,Hunter Wayne Crow,0
+nolan:5,LIB,Jaime Andres Diez,2
+nolan:5,REP,Wayne Christian,82
+nolan:6,,Over Votes,0
+nolan:6,,Under Votes,9
+nolan:6,DEM,Luke Warford,53
+nolan:6,GRN,Hunter Wayne Crow,3
+nolan:6,LIB,Jaime Andres Diez,10
+nolan:6,REP,Wayne Christian,404
+nolan:7,,Over Votes,0
+nolan:7,,Under Votes,4
+nolan:7,DEM,Luke Warford,12
+nolan:7,GRN,Hunter Wayne Crow,0
+nolan:7,LIB,Jaime Andres Diez,6
+nolan:7,REP,Wayne Christian,168
+nolan:8,,Over Votes,0
+nolan:8,,Under Votes,2
+nolan:8,DEM,Luke Warford,11
+nolan:8,GRN,Hunter Wayne Crow,3
+nolan:8,LIB,Jaime Andres Diez,2
+nolan:8,REP,Wayne Christian,97
+nolan:9,,Over Votes,0
+nolan:9,,Under Votes,20
+nolan:9,DEM,Luke Warford,86
+nolan:9,GRN,Hunter Wayne Crow,6
+nolan:9,LIB,Jaime Andres Diez,20
+nolan:9,REP,Wayne Christian,638
+stonewall:1,,Hunter Wayne Crow,0
+stonewall:1,,Jaime Andres Diez,0
+stonewall:1,,Luke Warford,10
+stonewall:1,,Wayne Christian,122
+stonewall:2,,Hunter Wayne Crow,0
+stonewall:2,,Jaime Andres Diez,2
+stonewall:2,,Luke Warford,28
+stonewall:2,,Wayne Christian,124
+stonewall:3,,Hunter Wayne Crow,0
+stonewall:3,,Jaime Andres Diez,2
+stonewall:3,,Luke Warford,12
+stonewall:3,,Wayne Christian,117
+stonewall:4,,Hunter Wayne Crow,0
+stonewall:4,,Jaime Andres Diez,2
+stonewall:4,,Luke Warford,32
+stonewall:4,,Wayne Christian,103

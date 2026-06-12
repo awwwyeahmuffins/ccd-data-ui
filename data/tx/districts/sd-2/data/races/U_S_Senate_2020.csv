@@ -1,0 +1,193 @@
+precinct,party,candidate,votes
+navarro:101,GRN,Collins,3
+navarro:101,LIB,McKennon,28
+navarro:101,DEM,Hegar,442
+navarro:101,REP,Cornyn,752
+navarro:103,GRN,Collins,5
+navarro:103,LIB,McKennon,26
+navarro:103,DEM,Hegar,296
+navarro:103,REP,Cornyn,966
+navarro:104,GRN,Collins,3
+navarro:104,LIB,McKennon,6
+navarro:104,DEM,Hegar,92
+navarro:104,REP,Cornyn,387
+navarro:105,GRN,Collins,0
+navarro:105,LIB,McKennon,2
+navarro:105,DEM,Hegar,22
+navarro:105,REP,Cornyn,175
+navarro:106,GRN,Collins,1
+navarro:106,LIB,McKennon,6
+navarro:106,DEM,Hegar,79
+navarro:106,REP,Cornyn,260
+navarro:107,GRN,Collins,10
+navarro:107,LIB,McKennon,22
+navarro:107,DEM,Hegar,210
+navarro:107,REP,Cornyn,505
+navarro:108,GRN,Collins,1
+navarro:108,LIB,McKennon,2
+navarro:108,DEM,Hegar,68
+navarro:108,REP,Cornyn,257
+navarro:109,GRN,Collins,0
+navarro:109,LIB,McKennon,0
+navarro:109,DEM,Hegar,52
+navarro:109,REP,Cornyn,230
+navarro:200,GRN,Collins,7
+navarro:200,LIB,McKennon,11
+navarro:200,DEM,Hegar,284
+navarro:200,REP,Cornyn,150
+navarro:201,GRN,Collins,5
+navarro:201,LIB,McKennon,9
+navarro:201,DEM,Hegar,331
+navarro:201,REP,Cornyn,44
+navarro:202,GRN,Collins,5
+navarro:202,LIB,McKennon,7
+navarro:202,DEM,Hegar,259
+navarro:202,REP,Cornyn,139
+navarro:203,GRN,Collins,7
+navarro:203,LIB,McKennon,25
+navarro:203,DEM,Hegar,393
+navarro:203,REP,Cornyn,1028
+navarro:204,GRN,Collins,1
+navarro:204,LIB,McKennon,5
+navarro:204,DEM,Hegar,61
+navarro:204,REP,Cornyn,154
+navarro:205,GRN,Collins,5
+navarro:205,LIB,McKennon,13
+navarro:205,DEM,Hegar,172
+navarro:205,REP,Cornyn,897
+navarro:206,GRN,Collins,3
+navarro:206,LIB,McKennon,5
+navarro:206,DEM,Hegar,63
+navarro:206,REP,Cornyn,376
+navarro:300,GRN,Collins,12
+navarro:300,LIB,McKennon,24
+navarro:300,DEM,Hegar,505
+navarro:300,REP,Cornyn,787
+navarro:301,GRN,Collins,4
+navarro:301,LIB,McKennon,6
+navarro:301,DEM,Hegar,69
+navarro:301,REP,Cornyn,138
+navarro:303,GRN,Collins,6
+navarro:303,LIB,McKennon,13
+navarro:303,DEM,Hegar,167
+navarro:303,REP,Cornyn,630
+navarro:304,GRN,Collins,3
+navarro:304,LIB,McKennon,5
+navarro:304,DEM,Hegar,61
+navarro:304,REP,Cornyn,464
+navarro:305,GRN,Collins,6
+navarro:305,LIB,McKennon,4
+navarro:305,DEM,Hegar,73
+navarro:305,REP,Cornyn,278
+navarro:306,GRN,Collins,0
+navarro:306,LIB,McKennon,1
+navarro:306,DEM,Hegar,36
+navarro:306,REP,Cornyn,181
+navarro:307,GRN,Collins,2
+navarro:307,LIB,McKennon,3
+navarro:307,DEM,Hegar,51
+navarro:307,REP,Cornyn,271
+navarro:308,GRN,Collins,1
+navarro:308,LIB,McKennon,5
+navarro:308,DEM,Hegar,42
+navarro:308,REP,Cornyn,251
+navarro:400,GRN,Collins,5
+navarro:400,LIB,McKennon,20
+navarro:400,DEM,Hegar,278
+navarro:400,REP,Cornyn,866
+navarro:401,GRN,Collins,4
+navarro:401,LIB,McKennon,7
+navarro:401,DEM,Hegar,119
+navarro:401,REP,Cornyn,182
+navarro:402,GRN,Collins,7
+navarro:402,LIB,McKennon,25
+navarro:402,DEM,Hegar,256
+navarro:402,REP,Cornyn,1058
+navarro:403,GRN,Collins,8
+navarro:403,LIB,McKennon,10
+navarro:403,DEM,Hegar,111
+navarro:403,REP,Cornyn,949
+navarro:404,GRN,Collins,7
+navarro:404,LIB,McKennon,13
+navarro:404,DEM,Hegar,149
+navarro:404,REP,Cornyn,603
+navarro:405,GRN,Collins,3
+navarro:405,LIB,McKennon,6
+navarro:405,DEM,Hegar,59
+navarro:405,REP,Cornyn,538
+navarro:406,GRN,Collins,1
+navarro:406,LIB,McKennon,6
+navarro:406,DEM,Hegar,21
+navarro:406,REP,Cornyn,185
+van-zandt:1A,DEM,"Mary ""MJ"" Hegar",144
+van-zandt:1A,GRN,David B. Collins,7
+van-zandt:1A,LIB,Kerry Douglas McKennon,14
+van-zandt:1A,REP,John Cornyn,1096
+van-zandt:1B,DEM,"Mary ""MJ"" Hegar",270
+van-zandt:1B,GRN,David B. Collins,6
+van-zandt:1B,LIB,Kerry Douglas McKennon,21
+van-zandt:1B,REP,John Cornyn,1785
+van-zandt:1C,DEM,"Mary ""MJ"" Hegar",87
+van-zandt:1C,GRN,David B. Collins,2
+van-zandt:1C,LIB,Kerry Douglas McKennon,10
+van-zandt:1C,REP,John Cornyn,958
+van-zandt:1D,DEM,"Mary ""MJ"" Hegar",107
+van-zandt:1D,GRN,David B. Collins,1
+van-zandt:1D,LIB,Kerry Douglas McKennon,10
+van-zandt:1D,REP,John Cornyn,852
+van-zandt:1E,DEM,"Mary ""MJ"" Hegar",114
+van-zandt:1E,GRN,David B. Collins,5
+van-zandt:1E,LIB,Kerry Douglas McKennon,12
+van-zandt:1E,REP,John Cornyn,468
+van-zandt:2A,DEM,"Mary ""MJ"" Hegar",288
+van-zandt:2A,GRN,David B. Collins,10
+van-zandt:2A,LIB,Kerry Douglas McKennon,21
+van-zandt:2A,REP,John Cornyn,2093
+van-zandt:2B,DEM,"Mary ""MJ"" Hegar",114
+van-zandt:2B,GRN,David B. Collins,4
+van-zandt:2B,LIB,Kerry Douglas McKennon,14
+van-zandt:2B,REP,John Cornyn,1044
+van-zandt:2C,DEM,"Mary ""MJ"" Hegar",183
+van-zandt:2C,GRN,David B. Collins,8
+van-zandt:2C,LIB,Kerry Douglas McKennon,16
+van-zandt:2C,REP,John Cornyn,1540
+van-zandt:2D,DEM,"Mary ""MJ"" Hegar",175
+van-zandt:2D,GRN,David B. Collins,7
+van-zandt:2D,LIB,Kerry Douglas McKennon,15
+van-zandt:2D,REP,John Cornyn,1224
+van-zandt:3A,DEM,"Mary ""MJ"" Hegar",102
+van-zandt:3A,GRN,David B. Collins,2
+van-zandt:3A,LIB,Kerry Douglas McKennon,11
+van-zandt:3A,REP,John Cornyn,688
+van-zandt:3B,DEM,"Mary ""MJ"" Hegar",264
+van-zandt:3B,GRN,David B. Collins,6
+van-zandt:3B,LIB,Kerry Douglas McKennon,13
+van-zandt:3B,REP,John Cornyn,852
+van-zandt:3C,DEM,"Mary ""MJ"" Hegar",402
+van-zandt:3C,GRN,David B. Collins,16
+van-zandt:3C,LIB,Kerry Douglas McKennon,37
+van-zandt:3C,REP,John Cornyn,1760
+van-zandt:3D,DEM,"Mary ""MJ"" Hegar",195
+van-zandt:3D,GRN,David B. Collins,6
+van-zandt:3D,LIB,Kerry Douglas McKennon,16
+van-zandt:3D,REP,John Cornyn,1815
+van-zandt:4A,DEM,"Mary ""MJ"" Hegar",120
+van-zandt:4A,GRN,David B. Collins,3
+van-zandt:4A,LIB,Kerry Douglas McKennon,14
+van-zandt:4A,REP,John Cornyn,837
+van-zandt:4B,DEM,"Mary ""MJ"" Hegar",142
+van-zandt:4B,GRN,David B. Collins,5
+van-zandt:4B,LIB,Kerry Douglas McKennon,11
+van-zandt:4B,REP,John Cornyn,1154
+van-zandt:4C,DEM,"Mary ""MJ"" Hegar",160
+van-zandt:4C,GRN,David B. Collins,5
+van-zandt:4C,LIB,Kerry Douglas McKennon,16
+van-zandt:4C,REP,John Cornyn,1041
+van-zandt:4D,DEM,"Mary ""MJ"" Hegar",398
+van-zandt:4D,GRN,David B. Collins,12
+van-zandt:4D,LIB,Kerry Douglas McKennon,26
+van-zandt:4D,REP,John Cornyn,2018
+van-zandt:4E,DEM,"Mary ""MJ"" Hegar",109
+van-zandt:4E,GRN,David B. Collins,2
+van-zandt:4E,LIB,Kerry Douglas McKennon,5
+van-zandt:4E,REP,John Cornyn,785

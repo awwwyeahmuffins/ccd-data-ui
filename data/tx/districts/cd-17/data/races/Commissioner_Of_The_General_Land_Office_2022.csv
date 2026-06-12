@@ -1,0 +1,659 @@
+precinct,party,candidate,votes
+falls:101,,Alfred Molison Jr,5
+falls:101,,Carrie Evelyn Menger,0
+falls:101,,Dawn Buckingham,123
+falls:101,,Jay Kleberg,103
+falls:102,,Alfred Molison Jr,6
+falls:102,,Carrie Evelyn Menger,1
+falls:102,,Dawn Buckingham,276
+falls:102,,Jay Kleberg,152
+falls:103,,Alfred Molison Jr,1
+falls:103,,Carrie Evelyn Menger,0
+falls:103,,Dawn Buckingham,365
+falls:103,,Jay Kleberg,60
+falls:201,,Alfred Molison Jr,5
+falls:201,,Carrie Evelyn Menger,0
+falls:201,,Dawn Buckingham,304
+falls:201,,Jay Kleberg,56
+falls:202,,Alfred Molison Jr,4
+falls:202,,Carrie Evelyn Menger,0
+falls:202,,Dawn Buckingham,157
+falls:202,,Jay Kleberg,263
+falls:203,,Alfred Molison Jr,4
+falls:203,,Carrie Evelyn Menger,0
+falls:203,,Dawn Buckingham,36
+falls:203,,Jay Kleberg,143
+falls:301,,Alfred Molison Jr,3
+falls:301,,Carrie Evelyn Menger,0
+falls:301,,Dawn Buckingham,345
+falls:301,,Jay Kleberg,82
+falls:302,,Alfred Molison Jr,5
+falls:302,,Carrie Evelyn Menger,0
+falls:302,,Dawn Buckingham,464
+falls:302,,Jay Kleberg,130
+falls:303,,Alfred Molison Jr,3
+falls:303,,Carrie Evelyn Menger,0
+falls:303,,Dawn Buckingham,285
+falls:303,,Jay Kleberg,29
+falls:401,,Alfred Molison Jr,2
+falls:401,,Carrie Evelyn Menger,0
+falls:401,,Dawn Buckingham,302
+falls:401,,Jay Kleberg,21
+falls:402,,Alfred Molison Jr,5
+falls:402,,Carrie Evelyn Menger,0
+falls:402,,Dawn Buckingham,416
+falls:402,,Jay Kleberg,98
+falls:403,,Alfred Molison Jr,4
+falls:403,,Carrie Evelyn Menger,0
+falls:403,,Dawn Buckingham,312
+falls:403,,Jay Kleberg,95
+limestone:101,,Over Votes,0
+limestone:101,,Under Votes,26
+limestone:101,,Write-in,0
+limestone:101,DEM,Jay Kleberg,193
+limestone:101,GRN,"Alfred Molison, Jr.",6
+limestone:101,REP,Dawn Buckingham,691
+limestone:102,,Over Votes,0
+limestone:102,,Under Votes,7
+limestone:102,,Write-in,1
+limestone:102,DEM,Jay Kleberg,23
+limestone:102,GRN,"Alfred Molison, Jr.",2
+limestone:102,REP,Dawn Buckingham,338
+limestone:103,,Over Votes,0
+limestone:103,,Under Votes,7
+limestone:103,,Write-in,0
+limestone:103,DEM,Jay Kleberg,61
+limestone:103,GRN,"Alfred Molison, Jr.",2
+limestone:103,REP,Dawn Buckingham,340
+limestone:104,,Over Votes,0
+limestone:104,,Under Votes,9
+limestone:104,,Write-in,0
+limestone:104,DEM,Jay Kleberg,50
+limestone:104,GRN,"Alfred Molison, Jr.",5
+limestone:104,REP,Dawn Buckingham,436
+limestone:201,,Over Votes,0
+limestone:201,,Under Votes,5
+limestone:201,,Write-in,0
+limestone:201,DEM,Jay Kleberg,76
+limestone:201,GRN,"Alfred Molison, Jr.",2
+limestone:201,REP,Dawn Buckingham,159
+limestone:202,,Over Votes,0
+limestone:202,,Under Votes,3
+limestone:202,,Write-in,0
+limestone:202,DEM,Jay Kleberg,172
+limestone:202,GRN,"Alfred Molison, Jr.",2
+limestone:202,REP,Dawn Buckingham,103
+limestone:203,,Over Votes,0
+limestone:203,,Under Votes,2
+limestone:203,,Write-in,0
+limestone:203,DEM,Jay Kleberg,32
+limestone:203,GRN,"Alfred Molison, Jr.",0
+limestone:203,REP,Dawn Buckingham,29
+limestone:204,,Over Votes,0
+limestone:204,,Under Votes,5
+limestone:204,,Write-in,1
+limestone:204,DEM,Jay Kleberg,54
+limestone:204,GRN,"Alfred Molison, Jr.",4
+limestone:204,REP,Dawn Buckingham,237
+limestone:205,,Over Votes,0
+limestone:205,,Under Votes,8
+limestone:205,,Write-in,0
+limestone:205,DEM,Jay Kleberg,76
+limestone:205,GRN,"Alfred Molison, Jr.",2
+limestone:205,REP,Dawn Buckingham,172
+limestone:206,,Over Votes,0
+limestone:206,,Under Votes,5
+limestone:206,,Write-in,0
+limestone:206,DEM,Jay Kleberg,33
+limestone:206,GRN,"Alfred Molison, Jr.",1
+limestone:206,REP,Dawn Buckingham,206
+limestone:301,,Over Votes,0
+limestone:301,,Under Votes,12
+limestone:301,,Write-in,0
+limestone:301,DEM,Jay Kleberg,130
+limestone:301,GRN,"Alfred Molison, Jr.",8
+limestone:301,REP,Dawn Buckingham,514
+limestone:302,,Over Votes,0
+limestone:302,,Under Votes,8
+limestone:302,,Write-in,0
+limestone:302,DEM,Jay Kleberg,71
+limestone:302,GRN,"Alfred Molison, Jr.",2
+limestone:302,REP,Dawn Buckingham,204
+limestone:303,,Over Votes,0
+limestone:303,,Under Votes,2
+limestone:303,,Write-in,0
+limestone:303,DEM,Jay Kleberg,15
+limestone:303,GRN,"Alfred Molison, Jr.",0
+limestone:303,REP,Dawn Buckingham,101
+limestone:304,,Over Votes,0
+limestone:304,,Under Votes,6
+limestone:304,,Write-in,0
+limestone:304,DEM,Jay Kleberg,64
+limestone:304,GRN,"Alfred Molison, Jr.",1
+limestone:304,REP,Dawn Buckingham,318
+limestone:305,,Over Votes,0
+limestone:305,,Under Votes,1
+limestone:305,,Write-in,0
+limestone:305,DEM,Jay Kleberg,50
+limestone:305,GRN,"Alfred Molison, Jr.",1
+limestone:305,REP,Dawn Buckingham,171
+limestone:401,,Over Votes,0
+limestone:401,,Under Votes,10
+limestone:401,,Write-in,0
+limestone:401,DEM,Jay Kleberg,215
+limestone:401,GRN,"Alfred Molison, Jr.",6
+limestone:401,REP,Dawn Buckingham,316
+limestone:402,,Over Votes,0
+limestone:402,,Under Votes,1
+limestone:402,,Write-in,0
+limestone:402,DEM,Jay Kleberg,25
+limestone:402,GRN,"Alfred Molison, Jr.",0
+limestone:402,REP,Dawn Buckingham,255
+limestone:403,,Over Votes,0
+limestone:403,,Under Votes,4
+limestone:403,,Write-in,0
+limestone:403,DEM,Jay Kleberg,22
+limestone:403,GRN,"Alfred Molison, Jr.",0
+limestone:403,REP,Dawn Buckingham,164
+limestone:404,,Over Votes,0
+limestone:404,,Under Votes,1
+limestone:404,,Write-in,0
+limestone:404,DEM,Jay Kleberg,25
+limestone:404,GRN,"Alfred Molison, Jr.",5
+limestone:404,REP,Dawn Buckingham,229
+limestone:405,,Over Votes,0
+limestone:405,,Under Votes,1
+limestone:405,,Write-in,0
+limestone:405,DEM,Jay Kleberg,22
+limestone:405,GRN,"Alfred Molison, Jr.",2
+limestone:405,REP,Dawn Buckingham,180
+limestone:406,,Over Votes,0
+limestone:406,,Under Votes,1
+limestone:406,,Write-in,1
+limestone:406,DEM,Jay Kleberg,18
+limestone:406,GRN,"Alfred Molison, Jr.",3
+limestone:406,REP,Dawn Buckingham,98
+mclennan:1,,Carrie Evelyn Menger,0
+mclennan:1,DEM,Jay Kleberg,71
+mclennan:1,GRN,"Alfred Molison, Jr",5
+mclennan:1,REP,Dawn Buckingham,45
+mclennan:10,,Carrie Evelyn Menger,0
+mclennan:10,DEM,Jay Kleberg,429
+mclennan:10,GRN,"Alfred Molison, Jr",8
+mclennan:10,REP,Dawn Buckingham,81
+mclennan:11,,Carrie Evelyn Menger,0
+mclennan:11,DEM,Jay Kleberg,430
+mclennan:11,GRN,"Alfred Molison, Jr",13
+mclennan:11,REP,Dawn Buckingham,939
+mclennan:12,,Carrie Evelyn Menger,1
+mclennan:12,DEM,Jay Kleberg,839
+mclennan:12,GRN,"Alfred Molison, Jr",13
+mclennan:12,REP,Dawn Buckingham,69
+mclennan:13,,Carrie Evelyn Menger,0
+mclennan:13,DEM,Jay Kleberg,22
+mclennan:13,GRN,"Alfred Molison, Jr",1
+mclennan:13,REP,Dawn Buckingham,17
+mclennan:14,,Carrie Evelyn Menger,1
+mclennan:14,DEM,Jay Kleberg,356
+mclennan:14,GRN,"Alfred Molison, Jr",1
+mclennan:14,REP,Dawn Buckingham,55
+mclennan:15,,Carrie Evelyn Menger,0
+mclennan:15,DEM,Jay Kleberg,40
+mclennan:15,GRN,"Alfred Molison, Jr",2
+mclennan:15,REP,Dawn Buckingham,81
+mclennan:16,,Carrie Evelyn Menger,0
+mclennan:16,DEM,Jay Kleberg,437
+mclennan:16,GRN,"Alfred Molison, Jr",11
+mclennan:16,REP,Dawn Buckingham,686
+mclennan:17,,Carrie Evelyn Menger,0
+mclennan:17,DEM,Jay Kleberg,281
+mclennan:17,GRN,"Alfred Molison, Jr",9
+mclennan:17,REP,Dawn Buckingham,275
+mclennan:18,,Carrie Evelyn Menger,0
+mclennan:18,DEM,Jay Kleberg,88
+mclennan:18,GRN,"Alfred Molison, Jr",9
+mclennan:18,REP,Dawn Buckingham,60
+mclennan:19,,Carrie Evelyn Menger,0
+mclennan:19,DEM,Jay Kleberg,626
+mclennan:19,GRN,"Alfred Molison, Jr",27
+mclennan:19,REP,Dawn Buckingham,1302
+mclennan:2,,Carrie Evelyn Menger,0
+mclennan:2,DEM,Jay Kleberg,77
+mclennan:2,GRN,"Alfred Molison, Jr",3
+mclennan:2,REP,Dawn Buckingham,40
+mclennan:20,,Carrie Evelyn Menger,0
+mclennan:20,DEM,Jay Kleberg,96
+mclennan:20,GRN,"Alfred Molison, Jr",3
+mclennan:20,REP,Dawn Buckingham,32
+mclennan:21,,Carrie Evelyn Menger,0
+mclennan:21,DEM,Jay Kleberg,140
+mclennan:21,GRN,"Alfred Molison, Jr",4
+mclennan:21,REP,Dawn Buckingham,61
+mclennan:22,,Carrie Evelyn Menger,0
+mclennan:22,DEM,Jay Kleberg,73
+mclennan:22,GRN,"Alfred Molison, Jr",8
+mclennan:22,REP,Dawn Buckingham,84
+mclennan:23,,Carrie Evelyn Menger,1
+mclennan:23,DEM,Jay Kleberg,591
+mclennan:23,GRN,"Alfred Molison, Jr",30
+mclennan:23,REP,Dawn Buckingham,1573
+mclennan:24,,Carrie Evelyn Menger,0
+mclennan:24,DEM,Jay Kleberg,112
+mclennan:24,GRN,"Alfred Molison, Jr",1
+mclennan:24,REP,Dawn Buckingham,311
+mclennan:25,,Carrie Evelyn Menger,0
+mclennan:25,DEM,Jay Kleberg,318
+mclennan:25,GRN,"Alfred Molison, Jr",13
+mclennan:25,REP,Dawn Buckingham,208
+mclennan:26,,Carrie Evelyn Menger,1
+mclennan:26,DEM,Jay Kleberg,132
+mclennan:26,GRN,"Alfred Molison, Jr",4
+mclennan:26,REP,Dawn Buckingham,99
+mclennan:27,,Carrie Evelyn Menger,0
+mclennan:27,DEM,Jay Kleberg,178
+mclennan:27,GRN,"Alfred Molison, Jr",6
+mclennan:27,REP,Dawn Buckingham,58
+mclennan:28,,Carrie Evelyn Menger,0
+mclennan:28,DEM,Jay Kleberg,251
+mclennan:28,GRN,"Alfred Molison, Jr",10
+mclennan:28,REP,Dawn Buckingham,288
+mclennan:29,,Carrie Evelyn Menger,0
+mclennan:29,DEM,Jay Kleberg,130
+mclennan:29,GRN,"Alfred Molison, Jr",5
+mclennan:29,REP,Dawn Buckingham,129
+mclennan:3,,Carrie Evelyn Menger,0
+mclennan:3,DEM,Jay Kleberg,511
+mclennan:3,GRN,"Alfred Molison, Jr",21
+mclennan:3,REP,Dawn Buckingham,325
+mclennan:30,,Carrie Evelyn Menger,0
+mclennan:30,DEM,Jay Kleberg,420
+mclennan:30,GRN,"Alfred Molison, Jr",14
+mclennan:30,REP,Dawn Buckingham,422
+mclennan:31,,Carrie Evelyn Menger,1
+mclennan:31,DEM,Jay Kleberg,424
+mclennan:31,GRN,"Alfred Molison, Jr",23
+mclennan:31,REP,Dawn Buckingham,513
+mclennan:32,,Carrie Evelyn Menger,0
+mclennan:32,DEM,Jay Kleberg,189
+mclennan:32,GRN,"Alfred Molison, Jr",7
+mclennan:32,REP,Dawn Buckingham,402
+mclennan:33,,Carrie Evelyn Menger,0
+mclennan:33,DEM,Jay Kleberg,354
+mclennan:33,GRN,"Alfred Molison, Jr",19
+mclennan:33,REP,Dawn Buckingham,552
+mclennan:34,,Carrie Evelyn Menger,0
+mclennan:34,DEM,Jay Kleberg,304
+mclennan:34,GRN,"Alfred Molison, Jr",14
+mclennan:34,REP,Dawn Buckingham,465
+mclennan:35,,Carrie Evelyn Menger,0
+mclennan:35,DEM,Jay Kleberg,197
+mclennan:35,GRN,"Alfred Molison, Jr",6
+mclennan:35,REP,Dawn Buckingham,121
+mclennan:36,,Carrie Evelyn Menger,0
+mclennan:36,DEM,Jay Kleberg,251
+mclennan:36,GRN,"Alfred Molison, Jr",3
+mclennan:36,REP,Dawn Buckingham,413
+mclennan:37,,Carrie Evelyn Menger,0
+mclennan:37,DEM,Jay Kleberg,211
+mclennan:37,GRN,"Alfred Molison, Jr",7
+mclennan:37,REP,Dawn Buckingham,190
+mclennan:38,,Carrie Evelyn Menger,0
+mclennan:38,DEM,Jay Kleberg,164
+mclennan:38,GRN,"Alfred Molison, Jr",6
+mclennan:38,REP,Dawn Buckingham,121
+mclennan:39,,Carrie Evelyn Menger,0
+mclennan:39,DEM,Jay Kleberg,142
+mclennan:39,GRN,"Alfred Molison, Jr",8
+mclennan:39,REP,Dawn Buckingham,64
+mclennan:4,,Carrie Evelyn Menger,0
+mclennan:4,DEM,Jay Kleberg,41
+mclennan:4,GRN,"Alfred Molison, Jr",2
+mclennan:4,REP,Dawn Buckingham,36
+mclennan:40,,Carrie Evelyn Menger,0
+mclennan:40,DEM,Jay Kleberg,443
+mclennan:40,GRN,"Alfred Molison, Jr",20
+mclennan:40,REP,Dawn Buckingham,664
+mclennan:41,,Carrie Evelyn Menger,0
+mclennan:41,DEM,Jay Kleberg,322
+mclennan:41,GRN,"Alfred Molison, Jr",16
+mclennan:41,REP,Dawn Buckingham,440
+mclennan:42,,Carrie Evelyn Menger,0
+mclennan:42,DEM,Jay Kleberg,244
+mclennan:42,GRN,"Alfred Molison, Jr",7
+mclennan:42,REP,Dawn Buckingham,153
+mclennan:43,,Carrie Evelyn Menger,0
+mclennan:43,DEM,Jay Kleberg,77
+mclennan:43,GRN,"Alfred Molison, Jr",2
+mclennan:43,REP,Dawn Buckingham,93
+mclennan:44,,Carrie Evelyn Menger,0
+mclennan:44,DEM,Jay Kleberg,512
+mclennan:44,GRN,"Alfred Molison, Jr",23
+mclennan:44,REP,Dawn Buckingham,1689
+mclennan:45,,Carrie Evelyn Menger,0
+mclennan:45,DEM,Jay Kleberg,102
+mclennan:45,GRN,"Alfred Molison, Jr",1
+mclennan:45,REP,Dawn Buckingham,101
+mclennan:46,,Carrie Evelyn Menger,0
+mclennan:46,DEM,Jay Kleberg,59
+mclennan:46,GRN,"Alfred Molison, Jr",2
+mclennan:46,REP,Dawn Buckingham,32
+mclennan:47,,Carrie Evelyn Menger,0
+mclennan:47,DEM,Jay Kleberg,135
+mclennan:47,GRN,"Alfred Molison, Jr",5
+mclennan:47,REP,Dawn Buckingham,97
+mclennan:48,,Carrie Evelyn Menger,0
+mclennan:48,DEM,Jay Kleberg,65
+mclennan:48,GRN,"Alfred Molison, Jr",1
+mclennan:48,REP,Dawn Buckingham,58
+mclennan:49,,Carrie Evelyn Menger,0
+mclennan:49,DEM,Jay Kleberg,92
+mclennan:49,GRN,"Alfred Molison, Jr",6
+mclennan:49,REP,Dawn Buckingham,96
+mclennan:5,,Carrie Evelyn Menger,0
+mclennan:5,DEM,Jay Kleberg,142
+mclennan:5,GRN,"Alfred Molison, Jr",3
+mclennan:5,REP,Dawn Buckingham,59
+mclennan:50,,Carrie Evelyn Menger,0
+mclennan:50,DEM,Jay Kleberg,248
+mclennan:50,GRN,"Alfred Molison, Jr",7
+mclennan:50,REP,Dawn Buckingham,221
+mclennan:51,,Carrie Evelyn Menger,1
+mclennan:51,DEM,Jay Kleberg,781
+mclennan:51,GRN,"Alfred Molison, Jr",29
+mclennan:51,REP,Dawn Buckingham,1567
+mclennan:52,,Carrie Evelyn Menger,0
+mclennan:52,DEM,Jay Kleberg,222
+mclennan:52,GRN,"Alfred Molison, Jr",5
+mclennan:52,REP,Dawn Buckingham,341
+mclennan:53,,Carrie Evelyn Menger,0
+mclennan:53,DEM,Jay Kleberg,12
+mclennan:53,GRN,"Alfred Molison, Jr",1
+mclennan:53,REP,Dawn Buckingham,21
+mclennan:54,,Carrie Evelyn Menger,0
+mclennan:54,DEM,Jay Kleberg,361
+mclennan:54,GRN,"Alfred Molison, Jr",25
+mclennan:54,REP,Dawn Buckingham,860
+mclennan:55,,Carrie Evelyn Menger,0
+mclennan:55,DEM,Jay Kleberg,670
+mclennan:55,GRN,"Alfred Molison, Jr",30
+mclennan:55,REP,Dawn Buckingham,1588
+mclennan:56,,Carrie Evelyn Menger,0
+mclennan:56,DEM,Jay Kleberg,160
+mclennan:56,GRN,"Alfred Molison, Jr",8
+mclennan:56,REP,Dawn Buckingham,120
+mclennan:57,,Carrie Evelyn Menger,0
+mclennan:57,DEM,Jay Kleberg,303
+mclennan:57,GRN,"Alfred Molison, Jr",16
+mclennan:57,REP,Dawn Buckingham,308
+mclennan:58,,Carrie Evelyn Menger,1
+mclennan:58,DEM,Jay Kleberg,477
+mclennan:58,GRN,"Alfred Molison, Jr",17
+mclennan:58,REP,Dawn Buckingham,694
+mclennan:59,,Carrie Evelyn Menger,0
+mclennan:59,DEM,Jay Kleberg,488
+mclennan:59,GRN,"Alfred Molison, Jr",21
+mclennan:59,REP,Dawn Buckingham,1598
+mclennan:6,,Carrie Evelyn Menger,0
+mclennan:6,DEM,Jay Kleberg,139
+mclennan:6,GRN,"Alfred Molison, Jr",5
+mclennan:6,REP,Dawn Buckingham,56
+mclennan:60,,Carrie Evelyn Menger,0
+mclennan:60,DEM,Jay Kleberg,499
+mclennan:60,GRN,"Alfred Molison, Jr",20
+mclennan:60,REP,Dawn Buckingham,1456
+mclennan:61,,Carrie Evelyn Menger,0
+mclennan:61,DEM,Jay Kleberg,554
+mclennan:61,GRN,"Alfred Molison, Jr",21
+mclennan:61,REP,Dawn Buckingham,1240
+mclennan:62,,Carrie Evelyn Menger,1
+mclennan:62,DEM,Jay Kleberg,619
+mclennan:62,GRN,"Alfred Molison, Jr",24
+mclennan:62,REP,Dawn Buckingham,1166
+mclennan:63,,Carrie Evelyn Menger,1
+mclennan:63,DEM,Jay Kleberg,732
+mclennan:63,GRN,"Alfred Molison, Jr",20
+mclennan:63,REP,Dawn Buckingham,2295
+mclennan:64,,Carrie Evelyn Menger,0
+mclennan:64,DEM,Jay Kleberg,121
+mclennan:64,GRN,"Alfred Molison, Jr",6
+mclennan:64,REP,Dawn Buckingham,370
+mclennan:65,,Carrie Evelyn Menger,0
+mclennan:65,DEM,Jay Kleberg,97
+mclennan:65,GRN,"Alfred Molison, Jr",4
+mclennan:65,REP,Dawn Buckingham,608
+mclennan:66,,Carrie Evelyn Menger,0
+mclennan:66,DEM,Jay Kleberg,110
+mclennan:66,GRN,"Alfred Molison, Jr",8
+mclennan:66,REP,Dawn Buckingham,696
+mclennan:67,,Carrie Evelyn Menger,0
+mclennan:67,DEM,Jay Kleberg,227
+mclennan:67,GRN,"Alfred Molison, Jr",8
+mclennan:67,REP,Dawn Buckingham,1447
+mclennan:68,,Carrie Evelyn Menger,0
+mclennan:68,DEM,Jay Kleberg,114
+mclennan:68,GRN,"Alfred Molison, Jr",2
+mclennan:68,REP,Dawn Buckingham,578
+mclennan:69,,Carrie Evelyn Menger,0
+mclennan:69,DEM,Jay Kleberg,123
+mclennan:69,GRN,"Alfred Molison, Jr",9
+mclennan:69,REP,Dawn Buckingham,858
+mclennan:7,,Carrie Evelyn Menger,0
+mclennan:7,DEM,Jay Kleberg,307
+mclennan:7,GRN,"Alfred Molison, Jr",9
+mclennan:7,REP,Dawn Buckingham,203
+mclennan:70,,Carrie Evelyn Menger,0
+mclennan:70,DEM,Jay Kleberg,29
+mclennan:70,GRN,"Alfred Molison, Jr",3
+mclennan:70,REP,Dawn Buckingham,214
+mclennan:71,,Carrie Evelyn Menger,0
+mclennan:71,DEM,Jay Kleberg,100
+mclennan:71,GRN,"Alfred Molison, Jr",5
+mclennan:71,REP,Dawn Buckingham,252
+mclennan:72,,Carrie Evelyn Menger,0
+mclennan:72,DEM,Jay Kleberg,135
+mclennan:72,GRN,"Alfred Molison, Jr",6
+mclennan:72,REP,Dawn Buckingham,436
+mclennan:73,,Carrie Evelyn Menger,0
+mclennan:73,DEM,Jay Kleberg,83
+mclennan:73,GRN,"Alfred Molison, Jr",5
+mclennan:73,REP,Dawn Buckingham,502
+mclennan:74,,Carrie Evelyn Menger,0
+mclennan:74,DEM,Jay Kleberg,83
+mclennan:74,GRN,"Alfred Molison, Jr",6
+mclennan:74,REP,Dawn Buckingham,398
+mclennan:75,,Carrie Evelyn Menger,0
+mclennan:75,DEM,Jay Kleberg,331
+mclennan:75,GRN,"Alfred Molison, Jr",20
+mclennan:75,REP,Dawn Buckingham,1651
+mclennan:76,,Carrie Evelyn Menger,0
+mclennan:76,DEM,Jay Kleberg,209
+mclennan:76,GRN,"Alfred Molison, Jr",23
+mclennan:76,REP,Dawn Buckingham,1017
+mclennan:77,,Carrie Evelyn Menger,0
+mclennan:77,DEM,Jay Kleberg,127
+mclennan:77,GRN,"Alfred Molison, Jr",7
+mclennan:77,REP,Dawn Buckingham,775
+mclennan:78,,Carrie Evelyn Menger,1
+mclennan:78,DEM,Jay Kleberg,478
+mclennan:78,GRN,"Alfred Molison, Jr",16
+mclennan:78,REP,Dawn Buckingham,1615
+mclennan:79,,Carrie Evelyn Menger,0
+mclennan:79,DEM,Jay Kleberg,173
+mclennan:79,GRN,"Alfred Molison, Jr",8
+mclennan:79,REP,Dawn Buckingham,458
+mclennan:8,,Carrie Evelyn Menger,0
+mclennan:8,DEM,Jay Kleberg,331
+mclennan:8,GRN,"Alfred Molison, Jr",17
+mclennan:8,REP,Dawn Buckingham,167
+mclennan:80,,Carrie Evelyn Menger,0
+mclennan:80,DEM,Jay Kleberg,136
+mclennan:80,GRN,"Alfred Molison, Jr",7
+mclennan:80,REP,Dawn Buckingham,1452
+mclennan:81,,Carrie Evelyn Menger,0
+mclennan:81,DEM,Jay Kleberg,435
+mclennan:81,GRN,"Alfred Molison, Jr",16
+mclennan:81,REP,Dawn Buckingham,2160
+mclennan:82,,Carrie Evelyn Menger,0
+mclennan:82,DEM,Jay Kleberg,314
+mclennan:82,GRN,"Alfred Molison, Jr",20
+mclennan:82,REP,Dawn Buckingham,1358
+mclennan:83,,Carrie Evelyn Menger,0
+mclennan:83,DEM,Jay Kleberg,53
+mclennan:83,GRN,"Alfred Molison, Jr",2
+mclennan:83,REP,Dawn Buckingham,281
+mclennan:84,,Carrie Evelyn Menger,0
+mclennan:84,DEM,Jay Kleberg,301
+mclennan:84,GRN,"Alfred Molison, Jr",18
+mclennan:84,REP,Dawn Buckingham,922
+mclennan:85,,Carrie Evelyn Menger,0
+mclennan:85,DEM,Jay Kleberg,164
+mclennan:85,GRN,"Alfred Molison, Jr",1
+mclennan:85,REP,Dawn Buckingham,173
+mclennan:86,,Carrie Evelyn Menger,0
+mclennan:86,DEM,Jay Kleberg,429
+mclennan:86,GRN,"Alfred Molison, Jr",10
+mclennan:86,REP,Dawn Buckingham,315
+mclennan:87,,Carrie Evelyn Menger,1
+mclennan:87,DEM,Jay Kleberg,234
+mclennan:87,GRN,"Alfred Molison, Jr",12
+mclennan:87,REP,Dawn Buckingham,253
+mclennan:88,,Carrie Evelyn Menger,0
+mclennan:88,DEM,Jay Kleberg,77
+mclennan:88,GRN,"Alfred Molison, Jr",2
+mclennan:88,REP,Dawn Buckingham,75
+mclennan:89,,Carrie Evelyn Menger,0
+mclennan:89,DEM,Jay Kleberg,22
+mclennan:89,GRN,"Alfred Molison, Jr",0
+mclennan:89,REP,Dawn Buckingham,6
+mclennan:9,,Carrie Evelyn Menger,0
+mclennan:9,DEM,Jay Kleberg,195
+mclennan:9,GRN,"Alfred Molison, Jr",14
+mclennan:9,REP,Dawn Buckingham,103
+mclennan:90,,Carrie Evelyn Menger,0
+mclennan:90,DEM,Jay Kleberg,82
+mclennan:90,GRN,"Alfred Molison, Jr",0
+mclennan:90,REP,Dawn Buckingham,122
+mclennan:91,,Carrie Evelyn Menger,1
+mclennan:91,DEM,Jay Kleberg,338
+mclennan:91,GRN,"Alfred Molison, Jr",18
+mclennan:91,REP,Dawn Buckingham,840
+williamson:123,,Over Votes,0
+williamson:123,,Under Votes,79
+williamson:123,,Write-in,1
+williamson:123,DEM,Jay Kleberg,858
+williamson:123,GRN,"Alfred Molison, JR",44
+williamson:123,REP,Dawn Buckingham,611
+williamson:135,,Over Votes,0
+williamson:135,,Under Votes,53
+williamson:135,,Write-in,1
+williamson:135,DEM,Jay Kleberg,829
+williamson:135,GRN,"Alfred Molison, JR",54
+williamson:135,REP,Dawn Buckingham,419
+williamson:136,,Over Votes,0
+williamson:136,,Under Votes,6
+williamson:136,,Write-in,0
+williamson:136,DEM,Jay Kleberg,78
+williamson:136,GRN,"Alfred Molison, JR",1
+williamson:136,REP,Dawn Buckingham,42
+williamson:139,,Over Votes,0
+williamson:139,,Under Votes,73
+williamson:139,,Write-in,0
+williamson:139,DEM,Jay Kleberg,897
+williamson:139,GRN,"Alfred Molison, JR",39
+williamson:139,REP,Dawn Buckingham,650
+williamson:143,,Over Votes,0
+williamson:143,,Under Votes,16
+williamson:143,,Write-in,0
+williamson:143,DEM,Jay Kleberg,212
+williamson:143,GRN,"Alfred Molison, JR",11
+williamson:143,REP,Dawn Buckingham,102
+williamson:144,,Over Votes,0
+williamson:144,,Under Votes,14
+williamson:144,,Write-in,0
+williamson:144,DEM,Jay Kleberg,247
+williamson:144,GRN,"Alfred Molison, JR",13
+williamson:144,REP,Dawn Buckingham,113
+williamson:145,,Over Votes,0
+williamson:145,,Under Votes,53
+williamson:145,,Write-in,2
+williamson:145,DEM,Jay Kleberg,674
+williamson:145,GRN,"Alfred Molison, JR",27
+williamson:145,REP,Dawn Buckingham,391
+williamson:149,,Over Votes,0
+williamson:149,,Under Votes,60
+williamson:149,,Write-in,1
+williamson:149,DEM,Jay Kleberg,743
+williamson:149,GRN,"Alfred Molison, JR",20
+williamson:149,REP,Dawn Buckingham,435
+williamson:150,,Over Votes,0
+williamson:150,,Under Votes,71
+williamson:150,,Write-in,2
+williamson:150,DEM,Jay Kleberg,1063
+williamson:150,GRN,"Alfred Molison, JR",42
+williamson:150,REP,Dawn Buckingham,584
+williamson:155,,Over Votes,0
+williamson:155,,Under Votes,90
+williamson:155,,Write-in,2
+williamson:155,DEM,Jay Kleberg,1003
+williamson:155,GRN,"Alfred Molison, JR",38
+williamson:155,REP,Dawn Buckingham,546
+williamson:163,,Over Votes,0
+williamson:163,,Under Votes,61
+williamson:163,,Write-in,1
+williamson:163,DEM,Jay Kleberg,790
+williamson:163,GRN,"Alfred Molison, JR",30
+williamson:163,REP,Dawn Buckingham,377
+williamson:164,,Over Votes,0
+williamson:164,,Under Votes,16
+williamson:164,,Write-in,2
+williamson:164,DEM,Jay Kleberg,157
+williamson:164,GRN,"Alfred Molison, JR",8
+williamson:164,REP,Dawn Buckingham,188
+williamson:180,,Over Votes,0
+williamson:180,,Under Votes,86
+williamson:180,,Write-in,0
+williamson:180,DEM,Jay Kleberg,1185
+williamson:180,GRN,"Alfred Molison, JR",46
+williamson:180,REP,Dawn Buckingham,682
+williamson:181,,Over Votes,0
+williamson:181,,Under Votes,40
+williamson:181,,Write-in,0
+williamson:181,DEM,Jay Kleberg,613
+williamson:181,GRN,"Alfred Molison, JR",23
+williamson:181,REP,Dawn Buckingham,452
+williamson:413,,Over Votes,0
+williamson:413,,Under Votes,57
+williamson:413,,Write-in,0
+williamson:413,DEM,Jay Kleberg,394
+williamson:413,GRN,"Alfred Molison, JR",20
+williamson:413,REP,Dawn Buckingham,1478
+williamson:418,,Over Votes,0
+williamson:418,,Under Votes,9
+williamson:418,,Write-in,0
+williamson:418,DEM,Jay Kleberg,99
+williamson:418,GRN,"Alfred Molison, JR",2
+williamson:418,REP,Dawn Buckingham,37
+williamson:421,,Over Votes,0
+williamson:421,,Under Votes,18
+williamson:421,,Write-in,0
+williamson:421,DEM,Jay Kleberg,310
+williamson:421,GRN,"Alfred Molison, JR",11
+williamson:421,REP,Dawn Buckingham,202
+williamson:426,,Over Votes,0
+williamson:426,,Under Votes,22
+williamson:426,,Write-in,0
+williamson:426,DEM,Jay Kleberg,242
+williamson:426,GRN,"Alfred Molison, JR",12
+williamson:426,REP,Dawn Buckingham,436
+williamson:489,,Over Votes,0
+williamson:489,,Under Votes,76
+williamson:489,,Write-in,0
+williamson:489,DEM,Jay Kleberg,998
+williamson:489,GRN,"Alfred Molison, JR",25
+williamson:489,REP,Dawn Buckingham,828
+williamson:490,,Over Votes,0
+williamson:490,,Under Votes,77
+williamson:490,,Write-in,1
+williamson:490,DEM,Jay Kleberg,1171
+williamson:490,GRN,"Alfred Molison, JR",39
+williamson:490,REP,Dawn Buckingham,1204

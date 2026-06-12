@@ -1,0 +1,705 @@
+precinct,party,candidate,votes
+dallas:1139,DEM,Beto O'Rourke,2
+dallas:1139,REP,Greg Abbott,3
+dallas:1300,,Under Votes,5
+dallas:1300,DEM,Beto O'Rourke,562
+dallas:1300,GRN,Delilah Barrios,8
+dallas:1300,LIB,Mark Tippetts,8
+dallas:1300,REP,Greg Abbott,443
+dallas:1301,,Under Votes,1
+dallas:1301,DEM,Beto O'Rourke,580
+dallas:1301,GRN,Delilah Barrios,4
+dallas:1301,LIB,Mark Tippetts,12
+dallas:1301,REP,Greg Abbott,420
+dallas:1302,,Under Votes,1
+dallas:1302,,Write-in,1
+dallas:1302,DEM,Beto O'Rourke,567
+dallas:1302,GRN,Delilah Barrios,1
+dallas:1302,LIB,Mark Tippetts,8
+dallas:1302,REP,Greg Abbott,312
+dallas:1304,DEM,Beto O'Rourke,335
+dallas:1304,GRN,Delilah Barrios,4
+dallas:1304,LIB,Mark Tippetts,5
+dallas:1304,REP,Greg Abbott,265
+dallas:1305,,Write-in,1
+dallas:1305,DEM,Beto O'Rourke,343
+dallas:1305,GRN,Delilah Barrios,1
+dallas:1305,LIB,Mark Tippetts,4
+dallas:1305,REP,Greg Abbott,226
+dallas:1308,,Under Votes,1
+dallas:1308,,Write-in,1
+dallas:1308,DEM,Beto O'Rourke,407
+dallas:1308,GRN,Delilah Barrios,4
+dallas:1308,LIB,Mark Tippetts,3
+dallas:1308,REP,Greg Abbott,242
+dallas:1310,,Under Votes,4
+dallas:1310,DEM,Beto O'Rourke,587
+dallas:1310,GRN,Delilah Barrios,2
+dallas:1310,LIB,Mark Tippetts,7
+dallas:1310,REP,Greg Abbott,457
+dallas:1311,,Under Votes,4
+dallas:1311,,Write-in,1
+dallas:1311,DEM,Beto O'Rourke,535
+dallas:1311,GRN,Delilah Barrios,5
+dallas:1311,LIB,Mark Tippetts,10
+dallas:1311,REP,Greg Abbott,498
+dallas:1312,DEM,Beto O'Rourke,174
+dallas:1312,GRN,Delilah Barrios,2
+dallas:1312,LIB,Mark Tippetts,3
+dallas:1312,REP,Greg Abbott,196
+dallas:1315,DEM,Beto O'Rourke,8
+dallas:1315,REP,Greg Abbott,6
+dallas:1316,DEM,Beto O'Rourke,174
+dallas:1316,LIB,Mark Tippetts,1
+dallas:1316,REP,Greg Abbott,34
+dallas:1324,,Under Votes,2
+dallas:1324,,Write-in,1
+dallas:1324,DEM,Beto O'Rourke,704
+dallas:1324,GRN,Delilah Barrios,6
+dallas:1324,LIB,Mark Tippetts,5
+dallas:1324,REP,Greg Abbott,672
+dallas:1325,,Under Votes,3
+dallas:1325,DEM,Beto O'Rourke,614
+dallas:1325,GRN,Delilah Barrios,2
+dallas:1325,LIB,Mark Tippetts,16
+dallas:1325,REP,Greg Abbott,676
+dallas:1326,,Under Votes,2
+dallas:1326,,Write-in,1
+dallas:1326,DEM,Beto O'Rourke,354
+dallas:1326,LIB,Mark Tippetts,9
+dallas:1326,REP,Greg Abbott,308
+dallas:1327,,Under Votes,2
+dallas:1327,,Write-in,1
+dallas:1327,DEM,Beto O'Rourke,675
+dallas:1327,GRN,Delilah Barrios,4
+dallas:1327,LIB,Mark Tippetts,8
+dallas:1327,REP,Greg Abbott,333
+dallas:1700,,Under Votes,2
+dallas:1700,,Write-in,3
+dallas:1700,DEM,Beto O'Rourke,446
+dallas:1700,GRN,Delilah Barrios,3
+dallas:1700,LIB,Mark Tippetts,7
+dallas:1700,REP,Greg Abbott,292
+dallas:1701,,Under Votes,4
+dallas:1701,DEM,Beto O'Rourke,459
+dallas:1701,GRN,Delilah Barrios,2
+dallas:1701,LIB,Mark Tippetts,6
+dallas:1701,REP,Greg Abbott,371
+dallas:1702,,Under Votes,5
+dallas:1702,DEM,Beto O'Rourke,590
+dallas:1702,GRN,Delilah Barrios,3
+dallas:1702,LIB,Mark Tippetts,11
+dallas:1702,REP,Greg Abbott,453
+dallas:1708,,Under Votes,2
+dallas:1708,,Write-in,2
+dallas:1708,DEM,Beto O'Rourke,197
+dallas:1708,GRN,Delilah Barrios,2
+dallas:1708,LIB,Mark Tippetts,2
+dallas:1708,REP,Greg Abbott,117
+dallas:1709,,Under Votes,1
+dallas:1709,,Write-in,2
+dallas:1709,DEM,Beto O'Rourke,884
+dallas:1709,GRN,Delilah Barrios,8
+dallas:1709,LIB,Mark Tippetts,8
+dallas:1709,REP,Greg Abbott,356
+dallas:1710,,Under Votes,2
+dallas:1710,DEM,Beto O'Rourke,389
+dallas:1710,GRN,Delilah Barrios,2
+dallas:1710,LIB,Mark Tippetts,4
+dallas:1710,REP,Greg Abbott,69
+dallas:1711,,Under Votes,4
+dallas:1711,,Write-in,2
+dallas:1711,DEM,Beto O'Rourke,449
+dallas:1711,GRN,Delilah Barrios,9
+dallas:1711,LIB,Mark Tippetts,11
+dallas:1711,REP,Greg Abbott,291
+dallas:1712,,Under Votes,4
+dallas:1712,,Write-in,1
+dallas:1712,DEM,Beto O'Rourke,516
+dallas:1712,GRN,Delilah Barrios,6
+dallas:1712,LIB,Mark Tippetts,10
+dallas:1712,REP,Greg Abbott,483
+dallas:1713,,Under Votes,1
+dallas:1713,DEM,Beto O'Rourke,209
+dallas:1713,LIB,Mark Tippetts,6
+dallas:1713,REP,Greg Abbott,272
+dallas:1714,,Under Votes,5
+dallas:1714,,Write-in,3
+dallas:1714,DEM,Beto O'Rourke,417
+dallas:1714,GRN,Delilah Barrios,4
+dallas:1714,LIB,Mark Tippetts,12
+dallas:1714,REP,Greg Abbott,369
+dallas:1715,,Under Votes,3
+dallas:1715,DEM,Beto O'Rourke,295
+dallas:1715,GRN,Delilah Barrios,1
+dallas:1715,REP,Greg Abbott,161
+dallas:1716,,Under Votes,4
+dallas:1716,DEM,Beto O'Rourke,537
+dallas:1716,GRN,Delilah Barrios,3
+dallas:1716,LIB,Mark Tippetts,22
+dallas:1716,REP,Greg Abbott,697
+dallas:1717,,Under Votes,5
+dallas:1717,,Write-in,2
+dallas:1717,DEM,Beto O'Rourke,773
+dallas:1717,GRN,Delilah Barrios,6
+dallas:1717,LIB,Mark Tippetts,11
+dallas:1717,REP,Greg Abbott,576
+dallas:1718,,Under Votes,1
+dallas:1718,DEM,Beto O'Rourke,361
+dallas:1718,LIB,Mark Tippetts,4
+dallas:1718,REP,Greg Abbott,373
+dallas:1719,,Under Votes,2
+dallas:1719,,Write-in,3
+dallas:1719,DEM,Beto O'Rourke,602
+dallas:1719,GRN,Delilah Barrios,5
+dallas:1719,LIB,Mark Tippetts,8
+dallas:1719,REP,Greg Abbott,391
+dallas:1720,,Under Votes,4
+dallas:1720,DEM,Beto O'Rourke,710
+dallas:1720,GRN,Delilah Barrios,5
+dallas:1720,LIB,Mark Tippetts,12
+dallas:1720,REP,Greg Abbott,524
+dallas:1721,,Under Votes,3
+dallas:1721,,Write-in,2
+dallas:1721,DEM,Beto O'Rourke,539
+dallas:1721,LIB,Mark Tippetts,4
+dallas:1721,REP,Greg Abbott,534
+dallas:1722,,Under Votes,3
+dallas:1722,DEM,Beto O'Rourke,715
+dallas:1722,GRN,Delilah Barrios,5
+dallas:1722,LIB,Mark Tippetts,9
+dallas:1722,REP,Greg Abbott,370
+dallas:1723,DEM,Beto O'Rourke,33
+dallas:1723,LIB,Mark Tippetts,1
+dallas:1723,REP,Greg Abbott,20
+dallas:1724,,Under Votes,1
+dallas:1724,DEM,Beto O'Rourke,36
+dallas:1724,GRN,Delilah Barrios,1
+dallas:1724,REP,Greg Abbott,16
+dallas:1725,DEM,Beto O'Rourke,125
+dallas:1725,GRN,Delilah Barrios,1
+dallas:1725,LIB,Mark Tippetts,2
+dallas:1725,REP,Greg Abbott,172
+dallas:1726,,Under Votes,6
+dallas:1726,,Write-in,2
+dallas:1726,DEM,Beto O'Rourke,467
+dallas:1726,GRN,Delilah Barrios,4
+dallas:1726,LIB,Mark Tippetts,9
+dallas:1726,REP,Greg Abbott,300
+dallas:1727,DEM,Beto O'Rourke,61
+dallas:1727,REP,Greg Abbott,35
+dallas:1728,,Under Votes,3
+dallas:1728,DEM,Beto O'Rourke,311
+dallas:1728,GRN,Delilah Barrios,2
+dallas:1728,LIB,Mark Tippetts,6
+dallas:1728,REP,Greg Abbott,262
+dallas:1729,,Under Votes,3
+dallas:1729,,Write-in,2
+dallas:1729,DEM,Beto O'Rourke,364
+dallas:1729,GRN,Delilah Barrios,4
+dallas:1729,LIB,Mark Tippetts,2
+dallas:1729,REP,Greg Abbott,210
+dallas:1732,,Write-in,2
+dallas:1732,DEM,Beto O'Rourke,277
+dallas:1732,GRN,Delilah Barrios,1
+dallas:1732,LIB,Mark Tippetts,4
+dallas:1732,REP,Greg Abbott,225
+dallas:1733,,Under Votes,7
+dallas:1733,DEM,Beto O'Rourke,822
+dallas:1733,LIB,Mark Tippetts,13
+dallas:1733,REP,Greg Abbott,667
+dallas:1734,,Under Votes,5
+dallas:1734,,Write-in,1
+dallas:1734,DEM,Beto O'Rourke,338
+dallas:1734,GRN,Delilah Barrios,1
+dallas:1734,LIB,Mark Tippetts,1
+dallas:1734,REP,Greg Abbott,373
+dallas:1735,,Under Votes,11
+dallas:1735,,Write-in,1
+dallas:1735,DEM,Beto O'Rourke,1214
+dallas:1735,GRN,Delilah Barrios,7
+dallas:1735,LIB,Mark Tippetts,21
+dallas:1735,REP,Greg Abbott,1258
+dallas:1736,,Under Votes,1
+dallas:1736,,Write-in,3
+dallas:1736,DEM,Beto O'Rourke,429
+dallas:1736,GRN,Delilah Barrios,2
+dallas:1736,LIB,Mark Tippetts,9
+dallas:1736,REP,Greg Abbott,678
+dallas:1737,,Under Votes,11
+dallas:1737,,Write-in,4
+dallas:1737,DEM,Beto O'Rourke,1177
+dallas:1737,GRN,Delilah Barrios,8
+dallas:1737,LIB,Mark Tippetts,28
+dallas:1737,REP,Greg Abbott,1805
+dallas:1738,,Under Votes,4
+dallas:1738,DEM,Beto O'Rourke,659
+dallas:1738,GRN,Delilah Barrios,6
+dallas:1738,LIB,Mark Tippetts,8
+dallas:1738,REP,Greg Abbott,517
+dallas:1739,,Under Votes,5
+dallas:1739,DEM,Beto O'Rourke,756
+dallas:1739,GRN,Delilah Barrios,3
+dallas:1739,LIB,Mark Tippetts,9
+dallas:1739,REP,Greg Abbott,610
+dallas:1740,,Under Votes,1
+dallas:1740,,Write-in,2
+dallas:1740,DEM,Beto O'Rourke,1097
+dallas:1740,GRN,Delilah Barrios,10
+dallas:1740,LIB,Mark Tippetts,20
+dallas:1740,REP,Greg Abbott,787
+dallas:1741,,Under Votes,7
+dallas:1741,DEM,Beto O'Rourke,1174
+dallas:1741,GRN,Delilah Barrios,12
+dallas:1741,LIB,Mark Tippetts,18
+dallas:1741,REP,Greg Abbott,955
+dallas:1741,,Write-in,2
+dallas:1742,,Under Votes,7
+dallas:1742,,Write-in,2
+dallas:1742,DEM,Beto O'Rourke,1208
+dallas:1742,GRN,Delilah Barrios,8
+dallas:1742,LIB,Mark Tippetts,20
+dallas:1742,REP,Greg Abbott,748
+dallas:1743,,Under Votes,5
+dallas:1743,,Write-in,2
+dallas:1743,DEM,Beto O'Rourke,1133
+dallas:1743,GRN,Delilah Barrios,10
+dallas:1743,LIB,Mark Tippetts,16
+dallas:1743,REP,Greg Abbott,778
+dallas:1744,DEM,Beto O'Rourke,15
+dallas:1744,REP,Greg Abbott,21
+dallas:1745,,Under Votes,4
+dallas:1745,,Write-in,2
+dallas:1745,DEM,Beto O'Rourke,618
+dallas:1745,GRN,Delilah Barrios,10
+dallas:1745,LIB,Mark Tippetts,7
+dallas:1745,REP,Greg Abbott,523
+dallas:1746,,Under Votes,2
+dallas:1746,,Write-in,2
+dallas:1746,DEM,Beto O'Rourke,430
+dallas:1746,GRN,Delilah Barrios,2
+dallas:1746,LIB,Mark Tippetts,7
+dallas:1746,REP,Greg Abbott,286
+dallas:1747,,Under Votes,9
+dallas:1747,DEM,Beto O'Rourke,709
+dallas:1747,GRN,Delilah Barrios,5
+dallas:1747,LIB,Mark Tippetts,5
+dallas:1747,REP,Greg Abbott,569
+dallas:3304,,Under Votes,4
+dallas:3304,DEM,Beto O'Rourke,669
+dallas:3304,GRN,Delilah Barrios,7
+dallas:3304,LIB,Mark Tippetts,13
+dallas:3304,REP,Greg Abbott,585
+dallas:3305,,Under Votes,6
+dallas:3305,,Write-in,1
+dallas:3305,DEM,Beto O'Rourke,939
+dallas:3305,GRN,Delilah Barrios,4
+dallas:3305,LIB,Mark Tippetts,16
+dallas:3305,REP,Greg Abbott,794
+dallas:3306,,Under Votes,3
+dallas:3306,,Write-in,1
+dallas:3306,DEM,Beto O'Rourke,319
+dallas:3306,GRN,Delilah Barrios,4
+dallas:3306,LIB,Mark Tippetts,6
+dallas:3306,REP,Greg Abbott,264
+dallas:3307,,Under Votes,1
+dallas:3307,,Write-in,2
+dallas:3307,DEM,Beto O'Rourke,377
+dallas:3307,GRN,Delilah Barrios,4
+dallas:3307,LIB,Mark Tippetts,4
+dallas:3307,REP,Greg Abbott,220
+dallas:3309,,Under Votes,1
+dallas:3309,DEM,Beto O'Rourke,501
+dallas:3309,GRN,Delilah Barrios,8
+dallas:3309,LIB,Mark Tippetts,5
+dallas:3309,REP,Greg Abbott,422
+dallas:3310,,Under Votes,1
+dallas:3310,DEM,Beto O'Rourke,549
+dallas:3310,GRN,Delilah Barrios,11
+dallas:3310,LIB,Mark Tippetts,13
+dallas:3310,REP,Greg Abbott,505
+dallas:3311,,Under Votes,1
+dallas:3311,,Write-in,1
+dallas:3311,DEM,Beto O'Rourke,436
+dallas:3311,GRN,Delilah Barrios,5
+dallas:3311,LIB,Mark Tippetts,3
+dallas:3311,REP,Greg Abbott,466
+dallas:3312,,Under Votes,3
+dallas:3312,,Write-in,1
+dallas:3312,DEM,Beto O'Rourke,823
+dallas:3312,GRN,Delilah Barrios,4
+dallas:3312,LIB,Mark Tippetts,13
+dallas:3312,REP,Greg Abbott,595
+dallas:3313,,Under Votes,3
+dallas:3313,DEM,Beto O'Rourke,982
+dallas:3313,GRN,Delilah Barrios,6
+dallas:3313,LIB,Mark Tippetts,17
+dallas:3313,REP,Greg Abbott,529
+dallas:3315,,Under Votes,3
+dallas:3315,,Write-in,1
+dallas:3315,DEM,Beto O'Rourke,277
+dallas:3315,GRN,Delilah Barrios,2
+dallas:3315,LIB,Mark Tippetts,5
+dallas:3315,REP,Greg Abbott,171
+dallas:3316,DEM,Beto O'Rourke,706
+dallas:3316,LIB,Mark Tippetts,6
+dallas:3316,REP,Greg Abbott,504
+dallas:3316,,Under Votes,1
+dallas:3316,GRN,Delilah Barrios,4
+dallas:3317,,Under Votes,4
+dallas:3317,,Write-in,1
+dallas:3317,DEM,Beto O'Rourke,817
+dallas:3317,GRN,Delilah Barrios,1
+dallas:3317,LIB,Mark Tippetts,6
+dallas:3317,REP,Greg Abbott,308
+dallas:3318,,Under Votes,2
+dallas:3318,,Write-in,1
+dallas:3318,DEM,Beto O'Rourke,480
+dallas:3318,GRN,Delilah Barrios,4
+dallas:3318,LIB,Mark Tippetts,5
+dallas:3318,REP,Greg Abbott,267
+dallas:3319,DEM,Beto O'Rourke,43
+dallas:3319,LIB,Mark Tippetts,3
+dallas:3319,REP,Greg Abbott,7
+dallas:3325,,Under Votes,5
+dallas:3325,DEM,Beto O'Rourke,685
+dallas:3325,GRN,Delilah Barrios,2
+dallas:3325,LIB,Mark Tippetts,8
+dallas:3325,REP,Greg Abbott,183
+dallas:3500,,Under Votes,16
+dallas:3500,,Write-in,2
+dallas:3500,DEM,Beto O'Rourke,775
+dallas:3500,GRN,Delilah Barrios,2
+dallas:3500,LIB,Mark Tippetts,25
+dallas:3500,REP,Greg Abbott,1439
+dallas:3501,,Under Votes,1
+dallas:3501,DEM,Beto O'Rourke,1
+dallas:3501,REP,Greg Abbott,4
+dallas:3503,,Under Votes,3
+dallas:3503,DEM,Beto O'Rourke,212
+dallas:3503,GRN,Delilah Barrios,1
+dallas:3503,LIB,Mark Tippetts,6
+dallas:3503,REP,Greg Abbott,486
+dallas:3504,,Under Votes,2
+dallas:3504,,Write-in,1
+dallas:3504,DEM,Beto O'Rourke,156
+dallas:3504,GRN,Delilah Barrios,1
+dallas:3504,LIB,Mark Tippetts,4
+dallas:3504,REP,Greg Abbott,356
+dallas:3701,REP,Greg Abbott,3
+dallas:3920,DEM,Beto O'Rourke,361
+dallas:3920,REP,Greg Abbott,578
+dallas:3920,,Under Votes,5
+dallas:3920,GRN,Delilah Barrios,5
+dallas:3920,LIB,Mark Tippetts,4
+dallas:3921,,Under Votes,8
+dallas:3921,,Write-in,4
+dallas:3921,DEM,Beto O'Rourke,1064
+dallas:3921,GRN,Delilah Barrios,9
+dallas:3921,LIB,Mark Tippetts,19
+dallas:3921,REP,Greg Abbott,812
+dallas:3960,,Under Votes,3
+dallas:3960,,Write-in,1
+dallas:3960,DEM,Beto O'Rourke,832
+dallas:3960,GRN,Delilah Barrios,5
+dallas:3960,LIB,Mark Tippetts,23
+dallas:3960,REP,Greg Abbott,991
+dallas:3961,,Under Votes,6
+dallas:3961,,Write-in,2
+dallas:3961,DEM,Beto O'Rourke,673
+dallas:3961,GRN,Delilah Barrios,6
+dallas:3961,LIB,Mark Tippetts,13
+dallas:3961,REP,Greg Abbott,700
+dallas:3962,,Under Votes,3
+dallas:3962,,Write-in,2
+dallas:3962,DEM,Beto O'Rourke,1226
+dallas:3962,GRN,Delilah Barrios,6
+dallas:3962,LIB,Mark Tippetts,28
+dallas:3962,REP,Greg Abbott,1295
+dallas:3963,,Under Votes,1
+dallas:3963,,Write-in,1
+dallas:3963,DEM,Beto O'Rourke,527
+dallas:3963,GRN,Delilah Barrios,2
+dallas:3963,LIB,Mark Tippetts,12
+dallas:3963,REP,Greg Abbott,696
+dallas:3964,,Under Votes,2
+dallas:3964,DEM,Beto O'Rourke,579
+dallas:3964,GRN,Delilah Barrios,1
+dallas:3964,LIB,Mark Tippetts,6
+dallas:3964,REP,Greg Abbott,510
+dallas:3965,,Under Votes,1
+dallas:3965,DEM,Beto O'Rourke,815
+dallas:3965,GRN,Delilah Barrios,3
+dallas:3965,LIB,Mark Tippetts,22
+dallas:3965,REP,Greg Abbott,812
+dallas:3966,,Under Votes,9
+dallas:3966,,Write-in,1
+dallas:3966,DEM,Beto O'Rourke,861
+dallas:3966,GRN,Delilah Barrios,7
+dallas:3966,LIB,Mark Tippetts,16
+dallas:3966,REP,Greg Abbott,854
+dallas:3967,,Under Votes,3
+dallas:3967,DEM,Beto O'Rourke,356
+dallas:3967,GRN,Delilah Barrios,3
+dallas:3967,LIB,Mark Tippetts,9
+dallas:3967,REP,Greg Abbott,362
+dallas:3968,,Under Votes,7
+dallas:3968,,Write-in,2
+dallas:3968,DEM,Beto O'Rourke,942
+dallas:3968,GRN,Delilah Barrios,5
+dallas:3968,LIB,Mark Tippetts,20
+dallas:3968,REP,Greg Abbott,968
+dallas:3969,,Under Votes,1
+dallas:3969,,Write-in,3
+dallas:3969,DEM,Beto O'Rourke,616
+dallas:3969,GRN,Delilah Barrios,5
+dallas:3969,LIB,Mark Tippetts,16
+dallas:3969,REP,Greg Abbott,1115
+dallas:3970,,Under Votes,8
+dallas:3970,,Write-in,2
+dallas:3970,DEM,Beto O'Rourke,802
+dallas:3970,GRN,Delilah Barrios,8
+dallas:3970,LIB,Mark Tippetts,20
+dallas:3970,REP,Greg Abbott,1158
+dallas:3971,,Under Votes,1
+dallas:3971,DEM,Beto O'Rourke,654
+dallas:3971,GRN,Delilah Barrios,4
+dallas:3971,LIB,Mark Tippetts,12
+dallas:3971,REP,Greg Abbott,664
+dallas:3980,,Under Votes,12
+dallas:3980,DEM,Beto O'Rourke,772
+dallas:3980,GRN,Delilah Barrios,3
+dallas:3980,LIB,Mark Tippetts,22
+dallas:3980,REP,Greg Abbott,960
+dallas:3981,,Under Votes,4
+dallas:3981,DEM,Beto O'Rourke,308
+dallas:3981,GRN,Delilah Barrios,1
+dallas:3981,LIB,Mark Tippetts,5
+dallas:3981,REP,Greg Abbott,559
+dallas:3982,,Under Votes,2
+dallas:3982,DEM,Beto O'Rourke,760
+dallas:3982,GRN,Delilah Barrios,5
+dallas:3982,LIB,Mark Tippetts,12
+dallas:3982,REP,Greg Abbott,1155
+dallas:3982,,Write-in,2
+dallas:3983,,Under Votes,3
+dallas:3983,DEM,Beto O'Rourke,500
+dallas:3983,GRN,Delilah Barrios,3
+dallas:3983,LIB,Mark Tippetts,10
+dallas:3983,REP,Greg Abbott,738
+dallas:3984,,Under Votes,2
+dallas:3984,,Write-in,2
+dallas:3984,DEM,Beto O'Rourke,292
+dallas:3984,GRN,Delilah Barrios,2
+dallas:3984,LIB,Mark Tippetts,6
+dallas:3984,REP,Greg Abbott,415
+henderson:1,,Over Votes,0
+henderson:1,,Under Votes,1
+henderson:1,,Write-in,0
+henderson:1,DEM,Beto O'Rourke,68
+henderson:1,GRN,Delilah Barrios,1
+henderson:1,LIB,Mark Tippetts,2
+henderson:1,REP,Greg Abbott,248
+henderson:1A,,Over Votes,0
+henderson:1A,,Under Votes,1
+henderson:1A,,Write-in,0
+henderson:1A,DEM,Beto O'Rourke,110
+henderson:1A,GRN,Delilah Barrios,0
+henderson:1A,LIB,Mark Tippetts,8
+henderson:1A,REP,Greg Abbott,823
+henderson:1CR,,Over Votes,0
+henderson:1CR,,Under Votes,3
+henderson:1CR,,Write-in,2
+henderson:1CR,DEM,Beto O'Rourke,127
+henderson:1CR,GRN,Delilah Barrios,3
+henderson:1CR,LIB,Mark Tippetts,10
+henderson:1CR,REP,Greg Abbott,1019
+henderson:1M,,Over Votes,0
+henderson:1M,,Under Votes,11
+henderson:1M,,Write-in,1
+henderson:1M,DEM,Beto O'Rourke,233
+henderson:1M,GRN,Delilah Barrios,3
+henderson:1M,LIB,Mark Tippetts,9
+henderson:1M,REP,Greg Abbott,822
+henderson:1MN,,Over Votes,0
+henderson:1MN,,Under Votes,5
+henderson:1MN,,Write-in,1
+henderson:1MN,DEM,Beto O'Rourke,153
+henderson:1MN,GRN,Delilah Barrios,2
+henderson:1MN,LIB,Mark Tippetts,6
+henderson:1MN,REP,Greg Abbott,553
+henderson:1T,,Over Votes,0
+henderson:1T,,Under Votes,8
+henderson:1T,,Write-in,0
+henderson:1T,DEM,Beto O'Rourke,188
+henderson:1T,GRN,Delilah Barrios,2
+henderson:1T,LIB,Mark Tippetts,8
+henderson:1T,REP,Greg Abbott,974
+henderson:1TC,,Over Votes,0
+henderson:1TC,,Under Votes,7
+henderson:1TC,,Write-in,1
+henderson:1TC,DEM,Beto O'Rourke,261
+henderson:1TC,GRN,Delilah Barrios,3
+henderson:1TC,LIB,Mark Tippetts,11
+henderson:1TC,REP,Greg Abbott,1116
+henderson:2,,Over Votes,0
+henderson:2,,Under Votes,1
+henderson:2,,Write-in,0
+henderson:2,DEM,Beto O'Rourke,28
+henderson:2,GRN,Delilah Barrios,0
+henderson:2,LIB,Mark Tippetts,6
+henderson:2,REP,Greg Abbott,200
+henderson:2E,,Over Votes,0
+henderson:2E,,Under Votes,4
+henderson:2E,,Write-in,0
+henderson:2E,DEM,Beto O'Rourke,170
+henderson:2E,GRN,Delilah Barrios,3
+henderson:2E,LIB,Mark Tippetts,9
+henderson:2E,REP,Greg Abbott,1020
+henderson:2GBN,,Over Votes,0
+henderson:2GBN,,Under Votes,1
+henderson:2GBN,,Write-in,0
+henderson:2GBN,DEM,Beto O'Rourke,274
+henderson:2GBN,GRN,Delilah Barrios,3
+henderson:2GBN,LIB,Mark Tippetts,10
+henderson:2GBN,REP,Greg Abbott,955
+henderson:2GBS,,Over Votes,0
+henderson:2GBS,,Under Votes,2
+henderson:2GBS,,Write-in,0
+henderson:2GBS,DEM,Beto O'Rourke,167
+henderson:2GBS,GRN,Delilah Barrios,4
+henderson:2GBS,LIB,Mark Tippetts,7
+henderson:2GBS,REP,Greg Abbott,815
+henderson:2M,,Over Votes,0
+henderson:2M,,Under Votes,2
+henderson:2M,,Write-in,0
+henderson:2M,DEM,Beto O'Rourke,45
+henderson:2M,GRN,Delilah Barrios,0
+henderson:2M,LIB,Mark Tippetts,3
+henderson:2M,REP,Greg Abbott,238
+henderson:2PSN,,Over Votes,0
+henderson:2PSN,,Under Votes,1
+henderson:2PSN,,Write-in,0
+henderson:2PSN,DEM,Beto O'Rourke,208
+henderson:2PSN,GRN,Delilah Barrios,3
+henderson:2PSN,LIB,Mark Tippetts,6
+henderson:2PSN,REP,Greg Abbott,865
+henderson:2PSS,,Over Votes,0
+henderson:2PSS,,Under Votes,5
+henderson:2PSS,,Write-in,1
+henderson:2PSS,DEM,Beto O'Rourke,256
+henderson:2PSS,GRN,Delilah Barrios,1
+henderson:2PSS,LIB,Mark Tippetts,10
+henderson:2PSS,REP,Greg Abbott,1159
+henderson:3,,Over Votes,0
+henderson:3,,Under Votes,2
+henderson:3,,Write-in,0
+henderson:3,DEM,Beto O'Rourke,246
+henderson:3,GRN,Delilah Barrios,3
+henderson:3,LIB,Mark Tippetts,3
+henderson:3,REP,Greg Abbott,157
+henderson:3B,,Over Votes,0
+henderson:3B,,Under Votes,5
+henderson:3B,,Write-in,1
+henderson:3B,DEM,Beto O'Rourke,159
+henderson:3B,GRN,Delilah Barrios,0
+henderson:3B,LIB,Mark Tippetts,17
+henderson:3B,REP,Greg Abbott,1461
+henderson:3C,,Over Votes,0
+henderson:3C,,Under Votes,8
+henderson:3C,,Write-in,0
+henderson:3C,DEM,Beto O'Rourke,183
+henderson:3C,GRN,Delilah Barrios,5
+henderson:3C,LIB,Mark Tippetts,12
+henderson:3C,REP,Greg Abbott,962
+henderson:3CS,,Over Votes,0
+henderson:3CS,,Under Votes,7
+henderson:3CS,,Write-in,0
+henderson:3CS,DEM,Beto O'Rourke,135
+henderson:3CS,GRN,Delilah Barrios,1
+henderson:3CS,LIB,Mark Tippetts,5
+henderson:3CS,REP,Greg Abbott,987
+henderson:3M,,Over Votes,0
+henderson:3M,,Under Votes,4
+henderson:3M,,Write-in,0
+henderson:3M,DEM,Beto O'Rourke,104
+henderson:3M,GRN,Delilah Barrios,0
+henderson:3M,LIB,Mark Tippetts,6
+henderson:3M,REP,Greg Abbott,735
+henderson:3N,,Over Votes,0
+henderson:3N,,Under Votes,1
+henderson:3N,,Write-in,0
+henderson:3N,DEM,Beto O'Rourke,53
+henderson:3N,GRN,Delilah Barrios,0
+henderson:3N,LIB,Mark Tippetts,9
+henderson:3N,REP,Greg Abbott,603
+henderson:3NW,,Over Votes,0
+henderson:3NW,,Under Votes,2
+henderson:3NW,,Write-in,0
+henderson:3NW,DEM,Beto O'Rourke,73
+henderson:3NW,GRN,Delilah Barrios,1
+henderson:3NW,LIB,Mark Tippetts,3
+henderson:3NW,REP,Greg Abbott,340
+henderson:3WS,,Over Votes,0
+henderson:3WS,,Under Votes,3
+henderson:3WS,,Write-in,2
+henderson:3WS,DEM,Beto O'Rourke,94
+henderson:3WS,GRN,Delilah Barrios,1
+henderson:3WS,LIB,Mark Tippetts,14
+henderson:3WS,REP,Greg Abbott,581
+henderson:4,,Over Votes,0
+henderson:4,,Under Votes,3
+henderson:4,,Write-in,4
+henderson:4,DEM,Beto O'Rourke,219
+henderson:4,GRN,Delilah Barrios,2
+henderson:4,LIB,Mark Tippetts,6
+henderson:4,REP,Greg Abbott,730
+henderson:4A,,Over Votes,0
+henderson:4A,,Under Votes,0
+henderson:4A,,Write-in,0
+henderson:4A,DEM,Beto O'Rourke,107
+henderson:4A,GRN,Delilah Barrios,1
+henderson:4A,LIB,Mark Tippetts,1
+henderson:4A,REP,Greg Abbott,233
+henderson:4B,,Over Votes,0
+henderson:4B,,Under Votes,3
+henderson:4B,,Write-in,0
+henderson:4B,DEM,Beto O'Rourke,212
+henderson:4B,GRN,Delilah Barrios,1
+henderson:4B,LIB,Mark Tippetts,10
+henderson:4B,REP,Greg Abbott,600
+henderson:4LP,,Over Votes,0
+henderson:4LP,,Under Votes,8
+henderson:4LP,,Write-in,0
+henderson:4LP,DEM,Beto O'Rourke,240
+henderson:4LP,GRN,Delilah Barrios,2
+henderson:4LP,LIB,Mark Tippetts,10
+henderson:4LP,REP,Greg Abbott,1213
+henderson:4MS,,Over Votes,0
+henderson:4MS,,Under Votes,2
+henderson:4MS,,Write-in,0
+henderson:4MS,DEM,Beto O'Rourke,202
+henderson:4MS,GRN,Delilah Barrios,0
+henderson:4MS,LIB,Mark Tippetts,8
+henderson:4MS,REP,Greg Abbott,398
+henderson:4NLP,,Over Votes,0
+henderson:4NLP,,Under Votes,3
+henderson:4NLP,,Write-in,1
+henderson:4NLP,DEM,Beto O'Rourke,80
+henderson:4NLP,GRN,Delilah Barrios,2
+henderson:4NLP,LIB,Mark Tippetts,6
+henderson:4NLP,REP,Greg Abbott,854
+henderson:4SE,,Over Votes,1
+henderson:4SE,,Under Votes,3
+henderson:4SE,,Write-in,2
+henderson:4SE,DEM,Beto O'Rourke,290
+henderson:4SE,GRN,Delilah Barrios,2
+henderson:4SE,LIB,Mark Tippetts,23
+henderson:4SE,REP,Greg Abbott,1758
+henderson:4W,,Over Votes,0
+henderson:4W,,Under Votes,2
+henderson:4W,,Write-in,0
+henderson:4W,DEM,Beto O'Rourke,113
+henderson:4W,GRN,Delilah Barrios,0
+henderson:4W,LIB,Mark Tippetts,5
+henderson:4W,REP,Greg Abbott,490

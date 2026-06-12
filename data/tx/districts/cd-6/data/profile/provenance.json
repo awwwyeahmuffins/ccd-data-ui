@@ -1,0 +1,19 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANC2193",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "anderson": 22,
+      "cherokee": 25,
+      "dallas": 53,
+      "ellis": 59,
+      "freestone": 8,
+      "hill": 22,
+      "johnson": 8,
+      "navarro": 30,
+      "tarrant": 53
+    },
+    "generated": "2026-06-12"
+  }
+}

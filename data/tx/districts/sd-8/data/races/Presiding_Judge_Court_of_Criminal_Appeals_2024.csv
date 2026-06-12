@@ -1,0 +1,845 @@
+precinct,party,candidate,votes
+collin:1,Dem,Holly Taylor,770
+collin:1,Rep,David J. Schenck,1051
+collin:1,,Over Votes,0
+collin:1,,Under Votes,105
+collin:10,Dem,Holly Taylor,91
+collin:10,Rep,David J. Schenck,504
+collin:10,,Over Votes,0
+collin:10,,Under Votes,30
+collin:100,Dem,Holly Taylor,5
+collin:100,Rep,David J. Schenck,1
+collin:100,,Over Votes,0
+collin:100,,Under Votes,2
+collin:102,Dem,Holly Taylor,597
+collin:102,Rep,David J. Schenck,1279
+collin:102,,Over Votes,0
+collin:102,,Under Votes,81
+collin:103,Dem,Holly Taylor,398
+collin:103,Rep,David J. Schenck,354
+collin:103,,Over Votes,0
+collin:103,,Under Votes,58
+collin:105,Dem,Holly Taylor,66
+collin:105,Rep,David J. Schenck,44
+collin:105,,Over Votes,0
+collin:105,,Under Votes,5
+collin:106,Dem,Holly Taylor,584
+collin:106,Rep,David J. Schenck,616
+collin:106,,Over Votes,0
+collin:106,,Under Votes,55
+collin:107,Dem,Holly Taylor,1134
+collin:107,Rep,David J. Schenck,1144
+collin:107,,Over Votes,0
+collin:107,,Under Votes,139
+collin:108,Dem,Holly Taylor,1001
+collin:108,Rep,David J. Schenck,918
+collin:108,,Over Votes,0
+collin:108,,Under Votes,128
+collin:109,Dem,Holly Taylor,1269
+collin:109,Rep,David J. Schenck,1873
+collin:109,,Over Votes,0
+collin:109,,Under Votes,170
+collin:11,Dem,Holly Taylor,679
+collin:11,Rep,David J. Schenck,2557
+collin:11,,Over Votes,0
+collin:11,,Under Votes,185
+collin:112,Dem,Holly Taylor,982
+collin:112,Rep,David J. Schenck,1198
+collin:112,,Over Votes,0
+collin:112,,Under Votes,142
+collin:113,Dem,Holly Taylor,956
+collin:113,Rep,David J. Schenck,1009
+collin:113,,Over Votes,0
+collin:113,,Under Votes,122
+collin:114,Dem,Holly Taylor,1134
+collin:114,Rep,David J. Schenck,1749
+collin:114,,Over Votes,0
+collin:114,,Under Votes,179
+collin:116,Dem,Holly Taylor,1445
+collin:116,Rep,David J. Schenck,1912
+collin:116,,Over Votes,0
+collin:116,,Under Votes,196
+collin:119,Dem,Holly Taylor,736
+collin:119,Rep,David J. Schenck,877
+collin:119,,Over Votes,0
+collin:119,,Under Votes,83
+collin:12,Dem,Holly Taylor,533
+collin:12,Rep,David J. Schenck,1005
+collin:12,,Over Votes,0
+collin:12,,Under Votes,80
+collin:120,Dem,Holly Taylor,1003
+collin:120,Rep,David J. Schenck,1547
+collin:120,,Over Votes,0
+collin:120,,Under Votes,143
+collin:121,Dem,Holly Taylor,1037
+collin:121,Rep,David J. Schenck,807
+collin:121,,Over Votes,0
+collin:121,,Under Votes,108
+collin:122,Dem,Holly Taylor,1101
+collin:122,Rep,David J. Schenck,2403
+collin:122,,Over Votes,0
+collin:122,,Under Votes,204
+collin:123,Dem,Holly Taylor,590
+collin:123,Rep,David J. Schenck,805
+collin:123,,Over Votes,0
+collin:123,,Under Votes,63
+collin:124,Dem,Holly Taylor,998
+collin:124,Rep,David J. Schenck,1049
+collin:124,,Over Votes,0
+collin:124,,Under Votes,124
+collin:126,Dem,Holly Taylor,1489
+collin:126,Rep,David J. Schenck,1760
+collin:126,,Over Votes,0
+collin:126,,Under Votes,194
+collin:128,Dem,Holly Taylor,524
+collin:128,Rep,David J. Schenck,1754
+collin:128,,Over Votes,0
+collin:128,,Under Votes,117
+collin:129,Dem,Holly Taylor,1257
+collin:129,Rep,David J. Schenck,1639
+collin:129,,Over Votes,0
+collin:129,,Under Votes,176
+collin:13,Dem,Holly Taylor,680
+collin:13,Rep,David J. Schenck,1762
+collin:13,,Over Votes,0
+collin:13,,Under Votes,79
+collin:130,Dem,Holly Taylor,1269
+collin:130,Rep,David J. Schenck,1370
+collin:130,,Over Votes,0
+collin:130,,Under Votes,174
+collin:131,Dem,Holly Taylor,727
+collin:131,Rep,David J. Schenck,1271
+collin:131,,Over Votes,0
+collin:131,,Under Votes,138
+collin:133,Dem,Holly Taylor,724
+collin:133,Rep,David J. Schenck,959
+collin:133,,Over Votes,0
+collin:133,,Under Votes,108
+collin:135,Dem,Holly Taylor,1410
+collin:135,Rep,David J. Schenck,1289
+collin:135,,Over Votes,0
+collin:135,,Under Votes,201
+collin:137,Dem,Holly Taylor,531
+collin:137,Rep,David J. Schenck,831
+collin:137,,Over Votes,0
+collin:137,,Under Votes,56
+collin:138,Dem,Holly Taylor,824
+collin:138,Rep,David J. Schenck,854
+collin:138,,Over Votes,0
+collin:138,,Under Votes,96
+collin:139,Dem,Holly Taylor,1332
+collin:139,Rep,David J. Schenck,1223
+collin:139,,Over Votes,0
+collin:139,,Under Votes,166
+collin:14,Dem,Holly Taylor,1120
+collin:14,Rep,David J. Schenck,1017
+collin:14,,Over Votes,0
+collin:14,,Under Votes,142
+collin:140,Dem,Holly Taylor,1143
+collin:140,Rep,David J. Schenck,2285
+collin:140,,Over Votes,0
+collin:140,,Under Votes,163
+collin:141,Dem,Holly Taylor,1157
+collin:141,Rep,David J. Schenck,1223
+collin:141,,Over Votes,0
+collin:141,,Under Votes,131
+collin:143,Dem,Holly Taylor,620
+collin:143,Rep,David J. Schenck,864
+collin:143,,Over Votes,0
+collin:143,,Under Votes,59
+collin:144,Dem,Holly Taylor,820
+collin:144,Rep,David J. Schenck,1116
+collin:144,,Over Votes,0
+collin:144,,Under Votes,136
+collin:145,Dem,Holly Taylor,579
+collin:145,Rep,David J. Schenck,580
+collin:145,,Over Votes,0
+collin:145,,Under Votes,78
+collin:147,Dem,Holly Taylor,652
+collin:147,Rep,David J. Schenck,667
+collin:147,,Over Votes,0
+collin:147,,Under Votes,90
+collin:148,Dem,Holly Taylor,311
+collin:148,Rep,David J. Schenck,433
+collin:148,,Over Votes,0
+collin:148,,Under Votes,107
+collin:149,Dem,Holly Taylor,1220
+collin:149,Rep,David J. Schenck,1919
+collin:149,,Over Votes,0
+collin:149,,Under Votes,171
+collin:15,Dem,Holly Taylor,464
+collin:15,Rep,David J. Schenck,446
+collin:15,,Over Votes,0
+collin:15,,Under Votes,71
+collin:150,Dem,Holly Taylor,1396
+collin:150,Rep,David J. Schenck,2381
+collin:150,,Over Votes,0
+collin:150,,Under Votes,171
+collin:151,Dem,Holly Taylor,613
+collin:151,Rep,David J. Schenck,597
+collin:151,,Over Votes,0
+collin:151,,Under Votes,86
+collin:152,Dem,Holly Taylor,75
+collin:152,Rep,David J. Schenck,37
+collin:152,,Over Votes,0
+collin:152,,Under Votes,7
+collin:153,Dem,Holly Taylor,1480
+collin:153,Rep,David J. Schenck,2009
+collin:153,,Over Votes,0
+collin:153,,Under Votes,250
+collin:154,Dem,Holly Taylor,425
+collin:154,Rep,David J. Schenck,1585
+collin:154,,Over Votes,0
+collin:154,,Under Votes,93
+collin:155,Dem,Holly Taylor,788
+collin:155,Rep,David J. Schenck,1236
+collin:155,,Over Votes,0
+collin:155,,Under Votes,105
+collin:156,Dem,Holly Taylor,1060
+collin:156,Rep,David J. Schenck,1346
+collin:156,,Over Votes,0
+collin:156,,Under Votes,163
+collin:157,Dem,Holly Taylor,1398
+collin:157,Rep,David J. Schenck,1537
+collin:157,,Over Votes,0
+collin:157,,Under Votes,176
+collin:158,Dem,Holly Taylor,936
+collin:158,Rep,David J. Schenck,879
+collin:158,,Over Votes,0
+collin:158,,Under Votes,140
+collin:159,Dem,Holly Taylor,907
+collin:159,Rep,David J. Schenck,989
+collin:159,,Over Votes,0
+collin:159,,Under Votes,153
+collin:16,Dem,Holly Taylor,1349
+collin:16,Rep,David J. Schenck,2723
+collin:16,,Over Votes,0
+collin:16,,Under Votes,218
+collin:160,Dem,Holly Taylor,64
+collin:160,Rep,David J. Schenck,357
+collin:160,,Over Votes,0
+collin:160,,Under Votes,9
+collin:161,Dem,Holly Taylor,54
+collin:161,Rep,David J. Schenck,126
+collin:161,,Over Votes,0
+collin:161,,Under Votes,12
+collin:162,Dem,Holly Taylor,154
+collin:162,Rep,David J. Schenck,379
+collin:162,,Over Votes,0
+collin:162,,Under Votes,25
+collin:163,Dem,Holly Taylor,583
+collin:163,Rep,David J. Schenck,795
+collin:163,,Over Votes,0
+collin:163,,Under Votes,96
+collin:165,Dem,Holly Taylor,228
+collin:165,Rep,David J. Schenck,461
+collin:165,,Over Votes,0
+collin:165,,Under Votes,47
+collin:166,Dem,Holly Taylor,1242
+collin:166,Rep,David J. Schenck,1566
+collin:166,,Over Votes,0
+collin:166,,Under Votes,243
+collin:167,Dem,Holly Taylor,1807
+collin:167,Rep,David J. Schenck,1563
+collin:167,,Over Votes,0
+collin:167,,Under Votes,212
+collin:168,Dem,Holly Taylor,384
+collin:168,Rep,David J. Schenck,958
+collin:168,,Over Votes,0
+collin:168,,Under Votes,76
+collin:169,Dem,Holly Taylor,1120
+collin:169,Rep,David J. Schenck,1213
+collin:169,,Over Votes,0
+collin:169,,Under Votes,152
+collin:17,Dem,Holly Taylor,1371
+collin:17,Rep,David J. Schenck,2346
+collin:17,,Over Votes,0
+collin:17,,Under Votes,185
+collin:170,Dem,Holly Taylor,467
+collin:170,Rep,David J. Schenck,814
+collin:170,,Over Votes,0
+collin:170,,Under Votes,83
+collin:171,Dem,Holly Taylor,861
+collin:171,Rep,David J. Schenck,938
+collin:171,,Over Votes,0
+collin:171,,Under Votes,166
+collin:172,Dem,Holly Taylor,666
+collin:172,Rep,David J. Schenck,1452
+collin:172,,Over Votes,0
+collin:172,,Under Votes,84
+collin:173,Dem,Holly Taylor,140
+collin:173,Rep,David J. Schenck,325
+collin:173,,Over Votes,0
+collin:173,,Under Votes,27
+collin:174,Dem,Holly Taylor,1126
+collin:174,Rep,David J. Schenck,1657
+collin:174,,Over Votes,0
+collin:174,,Under Votes,168
+collin:175,Dem,Holly Taylor,511
+collin:175,Rep,David J. Schenck,898
+collin:175,,Over Votes,0
+collin:175,,Under Votes,83
+collin:176,Dem,Holly Taylor,1113
+collin:176,Rep,David J. Schenck,955
+collin:176,,Over Votes,0
+collin:176,,Under Votes,126
+collin:178,Dem,Holly Taylor,630
+collin:178,Rep,David J. Schenck,1671
+collin:178,,Over Votes,0
+collin:178,,Under Votes,103
+collin:179,Dem,Holly Taylor,959
+collin:179,Rep,David J. Schenck,2625
+collin:179,,Over Votes,0
+collin:179,,Under Votes,182
+collin:18,Dem,Holly Taylor,120
+collin:18,Rep,David J. Schenck,522
+collin:18,,Over Votes,0
+collin:18,,Under Votes,29
+collin:180,Dem,Holly Taylor,992
+collin:180,Rep,David J. Schenck,1227
+collin:180,,Over Votes,0
+collin:180,,Under Votes,140
+collin:181,Dem,Holly Taylor,715
+collin:181,Rep,David J. Schenck,1224
+collin:181,,Over Votes,0
+collin:181,,Under Votes,110
+collin:182,Dem,Holly Taylor,1181
+collin:182,Rep,David J. Schenck,1407
+collin:182,,Over Votes,0
+collin:182,,Under Votes,177
+collin:183,Dem,Holly Taylor,13
+collin:183,Rep,David J. Schenck,62
+collin:183,,Over Votes,0
+collin:183,,Under Votes,5
+collin:185,Dem,Holly Taylor,14
+collin:185,Rep,David J. Schenck,21
+collin:185,,Over Votes,0
+collin:185,,Under Votes,5
+collin:186,Dem,Holly Taylor,12
+collin:186,Rep,David J. Schenck,72
+collin:186,,Over Votes,0
+collin:186,,Under Votes,5
+collin:187,Dem,Holly Taylor,46
+collin:187,Rep,David J. Schenck,374
+collin:187,,Over Votes,0
+collin:187,,Under Votes,27
+collin:188,Dem,Holly Taylor,9
+collin:188,Rep,David J. Schenck,49
+collin:188,,Over Votes,0
+collin:188,,Under Votes,2
+collin:189,Dem,Holly Taylor,165
+collin:189,Rep,David J. Schenck,657
+collin:189,,Over Votes,0
+collin:189,,Under Votes,41
+collin:19,Dem,Holly Taylor,503
+collin:19,Rep,David J. Schenck,648
+collin:19,,Over Votes,0
+collin:19,,Under Votes,57
+collin:190,Dem,Holly Taylor,3
+collin:190,Rep,David J. Schenck,39
+collin:190,,Over Votes,0
+collin:190,,Under Votes,4
+collin:191,Dem,Holly Taylor,193
+collin:191,Rep,David J. Schenck,353
+collin:191,,Over Votes,0
+collin:191,,Under Votes,36
+collin:192,Dem,Holly Taylor,812
+collin:192,Rep,David J. Schenck,2435
+collin:192,,Over Votes,0
+collin:192,,Under Votes,189
+collin:193,Dem,Holly Taylor,186
+collin:193,Rep,David J. Schenck,645
+collin:193,,Over Votes,0
+collin:193,,Under Votes,46
+collin:194,Dem,Holly Taylor,3
+collin:194,Rep,David J. Schenck,13
+collin:194,,Over Votes,0
+collin:194,,Under Votes,3
+collin:195,Dem,Holly Taylor,143
+collin:195,Rep,David J. Schenck,490
+collin:195,,Over Votes,0
+collin:195,,Under Votes,41
+collin:196,Dem,Holly Taylor,518
+collin:196,Rep,David J. Schenck,755
+collin:196,,Over Votes,0
+collin:196,,Under Votes,79
+collin:197,Dem,Holly Taylor,429
+collin:197,Rep,David J. Schenck,377
+collin:197,,Over Votes,0
+collin:197,,Under Votes,52
+collin:198,Dem,Holly Taylor,7
+collin:198,Rep,David J. Schenck,77
+collin:198,,Over Votes,0
+collin:198,,Under Votes,6
+collin:199,Dem,Holly Taylor,842
+collin:199,Rep,David J. Schenck,2215
+collin:199,,Over Votes,0
+collin:199,,Under Votes,139
+collin:2,Dem,Holly Taylor,1315
+collin:2,Rep,David J. Schenck,1488
+collin:2,,Over Votes,0
+collin:2,,Under Votes,186
+collin:20,Dem,Holly Taylor,497
+collin:20,Rep,David J. Schenck,1101
+collin:20,,Over Votes,0
+collin:20,,Under Votes,86
+collin:200,Dem,Holly Taylor,536
+collin:200,Rep,David J. Schenck,1255
+collin:200,,Over Votes,0
+collin:200,,Under Votes,103
+collin:201,Dem,Holly Taylor,0
+collin:201,Rep,David J. Schenck,0
+collin:201,,Over Votes,0
+collin:201,,Under Votes,0
+collin:202,Dem,Holly Taylor,2
+collin:202,Rep,David J. Schenck,0
+collin:202,,Over Votes,0
+collin:202,,Under Votes,0
+collin:203,Dem,Holly Taylor,749
+collin:203,Rep,David J. Schenck,1479
+collin:203,,Over Votes,0
+collin:203,,Under Votes,116
+collin:204,Dem,Holly Taylor,99
+collin:204,Rep,David J. Schenck,170
+collin:204,,Over Votes,0
+collin:204,,Under Votes,13
+collin:205,Dem,Holly Taylor,11
+collin:205,Rep,David J. Schenck,15
+collin:205,,Over Votes,0
+collin:205,,Under Votes,1
+collin:206,Dem,Holly Taylor,487
+collin:206,Rep,David J. Schenck,876
+collin:206,,Over Votes,0
+collin:206,,Under Votes,68
+collin:207,Dem,Holly Taylor,1047
+collin:207,Rep,David J. Schenck,1724
+collin:207,,Over Votes,0
+collin:207,,Under Votes,154
+collin:208,Dem,Holly Taylor,1115
+collin:208,Rep,David J. Schenck,2023
+collin:208,,Over Votes,0
+collin:208,,Under Votes,185
+collin:21,Dem,Holly Taylor,1438
+collin:21,Rep,David J. Schenck,1508
+collin:21,,Over Votes,0
+collin:21,,Under Votes,159
+collin:210,Dem,Holly Taylor,603
+collin:210,Rep,David J. Schenck,579
+collin:210,,Over Votes,0
+collin:210,,Under Votes,108
+collin:211,Dem,Holly Taylor,926
+collin:211,Rep,David J. Schenck,1368
+collin:211,,Over Votes,0
+collin:211,,Under Votes,161
+collin:213,Dem,Holly Taylor,1144
+collin:213,Rep,David J. Schenck,1307
+collin:213,,Over Votes,0
+collin:213,,Under Votes,160
+collin:214,Dem,Holly Taylor,807
+collin:214,Rep,David J. Schenck,2771
+collin:214,,Over Votes,0
+collin:214,,Under Votes,144
+collin:215,Dem,Holly Taylor,729
+collin:215,Rep,David J. Schenck,1229
+collin:215,,Over Votes,0
+collin:215,,Under Votes,134
+collin:216,Dem,Holly Taylor,992
+collin:216,Rep,David J. Schenck,2410
+collin:216,,Over Votes,0
+collin:216,,Under Votes,163
+collin:217,Dem,Holly Taylor,797
+collin:217,Rep,David J. Schenck,1273
+collin:217,,Over Votes,0
+collin:217,,Under Votes,120
+collin:218,Dem,Holly Taylor,1344
+collin:218,Rep,David J. Schenck,1595
+collin:218,,Over Votes,0
+collin:218,,Under Votes,154
+collin:219,Dem,Holly Taylor,1432
+collin:219,Rep,David J. Schenck,1528
+collin:219,,Over Votes,0
+collin:219,,Under Votes,177
+collin:22,Dem,Holly Taylor,686
+collin:22,Rep,David J. Schenck,2767
+collin:22,,Over Votes,0
+collin:22,,Under Votes,181
+collin:221,Dem,Holly Taylor,1220
+collin:221,Rep,David J. Schenck,2343
+collin:221,,Over Votes,0
+collin:221,,Under Votes,213
+collin:222,Dem,Holly Taylor,1282
+collin:222,Rep,David J. Schenck,1438
+collin:222,,Over Votes,0
+collin:222,,Under Votes,150
+collin:223,Dem,Holly Taylor,787
+collin:223,Rep,David J. Schenck,976
+collin:223,,Over Votes,0
+collin:223,,Under Votes,76
+collin:224,Dem,Holly Taylor,593
+collin:224,Rep,David J. Schenck,1869
+collin:224,,Over Votes,0
+collin:224,,Under Votes,106
+collin:226,Dem,Holly Taylor,1350
+collin:226,Rep,David J. Schenck,1423
+collin:226,,Over Votes,0
+collin:226,,Under Votes,172
+collin:227,Dem,Holly Taylor,1279
+collin:227,Rep,David J. Schenck,1701
+collin:227,,Over Votes,0
+collin:227,,Under Votes,180
+collin:228,Dem,Holly Taylor,1677
+collin:228,Rep,David J. Schenck,1920
+collin:228,,Over Votes,0
+collin:228,,Under Votes,246
+collin:23,Dem,Holly Taylor,1179
+collin:23,Rep,David J. Schenck,566
+collin:23,,Over Votes,0
+collin:23,,Under Votes,129
+collin:230,Dem,Holly Taylor,1406
+collin:230,Rep,David J. Schenck,1425
+collin:230,,Over Votes,0
+collin:230,,Under Votes,190
+collin:231,Dem,Holly Taylor,1159
+collin:231,Rep,David J. Schenck,1547
+collin:231,,Over Votes,0
+collin:231,,Under Votes,144
+collin:232,Dem,Holly Taylor,1053
+collin:232,Rep,David J. Schenck,1559
+collin:232,,Over Votes,0
+collin:232,,Under Votes,143
+collin:233,Dem,Holly Taylor,529
+collin:233,Rep,David J. Schenck,830
+collin:233,,Over Votes,0
+collin:233,,Under Votes,84
+collin:235,Dem,Holly Taylor,644
+collin:235,Rep,David J. Schenck,611
+collin:235,,Over Votes,0
+collin:235,,Under Votes,77
+collin:236,Dem,Holly Taylor,751
+collin:236,Rep,David J. Schenck,1345
+collin:236,,Over Votes,0
+collin:236,,Under Votes,121
+collin:237,Dem,Holly Taylor,636
+collin:237,Rep,David J. Schenck,775
+collin:237,,Over Votes,0
+collin:237,,Under Votes,111
+collin:238,Dem,Holly Taylor,1270
+collin:238,Rep,David J. Schenck,1157
+collin:238,,Over Votes,0
+collin:238,,Under Votes,156
+collin:239,Dem,Holly Taylor,824
+collin:239,Rep,David J. Schenck,2091
+collin:239,,Over Votes,0
+collin:239,,Under Votes,136
+collin:240,Dem,Holly Taylor,853
+collin:240,Rep,David J. Schenck,2206
+collin:240,,Over Votes,0
+collin:240,,Under Votes,153
+collin:241,Dem,Holly Taylor,461
+collin:241,Rep,David J. Schenck,570
+collin:241,,Over Votes,0
+collin:241,,Under Votes,84
+collin:242,Dem,Holly Taylor,1046
+collin:242,Rep,David J. Schenck,1408
+collin:242,,Over Votes,0
+collin:242,,Under Votes,150
+collin:243,Dem,Holly Taylor,350
+collin:243,Rep,David J. Schenck,864
+collin:243,,Over Votes,0
+collin:243,,Under Votes,58
+collin:246,Dem,Holly Taylor,894
+collin:246,Rep,David J. Schenck,1131
+collin:246,,Over Votes,0
+collin:246,,Under Votes,112
+collin:247,Dem,Holly Taylor,488
+collin:247,Rep,David J. Schenck,1308
+collin:247,,Over Votes,0
+collin:247,,Under Votes,80
+collin:249,Dem,Holly Taylor,1045
+collin:249,Rep,David J. Schenck,1859
+collin:249,,Over Votes,0
+collin:249,,Under Votes,149
+collin:25,Dem,Holly Taylor,1257
+collin:25,Rep,David J. Schenck,1383
+collin:25,,Over Votes,0
+collin:25,,Under Votes,260
+collin:251,Dem,Holly Taylor,562
+collin:251,Rep,David J. Schenck,1203
+collin:251,,Over Votes,0
+collin:251,,Under Votes,87
+collin:252,Dem,Holly Taylor,624
+collin:252,Rep,David J. Schenck,1597
+collin:252,,Over Votes,0
+collin:252,,Under Votes,117
+collin:26,Dem,Holly Taylor,328
+collin:26,Rep,David J. Schenck,381
+collin:26,,Over Votes,0
+collin:26,,Under Votes,30
+collin:27,Dem,Holly Taylor,719
+collin:27,Rep,David J. Schenck,1041
+collin:27,,Over Votes,0
+collin:27,,Under Votes,120
+collin:28,Dem,Holly Taylor,1137
+collin:28,Rep,David J. Schenck,1180
+collin:28,,Over Votes,0
+collin:28,,Under Votes,128
+collin:29,Dem,Holly Taylor,1173
+collin:29,Rep,David J. Schenck,2680
+collin:29,,Over Votes,0
+collin:29,,Under Votes,195
+collin:3,Dem,Holly Taylor,793
+collin:3,Rep,David J. Schenck,448
+collin:3,,Over Votes,0
+collin:3,,Under Votes,122
+collin:31,Dem,Holly Taylor,636
+collin:31,Rep,David J. Schenck,879
+collin:31,,Over Votes,0
+collin:31,,Under Votes,62
+collin:32,Dem,Holly Taylor,780
+collin:32,Rep,David J. Schenck,983
+collin:32,,Over Votes,0
+collin:32,,Under Votes,102
+collin:33,Dem,Holly Taylor,1483
+collin:33,Rep,David J. Schenck,3070
+collin:33,,Over Votes,0
+collin:33,,Under Votes,261
+collin:34,Dem,Holly Taylor,1526
+collin:34,Rep,David J. Schenck,1351
+collin:34,,Over Votes,0
+collin:34,,Under Votes,164
+collin:35,Dem,Holly Taylor,210
+collin:35,Rep,David J. Schenck,1006
+collin:35,,Over Votes,0
+collin:35,,Under Votes,77
+collin:37,Dem,Holly Taylor,284
+collin:37,Rep,David J. Schenck,1591
+collin:37,,Over Votes,0
+collin:37,,Under Votes,91
+collin:38,Dem,Holly Taylor,1134
+collin:38,Rep,David J. Schenck,1109
+collin:38,,Over Votes,0
+collin:38,,Under Votes,144
+collin:39,Dem,Holly Taylor,987
+collin:39,Rep,David J. Schenck,799
+collin:39,,Over Votes,0
+collin:39,,Under Votes,119
+collin:4,Dem,Holly Taylor,869
+collin:4,Rep,David J. Schenck,1845
+collin:4,,Over Votes,0
+collin:4,,Under Votes,144
+collin:40,Dem,Holly Taylor,859
+collin:40,Rep,David J. Schenck,1564
+collin:40,,Over Votes,0
+collin:40,,Under Votes,133
+collin:41,Dem,Holly Taylor,1203
+collin:41,Rep,David J. Schenck,2461
+collin:41,,Over Votes,0
+collin:41,,Under Votes,162
+collin:42,Dem,Holly Taylor,367
+collin:42,Rep,David J. Schenck,1102
+collin:42,,Over Votes,0
+collin:42,,Under Votes,79
+collin:43,Dem,Holly Taylor,1018
+collin:43,Rep,David J. Schenck,981
+collin:43,,Over Votes,0
+collin:43,,Under Votes,122
+collin:44,Dem,Holly Taylor,416
+collin:44,Rep,David J. Schenck,439
+collin:44,,Over Votes,0
+collin:44,,Under Votes,69
+collin:45,Dem,Holly Taylor,880
+collin:45,Rep,David J. Schenck,1463
+collin:45,,Over Votes,0
+collin:45,,Under Votes,132
+collin:46,Dem,Holly Taylor,960
+collin:46,Rep,David J. Schenck,718
+collin:46,,Over Votes,0
+collin:46,,Under Votes,119
+collin:47,Dem,Holly Taylor,912
+collin:47,Rep,David J. Schenck,825
+collin:47,,Over Votes,0
+collin:47,,Under Votes,85
+collin:49,Dem,Holly Taylor,740
+collin:49,Rep,David J. Schenck,959
+collin:49,,Over Votes,0
+collin:49,,Under Votes,107
+collin:5,Dem,Holly Taylor,218
+collin:5,Rep,David J. Schenck,465
+collin:5,,Over Votes,0
+collin:5,,Under Votes,50
+collin:50,Dem,Holly Taylor,976
+collin:50,Rep,David J. Schenck,643
+collin:50,,Over Votes,0
+collin:50,,Under Votes,154
+collin:51,Dem,Holly Taylor,530
+collin:51,Rep,David J. Schenck,399
+collin:51,,Over Votes,0
+collin:51,,Under Votes,77
+collin:52,Dem,Holly Taylor,1419
+collin:52,Rep,David J. Schenck,1123
+collin:52,,Over Votes,0
+collin:52,,Under Votes,367
+collin:53,Dem,Holly Taylor,743
+collin:53,Rep,David J. Schenck,854
+collin:53,,Over Votes,0
+collin:53,,Under Votes,65
+collin:54,Dem,Holly Taylor,1240
+collin:54,Rep,David J. Schenck,890
+collin:54,,Over Votes,0
+collin:54,,Under Votes,124
+collin:56,Dem,Holly Taylor,850
+collin:56,Rep,David J. Schenck,1419
+collin:56,,Over Votes,0
+collin:56,,Under Votes,160
+collin:57,Dem,Holly Taylor,1401
+collin:57,Rep,David J. Schenck,1839
+collin:57,,Over Votes,0
+collin:57,,Under Votes,215
+collin:58,Dem,Holly Taylor,1188
+collin:58,Rep,David J. Schenck,1065
+collin:58,,Over Votes,0
+collin:58,,Under Votes,144
+collin:59,Dem,Holly Taylor,1031
+collin:59,Rep,David J. Schenck,1521
+collin:59,,Over Votes,0
+collin:59,,Under Votes,173
+collin:6,Dem,Holly Taylor,547
+collin:6,Rep,David J. Schenck,502
+collin:6,,Over Votes,0
+collin:6,,Under Votes,60
+collin:60,Dem,Holly Taylor,816
+collin:60,Rep,David J. Schenck,1525
+collin:60,,Over Votes,0
+collin:60,,Under Votes,148
+collin:61,Dem,Holly Taylor,496
+collin:61,Rep,David J. Schenck,665
+collin:61,,Over Votes,0
+collin:61,,Under Votes,53
+collin:62,Dem,Holly Taylor,882
+collin:62,Rep,David J. Schenck,772
+collin:62,,Over Votes,0
+collin:62,,Under Votes,109
+collin:63,Dem,Holly Taylor,621
+collin:63,Rep,David J. Schenck,906
+collin:63,,Over Votes,0
+collin:63,,Under Votes,77
+collin:64,Dem,Holly Taylor,833
+collin:64,Rep,David J. Schenck,894
+collin:64,,Over Votes,0
+collin:64,,Under Votes,113
+collin:65,Dem,Holly Taylor,390
+collin:65,Rep,David J. Schenck,418
+collin:65,,Over Votes,0
+collin:65,,Under Votes,39
+collin:66,Dem,Holly Taylor,701
+collin:66,Rep,David J. Schenck,725
+collin:66,,Over Votes,0
+collin:66,,Under Votes,71
+collin:67,Dem,Holly Taylor,931
+collin:67,Rep,David J. Schenck,943
+collin:67,,Over Votes,0
+collin:67,,Under Votes,121
+collin:68,Dem,Holly Taylor,626
+collin:68,Rep,David J. Schenck,591
+collin:68,,Over Votes,0
+collin:68,,Under Votes,68
+collin:69,Dem,Holly Taylor,1234
+collin:69,Rep,David J. Schenck,1463
+collin:69,,Over Votes,0
+collin:69,,Under Votes,134
+collin:7,Dem,Holly Taylor,419
+collin:7,Rep,David J. Schenck,539
+collin:7,,Over Votes,0
+collin:7,,Under Votes,77
+collin:70,Dem,Holly Taylor,578
+collin:70,Rep,David J. Schenck,772
+collin:70,,Over Votes,0
+collin:70,,Under Votes,66
+collin:71,Dem,Holly Taylor,594
+collin:71,Rep,David J. Schenck,662
+collin:71,,Over Votes,0
+collin:71,,Under Votes,58
+collin:72,Dem,Holly Taylor,523
+collin:72,Rep,David J. Schenck,668
+collin:72,,Over Votes,0
+collin:72,,Under Votes,58
+collin:75,Dem,Holly Taylor,651
+collin:75,Rep,David J. Schenck,952
+collin:75,,Over Votes,0
+collin:75,,Under Votes,98
+collin:76,Dem,Holly Taylor,953
+collin:76,Rep,David J. Schenck,1269
+collin:76,,Over Votes,0
+collin:76,,Under Votes,141
+collin:77,Dem,Holly Taylor,1262
+collin:77,Rep,David J. Schenck,1065
+collin:77,,Over Votes,0
+collin:77,,Under Votes,134
+collin:8,Dem,Holly Taylor,1358
+collin:8,Rep,David J. Schenck,2511
+collin:8,,Over Votes,0
+collin:8,,Under Votes,260
+collin:80,Dem,Holly Taylor,1086
+collin:80,Rep,David J. Schenck,1274
+collin:80,,Over Votes,0
+collin:80,,Under Votes,149
+collin:81,Dem,Holly Taylor,992
+collin:81,Rep,David J. Schenck,922
+collin:81,,Over Votes,0
+collin:81,,Under Votes,117
+collin:82,Dem,Holly Taylor,891
+collin:82,Rep,David J. Schenck,878
+collin:82,,Over Votes,0
+collin:82,,Under Votes,101
+collin:83,Dem,Holly Taylor,949
+collin:83,Rep,David J. Schenck,1833
+collin:83,,Over Votes,0
+collin:83,,Under Votes,132
+collin:85,Dem,Holly Taylor,1215
+collin:85,Rep,David J. Schenck,938
+collin:85,,Over Votes,0
+collin:85,,Under Votes,132
+collin:86,Dem,Holly Taylor,945
+collin:86,Rep,David J. Schenck,1142
+collin:86,,Over Votes,0
+collin:86,,Under Votes,107
+collin:89,Dem,Holly Taylor,1029
+collin:89,Rep,David J. Schenck,1095
+collin:89,,Over Votes,0
+collin:89,,Under Votes,140
+collin:9,Dem,Holly Taylor,1269
+collin:9,Rep,David J. Schenck,1798
+collin:9,,Over Votes,0
+collin:9,,Under Votes,186
+collin:90,Dem,Holly Taylor,796
+collin:90,Rep,David J. Schenck,1476
+collin:90,,Over Votes,0
+collin:90,,Under Votes,128
+collin:91,Dem,Holly Taylor,790
+collin:91,Rep,David J. Schenck,789
+collin:91,,Over Votes,0
+collin:91,,Under Votes,80
+collin:93,Dem,Holly Taylor,23
+collin:93,Rep,David J. Schenck,189
+collin:93,,Over Votes,0
+collin:93,,Under Votes,10
+collin:95,Dem,Holly Taylor,971
+collin:95,Rep,David J. Schenck,1112
+collin:95,,Over Votes,0
+collin:95,,Under Votes,154
+collin:96,Dem,Holly Taylor,319
+collin:96,Rep,David J. Schenck,417
+collin:96,,Over Votes,0
+collin:96,,Under Votes,46
+collin:97,Dem,Holly Taylor,272
+collin:97,Rep,David J. Schenck,747
+collin:97,,Over Votes,0
+collin:97,,Under Votes,51
+collin:98,Dem,Holly Taylor,404
+collin:98,Rep,David J. Schenck,559
+collin:98,,Over Votes,0
+collin:98,,Under Votes,56
+collin:99,Dem,Holly Taylor,132
+collin:99,Rep,David J. Schenck,102
+collin:99,,Over Votes,0
+collin:99,,Under Votes,23

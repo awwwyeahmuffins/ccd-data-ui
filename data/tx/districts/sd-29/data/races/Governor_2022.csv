@@ -1,0 +1,1693 @@
+precinct,party,candidate,votes
+brewster:1,,Delilah Barrios,6
+brewster:1,,Jacqueline Abernathy,0
+brewster:1,LIB,Mark Tippetts,15
+brewster:1,,Mark V Goloby,0
+brewster:1,DEM,Beto O'rourke,349
+brewster:1,REP,Greg Abbott,679
+brewster:2,,Delilah Barrios,2
+brewster:2,,Jacqueline Abernathy,0
+brewster:2,LIB,Mark Tippetts,11
+brewster:2,,Mark V Goloby,0
+brewster:2,DEM,Beto O'rourke,357
+brewster:2,REP,Greg Abbott,336
+brewster:4,,Delilah Barrios,5
+brewster:4,,Jacqueline Abernathy,0
+brewster:4,LIB,Mark Tippetts,7
+brewster:4,,Mark V Goloby,0
+brewster:4,DEM,Beto O'rourke,379
+brewster:4,REP,Greg Abbott,478
+brewster:6,,Delilah Barrios,1
+brewster:6,,Jacqueline Abernathy,0
+brewster:6,LIB,Mark Tippetts,11
+brewster:6,,Mark V Goloby,0
+brewster:6,DEM,Beto O'rourke,200
+brewster:6,REP,Greg Abbott,234
+brewster:7,,Delilah Barrios,0
+brewster:7,,Jacqueline Abernathy,0
+brewster:7,LIB,Mark Tippetts,0
+brewster:7,,Mark V Goloby,0
+brewster:7,DEM,Beto O'rourke,59
+brewster:7,REP,Greg Abbott,24
+brewster:8,,Delilah Barrios,2
+brewster:8,,Jacqueline Abernathy,0
+brewster:8,LIB,Mark Tippetts,4
+brewster:8,,Mark V Goloby,0
+brewster:8,DEM,Beto O'rourke,183
+brewster:8,REP,Greg Abbott,121
+el-paso:1,,Over Votes,0
+el-paso:1,,Under Votes,3
+el-paso:1,,Write-in,1
+el-paso:1,DEM,Beto O'Rourke,424
+el-paso:1,GRN,Delilah Barrios,8
+el-paso:1,LIB,Mark Tippetts,7
+el-paso:1,REP,Greg Abbott,237
+el-paso:10,,Over Votes,2
+el-paso:10,,Under Votes,18
+el-paso:10,,Write-in,3
+el-paso:10,DEM,Beto O'Rourke,940
+el-paso:10,GRN,Delilah Barrios,20
+el-paso:10,LIB,Mark Tippetts,5
+el-paso:10,REP,Greg Abbott,399
+el-paso:100,,Over Votes,1
+el-paso:100,,Under Votes,6
+el-paso:100,,Write-in,0
+el-paso:100,DEM,Beto O'Rourke,801
+el-paso:100,GRN,Delilah Barrios,11
+el-paso:100,LIB,Mark Tippetts,13
+el-paso:100,REP,Greg Abbott,409
+el-paso:101,,Over Votes,0
+el-paso:101,,Under Votes,10
+el-paso:101,,Write-in,0
+el-paso:101,DEM,Beto O'Rourke,649
+el-paso:101,GRN,Delilah Barrios,5
+el-paso:101,LIB,Mark Tippetts,7
+el-paso:101,REP,Greg Abbott,420
+el-paso:102,,Over Votes,1
+el-paso:102,,Under Votes,7
+el-paso:102,,Write-in,0
+el-paso:102,DEM,Beto O'Rourke,608
+el-paso:102,GRN,Delilah Barrios,12
+el-paso:102,LIB,Mark Tippetts,6
+el-paso:102,REP,Greg Abbott,274
+el-paso:103,,Over Votes,1
+el-paso:103,,Under Votes,8
+el-paso:103,,Write-in,0
+el-paso:103,DEM,Beto O'Rourke,500
+el-paso:103,GRN,Delilah Barrios,2
+el-paso:103,LIB,Mark Tippetts,6
+el-paso:103,REP,Greg Abbott,370
+el-paso:104,,Over Votes,1
+el-paso:104,,Under Votes,7
+el-paso:104,,Write-in,2
+el-paso:104,DEM,Beto O'Rourke,728
+el-paso:104,GRN,Delilah Barrios,7
+el-paso:104,LIB,Mark Tippetts,10
+el-paso:104,REP,Greg Abbott,510
+el-paso:105,,Over Votes,0
+el-paso:105,,Under Votes,8
+el-paso:105,,Write-in,0
+el-paso:105,DEM,Beto O'Rourke,745
+el-paso:105,GRN,Delilah Barrios,8
+el-paso:105,LIB,Mark Tippetts,12
+el-paso:105,REP,Greg Abbott,395
+el-paso:106,,Over Votes,0
+el-paso:106,,Under Votes,7
+el-paso:106,,Write-in,2
+el-paso:106,DEM,Beto O'Rourke,683
+el-paso:106,GRN,Delilah Barrios,6
+el-paso:106,LIB,Mark Tippetts,8
+el-paso:106,REP,Greg Abbott,383
+el-paso:107,,Over Votes,0
+el-paso:107,,Under Votes,4
+el-paso:107,,Write-in,1
+el-paso:107,DEM,Beto O'Rourke,575
+el-paso:107,GRN,Delilah Barrios,5
+el-paso:107,LIB,Mark Tippetts,7
+el-paso:107,REP,Greg Abbott,298
+el-paso:108,,Over Votes,0
+el-paso:108,,Under Votes,5
+el-paso:108,,Write-in,2
+el-paso:108,DEM,Beto O'Rourke,533
+el-paso:108,GRN,Delilah Barrios,5
+el-paso:108,LIB,Mark Tippetts,9
+el-paso:108,REP,Greg Abbott,419
+el-paso:109,,Over Votes,1
+el-paso:109,,Under Votes,5
+el-paso:109,,Write-in,0
+el-paso:109,DEM,Beto O'Rourke,447
+el-paso:109,GRN,Delilah Barrios,5
+el-paso:109,LIB,Mark Tippetts,8
+el-paso:109,REP,Greg Abbott,297
+el-paso:11,,Over Votes,0
+el-paso:11,,Under Votes,10
+el-paso:11,,Write-in,3
+el-paso:11,DEM,Beto O'Rourke,1013
+el-paso:11,GRN,Delilah Barrios,14
+el-paso:11,LIB,Mark Tippetts,12
+el-paso:11,REP,Greg Abbott,514
+el-paso:110,,Over Votes,0
+el-paso:110,,Under Votes,9
+el-paso:110,,Write-in,0
+el-paso:110,DEM,Beto O'Rourke,813
+el-paso:110,GRN,Delilah Barrios,13
+el-paso:110,LIB,Mark Tippetts,15
+el-paso:110,REP,Greg Abbott,432
+el-paso:111,,Over Votes,1
+el-paso:111,,Under Votes,2
+el-paso:111,,Write-in,0
+el-paso:111,DEM,Beto O'Rourke,371
+el-paso:111,GRN,Delilah Barrios,2
+el-paso:111,LIB,Mark Tippetts,4
+el-paso:111,REP,Greg Abbott,134
+el-paso:112,,Over Votes,0
+el-paso:112,,Under Votes,5
+el-paso:112,,Write-in,1
+el-paso:112,DEM,Beto O'Rourke,1057
+el-paso:112,GRN,Delilah Barrios,12
+el-paso:112,LIB,Mark Tippetts,9
+el-paso:112,REP,Greg Abbott,413
+el-paso:113,,Over Votes,0
+el-paso:113,,Under Votes,5
+el-paso:113,,Write-in,2
+el-paso:113,DEM,Beto O'Rourke,663
+el-paso:113,GRN,Delilah Barrios,5
+el-paso:113,LIB,Mark Tippetts,9
+el-paso:113,REP,Greg Abbott,336
+el-paso:114,,Over Votes,1
+el-paso:114,,Under Votes,8
+el-paso:114,,Write-in,0
+el-paso:114,DEM,Beto O'Rourke,1049
+el-paso:114,GRN,Delilah Barrios,11
+el-paso:114,LIB,Mark Tippetts,8
+el-paso:114,REP,Greg Abbott,486
+el-paso:115,,Over Votes,0
+el-paso:115,,Under Votes,4
+el-paso:115,,Write-in,1
+el-paso:115,DEM,Beto O'Rourke,593
+el-paso:115,GRN,Delilah Barrios,8
+el-paso:115,LIB,Mark Tippetts,7
+el-paso:115,REP,Greg Abbott,360
+el-paso:116,,Over Votes,0
+el-paso:116,,Under Votes,7
+el-paso:116,,Write-in,3
+el-paso:116,DEM,Beto O'Rourke,864
+el-paso:116,GRN,Delilah Barrios,9
+el-paso:116,LIB,Mark Tippetts,18
+el-paso:116,REP,Greg Abbott,549
+el-paso:117,,Over Votes,2
+el-paso:117,,Under Votes,7
+el-paso:117,,Write-in,1
+el-paso:117,DEM,Beto O'Rourke,762
+el-paso:117,GRN,Delilah Barrios,4
+el-paso:117,LIB,Mark Tippetts,13
+el-paso:117,REP,Greg Abbott,389
+el-paso:118,,Over Votes,0
+el-paso:118,,Under Votes,6
+el-paso:118,,Write-in,0
+el-paso:118,DEM,Beto O'Rourke,649
+el-paso:118,GRN,Delilah Barrios,5
+el-paso:118,LIB,Mark Tippetts,11
+el-paso:118,REP,Greg Abbott,329
+el-paso:119,,Over Votes,0
+el-paso:119,,Under Votes,10
+el-paso:119,,Write-in,0
+el-paso:119,DEM,Beto O'Rourke,615
+el-paso:119,GRN,Delilah Barrios,7
+el-paso:119,LIB,Mark Tippetts,9
+el-paso:119,REP,Greg Abbott,320
+el-paso:12,,Over Votes,1
+el-paso:12,,Under Votes,7
+el-paso:12,,Write-in,0
+el-paso:12,DEM,Beto O'Rourke,800
+el-paso:12,GRN,Delilah Barrios,4
+el-paso:12,LIB,Mark Tippetts,15
+el-paso:12,REP,Greg Abbott,650
+el-paso:120,,Over Votes,1
+el-paso:120,,Under Votes,6
+el-paso:120,,Write-in,0
+el-paso:120,DEM,Beto O'Rourke,763
+el-paso:120,GRN,Delilah Barrios,8
+el-paso:120,LIB,Mark Tippetts,6
+el-paso:120,REP,Greg Abbott,353
+el-paso:121,,Over Votes,0
+el-paso:121,,Under Votes,6
+el-paso:121,,Write-in,0
+el-paso:121,DEM,Beto O'Rourke,577
+el-paso:121,GRN,Delilah Barrios,4
+el-paso:121,LIB,Mark Tippetts,9
+el-paso:121,REP,Greg Abbott,220
+el-paso:122,,Over Votes,0
+el-paso:122,,Under Votes,14
+el-paso:122,,Write-in,0
+el-paso:122,DEM,Beto O'Rourke,935
+el-paso:122,GRN,Delilah Barrios,6
+el-paso:122,LIB,Mark Tippetts,7
+el-paso:122,REP,Greg Abbott,367
+el-paso:123,,Over Votes,0
+el-paso:123,,Under Votes,15
+el-paso:123,,Write-in,0
+el-paso:123,DEM,Beto O'Rourke,732
+el-paso:123,GRN,Delilah Barrios,7
+el-paso:123,LIB,Mark Tippetts,4
+el-paso:123,REP,Greg Abbott,281
+el-paso:124,,Over Votes,1
+el-paso:124,,Under Votes,5
+el-paso:124,,Write-in,0
+el-paso:124,DEM,Beto O'Rourke,679
+el-paso:124,GRN,Delilah Barrios,4
+el-paso:124,LIB,Mark Tippetts,8
+el-paso:124,REP,Greg Abbott,273
+el-paso:125,,Over Votes,0
+el-paso:125,,Under Votes,8
+el-paso:125,,Write-in,1
+el-paso:125,DEM,Beto O'Rourke,923
+el-paso:125,GRN,Delilah Barrios,12
+el-paso:125,LIB,Mark Tippetts,12
+el-paso:125,REP,Greg Abbott,457
+el-paso:126,,Over Votes,0
+el-paso:126,,Under Votes,7
+el-paso:126,,Write-in,0
+el-paso:126,DEM,Beto O'Rourke,1259
+el-paso:126,GRN,Delilah Barrios,10
+el-paso:126,LIB,Mark Tippetts,10
+el-paso:126,REP,Greg Abbott,695
+el-paso:127,,Over Votes,0
+el-paso:127,,Under Votes,0
+el-paso:127,,Write-in,0
+el-paso:127,DEM,Beto O'Rourke,53
+el-paso:127,GRN,Delilah Barrios,1
+el-paso:127,LIB,Mark Tippetts,1
+el-paso:127,REP,Greg Abbott,46
+el-paso:128,,Over Votes,0
+el-paso:128,,Under Votes,3
+el-paso:128,,Write-in,0
+el-paso:128,DEM,Beto O'Rourke,772
+el-paso:128,GRN,Delilah Barrios,3
+el-paso:128,LIB,Mark Tippetts,14
+el-paso:128,REP,Greg Abbott,557
+el-paso:129,,Over Votes,0
+el-paso:129,,Under Votes,5
+el-paso:129,,Write-in,2
+el-paso:129,DEM,Beto O'Rourke,908
+el-paso:129,GRN,Delilah Barrios,11
+el-paso:129,LIB,Mark Tippetts,18
+el-paso:129,REP,Greg Abbott,498
+el-paso:13,,Over Votes,0
+el-paso:13,,Under Votes,10
+el-paso:13,,Write-in,1
+el-paso:13,DEM,Beto O'Rourke,835
+el-paso:13,GRN,Delilah Barrios,4
+el-paso:13,LIB,Mark Tippetts,15
+el-paso:13,REP,Greg Abbott,553
+el-paso:130,,Over Votes,2
+el-paso:130,,Under Votes,4
+el-paso:130,,Write-in,0
+el-paso:130,DEM,Beto O'Rourke,939
+el-paso:130,GRN,Delilah Barrios,7
+el-paso:130,LIB,Mark Tippetts,6
+el-paso:130,REP,Greg Abbott,507
+el-paso:131,,Over Votes,0
+el-paso:131,,Under Votes,3
+el-paso:131,,Write-in,0
+el-paso:131,DEM,Beto O'Rourke,733
+el-paso:131,GRN,Delilah Barrios,5
+el-paso:131,LIB,Mark Tippetts,8
+el-paso:131,REP,Greg Abbott,384
+el-paso:132,,Over Votes,0
+el-paso:132,,Under Votes,1
+el-paso:132,,Write-in,0
+el-paso:132,DEM,Beto O'Rourke,71
+el-paso:132,GRN,Delilah Barrios,0
+el-paso:132,LIB,Mark Tippetts,1
+el-paso:132,REP,Greg Abbott,28
+el-paso:133,,Over Votes,3
+el-paso:133,,Under Votes,11
+el-paso:133,,Write-in,0
+el-paso:133,DEM,Beto O'Rourke,591
+el-paso:133,GRN,Delilah Barrios,9
+el-paso:133,LIB,Mark Tippetts,7
+el-paso:133,REP,Greg Abbott,175
+el-paso:134,,Over Votes,0
+el-paso:134,,Under Votes,2
+el-paso:134,,Write-in,0
+el-paso:134,DEM,Beto O'Rourke,259
+el-paso:134,GRN,Delilah Barrios,3
+el-paso:134,LIB,Mark Tippetts,7
+el-paso:134,REP,Greg Abbott,151
+el-paso:135,,Over Votes,1
+el-paso:135,,Under Votes,10
+el-paso:135,,Write-in,0
+el-paso:135,DEM,Beto O'Rourke,483
+el-paso:135,GRN,Delilah Barrios,10
+el-paso:135,LIB,Mark Tippetts,6
+el-paso:135,REP,Greg Abbott,153
+el-paso:136,,Over Votes,0
+el-paso:136,,Under Votes,8
+el-paso:136,,Write-in,0
+el-paso:136,DEM,Beto O'Rourke,359
+el-paso:136,GRN,Delilah Barrios,1
+el-paso:136,LIB,Mark Tippetts,8
+el-paso:136,REP,Greg Abbott,109
+el-paso:137,,Over Votes,0
+el-paso:137,,Under Votes,4
+el-paso:137,,Write-in,0
+el-paso:137,DEM,Beto O'Rourke,388
+el-paso:137,GRN,Delilah Barrios,8
+el-paso:137,LIB,Mark Tippetts,3
+el-paso:137,REP,Greg Abbott,112
+el-paso:138,,Over Votes,1
+el-paso:138,,Under Votes,6
+el-paso:138,,Write-in,0
+el-paso:138,DEM,Beto O'Rourke,450
+el-paso:138,GRN,Delilah Barrios,7
+el-paso:138,LIB,Mark Tippetts,5
+el-paso:138,REP,Greg Abbott,112
+el-paso:139,,Over Votes,2
+el-paso:139,,Under Votes,8
+el-paso:139,,Write-in,1
+el-paso:139,DEM,Beto O'Rourke,460
+el-paso:139,GRN,Delilah Barrios,4
+el-paso:139,LIB,Mark Tippetts,8
+el-paso:139,REP,Greg Abbott,196
+el-paso:14,,Over Votes,0
+el-paso:14,,Under Votes,5
+el-paso:14,,Write-in,2
+el-paso:14,DEM,Beto O'Rourke,1039
+el-paso:14,GRN,Delilah Barrios,8
+el-paso:14,LIB,Mark Tippetts,18
+el-paso:14,REP,Greg Abbott,846
+el-paso:140,,Over Votes,1
+el-paso:140,,Under Votes,10
+el-paso:140,,Write-in,0
+el-paso:140,DEM,Beto O'Rourke,335
+el-paso:140,GRN,Delilah Barrios,5
+el-paso:140,LIB,Mark Tippetts,2
+el-paso:140,REP,Greg Abbott,107
+el-paso:141,,Over Votes,0
+el-paso:141,,Under Votes,4
+el-paso:141,,Write-in,1
+el-paso:141,DEM,Beto O'Rourke,289
+el-paso:141,GRN,Delilah Barrios,5
+el-paso:141,LIB,Mark Tippetts,6
+el-paso:141,REP,Greg Abbott,106
+el-paso:142,,Over Votes,0
+el-paso:142,,Under Votes,7
+el-paso:142,,Write-in,1
+el-paso:142,DEM,Beto O'Rourke,222
+el-paso:142,GRN,Delilah Barrios,4
+el-paso:142,LIB,Mark Tippetts,4
+el-paso:142,REP,Greg Abbott,65
+el-paso:143,,Over Votes,1
+el-paso:143,,Under Votes,10
+el-paso:143,,Write-in,0
+el-paso:143,DEM,Beto O'Rourke,608
+el-paso:143,GRN,Delilah Barrios,5
+el-paso:143,LIB,Mark Tippetts,11
+el-paso:143,REP,Greg Abbott,168
+el-paso:144,,Over Votes,0
+el-paso:144,,Under Votes,8
+el-paso:144,,Write-in,0
+el-paso:144,DEM,Beto O'Rourke,591
+el-paso:144,GRN,Delilah Barrios,10
+el-paso:144,LIB,Mark Tippetts,9
+el-paso:144,REP,Greg Abbott,194
+el-paso:145,,Over Votes,0
+el-paso:145,,Under Votes,7
+el-paso:145,,Write-in,0
+el-paso:145,DEM,Beto O'Rourke,549
+el-paso:145,GRN,Delilah Barrios,2
+el-paso:145,LIB,Mark Tippetts,5
+el-paso:145,REP,Greg Abbott,184
+el-paso:146,,Over Votes,1
+el-paso:146,,Under Votes,11
+el-paso:146,,Write-in,0
+el-paso:146,DEM,Beto O'Rourke,304
+el-paso:146,GRN,Delilah Barrios,1
+el-paso:146,LIB,Mark Tippetts,2
+el-paso:146,REP,Greg Abbott,91
+el-paso:147,,Over Votes,2
+el-paso:147,,Under Votes,12
+el-paso:147,,Write-in,0
+el-paso:147,DEM,Beto O'Rourke,346
+el-paso:147,GRN,Delilah Barrios,8
+el-paso:147,LIB,Mark Tippetts,1
+el-paso:147,REP,Greg Abbott,146
+el-paso:148,,Over Votes,0
+el-paso:148,,Under Votes,10
+el-paso:148,,Write-in,0
+el-paso:148,DEM,Beto O'Rourke,532
+el-paso:148,GRN,Delilah Barrios,8
+el-paso:148,LIB,Mark Tippetts,4
+el-paso:148,REP,Greg Abbott,192
+el-paso:149,,Over Votes,0
+el-paso:149,,Under Votes,13
+el-paso:149,,Write-in,0
+el-paso:149,DEM,Beto O'Rourke,571
+el-paso:149,GRN,Delilah Barrios,8
+el-paso:149,LIB,Mark Tippetts,6
+el-paso:149,REP,Greg Abbott,212
+el-paso:15,,Over Votes,0
+el-paso:15,,Under Votes,7
+el-paso:15,,Write-in,3
+el-paso:15,DEM,Beto O'Rourke,761
+el-paso:15,GRN,Delilah Barrios,3
+el-paso:15,LIB,Mark Tippetts,6
+el-paso:15,REP,Greg Abbott,676
+el-paso:150,,Over Votes,0
+el-paso:150,,Under Votes,1
+el-paso:150,,Write-in,0
+el-paso:150,DEM,Beto O'Rourke,400
+el-paso:150,GRN,Delilah Barrios,6
+el-paso:150,LIB,Mark Tippetts,3
+el-paso:150,REP,Greg Abbott,112
+el-paso:151,,Over Votes,1
+el-paso:151,,Under Votes,8
+el-paso:151,,Write-in,0
+el-paso:151,DEM,Beto O'Rourke,409
+el-paso:151,GRN,Delilah Barrios,12
+el-paso:151,LIB,Mark Tippetts,9
+el-paso:151,REP,Greg Abbott,127
+el-paso:152,,Over Votes,0
+el-paso:152,,Under Votes,9
+el-paso:152,,Write-in,0
+el-paso:152,DEM,Beto O'Rourke,394
+el-paso:152,GRN,Delilah Barrios,8
+el-paso:152,LIB,Mark Tippetts,2
+el-paso:152,REP,Greg Abbott,132
+el-paso:153,,Over Votes,0
+el-paso:153,,Under Votes,4
+el-paso:153,,Write-in,0
+el-paso:153,DEM,Beto O'Rourke,562
+el-paso:153,GRN,Delilah Barrios,9
+el-paso:153,LIB,Mark Tippetts,6
+el-paso:153,REP,Greg Abbott,186
+el-paso:154,,Over Votes,0
+el-paso:154,,Under Votes,10
+el-paso:154,,Write-in,0
+el-paso:154,DEM,Beto O'Rourke,510
+el-paso:154,GRN,Delilah Barrios,5
+el-paso:154,LIB,Mark Tippetts,4
+el-paso:154,REP,Greg Abbott,161
+el-paso:155,,Over Votes,0
+el-paso:155,,Under Votes,3
+el-paso:155,,Write-in,0
+el-paso:155,DEM,Beto O'Rourke,184
+el-paso:155,GRN,Delilah Barrios,3
+el-paso:155,LIB,Mark Tippetts,1
+el-paso:155,REP,Greg Abbott,75
+el-paso:156,,Over Votes,0
+el-paso:156,,Under Votes,9
+el-paso:156,,Write-in,0
+el-paso:156,DEM,Beto O'Rourke,336
+el-paso:156,GRN,Delilah Barrios,4
+el-paso:156,LIB,Mark Tippetts,7
+el-paso:156,REP,Greg Abbott,117
+el-paso:157,,Over Votes,0
+el-paso:157,,Under Votes,2
+el-paso:157,,Write-in,0
+el-paso:157,DEM,Beto O'Rourke,103
+el-paso:157,GRN,Delilah Barrios,1
+el-paso:157,LIB,Mark Tippetts,1
+el-paso:157,REP,Greg Abbott,24
+el-paso:158,,Over Votes,0
+el-paso:158,,Under Votes,1
+el-paso:158,,Write-in,1
+el-paso:158,DEM,Beto O'Rourke,382
+el-paso:158,GRN,Delilah Barrios,2
+el-paso:158,LIB,Mark Tippetts,1
+el-paso:158,REP,Greg Abbott,338
+el-paso:159,,Over Votes,0
+el-paso:159,,Under Votes,3
+el-paso:159,,Write-in,0
+el-paso:159,DEM,Beto O'Rourke,231
+el-paso:159,GRN,Delilah Barrios,5
+el-paso:159,LIB,Mark Tippetts,3
+el-paso:159,REP,Greg Abbott,103
+el-paso:16,,Over Votes,1
+el-paso:16,,Under Votes,11
+el-paso:16,,Write-in,0
+el-paso:16,DEM,Beto O'Rourke,1002
+el-paso:16,GRN,Delilah Barrios,10
+el-paso:16,LIB,Mark Tippetts,16
+el-paso:16,REP,Greg Abbott,463
+el-paso:160,,Over Votes,0
+el-paso:160,,Under Votes,5
+el-paso:160,,Write-in,0
+el-paso:160,DEM,Beto O'Rourke,575
+el-paso:160,GRN,Delilah Barrios,12
+el-paso:160,LIB,Mark Tippetts,7
+el-paso:160,REP,Greg Abbott,223
+el-paso:161,,Over Votes,0
+el-paso:161,,Under Votes,3
+el-paso:161,,Write-in,0
+el-paso:161,DEM,Beto O'Rourke,221
+el-paso:161,GRN,Delilah Barrios,7
+el-paso:161,LIB,Mark Tippetts,2
+el-paso:161,REP,Greg Abbott,111
+el-paso:162,,Over Votes,0
+el-paso:162,,Under Votes,7
+el-paso:162,,Write-in,2
+el-paso:162,DEM,Beto O'Rourke,697
+el-paso:162,GRN,Delilah Barrios,10
+el-paso:162,LIB,Mark Tippetts,7
+el-paso:162,REP,Greg Abbott,221
+el-paso:163,,Over Votes,0
+el-paso:163,,Under Votes,7
+el-paso:163,,Write-in,0
+el-paso:163,DEM,Beto O'Rourke,431
+el-paso:163,GRN,Delilah Barrios,6
+el-paso:163,LIB,Mark Tippetts,4
+el-paso:163,REP,Greg Abbott,211
+el-paso:164,,Over Votes,1
+el-paso:164,,Under Votes,10
+el-paso:164,,Write-in,0
+el-paso:164,DEM,Beto O'Rourke,649
+el-paso:164,GRN,Delilah Barrios,3
+el-paso:164,LIB,Mark Tippetts,7
+el-paso:164,REP,Greg Abbott,277
+el-paso:165,,Over Votes,0
+el-paso:165,,Under Votes,11
+el-paso:165,,Write-in,1
+el-paso:165,DEM,Beto O'Rourke,624
+el-paso:165,GRN,Delilah Barrios,5
+el-paso:165,LIB,Mark Tippetts,4
+el-paso:165,REP,Greg Abbott,234
+el-paso:166,,Over Votes,1
+el-paso:166,,Under Votes,5
+el-paso:166,,Write-in,0
+el-paso:166,DEM,Beto O'Rourke,447
+el-paso:166,GRN,Delilah Barrios,5
+el-paso:166,LIB,Mark Tippetts,9
+el-paso:166,REP,Greg Abbott,448
+el-paso:167,,Over Votes,0
+el-paso:167,,Under Votes,30
+el-paso:167,,Write-in,1
+el-paso:167,DEM,Beto O'Rourke,603
+el-paso:167,GRN,Delilah Barrios,9
+el-paso:167,LIB,Mark Tippetts,5
+el-paso:167,REP,Greg Abbott,224
+el-paso:168,,Over Votes,0
+el-paso:168,,Under Votes,0
+el-paso:168,,Write-in,0
+el-paso:168,DEM,Beto O'Rourke,47
+el-paso:168,GRN,Delilah Barrios,1
+el-paso:168,LIB,Mark Tippetts,0
+el-paso:168,REP,Greg Abbott,26
+el-paso:169,,Over Votes,0
+el-paso:169,,Under Votes,5
+el-paso:169,,Write-in,1
+el-paso:169,DEM,Beto O'Rourke,366
+el-paso:169,GRN,Delilah Barrios,6
+el-paso:169,LIB,Mark Tippetts,8
+el-paso:169,REP,Greg Abbott,169
+el-paso:17,,Over Votes,0
+el-paso:17,,Under Votes,4
+el-paso:17,,Write-in,0
+el-paso:17,DEM,Beto O'Rourke,486
+el-paso:17,GRN,Delilah Barrios,5
+el-paso:17,LIB,Mark Tippetts,5
+el-paso:17,REP,Greg Abbott,379
+el-paso:170,,Over Votes,0
+el-paso:170,,Under Votes,15
+el-paso:170,,Write-in,1
+el-paso:170,DEM,Beto O'Rourke,559
+el-paso:170,GRN,Delilah Barrios,8
+el-paso:170,LIB,Mark Tippetts,13
+el-paso:170,REP,Greg Abbott,477
+el-paso:171,,Over Votes,0
+el-paso:171,,Under Votes,4
+el-paso:171,,Write-in,0
+el-paso:171,DEM,Beto O'Rourke,393
+el-paso:171,GRN,Delilah Barrios,5
+el-paso:171,LIB,Mark Tippetts,9
+el-paso:171,REP,Greg Abbott,180
+el-paso:172,,Over Votes,0
+el-paso:172,,Under Votes,39
+el-paso:172,,Write-in,0
+el-paso:172,DEM,Beto O'Rourke,708
+el-paso:172,GRN,Delilah Barrios,18
+el-paso:172,LIB,Mark Tippetts,18
+el-paso:172,REP,Greg Abbott,358
+el-paso:173,,Over Votes,0
+el-paso:173,,Under Votes,3
+el-paso:173,,Write-in,0
+el-paso:173,DEM,Beto O'Rourke,230
+el-paso:173,GRN,Delilah Barrios,1
+el-paso:173,LIB,Mark Tippetts,2
+el-paso:173,REP,Greg Abbott,120
+el-paso:174,,Over Votes,0
+el-paso:174,,Under Votes,1
+el-paso:174,,Write-in,0
+el-paso:174,DEM,Beto O'Rourke,7
+el-paso:174,GRN,Delilah Barrios,0
+el-paso:174,LIB,Mark Tippetts,0
+el-paso:174,REP,Greg Abbott,5
+el-paso:175,,Over Votes,0
+el-paso:175,,Under Votes,0
+el-paso:175,,Write-in,0
+el-paso:175,DEM,Beto O'Rourke,68
+el-paso:175,GRN,Delilah Barrios,3
+el-paso:175,LIB,Mark Tippetts,0
+el-paso:175,REP,Greg Abbott,22
+el-paso:176,,Over Votes,0
+el-paso:176,,Under Votes,2
+el-paso:176,,Write-in,0
+el-paso:176,DEM,Beto O'Rourke,319
+el-paso:176,GRN,Delilah Barrios,2
+el-paso:176,LIB,Mark Tippetts,3
+el-paso:176,REP,Greg Abbott,186
+el-paso:177,,Over Votes,0
+el-paso:177,,Under Votes,0
+el-paso:177,,Write-in,0
+el-paso:177,DEM,Beto O'Rourke,143
+el-paso:177,GRN,Delilah Barrios,0
+el-paso:177,LIB,Mark Tippetts,0
+el-paso:177,REP,Greg Abbott,115
+el-paso:178,,Over Votes,0
+el-paso:178,,Under Votes,2
+el-paso:178,,Write-in,0
+el-paso:178,DEM,Beto O'Rourke,201
+el-paso:178,GRN,Delilah Barrios,6
+el-paso:178,LIB,Mark Tippetts,7
+el-paso:178,REP,Greg Abbott,173
+el-paso:179,,Over Votes,0
+el-paso:179,,Under Votes,2
+el-paso:179,,Write-in,1
+el-paso:179,DEM,Beto O'Rourke,96
+el-paso:179,GRN,Delilah Barrios,1
+el-paso:179,LIB,Mark Tippetts,0
+el-paso:179,REP,Greg Abbott,33
+el-paso:18,,Over Votes,0
+el-paso:18,,Under Votes,11
+el-paso:18,,Write-in,2
+el-paso:18,DEM,Beto O'Rourke,842
+el-paso:18,GRN,Delilah Barrios,4
+el-paso:18,LIB,Mark Tippetts,9
+el-paso:18,REP,Greg Abbott,824
+el-paso:180,,Over Votes,0
+el-paso:180,,Under Votes,4
+el-paso:180,,Write-in,0
+el-paso:180,DEM,Beto O'Rourke,359
+el-paso:180,GRN,Delilah Barrios,4
+el-paso:180,LIB,Mark Tippetts,1
+el-paso:180,REP,Greg Abbott,107
+el-paso:181,,Over Votes,0
+el-paso:181,,Under Votes,4
+el-paso:181,,Write-in,1
+el-paso:181,DEM,Beto O'Rourke,913
+el-paso:181,GRN,Delilah Barrios,11
+el-paso:181,LIB,Mark Tippetts,27
+el-paso:181,REP,Greg Abbott,702
+el-paso:182,,Over Votes,0
+el-paso:182,,Under Votes,3
+el-paso:182,,Write-in,0
+el-paso:182,DEM,Beto O'Rourke,575
+el-paso:182,GRN,Delilah Barrios,6
+el-paso:182,LIB,Mark Tippetts,5
+el-paso:182,REP,Greg Abbott,300
+el-paso:183,,Over Votes,0
+el-paso:183,,Under Votes,0
+el-paso:183,,Write-in,0
+el-paso:183,DEM,Beto O'Rourke,0
+el-paso:183,GRN,Delilah Barrios,0
+el-paso:183,LIB,Mark Tippetts,0
+el-paso:183,REP,Greg Abbott,0
+el-paso:184,,Over Votes,0
+el-paso:184,,Under Votes,0
+el-paso:184,,Write-in,0
+el-paso:184,DEM,Beto O'Rourke,0
+el-paso:184,GRN,Delilah Barrios,0
+el-paso:184,LIB,Mark Tippetts,0
+el-paso:184,REP,Greg Abbott,0
+el-paso:185,,Over Votes,0
+el-paso:185,,Under Votes,0
+el-paso:185,,Write-in,0
+el-paso:185,DEM,Beto O'Rourke,189
+el-paso:185,GRN,Delilah Barrios,0
+el-paso:185,LIB,Mark Tippetts,0
+el-paso:185,REP,Greg Abbott,143
+el-paso:186,,Over Votes,0
+el-paso:186,,Under Votes,2
+el-paso:186,,Write-in,0
+el-paso:186,DEM,Beto O'Rourke,185
+el-paso:186,GRN,Delilah Barrios,2
+el-paso:186,LIB,Mark Tippetts,4
+el-paso:186,REP,Greg Abbott,101
+el-paso:187,,Over Votes,0
+el-paso:187,,Under Votes,0
+el-paso:187,,Write-in,0
+el-paso:187,DEM,Beto O'Rourke,0
+el-paso:187,GRN,Delilah Barrios,0
+el-paso:187,LIB,Mark Tippetts,0
+el-paso:187,REP,Greg Abbott,0
+el-paso:188,,Over Votes,0
+el-paso:188,,Under Votes,1
+el-paso:188,,Write-in,0
+el-paso:188,DEM,Beto O'Rourke,21
+el-paso:188,GRN,Delilah Barrios,0
+el-paso:188,LIB,Mark Tippetts,0
+el-paso:188,REP,Greg Abbott,19
+el-paso:189,,Over Votes,0
+el-paso:189,,Under Votes,0
+el-paso:189,,Write-in,0
+el-paso:189,DEM,Beto O'Rourke,11
+el-paso:189,GRN,Delilah Barrios,0
+el-paso:189,LIB,Mark Tippetts,0
+el-paso:189,REP,Greg Abbott,9
+el-paso:19,,Over Votes,0
+el-paso:19,,Under Votes,6
+el-paso:19,,Write-in,0
+el-paso:19,DEM,Beto O'Rourke,948
+el-paso:19,GRN,Delilah Barrios,10
+el-paso:19,LIB,Mark Tippetts,17
+el-paso:19,REP,Greg Abbott,518
+el-paso:190,,Over Votes,0
+el-paso:190,,Under Votes,1
+el-paso:190,,Write-in,0
+el-paso:190,DEM,Beto O'Rourke,23
+el-paso:190,GRN,Delilah Barrios,0
+el-paso:190,LIB,Mark Tippetts,0
+el-paso:190,REP,Greg Abbott,11
+el-paso:191,,Over Votes,0
+el-paso:191,,Under Votes,2
+el-paso:191,,Write-in,0
+el-paso:191,DEM,Beto O'Rourke,60
+el-paso:191,GRN,Delilah Barrios,1
+el-paso:191,LIB,Mark Tippetts,0
+el-paso:191,REP,Greg Abbott,31
+el-paso:192,,Over Votes,1
+el-paso:192,,Under Votes,20
+el-paso:192,,Write-in,3
+el-paso:192,DEM,Beto O'Rourke,1113
+el-paso:192,GRN,Delilah Barrios,12
+el-paso:192,LIB,Mark Tippetts,20
+el-paso:192,REP,Greg Abbott,924
+el-paso:193,,Over Votes,0
+el-paso:193,,Under Votes,3
+el-paso:193,,Write-in,1
+el-paso:193,DEM,Beto O'Rourke,688
+el-paso:193,GRN,Delilah Barrios,8
+el-paso:193,LIB,Mark Tippetts,12
+el-paso:193,REP,Greg Abbott,454
+el-paso:194,,Over Votes,0
+el-paso:194,,Under Votes,2
+el-paso:194,,Write-in,1
+el-paso:194,DEM,Beto O'Rourke,575
+el-paso:194,GRN,Delilah Barrios,4
+el-paso:194,LIB,Mark Tippetts,7
+el-paso:194,REP,Greg Abbott,413
+el-paso:195,,Over Votes,0
+el-paso:195,,Under Votes,3
+el-paso:195,,Write-in,4
+el-paso:195,DEM,Beto O'Rourke,621
+el-paso:195,GRN,Delilah Barrios,11
+el-paso:195,LIB,Mark Tippetts,14
+el-paso:195,REP,Greg Abbott,473
+el-paso:196,,Over Votes,0
+el-paso:196,,Under Votes,2
+el-paso:196,,Write-in,0
+el-paso:196,DEM,Beto O'Rourke,577
+el-paso:196,GRN,Delilah Barrios,10
+el-paso:196,LIB,Mark Tippetts,10
+el-paso:196,REP,Greg Abbott,305
+el-paso:197,,Over Votes,0
+el-paso:197,,Under Votes,1
+el-paso:197,,Write-in,0
+el-paso:197,DEM,Beto O'Rourke,755
+el-paso:197,GRN,Delilah Barrios,4
+el-paso:197,LIB,Mark Tippetts,7
+el-paso:197,REP,Greg Abbott,332
+el-paso:198,,Over Votes,0
+el-paso:198,,Under Votes,3
+el-paso:198,,Write-in,1
+el-paso:198,DEM,Beto O'Rourke,550
+el-paso:198,GRN,Delilah Barrios,4
+el-paso:198,LIB,Mark Tippetts,7
+el-paso:198,REP,Greg Abbott,274
+el-paso:199,,Over Votes,0
+el-paso:199,,Under Votes,2
+el-paso:199,,Write-in,0
+el-paso:199,DEM,Beto O'Rourke,295
+el-paso:199,GRN,Delilah Barrios,1
+el-paso:199,LIB,Mark Tippetts,4
+el-paso:199,REP,Greg Abbott,295
+el-paso:2,,Over Votes,2
+el-paso:2,,Under Votes,20
+el-paso:2,,Write-in,0
+el-paso:2,DEM,Beto O'Rourke,503
+el-paso:2,GRN,Delilah Barrios,14
+el-paso:2,LIB,Mark Tippetts,5
+el-paso:2,REP,Greg Abbott,295
+el-paso:20,,Over Votes,0
+el-paso:20,,Under Votes,8
+el-paso:20,,Write-in,1
+el-paso:20,DEM,Beto O'Rourke,340
+el-paso:20,GRN,Delilah Barrios,4
+el-paso:20,LIB,Mark Tippetts,8
+el-paso:20,REP,Greg Abbott,205
+el-paso:200,,Over Votes,0
+el-paso:200,,Under Votes,1
+el-paso:200,,Write-in,0
+el-paso:200,DEM,Beto O'Rourke,103
+el-paso:200,GRN,Delilah Barrios,1
+el-paso:200,LIB,Mark Tippetts,4
+el-paso:200,REP,Greg Abbott,76
+el-paso:201,,Over Votes,0
+el-paso:201,,Under Votes,1
+el-paso:201,,Write-in,0
+el-paso:201,DEM,Beto O'Rourke,668
+el-paso:201,GRN,Delilah Barrios,4
+el-paso:201,LIB,Mark Tippetts,14
+el-paso:201,REP,Greg Abbott,399
+el-paso:202,,Over Votes,0
+el-paso:202,,Under Votes,1
+el-paso:202,,Write-in,0
+el-paso:202,DEM,Beto O'Rourke,634
+el-paso:202,GRN,Delilah Barrios,5
+el-paso:202,LIB,Mark Tippetts,11
+el-paso:202,REP,Greg Abbott,423
+el-paso:203,,Over Votes,0
+el-paso:203,,Under Votes,3
+el-paso:203,,Write-in,2
+el-paso:203,DEM,Beto O'Rourke,1410
+el-paso:203,GRN,Delilah Barrios,13
+el-paso:203,LIB,Mark Tippetts,20
+el-paso:203,REP,Greg Abbott,899
+el-paso:204,,Over Votes,0
+el-paso:204,,Under Votes,2
+el-paso:204,,Write-in,0
+el-paso:204,DEM,Beto O'Rourke,446
+el-paso:204,GRN,Delilah Barrios,6
+el-paso:204,LIB,Mark Tippetts,6
+el-paso:204,REP,Greg Abbott,292
+el-paso:205,,Over Votes,0
+el-paso:205,,Under Votes,3
+el-paso:205,,Write-in,2
+el-paso:205,DEM,Beto O'Rourke,578
+el-paso:205,GRN,Delilah Barrios,7
+el-paso:205,LIB,Mark Tippetts,7
+el-paso:205,REP,Greg Abbott,287
+el-paso:206,,Over Votes,0
+el-paso:206,,Under Votes,1
+el-paso:206,,Write-in,0
+el-paso:206,DEM,Beto O'Rourke,120
+el-paso:206,GRN,Delilah Barrios,0
+el-paso:206,LIB,Mark Tippetts,1
+el-paso:206,REP,Greg Abbott,46
+el-paso:207,,Over Votes,0
+el-paso:207,,Under Votes,6
+el-paso:207,,Write-in,0
+el-paso:207,DEM,Beto O'Rourke,334
+el-paso:207,GRN,Delilah Barrios,3
+el-paso:207,LIB,Mark Tippetts,2
+el-paso:207,REP,Greg Abbott,122
+el-paso:208,,Over Votes,0
+el-paso:208,,Under Votes,9
+el-paso:208,,Write-in,0
+el-paso:208,DEM,Beto O'Rourke,207
+el-paso:208,GRN,Delilah Barrios,6
+el-paso:208,LIB,Mark Tippetts,2
+el-paso:208,REP,Greg Abbott,79
+el-paso:209,,Over Votes,0
+el-paso:209,,Under Votes,0
+el-paso:209,,Write-in,0
+el-paso:209,DEM,Beto O'Rourke,62
+el-paso:209,GRN,Delilah Barrios,2
+el-paso:209,LIB,Mark Tippetts,3
+el-paso:209,REP,Greg Abbott,53
+el-paso:21,,Over Votes,1
+el-paso:21,,Under Votes,10
+el-paso:21,,Write-in,1
+el-paso:21,DEM,Beto O'Rourke,643
+el-paso:21,GRN,Delilah Barrios,5
+el-paso:21,LIB,Mark Tippetts,13
+el-paso:21,REP,Greg Abbott,593
+el-paso:210,,Over Votes,0
+el-paso:210,,Under Votes,0
+el-paso:210,,Write-in,0
+el-paso:210,DEM,Beto O'Rourke,0
+el-paso:210,GRN,Delilah Barrios,0
+el-paso:210,LIB,Mark Tippetts,0
+el-paso:210,REP,Greg Abbott,0
+el-paso:212,,Over Votes,0
+el-paso:212,,Under Votes,0
+el-paso:212,,Write-in,0
+el-paso:212,DEM,Beto O'Rourke,272
+el-paso:212,GRN,Delilah Barrios,1
+el-paso:212,LIB,Mark Tippetts,2
+el-paso:212,REP,Greg Abbott,144
+el-paso:213,,Over Votes,0
+el-paso:213,,Under Votes,0
+el-paso:213,,Write-in,0
+el-paso:213,DEM,Beto O'Rourke,21
+el-paso:213,GRN,Delilah Barrios,0
+el-paso:213,LIB,Mark Tippetts,0
+el-paso:213,REP,Greg Abbott,8
+el-paso:214,,Over Votes,0
+el-paso:214,,Under Votes,0
+el-paso:214,,Write-in,0
+el-paso:214,DEM,Beto O'Rourke,0
+el-paso:214,GRN,Delilah Barrios,0
+el-paso:214,LIB,Mark Tippetts,0
+el-paso:214,REP,Greg Abbott,0
+el-paso:215,,Over Votes,0
+el-paso:215,,Under Votes,7
+el-paso:215,,Write-in,0
+el-paso:215,DEM,Beto O'Rourke,772
+el-paso:215,GRN,Delilah Barrios,12
+el-paso:215,LIB,Mark Tippetts,7
+el-paso:215,REP,Greg Abbott,463
+el-paso:216,,Over Votes,0
+el-paso:216,,Under Votes,0
+el-paso:216,,Write-in,0
+el-paso:216,DEM,Beto O'Rourke,0
+el-paso:216,GRN,Delilah Barrios,0
+el-paso:216,LIB,Mark Tippetts,0
+el-paso:216,REP,Greg Abbott,7
+el-paso:217,,Over Votes,0
+el-paso:217,,Under Votes,0
+el-paso:217,,Write-in,0
+el-paso:217,DEM,Beto O'Rourke,96
+el-paso:217,GRN,Delilah Barrios,1
+el-paso:217,LIB,Mark Tippetts,0
+el-paso:217,REP,Greg Abbott,28
+el-paso:218,,Over Votes,0
+el-paso:218,,Under Votes,0
+el-paso:218,,Write-in,0
+el-paso:218,DEM,Beto O'Rourke,9
+el-paso:218,GRN,Delilah Barrios,0
+el-paso:218,LIB,Mark Tippetts,0
+el-paso:218,REP,Greg Abbott,10
+el-paso:219,,Over Votes,0
+el-paso:219,,Under Votes,7
+el-paso:219,,Write-in,0
+el-paso:219,DEM,Beto O'Rourke,222
+el-paso:219,GRN,Delilah Barrios,3
+el-paso:219,LIB,Mark Tippetts,1
+el-paso:219,REP,Greg Abbott,68
+el-paso:22,,Over Votes,1
+el-paso:22,,Under Votes,2
+el-paso:22,,Write-in,1
+el-paso:22,DEM,Beto O'Rourke,745
+el-paso:22,GRN,Delilah Barrios,3
+el-paso:22,LIB,Mark Tippetts,7
+el-paso:22,REP,Greg Abbott,415
+el-paso:220,,Over Votes,0
+el-paso:220,,Under Votes,3
+el-paso:220,,Write-in,0
+el-paso:220,DEM,Beto O'Rourke,199
+el-paso:220,GRN,Delilah Barrios,4
+el-paso:220,LIB,Mark Tippetts,6
+el-paso:220,REP,Greg Abbott,64
+el-paso:221,,Over Votes,0
+el-paso:221,,Under Votes,0
+el-paso:221,,Write-in,0
+el-paso:221,DEM,Beto O'Rourke,3
+el-paso:221,GRN,Delilah Barrios,0
+el-paso:221,LIB,Mark Tippetts,0
+el-paso:221,REP,Greg Abbott,0
+el-paso:23,,Over Votes,0
+el-paso:23,,Under Votes,6
+el-paso:23,,Write-in,2
+el-paso:23,DEM,Beto O'Rourke,415
+el-paso:23,GRN,Delilah Barrios,7
+el-paso:23,LIB,Mark Tippetts,8
+el-paso:23,REP,Greg Abbott,324
+el-paso:24,,Over Votes,0
+el-paso:24,,Under Votes,7
+el-paso:24,,Write-in,5
+el-paso:24,DEM,Beto O'Rourke,924
+el-paso:24,GRN,Delilah Barrios,6
+el-paso:24,LIB,Mark Tippetts,22
+el-paso:24,REP,Greg Abbott,714
+el-paso:25,,Over Votes,0
+el-paso:25,,Under Votes,8
+el-paso:25,,Write-in,2
+el-paso:25,DEM,Beto O'Rourke,775
+el-paso:25,GRN,Delilah Barrios,4
+el-paso:25,LIB,Mark Tippetts,8
+el-paso:25,REP,Greg Abbott,496
+el-paso:26,,Over Votes,0
+el-paso:26,,Under Votes,5
+el-paso:26,,Write-in,0
+el-paso:26,DEM,Beto O'Rourke,512
+el-paso:26,GRN,Delilah Barrios,7
+el-paso:26,LIB,Mark Tippetts,4
+el-paso:26,REP,Greg Abbott,300
+el-paso:27,,Over Votes,0
+el-paso:27,,Under Votes,5
+el-paso:27,,Write-in,0
+el-paso:27,DEM,Beto O'Rourke,532
+el-paso:27,GRN,Delilah Barrios,5
+el-paso:27,LIB,Mark Tippetts,9
+el-paso:27,REP,Greg Abbott,224
+el-paso:28,,Over Votes,1
+el-paso:28,,Under Votes,2
+el-paso:28,,Write-in,0
+el-paso:28,DEM,Beto O'Rourke,86
+el-paso:28,GRN,Delilah Barrios,2
+el-paso:28,LIB,Mark Tippetts,0
+el-paso:28,REP,Greg Abbott,30
+el-paso:29,,Over Votes,0
+el-paso:29,,Under Votes,6
+el-paso:29,,Write-in,3
+el-paso:29,DEM,Beto O'Rourke,726
+el-paso:29,GRN,Delilah Barrios,6
+el-paso:29,LIB,Mark Tippetts,10
+el-paso:29,REP,Greg Abbott,251
+el-paso:3,,Over Votes,0
+el-paso:3,,Under Votes,16
+el-paso:3,,Write-in,1
+el-paso:3,DEM,Beto O'Rourke,618
+el-paso:3,GRN,Delilah Barrios,17
+el-paso:3,LIB,Mark Tippetts,12
+el-paso:3,REP,Greg Abbott,477
+el-paso:30,,Over Votes,0
+el-paso:30,,Under Votes,0
+el-paso:30,,Write-in,0
+el-paso:30,DEM,Beto O'Rourke,45
+el-paso:30,GRN,Delilah Barrios,1
+el-paso:30,LIB,Mark Tippetts,2
+el-paso:30,REP,Greg Abbott,8
+el-paso:31,,Over Votes,0
+el-paso:31,,Under Votes,1
+el-paso:31,,Write-in,0
+el-paso:31,DEM,Beto O'Rourke,398
+el-paso:31,GRN,Delilah Barrios,5
+el-paso:31,LIB,Mark Tippetts,3
+el-paso:31,REP,Greg Abbott,137
+el-paso:32,,Over Votes,0
+el-paso:32,,Under Votes,6
+el-paso:32,,Write-in,2
+el-paso:32,DEM,Beto O'Rourke,562
+el-paso:32,GRN,Delilah Barrios,7
+el-paso:32,LIB,Mark Tippetts,5
+el-paso:32,REP,Greg Abbott,254
+el-paso:33,,Over Votes,0
+el-paso:33,,Under Votes,9
+el-paso:33,,Write-in,2
+el-paso:33,DEM,Beto O'Rourke,814
+el-paso:33,GRN,Delilah Barrios,0
+el-paso:33,LIB,Mark Tippetts,3
+el-paso:33,REP,Greg Abbott,320
+el-paso:34,,Over Votes,0
+el-paso:34,,Under Votes,0
+el-paso:34,,Write-in,0
+el-paso:34,DEM,Beto O'Rourke,157
+el-paso:34,GRN,Delilah Barrios,0
+el-paso:34,LIB,Mark Tippetts,0
+el-paso:34,REP,Greg Abbott,43
+el-paso:35,,Over Votes,0
+el-paso:35,,Under Votes,6
+el-paso:35,,Write-in,0
+el-paso:35,DEM,Beto O'Rourke,720
+el-paso:35,GRN,Delilah Barrios,5
+el-paso:35,LIB,Mark Tippetts,14
+el-paso:35,REP,Greg Abbott,314
+el-paso:36,,Over Votes,0
+el-paso:36,,Under Votes,5
+el-paso:36,,Write-in,0
+el-paso:36,DEM,Beto O'Rourke,594
+el-paso:36,GRN,Delilah Barrios,8
+el-paso:36,LIB,Mark Tippetts,5
+el-paso:36,REP,Greg Abbott,121
+el-paso:37,,Over Votes,0
+el-paso:37,,Under Votes,10
+el-paso:37,,Write-in,1
+el-paso:37,DEM,Beto O'Rourke,375
+el-paso:37,GRN,Delilah Barrios,7
+el-paso:37,LIB,Mark Tippetts,5
+el-paso:37,REP,Greg Abbott,116
+el-paso:38,,Over Votes,0
+el-paso:38,,Under Votes,13
+el-paso:38,,Write-in,1
+el-paso:38,DEM,Beto O'Rourke,548
+el-paso:38,GRN,Delilah Barrios,7
+el-paso:38,LIB,Mark Tippetts,6
+el-paso:38,REP,Greg Abbott,138
+el-paso:39,,Over Votes,1
+el-paso:39,,Under Votes,5
+el-paso:39,,Write-in,0
+el-paso:39,DEM,Beto O'Rourke,120
+el-paso:39,GRN,Delilah Barrios,1
+el-paso:39,LIB,Mark Tippetts,2
+el-paso:39,REP,Greg Abbott,44
+el-paso:4,,Over Votes,0
+el-paso:4,,Under Votes,15
+el-paso:4,,Write-in,0
+el-paso:4,DEM,Beto O'Rourke,397
+el-paso:4,GRN,Delilah Barrios,2
+el-paso:4,LIB,Mark Tippetts,3
+el-paso:4,REP,Greg Abbott,298
+el-paso:40,,Over Votes,0
+el-paso:40,,Under Votes,2
+el-paso:40,,Write-in,0
+el-paso:40,DEM,Beto O'Rourke,244
+el-paso:40,GRN,Delilah Barrios,1
+el-paso:40,LIB,Mark Tippetts,1
+el-paso:40,REP,Greg Abbott,44
+el-paso:41,,Over Votes,1
+el-paso:41,,Under Votes,4
+el-paso:41,,Write-in,2
+el-paso:41,DEM,Beto O'Rourke,245
+el-paso:41,GRN,Delilah Barrios,3
+el-paso:41,LIB,Mark Tippetts,5
+el-paso:41,REP,Greg Abbott,53
+el-paso:42,,Over Votes,0
+el-paso:42,,Under Votes,5
+el-paso:42,,Write-in,0
+el-paso:42,DEM,Beto O'Rourke,290
+el-paso:42,GRN,Delilah Barrios,6
+el-paso:42,LIB,Mark Tippetts,4
+el-paso:42,REP,Greg Abbott,87
+el-paso:43,,Over Votes,0
+el-paso:43,,Under Votes,6
+el-paso:43,,Write-in,3
+el-paso:43,DEM,Beto O'Rourke,510
+el-paso:43,GRN,Delilah Barrios,2
+el-paso:43,LIB,Mark Tippetts,15
+el-paso:43,REP,Greg Abbott,526
+el-paso:44,,Over Votes,1
+el-paso:44,,Under Votes,2
+el-paso:44,,Write-in,0
+el-paso:44,DEM,Beto O'Rourke,630
+el-paso:44,GRN,Delilah Barrios,9
+el-paso:44,LIB,Mark Tippetts,6
+el-paso:44,REP,Greg Abbott,487
+el-paso:45,,Over Votes,0
+el-paso:45,,Under Votes,5
+el-paso:45,,Write-in,0
+el-paso:45,DEM,Beto O'Rourke,822
+el-paso:45,GRN,Delilah Barrios,6
+el-paso:45,LIB,Mark Tippetts,14
+el-paso:45,REP,Greg Abbott,512
+el-paso:46,,Over Votes,0
+el-paso:46,,Under Votes,3
+el-paso:46,,Write-in,0
+el-paso:46,DEM,Beto O'Rourke,272
+el-paso:46,GRN,Delilah Barrios,10
+el-paso:46,LIB,Mark Tippetts,7
+el-paso:46,REP,Greg Abbott,164
+el-paso:47,,Over Votes,1
+el-paso:47,,Under Votes,1
+el-paso:47,,Write-in,1
+el-paso:47,DEM,Beto O'Rourke,595
+el-paso:47,GRN,Delilah Barrios,8
+el-paso:47,LIB,Mark Tippetts,8
+el-paso:47,REP,Greg Abbott,518
+el-paso:48,,Over Votes,0
+el-paso:48,,Under Votes,9
+el-paso:48,,Write-in,0
+el-paso:48,DEM,Beto O'Rourke,428
+el-paso:48,GRN,Delilah Barrios,4
+el-paso:48,LIB,Mark Tippetts,7
+el-paso:48,REP,Greg Abbott,185
+el-paso:49,,Over Votes,1
+el-paso:49,,Under Votes,6
+el-paso:49,,Write-in,0
+el-paso:49,DEM,Beto O'Rourke,334
+el-paso:49,GRN,Delilah Barrios,4
+el-paso:49,LIB,Mark Tippetts,6
+el-paso:49,REP,Greg Abbott,256
+el-paso:5,,Over Votes,0
+el-paso:5,,Under Votes,8
+el-paso:5,,Write-in,0
+el-paso:5,DEM,Beto O'Rourke,769
+el-paso:5,GRN,Delilah Barrios,10
+el-paso:5,LIB,Mark Tippetts,10
+el-paso:5,REP,Greg Abbott,479
+el-paso:50,,Over Votes,1
+el-paso:50,,Under Votes,6
+el-paso:50,,Write-in,1
+el-paso:50,DEM,Beto O'Rourke,470
+el-paso:50,GRN,Delilah Barrios,6
+el-paso:50,LIB,Mark Tippetts,6
+el-paso:50,REP,Greg Abbott,254
+el-paso:51,,Over Votes,1
+el-paso:51,,Under Votes,10
+el-paso:51,,Write-in,0
+el-paso:51,DEM,Beto O'Rourke,476
+el-paso:51,GRN,Delilah Barrios,8
+el-paso:51,LIB,Mark Tippetts,8
+el-paso:51,REP,Greg Abbott,403
+el-paso:52,,Over Votes,0
+el-paso:52,,Under Votes,8
+el-paso:52,,Write-in,0
+el-paso:52,DEM,Beto O'Rourke,426
+el-paso:52,GRN,Delilah Barrios,4
+el-paso:52,LIB,Mark Tippetts,6
+el-paso:52,REP,Greg Abbott,276
+el-paso:53,,Over Votes,4
+el-paso:53,,Under Votes,12
+el-paso:53,,Write-in,1
+el-paso:53,DEM,Beto O'Rourke,605
+el-paso:53,GRN,Delilah Barrios,6
+el-paso:53,LIB,Mark Tippetts,7
+el-paso:53,REP,Greg Abbott,346
+el-paso:54,,Over Votes,3
+el-paso:54,,Under Votes,5
+el-paso:54,,Write-in,1
+el-paso:54,DEM,Beto O'Rourke,414
+el-paso:54,GRN,Delilah Barrios,7
+el-paso:54,LIB,Mark Tippetts,13
+el-paso:54,REP,Greg Abbott,253
+el-paso:55,,Over Votes,0
+el-paso:55,,Under Votes,9
+el-paso:55,,Write-in,1
+el-paso:55,DEM,Beto O'Rourke,567
+el-paso:55,GRN,Delilah Barrios,9
+el-paso:55,LIB,Mark Tippetts,8
+el-paso:55,REP,Greg Abbott,448
+el-paso:56,,Over Votes,0
+el-paso:56,,Under Votes,10
+el-paso:56,,Write-in,0
+el-paso:56,DEM,Beto O'Rourke,475
+el-paso:56,GRN,Delilah Barrios,11
+el-paso:56,LIB,Mark Tippetts,7
+el-paso:56,REP,Greg Abbott,391
+el-paso:57,,Over Votes,0
+el-paso:57,,Under Votes,4
+el-paso:57,,Write-in,0
+el-paso:57,DEM,Beto O'Rourke,288
+el-paso:57,GRN,Delilah Barrios,5
+el-paso:57,LIB,Mark Tippetts,3
+el-paso:57,REP,Greg Abbott,210
+el-paso:58,,Over Votes,0
+el-paso:58,,Under Votes,5
+el-paso:58,,Write-in,0
+el-paso:58,DEM,Beto O'Rourke,326
+el-paso:58,GRN,Delilah Barrios,8
+el-paso:58,LIB,Mark Tippetts,8
+el-paso:58,REP,Greg Abbott,278
+el-paso:59,,Over Votes,0
+el-paso:59,,Under Votes,8
+el-paso:59,,Write-in,1
+el-paso:59,DEM,Beto O'Rourke,475
+el-paso:59,GRN,Delilah Barrios,10
+el-paso:59,LIB,Mark Tippetts,9
+el-paso:59,REP,Greg Abbott,269
+el-paso:6,,Over Votes,0
+el-paso:6,,Under Votes,4
+el-paso:6,,Write-in,0
+el-paso:6,DEM,Beto O'Rourke,534
+el-paso:6,GRN,Delilah Barrios,5
+el-paso:6,LIB,Mark Tippetts,10
+el-paso:6,REP,Greg Abbott,716
+el-paso:60,,Over Votes,0
+el-paso:60,,Under Votes,2
+el-paso:60,,Write-in,0
+el-paso:60,DEM,Beto O'Rourke,564
+el-paso:60,GRN,Delilah Barrios,7
+el-paso:60,LIB,Mark Tippetts,13
+el-paso:60,REP,Greg Abbott,567
+el-paso:61,,Over Votes,0
+el-paso:61,,Under Votes,2
+el-paso:61,,Write-in,0
+el-paso:61,DEM,Beto O'Rourke,365
+el-paso:61,GRN,Delilah Barrios,2
+el-paso:61,LIB,Mark Tippetts,7
+el-paso:61,REP,Greg Abbott,270
+el-paso:62,,Over Votes,0
+el-paso:62,,Under Votes,7
+el-paso:62,,Write-in,0
+el-paso:62,DEM,Beto O'Rourke,238
+el-paso:62,GRN,Delilah Barrios,4
+el-paso:62,LIB,Mark Tippetts,3
+el-paso:62,REP,Greg Abbott,102
+el-paso:63,,Over Votes,0
+el-paso:63,,Under Votes,12
+el-paso:63,,Write-in,0
+el-paso:63,DEM,Beto O'Rourke,492
+el-paso:63,GRN,Delilah Barrios,9
+el-paso:63,LIB,Mark Tippetts,7
+el-paso:63,REP,Greg Abbott,209
+el-paso:64,,Over Votes,0
+el-paso:64,,Under Votes,13
+el-paso:64,,Write-in,0
+el-paso:64,DEM,Beto O'Rourke,498
+el-paso:64,GRN,Delilah Barrios,8
+el-paso:64,LIB,Mark Tippetts,4
+el-paso:64,REP,Greg Abbott,203
+el-paso:65,,Over Votes,0
+el-paso:65,,Under Votes,0
+el-paso:65,,Write-in,0
+el-paso:65,DEM,Beto O'Rourke,77
+el-paso:65,GRN,Delilah Barrios,1
+el-paso:65,LIB,Mark Tippetts,4
+el-paso:65,REP,Greg Abbott,50
+el-paso:66,,Over Votes,1
+el-paso:66,,Under Votes,7
+el-paso:66,,Write-in,0
+el-paso:66,DEM,Beto O'Rourke,501
+el-paso:66,GRN,Delilah Barrios,9
+el-paso:66,LIB,Mark Tippetts,7
+el-paso:66,REP,Greg Abbott,213
+el-paso:67,,Over Votes,0
+el-paso:67,,Under Votes,6
+el-paso:67,,Write-in,1
+el-paso:67,DEM,Beto O'Rourke,498
+el-paso:67,GRN,Delilah Barrios,4
+el-paso:67,LIB,Mark Tippetts,6
+el-paso:67,REP,Greg Abbott,205
+el-paso:68,,Over Votes,0
+el-paso:68,,Under Votes,3
+el-paso:68,,Write-in,0
+el-paso:68,DEM,Beto O'Rourke,162
+el-paso:68,GRN,Delilah Barrios,1
+el-paso:68,LIB,Mark Tippetts,4
+el-paso:68,REP,Greg Abbott,52
+el-paso:69,,Over Votes,1
+el-paso:69,,Under Votes,19
+el-paso:69,,Write-in,0
+el-paso:69,DEM,Beto O'Rourke,888
+el-paso:69,GRN,Delilah Barrios,13
+el-paso:69,LIB,Mark Tippetts,15
+el-paso:69,REP,Greg Abbott,358
+el-paso:7,,Over Votes,1
+el-paso:7,,Under Votes,5
+el-paso:7,,Write-in,1
+el-paso:7,DEM,Beto O'Rourke,761
+el-paso:7,GRN,Delilah Barrios,2
+el-paso:7,LIB,Mark Tippetts,18
+el-paso:7,REP,Greg Abbott,580
+el-paso:70,,Over Votes,0
+el-paso:70,,Under Votes,13
+el-paso:70,,Write-in,0
+el-paso:70,DEM,Beto O'Rourke,696
+el-paso:70,GRN,Delilah Barrios,9
+el-paso:70,LIB,Mark Tippetts,10
+el-paso:70,REP,Greg Abbott,216
+el-paso:71,,Over Votes,0
+el-paso:71,,Under Votes,8
+el-paso:71,,Write-in,0
+el-paso:71,DEM,Beto O'Rourke,614
+el-paso:71,GRN,Delilah Barrios,8
+el-paso:71,LIB,Mark Tippetts,8
+el-paso:71,REP,Greg Abbott,168
+el-paso:72,,Over Votes,0
+el-paso:72,,Under Votes,2
+el-paso:72,,Write-in,0
+el-paso:72,DEM,Beto O'Rourke,341
+el-paso:72,GRN,Delilah Barrios,4
+el-paso:72,LIB,Mark Tippetts,8
+el-paso:72,REP,Greg Abbott,111
+el-paso:73,,Over Votes,0
+el-paso:73,,Under Votes,4
+el-paso:73,,Write-in,0
+el-paso:73,DEM,Beto O'Rourke,348
+el-paso:73,GRN,Delilah Barrios,6
+el-paso:73,LIB,Mark Tippetts,1
+el-paso:73,REP,Greg Abbott,97
+el-paso:74,,Over Votes,0
+el-paso:74,,Under Votes,7
+el-paso:74,,Write-in,0
+el-paso:74,DEM,Beto O'Rourke,481
+el-paso:74,GRN,Delilah Barrios,11
+el-paso:74,LIB,Mark Tippetts,8
+el-paso:74,REP,Greg Abbott,139
+el-paso:75,,Over Votes,0
+el-paso:75,,Under Votes,7
+el-paso:75,,Write-in,0
+el-paso:75,DEM,Beto O'Rourke,491
+el-paso:75,GRN,Delilah Barrios,6
+el-paso:75,LIB,Mark Tippetts,5
+el-paso:75,REP,Greg Abbott,209
+el-paso:76,,Over Votes,0
+el-paso:76,,Under Votes,7
+el-paso:76,,Write-in,0
+el-paso:76,DEM,Beto O'Rourke,284
+el-paso:76,GRN,Delilah Barrios,6
+el-paso:76,LIB,Mark Tippetts,6
+el-paso:76,REP,Greg Abbott,115
+el-paso:77,,Over Votes,0
+el-paso:77,,Under Votes,8
+el-paso:77,,Write-in,0
+el-paso:77,DEM,Beto O'Rourke,557
+el-paso:77,GRN,Delilah Barrios,6
+el-paso:77,LIB,Mark Tippetts,6
+el-paso:77,REP,Greg Abbott,187
+el-paso:78,,Over Votes,0
+el-paso:78,,Under Votes,6
+el-paso:78,,Write-in,0
+el-paso:78,DEM,Beto O'Rourke,302
+el-paso:78,GRN,Delilah Barrios,7
+el-paso:78,LIB,Mark Tippetts,5
+el-paso:78,REP,Greg Abbott,137
+el-paso:79,,Over Votes,0
+el-paso:79,,Under Votes,0
+el-paso:79,,Write-in,0
+el-paso:79,DEM,Beto O'Rourke,122
+el-paso:79,GRN,Delilah Barrios,1
+el-paso:79,LIB,Mark Tippetts,0
+el-paso:79,REP,Greg Abbott,30
+el-paso:8,,Over Votes,0
+el-paso:8,,Under Votes,8
+el-paso:8,,Write-in,0
+el-paso:8,DEM,Beto O'Rourke,664
+el-paso:8,GRN,Delilah Barrios,3
+el-paso:8,LIB,Mark Tippetts,8
+el-paso:8,REP,Greg Abbott,903
+el-paso:80,,Over Votes,1
+el-paso:80,,Under Votes,5
+el-paso:80,,Write-in,0
+el-paso:80,DEM,Beto O'Rourke,280
+el-paso:80,GRN,Delilah Barrios,6
+el-paso:80,LIB,Mark Tippetts,3
+el-paso:80,REP,Greg Abbott,53
+el-paso:81,,Over Votes,0
+el-paso:81,,Under Votes,2
+el-paso:81,,Write-in,0
+el-paso:81,DEM,Beto O'Rourke,56
+el-paso:81,GRN,Delilah Barrios,2
+el-paso:81,LIB,Mark Tippetts,0
+el-paso:81,REP,Greg Abbott,22
+el-paso:82,,Over Votes,0
+el-paso:82,,Under Votes,8
+el-paso:82,,Write-in,0
+el-paso:82,DEM,Beto O'Rourke,453
+el-paso:82,GRN,Delilah Barrios,8
+el-paso:82,LIB,Mark Tippetts,5
+el-paso:82,REP,Greg Abbott,130
+el-paso:83,,Over Votes,0
+el-paso:83,,Under Votes,4
+el-paso:83,,Write-in,0
+el-paso:83,DEM,Beto O'Rourke,268
+el-paso:83,GRN,Delilah Barrios,2
+el-paso:83,LIB,Mark Tippetts,4
+el-paso:83,REP,Greg Abbott,67
+el-paso:84,,Over Votes,0
+el-paso:84,,Under Votes,6
+el-paso:84,,Write-in,0
+el-paso:84,DEM,Beto O'Rourke,479
+el-paso:84,GRN,Delilah Barrios,12
+el-paso:84,LIB,Mark Tippetts,3
+el-paso:84,REP,Greg Abbott,122
+el-paso:85,,Over Votes,0
+el-paso:85,,Under Votes,12
+el-paso:85,,Write-in,1
+el-paso:85,DEM,Beto O'Rourke,311
+el-paso:85,GRN,Delilah Barrios,5
+el-paso:85,LIB,Mark Tippetts,11
+el-paso:85,REP,Greg Abbott,77
+el-paso:86,,Over Votes,0
+el-paso:86,,Under Votes,0
+el-paso:86,,Write-in,0
+el-paso:86,DEM,Beto O'Rourke,2
+el-paso:86,GRN,Delilah Barrios,0
+el-paso:86,LIB,Mark Tippetts,0
+el-paso:86,REP,Greg Abbott,3
+el-paso:87,,Over Votes,0
+el-paso:87,,Under Votes,0
+el-paso:87,,Write-in,0
+el-paso:87,DEM,Beto O'Rourke,1
+el-paso:87,GRN,Delilah Barrios,0
+el-paso:87,LIB,Mark Tippetts,0
+el-paso:87,REP,Greg Abbott,1
+el-paso:88,,Over Votes,0
+el-paso:88,,Under Votes,0
+el-paso:88,,Write-in,0
+el-paso:88,DEM,Beto O'Rourke,76
+el-paso:88,GRN,Delilah Barrios,2
+el-paso:88,LIB,Mark Tippetts,1
+el-paso:88,REP,Greg Abbott,88
+el-paso:89,,Over Votes,1
+el-paso:89,,Under Votes,11
+el-paso:89,,Write-in,0
+el-paso:89,DEM,Beto O'Rourke,707
+el-paso:89,GRN,Delilah Barrios,7
+el-paso:89,LIB,Mark Tippetts,8
+el-paso:89,REP,Greg Abbott,289
+el-paso:9,,Over Votes,0
+el-paso:9,,Under Votes,10
+el-paso:9,,Write-in,1
+el-paso:9,DEM,Beto O'Rourke,898
+el-paso:9,GRN,Delilah Barrios,6
+el-paso:9,LIB,Mark Tippetts,15
+el-paso:9,REP,Greg Abbott,724
+el-paso:90,,Over Votes,0
+el-paso:90,,Under Votes,6
+el-paso:90,,Write-in,0
+el-paso:90,DEM,Beto O'Rourke,554
+el-paso:90,GRN,Delilah Barrios,4
+el-paso:90,LIB,Mark Tippetts,10
+el-paso:90,REP,Greg Abbott,316
+el-paso:91,,Over Votes,0
+el-paso:91,,Under Votes,6
+el-paso:91,,Write-in,0
+el-paso:91,DEM,Beto O'Rourke,279
+el-paso:91,GRN,Delilah Barrios,0
+el-paso:91,LIB,Mark Tippetts,7
+el-paso:91,REP,Greg Abbott,119
+el-paso:92,,Over Votes,1
+el-paso:92,,Under Votes,7
+el-paso:92,,Write-in,0
+el-paso:92,DEM,Beto O'Rourke,872
+el-paso:92,GRN,Delilah Barrios,6
+el-paso:92,LIB,Mark Tippetts,9
+el-paso:92,REP,Greg Abbott,510
+el-paso:93,,Over Votes,1
+el-paso:93,,Under Votes,2
+el-paso:93,,Write-in,0
+el-paso:93,DEM,Beto O'Rourke,397
+el-paso:93,GRN,Delilah Barrios,4
+el-paso:93,LIB,Mark Tippetts,8
+el-paso:93,REP,Greg Abbott,194
+el-paso:94,,Over Votes,2
+el-paso:94,,Under Votes,12
+el-paso:94,,Write-in,1
+el-paso:94,DEM,Beto O'Rourke,705
+el-paso:94,GRN,Delilah Barrios,7
+el-paso:94,LIB,Mark Tippetts,11
+el-paso:94,REP,Greg Abbott,373
+el-paso:95,,Over Votes,0
+el-paso:95,,Under Votes,15
+el-paso:95,,Write-in,0
+el-paso:95,DEM,Beto O'Rourke,810
+el-paso:95,GRN,Delilah Barrios,6
+el-paso:95,LIB,Mark Tippetts,13
+el-paso:95,REP,Greg Abbott,430
+el-paso:96,,Over Votes,0
+el-paso:96,,Under Votes,12
+el-paso:96,,Write-in,1
+el-paso:96,DEM,Beto O'Rourke,870
+el-paso:96,GRN,Delilah Barrios,7
+el-paso:96,LIB,Mark Tippetts,15
+el-paso:96,REP,Greg Abbott,555
+el-paso:97,,Over Votes,0
+el-paso:97,,Under Votes,8
+el-paso:97,,Write-in,0
+el-paso:97,DEM,Beto O'Rourke,521
+el-paso:97,GRN,Delilah Barrios,3
+el-paso:97,LIB,Mark Tippetts,3
+el-paso:97,REP,Greg Abbott,296
+el-paso:98,,Over Votes,0
+el-paso:98,,Under Votes,5
+el-paso:98,,Write-in,3
+el-paso:98,DEM,Beto O'Rourke,575
+el-paso:98,GRN,Delilah Barrios,7
+el-paso:98,LIB,Mark Tippetts,12
+el-paso:98,REP,Greg Abbott,393
+el-paso:99,,Over Votes,1
+el-paso:99,,Under Votes,6
+el-paso:99,,Write-in,0
+el-paso:99,DEM,Beto O'Rourke,317
+el-paso:99,GRN,Delilah Barrios,4
+el-paso:99,LIB,Mark Tippetts,10
+el-paso:99,REP,Greg Abbott,148
+jeff-davis:1,,Over Votes,0
+jeff-davis:1,,Under Votes,1
+jeff-davis:1,,Write-in,0
+jeff-davis:1,DEM,Beto O'Rourke,109
+jeff-davis:1,GRN,Delilah Barrios,0
+jeff-davis:1,LIB,Mark Tippetts,14
+jeff-davis:1,REP,Greg Abbott,166
+jeff-davis:2,,Over Votes,0
+jeff-davis:2,,Under Votes,1
+jeff-davis:2,,Write-in,0
+jeff-davis:2,DEM,Beto O'Rourke,82
+jeff-davis:2,GRN,Delilah Barrios,1
+jeff-davis:2,LIB,Mark Tippetts,3
+jeff-davis:2,REP,Greg Abbott,139
+jeff-davis:3,,Over Votes,0
+jeff-davis:3,,Under Votes,0
+jeff-davis:3,,Write-in,0
+jeff-davis:3,DEM,Beto O'Rourke,85
+jeff-davis:3,GRN,Delilah Barrios,3
+jeff-davis:3,LIB,Mark Tippetts,4
+jeff-davis:3,REP,Greg Abbott,159
+jeff-davis:4,,Over Votes,0
+jeff-davis:4,,Under Votes,0
+jeff-davis:4,,Write-in,0
+jeff-davis:4,DEM,Beto O'Rourke,29
+jeff-davis:4,GRN,Delilah Barrios,0
+jeff-davis:4,LIB,Mark Tippetts,3
+jeff-davis:4,REP,Greg Abbott,76
+jeff-davis:5,,Over Votes,0
+jeff-davis:5,,Under Votes,0
+jeff-davis:5,,Write-in,1
+jeff-davis:5,DEM,Beto O'Rourke,69
+jeff-davis:5,GRN,Delilah Barrios,1
+jeff-davis:5,LIB,Mark Tippetts,6
+jeff-davis:5,REP,Greg Abbott,101
+pecos:1,,Write-in,0
+pecos:1,DEM,Beto O'Rourke,289
+pecos:1,GRN,Delilah Barrios,9
+pecos:1,LIB,Mark Tippetts,20
+pecos:1,REP,Greg Abbott,694
+pecos:10,,Write-in,1
+pecos:10,DEM,Beto O'Rourke,121
+pecos:10,GRN,Delilah Barrios,6
+pecos:10,LIB,Mark Tippetts,4
+pecos:10,REP,Greg Abbott,224
+pecos:2,,Write-in,0
+pecos:2,DEM,Beto O'Rourke,327
+pecos:2,GRN,Delilah Barrios,14
+pecos:2,LIB,Mark Tippetts,12
+pecos:2,REP,Greg Abbott,605
+pecos:3,,Write-in,0
+pecos:3,DEM,Beto O'Rourke,6
+pecos:3,GRN,Delilah Barrios,3
+pecos:3,LIB,Mark Tippetts,0
+pecos:3,REP,Greg Abbott,101
+pecos:4,,Write-in,1
+pecos:4,DEM,Beto O'Rourke,26
+pecos:4,GRN,Delilah Barrios,0
+pecos:4,LIB,Mark Tippetts,3
+pecos:4,REP,Greg Abbott,246
+pecos:5,,Write-in,0
+pecos:5,DEM,Beto O'Rourke,0
+pecos:5,GRN,Delilah Barrios,0
+pecos:5,LIB,Mark Tippetts,0
+pecos:5,REP,Greg Abbott,42
+pecos:6,,Write-in,0
+pecos:6,DEM,Beto O'Rourke,15
+pecos:6,GRN,Delilah Barrios,1
+pecos:6,LIB,Mark Tippetts,0
+pecos:6,REP,Greg Abbott,45
+pecos:7,,Write-in,1
+pecos:7,DEM,Beto O'Rourke,243
+pecos:7,GRN,Delilah Barrios,6
+pecos:7,LIB,Mark Tippetts,7
+pecos:7,REP,Greg Abbott,488
+pecos:9,,Write-in,0
+pecos:9,DEM,Beto O'Rourke,16
+pecos:9,GRN,Delilah Barrios,1
+pecos:9,LIB,Mark Tippetts,5
+pecos:9,REP,Greg Abbott,103
+reeves:10,DEM,Beto O'Rourke,122
+reeves:10,GRN,Delilah Barrios,2
+reeves:10,LIB,Mark Tippetts,2
+reeves:10,REP,Greg Abbott,250
+reeves:11,DEM,Beto O'Rourke,109
+reeves:11,GRN,Delilah Barrios,3
+reeves:11,LIB,Mark Tippetts,1
+reeves:11,REP,Greg Abbott,76
+reeves:2,DEM,Beto O'Rourke,177
+reeves:2,GRN,Delilah Barrios,3
+reeves:2,LIB,Mark Tippetts,2
+reeves:2,REP,Greg Abbott,226
+reeves:3,DEM,Beto O'Rourke,114
+reeves:3,GRN,Delilah Barrios,4
+reeves:3,LIB,Mark Tippetts,2
+reeves:3,REP,Greg Abbott,251
+reeves:4,DEM,Beto O'Rourke,2
+reeves:4,GRN,Delilah Barrios,0
+reeves:4,LIB,Mark Tippetts,0
+reeves:4,REP,Greg Abbott,14
+reeves:5,DEM,Beto O'Rourke,42
+reeves:5,GRN,Delilah Barrios,1
+reeves:5,LIB,Mark Tippetts,1
+reeves:5,REP,Greg Abbott,111
+reeves:6,DEM,Beto O'Rourke,6
+reeves:6,GRN,Delilah Barrios,0
+reeves:6,LIB,Mark Tippetts,0
+reeves:6,REP,Greg Abbott,23
+reeves:7,DEM,Beto O'Rourke,179
+reeves:7,GRN,Delilah Barrios,6
+reeves:7,LIB,Mark Tippetts,6
+reeves:7,REP,Greg Abbott,294
+reeves:8,DEM,Beto O'Rourke,50
+reeves:8,GRN,Delilah Barrios,0
+reeves:8,LIB,Mark Tippetts,2
+reeves:8,REP,Greg Abbott,96

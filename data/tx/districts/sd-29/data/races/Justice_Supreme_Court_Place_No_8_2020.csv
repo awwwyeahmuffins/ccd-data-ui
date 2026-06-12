@@ -1,0 +1,52 @@
+precinct,party,candidate,votes
+culberson:1,DEM,Gisela D. Triana,82
+culberson:1,LIB,Tom Oxford,3
+culberson:1,REP,Brett Busby,70
+culberson:2,DEM,Gisela D. Triana,100
+culberson:2,LIB,Tom Oxford,9
+culberson:2,REP,Brett Busby,92
+culberson:3-3,DEM,Gisela D. Triana,12
+culberson:3-3,LIB,Tom Oxford,0
+culberson:3-3,REP,Brett Busby,19
+culberson:3-5,DEM,Gisela D. Triana,84
+culberson:3-5,LIB,Tom Oxford,4
+culberson:3-5,REP,Brett Busby,100
+culberson:4,DEM,Gisela D. Triana,91
+culberson:4,LIB,Tom Oxford,4
+culberson:4,REP,Brett Busby,54
+hudspeth:1,DEM,Gisela D. Triana,95
+hudspeth:1,LIB,Tom Oxford,16
+hudspeth:1,REP,Brett Busby,209
+hudspeth:2,DEM,Gisela D. Triana,142
+hudspeth:2,LIB,Tom Oxford,12
+hudspeth:2,REP,Brett Busby,151
+hudspeth:3N,DEM,Gisela D. Triana,35
+hudspeth:3N,LIB,Tom Oxford,4
+hudspeth:3N,REP,Brett Busby,78
+hudspeth:3S,DEM,Gisela D. Triana,42
+hudspeth:3S,LIB,Tom Oxford,5
+hudspeth:3S,REP,Brett Busby,64
+hudspeth:4,DEM,Gisela D. Triana,64
+hudspeth:4,LIB,Tom Oxford,9
+hudspeth:4,REP,Brett Busby,135
+presidio:1,DEM,Gisela D. Triana,140
+presidio:1,LIB,Tom Oxford,4
+presidio:1,REP,Brett Busby,84
+presidio:2,DEM,Gisela D. Triana,164
+presidio:2,LIB,Tom Oxford,8
+presidio:2,REP,Brett Busby,87
+presidio:3,DEM,Gisela D. Triana,18
+presidio:3,LIB,Tom Oxford,0
+presidio:3,REP,Brett Busby,4
+presidio:4,DEM,Gisela D. Triana,263
+presidio:4,LIB,Tom Oxford,6
+presidio:4,REP,Brett Busby,88
+presidio:5,DEM,Gisela D. Triana,182
+presidio:5,LIB,Tom Oxford,9
+presidio:5,REP,Brett Busby,76
+presidio:6,DEM,Gisela D. Triana,4
+presidio:6,LIB,Tom Oxford,0
+presidio:6,REP,Brett Busby,12
+presidio:7,DEM,Gisela D. Triana,645
+presidio:7,LIB,Tom Oxford,19
+presidio:7,REP,Brett Busby,225

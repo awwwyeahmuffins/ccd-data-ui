@@ -1,0 +1,343 @@
+precinct,party,candidate,votes
+archer:1,DEM,Amy Clark Meachum,89
+archer:1,LIB,Mark Ash,21
+archer:1,REP,Nathan Hecht,816
+archer:10,DEM,Amy Clark Meachum,80
+archer:10,LIB,Mark Ash,10
+archer:10,REP,Nathan Hecht,515
+archer:11,DEM,Amy Clark Meachum,7
+archer:11,LIB,Mark Ash,0
+archer:11,REP,Nathan Hecht,67
+archer:2,DEM,Amy Clark Meachum,65
+archer:2,LIB,Mark Ash,10
+archer:2,REP,Nathan Hecht,706
+archer:3,DEM,Amy Clark Meachum,25
+archer:3,LIB,Mark Ash,4
+archer:3,REP,Nathan Hecht,246
+archer:4,DEM,Amy Clark Meachum,27
+archer:4,LIB,Mark Ash,6
+archer:4,REP,Nathan Hecht,478
+archer:5,DEM,Amy Clark Meachum,8
+archer:5,LIB,Mark Ash,1
+archer:5,REP,Nathan Hecht,119
+archer:6,DEM,Amy Clark Meachum,81
+archer:6,LIB,Mark Ash,14
+archer:6,REP,Nathan Hecht,711
+archer:7,DEM,Amy Clark Meachum,8
+archer:7,LIB,Mark Ash,6
+archer:7,REP,Nathan Hecht,130
+archer:8,DEM,Amy Clark Meachum,34
+archer:8,LIB,Mark Ash,8
+archer:8,REP,Nathan Hecht,213
+archer:9,DEM,Amy Clark Meachum,12
+archer:9,LIB,Mark Ash,2
+archer:9,REP,Nathan Hecht,124
+clay:1,DEM,Amy Clark Meachum,96
+clay:1,LIB,Mark Ash,8
+clay:1,REP,Nathan Hecht,549
+clay:10,DEM,Amy Clark Meachum,27
+clay:10,LIB,Mark Ash,10
+clay:10,REP,Nathan Hecht,192
+clay:11,DEM,Amy Clark Meachum,62
+clay:11,LIB,Mark Ash,10
+clay:11,REP,Nathan Hecht,597
+clay:12,DEM,Amy Clark Meachum,27
+clay:12,LIB,Mark Ash,7
+clay:12,REP,Nathan Hecht,223
+clay:13,DEM,Amy Clark Meachum,17
+clay:13,LIB,Mark Ash,1
+clay:13,REP,Nathan Hecht,99
+clay:14,DEM,Amy Clark Meachum,12
+clay:14,LIB,Mark Ash,1
+clay:14,REP,Nathan Hecht,124
+clay:15,DEM,Amy Clark Meachum,43
+clay:15,LIB,Mark Ash,4
+clay:15,REP,Nathan Hecht,242
+clay:17,DEM,Amy Clark Meachum,92
+clay:17,LIB,Mark Ash,13
+clay:17,REP,Nathan Hecht,653
+clay:20,DEM,Amy Clark Meachum,16
+clay:20,LIB,Mark Ash,7
+clay:20,REP,Nathan Hecht,351
+clay:24,DEM,Amy Clark Meachum,26
+clay:24,LIB,Mark Ash,3
+clay:24,REP,Nathan Hecht,230
+clay:26,DEM,Amy Clark Meachum,11
+clay:26,LIB,Mark Ash,1
+clay:26,REP,Nathan Hecht,134
+clay:27,DEM,Amy Clark Meachum,31
+clay:27,LIB,Mark Ash,7
+clay:27,REP,Nathan Hecht,278
+clay:32,DEM,Amy Clark Meachum,14
+clay:32,LIB,Mark Ash,0
+clay:32,REP,Nathan Hecht,176
+clay:6,DEM,Amy Clark Meachum,46
+clay:6,LIB,Mark Ash,10
+clay:6,REP,Nathan Hecht,244
+clay:8,DEM,Amy Clark Meachum,73
+clay:8,LIB,Mark Ash,13
+clay:8,REP,Nathan Hecht,511
+clay:9,DEM,Amy Clark Meachum,44
+clay:9,LIB,Mark Ash,3
+clay:9,REP,Nathan Hecht,313
+cottle:101,DEM,Amy Clark Meachum,31
+cottle:101,LIB,Mark Ash,3
+cottle:101,REP,Nathan Hecht,179
+cottle:201,DEM,Amy Clark Meachum,20
+cottle:201,LIB,Mark Ash,2
+cottle:201,REP,Nathan Hecht,152
+cottle:301,DEM,Amy Clark Meachum,31
+cottle:301,LIB,Mark Ash,1
+cottle:301,REP,Nathan Hecht,84
+cottle:401,DEM,Amy Clark Meachum,30
+cottle:401,LIB,Mark Ash,3
+cottle:401,REP,Nathan Hecht,107
+fisher:1,DEM,Amy Clark Meachum,74
+fisher:1,LIB,Mark Ash,5
+fisher:1,REP,Nathan Hecht,395
+fisher:10,DEM,Amy Clark Meachum,93
+fisher:10,LIB,Mark Ash,8
+fisher:10,REP,Nathan Hecht,260
+fisher:12,DEM,Amy Clark Meachum,101
+fisher:12,LIB,Mark Ash,8
+fisher:12,REP,Nathan Hecht,335
+fisher:4,DEM,Amy Clark Meachum,98
+fisher:4,LIB,Mark Ash,9
+fisher:4,REP,Nathan Hecht,402
+hardeman:1,DEM,Amy Clark Meachum,68
+hardeman:1,LIB,Mark Ash,4
+hardeman:1,REP,Nathan Hecht,356
+hardeman:2,DEM,Amy Clark Meachum,49
+hardeman:2,LIB,Mark Ash,4
+hardeman:2,REP,Nathan Hecht,265
+hardeman:3,DEM,Amy Clark Meachum,51
+hardeman:3,LIB,Mark Ash,4
+hardeman:3,REP,Nathan Hecht,289
+hardeman:4,DEM,Amy Clark Meachum,64
+hardeman:4,LIB,Mark Ash,2
+hardeman:4,REP,Nathan Hecht,362
+haskell:1,DEM,Amy Clark Meachum,32
+haskell:1,LIB,Mark Ash,3
+haskell:1,REP,Nathan Hecht,233
+haskell:10,DEM,Amy Clark Meachum,14
+haskell:10,LIB,Mark Ash,1
+haskell:10,REP,Nathan Hecht,94
+haskell:2,DEM,Amy Clark Meachum,83
+haskell:2,LIB,Mark Ash,2
+haskell:2,REP,Nathan Hecht,372
+haskell:3,DEM,Amy Clark Meachum,71
+haskell:3,LIB,Mark Ash,5
+haskell:3,REP,Nathan Hecht,278
+haskell:4,DEM,Amy Clark Meachum,39
+haskell:4,LIB,Mark Ash,0
+haskell:4,REP,Nathan Hecht,138
+haskell:5,DEM,Amy Clark Meachum,54
+haskell:5,LIB,Mark Ash,8
+haskell:5,REP,Nathan Hecht,167
+haskell:6,DEM,Amy Clark Meachum,30
+haskell:6,LIB,Mark Ash,5
+haskell:6,REP,Nathan Hecht,182
+haskell:7,DEM,Amy Clark Meachum,5
+haskell:7,LIB,Mark Ash,1
+haskell:7,REP,Nathan Hecht,60
+haskell:8,DEM,Amy Clark Meachum,23
+haskell:8,LIB,Mark Ash,1
+haskell:8,REP,Nathan Hecht,63
+haskell:9,DEM,Amy Clark Meachum,15
+haskell:9,LIB,Mark Ash,2
+haskell:9,REP,Nathan Hecht,157
+wichita:101,DEM,Amy Clark Meachum,43
+wichita:101,LIB,Mark Ash,4
+wichita:101,REP,Nathan Hecht,170
+wichita:102,DEM,Amy Clark Meachum,156
+wichita:102,LIB,Mark Ash,13
+wichita:102,REP,Nathan Hecht,471
+wichita:103,DEM,Amy Clark Meachum,912
+wichita:103,LIB,Mark Ash,92
+wichita:103,REP,Nathan Hecht,2483
+wichita:104,DEM,Amy Clark Meachum,213
+wichita:104,LIB,Mark Ash,11
+wichita:104,REP,Nathan Hecht,597
+wichita:105,DEM,Amy Clark Meachum,624
+wichita:105,LIB,Mark Ash,55
+wichita:105,REP,Nathan Hecht,1459
+wichita:106,DEM,Amy Clark Meachum,80
+wichita:106,LIB,Mark Ash,15
+wichita:106,REP,Nathan Hecht,570
+wichita:107,DEM,Amy Clark Meachum,8
+wichita:107,LIB,Mark Ash,1
+wichita:107,REP,Nathan Hecht,28
+wichita:108,DEM,Amy Clark Meachum,578
+wichita:108,LIB,Mark Ash,65
+wichita:108,REP,Nathan Hecht,1858
+wichita:109,DEM,Amy Clark Meachum,710
+wichita:109,LIB,Mark Ash,69
+wichita:109,REP,Nathan Hecht,1952
+wichita:110,DEM,Amy Clark Meachum,139
+wichita:110,LIB,Mark Ash,16
+wichita:110,REP,Nathan Hecht,273
+wichita:111,DEM,Amy Clark Meachum,174
+wichita:111,LIB,Mark Ash,8
+wichita:111,REP,Nathan Hecht,173
+wichita:112,DEM,Amy Clark Meachum,10
+wichita:112,LIB,Mark Ash,0
+wichita:112,REP,Nathan Hecht,7
+wichita:113,DEM,Amy Clark Meachum,144
+wichita:113,LIB,Mark Ash,15
+wichita:113,REP,Nathan Hecht,244
+wichita:114,DEM,Amy Clark Meachum,4
+wichita:114,LIB,Mark Ash,0
+wichita:114,REP,Nathan Hecht,31
+wichita:115,DEM,Amy Clark Meachum,5
+wichita:115,LIB,Mark Ash,0
+wichita:115,REP,Nathan Hecht,0
+wichita:116,DEM,Amy Clark Meachum,3
+wichita:116,LIB,Mark Ash,1
+wichita:116,REP,Nathan Hecht,30
+wichita:117,DEM,Amy Clark Meachum,4
+wichita:117,LIB,Mark Ash,0
+wichita:117,REP,Nathan Hecht,31
+wichita:201,DEM,Amy Clark Meachum,605
+wichita:201,LIB,Mark Ash,73
+wichita:201,REP,Nathan Hecht,952
+wichita:202,DEM,Amy Clark Meachum,341
+wichita:202,LIB,Mark Ash,38
+wichita:202,REP,Nathan Hecht,744
+wichita:203,DEM,Amy Clark Meachum,380
+wichita:203,LIB,Mark Ash,39
+wichita:203,REP,Nathan Hecht,546
+wichita:204,DEM,Amy Clark Meachum,58
+wichita:204,LIB,Mark Ash,11
+wichita:204,REP,Nathan Hecht,400
+wichita:205,DEM,Amy Clark Meachum,510
+wichita:205,LIB,Mark Ash,65
+wichita:205,REP,Nathan Hecht,2124
+wichita:206,DEM,Amy Clark Meachum,381
+wichita:206,LIB,Mark Ash,56
+wichita:206,REP,Nathan Hecht,1514
+wichita:207,DEM,Amy Clark Meachum,143
+wichita:207,LIB,Mark Ash,10
+wichita:207,REP,Nathan Hecht,251
+wichita:208,DEM,Amy Clark Meachum,19
+wichita:208,LIB,Mark Ash,1
+wichita:208,REP,Nathan Hecht,82
+wichita:209,DEM,Amy Clark Meachum,0
+wichita:209,LIB,Mark Ash,0
+wichita:209,REP,Nathan Hecht,0
+wichita:210,DEM,Amy Clark Meachum,0
+wichita:210,LIB,Mark Ash,0
+wichita:210,REP,Nathan Hecht,0
+wichita:211,DEM,Amy Clark Meachum,47
+wichita:211,LIB,Mark Ash,3
+wichita:211,REP,Nathan Hecht,95
+wichita:301,DEM,Amy Clark Meachum,8
+wichita:301,LIB,Mark Ash,0
+wichita:301,REP,Nathan Hecht,10
+wichita:302,DEM,Amy Clark Meachum,375
+wichita:302,LIB,Mark Ash,31
+wichita:302,REP,Nathan Hecht,452
+wichita:303,DEM,Amy Clark Meachum,585
+wichita:303,LIB,Mark Ash,23
+wichita:303,REP,Nathan Hecht,349
+wichita:304,DEM,Amy Clark Meachum,70
+wichita:304,LIB,Mark Ash,4
+wichita:304,REP,Nathan Hecht,69
+wichita:305,DEM,Amy Clark Meachum,81
+wichita:305,LIB,Mark Ash,13
+wichita:305,REP,Nathan Hecht,132
+wichita:306,DEM,Amy Clark Meachum,394
+wichita:306,LIB,Mark Ash,17
+wichita:306,REP,Nathan Hecht,133
+wichita:307,DEM,Amy Clark Meachum,39
+wichita:307,LIB,Mark Ash,1
+wichita:307,REP,Nathan Hecht,118
+wichita:308,DEM,Amy Clark Meachum,164
+wichita:308,LIB,Mark Ash,15
+wichita:308,REP,Nathan Hecht,132
+wichita:309,DEM,Amy Clark Meachum,320
+wichita:309,LIB,Mark Ash,48
+wichita:309,REP,Nathan Hecht,2389
+wichita:310,DEM,Amy Clark Meachum,131
+wichita:310,LIB,Mark Ash,19
+wichita:310,REP,Nathan Hecht,959
+wichita:311,DEM,Amy Clark Meachum,541
+wichita:311,LIB,Mark Ash,29
+wichita:311,REP,Nathan Hecht,243
+wichita:312,DEM,Amy Clark Meachum,9
+wichita:312,LIB,Mark Ash,0
+wichita:312,REP,Nathan Hecht,15
+wichita:313,DEM,Amy Clark Meachum,8
+wichita:313,LIB,Mark Ash,1
+wichita:313,REP,Nathan Hecht,3
+wichita:314,DEM,Amy Clark Meachum,2
+wichita:314,LIB,Mark Ash,0
+wichita:314,REP,Nathan Hecht,9
+wichita:315,DEM,Amy Clark Meachum,22
+wichita:315,LIB,Mark Ash,2
+wichita:315,REP,Nathan Hecht,74
+wichita:316,DEM,Amy Clark Meachum,11
+wichita:316,LIB,Mark Ash,2
+wichita:316,REP,Nathan Hecht,13
+wichita:317,DEM,Amy Clark Meachum,11
+wichita:317,LIB,Mark Ash,1
+wichita:317,REP,Nathan Hecht,48
+wichita:318,DEM,Amy Clark Meachum,64
+wichita:318,LIB,Mark Ash,7
+wichita:318,REP,Nathan Hecht,197
+wichita:319,DEM,Amy Clark Meachum,7
+wichita:319,LIB,Mark Ash,6
+wichita:319,REP,Nathan Hecht,23
+wichita:401,DEM,Amy Clark Meachum,404
+wichita:401,LIB,Mark Ash,22
+wichita:401,REP,Nathan Hecht,1144
+wichita:402,DEM,Amy Clark Meachum,130
+wichita:402,LIB,Mark Ash,11
+wichita:402,REP,Nathan Hecht,351
+wichita:403,DEM,Amy Clark Meachum,450
+wichita:403,LIB,Mark Ash,55
+wichita:403,REP,Nathan Hecht,1068
+wichita:404,DEM,Amy Clark Meachum,460
+wichita:404,LIB,Mark Ash,44
+wichita:404,REP,Nathan Hecht,1509
+wichita:405,DEM,Amy Clark Meachum,421
+wichita:405,LIB,Mark Ash,32
+wichita:405,REP,Nathan Hecht,681
+wichita:406,DEM,Amy Clark Meachum,562
+wichita:406,LIB,Mark Ash,53
+wichita:406,REP,Nathan Hecht,1379
+wichita:407,DEM,Amy Clark Meachum,386
+wichita:407,LIB,Mark Ash,41
+wichita:407,REP,Nathan Hecht,590
+wichita:408,DEM,Amy Clark Meachum,3
+wichita:408,LIB,Mark Ash,0
+wichita:408,REP,Nathan Hecht,7
+wichita:409,DEM,Amy Clark Meachum,2
+wichita:409,LIB,Mark Ash,0
+wichita:409,REP,Nathan Hecht,12
+wichita:410,DEM,Amy Clark Meachum,50
+wichita:410,LIB,Mark Ash,4
+wichita:410,REP,Nathan Hecht,168
+wichita:411,DEM,Amy Clark Meachum,159
+wichita:411,LIB,Mark Ash,12
+wichita:411,REP,Nathan Hecht,340
+wichita:412,DEM,Amy Clark Meachum,54
+wichita:412,LIB,Mark Ash,8
+wichita:412,REP,Nathan Hecht,447
+wichita:413,DEM,Amy Clark Meachum,93
+wichita:413,LIB,Mark Ash,9
+wichita:413,REP,Nathan Hecht,421
+wichita:414,DEM,Amy Clark Meachum,86
+wichita:414,LIB,Mark Ash,12
+wichita:414,REP,Nathan Hecht,401
+wilbarger:1,DEM,Amy Clark Meachum,261
+wilbarger:1,LIB,Mark Ash,21
+wilbarger:1,REP,Nathan Hecht,1051
+wilbarger:19,DEM,Amy Clark Meachum,316
+wilbarger:19,LIB,Mark Ash,17
+wilbarger:19,REP,Nathan Hecht,645
+wilbarger:20,DEM,Amy Clark Meachum,164
+wilbarger:20,LIB,Mark Ash,8
+wilbarger:20,REP,Nathan Hecht,484
+wilbarger:21,DEM,Amy Clark Meachum,184
+wilbarger:21,LIB,Mark Ash,19
+wilbarger:21,REP,Nathan Hecht,1163

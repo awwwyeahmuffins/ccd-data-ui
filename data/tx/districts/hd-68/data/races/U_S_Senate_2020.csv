@@ -1,0 +1,360 @@
+precinct,party,candidate,votes
+brown:101,DEM,Mary MJ Hegar,245
+brown:101,GRN,David B. Collins,1
+brown:101,LIB,Kerry Douglas McKennon,22
+brown:101,REP,John Cornyn,1455
+brown:105,DEM,Mary MJ Hegar,160
+brown:105,GRN,David B. Collins,5
+brown:105,LIB,Kerry Douglas McKennon,16
+brown:105,REP,John Cornyn,987
+brown:109,DEM,Mary MJ Hegar,16
+brown:109,GRN,David B. Collins,0
+brown:109,LIB,Kerry Douglas McKennon,2
+brown:109,REP,John Cornyn,209
+brown:113,DEM,Mary MJ Hegar,179
+brown:113,GRN,David B. Collins,2
+brown:113,LIB,Kerry Douglas McKennon,21
+brown:113,REP,John Cornyn,1096
+brown:202,DEM,Mary MJ Hegar,129
+brown:202,GRN,David B. Collins,1
+brown:202,LIB,Kerry Douglas McKennon,8
+brown:202,REP,John Cornyn,611
+brown:204,DEM,Mary MJ Hegar,181
+brown:204,GRN,David B. Collins,8
+brown:204,LIB,Kerry Douglas McKennon,18
+brown:204,REP,John Cornyn,539
+brown:212,DEM,Mary MJ Hegar,55
+brown:212,GRN,David B. Collins,2
+brown:212,LIB,Kerry Douglas McKennon,6
+brown:212,REP,John Cornyn,559
+brown:214,DEM,Mary MJ Hegar,52
+brown:214,GRN,David B. Collins,4
+brown:214,LIB,Kerry Douglas McKennon,5
+brown:214,REP,John Cornyn,486
+brown:215,DEM,Mary MJ Hegar,12
+brown:215,GRN,David B. Collins,1
+brown:215,LIB,Kerry Douglas McKennon,3
+brown:215,REP,John Cornyn,191
+brown:303,DEM,Mary MJ Hegar,134
+brown:303,GRN,David B. Collins,4
+brown:303,LIB,Kerry Douglas McKennon,20
+brown:303,REP,John Cornyn,627
+brown:306,DEM,Mary MJ Hegar,135
+brown:306,GRN,David B. Collins,5
+brown:306,LIB,Kerry Douglas McKennon,25
+brown:306,REP,John Cornyn,1174
+brown:307,DEM,Mary MJ Hegar,53
+brown:307,GRN,David B. Collins,1
+brown:307,LIB,Kerry Douglas McKennon,9
+brown:307,REP,John Cornyn,480
+brown:308,DEM,Mary MJ Hegar,33
+brown:308,GRN,David B. Collins,1
+brown:308,LIB,Kerry Douglas McKennon,4
+brown:308,REP,John Cornyn,428
+brown:316,DEM,Mary MJ Hegar,18
+brown:316,GRN,David B. Collins,0
+brown:316,LIB,Kerry Douglas McKennon,4
+brown:316,REP,John Cornyn,183
+brown:318,DEM,Mary MJ Hegar,131
+brown:318,GRN,David B. Collins,6
+brown:318,LIB,Kerry Douglas McKennon,24
+brown:318,REP,John Cornyn,1069
+brown:410,DEM,Mary MJ Hegar,166
+brown:410,GRN,David B. Collins,6
+brown:410,LIB,Kerry Douglas McKennon,25
+brown:410,REP,John Cornyn,1528
+brown:411,DEM,Mary MJ Hegar,129
+brown:411,GRN,David B. Collins,5
+brown:411,LIB,Kerry Douglas McKennon,19
+brown:411,REP,John Cornyn,562
+brown:417,DEM,Mary MJ Hegar,137
+brown:417,GRN,David B. Collins,6
+brown:417,LIB,Kerry Douglas McKennon,19
+brown:417,REP,John Cornyn,1298
+comanche:1,GRN,David B. Collins,4
+comanche:1,,Ricardo Turullols Bonilla,0
+comanche:1,DEM,"Mary ""Mj"" Hegar",131
+comanche:1,LIB,Kerry Douglas Mc Kennon,17
+comanche:1,REP,John Cornyn,875
+comanche:10,GRN,David B. Collins,2
+comanche:10,,Ricardo Turullols Bonilla,0
+comanche:10,DEM,"Mary ""Mj"" Hegar",37
+comanche:10,LIB,Kerry Douglas Mc Kennon,7
+comanche:10,REP,John Cornyn,260
+comanche:11,GRN,David B. Collins,0
+comanche:11,,Ricardo Turullols Bonilla,0
+comanche:11,DEM,"Mary ""Mj"" Hegar",79
+comanche:11,LIB,Kerry Douglas Mc Kennon,8
+comanche:11,REP,John Cornyn,316
+comanche:12,GRN,David B. Collins,4
+comanche:12,,Ricardo Turullols Bonilla,0
+comanche:12,DEM,"Mary ""Mj"" Hegar",212
+comanche:12,LIB,Kerry Douglas Mc Kennon,12
+comanche:12,REP,John Cornyn,1107
+comanche:13,GRN,David B. Collins,2
+comanche:13,,Ricardo Turullols Bonilla,0
+comanche:13,DEM,"Mary ""Mj"" Hegar",29
+comanche:13,LIB,Kerry Douglas Mc Kennon,3
+comanche:13,REP,John Cornyn,150
+comanche:14,GRN,David B. Collins,0
+comanche:14,,Ricardo Turullols Bonilla,0
+comanche:14,DEM,"Mary ""Mj"" Hegar",15
+comanche:14,LIB,Kerry Douglas Mc Kennon,1
+comanche:14,REP,John Cornyn,81
+comanche:15,GRN,David B. Collins,2
+comanche:15,,Ricardo Turullols Bonilla,0
+comanche:15,DEM,"Mary ""Mj"" Hegar",32
+comanche:15,LIB,Kerry Douglas Mc Kennon,8
+comanche:15,REP,John Cornyn,303
+comanche:16,GRN,David B. Collins,0
+comanche:16,,Ricardo Turullols Bonilla,0
+comanche:16,DEM,"Mary ""Mj"" Hegar",3
+comanche:16,LIB,Kerry Douglas Mc Kennon,1
+comanche:16,REP,John Cornyn,74
+comanche:2,GRN,David B. Collins,7
+comanche:2,,Ricardo Turullols Bonilla,0
+comanche:2,DEM,"Mary ""Mj"" Hegar",141
+comanche:2,LIB,Kerry Douglas Mc Kennon,15
+comanche:2,REP,John Cornyn,919
+comanche:4,GRN,David B. Collins,1
+comanche:4,,Ricardo Turullols Bonilla,0
+comanche:4,DEM,"Mary ""Mj"" Hegar",10
+comanche:4,LIB,Kerry Douglas Mc Kennon,2
+comanche:4,REP,John Cornyn,55
+comanche:5,GRN,David B. Collins,6
+comanche:5,,Ricardo Turullols Bonilla,0
+comanche:5,DEM,"Mary ""Mj"" Hegar",68
+comanche:5,LIB,Kerry Douglas Mc Kennon,7
+comanche:5,REP,John Cornyn,406
+comanche:6,GRN,David B. Collins,1
+comanche:6,,Ricardo Turullols Bonilla,0
+comanche:6,DEM,"Mary ""Mj"" Hegar",33
+comanche:6,LIB,Kerry Douglas Mc Kennon,5
+comanche:6,REP,John Cornyn,228
+comanche:7,GRN,David B. Collins,1
+comanche:7,,Ricardo Turullols Bonilla,0
+comanche:7,DEM,"Mary ""Mj"" Hegar",29
+comanche:7,LIB,Kerry Douglas Mc Kennon,3
+comanche:7,REP,John Cornyn,178
+comanche:9,GRN,David B. Collins,0
+comanche:9,,Ricardo Turullols Bonilla,0
+comanche:9,DEM,"Mary ""Mj"" Hegar",12
+comanche:9,LIB,Kerry Douglas Mc Kennon,1
+comanche:9,REP,John Cornyn,101
+jack:1,,Over Votes,0
+jack:1,,Ricardo Turullois-Bonilla (W),1
+jack:1,,Under Votes,19
+jack:1,DEM,"Mary ""MJ"" Hegar",71
+jack:1,GRN,David B. Collins,4
+jack:1,LIB,Kerry Douglas McKennon,7
+jack:1,REP,John Cornyn,656
+jack:2,,Over Votes,0
+jack:2,,Ricardo Turullois-Bonilla (W),0
+jack:2,,Under Votes,22
+jack:2,DEM,"Mary ""MJ"" Hegar",64
+jack:2,GRN,David B. Collins,5
+jack:2,LIB,Kerry Douglas McKennon,11
+jack:2,REP,John Cornyn,721
+jack:3,,Over Votes,0
+jack:3,,Ricardo Turullois-Bonilla (W),0
+jack:3,,Under Votes,5
+jack:3,DEM,"Mary ""MJ"" Hegar",15
+jack:3,GRN,David B. Collins,1
+jack:3,LIB,Kerry Douglas McKennon,1
+jack:3,REP,John Cornyn,136
+jack:4,,Over Votes,0
+jack:4,,Ricardo Turullois-Bonilla (W),0
+jack:4,,Under Votes,9
+jack:4,DEM,"Mary ""MJ"" Hegar",54
+jack:4,GRN,David B. Collins,1
+jack:4,LIB,Kerry Douglas McKennon,8
+jack:4,REP,John Cornyn,581
+jack:5,,Over Votes,0
+jack:5,,Ricardo Turullois-Bonilla (W),0
+jack:5,,Under Votes,10
+jack:5,DEM,"Mary ""MJ"" Hegar",32
+jack:5,GRN,David B. Collins,2
+jack:5,LIB,Kerry Douglas McKennon,6
+jack:5,REP,John Cornyn,462
+jack:6,,Over Votes,1
+jack:6,,Ricardo Turullois-Bonilla (W),0
+jack:6,,Under Votes,26
+jack:6,DEM,"Mary ""MJ"" Hegar",83
+jack:6,GRN,David B. Collins,4
+jack:6,LIB,Kerry Douglas McKennon,8
+jack:6,REP,John Cornyn,766
+mills:1,,Over Votes,0
+mills:1,,Ricardo Turullois-Bonilla (W),0
+mills:1,,Under Votes,12
+mills:1,DEM,"Mary ""MJ"" Hegar",75
+mills:1,GRN,David B. Collins,1
+mills:1,LIB,Kerry Douglas McKennon,12
+mills:1,REP,John Cornyn,598
+mills:11,,Over Votes,0
+mills:11,,Ricardo Turullois-Bonilla (W),0
+mills:11,,Under Votes,0
+mills:11,DEM,"Mary ""MJ"" Hegar",11
+mills:11,GRN,David B. Collins,0
+mills:11,LIB,Kerry Douglas McKennon,0
+mills:11,REP,John Cornyn,120
+mills:2,,Over Votes,0
+mills:2,,Ricardo Turullois-Bonilla (W),0
+mills:2,,Under Votes,1
+mills:2,DEM,"Mary ""MJ"" Hegar",32
+mills:2,GRN,David B. Collins,1
+mills:2,LIB,Kerry Douglas McKennon,2
+mills:2,REP,John Cornyn,297
+mills:4,,Over Votes,0
+mills:4,,Ricardo Turullois-Bonilla (W),0
+mills:4,,Under Votes,2
+mills:4,DEM,"Mary ""MJ"" Hegar",20
+mills:4,GRN,David B. Collins,1
+mills:4,LIB,Kerry Douglas McKennon,2
+mills:4,REP,John Cornyn,226
+mills:6,,Over Votes,0
+mills:6,,Ricardo Turullois-Bonilla (W),0
+mills:6,,Under Votes,4
+mills:6,DEM,"Mary ""MJ"" Hegar",18
+mills:6,GRN,David B. Collins,2
+mills:6,LIB,Kerry Douglas McKennon,3
+mills:6,REP,John Cornyn,182
+mills:8,,Over Votes,0
+mills:8,,Ricardo Turullois-Bonilla (W),0
+mills:8,,Under Votes,2
+mills:8,DEM,"Mary ""MJ"" Hegar",49
+mills:8,GRN,David B. Collins,1
+mills:8,LIB,Kerry Douglas McKennon,7
+mills:8,REP,John Cornyn,368
+mills:9,,Over Votes,0
+mills:9,,Ricardo Turullois-Bonilla (W),0
+mills:9,,Under Votes,4
+mills:9,DEM,"Mary ""MJ"" Hegar",47
+mills:9,GRN,David B. Collins,3
+mills:9,LIB,Kerry Douglas McKennon,4
+mills:9,REP,John Cornyn,405
+san-saba:1,GRN,Collins,0
+san-saba:1,LIB,McKennon,2
+san-saba:1,DEM,Hegar,73
+san-saba:1,REP,Cornyn,560
+san-saba:2A,GRN,Collins,0
+san-saba:2A,LIB,McKennon,0
+san-saba:2A,DEM,Hegar,46
+san-saba:2A,REP,Cornyn,390
+san-saba:2B,GRN,Collins,0
+san-saba:2B,LIB,McKennon,1
+san-saba:2B,DEM,Hegar,16
+san-saba:2B,REP,Cornyn,172
+san-saba:3A,GRN,Collins,2
+san-saba:3A,LIB,McKennon,3
+san-saba:3A,DEM,Hegar,43
+san-saba:3A,REP,Cornyn,327
+san-saba:3B,GRN,Collins,0
+san-saba:3B,LIB,McKennon,1
+san-saba:3B,DEM,Hegar,31
+san-saba:3B,REP,Cornyn,238
+san-saba:4A,GRN,Collins,1
+san-saba:4A,LIB,McKennon,1
+san-saba:4A,DEM,Hegar,52
+san-saba:4A,REP,Cornyn,462
+san-saba:4B,GRN,Collins,0
+san-saba:4B,LIB,McKennon,1
+san-saba:4B,DEM,Hegar,9
+san-saba:4B,REP,Cornyn,69
+shackelford:101,,Over Votes,0
+shackelford:101,,Under Votes,7
+shackelford:101,DEM,"Mary ""MJ"" Hegar",30
+shackelford:101,GRN,David B. Collins,0
+shackelford:101,LIB,Kerry Douglas McKennon,1
+shackelford:101,REP,John Cornyn,339
+shackelford:202,,Over Votes,0
+shackelford:202,,Under Votes,7
+shackelford:202,DEM,"Mary ""MJ"" Hegar",23
+shackelford:202,GRN,David B. Collins,2
+shackelford:202,LIB,Kerry Douglas McKennon,6
+shackelford:202,REP,John Cornyn,419
+shackelford:303,,Over Votes,0
+shackelford:303,,Under Votes,3
+shackelford:303,DEM,"Mary ""MJ"" Hegar",10
+shackelford:303,GRN,David B. Collins,0
+shackelford:303,LIB,Kerry Douglas McKennon,3
+shackelford:303,REP,John Cornyn,182
+shackelford:307,,Over Votes,2
+shackelford:307,,Under Votes,2
+shackelford:307,DEM,"Mary ""MJ"" Hegar",13
+shackelford:307,GRN,David B. Collins,0
+shackelford:307,LIB,Kerry Douglas McKennon,0
+shackelford:307,REP,John Cornyn,193
+shackelford:404,,Over Votes,0
+shackelford:404,,Under Votes,2
+shackelford:404,DEM,"Mary ""MJ"" Hegar",0
+shackelford:404,GRN,David B. Collins,0
+shackelford:404,LIB,Kerry Douglas McKennon,0
+shackelford:404,REP,John Cornyn,26
+shackelford:405,,Over Votes,0
+shackelford:405,,Under Votes,2
+shackelford:405,DEM,"Mary ""MJ"" Hegar",19
+shackelford:405,GRN,David B. Collins,0
+shackelford:405,LIB,Kerry Douglas McKennon,2
+shackelford:405,REP,John Cornyn,149
+shackelford:406,,Over Votes,0
+shackelford:406,,Under Votes,3
+shackelford:406,DEM,"Mary ""MJ"" Hegar",20
+shackelford:406,GRN,David B. Collins,1
+shackelford:406,LIB,Kerry Douglas McKennon,2
+shackelford:406,REP,John Cornyn,167
+throckmorton:1,GRN,David B. Collins,1
+throckmorton:1,DEM,"Mary ""Mj"" Hegar",8
+throckmorton:1,LIB,Kerry Douglas Mc Kennon,1
+throckmorton:1,REP,John Cornyn,226
+throckmorton:2,GRN,David B. Collins,1
+throckmorton:2,DEM,"Mary ""Mj"" Hegar",16
+throckmorton:2,LIB,Kerry Douglas Mc Kennon,1
+throckmorton:2,REP,John Cornyn,194
+throckmorton:3003,GRN,David B. Collins,1
+throckmorton:3003,DEM,"Mary ""Mj"" Hegar",30
+throckmorton:3003,LIB,Kerry Douglas Mc Kennon,4
+throckmorton:3003,REP,John Cornyn,194
+throckmorton:4005,GRN,David B. Collins,0
+throckmorton:4005,DEM,"Mary ""Mj"" Hegar",13
+throckmorton:4005,LIB,Kerry Douglas Mc Kennon,0
+throckmorton:4005,REP,John Cornyn,45
+throckmorton:4006,GRN,David B. Collins,0
+throckmorton:4006,DEM,"Mary ""Mj"" Hegar",9
+throckmorton:4006,LIB,Kerry Douglas Mc Kennon,1
+throckmorton:4006,REP,John Cornyn,129
+young:10,DEM,"Mary ""MJ"" Hegar",25
+young:10,GRN,David B. Collins,0
+young:10,LIB,Kerry Douglas McKennon,1
+young:10,REP,John Cornyn,280
+young:16,DEM,"Mary ""MJ"" Hegar",4
+young:16,GRN,David B. Collins,3
+young:16,LIB,Kerry Douglas McKennon,1
+young:16,REP,John Cornyn,185
+young:20,DEM,"Mary ""MJ"" Hegar",18
+young:20,GRN,David B. Collins,1
+young:20,LIB,Kerry Douglas McKennon,6
+young:20,REP,John Cornyn,153
+young:22,DEM,"Mary ""MJ"" Hegar",221
+young:22,GRN,David B. Collins,4
+young:22,LIB,Kerry Douglas McKennon,32
+young:22,REP,John Cornyn,2097
+young:23,DEM,"Mary ""MJ"" Hegar",204
+young:23,GRN,David B. Collins,9
+young:23,LIB,Kerry Douglas McKennon,27
+young:23,REP,John Cornyn,1175
+young:24,DEM,"Mary ""MJ"" Hegar",196
+young:24,GRN,David B. Collins,2
+young:24,LIB,Kerry Douglas McKennon,20
+young:24,REP,John Cornyn,1038
+young:5,DEM,"Mary ""MJ"" Hegar",276
+young:5,GRN,David B. Collins,5
+young:5,LIB,Kerry Douglas McKennon,32
+young:5,REP,John Cornyn,1784
+young:6,DEM,"Mary ""MJ"" Hegar",14
+young:6,GRN,David B. Collins,1
+young:6,LIB,Kerry Douglas McKennon,0
+young:6,REP,John Cornyn,152
+young:7,DEM,"Mary ""MJ"" Hegar",9
+young:7,GRN,David B. Collins,1
+young:7,LIB,Kerry Douglas McKennon,1
+young:7,REP,John Cornyn,132

@@ -1,0 +1,518 @@
+precinct,party,candidate,votes
+freestone:10,,Write-in,1
+freestone:10,DEM,"Mary ""MJ"" Hegar",19
+freestone:10,GRN,David B. Collins,1
+freestone:10,LIB,Kerry Douglas McKennon,6
+freestone:10,REP,John Cornyn,218
+freestone:11,,Write-in,1
+freestone:11,DEM,"Mary ""MJ"" Hegar",168
+freestone:11,GRN,David B. Collins,5
+freestone:11,LIB,Kerry Douglas McKennon,9
+freestone:11,REP,John Cornyn,235
+freestone:13,,Write-in,0
+freestone:13,DEM,"Mary ""MJ"" Hegar",22
+freestone:13,GRN,David B. Collins,1
+freestone:13,LIB,Kerry Douglas McKennon,4
+freestone:13,REP,John Cornyn,230
+freestone:14,,Write-in,0
+freestone:14,DEM,"Mary ""MJ"" Hegar",61
+freestone:14,GRN,David B. Collins,1
+freestone:14,LIB,Kerry Douglas McKennon,3
+freestone:14,REP,John Cornyn,292
+freestone:3,,Write-in,0
+freestone:3,DEM,"Mary ""MJ"" Hegar",5
+freestone:3,GRN,David B. Collins,0
+freestone:3,LIB,Kerry Douglas McKennon,1
+freestone:3,REP,John Cornyn,113
+freestone:4,,Write-in,0
+freestone:4,DEM,"Mary ""MJ"" Hegar",36
+freestone:4,GRN,David B. Collins,3
+freestone:4,LIB,Kerry Douglas McKennon,5
+freestone:4,REP,John Cornyn,281
+freestone:5,,Write-in,0
+freestone:5,DEM,"Mary ""MJ"" Hegar",347
+freestone:5,GRN,David B. Collins,8
+freestone:5,LIB,Kerry Douglas McKennon,19
+freestone:5,REP,John Cornyn,1158
+houston:1,GRN,David B. Collins,2
+houston:1,LIB,Kerry Douglas McKennon,8
+houston:1,,Write-in,0
+houston:1,DEM,"Mary ""MJ"" Hegar",276
+houston:1,REP,John Cornyn,472
+houston:10,GRN,David B. Collins,2
+houston:10,LIB,Kerry Douglas McKennon,3
+houston:10,,Write-in,0
+houston:10,DEM,"Mary ""MJ"" Hegar",35
+houston:10,REP,John Cornyn,177
+houston:11,GRN,David B. Collins,0
+houston:11,LIB,Kerry Douglas McKennon,3
+houston:11,,Write-in,0
+houston:11,DEM,"Mary ""MJ"" Hegar",12
+houston:11,REP,John Cornyn,93
+houston:12,GRN,David B. Collins,0
+houston:12,LIB,Kerry Douglas McKennon,0
+houston:12,,Write-in,0
+houston:12,DEM,"Mary ""MJ"" Hegar",15
+houston:12,REP,John Cornyn,91
+houston:14,GRN,David B. Collins,1
+houston:14,LIB,Kerry Douglas McKennon,1
+houston:14,,Write-in,0
+houston:14,DEM,"Mary ""MJ"" Hegar",22
+houston:14,REP,John Cornyn,162
+houston:15,GRN,David B. Collins,0
+houston:15,LIB,Kerry Douglas McKennon,0
+houston:15,,Write-in,0
+houston:15,DEM,"Mary ""MJ"" Hegar",42
+houston:15,REP,John Cornyn,157
+houston:16,GRN,David B. Collins,0
+houston:16,LIB,Kerry Douglas McKennon,4
+houston:16,,Write-in,0
+houston:16,DEM,"Mary ""MJ"" Hegar",19
+houston:16,REP,John Cornyn,202
+houston:17,GRN,David B. Collins,0
+houston:17,LIB,Kerry Douglas McKennon,0
+houston:17,,Write-in,0
+houston:17,DEM,"Mary ""MJ"" Hegar",12
+houston:17,REP,John Cornyn,220
+houston:18,GRN,David B. Collins,1
+houston:18,LIB,Kerry Douglas McKennon,0
+houston:18,,Write-in,0
+houston:18,DEM,"Mary ""MJ"" Hegar",40
+houston:18,REP,John Cornyn,87
+houston:19,GRN,David B. Collins,2
+houston:19,LIB,Kerry Douglas McKennon,3
+houston:19,,Write-in,0
+houston:19,DEM,"Mary ""MJ"" Hegar",99
+houston:19,REP,John Cornyn,370
+houston:2,GRN,David B. Collins,5
+houston:2,LIB,Kerry Douglas McKennon,5
+houston:2,,Write-in,0
+houston:2,DEM,"Mary ""MJ"" Hegar",266
+houston:2,REP,John Cornyn,702
+houston:20,GRN,David B. Collins,0
+houston:20,LIB,Kerry Douglas McKennon,1
+houston:20,,Write-in,0
+houston:20,DEM,"Mary ""MJ"" Hegar",15
+houston:20,REP,John Cornyn,150
+houston:21,GRN,David B. Collins,0
+houston:21,LIB,Kerry Douglas McKennon,3
+houston:21,,Write-in,0
+houston:21,DEM,"Mary ""MJ"" Hegar",56
+houston:21,REP,John Cornyn,206
+houston:22,GRN,David B. Collins,0
+houston:22,LIB,Kerry Douglas McKennon,6
+houston:22,,Write-in,0
+houston:22,DEM,"Mary ""MJ"" Hegar",38
+houston:22,REP,John Cornyn,154
+houston:3,GRN,David B. Collins,3
+houston:3,LIB,Kerry Douglas McKennon,9
+houston:3,,Write-in,0
+houston:3,DEM,"Mary ""MJ"" Hegar",509
+houston:3,REP,John Cornyn,323
+houston:4,GRN,David B. Collins,4
+houston:4,LIB,Kerry Douglas McKennon,15
+houston:4,,Write-in,0
+houston:4,DEM,"Mary ""MJ"" Hegar",326
+houston:4,REP,John Cornyn,893
+houston:5,GRN,David B. Collins,5
+houston:5,LIB,Kerry Douglas McKennon,12
+houston:5,,Write-in,1
+houston:5,DEM,"Mary ""MJ"" Hegar",126
+houston:5,REP,John Cornyn,812
+houston:6,GRN,David B. Collins,0
+houston:6,LIB,Kerry Douglas McKennon,9
+houston:6,,Write-in,0
+houston:6,DEM,"Mary ""MJ"" Hegar",187
+houston:6,REP,John Cornyn,576
+houston:7,GRN,David B. Collins,1
+houston:7,LIB,Kerry Douglas McKennon,5
+houston:7,,Write-in,1
+houston:7,DEM,"Mary ""MJ"" Hegar",69
+houston:7,REP,John Cornyn,565
+houston:8,GRN,David B. Collins,2
+houston:8,LIB,Kerry Douglas McKennon,1
+houston:8,,Write-in,0
+houston:8,DEM,"Mary ""MJ"" Hegar",46
+houston:8,REP,John Cornyn,238
+houston:9,GRN,David B. Collins,0
+houston:9,LIB,Kerry Douglas McKennon,4
+houston:9,,Write-in,0
+houston:9,DEM,"Mary ""MJ"" Hegar",20
+houston:9,REP,John Cornyn,334
+milam:101,,Over Votes,1
+milam:101,,Ricardo Turullois-Bonilla (W),0
+milam:101,,Under Votes,60
+milam:101,DEM,"Mary ""MJ"" Hegar",349
+milam:101,GRN,David B. Collins,7
+milam:101,LIB,Kerry Douglas McKennon,21
+milam:101,REP,John Cornyn,1278
+milam:105,,Over Votes,0
+milam:105,,Ricardo Turullois-Bonilla (W),0
+milam:105,,Under Votes,24
+milam:105,DEM,"Mary ""MJ"" Hegar",140
+milam:105,GRN,David B. Collins,4
+milam:105,LIB,Kerry Douglas McKennon,12
+milam:105,REP,John Cornyn,628
+milam:203,,Over Votes,0
+milam:203,,Ricardo Turullois-Bonilla (W),0
+milam:203,,Under Votes,6
+milam:203,DEM,"Mary ""MJ"" Hegar",49
+milam:203,GRN,David B. Collins,4
+milam:203,LIB,Kerry Douglas McKennon,1
+milam:203,REP,John Cornyn,217
+milam:207,,Over Votes,0
+milam:207,,Ricardo Turullois-Bonilla (W),0
+milam:207,,Under Votes,16
+milam:207,DEM,"Mary ""MJ"" Hegar",116
+milam:207,GRN,David B. Collins,3
+milam:207,LIB,Kerry Douglas McKennon,8
+milam:207,REP,John Cornyn,242
+milam:210,,Over Votes,0
+milam:210,,Ricardo Turullois-Bonilla (W),0
+milam:210,,Under Votes,12
+milam:210,DEM,"Mary ""MJ"" Hegar",78
+milam:210,GRN,David B. Collins,2
+milam:210,LIB,Kerry Douglas McKennon,3
+milam:210,REP,John Cornyn,305
+milam:212,,Over Votes,0
+milam:212,,Ricardo Turullois-Bonilla (W),0
+milam:212,,Under Votes,46
+milam:212,DEM,"Mary ""MJ"" Hegar",368
+milam:212,GRN,David B. Collins,8
+milam:212,LIB,Kerry Douglas McKennon,17
+milam:212,REP,John Cornyn,761
+milam:316,,Over Votes,0
+milam:316,,Ricardo Turullois-Bonilla (W),0
+milam:316,,Under Votes,9
+milam:316,DEM,"Mary ""MJ"" Hegar",99
+milam:316,GRN,David B. Collins,1
+milam:316,LIB,Kerry Douglas McKennon,6
+milam:316,REP,John Cornyn,378
+milam:317,,Over Votes,0
+milam:317,,Ricardo Turullois-Bonilla (W),0
+milam:317,,Under Votes,17
+milam:317,DEM,"Mary ""MJ"" Hegar",120
+milam:317,GRN,David B. Collins,4
+milam:317,LIB,Kerry Douglas McKennon,10
+milam:317,REP,John Cornyn,724
+milam:318,,Over Votes,0
+milam:318,,Ricardo Turullois-Bonilla (W),0
+milam:318,,Under Votes,44
+milam:318,DEM,"Mary ""MJ"" Hegar",410
+milam:318,GRN,David B. Collins,3
+milam:318,LIB,Kerry Douglas McKennon,23
+milam:318,REP,John Cornyn,1190
+milam:419,,Over Votes,1
+milam:419,,Ricardo Turullois-Bonilla (W),0
+milam:419,,Under Votes,37
+milam:419,DEM,"Mary ""MJ"" Hegar",354
+milam:419,GRN,David B. Collins,10
+milam:419,LIB,Kerry Douglas McKennon,16
+milam:419,REP,John Cornyn,817
+milam:420,,Over Votes,0
+milam:420,,Ricardo Turullois-Bonilla (W),0
+milam:420,,Under Votes,34
+milam:420,DEM,"Mary ""MJ"" Hegar",299
+milam:420,GRN,David B. Collins,8
+milam:420,LIB,Kerry Douglas McKennon,19
+milam:420,REP,John Cornyn,1219
+nacogdoches:12,GRN,David B. Collins,5
+nacogdoches:12,REP,John Cornyn,1205
+nacogdoches:12,LIB,Kerry Douglas McKennon,24
+nacogdoches:12,DEM,"Mary ""MJ"" Hegar",223
+nacogdoches:12,,Ricardo Turullols-Bonilla,0
+nacogdoches:13,GRN,David B. Collins,7
+nacogdoches:13,REP,John Cornyn,911
+nacogdoches:13,LIB,Kerry Douglas McKennon,10
+nacogdoches:13,DEM,"Mary ""MJ"" Hegar",159
+nacogdoches:13,,Ricardo Turullols-Bonilla,0
+nacogdoches:14,GRN,David B. Collins,10
+nacogdoches:14,REP,John Cornyn,1659
+nacogdoches:14,LIB,Kerry Douglas McKennon,28
+nacogdoches:14,DEM,"Mary ""MJ"" Hegar",415
+nacogdoches:14,,Ricardo Turullols-Bonilla,0
+nacogdoches:15,GRN,David B. Collins,3
+nacogdoches:15,REP,John Cornyn,948
+nacogdoches:15,LIB,Kerry Douglas McKennon,16
+nacogdoches:15,DEM,"Mary ""MJ"" Hegar",163
+nacogdoches:15,,Ricardo Turullols-Bonilla,0
+nacogdoches:16,GRN,David B. Collins,7
+nacogdoches:16,REP,John Cornyn,1560
+nacogdoches:16,LIB,Kerry Douglas McKennon,36
+nacogdoches:16,DEM,"Mary ""MJ"" Hegar",416
+nacogdoches:16,,Ricardo Turullols-Bonilla,0
+nacogdoches:17,GRN,David B. Collins,1
+nacogdoches:17,REP,John Cornyn,166
+nacogdoches:17,LIB,Kerry Douglas McKennon,4
+nacogdoches:17,DEM,"Mary ""MJ"" Hegar",140
+nacogdoches:17,,Ricardo Turullols-Bonilla,0
+nacogdoches:21,GRN,David B. Collins,4
+nacogdoches:21,REP,John Cornyn,1005
+nacogdoches:21,LIB,Kerry Douglas McKennon,20
+nacogdoches:21,DEM,"Mary ""MJ"" Hegar",306
+nacogdoches:21,,Ricardo Turullols-Bonilla,0
+nacogdoches:22,GRN,David B. Collins,2
+nacogdoches:22,REP,John Cornyn,40
+nacogdoches:22,LIB,Kerry Douglas McKennon,2
+nacogdoches:22,DEM,"Mary ""MJ"" Hegar",34
+nacogdoches:22,,Ricardo Turullols-Bonilla,0
+nacogdoches:23,GRN,David B. Collins,1
+nacogdoches:23,REP,John Cornyn,103
+nacogdoches:23,LIB,Kerry Douglas McKennon,5
+nacogdoches:23,DEM,"Mary ""MJ"" Hegar",109
+nacogdoches:23,,Ricardo Turullols-Bonilla,0
+nacogdoches:24,GRN,David B. Collins,6
+nacogdoches:24,REP,John Cornyn,223
+nacogdoches:24,LIB,Kerry Douglas McKennon,24
+nacogdoches:24,DEM,"Mary ""MJ"" Hegar",532
+nacogdoches:24,,Ricardo Turullols-Bonilla,0
+nacogdoches:25,GRN,David B. Collins,1
+nacogdoches:25,REP,John Cornyn,34
+nacogdoches:25,LIB,Kerry Douglas McKennon,1
+nacogdoches:25,DEM,"Mary ""MJ"" Hegar",36
+nacogdoches:25,,Ricardo Turullols-Bonilla,0
+nacogdoches:26,GRN,David B. Collins,25
+nacogdoches:26,REP,John Cornyn,978
+nacogdoches:26,LIB,Kerry Douglas McKennon,59
+nacogdoches:26,DEM,"Mary ""MJ"" Hegar",1004
+nacogdoches:26,,Ricardo Turullols-Bonilla,0
+nacogdoches:27,GRN,David B. Collins,3
+nacogdoches:27,REP,John Cornyn,59
+nacogdoches:27,LIB,Kerry Douglas McKennon,10
+nacogdoches:27,DEM,"Mary ""MJ"" Hegar",625
+nacogdoches:27,,Ricardo Turullols-Bonilla,0
+nacogdoches:30,GRN,David B. Collins,3
+nacogdoches:30,REP,John Cornyn,92
+nacogdoches:30,LIB,Kerry Douglas McKennon,14
+nacogdoches:30,DEM,"Mary ""MJ"" Hegar",199
+nacogdoches:30,,Ricardo Turullols-Bonilla,0
+nacogdoches:31,GRN,David B. Collins,4
+nacogdoches:31,REP,John Cornyn,190
+nacogdoches:31,LIB,Kerry Douglas McKennon,11
+nacogdoches:31,DEM,"Mary ""MJ"" Hegar",207
+nacogdoches:31,,Ricardo Turullols-Bonilla,0
+nacogdoches:32,GRN,David B. Collins,28
+nacogdoches:32,REP,John Cornyn,1021
+nacogdoches:32,LIB,Kerry Douglas McKennon,59
+nacogdoches:32,DEM,"Mary ""MJ"" Hegar",1185
+nacogdoches:32,,Ricardo Turullols-Bonilla,1
+nacogdoches:33,GRN,David B. Collins,16
+nacogdoches:33,REP,John Cornyn,2300
+nacogdoches:33,LIB,Kerry Douglas McKennon,73
+nacogdoches:33,DEM,"Mary ""MJ"" Hegar",1285
+nacogdoches:33,,Ricardo Turullols-Bonilla,1
+nacogdoches:34,GRN,David B. Collins,2
+nacogdoches:34,REP,John Cornyn,49
+nacogdoches:34,LIB,Kerry Douglas McKennon,1
+nacogdoches:34,DEM,"Mary ""MJ"" Hegar",50
+nacogdoches:34,,Ricardo Turullols-Bonilla,0
+nacogdoches:41,GRN,David B. Collins,6
+nacogdoches:41,REP,John Cornyn,372
+nacogdoches:41,LIB,Kerry Douglas McKennon,18
+nacogdoches:41,DEM,"Mary ""MJ"" Hegar",309
+nacogdoches:41,,Ricardo Turullols-Bonilla,0
+nacogdoches:42,GRN,David B. Collins,9
+nacogdoches:42,REP,John Cornyn,760
+nacogdoches:42,LIB,Kerry Douglas McKennon,17
+nacogdoches:42,DEM,"Mary ""MJ"" Hegar",378
+nacogdoches:42,,Ricardo Turullols-Bonilla,1
+nacogdoches:43,GRN,David B. Collins,3
+nacogdoches:43,REP,John Cornyn,756
+nacogdoches:43,LIB,Kerry Douglas McKennon,12
+nacogdoches:43,DEM,"Mary ""MJ"" Hegar",223
+nacogdoches:43,,Ricardo Turullols-Bonilla,0
+nacogdoches:44,GRN,David B. Collins,8
+nacogdoches:44,REP,John Cornyn,1130
+nacogdoches:44,LIB,Kerry Douglas McKennon,8
+nacogdoches:44,DEM,"Mary ""MJ"" Hegar",196
+nacogdoches:44,,Ricardo Turullols-Bonilla,0
+nacogdoches:45,GRN,David B. Collins,3
+nacogdoches:45,REP,John Cornyn,544
+nacogdoches:45,LIB,Kerry Douglas McKennon,7
+nacogdoches:45,DEM,"Mary ""MJ"" Hegar",91
+nacogdoches:45,,Ricardo Turullols-Bonilla,0
+nacogdoches:46,GRN,David B. Collins,2
+nacogdoches:46,REP,John Cornyn,609
+nacogdoches:46,LIB,Kerry Douglas McKennon,6
+nacogdoches:46,DEM,"Mary ""MJ"" Hegar",131
+nacogdoches:46,,Ricardo Turullols-Bonilla,0
+nacogdoches:47,GRN,David B. Collins,4
+nacogdoches:47,REP,John Cornyn,656
+nacogdoches:47,LIB,Kerry Douglas McKennon,11
+nacogdoches:47,DEM,"Mary ""MJ"" Hegar",71
+nacogdoches:47,,Ricardo Turullols-Bonilla,0
+travis:107,,Write-in,0
+travis:107,DEM,"Mary ""MJ"" Hegar",139
+travis:107,GRN,David B. Collins,0
+travis:107,LIB,Kerry Douglas McKennon,8
+travis:107,REP,John Cornyn,191
+travis:110,,Write-in,2
+travis:110,DEM,"Mary ""MJ"" Hegar",4062
+travis:110,GRN,David B. Collins,52
+travis:110,LIB,Kerry Douglas McKennon,151
+travis:110,REP,John Cornyn,1909
+travis:137,,Write-in,4
+travis:137,DEM,"Mary ""MJ"" Hegar",5839
+travis:137,GRN,David B. Collins,59
+travis:137,LIB,Kerry Douglas McKennon,210
+travis:137,REP,John Cornyn,3975
+travis:145,,Write-in,0
+travis:145,DEM,"Mary ""MJ"" Hegar",1385
+travis:145,GRN,David B. Collins,13
+travis:145,LIB,Kerry Douglas McKennon,51
+travis:145,REP,John Cornyn,578
+travis:148,,Write-in,1
+travis:148,DEM,"Mary ""MJ"" Hegar",2461
+travis:148,GRN,David B. Collins,23
+travis:148,LIB,Kerry Douglas McKennon,97
+travis:148,REP,John Cornyn,1086
+travis:150,,Write-in,0
+travis:150,DEM,"Mary ""MJ"" Hegar",880
+travis:150,GRN,David B. Collins,14
+travis:150,LIB,Kerry Douglas McKennon,33
+travis:150,REP,John Cornyn,827
+travis:161,,Write-in,0
+travis:161,DEM,"Mary ""MJ"" Hegar",1072
+travis:161,GRN,David B. Collins,16
+travis:161,LIB,Kerry Douglas McKennon,36
+travis:161,REP,John Cornyn,562
+travis:163,,Write-in,0
+travis:163,DEM,"Mary ""MJ"" Hegar",110
+travis:163,GRN,David B. Collins,1
+travis:163,LIB,Kerry Douglas McKennon,11
+travis:163,REP,John Cornyn,184
+travis:219,,Write-in,1
+travis:219,DEM,"Mary ""MJ"" Hegar",1627
+travis:219,GRN,David B. Collins,16
+travis:219,LIB,Kerry Douglas McKennon,74
+travis:219,REP,John Cornyn,823
+trinity:1,DEM,"Mary ""MJ"" Hegar",76
+trinity:1,GRN,David B. Collins,1
+trinity:1,LIB,Kerry Douglas McKennon,7
+trinity:1,REP,John Cornyn,367
+trinity:10,DEM,"Mary ""MJ"" Hegar",13
+trinity:10,GRN,David B. Collins,1
+trinity:10,LIB,Kerry Douglas McKennon,2
+trinity:10,REP,John Cornyn,215
+trinity:11,DEM,"Mary ""MJ"" Hegar",203
+trinity:11,GRN,David B. Collins,6
+trinity:11,LIB,Kerry Douglas McKennon,12
+trinity:11,REP,John Cornyn,1060
+trinity:12,DEM,"Mary ""MJ"" Hegar",20
+trinity:12,GRN,David B. Collins,0
+trinity:12,LIB,Kerry Douglas McKennon,1
+trinity:12,REP,John Cornyn,70
+trinity:14,DEM,"Mary ""MJ"" Hegar",74
+trinity:14,GRN,David B. Collins,3
+trinity:14,LIB,Kerry Douglas McKennon,4
+trinity:14,REP,John Cornyn,330
+trinity:15,DEM,"Mary ""MJ"" Hegar",10
+trinity:15,GRN,David B. Collins,0
+trinity:15,LIB,Kerry Douglas McKennon,2
+trinity:15,REP,John Cornyn,70
+trinity:16,DEM,"Mary ""MJ"" Hegar",82
+trinity:16,GRN,David B. Collins,1
+trinity:16,LIB,Kerry Douglas McKennon,4
+trinity:16,REP,John Cornyn,242
+trinity:17,DEM,"Mary ""MJ"" Hegar",270
+trinity:17,GRN,David B. Collins,1
+trinity:17,LIB,Kerry Douglas McKennon,3
+trinity:17,REP,John Cornyn,91
+trinity:18,DEM,"Mary ""MJ"" Hegar",48
+trinity:18,GRN,David B. Collins,1
+trinity:18,LIB,Kerry Douglas McKennon,1
+trinity:18,REP,John Cornyn,15
+trinity:19,DEM,"Mary ""MJ"" Hegar",167
+trinity:19,GRN,David B. Collins,2
+trinity:19,LIB,Kerry Douglas McKennon,13
+trinity:19,REP,John Cornyn,725
+trinity:2,DEM,"Mary ""MJ"" Hegar",61
+trinity:2,GRN,David B. Collins,2
+trinity:2,LIB,Kerry Douglas McKennon,6
+trinity:2,REP,John Cornyn,480
+trinity:20,DEM,"Mary ""MJ"" Hegar",14
+trinity:20,GRN,David B. Collins,0
+trinity:20,LIB,Kerry Douglas McKennon,0
+trinity:20,REP,John Cornyn,39
+trinity:21,DEM,"Mary ""MJ"" Hegar",42
+trinity:21,GRN,David B. Collins,5
+trinity:21,LIB,Kerry Douglas McKennon,3
+trinity:21,REP,John Cornyn,215
+trinity:3,DEM,"Mary ""MJ"" Hegar",37
+trinity:3,GRN,David B. Collins,1
+trinity:3,LIB,Kerry Douglas McKennon,5
+trinity:3,REP,John Cornyn,270
+trinity:4,DEM,"Mary ""MJ"" Hegar",21
+trinity:4,GRN,David B. Collins,0
+trinity:4,LIB,Kerry Douglas McKennon,3
+trinity:4,REP,John Cornyn,184
+trinity:5,DEM,"Mary ""MJ"" Hegar",35
+trinity:5,GRN,David B. Collins,4
+trinity:5,LIB,Kerry Douglas McKennon,4
+trinity:5,REP,John Cornyn,114
+trinity:6,DEM,"Mary ""MJ"" Hegar",13
+trinity:6,GRN,David B. Collins,1
+trinity:6,LIB,Kerry Douglas McKennon,1
+trinity:6,REP,John Cornyn,140
+trinity:7,DEM,"Mary ""MJ"" Hegar",14
+trinity:7,GRN,David B. Collins,0
+trinity:7,LIB,Kerry Douglas McKennon,3
+trinity:7,REP,John Cornyn,146
+trinity:8,DEM,"Mary ""MJ"" Hegar",10
+trinity:8,GRN,David B. Collins,1
+trinity:8,LIB,Kerry Douglas McKennon,5
+trinity:8,REP,John Cornyn,291
+trinity:9,DEM,"Mary ""MJ"" Hegar",48
+trinity:9,GRN,David B. Collins,0
+trinity:9,LIB,Kerry Douglas McKennon,0
+trinity:9,REP,John Cornyn,381
+walker:101,,Write-in,0
+walker:101,DEM,Mary “MJ” Hegar,241
+walker:101,GRN,David B. Collins,6
+walker:101,LIB,Kerry Douglas McKennon,8
+walker:101,REP,John Cornyn,149
+walker:102,,Write-in,4
+walker:102,DEM,Mary “MJ” Hegar,1049
+walker:102,GRN,David B. Collins,15
+walker:102,LIB,Kerry Douglas McKennon,71
+walker:102,REP,John Cornyn,1308
+walker:103,,Write-in,1
+walker:103,DEM,Mary “MJ” Hegar,310
+walker:103,GRN,David B. Collins,6
+walker:103,LIB,Kerry Douglas McKennon,18
+walker:103,REP,John Cornyn,938
+walker:104,,Write-in,1
+walker:104,DEM,Mary “MJ” Hegar,252
+walker:104,GRN,David B. Collins,3
+walker:104,LIB,Kerry Douglas McKennon,19
+walker:104,REP,John Cornyn,1216
+walker:204,,Write-in,1
+walker:204,DEM,Mary “MJ” Hegar,616
+walker:204,GRN,David B. Collins,9
+walker:204,LIB,Kerry Douglas McKennon,26
+walker:204,REP,John Cornyn,1410
+walker:206,,Write-in,0
+walker:206,DEM,Mary “MJ” Hegar,301
+walker:206,GRN,David B. Collins,2
+walker:206,LIB,Kerry Douglas McKennon,13
+walker:206,REP,John Cornyn,416
+walker:301,,Write-in,2
+walker:301,DEM,Mary “MJ” Hegar,900
+walker:301,GRN,David B. Collins,12
+walker:301,LIB,Kerry Douglas McKennon,43
+walker:301,REP,John Cornyn,604
+walker:302,,Write-in,1
+walker:302,DEM,Mary “MJ” Hegar,139
+walker:302,GRN,David B. Collins,4
+walker:302,LIB,Kerry Douglas McKennon,8
+walker:302,REP,John Cornyn,332
+walker:303,,Write-in,0
+walker:303,DEM,Mary “MJ” Hegar,101
+walker:303,GRN,David B. Collins,1
+walker:303,LIB,Kerry Douglas McKennon,8
+walker:303,REP,John Cornyn,366
+walker:304,,Write-in,0
+walker:304,DEM,Mary “MJ” Hegar,540
+walker:304,GRN,David B. Collins,11
+walker:304,LIB,Kerry Douglas McKennon,50
+walker:304,REP,John Cornyn,2115

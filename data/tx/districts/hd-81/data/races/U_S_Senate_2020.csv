@@ -1,0 +1,37 @@
+precinct,party,candidate,votes
+loving:1,DEM,"Mary ""MJ"" Hegar",2
+loving:1,GRN,David B. Collins,0
+loving:1,LIB,Kerry Douglas McKennon,0
+loving:1,REP,John Cornyn,16
+loving:2,DEM,"Mary ""MJ"" Hegar",2
+loving:2,GRN,David B. Collins,0
+loving:2,LIB,Kerry Douglas McKennon,0
+loving:2,REP,John Cornyn,10
+loving:3,DEM,"Mary ""MJ"" Hegar",0
+loving:3,GRN,David B. Collins,0
+loving:3,LIB,Kerry Douglas McKennon,0
+loving:3,REP,John Cornyn,25
+loving:4,DEM,"Mary ""MJ"" Hegar",1
+loving:4,GRN,David B. Collins,0
+loving:4,LIB,Kerry Douglas McKennon,2
+loving:4,REP,John Cornyn,7
+winkler:101,DEM,"Mary ""MJ"" Hegar",90
+winkler:101,GRN,David B. Collins,2
+winkler:101,LIB,Kerry Douglas McKennon,7
+winkler:101,REP,John Cornyn,479
+winkler:201,DEM,"Mary ""MJ"" Hegar",22
+winkler:201,GRN,David B. Collins,1
+winkler:201,LIB,Kerry Douglas McKennon,4
+winkler:201,REP,John Cornyn,163
+winkler:202,DEM,"Mary ""MJ"" Hegar",36
+winkler:202,GRN,David B. Collins,1
+winkler:202,LIB,Kerry Douglas McKennon,6
+winkler:202,REP,John Cornyn,414
+winkler:301,DEM,"Mary ""MJ"" Hegar",71
+winkler:301,GRN,David B. Collins,4
+winkler:301,LIB,Kerry Douglas McKennon,9
+winkler:301,REP,John Cornyn,463
+winkler:401,DEM,"Mary ""MJ"" Hegar",119
+winkler:401,GRN,David B. Collins,4
+winkler:401,LIB,Kerry Douglas McKennon,4
+winkler:401,REP,John Cornyn,195

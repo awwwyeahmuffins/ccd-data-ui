@@ -1,0 +1,95 @@
+precinct,party,candidate,votes
+collingsworth:101,DEM,Staci Williams,40
+collingsworth:101,REP,Jeff Boyd,284
+collingsworth:201,DEM,Staci Williams,32
+collingsworth:201,REP,Jeff Boyd,178
+collingsworth:202,DEM,Staci Williams,2
+collingsworth:202,REP,Jeff Boyd,35
+collingsworth:301,DEM,Staci Williams,32
+collingsworth:301,REP,Jeff Boyd,199
+collingsworth:302,DEM,Staci Williams,4
+collingsworth:302,REP,Jeff Boyd,37
+collingsworth:401,DEM,Staci Williams,28
+collingsworth:401,REP,Jeff Boyd,184
+collingsworth:402,DEM,Staci Williams,6
+collingsworth:402,REP,Jeff Boyd,65
+donley:101,DEM,Staci Williams,16
+donley:101,REP,Jeff Boyd,124
+donley:102,DEM,Staci Williams,27
+donley:102,REP,Jeff Boyd,205
+donley:201,DEM,Staci Williams,59
+donley:201,REP,Jeff Boyd,443
+donley:301,DEM,Staci Williams,11
+donley:301,REP,Jeff Boyd,153
+donley:303,DEM,Staci Williams,17
+donley:303,REP,Jeff Boyd,191
+donley:401,DEM,Staci Williams,42
+donley:401,REP,Jeff Boyd,280
+hockley:11,DEM,Staci Williams,81
+hockley:11,REP,Jeff Boyd,429
+hockley:14,DEM,Staci Williams,76
+hockley:14,REP,Jeff Boyd,494
+hockley:15,DEM,Staci Williams,37
+hockley:15,REP,Jeff Boyd,264
+hockley:16,DEM,Staci Williams,184
+hockley:16,REP,Jeff Boyd,1128
+hockley:21,DEM,Staci Williams,241
+hockley:21,REP,Jeff Boyd,958
+hockley:24,DEM,Staci Williams,61
+hockley:24,REP,Jeff Boyd,441
+hockley:32,DEM,Staci Williams,219
+hockley:32,REP,Jeff Boyd,729
+hockley:33,DEM,Staci Williams,5
+hockley:33,REP,Jeff Boyd,65
+hockley:35,DEM,Staci Williams,21
+hockley:35,REP,Jeff Boyd,72
+hockley:36,DEM,Staci Williams,69
+hockley:36,REP,Jeff Boyd,128
+hockley:43,DEM,Staci Williams,24
+hockley:43,REP,Jeff Boyd,191
+hockley:44,DEM,Staci Williams,113
+hockley:44,REP,Jeff Boyd,387
+hockley:45,DEM,Staci Williams,190
+hockley:45,REP,Jeff Boyd,724
+hockley:46,DEM,Staci Williams,69
+hockley:46,REP,Jeff Boyd,352
+roberts:1,DEM,Staci Williams,2
+roberts:1,REP,Jeff Boyd,123
+roberts:2,DEM,Staci Williams,3
+roberts:2,REP,Jeff Boyd,133
+roberts:3,DEM,Staci Williams,4
+roberts:3,REP,Jeff Boyd,115
+roberts:4-1,DEM,Staci Williams,2
+roberts:4-1,REP,Jeff Boyd,71
+roberts:4-2,DEM,Staci Williams,4
+roberts:4-2,REP,Jeff Boyd,72
+wheeler:1,,Jeff Boyd,180
+wheeler:1,,Staci Williams,3
+wheeler:1,,William Bryan Strange III,2
+wheeler:10,,Jeff Boyd,82
+wheeler:10,,Staci Williams,3
+wheeler:10,,William Bryan Strange III,1
+wheeler:2,,Jeff Boyd,348
+wheeler:2,,Staci Williams,18
+wheeler:2,,William Bryan Strange III,7
+wheeler:3,,Jeff Boyd,295
+wheeler:3,,Staci Williams,33
+wheeler:3,,William Bryan Strange III,4
+wheeler:4,,Jeff Boyd,109
+wheeler:4,,Staci Williams,15
+wheeler:4,,William Bryan Strange III,3
+wheeler:5,,Jeff Boyd,77
+wheeler:5,,Staci Williams,2
+wheeler:5,,William Bryan Strange III,0
+wheeler:6,,Jeff Boyd,66
+wheeler:6,,Staci Williams,7
+wheeler:6,,William Bryan Strange III,0
+wheeler:7,,Jeff Boyd,87
+wheeler:7,,Staci Williams,3
+wheeler:7,,William Bryan Strange III,0
+wheeler:8,,Jeff Boyd,322
+wheeler:8,,Staci Williams,34
+wheeler:8,,William Bryan Strange III,7
+wheeler:9,,Jeff Boyd,479
+wheeler:9,,Staci Williams,48
+wheeler:9,,William Bryan Strange III,4

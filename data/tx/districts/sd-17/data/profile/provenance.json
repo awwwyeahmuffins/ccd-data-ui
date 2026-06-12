@@ -1,0 +1,18 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANS2168",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "brazoria": 27,
+      "colorado": 11,
+      "fort-bend": 49,
+      "harris": 67,
+      "jackson": 9,
+      "matagorda": 18,
+      "waller": 6,
+      "wharton": 12
+    },
+    "generated": "2026-06-12"
+  }
+}

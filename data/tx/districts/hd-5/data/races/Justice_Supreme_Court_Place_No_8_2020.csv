@@ -1,0 +1,118 @@
+precinct,party,candidate,votes
+camp:1001,DEM,Gisela D. Triana,323
+camp:1001,LIB,Tom Oxford,23
+camp:1001,REP,Brett Busby,890
+camp:2002,DEM,Gisela D. Triana,263
+camp:2002,LIB,Tom Oxford,15
+camp:2002,REP,Brett Busby,1188
+camp:3003,DEM,Gisela D. Triana,424
+camp:3003,LIB,Tom Oxford,19
+camp:3003,REP,Brett Busby,559
+camp:4004,DEM,Gisela D. Triana,298
+camp:4004,LIB,Tom Oxford,14
+camp:4004,REP,Brett Busby,926
+upshur:1,DEM,Gisela D. Triana,207
+upshur:1,LIB,Tom Oxford,16
+upshur:1,REP,Brett Busby,1336
+upshur:10,DEM,Gisela D. Triana,160
+upshur:10,LIB,Tom Oxford,36
+upshur:10,REP,Brett Busby,1430
+upshur:11,DEM,Gisela D. Triana,93
+upshur:11,LIB,Tom Oxford,11
+upshur:11,REP,Brett Busby,383
+upshur:12,DEM,Gisela D. Triana,73
+upshur:12,LIB,Tom Oxford,12
+upshur:12,REP,Brett Busby,651
+upshur:13,DEM,Gisela D. Triana,135
+upshur:13,LIB,Tom Oxford,10
+upshur:13,REP,Brett Busby,499
+upshur:14,DEM,Gisela D. Triana,57
+upshur:14,LIB,Tom Oxford,7
+upshur:14,REP,Brett Busby,306
+upshur:15,DEM,Gisela D. Triana,98
+upshur:15,LIB,Tom Oxford,27
+upshur:15,REP,Brett Busby,1240
+upshur:16,DEM,Gisela D. Triana,227
+upshur:16,LIB,Tom Oxford,13
+upshur:16,REP,Brett Busby,781
+upshur:17,DEM,Gisela D. Triana,359
+upshur:17,LIB,Tom Oxford,30
+upshur:17,REP,Brett Busby,986
+upshur:18,DEM,Gisela D. Triana,119
+upshur:18,LIB,Tom Oxford,13
+upshur:18,REP,Brett Busby,254
+upshur:19,DEM,Gisela D. Triana,3
+upshur:19,LIB,Tom Oxford,0
+upshur:19,REP,Brett Busby,4
+upshur:2,DEM,Gisela D. Triana,117
+upshur:2,LIB,Tom Oxford,29
+upshur:2,REP,Brett Busby,1557
+upshur:20,DEM,Gisela D. Triana,9
+upshur:20,LIB,Tom Oxford,1
+upshur:20,REP,Brett Busby,99
+upshur:21,DEM,Gisela D. Triana,0
+upshur:21,LIB,Tom Oxford,0
+upshur:21,REP,Brett Busby,0
+upshur:3,DEM,Gisela D. Triana,125
+upshur:3,LIB,Tom Oxford,14
+upshur:3,REP,Brett Busby,913
+upshur:4,DEM,Gisela D. Triana,128
+upshur:4,LIB,Tom Oxford,28
+upshur:4,REP,Brett Busby,693
+upshur:5,DEM,Gisela D. Triana,99
+upshur:5,LIB,Tom Oxford,11
+upshur:5,REP,Brett Busby,390
+upshur:6,DEM,Gisela D. Triana,142
+upshur:6,LIB,Tom Oxford,15
+upshur:6,REP,Brett Busby,883
+upshur:7,DEM,Gisela D. Triana,237
+upshur:7,LIB,Tom Oxford,38
+upshur:7,REP,Brett Busby,1388
+upshur:8,DEM,Gisela D. Triana,102
+upshur:8,LIB,Tom Oxford,13
+upshur:8,REP,Brett Busby,540
+upshur:9,DEM,Gisela D. Triana,208
+upshur:9,LIB,Tom Oxford,40
+upshur:9,REP,Brett Busby,1081
+wood:1-1,DEM,Gisela D. Triana,297
+wood:1-1,LIB,Tom Oxford,44
+wood:1-1,REP,Brett Busby,1818
+wood:1-2,DEM,Gisela D. Triana,230
+wood:1-2,LIB,Tom Oxford,19
+wood:1-2,REP,Brett Busby,1685
+wood:1-3,DEM,Gisela D. Triana,200
+wood:1-3,LIB,Tom Oxford,27
+wood:1-3,REP,Brett Busby,1387
+wood:1-4,DEM,Gisela D. Triana,39
+wood:1-4,LIB,Tom Oxford,7
+wood:1-4,REP,Brett Busby,495
+wood:2-1,DEM,Gisela D. Triana,28
+wood:2-1,LIB,Tom Oxford,7
+wood:2-1,REP,Brett Busby,313
+wood:2-2,DEM,Gisela D. Triana,387
+wood:2-2,LIB,Tom Oxford,51
+wood:2-2,REP,Brett Busby,2234
+wood:2-3,DEM,Gisela D. Triana,393
+wood:2-3,LIB,Tom Oxford,46
+wood:2-3,REP,Brett Busby,1696
+wood:3-1,DEM,Gisela D. Triana,116
+wood:3-1,LIB,Tom Oxford,14
+wood:3-1,REP,Brett Busby,761
+wood:3-2,DEM,Gisela D. Triana,362
+wood:3-2,LIB,Tom Oxford,37
+wood:3-2,REP,Brett Busby,2043
+wood:3-3,DEM,Gisela D. Triana,407
+wood:3-3,LIB,Tom Oxford,65
+wood:3-3,REP,Brett Busby,1936
+wood:4-1,DEM,Gisela D. Triana,63
+wood:4-1,LIB,Tom Oxford,6
+wood:4-1,REP,Brett Busby,509
+wood:4-2,DEM,Gisela D. Triana,224
+wood:4-2,LIB,Tom Oxford,29
+wood:4-2,REP,Brett Busby,1629
+wood:4-3,DEM,Gisela D. Triana,301
+wood:4-3,LIB,Tom Oxford,52
+wood:4-3,REP,Brett Busby,1789
+wood:4-4,DEM,Gisela D. Triana,44
+wood:4-4,LIB,Tom Oxford,12
+wood:4-4,REP,Brett Busby,418

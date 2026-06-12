@@ -1,0 +1,21 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANS2168",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "bastrop": 26,
+      "brazos": 98,
+      "freestone": 15,
+      "leon": 14,
+      "limestone": 21,
+      "madison": 4,
+      "milam": 11,
+      "robertson": 13,
+      "san-jacinto": 11,
+      "walker": 16,
+      "williamson": 111
+    },
+    "generated": "2026-06-12"
+  }
+}

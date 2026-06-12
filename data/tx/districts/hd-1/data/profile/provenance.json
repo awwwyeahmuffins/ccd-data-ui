@@ -1,0 +1,15 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANH2316",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "bowie": 49,
+      "cass": 18,
+      "lamar": 32,
+      "morris": 8,
+      "red-river": 22
+    },
+    "generated": "2026-06-12"
+  }
+}

@@ -1,0 +1,331 @@
+precinct,party,candidate,votes
+collin:1,DEM,Luke Warford,577
+collin:1,GRN,Hunter Wayne Crow,17
+collin:1,LIB,Jaime Andres Diez,32
+collin:1,REP,Wayne Christian,825
+collin:1,,Over Votes,0
+collin:1,,Under Votes,40
+collin:2,DEM,Luke Warford,936
+collin:2,GRN,Hunter Wayne Crow,30
+collin:2,LIB,Jaime Andres Diez,69
+collin:2,REP,Wayne Christian,1009
+collin:2,,Over Votes,0
+collin:2,,Under Votes,40
+collin:3,DEM,Luke Warford,499
+collin:3,GRN,Hunter Wayne Crow,14
+collin:3,LIB,Jaime Andres Diez,48
+collin:3,REP,Wayne Christian,234
+collin:3,,Over Votes,0
+collin:3,,Under Votes,40
+collin:4,DEM,Luke Warford,453
+collin:4,GRN,Hunter Wayne Crow,13
+collin:4,LIB,Jaime Andres Diez,36
+collin:4,REP,Wayne Christian,1153
+collin:4,,Over Votes,0
+collin:4,,Under Votes,39
+collin:5,DEM,Luke Warford,178
+collin:5,GRN,Hunter Wayne Crow,2
+collin:5,LIB,Jaime Andres Diez,19
+collin:5,REP,Wayne Christian,364
+collin:5,,Over Votes,0
+collin:5,,Under Votes,13
+collin:9,DEM,Luke Warford,582
+collin:9,GRN,Hunter Wayne Crow,23
+collin:9,LIB,Jaime Andres Diez,51
+collin:9,REP,Wayne Christian,919
+collin:9,,Over Votes,0
+collin:9,,Under Votes,36
+collin:10,DEM,Luke Warford,63
+collin:10,GRN,Hunter Wayne Crow,3
+collin:10,LIB,Jaime Andres Diez,10
+collin:10,REP,Wayne Christian,371
+collin:10,,Over Votes,0
+collin:10,,Under Votes,8
+collin:11,DEM,Luke Warford,395
+collin:11,GRN,Hunter Wayne Crow,16
+collin:11,LIB,Jaime Andres Diez,42
+collin:11,REP,Wayne Christian,1786
+collin:11,,Over Votes,0
+collin:11,,Under Votes,52
+collin:16,DEM,Luke Warford,711
+collin:16,GRN,Hunter Wayne Crow,18
+collin:16,LIB,Jaime Andres Diez,57
+collin:16,REP,Wayne Christian,1619
+collin:16,,Over Votes,0
+collin:16,,Under Votes,60
+collin:18,DEM,Luke Warford,66
+collin:18,GRN,Hunter Wayne Crow,5
+collin:18,LIB,Jaime Andres Diez,12
+collin:18,REP,Wayne Christian,358
+collin:18,,Over Votes,0
+collin:18,,Under Votes,16
+collin:32,DEM,Luke Warford,595
+collin:32,GRN,Hunter Wayne Crow,10
+collin:32,LIB,Jaime Andres Diez,50
+collin:32,REP,Wayne Christian,843
+collin:32,,Over Votes,0
+collin:32,,Under Votes,48
+collin:37,DEM,Luke Warford,177
+collin:37,GRN,Hunter Wayne Crow,7
+collin:37,LIB,Jaime Andres Diez,26
+collin:37,REP,Wayne Christian,1147
+collin:37,,Over Votes,0
+collin:37,,Under Votes,35
+collin:38,DEM,Luke Warford,666
+collin:38,GRN,Hunter Wayne Crow,16
+collin:38,LIB,Jaime Andres Diez,48
+collin:38,REP,Wayne Christian,610
+collin:38,,Over Votes,0
+collin:38,,Under Votes,29
+collin:39,DEM,Luke Warford,777
+collin:39,GRN,Hunter Wayne Crow,27
+collin:39,LIB,Jaime Andres Diez,40
+collin:39,REP,Wayne Christian,617
+collin:39,,Over Votes,0
+collin:39,,Under Votes,49
+collin:40,DEM,Luke Warford,689
+collin:40,GRN,Hunter Wayne Crow,19
+collin:40,LIB,Jaime Andres Diez,62
+collin:40,REP,Wayne Christian,1218
+collin:40,,Over Votes,0
+collin:40,,Under Votes,52
+collin:44,DEM,Luke Warford,274
+collin:44,GRN,Hunter Wayne Crow,12
+collin:44,LIB,Jaime Andres Diez,29
+collin:44,REP,Wayne Christian,321
+collin:44,,Over Votes,0
+collin:44,,Under Votes,28
+collin:45,DEM,Luke Warford,649
+collin:45,GRN,Hunter Wayne Crow,17
+collin:45,LIB,Jaime Andres Diez,36
+collin:45,REP,Wayne Christian,1164
+collin:45,,Over Votes,0
+collin:45,,Under Votes,44
+collin:62,DEM,Luke Warford,711
+collin:62,GRN,Hunter Wayne Crow,17
+collin:62,LIB,Jaime Andres Diez,50
+collin:62,REP,Wayne Christian,596
+collin:62,,Over Votes,0
+collin:62,,Under Votes,45
+collin:63,DEM,Luke Warford,565
+collin:63,GRN,Hunter Wayne Crow,8
+collin:63,LIB,Jaime Andres Diez,29
+collin:63,REP,Wayne Christian,724
+collin:63,,Over Votes,0
+collin:63,,Under Votes,39
+collin:66,DEM,Luke Warford,546
+collin:66,GRN,Hunter Wayne Crow,20
+collin:66,LIB,Jaime Andres Diez,39
+collin:66,REP,Wayne Christian,560
+collin:66,,Over Votes,0
+collin:66,,Under Votes,32
+collin:77,DEM,Luke Warford,976
+collin:77,GRN,Hunter Wayne Crow,20
+collin:77,LIB,Jaime Andres Diez,46
+collin:77,REP,Wayne Christian,780
+collin:77,,Over Votes,0
+collin:77,,Under Votes,42
+collin:85,DEM,Luke Warford,886
+collin:85,GRN,Hunter Wayne Crow,22
+collin:85,LIB,Jaime Andres Diez,29
+collin:85,REP,Wayne Christian,684
+collin:85,,Over Votes,0
+collin:85,,Under Votes,45
+collin:91,DEM,Luke Warford,655
+collin:91,GRN,Hunter Wayne Crow,15
+collin:91,LIB,Jaime Andres Diez,33
+collin:91,REP,Wayne Christian,644
+collin:91,,Over Votes,0
+collin:91,,Under Votes,37
+collin:93,DEM,Luke Warford,20
+collin:93,GRN,Hunter Wayne Crow,1
+collin:93,LIB,Jaime Andres Diez,4
+collin:93,REP,Wayne Christian,125
+collin:93,,Over Votes,0
+collin:93,,Under Votes,7
+collin:96,DEM,Luke Warford,204
+collin:96,GRN,Hunter Wayne Crow,6
+collin:96,LIB,Jaime Andres Diez,20
+collin:96,REP,Wayne Christian,280
+collin:96,,Over Votes,0
+collin:96,,Under Votes,15
+collin:98,DEM,Luke Warford,254
+collin:98,GRN,Hunter Wayne Crow,6
+collin:98,LIB,Jaime Andres Diez,18
+collin:98,REP,Wayne Christian,404
+collin:98,,Over Votes,0
+collin:98,,Under Votes,29
+collin:100,DEM,Luke Warford,2
+collin:100,GRN,Hunter Wayne Crow,0
+collin:100,LIB,Jaime Andres Diez,0
+collin:100,REP,Wayne Christian,3
+collin:100,,Over Votes,0
+collin:100,,Under Votes,0
+collin:120,DEM,Luke Warford,795
+collin:120,GRN,Hunter Wayne Crow,17
+collin:120,LIB,Jaime Andres Diez,44
+collin:120,REP,Wayne Christian,1218
+collin:120,,Over Votes,0
+collin:120,,Under Votes,52
+collin:129,DEM,Luke Warford,955
+collin:129,GRN,Hunter Wayne Crow,24
+collin:129,LIB,Jaime Andres Diez,48
+collin:129,REP,Wayne Christian,1236
+collin:129,,Over Votes,0
+collin:129,,Under Votes,56
+collin:130,DEM,Luke Warford,969
+collin:130,GRN,Hunter Wayne Crow,31
+collin:130,LIB,Jaime Andres Diez,62
+collin:130,REP,Wayne Christian,1016
+collin:130,,Over Votes,0
+collin:130,,Under Votes,60
+collin:147,DEM,Luke Warford,434
+collin:147,GRN,Hunter Wayne Crow,9
+collin:147,LIB,Jaime Andres Diez,30
+collin:147,REP,Wayne Christian,487
+collin:147,,Over Votes,0
+collin:147,,Under Votes,20
+collin:157,DEM,Luke Warford,984
+collin:157,GRN,Hunter Wayne Crow,19
+collin:157,LIB,Jaime Andres Diez,46
+collin:157,REP,Wayne Christian,1058
+collin:157,,Over Votes,0
+collin:157,,Under Votes,57
+collin:171,DEM,Luke Warford,532
+collin:171,GRN,Hunter Wayne Crow,13
+collin:171,LIB,Jaime Andres Diez,37
+collin:171,REP,Wayne Christian,598
+collin:171,,Over Votes,0
+collin:171,,Under Votes,42
+collin:172,DEM,Luke Warford,910
+collin:172,GRN,Hunter Wayne Crow,29
+collin:172,LIB,Jaime Andres Diez,98
+collin:172,REP,Wayne Christian,1868
+collin:172,,Over Votes,0
+collin:172,,Under Votes,82
+collin:181,DEM,Luke Warford,369
+collin:181,GRN,Hunter Wayne Crow,10
+collin:181,LIB,Jaime Andres Diez,37
+collin:181,REP,Wayne Christian,701
+collin:181,,Over Votes,0
+collin:181,,Under Votes,30
+collin:182,DEM,Luke Warford,829
+collin:182,GRN,Hunter Wayne Crow,20
+collin:182,LIB,Jaime Andres Diez,55
+collin:182,REP,Wayne Christian,1051
+collin:182,,Over Votes,0
+collin:182,,Under Votes,49
+collin:183,DEM,Luke Warford,9
+collin:183,GRN,Hunter Wayne Crow,0
+collin:183,LIB,Jaime Andres Diez,0
+collin:183,REP,Wayne Christian,36
+collin:183,,Over Votes,0
+collin:183,,Under Votes,1
+collin:185,DEM,Luke Warford,8
+collin:185,GRN,Hunter Wayne Crow,1
+collin:185,LIB,Jaime Andres Diez,0
+collin:185,REP,Wayne Christian,13
+collin:185,,Over Votes,0
+collin:185,,Under Votes,0
+collin:186,DEM,Luke Warford,10
+collin:186,GRN,Hunter Wayne Crow,0
+collin:186,LIB,Jaime Andres Diez,1
+collin:186,REP,Wayne Christian,56
+collin:186,,Over Votes,0
+collin:186,,Under Votes,1
+collin:187,DEM,Luke Warford,32
+collin:187,GRN,Hunter Wayne Crow,2
+collin:187,LIB,Jaime Andres Diez,4
+collin:187,REP,Wayne Christian,294
+collin:187,,Over Votes,0
+collin:187,,Under Votes,5
+collin:188,DEM,Luke Warford,5
+collin:188,GRN,Hunter Wayne Crow,1
+collin:188,LIB,Jaime Andres Diez,0
+collin:188,REP,Wayne Christian,35
+collin:188,,Over Votes,0
+collin:188,,Under Votes,0
+collin:189,DEM,Luke Warford,60
+collin:189,GRN,Hunter Wayne Crow,1
+collin:189,LIB,Jaime Andres Diez,5
+collin:189,REP,Wayne Christian,366
+collin:189,,Over Votes,0
+collin:189,,Under Votes,8
+collin:190,DEM,Luke Warford,5
+collin:190,GRN,Hunter Wayne Crow,0
+collin:190,LIB,Jaime Andres Diez,3
+collin:190,REP,Wayne Christian,33
+collin:190,,Over Votes,0
+collin:190,,Under Votes,1
+collin:198,DEM,Luke Warford,5
+collin:198,GRN,Hunter Wayne Crow,0
+collin:198,LIB,Jaime Andres Diez,1
+collin:198,REP,Wayne Christian,59
+collin:198,,Over Votes,0
+collin:198,,Under Votes,0
+collin:200,DEM,Luke Warford,245
+collin:200,GRN,Hunter Wayne Crow,7
+collin:200,LIB,Jaime Andres Diez,27
+collin:200,REP,Wayne Christian,684
+collin:200,,Over Votes,0
+collin:200,,Under Votes,28
+collin:201,DEM,Luke Warford,0
+collin:201,GRN,Hunter Wayne Crow,0
+collin:201,LIB,Jaime Andres Diez,0
+collin:201,REP,Wayne Christian,0
+collin:201,,Over Votes,0
+collin:201,,Under Votes,0
+collin:215,DEM,Luke Warford,298
+collin:215,GRN,Hunter Wayne Crow,14
+collin:215,LIB,Jaime Andres Diez,30
+collin:215,REP,Wayne Christian,688
+collin:215,,Over Votes,0
+collin:215,,Under Votes,26
+collin:216,DEM,Luke Warford,945
+collin:216,GRN,Hunter Wayne Crow,30
+collin:216,LIB,Jaime Andres Diez,79
+collin:216,REP,Wayne Christian,2199
+collin:216,,Over Votes,0
+collin:216,,Under Votes,79
+collin:218,DEM,Luke Warford,1010
+collin:218,GRN,Hunter Wayne Crow,12
+collin:218,LIB,Jaime Andres Diez,57
+collin:218,REP,Wayne Christian,1150
+collin:218,,Over Votes,0
+collin:218,,Under Votes,52
+collin:222,DEM,Luke Warford,870
+collin:222,GRN,Hunter Wayne Crow,9
+collin:222,LIB,Jaime Andres Diez,39
+collin:222,REP,Wayne Christian,971
+collin:222,,Over Votes,0
+collin:222,,Under Votes,44
+collin:223,DEM,Luke Warford,500
+collin:223,GRN,Hunter Wayne Crow,8
+collin:223,LIB,Jaime Andres Diez,19
+collin:223,REP,Wayne Christian,647
+collin:223,,Over Votes,0
+collin:223,,Under Votes,22
+collin:230,DEM,Luke Warford,956
+collin:230,GRN,Hunter Wayne Crow,24
+collin:230,LIB,Jaime Andres Diez,70
+collin:230,REP,Wayne Christian,931
+collin:230,,Over Votes,0
+collin:230,,Under Votes,58
+collin:242,DEM,Luke Warford,751
+collin:242,GRN,Hunter Wayne Crow,13
+collin:242,LIB,Jaime Andres Diez,36
+collin:242,REP,Wayne Christian,1068
+collin:242,,Over Votes,0
+collin:242,,Under Votes,44
+collin:249,DEM,Luke Warford,202
+collin:249,GRN,Hunter Wayne Crow,6
+collin:249,LIB,Jaime Andres Diez,11
+collin:249,REP,Wayne Christian,150
+collin:249,,Over Votes,0
+collin:249,,Under Votes,11
+collin:251,DEM,Luke Warford,3
+collin:251,GRN,Hunter Wayne Crow,0
+collin:251,LIB,Jaime Andres Diez,0
+collin:251,REP,Wayne Christian,5
+collin:251,,Over Votes,0
+collin:251,,Under Votes,1

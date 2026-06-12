@@ -1,0 +1,127 @@
+precinct,party,candidate,votes
+henderson:1,,Over Votes,0
+henderson:1,,Under Votes,1
+henderson:1,,Write-in,0
+henderson:1,DEM,Beto O'Rourke,68
+henderson:1,GRN,Delilah Barrios,1
+henderson:1,LIB,Mark Tippetts,2
+henderson:1,REP,Greg Abbott,248
+henderson:1A,,Over Votes,0
+henderson:1A,,Under Votes,1
+henderson:1A,,Write-in,0
+henderson:1A,DEM,Beto O'Rourke,110
+henderson:1A,GRN,Delilah Barrios,0
+henderson:1A,LIB,Mark Tippetts,8
+henderson:1A,REP,Greg Abbott,823
+henderson:1M,,Over Votes,0
+henderson:1M,,Under Votes,11
+henderson:1M,,Write-in,1
+henderson:1M,DEM,Beto O'Rourke,233
+henderson:1M,GRN,Delilah Barrios,3
+henderson:1M,LIB,Mark Tippetts,9
+henderson:1M,REP,Greg Abbott,822
+henderson:1MN,,Over Votes,0
+henderson:1MN,,Under Votes,5
+henderson:1MN,,Write-in,1
+henderson:1MN,DEM,Beto O'Rourke,153
+henderson:1MN,GRN,Delilah Barrios,2
+henderson:1MN,LIB,Mark Tippetts,6
+henderson:1MN,REP,Greg Abbott,553
+henderson:1T,,Over Votes,0
+henderson:1T,,Under Votes,8
+henderson:1T,,Write-in,0
+henderson:1T,DEM,Beto O'Rourke,188
+henderson:1T,GRN,Delilah Barrios,2
+henderson:1T,LIB,Mark Tippetts,8
+henderson:1T,REP,Greg Abbott,974
+henderson:1TC,,Over Votes,0
+henderson:1TC,,Under Votes,7
+henderson:1TC,,Write-in,1
+henderson:1TC,DEM,Beto O'Rourke,261
+henderson:1TC,GRN,Delilah Barrios,3
+henderson:1TC,LIB,Mark Tippetts,11
+henderson:1TC,REP,Greg Abbott,1116
+henderson:2,,Over Votes,0
+henderson:2,,Under Votes,1
+henderson:2,,Write-in,0
+henderson:2,DEM,Beto O'Rourke,28
+henderson:2,GRN,Delilah Barrios,0
+henderson:2,LIB,Mark Tippetts,6
+henderson:2,REP,Greg Abbott,200
+henderson:2E,,Over Votes,0
+henderson:2E,,Under Votes,4
+henderson:2E,,Write-in,0
+henderson:2E,DEM,Beto O'Rourke,170
+henderson:2E,GRN,Delilah Barrios,3
+henderson:2E,LIB,Mark Tippetts,9
+henderson:2E,REP,Greg Abbott,1020
+henderson:2GBN,,Over Votes,0
+henderson:2GBN,,Under Votes,1
+henderson:2GBN,,Write-in,0
+henderson:2GBN,DEM,Beto O'Rourke,274
+henderson:2GBN,GRN,Delilah Barrios,3
+henderson:2GBN,LIB,Mark Tippetts,10
+henderson:2GBN,REP,Greg Abbott,955
+henderson:2GBS,,Over Votes,0
+henderson:2GBS,,Under Votes,2
+henderson:2GBS,,Write-in,0
+henderson:2GBS,DEM,Beto O'Rourke,167
+henderson:2GBS,GRN,Delilah Barrios,4
+henderson:2GBS,LIB,Mark Tippetts,7
+henderson:2GBS,REP,Greg Abbott,815
+henderson:2M,,Over Votes,0
+henderson:2M,,Under Votes,2
+henderson:2M,,Write-in,0
+henderson:2M,DEM,Beto O'Rourke,45
+henderson:2M,GRN,Delilah Barrios,0
+henderson:2M,LIB,Mark Tippetts,3
+henderson:2M,REP,Greg Abbott,238
+henderson:2PSN,,Over Votes,0
+henderson:2PSN,,Under Votes,1
+henderson:2PSN,,Write-in,0
+henderson:2PSN,DEM,Beto O'Rourke,208
+henderson:2PSN,GRN,Delilah Barrios,3
+henderson:2PSN,LIB,Mark Tippetts,6
+henderson:2PSN,REP,Greg Abbott,865
+henderson:2PSS,,Over Votes,0
+henderson:2PSS,,Under Votes,5
+henderson:2PSS,,Write-in,1
+henderson:2PSS,DEM,Beto O'Rourke,256
+henderson:2PSS,GRN,Delilah Barrios,1
+henderson:2PSS,LIB,Mark Tippetts,10
+henderson:2PSS,REP,Greg Abbott,1159
+henderson:3,,Over Votes,0
+henderson:3,,Under Votes,2
+henderson:3,,Write-in,0
+henderson:3,DEM,Beto O'Rourke,246
+henderson:3,GRN,Delilah Barrios,3
+henderson:3,LIB,Mark Tippetts,3
+henderson:3,REP,Greg Abbott,157
+henderson:3NW,,Over Votes,0
+henderson:3NW,,Under Votes,2
+henderson:3NW,,Write-in,0
+henderson:3NW,DEM,Beto O'Rourke,73
+henderson:3NW,GRN,Delilah Barrios,1
+henderson:3NW,LIB,Mark Tippetts,3
+henderson:3NW,REP,Greg Abbott,340
+henderson:4,,Over Votes,0
+henderson:4,,Under Votes,3
+henderson:4,,Write-in,4
+henderson:4,DEM,Beto O'Rourke,219
+henderson:4,GRN,Delilah Barrios,2
+henderson:4,LIB,Mark Tippetts,6
+henderson:4,REP,Greg Abbott,730
+henderson:4A,,Over Votes,0
+henderson:4A,,Under Votes,0
+henderson:4A,,Write-in,0
+henderson:4A,DEM,Beto O'Rourke,107
+henderson:4A,GRN,Delilah Barrios,1
+henderson:4A,LIB,Mark Tippetts,1
+henderson:4A,REP,Greg Abbott,233
+henderson:4B,,Over Votes,0
+henderson:4B,,Under Votes,3
+henderson:4B,,Write-in,0
+henderson:4B,DEM,Beto O'Rourke,212
+henderson:4B,GRN,Delilah Barrios,1
+henderson:4B,LIB,Mark Tippetts,10
+henderson:4B,REP,Greg Abbott,600

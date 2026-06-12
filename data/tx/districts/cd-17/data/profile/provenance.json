@@ -1,0 +1,24 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANC2193",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "angelina": 41,
+      "falls": 12,
+      "freestone": 7,
+      "houston": 21,
+      "leon": 14,
+      "limestone": 21,
+      "mclennan": 91,
+      "milam": 11,
+      "nacogdoches": 25,
+      "robertson": 13,
+      "travis": 9,
+      "trinity": 20,
+      "walker": 10,
+      "williamson": 20
+    },
+    "generated": "2026-06-12"
+  }
+}

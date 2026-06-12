@@ -1,0 +1,39 @@
+{
+  "package": {
+    "method": "district-partition-v1",
+    "plan": "PLANC2193",
+    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races merged from member counties; counties on different data vintages contribute different races.",
+    "members": {
+      "bexar": 118,
+      "brewster": 8,
+      "crane": 4,
+      "crockett": 4,
+      "culberson": 5,
+      "dimmit": 7,
+      "edwards": 4,
+      "el-paso": 24,
+      "frio": 9,
+      "hudspeth": 5,
+      "jeff-davis": 5,
+      "kinney": 4,
+      "la-salle": 6,
+      "loving": 4,
+      "maverick": 14,
+      "medina": 14,
+      "pecos": 9,
+      "presidio": 7,
+      "reagan": 4,
+      "reeves": 9,
+      "schleicher": 4,
+      "sutton": 4,
+      "terrell": 4,
+      "upton": 6,
+      "uvalde": 14,
+      "val-verde": 17,
+      "ward": 8,
+      "winkler": 5,
+      "zavala": 6
+    },
+    "generated": "2026-06-12"
+  }
+}

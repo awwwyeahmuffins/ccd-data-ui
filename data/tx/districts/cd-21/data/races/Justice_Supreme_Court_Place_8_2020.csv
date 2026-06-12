@@ -1,0 +1,28 @@
+precinct,party,candidate,votes
+real:2,,Brett Busby,501
+real:2,,Gisela D. Triana,78
+real:2,,Tom Oxford,9
+real:3,,Brett Busby,246
+real:3,,Gisela D. Triana,69
+real:3,,Tom Oxford,6
+real:4,,Brett Busby,217
+real:4,,Gisela D. Triana,22
+real:4,,Tom Oxford,1
+real:6,,Brett Busby,196
+real:6,,Gisela D. Triana,40
+real:6,,Tom Oxford,4
+travis:303,DEM,Gisela D. Triana,1471
+travis:303,LIB,Tom Oxford,79
+travis:303,REP,Brett Busby,1076
+travis:314,DEM,Gisela D. Triana,2695
+travis:314,LIB,Tom Oxford,133
+travis:314,REP,Brett Busby,2713
+travis:354,DEM,Gisela D. Triana,2309
+travis:354,LIB,Tom Oxford,119
+travis:354,REP,Brett Busby,1434
+travis:361,DEM,Gisela D. Triana,621
+travis:361,LIB,Tom Oxford,42
+travis:361,REP,Brett Busby,476
+travis:365,DEM,Gisela D. Triana,1268
+travis:365,LIB,Tom Oxford,78
+travis:365,REP,Brett Busby,906

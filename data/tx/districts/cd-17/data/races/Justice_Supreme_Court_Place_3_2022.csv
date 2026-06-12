@@ -1,0 +1,515 @@
+precinct,party,candidate,votes
+falls:101,,Debra Lehrmann,126
+falls:101,,Erin A. Nowell,101
+falls:101,,Thomas Edward Oxford,2
+falls:102,,Debra Lehrmann,281
+falls:102,,Erin A. Nowell,143
+falls:102,,Thomas Edward Oxford,14
+falls:103,,Debra Lehrmann,378
+falls:103,,Erin A. Nowell,44
+falls:103,,Thomas Edward Oxford,3
+falls:201,,Debra Lehrmann,311
+falls:201,,Erin A. Nowell,49
+falls:201,,Thomas Edward Oxford,6
+falls:202,,Debra Lehrmann,160
+falls:202,,Erin A. Nowell,258
+falls:202,,Thomas Edward Oxford,4
+falls:203,,Debra Lehrmann,35
+falls:203,,Erin A. Nowell,148
+falls:203,,Thomas Edward Oxford,2
+falls:301,,Debra Lehrmann,344
+falls:301,,Erin A. Nowell,75
+falls:301,,Thomas Edward Oxford,10
+falls:302,,Debra Lehrmann,468
+falls:302,,Erin A. Nowell,113
+falls:302,,Thomas Edward Oxford,14
+falls:303,,Debra Lehrmann,291
+falls:303,,Erin A. Nowell,18
+falls:303,,Thomas Edward Oxford,5
+falls:401,,Debra Lehrmann,301
+falls:401,,Erin A. Nowell,19
+falls:401,,Thomas Edward Oxford,6
+falls:402,,Debra Lehrmann,411
+falls:402,,Erin A. Nowell,88
+falls:402,,Thomas Edward Oxford,12
+falls:403,,Debra Lehrmann,311
+falls:403,,Erin A. Nowell,90
+falls:403,,Thomas Edward Oxford,9
+limestone:101,,Over Votes,0
+limestone:101,,Under Votes,21
+limestone:101,DEM,Erin A. Nowell,186
+limestone:101,LIB,Thomas Edward Oxford,10
+limestone:101,REP,Debra Lehrmann,699
+limestone:102,,Over Votes,0
+limestone:102,,Under Votes,3
+limestone:102,DEM,Erin A. Nowell,22
+limestone:102,LIB,Thomas Edward Oxford,4
+limestone:102,REP,Debra Lehrmann,342
+limestone:103,,Over Votes,0
+limestone:103,,Under Votes,6
+limestone:103,DEM,Erin A. Nowell,51
+limestone:103,LIB,Thomas Edward Oxford,12
+limestone:103,REP,Debra Lehrmann,341
+limestone:104,,Over Votes,0
+limestone:104,,Under Votes,3
+limestone:104,DEM,Erin A. Nowell,46
+limestone:104,LIB,Thomas Edward Oxford,11
+limestone:104,REP,Debra Lehrmann,440
+limestone:201,,Over Votes,0
+limestone:201,,Under Votes,7
+limestone:201,DEM,Erin A. Nowell,71
+limestone:201,LIB,Thomas Edward Oxford,3
+limestone:201,REP,Debra Lehrmann,161
+limestone:202,,Over Votes,0
+limestone:202,,Under Votes,4
+limestone:202,DEM,Erin A. Nowell,173
+limestone:202,LIB,Thomas Edward Oxford,4
+limestone:202,REP,Debra Lehrmann,99
+limestone:203,,Over Votes,0
+limestone:203,,Under Votes,0
+limestone:203,DEM,Erin A. Nowell,32
+limestone:203,LIB,Thomas Edward Oxford,0
+limestone:203,REP,Debra Lehrmann,31
+limestone:204,,Over Votes,0
+limestone:204,,Under Votes,1
+limestone:204,DEM,Erin A. Nowell,50
+limestone:204,LIB,Thomas Edward Oxford,6
+limestone:204,REP,Debra Lehrmann,244
+limestone:205,,Over Votes,0
+limestone:205,,Under Votes,7
+limestone:205,DEM,Erin A. Nowell,73
+limestone:205,LIB,Thomas Edward Oxford,7
+limestone:205,REP,Debra Lehrmann,171
+limestone:206,,Over Votes,0
+limestone:206,,Under Votes,6
+limestone:206,DEM,Erin A. Nowell,27
+limestone:206,LIB,Thomas Edward Oxford,4
+limestone:206,REP,Debra Lehrmann,208
+limestone:301,,Over Votes,0
+limestone:301,,Under Votes,9
+limestone:301,DEM,Erin A. Nowell,123
+limestone:301,LIB,Thomas Edward Oxford,11
+limestone:301,REP,Debra Lehrmann,521
+limestone:302,,Over Votes,0
+limestone:302,,Under Votes,8
+limestone:302,DEM,Erin A. Nowell,66
+limestone:302,LIB,Thomas Edward Oxford,7
+limestone:302,REP,Debra Lehrmann,204
+limestone:303,,Over Votes,0
+limestone:303,,Under Votes,0
+limestone:303,DEM,Erin A. Nowell,13
+limestone:303,LIB,Thomas Edward Oxford,0
+limestone:303,REP,Debra Lehrmann,105
+limestone:304,,Over Votes,0
+limestone:304,,Under Votes,5
+limestone:304,DEM,Erin A. Nowell,56
+limestone:304,LIB,Thomas Edward Oxford,5
+limestone:304,REP,Debra Lehrmann,323
+limestone:305,,Over Votes,0
+limestone:305,,Under Votes,0
+limestone:305,DEM,Erin A. Nowell,51
+limestone:305,LIB,Thomas Edward Oxford,1
+limestone:305,REP,Debra Lehrmann,171
+limestone:401,,Over Votes,0
+limestone:401,,Under Votes,10
+limestone:401,DEM,Erin A. Nowell,209
+limestone:401,LIB,Thomas Edward Oxford,8
+limestone:401,REP,Debra Lehrmann,320
+limestone:402,,Over Votes,0
+limestone:402,,Under Votes,1
+limestone:402,DEM,Erin A. Nowell,24
+limestone:402,LIB,Thomas Edward Oxford,2
+limestone:402,REP,Debra Lehrmann,254
+limestone:403,,Over Votes,0
+limestone:403,,Under Votes,4
+limestone:403,DEM,Erin A. Nowell,23
+limestone:403,LIB,Thomas Edward Oxford,2
+limestone:403,REP,Debra Lehrmann,161
+limestone:404,,Over Votes,0
+limestone:404,,Under Votes,4
+limestone:404,DEM,Erin A. Nowell,24
+limestone:404,LIB,Thomas Edward Oxford,4
+limestone:404,REP,Debra Lehrmann,228
+limestone:405,,Over Votes,0
+limestone:405,,Under Votes,1
+limestone:405,DEM,Erin A. Nowell,20
+limestone:405,LIB,Thomas Edward Oxford,3
+limestone:405,REP,Debra Lehrmann,181
+limestone:406,,Over Votes,0
+limestone:406,,Under Votes,2
+limestone:406,DEM,Erin A. Nowell,15
+limestone:406,LIB,Thomas Edward Oxford,3
+limestone:406,REP,Debra Lehrmann,101
+mclennan:1,DEM,Erin A. Nowell,72
+mclennan:1,LIB,Thomas Edward Oxford,6
+mclennan:1,REP,Debra Lehrmann,46
+mclennan:10,DEM,Erin A. Nowell,421
+mclennan:10,LIB,Thomas Edward Oxford,6
+mclennan:10,REP,Debra Lehrmann,92
+mclennan:11,DEM,Erin A. Nowell,414
+mclennan:11,LIB,Thomas Edward Oxford,22
+mclennan:11,REP,Debra Lehrmann,943
+mclennan:12,DEM,Erin A. Nowell,842
+mclennan:12,LIB,Thomas Edward Oxford,13
+mclennan:12,REP,Debra Lehrmann,67
+mclennan:13,DEM,Erin A. Nowell,23
+mclennan:13,LIB,Thomas Edward Oxford,1
+mclennan:13,REP,Debra Lehrmann,16
+mclennan:14,DEM,Erin A. Nowell,361
+mclennan:14,LIB,Thomas Edward Oxford,6
+mclennan:14,REP,Debra Lehrmann,54
+mclennan:15,DEM,Erin A. Nowell,38
+mclennan:15,LIB,Thomas Edward Oxford,0
+mclennan:15,REP,Debra Lehrmann,83
+mclennan:16,DEM,Erin A. Nowell,423
+mclennan:16,LIB,Thomas Edward Oxford,19
+mclennan:16,REP,Debra Lehrmann,689
+mclennan:17,DEM,Erin A. Nowell,280
+mclennan:17,LIB,Thomas Edward Oxford,7
+mclennan:17,REP,Debra Lehrmann,280
+mclennan:18,DEM,Erin A. Nowell,92
+mclennan:18,LIB,Thomas Edward Oxford,8
+mclennan:18,REP,Debra Lehrmann,58
+mclennan:19,DEM,Erin A. Nowell,586
+mclennan:19,LIB,Thomas Edward Oxford,41
+mclennan:19,REP,Debra Lehrmann,1323
+mclennan:2,DEM,Erin A. Nowell,77
+mclennan:2,LIB,Thomas Edward Oxford,3
+mclennan:2,REP,Debra Lehrmann,42
+mclennan:20,DEM,Erin A. Nowell,100
+mclennan:20,LIB,Thomas Edward Oxford,2
+mclennan:20,REP,Debra Lehrmann,31
+mclennan:21,DEM,Erin A. Nowell,137
+mclennan:21,LIB,Thomas Edward Oxford,4
+mclennan:21,REP,Debra Lehrmann,66
+mclennan:22,DEM,Erin A. Nowell,78
+mclennan:22,LIB,Thomas Edward Oxford,5
+mclennan:22,REP,Debra Lehrmann,84
+mclennan:23,DEM,Erin A. Nowell,561
+mclennan:23,LIB,Thomas Edward Oxford,40
+mclennan:23,REP,Debra Lehrmann,1587
+mclennan:24,DEM,Erin A. Nowell,96
+mclennan:24,LIB,Thomas Edward Oxford,3
+mclennan:24,REP,Debra Lehrmann,323
+mclennan:25,DEM,Erin A. Nowell,324
+mclennan:25,LIB,Thomas Edward Oxford,12
+mclennan:25,REP,Debra Lehrmann,199
+mclennan:26,DEM,Erin A. Nowell,134
+mclennan:26,LIB,Thomas Edward Oxford,6
+mclennan:26,REP,Debra Lehrmann,95
+mclennan:27,DEM,Erin A. Nowell,173
+mclennan:27,LIB,Thomas Edward Oxford,6
+mclennan:27,REP,Debra Lehrmann,60
+mclennan:28,DEM,Erin A. Nowell,254
+mclennan:28,LIB,Thomas Edward Oxford,11
+mclennan:28,REP,Debra Lehrmann,289
+mclennan:29,DEM,Erin A. Nowell,129
+mclennan:29,LIB,Thomas Edward Oxford,7
+mclennan:29,REP,Debra Lehrmann,129
+mclennan:3,DEM,Erin A. Nowell,523
+mclennan:3,LIB,Thomas Edward Oxford,22
+mclennan:3,REP,Debra Lehrmann,318
+mclennan:30,DEM,Erin A. Nowell,412
+mclennan:30,LIB,Thomas Edward Oxford,17
+mclennan:30,REP,Debra Lehrmann,424
+mclennan:31,DEM,Erin A. Nowell,425
+mclennan:31,LIB,Thomas Edward Oxford,18
+mclennan:31,REP,Debra Lehrmann,520
+mclennan:32,DEM,Erin A. Nowell,176
+mclennan:32,LIB,Thomas Edward Oxford,9
+mclennan:32,REP,Debra Lehrmann,413
+mclennan:33,DEM,Erin A. Nowell,338
+mclennan:33,LIB,Thomas Edward Oxford,17
+mclennan:33,REP,Debra Lehrmann,570
+mclennan:34,DEM,Erin A. Nowell,286
+mclennan:34,LIB,Thomas Edward Oxford,23
+mclennan:34,REP,Debra Lehrmann,471
+mclennan:35,DEM,Erin A. Nowell,193
+mclennan:35,LIB,Thomas Edward Oxford,10
+mclennan:35,REP,Debra Lehrmann,121
+mclennan:36,DEM,Erin A. Nowell,244
+mclennan:36,LIB,Thomas Edward Oxford,15
+mclennan:36,REP,Debra Lehrmann,413
+mclennan:37,DEM,Erin A. Nowell,209
+mclennan:37,LIB,Thomas Edward Oxford,12
+mclennan:37,REP,Debra Lehrmann,187
+mclennan:38,DEM,Erin A. Nowell,162
+mclennan:38,LIB,Thomas Edward Oxford,4
+mclennan:38,REP,Debra Lehrmann,124
+mclennan:39,DEM,Erin A. Nowell,149
+mclennan:39,LIB,Thomas Edward Oxford,10
+mclennan:39,REP,Debra Lehrmann,57
+mclennan:4,DEM,Erin A. Nowell,41
+mclennan:4,LIB,Thomas Edward Oxford,2
+mclennan:4,REP,Debra Lehrmann,37
+mclennan:40,DEM,Erin A. Nowell,447
+mclennan:40,LIB,Thomas Edward Oxford,21
+mclennan:40,REP,Debra Lehrmann,661
+mclennan:41,DEM,Erin A. Nowell,329
+mclennan:41,LIB,Thomas Edward Oxford,10
+mclennan:41,REP,Debra Lehrmann,437
+mclennan:42,DEM,Erin A. Nowell,237
+mclennan:42,LIB,Thomas Edward Oxford,16
+mclennan:42,REP,Debra Lehrmann,152
+mclennan:43,DEM,Erin A. Nowell,74
+mclennan:43,LIB,Thomas Edward Oxford,3
+mclennan:43,REP,Debra Lehrmann,98
+mclennan:44,DEM,Erin A. Nowell,488
+mclennan:44,LIB,Thomas Edward Oxford,50
+mclennan:44,REP,Debra Lehrmann,1697
+mclennan:45,DEM,Erin A. Nowell,100
+mclennan:45,LIB,Thomas Edward Oxford,4
+mclennan:45,REP,Debra Lehrmann,100
+mclennan:46,DEM,Erin A. Nowell,58
+mclennan:46,LIB,Thomas Edward Oxford,1
+mclennan:46,REP,Debra Lehrmann,32
+mclennan:47,DEM,Erin A. Nowell,137
+mclennan:47,LIB,Thomas Edward Oxford,7
+mclennan:47,REP,Debra Lehrmann,94
+mclennan:48,DEM,Erin A. Nowell,65
+mclennan:48,LIB,Thomas Edward Oxford,1
+mclennan:48,REP,Debra Lehrmann,58
+mclennan:49,DEM,Erin A. Nowell,89
+mclennan:49,LIB,Thomas Edward Oxford,9
+mclennan:49,REP,Debra Lehrmann,97
+mclennan:5,DEM,Erin A. Nowell,140
+mclennan:5,LIB,Thomas Edward Oxford,4
+mclennan:5,REP,Debra Lehrmann,61
+mclennan:50,DEM,Erin A. Nowell,241
+mclennan:50,LIB,Thomas Edward Oxford,20
+mclennan:50,REP,Debra Lehrmann,213
+mclennan:51,DEM,Erin A. Nowell,767
+mclennan:51,LIB,Thomas Edward Oxford,37
+mclennan:51,REP,Debra Lehrmann,1570
+mclennan:52,DEM,Erin A. Nowell,188
+mclennan:52,LIB,Thomas Edward Oxford,11
+mclennan:52,REP,Debra Lehrmann,365
+mclennan:53,DEM,Erin A. Nowell,11
+mclennan:53,LIB,Thomas Edward Oxford,3
+mclennan:53,REP,Debra Lehrmann,20
+mclennan:54,DEM,Erin A. Nowell,354
+mclennan:54,LIB,Thomas Edward Oxford,27
+mclennan:54,REP,Debra Lehrmann,864
+mclennan:55,DEM,Erin A. Nowell,640
+mclennan:55,LIB,Thomas Edward Oxford,63
+mclennan:55,REP,Debra Lehrmann,1583
+mclennan:56,DEM,Erin A. Nowell,158
+mclennan:56,LIB,Thomas Edward Oxford,6
+mclennan:56,REP,Debra Lehrmann,126
+mclennan:57,DEM,Erin A. Nowell,307
+mclennan:57,LIB,Thomas Edward Oxford,10
+mclennan:57,REP,Debra Lehrmann,310
+mclennan:58,DEM,Erin A. Nowell,464
+mclennan:58,LIB,Thomas Edward Oxford,19
+mclennan:58,REP,Debra Lehrmann,708
+mclennan:59,DEM,Erin A. Nowell,447
+mclennan:59,LIB,Thomas Edward Oxford,40
+mclennan:59,REP,Debra Lehrmann,1617
+mclennan:6,DEM,Erin A. Nowell,139
+mclennan:6,LIB,Thomas Edward Oxford,6
+mclennan:6,REP,Debra Lehrmann,56
+mclennan:60,DEM,Erin A. Nowell,477
+mclennan:60,LIB,Thomas Edward Oxford,31
+mclennan:60,REP,Debra Lehrmann,1467
+mclennan:61,DEM,Erin A. Nowell,536
+mclennan:61,LIB,Thomas Edward Oxford,32
+mclennan:61,REP,Debra Lehrmann,1249
+mclennan:62,DEM,Erin A. Nowell,591
+mclennan:62,LIB,Thomas Edward Oxford,46
+mclennan:62,REP,Debra Lehrmann,1173
+mclennan:63,DEM,Erin A. Nowell,673
+mclennan:63,LIB,Thomas Edward Oxford,51
+mclennan:63,REP,Debra Lehrmann,2317
+mclennan:64,DEM,Erin A. Nowell,118
+mclennan:64,LIB,Thomas Edward Oxford,7
+mclennan:64,REP,Debra Lehrmann,373
+mclennan:65,DEM,Erin A. Nowell,82
+mclennan:65,LIB,Thomas Edward Oxford,16
+mclennan:65,REP,Debra Lehrmann,610
+mclennan:66,DEM,Erin A. Nowell,97
+mclennan:66,LIB,Thomas Edward Oxford,13
+mclennan:66,REP,Debra Lehrmann,704
+mclennan:67,DEM,Erin A. Nowell,206
+mclennan:67,LIB,Thomas Edward Oxford,18
+mclennan:67,REP,Debra Lehrmann,1458
+mclennan:68,DEM,Erin A. Nowell,107
+mclennan:68,LIB,Thomas Edward Oxford,5
+mclennan:68,REP,Debra Lehrmann,580
+mclennan:69,DEM,Erin A. Nowell,109
+mclennan:69,LIB,Thomas Edward Oxford,18
+mclennan:69,REP,Debra Lehrmann,863
+mclennan:7,DEM,Erin A. Nowell,318
+mclennan:7,LIB,Thomas Edward Oxford,10
+mclennan:7,REP,Debra Lehrmann,192
+mclennan:70,DEM,Erin A. Nowell,15
+mclennan:70,LIB,Thomas Edward Oxford,10
+mclennan:70,REP,Debra Lehrmann,220
+mclennan:71,DEM,Erin A. Nowell,81
+mclennan:71,LIB,Thomas Edward Oxford,4
+mclennan:71,REP,Debra Lehrmann,268
+mclennan:72,DEM,Erin A. Nowell,127
+mclennan:72,LIB,Thomas Edward Oxford,10
+mclennan:72,REP,Debra Lehrmann,438
+mclennan:73,DEM,Erin A. Nowell,76
+mclennan:73,LIB,Thomas Edward Oxford,9
+mclennan:73,REP,Debra Lehrmann,504
+mclennan:74,DEM,Erin A. Nowell,68
+mclennan:74,LIB,Thomas Edward Oxford,13
+mclennan:74,REP,Debra Lehrmann,404
+mclennan:75,DEM,Erin A. Nowell,298
+mclennan:75,LIB,Thomas Edward Oxford,39
+mclennan:75,REP,Debra Lehrmann,1660
+mclennan:76,DEM,Erin A. Nowell,195
+mclennan:76,LIB,Thomas Edward Oxford,29
+mclennan:76,REP,Debra Lehrmann,1024
+mclennan:77,DEM,Erin A. Nowell,119
+mclennan:77,LIB,Thomas Edward Oxford,20
+mclennan:77,REP,Debra Lehrmann,768
+mclennan:78,DEM,Erin A. Nowell,442
+mclennan:78,LIB,Thomas Edward Oxford,33
+mclennan:78,REP,Debra Lehrmann,1646
+mclennan:79,DEM,Erin A. Nowell,174
+mclennan:79,LIB,Thomas Edward Oxford,12
+mclennan:79,REP,Debra Lehrmann,454
+mclennan:8,DEM,Erin A. Nowell,340
+mclennan:8,LIB,Thomas Edward Oxford,10
+mclennan:8,REP,Debra Lehrmann,167
+mclennan:80,DEM,Erin A. Nowell,116
+mclennan:80,LIB,Thomas Edward Oxford,10
+mclennan:80,REP,Debra Lehrmann,1468
+mclennan:81,DEM,Erin A. Nowell,408
+mclennan:81,LIB,Thomas Edward Oxford,33
+mclennan:81,REP,Debra Lehrmann,2173
+mclennan:82,DEM,Erin A. Nowell,297
+mclennan:82,LIB,Thomas Edward Oxford,29
+mclennan:82,REP,Debra Lehrmann,1371
+mclennan:83,DEM,Erin A. Nowell,55
+mclennan:83,LIB,Thomas Edward Oxford,3
+mclennan:83,REP,Debra Lehrmann,278
+mclennan:84,DEM,Erin A. Nowell,291
+mclennan:84,LIB,Thomas Edward Oxford,12
+mclennan:84,REP,Debra Lehrmann,933
+mclennan:85,DEM,Erin A. Nowell,160
+mclennan:85,LIB,Thomas Edward Oxford,4
+mclennan:85,REP,Debra Lehrmann,172
+mclennan:86,DEM,Erin A. Nowell,424
+mclennan:86,LIB,Thomas Edward Oxford,16
+mclennan:86,REP,Debra Lehrmann,312
+mclennan:87,DEM,Erin A. Nowell,230
+mclennan:87,LIB,Thomas Edward Oxford,11
+mclennan:87,REP,Debra Lehrmann,258
+mclennan:88,DEM,Erin A. Nowell,81
+mclennan:88,LIB,Thomas Edward Oxford,1
+mclennan:88,REP,Debra Lehrmann,73
+mclennan:89,DEM,Erin A. Nowell,22
+mclennan:89,LIB,Thomas Edward Oxford,1
+mclennan:89,REP,Debra Lehrmann,6
+mclennan:9,DEM,Erin A. Nowell,201
+mclennan:9,LIB,Thomas Edward Oxford,7
+mclennan:9,REP,Debra Lehrmann,104
+mclennan:90,DEM,Erin A. Nowell,74
+mclennan:90,LIB,Thomas Edward Oxford,7
+mclennan:90,REP,Debra Lehrmann,124
+mclennan:91,DEM,Erin A. Nowell,315
+mclennan:91,LIB,Thomas Edward Oxford,25
+mclennan:91,REP,Debra Lehrmann,853
+williamson:123,,Over Votes,0
+williamson:123,,Under Votes,48
+williamson:123,DEM,Erin A. Nowell,872
+williamson:123,LIB,Thomas Edward Oxford,53
+williamson:123,REP,Debra Lehrmann,620
+williamson:135,,Over Votes,0
+williamson:135,,Under Votes,37
+williamson:135,DEM,Erin A. Nowell,864
+williamson:135,LIB,Thomas Edward Oxford,58
+williamson:135,REP,Debra Lehrmann,397
+williamson:136,,Over Votes,0
+williamson:136,,Under Votes,3
+williamson:136,DEM,Erin A. Nowell,80
+williamson:136,LIB,Thomas Edward Oxford,2
+williamson:136,REP,Debra Lehrmann,42
+williamson:139,,Over Votes,0
+williamson:139,,Under Votes,34
+williamson:139,DEM,Erin A. Nowell,930
+williamson:139,LIB,Thomas Edward Oxford,41
+williamson:139,REP,Debra Lehrmann,654
+williamson:143,,Over Votes,0
+williamson:143,,Under Votes,11
+williamson:143,DEM,Erin A. Nowell,224
+williamson:143,LIB,Thomas Edward Oxford,9
+williamson:143,REP,Debra Lehrmann,97
+williamson:144,,Over Votes,0
+williamson:144,,Under Votes,9
+williamson:144,DEM,Erin A. Nowell,248
+williamson:144,LIB,Thomas Edward Oxford,16
+williamson:144,REP,Debra Lehrmann,114
+williamson:145,,Over Votes,0
+williamson:145,,Under Votes,32
+williamson:145,DEM,Erin A. Nowell,696
+williamson:145,LIB,Thomas Edward Oxford,33
+williamson:145,REP,Debra Lehrmann,386
+williamson:149,,Over Votes,0
+williamson:149,,Under Votes,39
+williamson:149,DEM,Erin A. Nowell,760
+williamson:149,LIB,Thomas Edward Oxford,31
+williamson:149,REP,Debra Lehrmann,429
+williamson:150,,Over Votes,0
+williamson:150,,Under Votes,52
+williamson:150,DEM,Erin A. Nowell,1089
+williamson:150,LIB,Thomas Edward Oxford,49
+williamson:150,REP,Debra Lehrmann,572
+williamson:155,,Over Votes,0
+williamson:155,,Under Votes,53
+williamson:155,DEM,Erin A. Nowell,1032
+williamson:155,LIB,Thomas Edward Oxford,50
+williamson:155,REP,Debra Lehrmann,544
+williamson:163,,Over Votes,0
+williamson:163,,Under Votes,31
+williamson:163,DEM,Erin A. Nowell,818
+williamson:163,LIB,Thomas Edward Oxford,40
+williamson:163,REP,Debra Lehrmann,370
+williamson:164,,Over Votes,0
+williamson:164,,Under Votes,13
+williamson:164,DEM,Erin A. Nowell,163
+williamson:164,LIB,Thomas Edward Oxford,10
+williamson:164,REP,Debra Lehrmann,185
+williamson:180,,Over Votes,0
+williamson:180,,Under Votes,64
+williamson:180,DEM,Erin A. Nowell,1220
+williamson:180,LIB,Thomas Edward Oxford,54
+williamson:180,REP,Debra Lehrmann,661
+williamson:181,,Over Votes,0
+williamson:181,,Under Votes,26
+williamson:181,DEM,Erin A. Nowell,624
+williamson:181,LIB,Thomas Edward Oxford,35
+williamson:181,REP,Debra Lehrmann,443
+williamson:413,,Over Votes,0
+williamson:413,,Under Votes,51
+williamson:413,DEM,Erin A. Nowell,405
+williamson:413,LIB,Thomas Edward Oxford,40
+williamson:413,REP,Debra Lehrmann,1453
+williamson:418,,Over Votes,0
+williamson:418,,Under Votes,6
+williamson:418,DEM,Erin A. Nowell,101
+williamson:418,LIB,Thomas Edward Oxford,3
+williamson:418,REP,Debra Lehrmann,37
+williamson:421,,Over Votes,0
+williamson:421,,Under Votes,12
+williamson:421,DEM,Erin A. Nowell,312
+williamson:421,LIB,Thomas Edward Oxford,15
+williamson:421,REP,Debra Lehrmann,202
+williamson:426,,Over Votes,0
+williamson:426,,Under Votes,13
+williamson:426,DEM,Erin A. Nowell,246
+williamson:426,LIB,Thomas Edward Oxford,16
+williamson:426,REP,Debra Lehrmann,437
+williamson:489,,Over Votes,0
+williamson:489,,Under Votes,48
+williamson:489,DEM,Erin A. Nowell,1001
+williamson:489,LIB,Thomas Edward Oxford,35
+williamson:489,REP,Debra Lehrmann,843
+williamson:490,,Over Votes,0
+williamson:490,,Under Votes,51
+williamson:490,DEM,Erin A. Nowell,1211
+williamson:490,LIB,Thomas Edward Oxford,61
+williamson:490,REP,Debra Lehrmann,1169
