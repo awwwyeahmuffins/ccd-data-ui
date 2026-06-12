@@ -185,10 +185,7 @@ async function loadBaseData() {
   try {
     let boundary = getActiveBoundary();
     let config = getBoundaryConfigs()[boundary];
-    let intelPath = config.profileDir
-      ? `${config.profileDir}/strategic_intelligence.json`
-      : `${config.dataDir}/strategic_intelligence.json`;
-    let resp = await fetch(intelPath);
+    let resp = await fetch(`${config.profileDir}/strategic_intelligence.json`);
     if (resp.ok) strategicIntel = await resp.json();
   } catch {
     strategicIntel = null;

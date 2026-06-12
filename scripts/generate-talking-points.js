@@ -21,9 +21,9 @@ function parseCSV(raw) {
 }
 
 function loadBoundaryData(dataDir) {
-  const dncRaw = readFileSync(`${dataDir}/DNC Score By Precinct.csv`, "utf-8");
+  const dncRaw = readFileSync(`${dataDir}/profile/dnc_scores.csv`, "utf-8");
   const racialRaw = readFileSync(`${dataDir}/Racial Numbers by Precinct.csv`, "utf-8");
-  const censusRaw = readFileSync(`${dataDir}/precinct_census_profiles.json`, "utf-8");
+  const censusRaw = readFileSync(`${dataDir}/profile/census_profiles.json`, "utf-8");
 
   const census = JSON.parse(censusRaw);
   const dncRows = parseCSV(dncRaw);
@@ -1032,8 +1032,8 @@ function generateSection(label, dncLookup, racialLookup, census) {
 // ---------------------------------------------------------------------------
 
 console.log("Loading data...");
-const data2024 = loadBoundaryData("data");
-const data2026 = loadBoundaryData("data/2026");
+const data2024 = loadBoundaryData("data/tx/collin/2024");
+const data2026 = loadBoundaryData("data/tx/collin/2026");
 
 const header = [
   "# Collin County Precinct Talking Points — Deep Analysis",

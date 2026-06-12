@@ -68,7 +68,7 @@ afterEach(() => {
 
 describe('loadBoundaryChangeSummary', () => {
   test('parses metadata correctly into flat array', async () => {
-    const result = await loadBoundaryChangeSummary();
+    const result = await loadBoundaryChangeSummary('test/precinct_metadata.json');
     expect(Array.isArray(result)).toBe(true);
     expect(result.length).toBe(6);
 
@@ -80,7 +80,7 @@ describe('loadBoundaryChangeSummary', () => {
   });
 
   test('handles all change types', async () => {
-    const result = await loadBoundaryChangeSummary();
+    const result = await loadBoundaryChangeSummary('test/precinct_metadata.json');
     const types = result.map(r => r.changeType);
     expect(types).toContain('unchanged');
     expect(types).toContain('merged');
@@ -91,7 +91,7 @@ describe('loadBoundaryChangeSummary', () => {
 
   test('throws on failed fetch', async () => {
     global.fetch = jest.fn(() => Promise.resolve({ ok: false, status: 404 }));
-    await expect(loadBoundaryChangeSummary()).rejects.toThrow('Failed to load precinct metadata');
+    await expect(loadBoundaryChangeSummary('test/precinct_metadata.json')).rejects.toThrow('Failed to load precinct metadata');
   });
 });
 
@@ -99,7 +99,7 @@ describe('generateBoundaryTableHTML', () => {
   let changeData;
 
   beforeEach(async () => {
-    changeData = await loadBoundaryChangeSummary();
+    changeData = await loadBoundaryChangeSummary('test/precinct_metadata.json');
   });
 
   test('renders table with all rows', () => {
@@ -138,7 +138,7 @@ describe('generateBoundaryTableHTML', () => {
 
 describe('generateBoundaryStatsHTML', () => {
   test('shows all 5 stat cards', async () => {
-    const changeData = await loadBoundaryChangeSummary();
+    const changeData = await loadBoundaryChangeSummary('test/precinct_metadata.json');
     const html = generateBoundaryStatsHTML(changeData);
     expect(html).toContain('boundary-stats-grid');
     // Should have 5 stat cards
@@ -152,7 +152,7 @@ describe('generateBoundaryStatsHTML', () => {
   });
 
   test('counts are correct', async () => {
-    const changeData = await loadBoundaryChangeSummary();
+    const changeData = await loadBoundaryChangeSummary('test/precinct_metadata.json');
     const html = generateBoundaryStatsHTML(changeData);
     // 2 unchanged
     expect(html).toContain('>2<');
@@ -174,7 +174,7 @@ describe('exportBoundaryCSV', () => {
   });
 
   test('creates CSV with correct headers', async () => {
-    const changeData = await loadBoundaryChangeSummary();
+    const changeData = await loadBoundaryChangeSummary('test/precinct_metadata.json');
     // Mock the link click
     const clickMock = jest.fn();
     jest.spyOn(document, 'createElement').mockReturnValue({

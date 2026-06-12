@@ -23,16 +23,17 @@ const CHANGE_LABELS = {
 };
 
 /**
- * Fetch data/2026/precinct_metadata.json and return a flat array of change records.
+ * Fetch the 2026 set's precinct_metadata.json and return a flat array of change records.
  * @returns {Promise<Array<{precinctCode: string, changeType: string, sources: Array, dataQuality: string}>>}
  */
-export async function loadBoundaryChangeSummary() {
+export async function loadBoundaryChangeSummary(metadataPath = null) {
   // The 2026 boundary set's metadata, from the active county's config
-  // (v3 keeps it under profile/; legacy kept it in the data dir)
-  const config = getBoundaryConfigs()['2026'];
-  const metadataPath = config?.profileDir
-    ? `${config.profileDir}/precinct_metadata.json`
-    : `${config?.dataDir ?? 'data/2026'}/precinct_metadata.json`;
+  // (explicit path overrides, mainly for tests)
+  if (!metadataPath) {
+    const config = getBoundaryConfigs()['2026'];
+    if (!config) throw new Error('No 2026 boundary set for the active county');
+    metadataPath = `${config.profileDir}/precinct_metadata.json`;
+  }
   const resp = await fetch(metadataPath);
   if (!resp.ok) throw new Error(`Failed to load precinct metadata: ${resp.status}`);
   const metadata = await resp.json();

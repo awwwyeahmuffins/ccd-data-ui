@@ -46,11 +46,7 @@ export async function loadCensusProfiles() {
   const boundary = getActiveBoundary();
   if (cachedProfiles && cachedBoundary === boundary) return cachedProfiles;
   const config = getBoundaryConfigs()[boundary];
-  // v3 layout keeps extras under profile/; legacy used the data dir directly
-  const profilePath = config.profileDir
-    ? `${config.profileDir}/census_profiles.json`
-    : `${config.dataDir}/precinct_census_profiles.json`;
-  let resp = await fetch(profilePath);
+  let resp = await fetch(`${config.profileDir}/census_profiles.json`);
   if (!resp.ok) throw new Error(`Failed to load census profiles: ${resp.status}`);
   cachedProfiles = await resp.json();
   cachedBoundary = boundary;

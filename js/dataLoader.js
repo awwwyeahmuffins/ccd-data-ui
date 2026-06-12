@@ -122,41 +122,24 @@ async function loadPlaceholderCountyData() {
 // Active boundary set id (e.g. "original" or "2026")
 let activeBoundary = "original";
 
-// LEGACY fallback paths (pre-v3 Collin layout) — used only while the active
-// county's registry entry has no `boundarySets`. Removed once Collin is on v3.
-const LEGACY_BOUNDARY_CONFIGS = {
-  original: {
-    geojson: "data/Voting_Precincts.geojson",
-    dataDir: "data",
-    label: "2024 Boundaries (252)",
-  },
-  "2026": {
-    geojson: "data/Voting_Precincts_2026.geojson",
-    dataDir: "data/2026",
-    label: "2026 Boundaries (273)",
-  },
-};
-
 /**
- * Boundary-set configs for the ACTIVE county, derived from its registry entry
- * (v3) or the legacy hard-coded layout. Synchronous: relies on the entry being
- * cached by any prior loadAllData()/setActiveCounty() call.
+ * Boundary-set configs for the ACTIVE county, derived from its registry entry.
+ * Synchronous: relies on the entry being cached by any prior
+ * loadAllData()/setActiveCounty() call (both pages load data before using this).
  */
 export function getBoundaryConfigs() {
   const entry = activeCountyEntry;
-  if (entry?.boundarySets) {
-    const configs = {};
-    for (const [id, set] of Object.entries(entry.boundarySets)) {
-      configs[id] = {
-        geojson: `${entry.dataRoot}/${set.geojson}`,
-        dataDir: `${entry.dataRoot}/${set.dataDir}`,
-        profileDir: `${entry.dataRoot}/${set.dataDir}/profile`,
-        label: set.label,
-      };
-    }
-    return configs;
+  if (!entry?.boundarySets) return {};
+  const configs = {};
+  for (const [id, set] of Object.entries(entry.boundarySets)) {
+    configs[id] = {
+      geojson: `${entry.dataRoot}/${set.geojson}`,
+      dataDir: `${entry.dataRoot}/${set.dataDir}`,
+      profileDir: `${entry.dataRoot}/${set.dataDir}/profile`,
+      label: set.label,
+    };
   }
-  return LEGACY_BOUNDARY_CONFIGS;
+  return configs;
 }
 
 function activeConfig() {
@@ -220,16 +203,8 @@ export async function loadAllData() {
   }
 
   let config = activeConfig();
-  const dir = config.dataDir;
-  // v3 layout keeps optional extras under profile/ with stable names;
-  // the legacy Collin layout used long human filenames in the data dir
-  const isV3Layout = Boolean(config.profileDir);
-  const dncPath = isV3Layout
-    ? `${config.profileDir}/dnc_scores.csv`
-    : `${dir}/DNC Score By Precinct.csv`;
-  const racialPath = isV3Layout
-    ? `${config.profileDir}/racial.csv`
-    : `${dir}/Racial Numbers by Precinct.csv`;
+  const dncPath = `${config.profileDir}/dnc_scores.csv`;
+  const racialPath = `${config.profileDir}/racial.csv`;
 
   // 1) Fetch GeoJSON for the active boundary set
   let geojsonPromise = fetch(config.geojson).then(function handleGeoJSONResponse(r) {
@@ -273,10 +248,7 @@ export async function loadAllData() {
   // 4) Fetch precinct metadata (2026 boundaries only — quality/interpolation info)
   let metadataPromise;
   if (activeBoundary === "2026") {
-    const metadataPath = isV3Layout
-      ? `${config.profileDir}/precinct_metadata.json`
-      : `${dir}/precinct_metadata.json`;
-    metadataPromise = fetch(metadataPath)
+    metadataPromise = fetch(`${config.profileDir}/precinct_metadata.json`)
       .then(r => r.ok ? r.json() : {})
       .catch(() => ({}));
   } else {
