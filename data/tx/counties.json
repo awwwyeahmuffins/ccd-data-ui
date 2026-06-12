@@ -227,9 +227,17 @@
     "fips": "48029",
     "name": "Bexar",
     "slug": "bexar",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/bexar",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (734)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48031",
@@ -251,17 +259,33 @@
     "fips": "48033",
     "name": "Borden",
     "slug": "borden",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/borden",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (7)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48035",
     "name": "Bosque",
     "slug": "bosque",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/bosque",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (11)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48037",
@@ -299,9 +323,17 @@
     "fips": "48041",
     "name": "Brazos",
     "slug": "brazos",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/brazos",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (98)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48043",
@@ -371,9 +403,17 @@
     "fips": "48051",
     "name": "Burleson",
     "slug": "burleson",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/burleson",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (13)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48053",
@@ -459,9 +499,17 @@
     "fips": "48063",
     "name": "Camp",
     "slug": "camp",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/camp",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48065",
@@ -515,9 +563,17 @@
     "fips": "48071",
     "name": "Chambers",
     "slug": "chambers",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/chambers",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (15)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48073",
@@ -587,9 +643,17 @@
     "fips": "48081",
     "name": "Coke",
     "slug": "coke",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/coke",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48083",
@@ -632,9 +696,17 @@
     "fips": "48087",
     "name": "Collingsworth",
     "slug": "collingsworth",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/collingsworth",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (7)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48089",
@@ -656,9 +728,17 @@
     "fips": "48091",
     "name": "Comal",
     "slug": "comal",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/comal",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (29)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48093",
@@ -728,9 +808,17 @@
     "fips": "48101",
     "name": "Cottle",
     "slug": "cottle",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/cottle",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48103",
@@ -784,9 +872,17 @@
     "fips": "48109",
     "name": "Culberson",
     "slug": "culberson",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/culberson",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (5)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48111",
@@ -824,9 +920,17 @@
     "fips": "48115",
     "name": "Dawson",
     "slug": "dawson",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/dawson",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (9)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48123",
@@ -896,9 +1000,17 @@
     "fips": "48125",
     "name": "Dickens",
     "slug": "dickens",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/dickens",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (6)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48127",
@@ -920,9 +1032,17 @@
     "fips": "48129",
     "name": "Donley",
     "slug": "donley",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/donley",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (6)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48131",
@@ -1072,9 +1192,17 @@
     "fips": "48149",
     "name": "Fayette",
     "slug": "fayette",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/fayette",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (26)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48151",
@@ -1128,9 +1256,17 @@
     "fips": "48157",
     "name": "Fort Bend",
     "slug": "fort-bend",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/fort-bend",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (160)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48159",
@@ -1168,9 +1304,17 @@
     "fips": "48163",
     "name": "Frio",
     "slug": "frio",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/frio",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (9)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48165",
@@ -1192,33 +1336,65 @@
     "fips": "48167",
     "name": "Galveston",
     "slug": "galveston",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/galveston",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (92)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48169",
     "name": "Garza",
     "slug": "garza",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/garza",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (6)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48171",
     "name": "Gillespie",
     "slug": "gillespie",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/gillespie",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (13)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48173",
     "name": "Glasscock",
     "slug": "glasscock",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/glasscock",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48175",
@@ -1240,9 +1416,17 @@
     "fips": "48177",
     "name": "Gonzales",
     "slug": "gonzales",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/gonzales",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (14)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48179",
@@ -1264,9 +1448,17 @@
     "fips": "48181",
     "name": "Grayson",
     "slug": "grayson",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/grayson",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (36)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48183",
@@ -1384,9 +1576,17 @@
     "fips": "48197",
     "name": "Hardeman",
     "slug": "hardeman",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/hardeman",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48199",
@@ -1424,9 +1624,17 @@
     "fips": "48203",
     "name": "Harrison",
     "slug": "harrison",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/harrison",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (26)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48205",
@@ -1448,17 +1656,33 @@
     "fips": "48207",
     "name": "Haskell",
     "slug": "haskell",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/haskell",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (10)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48209",
     "name": "Hays",
     "slug": "hays",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/hays",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (68)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48211",
@@ -1496,9 +1720,17 @@
     "fips": "48215",
     "name": "Hidalgo",
     "slug": "hidalgo",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/hidalgo",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (255)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48217",
@@ -1520,17 +1752,33 @@
     "fips": "48219",
     "name": "Hockley",
     "slug": "hockley",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/hockley",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (14)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48221",
     "name": "Hood",
     "slug": "hood",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/hood",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (15)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48223",
@@ -1584,9 +1832,17 @@
     "fips": "48229",
     "name": "Hudspeth",
     "slug": "hudspeth",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/hudspeth",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (5)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48231",
@@ -1624,9 +1880,17 @@
     "fips": "48235",
     "name": "Irion",
     "slug": "irion",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/irion",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48237",
@@ -1696,9 +1960,17 @@
     "fips": "48245",
     "name": "Jefferson",
     "slug": "jefferson",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/jefferson",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (109)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48247",
@@ -1736,9 +2008,17 @@
     "fips": "48251",
     "name": "Johnson",
     "slug": "johnson",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/johnson",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (36)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48253",
@@ -1760,9 +2040,17 @@
     "fips": "48255",
     "name": "Karnes",
     "slug": "karnes",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/karnes",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (15)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48257",
@@ -1816,9 +2104,17 @@
     "fips": "48263",
     "name": "Kent",
     "slug": "kent",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/kent",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (6)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48265",
@@ -1840,9 +2136,17 @@
     "fips": "48267",
     "name": "Kimble",
     "slug": "kimble",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/kimble",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (7)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48269",
@@ -1864,17 +2168,33 @@
     "fips": "48271",
     "name": "Kinney",
     "slug": "kinney",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/kinney",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48273",
     "name": "Kleberg",
     "slug": "kleberg",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/kleberg",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (18)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48275",
@@ -1912,9 +2232,17 @@
     "fips": "48277",
     "name": "Lamar",
     "slug": "lamar",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/lamar",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (32)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48279",
@@ -2032,9 +2360,17 @@
     "fips": "48295",
     "name": "Lipscomb",
     "slug": "lipscomb",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/lipscomb",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (7)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48297",
@@ -2072,9 +2408,17 @@
     "fips": "48301",
     "name": "Loving",
     "slug": "loving",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/loving",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48303",
@@ -2096,17 +2440,33 @@
     "fips": "48305",
     "name": "Lynn",
     "slug": "lynn",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/lynn",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (14)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48313",
     "name": "Madison",
     "slug": "madison",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/madison",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48315",
@@ -2128,17 +2488,33 @@
     "fips": "48317",
     "name": "Martin",
     "slug": "martin",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/martin",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (6)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48319",
     "name": "Mason",
     "slug": "mason",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/mason",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48321",
@@ -2160,9 +2536,17 @@
     "fips": "48323",
     "name": "Maverick",
     "slug": "maverick",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/maverick",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (14)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48307",
@@ -2200,9 +2584,17 @@
     "fips": "48311",
     "name": "McMullen",
     "slug": "mcmullen",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/mcmullen",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (6)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48325",
@@ -2320,9 +2712,17 @@
     "fips": "48339",
     "name": "Montgomery",
     "slug": "montgomery",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/montgomery",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (100)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48341",
@@ -2408,9 +2808,17 @@
     "fips": "48351",
     "name": "Newton",
     "slug": "newton",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/newton",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (22)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48353",
@@ -2432,9 +2840,17 @@
     "fips": "48355",
     "name": "Nueces",
     "slug": "nueces",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/nueces",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (127)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48357",
@@ -2488,17 +2904,33 @@
     "fips": "48363",
     "name": "Palo Pinto",
     "slug": "palo-pinto",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/palo-pinto",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (28)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48365",
     "name": "Panola",
     "slug": "panola",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/panola",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (19)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48367",
@@ -2584,9 +3016,17 @@
     "fips": "48377",
     "name": "Presidio",
     "slug": "presidio",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/presidio",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (7)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48379",
@@ -2656,9 +3096,17 @@
     "fips": "48387",
     "name": "Red River",
     "slug": "red-river",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/red-river",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (22)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48389",
@@ -2696,9 +3144,17 @@
     "fips": "48393",
     "name": "Roberts",
     "slug": "roberts",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/roberts",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (5)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48395",
@@ -2752,9 +3208,17 @@
     "fips": "48401",
     "name": "Rusk",
     "slug": "rusk",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/rusk",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (22)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48403",
@@ -2776,9 +3240,17 @@
     "fips": "48405",
     "name": "San Augustine",
     "slug": "san-augustine",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/san-augustine",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (11)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48407",
@@ -2880,9 +3352,17 @@
     "fips": "48419",
     "name": "Shelby",
     "slug": "shelby",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/shelby",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (14)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48421",
@@ -2920,25 +3400,49 @@
     "fips": "48425",
     "name": "Somervell",
     "slug": "somervell",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/somervell",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48427",
     "name": "Starr",
     "slug": "starr",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/starr",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (10)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48429",
     "name": "Stephens",
     "slug": "stephens",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/stephens",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (8)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48431",
@@ -3024,17 +3528,33 @@
     "fips": "48441",
     "name": "Taylor",
     "slug": "taylor",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/taylor",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (34)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48443",
     "name": "Terrell",
     "slug": "terrell",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/terrell",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48445",
@@ -3088,9 +3608,17 @@
     "fips": "48451",
     "name": "Tom Green",
     "slug": "tom-green",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/tom-green",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (34)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48453",
@@ -3112,9 +3640,17 @@
     "fips": "48455",
     "name": "Trinity",
     "slug": "trinity",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/trinity",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (20)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48457",
@@ -3136,9 +3672,17 @@
     "fips": "48459",
     "name": "Upshur",
     "slug": "upshur",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/upshur",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (21)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48461",
@@ -3192,9 +3736,17 @@
     "fips": "48467",
     "name": "Van Zandt",
     "slug": "van-zandt",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/van-zandt",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (18)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48469",
@@ -3232,9 +3784,17 @@
     "fips": "48473",
     "name": "Waller",
     "slug": "waller",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/waller",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (20)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48475",
@@ -3272,17 +3832,33 @@
     "fips": "48479",
     "name": "Webb",
     "slug": "webb",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/webb",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (69)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48481",
     "name": "Wharton",
     "slug": "wharton",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/wharton",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (12)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48483",
@@ -3304,25 +3880,49 @@
     "fips": "48485",
     "name": "Wichita",
     "slug": "wichita",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/wichita",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (61)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48487",
     "name": "Wilbarger",
     "slug": "wilbarger",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/wilbarger",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (4)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48489",
     "name": "Willacy",
     "slug": "willacy",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/willacy",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (12)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48491",
@@ -3360,25 +3960,49 @@
     "fips": "48495",
     "name": "Winkler",
     "slug": "winkler",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/winkler",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (5)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48497",
     "name": "Wise",
     "slug": "wise",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/wise",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (25)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48499",
     "name": "Wood",
     "slug": "wood",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/wood",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (14)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48501",
@@ -3400,9 +4024,17 @@
     "fips": "48503",
     "name": "Young",
     "slug": "young",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/young",
+    "notes": "Statewide races only, ingested directly from VEST official precinct returns (OpenElections data for this county failed verification or could not be mapped \u2014 see AUDIT_REPORT)",
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (9)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48505",

@@ -1,0 +1,16 @@
+precinct,party,candidate,votes
+1,DEM,Gisela D. Triana,95
+1,LIB,Tom Oxford,16
+1,REP,Brett Busby,209
+2,DEM,Gisela D. Triana,142
+2,LIB,Tom Oxford,12
+2,REP,Brett Busby,151
+3N,DEM,Gisela D. Triana,35
+3N,LIB,Tom Oxford,4
+3N,REP,Brett Busby,78
+3S,DEM,Gisela D. Triana,42
+3S,LIB,Tom Oxford,5
+3S,REP,Brett Busby,64
+4,DEM,Gisela D. Triana,64
+4,LIB,Tom Oxford,9
+4,REP,Brett Busby,135

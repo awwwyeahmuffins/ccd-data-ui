@@ -1,0 +1,11 @@
+precinct,party,candidate,votes
+1,DEM,Brandon Birmingham,92
+1,REP,David Newell,225
+2,DEM,Brandon Birmingham,133
+2,REP,David Newell,171
+3N,DEM,Brandon Birmingham,34
+3N,REP,David Newell,82
+3S,DEM,Brandon Birmingham,40
+3S,REP,David Newell,67
+4,DEM,Brandon Birmingham,67
+4,REP,David Newell,139

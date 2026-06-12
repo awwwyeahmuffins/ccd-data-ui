@@ -1,0 +1,29 @@
+precinct,party,candidate,votes
+1A,DEM,Chrysta Castaneda,6
+1A,GRN,"Katija ""Kat"" Gruene",0
+1A,LIB,Matt Sterett,1
+1A,REP,"James ""Jim"" Wright",50
+1B,DEM,Chrysta Castaneda,1
+1B,GRN,"Katija ""Kat"" Gruene",0
+1B,LIB,Matt Sterett,0
+1B,REP,"James ""Jim"" Wright",49
+2A,DEM,Chrysta Castaneda,4
+2A,GRN,"Katija ""Kat"" Gruene",0
+2A,LIB,Matt Sterett,2
+2A,REP,"James ""Jim"" Wright",79
+2B,DEM,Chrysta Castaneda,2
+2B,GRN,"Katija ""Kat"" Gruene",0
+2B,LIB,Matt Sterett,0
+2B,REP,"James ""Jim"" Wright",34
+3A,DEM,Chrysta Castaneda,1
+3A,GRN,"Katija ""Kat"" Gruene",0
+3A,LIB,Matt Sterett,1
+3A,REP,"James ""Jim"" Wright",23
+3B,DEM,Chrysta Castaneda,1
+3B,GRN,"Katija ""Kat"" Gruene",0
+3B,LIB,Matt Sterett,0
+3B,REP,"James ""Jim"" Wright",36
+4,DEM,Chrysta Castaneda,2
+4,GRN,"Katija ""Kat"" Gruene",0
+4,LIB,Matt Sterett,0
+4,REP,"James ""Jim"" Wright",110

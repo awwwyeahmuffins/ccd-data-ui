@@ -245,7 +245,8 @@ export function computeRaceSummary(electionData, candidateNames = []) {
     activePrecincts,
     totalVotes,
     totalRegistered,
-    turnout: calculateTurnout(totalVotes, totalRegistered),
+    // Unknown ballots-cast (e.g. VEST-sourced counties) must read N/A, not 0%
+    turnout: totalVotes > 0 ? calculateTurnout(totalVotes, totalRegistered) : 'N/A',
     candidateTotals,
     winner,
     margin,

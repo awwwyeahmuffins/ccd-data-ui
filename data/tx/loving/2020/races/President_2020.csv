@@ -1,0 +1,21 @@
+precinct,party,candidate,votes
+1,,Write-in,0
+1,DEM,Joseph R Biden,1
+1,GRN,Howie Hawkins,0
+1,LIB,Jo Jorgensen,0
+1,REP,Donald J Trump,16
+2,,Write-in,0
+2,DEM,Joseph R Biden,2
+2,GRN,Howie Hawkins,0
+2,LIB,Jo Jorgensen,0
+2,REP,Donald J Trump,10
+3,,Write-in,0
+3,DEM,Joseph R Biden,0
+3,GRN,Howie Hawkins,0
+3,LIB,Jo Jorgensen,0
+3,REP,Donald J Trump,26
+4,,Write-in,0
+4,DEM,Joseph R Biden,1
+4,GRN,Howie Hawkins,0
+4,LIB,Jo Jorgensen,2
+4,REP,Donald J Trump,8

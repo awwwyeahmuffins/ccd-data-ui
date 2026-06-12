@@ -1,0 +1,13 @@
+precinct,party,candidate,votes
+1,DEM,Kathy Cheng,96
+1,REP,Jane Bland,465
+2,DEM,Kathy Cheng,72
+2,REP,Jane Bland,308
+3,DEM,Kathy Cheng,45
+3,REP,Jane Bland,427
+3A,DEM,Kathy Cheng,6
+3A,REP,Jane Bland,154
+4,DEM,Kathy Cheng,55
+4,REP,Jane Bland,325
+4A,DEM,Kathy Cheng,5
+4A,REP,Jane Bland,129

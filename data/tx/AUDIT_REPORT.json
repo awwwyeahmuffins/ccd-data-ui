@@ -323,24 +323,16 @@
   },
   "bexar": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "GOVERNOR/OTHER: ours=2941 official=2928 (diff +13)"
-        ],
-        "mismatches": 1,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 802,
-        "races": 112
-      }
+      "precincts": 734,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['GOVERNOR/OTHER: ours=2941 official=2928 (diff +13)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['GOVERNOR/OTHER: ours=2941 official=2928 (diff +13)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "blanco": {
     "gates": {
@@ -371,69 +363,29 @@
   },
   "borden": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 4,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 9,
-        "races": 8
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Early Voting",
-          "Mail"
-        ],
-        "vote_bearing": 9
-      }
+      "precincts": 7,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Early Voting', 'Mail']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "join failed: ['Early Voting', 'Mail']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "bosque": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US SENATE: 7 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 7
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 1",
-          "Precinct 10",
-          "Precinct 11",
-          "Precinct 2",
-          "Precinct 3",
-          "Precinct 4",
-          "Precinct 5",
-          "Precinct 6",
-          "Precinct 7",
-          "Precinct 8"
-        ],
-        "vote_bearing": 11
-      }
+      "precincts": 11,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 2', 'Precinct 3']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 2', 'Precinct 3']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "bowie": {
     "gates": {
@@ -487,24 +439,16 @@
   },
   "brazos": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "GOVERNOR/OTHER: ours=202 official=239 (diff -37)"
-        ],
-        "mismatches": 1,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 23
-      }
+      "precincts": 98,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['GOVERNOR/OTHER: ours=202 official=239 (diff -37)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['GOVERNOR/OTHER: ours=202 official=239 (diff -37)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "brewster": {
     "gates": {
@@ -610,31 +554,16 @@
   },
   "burleson": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 35
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "CISD",
-          "SMRVISD"
-        ],
-        "vote_bearing": 15
-      }
+      "precincts": 13,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['CISD', 'SMRVISD']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['CISD', 'SMRVISD']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "burnet": {
     "gates": {
@@ -766,35 +695,16 @@
   },
   "camp": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "ATTORNEY GENERAL/DEMOCRAT: ours=0 official=862 (diff -862)",
-          "ATTORNEY GENERAL/LIBERTARIAN: ours=0 official=67 (diff -67)",
-          "ATTORNEY GENERAL/REPUBLICAN: ours=0 official=3032 (diff -3032)",
-          "COMPTROLLER/DEMOCRAT: ours=0 official=834 (diff -834)",
-          "COMPTROLLER/LIBERTARIAN: ours=0 official=55 (diff -55)",
-          "COMPTROLLER/REPUBLICAN: ours=0 official=3049 (diff -3049)",
-          "GOVERNOR/DEMOCRAT: ours=0 official=863 (diff -863)",
-          "GOVERNOR/LIBERTARIAN: ours=0 official=26 (diff -26)",
-          "GOVERNOR/OTHER: ours=0 official=12 (diff -12)",
-          "GOVERNOR/REPUBLICAN: ours=0 official=3082 (diff -3082)",
-          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=0 official=873 (diff -873)",
-          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=0 official=53 (diff -53)"
-        ],
-        "mismatches": 13,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 14
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=0 official=862 (diff -862)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=0 official=67 (diff -67)', 'ATTORNEY GENERAL/REPUBLICAN: ours=0 official=3032 (diff -3032)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=0 official=862 (diff -862)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=0 official=67 (diff -67)', 'ATTORNEY GENERAL/REPUBLICAN: ours=0 official=3032 (diff -3032)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "carson": {
     "gates": {
@@ -874,24 +784,16 @@
   },
   "chambers": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/OTHER: ours=50 official=52 (diff -2)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 6
-      }
+      "precincts": 15,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=50 official=52 (diff -2)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/OTHER: ours=50 official=52 (diff -2)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "cherokee": {
     "gates": {
@@ -998,35 +900,16 @@
   },
   "coke": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=67 official=178 (diff -111)",
-          "US PRESIDENT/LIBERTARIAN: ours=5 official=10 (diff -5)",
-          "US PRESIDENT/OTHER: ours=2 official=5 (diff -3)",
-          "US PRESIDENT/REPUBLICAN: ours=566 official=1586 (diff -1020)",
-          "RAILROAD COMMISSIONER/DEMOCRAT: ours=52 official=142 (diff -90)",
-          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=12 official=24 (diff -12)",
-          "RAILROAD COMMISSIONER/OTHER: ours=3 official=8 (diff -5)",
-          "RAILROAD COMMISSIONER/REPUBLICAN: ours=547 official=1543 (diff -996)",
-          "US SENATE/DEMOCRAT: ours=58 official=171 (diff -113)",
-          "US SENATE/LIBERTARIAN: ours=11 official=23 (diff -12)",
-          "US SENATE/OTHER: ours=2 official=3 (diff -1)",
-          "US SENATE/REPUBLICAN: ours=560 official=1557 (diff -997)"
-        ],
-        "mismatches": 12,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 6
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=67 official=178 (diff -111)', 'US PRESIDENT/LIBERTARIAN: ours=5 official=10 (diff -5)', 'US PRESIDENT/OTHER: ours=2 official=5 (diff -3)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=67 official=178 (diff -111)', 'US PRESIDENT/LIBERTARIAN: ours=5 official=10 (diff -5)', 'US PRESIDENT/OTHER: ours=2 official=5 (diff -3)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "coleman": {
     "gates": {
@@ -1055,40 +938,16 @@
   },
   "collingsworth": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 5
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Calvary Baptist Church",
-          "Collingsworth County Courthouse",
-          "Community Building",
-          "Dodson Town Hall",
-          "Early Voting",
-          "Mail",
-          "Quail Booster Building",
-          "Rocket House",
-          "Samnorwood High School Gym"
-        ],
-        "vote_bearing": 9
-      }
+      "precincts": 7,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Calvary Baptist Church', 'Collingsworth County Courthouse', 'Community Building', 'Dodson Town Hall', 'Early Voting']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Calvary Baptist Church', 'Collingsworth County Courthouse', 'Community Building', 'Dodson Town Hall', 'Early Voting']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "colorado": {
     "gates": {
@@ -1117,41 +976,16 @@
   },
   "comal": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 40
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "201 - NB4",
-          "202 - GV",
-          "202 - SC",
-          "202 - SCGV",
-          "202 - SE",
-          "206 - TG",
-          "208 - FO",
-          "208 - FOTG",
-          "208 - TG",
-          "301 - NB4"
-        ],
-        "vote_bearing": 46
-      }
+      "precincts": 29,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['201 - NB4', '202 - GV', '202 - SC', '202 - SCGV', '202 - SE']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['201 - NB4', '202 - GV', '202 - SC', '202 - SCGV', '202 - SE']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "comanche": {
     "gates": {
@@ -1256,25 +1090,16 @@
   },
   "cottle": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "COMPTROLLER/REPUBLICAN: ours=353 official=434 (diff -81)"
-        ],
-        "mismatches": 1,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 48,
-        "precincts": 0,
-        "races": 14
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['COMPTROLLER/REPUBLICAN: ours=353 official=434 (diff -81)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['COMPTROLLER/REPUBLICAN: ours=353 official=434 (diff -81)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "crane": {
     "gates": {
@@ -1354,32 +1179,16 @@
   },
   "culberson": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 4,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 60,
-        "precincts": 0,
-        "races": 18
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "3~3",
-          "3~5"
-        ],
-        "vote_bearing": 5
-      }
+      "precincts": 5,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['3~3', '3~5']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "join failed: ['3~3', '3~5']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "dallam": {
     "gates": {
@@ -1433,30 +1242,16 @@
   },
   "dawson": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=803 official=808 (diff -5)",
-          "US PRESIDENT/REPUBLICAN: ours=2932 official=2951 (diff -19)",
-          "RAILROAD COMMISSIONER/DEMOCRAT: ours=732 official=740 (diff -8)",
-          "RAILROAD COMMISSIONER/REPUBLICAN: ours=2713 official=2726 (diff -13)",
-          "US SENATE/DEMOCRAT: ours=732 official=738 (diff -6)",
-          "US SENATE/LIBERTARIAN: ours=59 official=60 (diff -1)",
-          "US SENATE/REPUBLICAN: ours=2811 official=2827 (diff -16)"
-        ],
-        "mismatches": 7,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 9,
-        "races": 6
-      }
+      "precincts": 9,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=803 official=808 (diff -5)', 'US PRESIDENT/REPUBLICAN: ours=2932 official=2951 (diff -19)', 'RAILROAD COMMISSIONER/DEMOCRAT: ours=732 official=740 (diff -8)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=803 official=808 (diff -5)', 'US PRESIDENT/REPUBLICAN: ours=2932 official=2951 (diff -19)', 'RAILROAD COMMISSIONER/DEMOCRAT: ours=732 official=740 (diff -8)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "deaf-smith": {
     "gates": {
@@ -1567,36 +1362,16 @@
   },
   "dickens": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 72,
-        "precincts": 6,
-        "races": 6
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 1",
-          "Precinct 2",
-          "Precinct 3",
-          "Precinct 4",
-          "Precinct 5",
-          "Precinct 6"
-        ],
-        "vote_bearing": 6
-      }
+      "precincts": 6,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 1', 'Precinct 2', 'Precinct 3', 'Precinct 4', 'Precinct 5']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 1', 'Precinct 2', 'Precinct 3', 'Precinct 4', 'Precinct 5']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "dimmit": {
     "gates": {
@@ -1625,25 +1400,16 @@
   },
   "donley": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US SENATE/OTHER: ours=7 official=4 (diff +3)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 84,
-        "precincts": 0,
-        "races": 17
-      }
+      "precincts": 6,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US SENATE/OTHER: ours=7 official=4 (diff +3)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US SENATE/OTHER: ours=7 official=4 (diff +3)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "duval": {
     "gates": {
@@ -1879,25 +1645,16 @@
   },
   "fayette": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/REPUBLICAN: ours=10170 official=10171 (diff -1)",
-          "note US SENATE: 8 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 44
-      }
+      "precincts": 26,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=10170 official=10171 (diff -1)', 'note US SENATE: 8 write-in votes not carried in official accounting (all certified votes exact)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=10170 official=10171 (diff -1)', 'note US SENATE: 8 write-in votes not carried in official accounting (all certified votes exact)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "fisher": {
     "gates": {
@@ -1976,39 +1733,16 @@
   },
   "fort-bend": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 4,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 175,
-        "races": 62
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "1004 K1",
-          "1005 L1",
-          "1008 A",
-          "1013 L1",
-          "1014 K1",
-          "1019 L2",
-          "1038 K1",
-          "1057 L1",
-          "1103 L3",
-          "1104 F2"
-        ],
-        "vote_bearing": 173
-      }
+      "precincts": 160,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['1004 K1', '1005 L1', '1008 A', '1013 L1', '1014 K1']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "join failed: ['1004 K1', '1005 L1', '1008 A', '1013 L1', '1014 K1']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "franklin": {
     "gates": {
@@ -2065,25 +1799,16 @@
   },
   "frio": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=2488 official=2422 (diff +66)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 108,
-        "precincts": 0,
-        "races": 16
-      }
+      "precincts": 9,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=2488 official=2422 (diff +66)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=2488 official=2422 (diff +66)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "gaines": {
     "gates": {
@@ -2112,94 +1837,55 @@
   },
   "galveston": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/OTHER: ours=394 official=662 (diff -268)",
-          "note US SENATE: 3 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 110
-      }
+      "precincts": 92,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=394 official=662 (diff -268)', 'note US SENATE: 3 write-in votes not carried in official accounting (all certified votes exact)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/OTHER: ours=394 official=662 (diff -268)', 'note US SENATE: 3 write-in votes not carried in official accounting (all certified votes exact)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "garza": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/REPUBLICAN: ours=1483 official=1413 (diff +70)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 6
-      }
+      "precincts": 6,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=1483 official=1413 (diff +70)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=1483 official=1413 (diff +70)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "gillespie": {
     "gates": {
-      "audit": {
-        "cells": 4,
-        "detail": [
-          "only 1 audited offices found \u2014 too few to certify"
-        ],
-        "mismatches": 0,
-        "offices": 1,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 13,
-        "races": 4
-      }
+      "precincts": 13,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['only 1 audited offices found \u2014 too few to certify']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['only 1 audited offices found \u2014 too few to certify']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "glasscock": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 4,
-        "races": 5
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Early Voting"
-        ],
-        "vote_bearing": 5
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Early Voting']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Early Voting']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "goliad": {
     "gates": {
@@ -2228,39 +1914,16 @@
   },
   "gonzales": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 15,
-        "races": 33
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 1",
-          "Precinct 10",
-          "Precinct 11",
-          "Precinct 12",
-          "Precinct 13",
-          "Precinct 14",
-          "Precinct 15",
-          "Precinct 2",
-          "Precinct 3",
-          "Precinct 4"
-        ],
-        "vote_bearing": 15
-      }
+      "precincts": 14,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 12', 'Precinct 13']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 12', 'Precinct 13']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "gray": {
     "gates": {
@@ -2289,41 +1952,16 @@
   },
   "grayson": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US SENATE: 28 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 36,
-        "races": 48
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 101",
-          "Precinct 101 H",
-          "Precinct 101 S",
-          "Precinct 102",
-          "Precinct 102 S",
-          "Precinct 103",
-          "Precinct 103 S",
-          "Precinct 104",
-          "Precinct 104 H",
-          "Precinct 104 S"
-        ],
-        "vote_bearing": 107
-      }
+      "precincts": 36,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 101', 'Precinct 101 H', 'Precinct 101 S', 'Precinct 102', 'Precinct 102 S']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 101', 'Precinct 101 H', 'Precinct 101 S', 'Precinct 102', 'Precinct 102 S']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "gregg": {
     "gates": {
@@ -2508,25 +2146,16 @@
   },
   "hardeman": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=351 official=241 (diff +110)",
-          "US PRESIDENT/LIBERTARIAN: ours=20 official=9 (diff +11)"
-        ],
-        "mismatches": 2,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 6
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=351 official=241 (diff +110)', 'US PRESIDENT/LIBERTARIAN: ours=20 official=9 (diff +11)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=351 official=241 (diff +110)', 'US PRESIDENT/LIBERTARIAN: ours=20 official=9 (diff +11)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "hardin": {
     "gates": {
@@ -2582,39 +2211,16 @@
   },
   "harrison": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 6
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 1",
-          "Precinct 10",
-          "Precinct 11",
-          "Precinct 12",
-          "Precinct 13",
-          "Precinct 14",
-          "Precinct 15",
-          "Precinct 16",
-          "Precinct 17",
-          "Precinct 18"
-        ],
-        "vote_bearing": 27
-      }
+      "precincts": 26,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 12', 'Precinct 13']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 12', 'Precinct 13']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "hartley": {
     "gates": {
@@ -2643,57 +2249,29 @@
   },
   "haskell": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "GOVERNOR/OTHER: ours=9 official=7 (diff +2)"
-        ],
-        "mismatches": 1,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 120,
-        "precincts": 0,
-        "races": 15
-      }
+      "precincts": 10,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['GOVERNOR/OTHER: ours=9 official=7 (diff +2)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['GOVERNOR/OTHER: ours=9 official=7 (diff +2)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "hays": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "ATTORNEY GENERAL/DEMOCRAT: ours=36895 official=48434 (diff -11539)",
-          "ATTORNEY GENERAL/LIBERTARIAN: ours=2136 official=3363 (diff -1227)",
-          "ATTORNEY GENERAL/REPUBLICAN: ours=26552 official=37150 (diff -10598)",
-          "COMPTROLLER/DEMOCRAT: ours=34560 official=45267 (diff -10707)",
-          "COMPTROLLER/LIBERTARIAN: ours=1703 official=2765 (diff -1062)",
-          "COMPTROLLER/REPUBLICAN: ours=29086 official=40494 (diff -11408)",
-          "GOVERNOR/DEMOCRAT: ours=36995 official=48970 (diff -11975)",
-          "GOVERNOR/LIBERTARIAN: ours=757 official=1267 (diff -510)",
-          "GOVERNOR/OTHER: ours=206 official=405 (diff -199)",
-          "GOVERNOR/REPUBLICAN: ours=28085 official=39085 (diff -11000)",
-          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=36584 official=47952 (diff -11368)",
-          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=2056 official=3371 (diff -1315)"
-        ],
-        "mismatches": 13,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 63
-      }
+      "precincts": 68,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=36895 official=48434 (diff -11539)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=2136 official=3363 (diff -1227)', 'ATTORNEY GENERAL/REPUBLICAN: ours=26552 official=37150 (diff -10598)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=36895 official=48434 (diff -11539)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=2136 official=3363 (diff -1227)', 'ATTORNEY GENERAL/REPUBLICAN: ours=26552 official=37150 (diff -10598)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "hemphill": {
     "gates": {
@@ -2746,10 +2324,17 @@
     "wave": "2022"
   },
   "hidalgo": {
-    "gates": {},
-    "reason": "No rows for county 'Hidalgo'. Counties present include: ['Hildalgo']",
-    "status": "placeholder",
-    "wave": "2020"
+    "gates": {
+      "precincts": 255,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
+    },
+    "prior_attempt": {
+      "reason": "No rows for county 'Hidalgo'. Counties present include: ['Hildalgo']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "hill": {
     "gates": {
@@ -2778,68 +2363,29 @@
   },
   "hockley": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 4,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 15,
-        "races": 15
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "School8"
-        ],
-        "vote_bearing": 15
-      }
+      "precincts": 14,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['School8']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "join failed: ['School8']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "hood": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US SENATE: 16 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 16,
-        "races": 6
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 1",
-          "Precinct 10",
-          "Precinct 11",
-          "Precinct 12",
-          "Precinct 13",
-          "Precinct 14",
-          "Precinct 15",
-          "Precinct 16",
-          "Precinct 2",
-          "Precinct 3"
-        ],
-        "vote_bearing": 16
-      }
+      "precincts": 15,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 12', 'Precinct 13']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 12', 'Precinct 13']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "hopkins": {
     "gates": {
@@ -2921,34 +2467,16 @@
   },
   "hudspeth": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 6
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Early Voting",
-          "Mail",
-          "Provisional"
-        ],
-        "vote_bearing": 8
-      }
+      "precincts": 5,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Early Voting', 'Mail', 'Provisional']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Early Voting', 'Mail', 'Provisional']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "hunt": {
     "gates": {
@@ -3002,25 +2530,16 @@
   },
   "irion": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/LIBERTARIAN: ours=188 official=8 (diff +180)",
-          "US PRESIDENT/OTHER: ours=34 official=2 (diff +32)"
-        ],
-        "mismatches": 2,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 4,
-        "races": 6
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/LIBERTARIAN: ours=188 official=8 (diff +180)', 'US PRESIDENT/OTHER: ours=34 official=2 (diff +32)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/LIBERTARIAN: ours=188 official=8 (diff +180)', 'US PRESIDENT/OTHER: ours=34 official=2 (diff +32)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "jack": {
     "gates": {
@@ -3131,34 +2650,16 @@
   },
   "jefferson": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "ATTORNEY GENERAL/DEMOCRAT: ours=26695 official=26673 (diff +22)",
-          "ATTORNEY GENERAL/LIBERTARIAN: ours=1012 official=1011 (diff +1)",
-          "ATTORNEY GENERAL/REPUBLICAN: ours=34065 official=34028 (diff +37)",
-          "COMPTROLLER/DEMOCRAT: ours=25964 official=25942 (diff +22)",
-          "COMPTROLLER/LIBERTARIAN: ours=1065 official=1064 (diff +1)",
-          "COMPTROLLER/REPUBLICAN: ours=34439 official=34402 (diff +37)",
-          "GOVERNOR/DEMOCRAT: ours=26641 official=26617 (diff +24)",
-          "GOVERNOR/REPUBLICAN: ours=34988 official=34952 (diff +36)",
-          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=26532 official=26509 (diff +23)",
-          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=1179 official=1177 (diff +2)",
-          "LIEUTENANT GOVERNOR/REPUBLICAN: ours=34097 official=34062 (diff +35)"
-        ],
-        "mismatches": 11,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 105,
-        "races": 37
-      }
+      "precincts": 109,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=26695 official=26673 (diff +22)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=1012 official=1011 (diff +1)', 'ATTORNEY GENERAL/REPUBLICAN: ours=34065 official=34028 (diff +37)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=26695 official=26673 (diff +22)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=1012 official=1011 (diff +1)', 'ATTORNEY GENERAL/REPUBLICAN: ours=34065 official=34028 (diff +37)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "jim-hogg": {
     "gates": {
@@ -3212,24 +2713,16 @@
   },
   "johnson": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/OTHER: ours=142 official=156 (diff -14)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 6
-      }
+      "precincts": 36,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=142 official=156 (diff -14)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/OTHER: ours=142 official=156 (diff -14)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "jones": {
     "gates": {
@@ -3258,26 +2751,16 @@
   },
   "karnes": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "COMPTROLLER/LIBERTARIAN: ours=85 official=83 (diff +2)",
-          "LIEUTENANT GOVERNOR/REPUBLICAN: ours=2829 official=2925 (diff -96)"
-        ],
-        "mismatches": 2,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 180,
-        "precincts": 0,
-        "races": 21
-      }
+      "precincts": 15,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['COMPTROLLER/LIBERTARIAN: ours=85 official=83 (diff +2)', 'LIEUTENANT GOVERNOR/REPUBLICAN: ours=2829 official=2925 (diff -96)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['COMPTROLLER/LIBERTARIAN: ours=85 official=83 (diff +2)', 'LIEUTENANT GOVERNOR/REPUBLICAN: ours=2829 official=2925 (diff -96)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "kaufman": {
     "gates": {
@@ -3358,24 +2841,16 @@
   },
   "kent": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/REPUBLICAN: ours=411 official=408 (diff +3)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 6,
-        "races": 6
-      }
+      "precincts": 6,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=411 official=408 (diff +3)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=411 official=408 (diff +3)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "kerr": {
     "gates": {
@@ -3406,27 +2881,16 @@
   },
   "kimble": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "COMPTROLLER/REPUBLICAN: ours=1648 official=1657 (diff -9)",
-          "GOVERNOR/REPUBLICAN: ours=1658 official=1666 (diff -8)",
-          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=45 official=42 (diff +3)"
-        ],
-        "mismatches": 3,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 84,
-        "precincts": 0,
-        "races": 18
-      }
+      "precincts": 7,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['COMPTROLLER/REPUBLICAN: ours=1648 official=1657 (diff -9)', 'GOVERNOR/REPUBLICAN: ours=1658 official=1666 (diff -8)', 'LIEUTENANT GOVERNOR/LIBERTARIAN: ours=45 official=42 (diff +3)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['COMPTROLLER/REPUBLICAN: ours=1648 official=1657 (diff -9)', 'GOVERNOR/REPUBLICAN: ours=1658 official=1666 (diff -8)', 'LIEUTENANT GOVERNOR/LIBERTARIAN: ours=45 official=42 (diff +3)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "king": {
     "gates": {
@@ -3454,26 +2918,31 @@
     "status": "live",
     "wave": "2020"
   },
+  "kinney": {
+    "gates": {
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
+    },
+    "prior_attempt": {
+      "reason": null,
+      "wave": null
+    },
+    "status": "live",
+    "wave": "vest-direct"
+  },
   "kleberg": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/OTHER: ours=29 official=44 (diff -15)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 17,
-        "races": 6
-      }
+      "precincts": 18,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=29 official=44 (diff -15)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/OTHER: ours=29 official=44 (diff -15)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "knox": {
     "gates": {
@@ -3532,24 +3001,16 @@
   },
   "lamar": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "GOVERNOR/OTHER: ours=24 official=31 (diff -7)"
-        ],
-        "mismatches": 1,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 26,
-        "races": 38
-      }
+      "precincts": 32,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['GOVERNOR/OTHER: ours=24 official=31 (diff -7)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['GOVERNOR/OTHER: ours=24 official=31 (diff -7)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "lamb": {
     "gates": {
@@ -3732,36 +3193,16 @@
   },
   "lipscomb": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 7,
-        "races": 5
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 106",
-          "Precinct 202",
-          "Precinct 207",
-          "Precinct 303",
-          "Precinct 308",
-          "Precinct 404",
-          "Precinct 409"
-        ],
-        "vote_bearing": 7
-      }
+      "precincts": 7,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 106', 'Precinct 202', 'Precinct 207', 'Precinct 303', 'Precinct 308']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 106', 'Precinct 202', 'Precinct 207', 'Precinct 303', 'Precinct 308']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "live-oak": {
     "gates": {
@@ -3815,34 +3256,16 @@
   },
   "loving": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 5
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Early Voting",
-          "Precinct 1",
-          "Precinct 2",
-          "Precinct 3",
-          "Precinct 4"
-        ],
-        "vote_bearing": 5
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Early Voting', 'Precinct 1', 'Precinct 2', 'Precinct 3', 'Precinct 4']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Early Voting', 'Precinct 1', 'Precinct 2', 'Precinct 3', 'Precinct 4']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "lubbock": {
     "gates": {
@@ -3872,73 +3295,29 @@
   },
   "lynn": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 10,
-        "races": 6
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 1/5",
-          "Precinct 12",
-          "Precinct 13",
-          "Precinct 14",
-          "Precinct 2/8",
-          "Precinct 3/10",
-          "Precinct 4/11",
-          "Precinct 6",
-          "Precinct 7",
-          "Precinct 9"
-        ],
-        "vote_bearing": 10
-      }
+      "precincts": 14,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 1/5', 'Precinct 12', 'Precinct 13', 'Precinct 14', 'Precinct 2/8']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 1/5', 'Precinct 12', 'Precinct 13', 'Precinct 14', 'Precinct 2/8']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "madison": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=165 official=1088 (diff -923)",
-          "US PRESIDENT/LIBERTARIAN: ours=0 official=30 (diff -30)",
-          "US PRESIDENT/OTHER: ours=1 official=11 (diff -10)",
-          "US PRESIDENT/REPUBLICAN: ours=310 official=4169 (diff -3859)",
-          "RAILROAD COMMISSIONER/DEMOCRAT: ours=150 official=1008 (diff -858)",
-          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=6 official=65 (diff -59)",
-          "RAILROAD COMMISSIONER/OTHER: ours=4 official=29 (diff -25)",
-          "RAILROAD COMMISSIONER/REPUBLICAN: ours=298 official=4086 (diff -3788)",
-          "US SENATE/DEMOCRAT: ours=164 official=1030 (diff -866)",
-          "US SENATE/LIBERTARIAN: ours=1 official=61 (diff -60)",
-          "US SENATE/OTHER: ours=0 official=14 (diff -14)",
-          "US SENATE/REPUBLICAN: ours=307 official=4118 (diff -3811)"
-        ],
-        "mismatches": 12,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 4,
-        "races": 27
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=165 official=1088 (diff -923)', 'US PRESIDENT/LIBERTARIAN: ours=0 official=30 (diff -30)', 'US PRESIDENT/OTHER: ours=1 official=11 (diff -10)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=165 official=1088 (diff -923)', 'US PRESIDENT/LIBERTARIAN: ours=0 official=30 (diff -30)', 'US PRESIDENT/OTHER: ours=1 official=11 (diff -10)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "marion": {
     "gates": {
@@ -3967,64 +3346,29 @@
   },
   "martin": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 4,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 21
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Grady ISD",
-          "Grady ISD 2",
-          "Klondike ISD",
-          "Midland City",
-          "Sands CISD",
-          "Stanton ISD"
-        ],
-        "vote_bearing": 12
-      }
+      "precincts": 6,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Grady ISD', 'Grady ISD 2', 'Klondike ISD', 'Midland City', 'Sands CISD']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "join failed: ['Grady ISD', 'Grady ISD 2', 'Klondike ISD', 'Midland City', 'Sands CISD']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "mason": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "ATTORNEY GENERAL/DEMOCRAT: ours=366 official=365 (diff +1)",
-          "ATTORNEY GENERAL/REPUBLICAN: ours=1624 official=1623 (diff +1)",
-          "COMPTROLLER/DEMOCRAT: ours=312 official=311 (diff +1)",
-          "COMPTROLLER/REPUBLICAN: ours=1684 official=1683 (diff +1)",
-          "GOVERNOR/DEMOCRAT: ours=340 official=339 (diff +1)",
-          "GOVERNOR/REPUBLICAN: ours=1703 official=1702 (diff +1)",
-          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=364 official=362 (diff +2)",
-          "LIEUTENANT GOVERNOR/REPUBLICAN: ours=1643 official=1642 (diff +1)"
-        ],
-        "mismatches": 8,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 48,
-        "precincts": 0,
-        "races": 16
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=366 official=365 (diff +1)', 'ATTORNEY GENERAL/REPUBLICAN: ours=1624 official=1623 (diff +1)', 'COMPTROLLER/DEMOCRAT: ours=312 official=311 (diff +1)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=366 official=365 (diff +1)', 'ATTORNEY GENERAL/REPUBLICAN: ours=1624 official=1623 (diff +1)', 'COMPTROLLER/DEMOCRAT: ours=312 official=311 (diff +1)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "matagorda": {
     "gates": {
@@ -4053,26 +3397,16 @@
   },
   "maverick": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US PRESIDENT: 19 write-in votes not carried in official accounting (all certified votes exact)",
-          "note US SENATE: 7 write-in votes not carried in official accounting (all certified votes exact)",
-          "US SENATE/REPUBLICAN: ours=7907 official=5708 (diff +2199)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 6
-      }
+      "precincts": 14,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['note US PRESIDENT: 19 write-in votes not carried in official accounting (all certified votes exact)', 'note US SENATE: 7 write-in votes not carried in official accounting (all certified votes exact)', 'US SENATE/REPUBLICAN: ours=7907 official=5708 (diff +2199)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['note US PRESIDENT: 19 write-in votes not carried in official accounting (all certified votes exact)', 'note US SENATE: 7 write-in votes not carried in official accounting (all certified votes exact)', 'US SENATE/REPUBLICAN: ours=7907 official=5708 (diff +2199)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "mcculloch": {
     "gates": {
@@ -4126,33 +3460,16 @@
   },
   "mcmullen": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 4,
-        "races": 6
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 1",
-          "Precinct 2A & 2B",
-          "Precinct 3",
-          "Precinct 4A & 4B"
-        ],
-        "vote_bearing": 4
-      }
+      "precincts": 6,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 1', 'Precinct 2A & 2B', 'Precinct 3', 'Precinct 4A & 4B']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 1', 'Precinct 2A & 2B', 'Precinct 3', 'Precinct 4A & 4B']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "medina": {
     "gates": {
@@ -4335,39 +3652,16 @@
   },
   "montgomery": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 4,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 21
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "01",
-          "02",
-          "03",
-          "04",
-          "05",
-          "06",
-          "07",
-          "08",
-          "09",
-          "43"
-        ],
-        "vote_bearing": 111
-      }
+      "precincts": 100,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['01', '02', '03', '04', '05']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "join failed: ['01', '02', '03', '04', '05']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "moore": {
     "gates": {
@@ -4500,27 +3794,16 @@
   },
   "newton": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US SENATE/DEMOCRAT: ours=1411 official=1163 (diff +248)",
-          "US SENATE/LIBERTARIAN: ours=75 official=47 (diff +28)",
-          "US SENATE/OTHER: ours=27 official=23 (diff +4)",
-          "US SENATE/REPUBLICAN: ours=4504 official=4784 (diff -280)"
-        ],
-        "mismatches": 4,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 20,
-        "races": 5
-      }
+      "precincts": 22,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US SENATE/DEMOCRAT: ours=1411 official=1163 (diff +248)', 'US SENATE/LIBERTARIAN: ours=75 official=47 (diff +28)', 'US SENATE/OTHER: ours=27 official=23 (diff +4)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US SENATE/DEMOCRAT: ours=1411 official=1163 (diff +248)', 'US SENATE/LIBERTARIAN: ours=75 official=47 (diff +28)', 'US SENATE/OTHER: ours=27 official=23 (diff +4)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "nolan": {
     "gates": {
@@ -4549,24 +3832,16 @@
   },
   "nueces": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "GOVERNOR/OTHER: ours=424 official=428 (diff -4)"
-        ],
-        "mismatches": 1,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 72
-      }
+      "precincts": 127,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['GOVERNOR/OTHER: ours=424 official=428 (diff -4)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['GOVERNOR/OTHER: ours=424 official=428 (diff -4)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "ochiltree": {
     "gates": {
@@ -4647,47 +3922,29 @@
   },
   "palo-pinto": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "GOVERNOR/OTHER: ours=24 official=26 (diff -2)"
-        ],
-        "mismatches": 1,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 16
-      }
+      "precincts": 28,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['GOVERNOR/OTHER: ours=24 official=26 (diff -2)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['GOVERNOR/OTHER: ours=24 official=26 (diff -2)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "panola": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "RAILROAD COMMISSIONER/REPUBLICAN: ours=9382 official=9152 (diff +230)",
-          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 228,
-        "precincts": 19,
-        "races": 6
-      }
+      "precincts": 19,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['RAILROAD COMMISSIONER/REPUBLICAN: ours=9382 official=9152 (diff +230)', 'note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['RAILROAD COMMISSIONER/REPUBLICAN: ours=9382 official=9152 (diff +230)', 'note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "parker": {
     "gates": {
@@ -4818,24 +4075,16 @@
   },
   "presidio": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/OTHER: ours=12 official=14 (diff -2)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 6
-      }
+      "precincts": 7,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=12 official=14 (diff -2)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/OTHER: ours=12 official=14 (diff -2)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "rains": {
     "gates": {
@@ -4939,31 +4188,16 @@
   },
   "red-river": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 4,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 15
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "2-1",
-          "3-1"
-        ],
-        "vote_bearing": 14
-      }
+      "precincts": 22,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['2-1', '3-1']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "join failed: ['2-1', '3-1']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "reeves": {
     "gates": {
@@ -5017,35 +4251,16 @@
   },
   "roberts": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 4,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 14
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "1 - MISD",
-          "2 - MISD",
-          "3 - MISD",
-          "4 - 1 MISD",
-          "4 - 2 MISD",
-          "4-2."
-        ],
-        "vote_bearing": 7
-      }
+      "precincts": 5,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['1 - MISD', '2 - MISD', '3 - MISD', '4 - 1 MISD', '4 - 2 MISD']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "join failed: ['1 - MISD', '2 - MISD', '3 - MISD', '4 - 1 MISD', '4 - 2 MISD']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "robertson": {
     "gates": {
@@ -5126,41 +4341,16 @@
   },
   "rusk": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US SENATE: 10 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 22,
-        "races": 17
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "PCT 111",
-          "PCT 112",
-          "PCT 113",
-          "PCT 114",
-          "PCT 201",
-          "PCT 212",
-          "PCT 213",
-          "PCT 214",
-          "PCT 215",
-          "PCT 302"
-        ],
-        "vote_bearing": 22
-      }
+      "precincts": 22,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['PCT 111', 'PCT 112', 'PCT 113', 'PCT 114', 'PCT 201']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['PCT 111', 'PCT 112', 'PCT 113', 'PCT 114', 'PCT 201']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "sabine": {
     "gates": {
@@ -5189,26 +4379,16 @@
   },
   "san-augustine": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "GOVERNOR/REPUBLICAN: ours=2286 official=2288 (diff -2)",
-          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=29 official=32 (diff -3)"
-        ],
-        "mismatches": 2,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 132,
-        "precincts": 0,
-        "races": 15
-      }
+      "precincts": 11,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['GOVERNOR/REPUBLICAN: ours=2286 official=2288 (diff -2)', 'LIEUTENANT GOVERNOR/LIBERTARIAN: ours=29 official=32 (diff -3)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['GOVERNOR/REPUBLICAN: ours=2286 official=2288 (diff -2)', 'LIEUTENANT GOVERNOR/LIBERTARIAN: ours=29 official=32 (diff -3)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "san-jacinto": {
     "gates": {
@@ -5363,24 +4543,16 @@
   },
   "shelby": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/OTHER: ours=4 official=7 (diff -3)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 14,
-        "races": 5
-      }
+      "precincts": 14,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=4 official=7 (diff -3)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/OTHER: ours=4 official=7 (diff -3)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "sherman": {
     "gates": {
@@ -5436,102 +4608,42 @@
   },
   "somervell": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "ATTORNEY GENERAL/DEMOCRAT: ours=531 official=554 (diff -23)",
-          "ATTORNEY GENERAL/LIBERTARIAN: ours=100 official=104 (diff -4)",
-          "ATTORNEY GENERAL/REPUBLICAN: ours=3293 official=3336 (diff -43)",
-          "COMPTROLLER/DEMOCRAT: ours=475 official=500 (diff -25)",
-          "COMPTROLLER/REPUBLICAN: ours=3365 official=3406 (diff -41)",
-          "GOVERNOR/DEMOCRAT: ours=529 official=553 (diff -24)",
-          "GOVERNOR/LIBERTARIAN: ours=48 official=49 (diff -1)",
-          "GOVERNOR/OTHER: ours=8 official=6 (diff +2)",
-          "GOVERNOR/REPUBLICAN: ours=3385 official=3430 (diff -45)",
-          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=575 official=600 (diff -25)",
-          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=64 official=66 (diff -2)",
-          "LIEUTENANT GOVERNOR/REPUBLICAN: ours=3303 official=3346 (diff -43)"
-        ],
-        "mismatches": 12,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 48,
-        "precincts": 0,
-        "races": 15
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=531 official=554 (diff -23)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=100 official=104 (diff -4)', 'ATTORNEY GENERAL/REPUBLICAN: ours=3293 official=3336 (diff -43)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=531 official=554 (diff -23)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=100 official=104 (diff -4)', 'ATTORNEY GENERAL/REPUBLICAN: ours=3293 official=3336 (diff -43)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "starr": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=9099 official=9148 (diff -49)",
-          "US PRESIDENT/LIBERTARIAN: ours=91 official=92 (diff -1)",
-          "US PRESIDENT/REPUBLICAN: ours=8224 official=8259 (diff -35)",
-          "RAILROAD COMMISSIONER/DEMOCRAT: ours=8606 official=8648 (diff -42)",
-          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=322 official=323 (diff -1)",
-          "RAILROAD COMMISSIONER/REPUBLICAN: ours=5025 official=5049 (diff -24)",
-          "US SENATE/DEMOCRAT: ours=8139 official=8178 (diff -39)",
-          "US SENATE/LIBERTARIAN: ours=356 official=357 (diff -1)",
-          "US SENATE/OTHER: ours=402 official=388 (diff +14)",
-          "US SENATE/REPUBLICAN: ours=5825 official=5851 (diff -26)"
-        ],
-        "mismatches": 10,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 10,
-        "races": 6
-      }
+      "precincts": 10,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=9099 official=9148 (diff -49)', 'US PRESIDENT/LIBERTARIAN: ours=91 official=92 (diff -1)', 'US PRESIDENT/REPUBLICAN: ours=8224 official=8259 (diff -35)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=9099 official=9148 (diff -49)', 'US PRESIDENT/LIBERTARIAN: ours=91 official=92 (diff -1)', 'US PRESIDENT/REPUBLICAN: ours=8224 official=8259 (diff -35)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "stephens": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 8,
-        "races": 7
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 1-11",
-          "Precinct 2-11",
-          "Precinct 2-19",
-          "Precinct 3-11",
-          "Precinct 3-19",
-          "Precinct 4-11",
-          "Precinct 4-19",
-          "Precinct 5-11"
-        ],
-        "vote_bearing": 8
-      }
+      "precincts": 8,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 1-11', 'Precinct 2-11', 'Precinct 2-19', 'Precinct 3-11', 'Precinct 3-19']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 1-11', 'Precinct 2-11', 'Precinct 2-19', 'Precinct 3-11', 'Precinct 3-19']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "sterling": {
     "gates": {
@@ -5668,54 +4780,29 @@
   },
   "taylor": {
     "gates": {
-      "audit": {
-        "cells": 13,
-        "detail": [
-          "ATTORNEY GENERAL/DEMOCRAT: ours=8996 official=8987 (diff +9)",
-          "ATTORNEY GENERAL/REPUBLICAN: ours=29047 official=28991 (diff +56)",
-          "COMPTROLLER/DEMOCRAT: ours=8100 official=8091 (diff +9)",
-          "COMPTROLLER/REPUBLICAN: ours=29960 official=29904 (diff +56)",
-          "GOVERNOR/DEMOCRAT: ours=8888 official=8878 (diff +10)",
-          "GOVERNOR/OTHER: ours=126 official=150 (diff -24)",
-          "GOVERNOR/REPUBLICAN: ours=30030 official=29974 (diff +56)",
-          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=8809 official=8799 (diff +10)",
-          "LIEUTENANT GOVERNOR/REPUBLICAN: ours=29262 official=29207 (diff +55)"
-        ],
-        "mismatches": 9,
-        "offices": 4,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 23
-      }
+      "precincts": 34,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=8996 official=8987 (diff +9)', 'ATTORNEY GENERAL/REPUBLICAN: ours=29047 official=28991 (diff +56)', 'COMPTROLLER/DEMOCRAT: ours=8100 official=8091 (diff +9)']",
-    "status": "placeholder",
-    "wave": "2022"
+    "prior_attempt": {
+      "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=8996 official=8987 (diff +9)', 'ATTORNEY GENERAL/REPUBLICAN: ours=29047 official=28991 (diff +56)', 'COMPTROLLER/DEMOCRAT: ours=8100 official=8091 (diff +9)']",
+      "wave": "2022"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "terrell": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=122 official=119 (diff +3)",
-          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 6
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=122 official=119 (diff +3)', 'note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=122 official=119 (diff +3)', 'note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "terry": {
     "gates": {
@@ -5796,33 +4883,16 @@
   },
   "tom-green": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=12185 official=12239 (diff -54)",
-          "US PRESIDENT/LIBERTARIAN: ours=541 official=546 (diff -5)",
-          "US PRESIDENT/REPUBLICAN: ours=32258 official=32313 (diff -55)",
-          "RAILROAD COMMISSIONER/DEMOCRAT: ours=11009 official=11048 (diff -39)",
-          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=997 official=999 (diff -2)",
-          "RAILROAD COMMISSIONER/OTHER: ours=382 official=384 (diff -2)",
-          "RAILROAD COMMISSIONER/REPUBLICAN: ours=31752 official=31806 (diff -54)",
-          "US SENATE/DEMOCRAT: ours=11329 official=11371 (diff -42)",
-          "US SENATE/OTHER: ours=235 official=234 (diff +1)",
-          "US SENATE/REPUBLICAN: ours=32274 official=32340 (diff -66)"
-        ],
-        "mismatches": 10,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 25
-      }
+      "precincts": 34,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=12185 official=12239 (diff -54)', 'US PRESIDENT/LIBERTARIAN: ours=541 official=546 (diff -5)', 'US PRESIDENT/REPUBLICAN: ours=32258 official=32313 (diff -55)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=12185 official=12239 (diff -54)', 'US PRESIDENT/LIBERTARIAN: ours=541 official=546 (diff -5)', 'US PRESIDENT/REPUBLICAN: ours=32258 official=32313 (diff -55)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "travis": {
     "gates": {
@@ -5854,31 +4924,16 @@
   },
   "trinity": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 5
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "EARLY",
-          "Provisional"
-        ],
-        "vote_bearing": 22
-      }
+      "precincts": 20,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['EARLY', 'Provisional']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['EARLY', 'Provisional']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "tyler": {
     "gates": {
@@ -5910,25 +4965,16 @@
   },
   "upshur": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/OTHER: ours=54 official=27 (diff +27)",
-          "note US SENATE: 6 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 21,
-        "races": 25
-      }
+      "precincts": 21,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=54 official=27 (diff +27)', 'note US SENATE: 6 write-in votes not carried in official accounting (all certified votes exact)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/OTHER: ours=54 official=27 (diff +27)', 'note US SENATE: 6 write-in votes not carried in official accounting (all certified votes exact)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "upton": {
     "gates": {
@@ -6007,24 +5053,16 @@
   },
   "van-zandt": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/REPUBLICAN: ours=22370 official=22270 (diff +100)"
-        ],
-        "mismatches": 1,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 5
-      }
+      "precincts": 18,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=22370 official=22270 (diff +100)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=22370 official=22270 (diff +100)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "victoria": {
     "gates": {
@@ -6082,30 +5120,16 @@
   },
   "waller": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=8164 official=8191 (diff -27)",
-          "US PRESIDENT/REPUBLICAN: ours=14233 official=14260 (diff -27)",
-          "RAILROAD COMMISSIONER/DEMOCRAT: ours=7532 official=7556 (diff -24)",
-          "RAILROAD COMMISSIONER/OTHER: ours=171 official=172 (diff -1)",
-          "RAILROAD COMMISSIONER/REPUBLICAN: ours=13978 official=14006 (diff -28)",
-          "US SENATE/DEMOCRAT: ours=7701 official=7725 (diff -24)",
-          "US SENATE/REPUBLICAN: ours=14189 official=14219 (diff -30)"
-        ],
-        "mismatches": 7,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 1,
-        "races": 60
-      }
+      "precincts": 20,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=8164 official=8191 (diff -27)', 'US PRESIDENT/REPUBLICAN: ours=14233 official=14260 (diff -27)', 'RAILROAD COMMISSIONER/DEMOCRAT: ours=7532 official=7556 (diff -24)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=8164 official=8191 (diff -27)', 'US PRESIDENT/REPUBLICAN: ours=14233 official=14260 (diff -27)', 'RAILROAD COMMISSIONER/DEMOCRAT: ours=7532 official=7556 (diff -24)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "ward": {
     "gates": {
@@ -6160,71 +5184,29 @@
   },
   "webb": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=41820 official=41842 (diff -22)",
-          "US PRESIDENT/OTHER: ours=341 official=342 (diff -1)",
-          "US PRESIDENT/REPUBLICAN: ours=25898 official=25904 (diff -6)",
-          "RAILROAD COMMISSIONER/DEMOCRAT: ours=42102 official=42123 (diff -21)",
-          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=1160 official=1162 (diff -2)",
-          "RAILROAD COMMISSIONER/REPUBLICAN: ours=21285 official=21288 (diff -3)",
-          "US SENATE/DEMOCRAT: ours=40822 official=40845 (diff -23)",
-          "US SENATE/LIBERTARIAN: ours=1246 official=1247 (diff -1)",
-          "note US SENATE: 69 write-in votes not carried in official accounting (all certified votes exact)",
-          "US SENATE/REPUBLICAN: ours=23143 official=23159 (diff -16)"
-        ],
-        "mismatches": 9,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 69,
-        "races": 7
-      }
+      "precincts": 69,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=41820 official=41842 (diff -22)', 'US PRESIDENT/OTHER: ours=341 official=342 (diff -1)', 'US PRESIDENT/REPUBLICAN: ours=25898 official=25904 (diff -6)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=41820 official=41842 (diff -22)', 'US PRESIDENT/OTHER: ours=341 official=342 (diff -1)', 'US PRESIDENT/REPUBLICAN: ours=25898 official=25904 (diff -6)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "wharton": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US SENATE: 8 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 12,
-        "races": 6
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 101",
-          "Precinct 102",
-          "Precinct 103",
-          "Precinct 201",
-          "Precinct 202",
-          "Precinct 203",
-          "Precinct 301",
-          "Precinct 302",
-          "Precinct 303",
-          "Precinct 401"
-        ],
-        "vote_bearing": 12
-      }
+      "precincts": 12,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 101', 'Precinct 102', 'Precinct 103', 'Precinct 201', 'Precinct 202']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 101', 'Precinct 102', 'Precinct 103', 'Precinct 201', 'Precinct 202']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "wheeler": {
     "gates": {
@@ -6256,108 +5238,42 @@
   },
   "wichita": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "parties_enriched_from_official": 732,
-        "precincts": 61,
-        "races": 5
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "Precinct 101",
-          "Precinct 102",
-          "Precinct 103",
-          "Precinct 104",
-          "Precinct 105",
-          "Precinct 106",
-          "Precinct 107",
-          "Precinct 108",
-          "Precinct 109",
-          "Precinct 110"
-        ],
-        "vote_bearing": 59
-      }
+      "precincts": 61,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['Precinct 101', 'Precinct 102', 'Precinct 103', 'Precinct 104', 'Precinct 105']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['Precinct 101', 'Precinct 102', 'Precinct 103', 'Precinct 104', 'Precinct 105']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "wilbarger": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 6
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "PCT 1 ALL",
-          "PCT 1 GEN ONLY",
-          "PCT 1 GEN\u2010 VISD",
-          "PCT 19 ALL",
-          "PCT 19 GEN-ONLY",
-          "PCT 19 GEN\u2010VISD",
-          "PCT 20 ALL",
-          "PCT 20 GEN ONLY",
-          "PCT 20 GEN-VISD",
-          "PCT 21 ALL"
-        ],
-        "vote_bearing": 12
-      }
+      "precincts": 4,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['PCT 1 ALL', 'PCT 1 GEN ONLY', 'PCT 1 GEN\u2010 VISD', 'PCT 19 ALL', 'PCT 19 GEN-ONLY']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['PCT 1 ALL', 'PCT 1 GEN ONLY', 'PCT 1 GEN\u2010 VISD', 'PCT 19 ALL', 'PCT 19 GEN-ONLY']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "willacy": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=2953 official=3108 (diff -155)",
-          "US PRESIDENT/LIBERTARIAN: ours=24 official=25 (diff -1)",
-          "US PRESIDENT/OTHER: ours=15 official=16 (diff -1)",
-          "US PRESIDENT/REPUBLICAN: ours=2281 official=2441 (diff -160)",
-          "RAILROAD COMMISSIONER/DEMOCRAT: ours=2890 official=3031 (diff -141)",
-          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=72 official=77 (diff -5)",
-          "RAILROAD COMMISSIONER/OTHER: ours=83 official=86 (diff -3)",
-          "RAILROAD COMMISSIONER/REPUBLICAN: ours=1774 official=1924 (diff -150)",
-          "US SENATE/DEMOCRAT: ours=2827 official=2968 (diff -141)",
-          "US SENATE/LIBERTARIAN: ours=83 official=87 (diff -4)",
-          "US SENATE/OTHER: ours=51 official=53 (diff -2)",
-          "US SENATE/REPUBLICAN: ours=2023 official=2183 (diff -160)"
-        ],
-        "mismatches": 12,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 17,
-        "races": 27
-      }
+      "precincts": 12,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=2953 official=3108 (diff -155)', 'US PRESIDENT/LIBERTARIAN: ours=24 official=25 (diff -1)', 'US PRESIDENT/OTHER: ours=15 official=16 (diff -1)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=2953 official=3108 (diff -155)', 'US PRESIDENT/LIBERTARIAN: ours=24 official=25 (diff -1)', 'US PRESIDENT/OTHER: ours=15 official=16 (diff -1)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "williamson": {
     "gates": {
@@ -6411,106 +5327,42 @@
   },
   "winkler": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "US PRESIDENT/DEMOCRAT: ours=423 official=358 (diff +65)",
-          "US PRESIDENT/REPUBLICAN: ours=1814 official=1753 (diff +61)",
-          "RAILROAD COMMISSIONER/DEMOCRAT: ours=413 official=355 (diff +58)",
-          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=22 official=21 (diff +1)",
-          "RAILROAD COMMISSIONER/OTHER: ours=7 official=5 (diff +2)",
-          "RAILROAD COMMISSIONER/REPUBLICAN: ours=1764 official=1707 (diff +57)",
-          "US SENATE/DEMOCRAT: ours=399 official=338 (diff +61)",
-          "US SENATE/LIBERTARIAN: ours=31 official=30 (diff +1)",
-          "US SENATE/REPUBLICAN: ours=1775 official=1714 (diff +61)"
-        ],
-        "mismatches": 9,
-        "offices": 3,
-        "ok": false
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 5
-      }
+      "precincts": 5,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=423 official=358 (diff +65)', 'US PRESIDENT/REPUBLICAN: ours=1814 official=1753 (diff +61)', 'RAILROAD COMMISSIONER/DEMOCRAT: ours=413 official=355 (diff +58)']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=423 official=358 (diff +65)', 'US PRESIDENT/REPUBLICAN: ours=1814 official=1753 (diff +61)', 'RAILROAD COMMISSIONER/DEMOCRAT: ours=413 official=355 (diff +58)']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "wise": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 79,
-        "races": 32
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "01 - D3",
-          "01 - DISD",
-          "01 - KISD",
-          "01 - SISD",
-          "02 - BOISD",
-          "02 - D1",
-          "02 - D2",
-          "02 - D3",
-          "02 - D4",
-          "02 - DISD"
-        ],
-        "vote_bearing": 77
-      }
+      "precincts": 25,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['01 - D3', '01 - DISD', '01 - KISD', '01 - SISD', '02 - BOISD']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['01 - D3', '01 - DISD', '01 - KISD', '01 - SISD', '02 - BOISD']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "wood": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [
-          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
-        ],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 14,
-        "races": 27
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "1~1",
-          "1~2",
-          "1~3",
-          "1~4",
-          "2~1",
-          "2~2",
-          "2~3",
-          "3~1",
-          "3~2",
-          "3~3"
-        ],
-        "vote_bearing": 14
-      }
+      "precincts": 14,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['1~1', '1~2', '1~3', '1~4', '2~1']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['1~1', '1~2', '1~3', '1~4', '2~1']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "yoakum": {
     "gates": {
@@ -6539,39 +5391,16 @@
   },
   "young": {
     "gates": {
-      "audit": {
-        "cells": 12,
-        "detail": [],
-        "mismatches": 0,
-        "offices": 3,
-        "ok": true
-      },
-      "etl": {
-        "ok": true,
-        "precincts": 0,
-        "races": 27
-      },
-      "join": {
-        "ok": false,
-        "rule": null,
-        "unmatched": [
-          "1",
-          "11",
-          "12",
-          "13",
-          "14",
-          "15",
-          "17",
-          "18",
-          "19",
-          "2"
-        ],
-        "vote_bearing": 43
-      }
+      "precincts": 9,
+      "races": 10,
+      "source": "VEST official precinct returns (intrinsic join)"
     },
-    "reason": "join failed: ['1', '11', '12', '13', '14']",
-    "status": "placeholder",
-    "wave": "2020"
+    "prior_attempt": {
+      "reason": "join failed: ['1', '11', '12', '13', '14']",
+      "wave": "2020"
+    },
+    "status": "live",
+    "wave": "vest-direct"
   },
   "zapata": {
     "gates": {

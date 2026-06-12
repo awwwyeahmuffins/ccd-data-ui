@@ -1,0 +1,11 @@
+precinct,party,candidate,votes
+1,DEM,Staci Williams,2
+1,REP,Jeff Boyd,123
+2,DEM,Staci Williams,3
+2,REP,Jeff Boyd,133
+3,DEM,Staci Williams,4
+3,REP,Jeff Boyd,115
+4-1,DEM,Staci Williams,2
+4-1,REP,Jeff Boyd,71
+4-2,DEM,Staci Williams,4
+4-2,REP,Jeff Boyd,72

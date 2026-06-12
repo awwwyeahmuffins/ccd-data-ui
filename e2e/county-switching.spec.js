@@ -35,19 +35,22 @@ test.describe('County Switching', () => {
     await expect(page.locator('.turnout-slider').first()).toBeVisible({ timeout: 20000 });
   });
 
-  test('placeholder county shows banner and a single PLACEHOLDER feature', async ({ page }) => {
+  test('VEST-sourced county (Kinney) is live with statewide races', async ({ page }) => {
     await page.selectOption('#county-select', 'kinney');
-    await expect(page.locator('#county-placeholder-banner')).toBeVisible({ timeout: 20000 });
-    // Collin-only boundary selector hides
-    await expect(page.locator('#boundary-select')).toBeHidden();
+    // single-set county: boundary selector hides; no placeholder banner
+    await expect(page.locator('#boundary-select')).toBeHidden({ timeout: 20000 });
+    await expect(page.locator('#county-placeholder-banner')).toBeHidden();
+    await page.locator('[data-action="browse"], #open-panel-btn').first().click();
+    await page.locator('#panel-search-input').fill('president');
+    await page.waitForTimeout(600);
+    await expect(page.locator('.election-item:visible').first()).toContainText('President');
   });
 
-  test('switching back to Collin restores boundary selector and data', async ({ page }) => {
+  test('switching back to Collin restores boundary selector', async ({ page }) => {
     await page.selectOption('#county-select', 'kinney');
-    await expect(page.locator('#county-placeholder-banner')).toBeVisible({ timeout: 20000 });
+    await expect(page.locator('#boundary-select')).toBeHidden({ timeout: 20000 });
     await page.selectOption('#county-select', 'collin');
-    await expect(page.locator('#county-placeholder-banner')).toBeHidden({ timeout: 20000 });
-    await expect(page.locator('#boundary-select')).toBeVisible();
+    await expect(page.locator('#boundary-select')).toBeVisible({ timeout: 20000 });
   });
 
   test('deep link #county= works on fresh load', async ({ page }) => {
@@ -57,5 +60,9 @@ test.describe('County Switching', () => {
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
     await expect(page.locator('#county-select')).toHaveValue('bastrop', { timeout: 20000 });
     await expect(page.locator('#county-placeholder-banner')).toBeHidden();
+  });
+
+  test('all 254 counties are live (no placeholder optgroup entries)', async ({ page }) => {
+    await expect(page.locator('#county-select optgroup option')).toHaveCount(0, { timeout: 15000 });
   });
 });

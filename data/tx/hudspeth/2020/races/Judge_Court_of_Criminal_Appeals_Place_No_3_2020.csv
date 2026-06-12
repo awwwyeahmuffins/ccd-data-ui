@@ -1,0 +1,11 @@
+precinct,party,candidate,votes
+1,DEM,Elizabeth Davis Frizell,92
+1,REP,Bert Richardson,225
+2,DEM,Elizabeth Davis Frizell,139
+2,REP,Bert Richardson,166
+3N,DEM,Elizabeth Davis Frizell,34
+3N,REP,Bert Richardson,83
+3S,DEM,Elizabeth Davis Frizell,39
+3S,REP,Bert Richardson,71
+4,DEM,Elizabeth Davis Frizell,64
+4,REP,Bert Richardson,145
