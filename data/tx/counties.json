@@ -340,8 +340,21 @@
     "name": "Collin",
     "slug": "collin",
     "status": "live",
-    "dataRoot": "data",
-    "notes": null
+    "dataRoot": "data/tx/collin",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2024 Boundaries (252)",
+        "geojson": "boundaries/2024.geojson",
+        "dataDir": "2024"
+      },
+      "2026": {
+        "label": "2026 Boundaries (273)",
+        "geojson": "boundaries/2026.geojson",
+        "dataDir": "2026"
+      }
+    }
   },
   {
     "fips": "48087",

@@ -4,6 +4,7 @@
 // and sortable table with stats grid and CSV export.
 
 import { escapeHtml, csvEscape } from './utils.js';
+import { getBoundaryConfigs } from './dataLoader.js';
 
 const CHANGE_COLORS = {
   unchanged: '#4CAF50',
@@ -26,7 +27,13 @@ const CHANGE_LABELS = {
  * @returns {Promise<Array<{precinctCode: string, changeType: string, sources: Array, dataQuality: string}>>}
  */
 export async function loadBoundaryChangeSummary() {
-  const resp = await fetch('data/2026/precinct_metadata.json');
+  // The 2026 boundary set's metadata, from the active county's config
+  // (v3 keeps it under profile/; legacy kept it in the data dir)
+  const config = getBoundaryConfigs()['2026'];
+  const metadataPath = config?.profileDir
+    ? `${config.profileDir}/precinct_metadata.json`
+    : `${config?.dataDir ?? 'data/2026'}/precinct_metadata.json`;
+  const resp = await fetch(metadataPath);
   if (!resp.ok) throw new Error(`Failed to load precinct metadata: ${resp.status}`);
   const metadata = await resp.json();
 
