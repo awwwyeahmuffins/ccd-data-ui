@@ -83,9 +83,17 @@
     "fips": "48021",
     "name": "Bastrop",
     "slug": "bastrop",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/bastrop",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2022 Precincts (26)",
+        "geojson": "boundaries/2022.geojson",
+        "dataDir": "2022"
+      }
+    }
   },
   {
     "fips": "48023",

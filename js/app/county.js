@@ -8,7 +8,7 @@ import { state } from "./state.js";
 import { showNotification, showMapLoading, hideMapLoading, updateBoundaryDisclaimer } from "./uiChrome.js";
 import { setViewMode } from "./viewMode.js";
 import { loadElections, updateURLState } from "./electionWorkflow.js";
-import { loadAllData, loadCountyRegistry, setActiveCounty, getActiveCounty, getActiveBoundary } from "../dataLoader.js";
+import { loadAllData, loadCountyRegistry, setActiveCounty, getActiveCounty, getActiveBoundary, getBoundaryConfigs } from "../dataLoader.js";
 import { setupPrecinctLabels } from "../mapEnhancements.js";
 import { clearMinMaxCache } from "../demographicHeatmap.js";
 
@@ -25,11 +25,21 @@ function updatePlaceholderBanner(entry) {
   }
 }
 
-// Collin-only chrome (boundary selector, lookup link) hides for other counties
+// Per-county chrome: the boundary selector shows only when the county has
+// multiple boundary sets (and repopulates from its registry config); the
+// precinct-lookup link stays Collin-only (its extras only exist for Collin).
 function updateCollinOnlyControls(slug) {
   const isCollin = slug === 'collin';
   const boundarySelect = document.getElementById('boundary-select');
-  if (boundarySelect) boundarySelect.style.display = isCollin ? '' : 'none';
+  if (boundarySelect) {
+    const configs = getBoundaryConfigs();
+    const ids = Object.keys(configs);
+    boundarySelect.innerHTML = ids
+      .map(id => `<option value="${id}">${configs[id].label}</option>`)
+      .join('');
+    boundarySelect.value = getActiveBoundary();
+    boundarySelect.style.display = ids.length > 1 ? '' : 'none';
+  }
   const changesTrigger = document.getElementById('boundary-changes-trigger');
   if (changesTrigger && !isCollin) changesTrigger.classList.remove('visible');
   // The precinct-lookup page is Collin-only for now

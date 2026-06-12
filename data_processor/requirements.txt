@@ -2,3 +2,5 @@ pandas>=1.5.0
 beautifulsoup4>=4.11.0
 requests>=2.28.0
 lxml>=4.9.0
+pyshp>=2.3      # VTD shapefile reading (fetch_vtd_geojson.py)
+pyproj>=3.6     # Lambert Conformal Conic -> WGS84 reprojection

@@ -3,10 +3,11 @@
 Texas County Election ETL
 
 Parses precinct-level Texas county election results and converts them into
-this project's data layout (docs/DATA_LAYOUT_SPEC.md):
+this project's v3 normalized layout (docs/DATA_LAYOUT_SPEC.md v3):
 
-  data/tx/<county-slug>/<Race_Name>_<year>.csv   one CSV per race
-  data/tx/<county-slug>/elections.json           manifest for those CSVs
+  data/tx/<slug>/<setDir>/races/<Race>.csv     long: precinct,party,candidate,votes
+  data/tx/<slug>/<setDir>/turnout/<date>.csv   precinct,registered,ballots_cast,blank
+  data/tx/<slug>/<setDir>/elections.json       v3 manifest (object wrapper)
 
 INPUT FORMAT — OpenElections precinct files (https://openelections.net), the
 de-facto standard cross-county source for Texas results. Their CSVs are long
@@ -20,29 +21,27 @@ format, one row per (precinct, office, candidate):
 
 GitHub raw URLs work directly, e.g.:
   https://raw.githubusercontent.com/openelections/openelections-data-tx/master/
-    2022/counties/20221108__tx__general__dallas__precinct.csv
+    2022/counties/20221108__tx__general__bastrop__precinct.csv
 
 PLACEHOLDER POLICY — values we don't have are left EMPTY, never invented:
-  * REGISTERED VOTERS TOTAL / BALLOTS CAST TOTAL come only from the source's
-    "Registered Voters" / "Ballots Cast" pseudo-office rows; absent those,
-    the columns are empty strings and the app shows N/A.
-  * BALLOTS CAST BLANK / OVER VOTES / UNDER VOTES likewise.
+turnout comes only from the source's "Registered Voters" / "Ballots Cast"
+pseudo-office rows; absent those there is no turnout file and the app
+shows N/A.
 
 Usage:
-  python3 data_processor/tx_etl.py INPUT --county dallas [--year 2022]
-      [--out-root data/tx] [--source-url URL] [--dry-run]
+  python3 data_processor/tx_etl.py INPUT --county bastrop [--year 2022]
+      [--set-dir 2022] [--out-root data/tx] [--source-url URL] [--dry-run]
 
-  INPUT may be a local CSV path or an http(s) URL. Year is inferred from
-  OpenElections filenames (YYYYMMDD__...) when omitted.
+  INPUT may be a local CSV path or an http(s) URL. Year and election date are
+  inferred from OpenElections filenames (YYYYMMDD__...) when omitted.
 
 After a successful run, the county is NOT live yet — see
-docs/ADDING_FEATURES.md Recipe F (you still need precinct boundaries and a
-registry flip in data/tx/counties.json).
+docs/ADDING_FEATURES.md Recipe F (you still need precinct boundaries, a
+verified precinct-code join, and a registry flip in data/tx/counties.json).
 """
 
 import argparse
 import io
-import json
 import logging
 import re
 import sys
@@ -51,19 +50,16 @@ from pathlib import Path
 
 import pandas as pd
 
-# Reuse the project's canonical parsing/manifest helpers
+# Reuse the project's canonical helpers
 sys.path.insert(0, str(Path(__file__).parent))
-from unified_parser import (  # noqa: E402
-    compute_winning_candidate,
-    ensure_canonical_columns,
-    sanitize_filename,
-)
-from manifest_generator import format_display_name, generate_manifest  # noqa: E402
+from unified_parser import sanitize_filename, categorize_election_python  # noqa: E402
+from manifest_generator import format_display_name  # noqa: E402
+from v3_writer import write_race_csv, write_turnout_csv, write_manifest  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
 logger = logging.getLogger("tx_etl")
 
-# OpenElections party labels -> our canonical prefixes (DATA_LAYOUT_SPEC §3.2)
+# OpenElections party labels -> canonical prefixes (DATA_LAYOUT_SPEC v3)
 PARTY_MAP = {
     "REP": "REP", "REPUBLICAN": "REP", "R": "REP",
     "DEM": "DEM", "DEMOCRAT": "DEM", "DEMOCRATIC": "DEM", "D": "DEM",
@@ -71,20 +67,21 @@ PARTY_MAP = {
     "GRN": "GRN", "GREEN": "GRN", "G": "GRN",
     "IND": "IND", "INDEPENDENT": "IND", "I": "IND",
     "CON": "CON", "CONSTITUTION": "CON",
-    "W": "Write-in", "WI": "Write-in", "W-I": "Write-in", "WRITE-IN": "Write-in",
 }
+WRITE_IN_PARTIES = {"W", "WI", "W-I", "WRITE-IN"}
+WRITE_IN_NAMES = {"write-in", "write-ins", "writein"}
 
-# Pseudo-offices in OpenElections data that are turnout metadata, not races
+# Pseudo-offices that are turnout metadata, not races
 TURNOUT_OFFICES = {
-    "registered voters": "REGISTERED VOTERS TOTAL",
-    "ballots cast": "BALLOTS CAST TOTAL",
-    "blank ballots": "BALLOTS CAST BLANK",
-    "ballots cast blank": "BALLOTS CAST BLANK",
-    "ballots cast - blank": "BALLOTS CAST BLANK",
-    "over votes": "OVER VOTES",
-    "under votes": "UNDER VOTES",
+    "registered voters": "registered",
+    "ballots cast": "ballots_cast",
+    "blank ballots": "blank",
+    "ballots cast blank": "blank",
+    "ballots cast - blank": "blank",
 }
-SKIP_OFFICES = {"straight party", "straight ticket"}
+# Election-level over/under pseudo-offices can't be attributed to a contest;
+# v3 stores over/under only when they're per-contest. Skipped with a note.
+SKIPPED_PSEUDO = {"over votes", "under votes", "straight party", "straight ticket"}
 
 REQUIRED_INPUT_COLS = {"county", "precinct", "office", "candidate", "votes"}
 
@@ -108,31 +105,23 @@ def load_input(source: str) -> pd.DataFrame:
     return df
 
 
-def infer_year(source: str) -> int | None:
-    """Infer the election year from an OpenElections-style filename."""
-    m = re.search(r"(\d{4})\d{4}__", Path(source).name)
-    return int(m.group(1)) if m else None
+def infer_date(source: str):
+    """Infer (year, iso_date) from an OpenElections-style filename."""
+    m = re.search(r"(\d{4})(\d{2})(\d{2})__", Path(source).name)
+    if not m:
+        return None, None
+    y, mo, d = m.groups()
+    return int(y), f"{y}-{mo}-{d}"
 
 
-def canonical_party(raw) -> str | None:
+def canonical_party(raw):
+    """Map a source party label to (party, is_write_in)."""
     if raw is None or (isinstance(raw, float) and pd.isna(raw)):
-        return None
+        return "", False
     key = str(raw).strip().upper()
-    return PARTY_MAP.get(key) if key else None
-
-
-def candidate_column(party, candidate: str) -> str:
-    """Build the '{PARTY} {Candidate}' column name; write-ins collapse to 'Write-in'."""
-    abbrev = canonical_party(party)
-    name = re.sub(r"\s+", " ", str(candidate)).strip()
-    if abbrev == "Write-in" or name.lower() in ("write-in", "write-ins", "writein"):
-        return "Write-in"
-    return f"{abbrev} {name}" if abbrev else name
-
-
-def county_number(county: str) -> str:
-    """Short county tag, matching the existing 'COLL' convention for Collin."""
-    return re.sub(r"[^A-Z]", "", county.upper())[:4]
+    if key in WRITE_IN_PARTIES:
+        return "", True
+    return PARTY_MAP.get(key, ""), False
 
 
 def to_votes(series: pd.Series) -> pd.Series:
@@ -141,11 +130,12 @@ def to_votes(series: pd.Series) -> pd.Series:
     ).fillna(0).astype(int)
 
 
-def transform(df: pd.DataFrame, county: str, year: int | None):
-    """Pivot the long-format results into one wide DataFrame per race.
+def transform(df: pd.DataFrame, county: str):
+    """Group the source into races (long rows) + a turnout map.
 
-    Returns (races, turnout, skipped) where races is a list of dicts:
-    { office, district, race_name, df }.
+    Returns (races, turnout, notes):
+      races: [{office, district, race_name, rows: [(precinct,party,candidate,votes)]}]
+      turnout: {precinct: {registered, ballots_cast, blank}}
     """
     rows = df[df["county"].str.strip().str.lower() == county.lower()].copy()
     if rows.empty:
@@ -157,135 +147,131 @@ def transform(df: pd.DataFrame, county: str, year: int | None):
     rows["precinct"] = rows["precinct"].astype(str).str.strip()
     rows["office_norm"] = rows["office"].fillna("").astype(str).str.strip()
     rows["votes_n"] = to_votes(rows["votes"])
-
-    # 1) Pull turnout pseudo-offices into a per-precinct frame
     office_lower = rows["office_norm"].str.lower()
-    turnout = pd.DataFrame(index=sorted(rows["precinct"].unique()))
-    turnout.index.name = "precinct"
-    for office_key, col in TURNOUT_OFFICES.items():
+
+    notes = []
+
+    # 1) Turnout pseudo-offices -> per-precinct map
+    turnout = {}
+    for office_key, field in TURNOUT_OFFICES.items():
         sub = rows[office_lower == office_key]
-        if not sub.empty:
-            turnout[col] = sub.groupby("precinct")["votes_n"].sum()
+        for pct, total in sub.groupby("precinct")["votes_n"].sum().items():
+            turnout.setdefault(pct, {})[field] = str(int(total))
 
-    # 2) Real races: everything that isn't turnout metadata or straight-party
-    is_meta = office_lower.isin(TURNOUT_OFFICES.keys()) | office_lower.isin(SKIP_OFFICES)
+    skipped_pseudo = sorted(set(office_lower) & SKIPPED_PSEUDO)
+    if skipped_pseudo:
+        notes.append(f"skipped election-level pseudo-offices: {skipped_pseudo}")
+
+    # 2) Real races
+    is_meta = office_lower.isin(TURNOUT_OFFICES.keys()) | office_lower.isin(SKIPPED_PSEUDO)
     race_rows = rows[~is_meta & (rows["office_norm"] != "")].copy()
-
-    races, skipped = [], []
     district = race_rows.get("district")
     race_rows["district_norm"] = (
         district.fillna("").astype(str).str.strip() if district is not None else ""
     )
 
+    races = []
     for (office, dist), grp in race_rows.groupby(["office_norm", "district_norm"]):
         race_name = f"{office} District {dist}" if dist else office
-        grp = grp.copy()
-        grp["col"] = [
-            candidate_column(p, c)
-            for p, c in zip(grp.get("party", pd.Series(index=grp.index)), grp["candidate"])
-        ]
-        grp = grp[grp["candidate"].notna()]
+        grp = grp[grp["candidate"].notna()].copy()
         if grp.empty:
-            skipped.append((race_name, "no candidate rows"))
+            notes.append(f"skipped (no candidate rows): {race_name}")
             continue
 
-        wide = grp.pivot_table(
-            index="precinct", columns="col", values="votes_n", aggfunc="sum", fill_value=0
-        )
-        if wide.shape[1] == 0:
-            skipped.append((race_name, "no candidate columns"))
-            continue
-        races.append({
-            "office": office, "district": dist, "race_name": race_name, "wide": wide,
-        })
+        # Aggregate duplicates (e.g. absentee/early/election-day rows) and
+        # build normalized long rows
+        agg = {}
+        for _, r in grp.iterrows():
+            party, is_wi = canonical_party(r.get("party"))
+            cand = re.sub(r"\s+", " ", str(r["candidate"])).strip()
+            if is_wi or cand.lower() in WRITE_IN_NAMES:
+                party, cand = "", "Write-in"
+            agg[(r["precinct"], party, cand)] = (
+                agg.get((r["precinct"], party, cand), 0) + int(r["votes_n"])
+            )
+        long_rows = [(p, party, cand, votes)
+                     for (p, party, cand), votes in sorted(agg.items())]
+        races.append({"office": office, "district": dist or None,
+                      "race_name": race_name, "rows": long_rows})
 
-    return races, turnout, skipped
-
-
-def build_race_csv(race, turnout: pd.DataFrame, county: str) -> pd.DataFrame:
-    """Assemble one race's wide frame into the canonical CSV layout."""
-    wide = race["wide"].copy()
-    out = pd.DataFrame(index=wide.index)
-    out["COUNTY NUMBER"] = county_number(county)
-    out["PRECINCT CODE"] = out.index.astype(str)
-    out["PRECINCT NAME"] = "PCT " + out.index.astype(str)
-
-    # Turnout columns: real values when the source had them, otherwise EMPTY
-    # (an honest gap the app renders as N/A — never a made-up number).
-    for col in ("REGISTERED VOTERS TOTAL", "BALLOTS CAST TOTAL", "BALLOTS CAST BLANK"):
-        if col in turnout.columns:
-            out[col] = turnout[col].reindex(out.index).astype("Int64")
-        else:
-            out[col] = ""
-
-    for col in wide.columns:
-        out[col] = wide[col].astype(int)
-
-    for col in ("OVER VOTES", "UNDER VOTES"):
-        if col in turnout.columns:
-            out[col] = turnout[col].reindex(out.index).astype("Int64")
-
-    out = compute_winning_candidate(out)
-    out = ensure_canonical_columns(out)
-    return out.reset_index(drop=True)
+    return races, turnout, notes
 
 
-def run(source: str, county: str, year: int | None, out_root: str,
-        source_url: str | None, dry_run: bool) -> dict:
+def run(source: str, county: str, year, set_dir, out_root: str,
+        source_url, dry_run: bool) -> dict:
     df = load_input(source)
-    year = year or infer_year(source)
+    inferred_year, iso_date = infer_date(source)
+    year = year or inferred_year
     slug = re.sub(r"[^a-z0-9]+", "-", county.lower()).strip("-")
-    out_dir = Path(out_root) / slug
+    set_dir = set_dir or (str(year) if year else "undated")
+    out_dir = Path(out_root) / slug / set_dir
 
-    races, turnout, skipped = transform(df, county, year)
+    races, turnout, notes = transform(df, county)
     logger.info(f"{county}: {len(races)} races, "
-                f"turnout columns: {list(turnout.columns) or 'NONE (will be empty/N/A)'}")
-    for name, why in skipped:
-        logger.warning(f"skipped: {name} ({why})")
+                f"turnout fields: {sorted({f for t in turnout.values() for f in t}) or 'NONE'}")
+    for n in notes:
+        logger.warning(n)
 
-    manifest_entries = []
+    # Turnout file (one per election date; absent if the source had none)
+    turnout_rel = None
+    if turnout:
+        key = iso_date or (str(year) if year else "undated")
+        turnout_rel = f"turnout/{key}.csv"
+        if not dry_run:
+            t_rows = sorted(
+                ((p, t.get("registered", ""), t.get("ballots_cast", ""), t.get("blank", ""))
+                 for p, t in turnout.items()),
+                key=lambda r: (len(r[0]), r[0]))
+            write_turnout_csv(out_dir / turnout_rel, t_rows)
+
+    manifest_elections = []
     for race in races:
-        csv_df = build_race_csv(race, turnout, county)
         base = sanitize_filename(race["race_name"])
         filename = f"{base}_{year}.csv" if year else f"{base}.csv"
-        entry = {"filename": filename, "year": year,
-                 "displayName": format_display_name(filename, year)}
-        if source_url or re.match(r"^https?://", source):
-            entry["sourceUrl"] = source_url or source
-        manifest_entries.append(entry)
+        race_rel = f"races/{filename}"
+        manifest_elections.append({
+            "id": re.sub(r"[^a-z0-9]+", "-", Path(filename).stem.lower()).strip("-"),
+            "displayName": format_display_name(filename, year),
+            "office": race["office"],
+            "district": race["district"],
+            "year": year,
+            "date": iso_date,
+            "category": categorize_election_python(filename),
+            "raceFile": race_rel,
+            "turnoutFile": turnout_rel,
+            "sourceUrl": source_url or (source if re.match(r"^https?://", source) else None),
+        })
         if not dry_run:
-            out_dir.mkdir(parents=True, exist_ok=True)
-            csv_df.to_csv(out_dir / filename, index=False)
+            write_race_csv(out_dir / race_rel, race["rows"])
 
     if not dry_run:
-        # generate_manifest infers category (Federal/State/County/City/ISD/MUD)
-        generate_manifest(manifest_entries, str(out_dir / "elections.json"))
+        write_manifest(out_dir / "elections.json", slug, set_dir, manifest_elections)
 
-    print(f"\n{'DRY RUN — nothing written' if dry_run else f'Wrote {len(races)} race CSVs + elections.json to {out_dir}/'}")
-    print(f"  precincts: {len(turnout.index)}   races: {len(races)}   skipped: {len(skipped)}")
-    missing = [c for c in ("REGISTERED VOTERS TOTAL", "BALLOTS CAST TOTAL")
-               if c not in turnout.columns]
-    if missing:
-        print(f"  NOTE: source had no {missing} — those columns are EMPTY (app shows N/A)")
+    print(f"\n{'DRY RUN — nothing written' if dry_run else f'Wrote {len(races)} v3 race files + manifest to {out_dir}/'}")
+    print(f"  precincts: {len(turnout) or 'unknown'}   races: {len(races)}")
+    if not turnout:
+        print("  NOTE: source had no turnout pseudo-offices — no turnout file (app shows N/A)")
     print("\nNext steps to bring the county live (docs/ADDING_FEATURES.md Recipe F):")
-    print(f"  1. Add precinct boundary GeoJSON for {county} under data/tx/{slug}/")
-    print(f"  2. Flip status to \"live\" + set dataRoot in data/tx/counties.json")
-    print("  3. Generalize dataLoader paths if this is the first non-Collin live county")
-    return {"races": len(races), "precincts": len(turnout.index),
-            "skipped": skipped, "out_dir": str(out_dir)}
+    print(f"  1. Fetch precinct boundaries: python3 data_processor/fetch_vtd_geojson.py --county {slug}")
+    print("  2. Validate the precinct-code join (100% of vote-bearing precincts must match)")
+    print(f"  3. Flip status to \"live\" + add boundarySets in data/tx/counties.json")
+    return {"races": len(races), "precincts": len(turnout),
+            "out_dir": str(out_dir), "turnout_file": turnout_rel}
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("input", help="OpenElections precinct CSV (path or URL)")
-    ap.add_argument("--county", required=True, help="County name, e.g. dallas")
+    ap.add_argument("--county", required=True, help="County name, e.g. bastrop")
     ap.add_argument("--year", type=int, help="Election year (inferred from filename if omitted)")
+    ap.add_argument("--set-dir", help="Boundary-set directory name (default: the year)")
     ap.add_argument("--out-root", default="data/tx", help="Output root (default data/tx)")
     ap.add_argument("--source-url", help="Provenance URL recorded in the manifest")
     ap.add_argument("--dry-run", action="store_true", help="Parse and report, write nothing")
     args = ap.parse_args()
-    run(args.input, args.county, args.year, args.out_root, args.source_url, args.dry_run)
+    run(args.input, args.county, args.year, args.set_dir, args.out_root,
+        args.source_url, args.dry_run)
 
 
 if __name__ == "__main__":

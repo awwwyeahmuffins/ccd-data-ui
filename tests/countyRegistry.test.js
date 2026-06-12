@@ -31,15 +31,23 @@ describe('Texas county registry', () => {
     }
   });
 
-  it('marks exactly Collin as live (update this list as counties go live)', () => {
+  it('marks exactly the expected counties as live (update as counties go live)', () => {
     const live = registry.filter(c => c.status === 'live').map(c => c.name);
-    expect(live).toEqual(['Collin']);
+    expect(live).toEqual(['Bastrop', 'Collin']);
   });
 
-  it('gives every live county a dataRoot and every placeholder none', () => {
+  it('gives every live county a dataRoot + boundarySets and every placeholder none', () => {
     for (const c of registry) {
       if (c.status === 'live') {
         expect(typeof c.dataRoot).toBe('string');
+        expect(typeof c.defaultBoundarySet).toBe('string');
+        expect(c.boundarySets).toBeDefined();
+        expect(c.boundarySets[c.defaultBoundarySet]).toBeDefined();
+        for (const set of Object.values(c.boundarySets)) {
+          expect(typeof set.label).toBe('string');
+          expect(set.geojson).toMatch(/\.geojson$/);
+          expect(typeof set.dataDir).toBe('string');
+        }
       } else {
         expect(c.dataRoot).toBeNull();
       }
