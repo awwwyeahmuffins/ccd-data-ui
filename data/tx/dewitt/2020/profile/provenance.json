@@ -1,0 +1,12 @@
+{
+  "dnc_scores.csv": {
+    "method": "vote-derived-party-lean-v1",
+    "description": "ESTIMATE derived from election results, not voter-file scores: per precinct, REP/DEM/other votes averaged across the county's statewide races fielding both a REP and a DEM candidate. Party Strength bands on |repShare-demShare|: <0.10=1, <0.30=2, else 3.",
+    "races_used": [
+      "president-2020",
+      "railroad-commissioiner-2020",
+      "u-s-senate-2020"
+    ],
+    "generated": "2026-06-12"
+  }
+}

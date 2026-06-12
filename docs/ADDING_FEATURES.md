@@ -239,3 +239,13 @@ no flip:
 Per-county outcomes (gates, cells compared, mismatch detail, join rule) live
 in `data/tx/AUDIT_REPORT.json`. Counties that fail any gate stay placeholders
 with the reason recorded — fix the data, never the gate.
+
+### Profile layer for non-Collin counties
+
+`data_processor/derive_profiles.py` fills `profile/` for every live county
+except Collin: racial.csv from OFFICIAL TLC Census-by-VTD population files,
+and dnc_scores.csv as a documented VOTE-DERIVED party-lean estimate (statewide
+races with both REP and DEM candidates, averaged per precinct). Method and
+race list land in profile/provenance.json. Collin's profile pipeline (voter
+file + ACS) is separate and never touched by this script. census_profiles.json
+(rich ACS panels) remains Collin-only for now — other counties show N/A there.

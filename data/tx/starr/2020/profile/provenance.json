@@ -1,0 +1,19 @@
+{
+  "dnc_scores.csv": {
+    "method": "vote-derived-party-lean-v1",
+    "description": "ESTIMATE derived from election results, not voter-file scores: per precinct, REP/DEM/other votes averaged across the county's statewide races fielding both a REP and a DEM candidate. Party Strength bands on |repShare-demShare|: <0.10=1, <0.30=2, else 3.",
+    "races_used": [
+      "chief-justice-supreme-court-2020",
+      "judge-court-of-criminal-appeals-place-no-3-2020",
+      "judge-court-of-criminal-appeals-place-no-4-2020",
+      "judge-court-of-criminal-appeals-place-no-9-2020",
+      "justice-supreme-court-place-no-6-unexpired-term-2020",
+      "justice-supreme-court-place-no-7-2020",
+      "justice-supreme-court-place-no-8-2020",
+      "president-2020",
+      "railroad-commissioner-2020",
+      "u-s-senate-2020"
+    ],
+    "generated": "2026-06-12"
+  }
+}

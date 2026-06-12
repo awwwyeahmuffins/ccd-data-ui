@@ -1,0 +1,16 @@
+{
+  "dnc_scores.csv": {
+    "method": "vote-derived-party-lean-v1",
+    "description": "ESTIMATE derived from election results, not voter-file scores: per precinct, REP/DEM/other votes averaged across the county's statewide races fielding both a REP and a DEM candidate. Party Strength bands on |repShare-demShare|: <0.10=1, <0.30=2, else 3.",
+    "races_used": [
+      "attorney-general-2022",
+      "comm-general-land-office-2022",
+      "commissioner-of-agriculture-2022",
+      "comptroller-of-public-accounts-2022",
+      "governor-2022",
+      "lieutenant-governor-2022",
+      "railroad-commissioner-2022"
+    ],
+    "generated": "2026-06-12"
+  }
+}

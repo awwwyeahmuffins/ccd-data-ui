@@ -45,8 +45,16 @@ data/tx/<slug>/
     races/<RaceBase>.csv         one long-format file per race
     turnout/<key>.csv            one per election date (or per year[-n] when date unknown)
     profile/                     OPTIONAL extras — absent => app shows N/A
-      dnc_scores.csv             party scores   (was "DNC Score By Precinct.csv")
-      racial.csv                 demographics   (was "Racial Numbers by Precinct.csv")
+      dnc_scores.csv             party lean. Collin: voter-file scores. All other
+                                 counties: VOTE-DERIVED ESTIMATE (avg REP/DEM/other
+                                 votes across statewide races; Party Strength from
+                                 |repShare-demShare|: <0.10=1, <0.30=2, else 3) —
+                                 method + races recorded in provenance.json
+      racial.csv                 demographics. Collin: county pipeline. All other
+                                 counties: OFFICIAL Census 2020 race by VTD from
+                                 TLC pop files (VTDs_22G_Pop / VTDs20G_Pop), keyed
+                                 to the boundary geography; real rows only
+      provenance.json            method/source record for generated profile files
       census_profiles.json       ACS profiles
       strategic_intelligence.json
       precinct_metadata.json     boundary-change metadata (Collin 2026 set)
