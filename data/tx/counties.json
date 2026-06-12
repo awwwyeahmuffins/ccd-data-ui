@@ -483,9 +483,17 @@
     "fips": "48067",
     "name": "Cass",
     "slug": "cass",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/cass",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (18)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48069",
@@ -515,9 +523,17 @@
     "fips": "48073",
     "name": "Cherokee",
     "slug": "cherokee",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/cherokee",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (25)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48075",
@@ -792,9 +808,17 @@
     "fips": "48113",
     "name": "Dallas",
     "slug": "dallas",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/dallas",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2022 Precincts (885)",
+        "geojson": "boundaries/2022.geojson",
+        "dataDir": "2022"
+      }
+    }
   },
   {
     "fips": "48115",
@@ -1248,9 +1272,17 @@
     "fips": "48183",
     "name": "Gregg",
     "slug": "gregg",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/gregg",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (21)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48185",
@@ -1504,9 +1536,17 @@
     "fips": "48223",
     "name": "Hopkins",
     "slug": "hopkins",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/hopkins",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (21)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48225",
@@ -1680,9 +1720,17 @@
     "fips": "48249",
     "name": "Jim Wells",
     "slug": "jim-wells",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/jim-wells",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (21)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48251",
@@ -1776,9 +1824,17 @@
     "fips": "48265",
     "name": "Kerr",
     "slug": "kerr",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/kerr",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (20)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48267",
@@ -2088,9 +2144,17 @@
     "fips": "48321",
     "name": "Matagorda",
     "slug": "matagorda",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/matagorda",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (18)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48323",
@@ -2312,9 +2376,17 @@
     "fips": "48347",
     "name": "Nacogdoches",
     "slug": "nacogdoches",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/nacogdoches",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (25)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   },
   {
     "fips": "48349",
@@ -2496,9 +2568,17 @@
     "fips": "48375",
     "name": "Potter",
     "slug": "potter",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/potter",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2022 Precincts (24)",
+        "geojson": "boundaries/2022.geojson",
+        "dataDir": "2022"
+      }
+    }
   },
   {
     "fips": "48377",
@@ -2928,9 +3008,17 @@
     "fips": "48439",
     "name": "Tarrant",
     "slug": "tarrant",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/tarrant",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2022 Precincts (758)",
+        "geojson": "boundaries/2022.geojson",
+        "dataDir": "2022"
+      }
+    }
   },
   {
     "fips": "48441",
@@ -3336,8 +3424,16 @@
     "fips": "48507",
     "name": "Zavala",
     "slug": "zavala",
-    "status": "placeholder",
-    "dataRoot": null,
-    "notes": "PLACEHOLDER \u2014 no precinct boundaries or election data loaded yet"
+    "status": "live",
+    "dataRoot": "data/tx/zavala",
+    "notes": null,
+    "defaultBoundarySet": "original",
+    "boundarySets": {
+      "original": {
+        "label": "2020 Precincts (6)",
+        "geojson": "boundaries/2020.geojson",
+        "dataDir": "2020"
+      }
+    }
   }
 ]

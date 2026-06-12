@@ -181,11 +181,14 @@ def enrich_parties_vest(set_path, party_lookup, audit_offices):
         for row in body:
             cand = row[ci].strip()
             if row[pi].strip() == "" and cand not in ("Write-in", "Over Votes", "Under Votes") and cand:
-                # ticket names ("Jo Jorgensen/ Spike Cohen"): use the FIRST
-                # person's last name for the candidate-code match
-                head = cand.split("/")[0].strip()
-                last = "".join(ch for ch in head.split()[-1] if ch.isalpha()).upper() if head else ""
-                prefix = party_lookup.get((target, last[:3]))
+                # ticket names may lack separators ("Donald J Trump Michael R
+                # Pence") — test every word against the official candidate
+                # codes; assign only when exactly one code matches
+                words = ["".join(ch for ch in w if ch.isalpha()).upper()
+                         for w in cand.replace("/", " ").split()]
+                hits = {party_lookup[(target, w[:3])]
+                        for w in words if len(w) >= 3 and (target, w[:3]) in party_lookup}
+                prefix = next(iter(hits)) if len(hits) == 1 else None
                 if prefix:
                     row[pi] = prefix
                     changed = True
@@ -377,9 +380,28 @@ def _first_integer(code):
 # (name, fn, merge) — merge rungs may map several source codes onto one
 # boundary code; their rows are then SUMMED per mapped precinct (sub-precinct
 # splits like "305 - C"/"305 - M" that share one VTD).
+def _strip_part_suffix(code):
+    """Remove a trailing split-part suffix after a separator:
+    '1004-01'->'1004', '30A4-01'->'30A4', '1001 - L01'->'1001', '1004 K1'->'1004'."""
+    base = _re.sub(r"[\s\-_]+[A-Za-z]{0,4}\d{0,3}$", "", code).strip()
+    base = base or code
+    return base.lstrip("0") or base
+
+
+def _digit_onward(code):
+    """Strip a leading word prefix, keep everything from the first digit:
+    'Precinct 12'->'12', 'Precinct 13T'->'13T'."""
+    out = _re.sub(r"^\D*0*", "", code).strip()
+    return out or code
+
+
 LADDER = [
     ("exact", lambda c: c, False),
     ("strip-leading-zeros", lambda c: c.lstrip("0") or c, False),
+    ("digit-onward", _digit_onward, False),
+    ("digit-onward-merge", _digit_onward, True),
+    ("part-suffix", _strip_part_suffix, False),
+    ("part-suffix-merge", _strip_part_suffix, True),
     ("first-integer", _first_integer, False),
     ("first-integer-merge", _first_integer, True),
 ]
@@ -398,6 +420,14 @@ def resolve_precinct_codes(set_path, boundary_codes):
                and (r["votes"].strip() or "0") != "0":
                 vote_bearing.add(code)
 
+    votes_by_code = defaultdict(int)
+    for e in manifest["elections"]:
+        for r in csv.DictReader((set_path / e["raceFile"]).open()):
+            if r["candidate"].strip() not in ("Write-in", "Over Votes", "Under Votes"):
+                votes_by_code[r["precinct"].strip()] += int(r["votes"] or 0)
+    total_votes = sum(votes_by_code.values()) or 1
+
+    # Pass 1 — strict: 100% of vote-bearing codes must join
     for rule_name, fn, merge in LADDER:
         mapping = {c: str(fn(c)) for c in all_codes}
         mapped_vb = {mapping[c] for c in vote_bearing}
@@ -408,6 +438,27 @@ def resolve_precinct_codes(set_path, boundary_codes):
             return rule_name, {"vote_bearing": len(vote_bearing),
                                "merged_into": len(mapped_vb) if merge else None,
                                "unmatched": []}
+
+    # Pass 2 — partial: precincts whose polygons postdate the TLC snapshot may
+    # be missing. Accept when >=99% of vote-bearing precincts AND >=99.5% of
+    # votes join; the gap is recorded. Unmatched rows keep their codes and
+    # render as no-feature rows — the same tolerated pattern legacy Collin had.
+    for rule_name, fn, merge in LADDER:
+        mapping = {c: str(fn(c)) for c in all_codes}
+        unmatched = sorted(c for c in vote_bearing if mapping[c] not in boundary_codes)
+        matched_vb = {mapping[c] for c in vote_bearing if mapping[c] in boundary_codes}
+        unique = len(matched_vb) == len(vote_bearing) - len(unmatched)
+        pcov = 1 - len(unmatched) / max(len(vote_bearing), 1)
+        vcov = 1 - sum(votes_by_code[c] for c in unmatched) / total_votes
+        if (unique or merge) and unmatched and pcov >= 0.99 and vcov >= 0.995:
+            _rewrite_codes(set_path, manifest, mapping, aggregate=merge)
+            return rule_name + "~partial", {
+                "vote_bearing": len(vote_bearing),
+                "merged_into": len(matched_vb) if merge else None,
+                "unmatched": unmatched[:20],
+                "unmatched_votes": sum(votes_by_code[c] for c in unmatched),
+                "coverage": round(pcov, 4)}
+
     missing = sorted({c for c in vote_bearing if c not in boundary_codes})[:10]
     return None, {"vote_bearing": len(vote_bearing), "unmatched": missing}
 

@@ -1,0 +1,463 @@
+precinct,party,candidate,votes
+1001,DEM,Trey J. Hunt,455
+1001,REP,Kay Granger,489
+1004,DEM,Trey J. Hunt,577
+1004,REP,Kay Granger,562
+1009,DEM,Trey J. Hunt,271
+1009,REP,Kay Granger,522
+1015,DEM,Trey J. Hunt,303
+1015,REP,Kay Granger,186
+1021,DEM,Trey J. Hunt,515
+1021,REP,Kay Granger,1136
+1022,DEM,Trey J. Hunt,303
+1022,REP,Kay Granger,370
+1023,DEM,Trey J. Hunt,992
+1023,REP,Kay Granger,908
+1056,DEM,Trey J. Hunt,73
+1056,REP,Kay Granger,30
+1061,DEM,Trey J. Hunt,93
+1061,REP,Kay Granger,24
+1062,DEM,Trey J. Hunt,9
+1062,REP,Kay Granger,7
+1064,DEM,Trey J. Hunt,0
+1064,REP,Kay Granger,0
+1071,DEM,Trey J. Hunt,498
+1071,REP,Kay Granger,265
+1076,DEM,Trey J. Hunt,396
+1076,REP,Kay Granger,322
+1081,DEM,Trey J. Hunt,140
+1081,REP,Kay Granger,244
+1094,DEM,Trey J. Hunt,489
+1094,REP,Kay Granger,248
+1095,DEM,Trey J. Hunt,189
+1095,REP,Kay Granger,361
+1103,DEM,Trey J. Hunt,335
+1103,REP,Kay Granger,681
+1105,DEM,Trey J. Hunt,462
+1105,REP,Kay Granger,544
+1108,DEM,Trey J. Hunt,512
+1108,REP,Kay Granger,533
+1111,DEM,Trey J. Hunt,639
+1111,REP,Kay Granger,2060
+1117,DEM,Trey J. Hunt,518
+1117,REP,Kay Granger,648
+1119,DEM,Trey J. Hunt,1072
+1119,REP,Kay Granger,642
+1120,DEM,Trey J. Hunt,913
+1120,REP,Kay Granger,115
+1133,DEM,Trey J. Hunt,570
+1133,REP,Kay Granger,441
+1142,DEM,Trey J. Hunt,345
+1142,REP,Kay Granger,359
+1167,DEM,Trey J. Hunt,401
+1167,REP,Kay Granger,396
+1186,DEM,Trey J. Hunt,384
+1186,REP,Kay Granger,641
+1197,DEM,Trey J. Hunt,1020
+1197,REP,Kay Granger,1032
+1199,DEM,Trey J. Hunt,98
+1199,REP,Kay Granger,177
+1206,DEM,Trey J. Hunt,459
+1206,REP,Kay Granger,968
+1207,DEM,Trey J. Hunt,606
+1207,REP,Kay Granger,560
+1208,DEM,Trey J. Hunt,358
+1208,REP,Kay Granger,1010
+1238,DEM,Trey J. Hunt,786
+1238,REP,Kay Granger,465
+1241,DEM,Trey J. Hunt,49
+1241,REP,Kay Granger,24
+1255,DEM,Trey J. Hunt,945
+1255,REP,Kay Granger,499
+1257,DEM,Trey J. Hunt,401
+1257,REP,Kay Granger,260
+1264,DEM,Trey J. Hunt,458
+1264,REP,Kay Granger,522
+1265,DEM,Trey J. Hunt,572
+1265,REP,Kay Granger,499
+1292,DEM,Trey J. Hunt,436
+1292,REP,Kay Granger,154
+1296,DEM,Trey J. Hunt,628
+1296,REP,Kay Granger,919
+1298,DEM,Trey J. Hunt,614
+1298,REP,Kay Granger,603
+1337,DEM,Trey J. Hunt,514
+1337,REP,Kay Granger,1129
+1339,DEM,Trey J. Hunt,608
+1339,REP,Kay Granger,893
+1347,DEM,Trey J. Hunt,1094
+1347,REP,Kay Granger,846
+1348,DEM,Trey J. Hunt,157
+1348,REP,Kay Granger,509
+1376,DEM,Trey J. Hunt,3
+1376,REP,Kay Granger,5
+1377,DEM,Trey J. Hunt,961
+1377,REP,Kay Granger,1000
+1408,DEM,Trey J. Hunt,82
+1408,REP,Kay Granger,43
+1423,DEM,Trey J. Hunt,486
+1423,REP,Kay Granger,1297
+1424,DEM,Trey J. Hunt,0
+1424,REP,Kay Granger,6
+1430,DEM,Trey J. Hunt,2
+1430,REP,Kay Granger,1
+1434,DEM,Trey J. Hunt,0
+1434,REP,Kay Granger,0
+1444,DEM,Trey J. Hunt,40
+1444,REP,Kay Granger,14
+1455,DEM,Trey J. Hunt,0
+1455,REP,Kay Granger,1
+1457,DEM,Trey J. Hunt,1
+1457,REP,Kay Granger,0
+1459,DEM,Trey J. Hunt,566
+1459,REP,Kay Granger,205
+1472,DEM,Trey J. Hunt,52
+1472,REP,Kay Granger,133
+1543,DEM,Trey J. Hunt,273
+1543,REP,Kay Granger,68
+1608,DEM,Trey J. Hunt,352
+1608,REP,Kay Granger,235
+1611,DEM,Trey J. Hunt,4
+1611,REP,Kay Granger,3
+1622,DEM,Trey J. Hunt,8
+1622,REP,Kay Granger,17
+1623,DEM,Trey J. Hunt,0
+1623,REP,Kay Granger,0
+1625,DEM,Trey J. Hunt,0
+1625,REP,Kay Granger,0
+1633,DEM,Trey J. Hunt,8
+1633,REP,Kay Granger,10
+1639,DEM,Trey J. Hunt,511
+1639,REP,Kay Granger,146
+1641,DEM,Trey J. Hunt,1421
+1641,REP,Kay Granger,891
+1674,DEM,Trey J. Hunt,0
+1674,REP,Kay Granger,0
+1676,DEM,Trey J. Hunt,75
+1676,REP,Kay Granger,42
+1677,DEM,Trey J. Hunt,86
+1677,REP,Kay Granger,34
+1678,DEM,Trey J. Hunt,1
+1678,REP,Kay Granger,0
+1684,DEM,Trey J. Hunt,149
+1684,REP,Kay Granger,122
+1701,DEM,Trey J. Hunt,300
+1701,REP,Kay Granger,283
+1710,DEM,Trey J. Hunt,259
+1710,REP,Kay Granger,409
+1715,DEM,Trey J. Hunt,275
+1715,REP,Kay Granger,293
+1718,DEM,Trey J. Hunt,339
+1718,REP,Kay Granger,297
+1719,DEM,Trey J. Hunt,527
+1719,REP,Kay Granger,1092
+1722,DEM,Trey J. Hunt,132
+1722,REP,Kay Granger,107
+1723,DEM,Trey J. Hunt,769
+1723,REP,Kay Granger,396
+1734,DEM,Trey J. Hunt,1081
+1734,REP,Kay Granger,339
+1747,DEM,Trey J. Hunt,0
+1747,REP,Kay Granger,0
+3043,DEM,Trey J. Hunt,566
+3043,REP,Kay Granger,1554
+3131,DEM,Trey J. Hunt,300
+3131,REP,Kay Granger,629
+3152,DEM,Trey J. Hunt,6
+3152,REP,Kay Granger,14
+3164,DEM,Trey J. Hunt,363
+3164,REP,Kay Granger,633
+3192,DEM,Trey J. Hunt,193
+3192,REP,Kay Granger,594
+3215,DEM,Trey J. Hunt,388
+3215,REP,Kay Granger,1016
+3289,DEM,Trey J. Hunt,418
+3289,REP,Kay Granger,939
+3325,DEM,Trey J. Hunt,189
+3325,REP,Kay Granger,452
+3363,DEM,Trey J. Hunt,597
+3363,REP,Kay Granger,1520
+3406,DEM,Trey J. Hunt,0
+3406,REP,Kay Granger,0
+3567,DEM,Trey J. Hunt,700
+3567,REP,Kay Granger,1606
+3637,DEM,Trey J. Hunt,587
+3637,REP,Kay Granger,636
+3700,DEM,Trey J. Hunt,381
+3700,REP,Kay Granger,689
+3732,DEM,Trey J. Hunt,210
+3732,REP,Kay Granger,812
+4006,DEM,Trey J. Hunt,339
+4006,REP,Kay Granger,121
+4016,DEM,Trey J. Hunt,489
+4016,REP,Kay Granger,508
+4018,DEM,Trey J. Hunt,118
+4018,REP,Kay Granger,329
+4020,DEM,Trey J. Hunt,264
+4020,REP,Kay Granger,410
+4042,DEM,Trey J. Hunt,192
+4042,REP,Kay Granger,319
+4044,DEM,Trey J. Hunt,643
+4044,REP,Kay Granger,1554
+4045,DEM,Trey J. Hunt,383
+4045,REP,Kay Granger,1206
+4046,DEM,Trey J. Hunt,265
+4046,REP,Kay Granger,1074
+4047,DEM,Trey J. Hunt,318
+4047,REP,Kay Granger,1500
+4053,DEM,Trey J. Hunt,209
+4053,REP,Kay Granger,371
+4057,DEM,Trey J. Hunt,253
+4057,REP,Kay Granger,239
+4060,DEM,Trey J. Hunt,948
+4060,REP,Kay Granger,394
+4065,DEM,Trey J. Hunt,563
+4065,REP,Kay Granger,2019
+4069,DEM,Trey J. Hunt,283
+4069,REP,Kay Granger,942
+4070,DEM,Trey J. Hunt,537
+4070,REP,Kay Granger,635
+4073,DEM,Trey J. Hunt,92
+4073,REP,Kay Granger,128
+4086,DEM,Trey J. Hunt,472
+4086,REP,Kay Granger,1284
+4091,DEM,Trey J. Hunt,355
+4091,REP,Kay Granger,814
+4096,DEM,Trey J. Hunt,467
+4096,REP,Kay Granger,219
+4102,DEM,Trey J. Hunt,174
+4102,REP,Kay Granger,176
+4113,DEM,Trey J. Hunt,53
+4113,REP,Kay Granger,119
+4115,DEM,Trey J. Hunt,57
+4115,REP,Kay Granger,361
+4116,DEM,Trey J. Hunt,568
+4116,REP,Kay Granger,818
+4118,DEM,Trey J. Hunt,330
+4118,REP,Kay Granger,323
+4121,DEM,Trey J. Hunt,402
+4121,REP,Kay Granger,741
+4125,DEM,Trey J. Hunt,97
+4125,REP,Kay Granger,117
+4128,DEM,Trey J. Hunt,440
+4128,REP,Kay Granger,804
+4129,DEM,Trey J. Hunt,287
+4129,REP,Kay Granger,529
+4130,DEM,Trey J. Hunt,583
+4130,REP,Kay Granger,1125
+4135,DEM,Trey J. Hunt,266
+4135,REP,Kay Granger,348
+4136,DEM,Trey J. Hunt,480
+4136,REP,Kay Granger,544
+4137,DEM,Trey J. Hunt,367
+4137,REP,Kay Granger,611
+4138,DEM,Trey J. Hunt,108
+4138,REP,Kay Granger,174
+4141,DEM,Trey J. Hunt,440
+4141,REP,Kay Granger,683
+4144,DEM,Trey J. Hunt,289
+4144,REP,Kay Granger,604
+4159,DEM,Trey J. Hunt,240
+4159,REP,Kay Granger,423
+4163,DEM,Trey J. Hunt,353
+4163,REP,Kay Granger,483
+4178,DEM,Trey J. Hunt,623
+4178,REP,Kay Granger,1054
+4179,DEM,Trey J. Hunt,305
+4179,REP,Kay Granger,254
+4182,DEM,Trey J. Hunt,709
+4182,REP,Kay Granger,1175
+4202,DEM,Trey J. Hunt,307
+4202,REP,Kay Granger,364
+4203,DEM,Trey J. Hunt,433
+4203,REP,Kay Granger,338
+4204,DEM,Trey J. Hunt,503
+4204,REP,Kay Granger,913
+4218,DEM,Trey J. Hunt,198
+4218,REP,Kay Granger,322
+4222,DEM,Trey J. Hunt,183
+4222,REP,Kay Granger,241
+4230,DEM,Trey J. Hunt,824
+4230,REP,Kay Granger,1256
+4232,DEM,Trey J. Hunt,783
+4232,REP,Kay Granger,934
+4239,DEM,Trey J. Hunt,19
+4239,REP,Kay Granger,35
+4242,DEM,Trey J. Hunt,74
+4242,REP,Kay Granger,264
+4243,DEM,Trey J. Hunt,395
+4243,REP,Kay Granger,599
+4250,DEM,Trey J. Hunt,789
+4250,REP,Kay Granger,948
+4252,DEM,Trey J. Hunt,274
+4252,REP,Kay Granger,352
+4253,DEM,Trey J. Hunt,236
+4253,REP,Kay Granger,211
+4259,DEM,Trey J. Hunt,170
+4259,REP,Kay Granger,553
+4272,DEM,Trey J. Hunt,110
+4272,REP,Kay Granger,196
+4276,DEM,Trey J. Hunt,459
+4276,REP,Kay Granger,656
+4284,DEM,Trey J. Hunt,27
+4284,REP,Kay Granger,126
+4285,DEM,Trey J. Hunt,114
+4285,REP,Kay Granger,104
+4290,DEM,Trey J. Hunt,418
+4290,REP,Kay Granger,637
+4328,DEM,Trey J. Hunt,248
+4328,REP,Kay Granger,338
+4338,DEM,Trey J. Hunt,547
+4338,REP,Kay Granger,764
+4340,DEM,Trey J. Hunt,295
+4340,REP,Kay Granger,900
+4342,DEM,Trey J. Hunt,595
+4342,REP,Kay Granger,902
+4343,DEM,Trey J. Hunt,461
+4343,REP,Kay Granger,1009
+4344,DEM,Trey J. Hunt,328
+4344,REP,Kay Granger,663
+4350,DEM,Trey J. Hunt,508
+4350,REP,Kay Granger,404
+4362,DEM,Trey J. Hunt,0
+4362,REP,Kay Granger,1
+4369,DEM,Trey J. Hunt,678
+4369,REP,Kay Granger,1354
+4371,DEM,Trey J. Hunt,243
+4371,REP,Kay Granger,1439
+4373,DEM,Trey J. Hunt,32
+4373,REP,Kay Granger,80
+4374,DEM,Trey J. Hunt,440
+4374,REP,Kay Granger,616
+4375,DEM,Trey J. Hunt,452
+4375,REP,Kay Granger,1195
+4395,DEM,Trey J. Hunt,53
+4395,REP,Kay Granger,280
+4397,DEM,Trey J. Hunt,83
+4397,REP,Kay Granger,104
+4399,DEM,Trey J. Hunt,18
+4399,REP,Kay Granger,84
+4400,DEM,Trey J. Hunt,60
+4400,REP,Kay Granger,78
+4410,DEM,Trey J. Hunt,623
+4410,REP,Kay Granger,747
+4429,DEM,Trey J. Hunt,552
+4429,REP,Kay Granger,778
+4452,DEM,Trey J. Hunt,729
+4452,REP,Kay Granger,808
+4454,DEM,Trey J. Hunt,439
+4454,REP,Kay Granger,808
+4456,DEM,Trey J. Hunt,235
+4456,REP,Kay Granger,492
+4458,DEM,Trey J. Hunt,1
+4458,REP,Kay Granger,6
+4480,DEM,Trey J. Hunt,175
+4480,REP,Kay Granger,518
+4483,DEM,Trey J. Hunt,7
+4483,REP,Kay Granger,9
+4485,DEM,Trey J. Hunt,57
+4485,REP,Kay Granger,78
+4487,DEM,Trey J. Hunt,0
+4487,REP,Kay Granger,0
+4492,DEM,Trey J. Hunt,263
+4492,REP,Kay Granger,212
+4493,DEM,Trey J. Hunt,506
+4493,REP,Kay Granger,609
+4496,DEM,Trey J. Hunt,165
+4496,REP,Kay Granger,83
+4497,DEM,Trey J. Hunt,502
+4497,REP,Kay Granger,319
+4498,DEM,Trey J. Hunt,134
+4498,REP,Kay Granger,292
+4499,DEM,Trey J. Hunt,801
+4499,REP,Kay Granger,882
+4508,DEM,Trey J. Hunt,808
+4508,REP,Kay Granger,1021
+4512,DEM,Trey J. Hunt,0
+4512,REP,Kay Granger,0
+4531,DEM,Trey J. Hunt,474
+4531,REP,Kay Granger,971
+4532,DEM,Trey J. Hunt,159
+4532,REP,Kay Granger,584
+4534,DEM,Trey J. Hunt,815
+4534,REP,Kay Granger,1245
+4540,DEM,Trey J. Hunt,589
+4540,REP,Kay Granger,829
+4551,DEM,Trey J. Hunt,701
+4551,REP,Kay Granger,1101
+4565,DEM,Trey J. Hunt,2
+4565,REP,Kay Granger,6
+4568,DEM,Trey J. Hunt,6
+4568,REP,Kay Granger,22
+4572,DEM,Trey J. Hunt,14
+4572,REP,Kay Granger,4
+4591,DEM,Trey J. Hunt,721
+4591,REP,Kay Granger,811
+4592,DEM,Trey J. Hunt,0
+4592,REP,Kay Granger,0
+4593,DEM,Trey J. Hunt,94
+4593,REP,Kay Granger,96
+4595,DEM,Trey J. Hunt,13
+4595,REP,Kay Granger,13
+4599,DEM,Trey J. Hunt,552
+4599,REP,Kay Granger,849
+4602,DEM,Trey J. Hunt,0
+4602,REP,Kay Granger,0
+4604,DEM,Trey J. Hunt,0
+4604,REP,Kay Granger,1
+4615,DEM,Trey J. Hunt,0
+4615,REP,Kay Granger,0
+4620,DEM,Trey J. Hunt,10
+4620,REP,Kay Granger,5
+4629,DEM,Trey J. Hunt,0
+4629,REP,Kay Granger,0
+4630,DEM,Trey J. Hunt,0
+4630,REP,Kay Granger,0
+4632,DEM,Trey J. Hunt,0
+4632,REP,Kay Granger,0
+4634,DEM,Trey J. Hunt,308
+4634,REP,Kay Granger,249
+4638,DEM,Trey J. Hunt,800
+4638,REP,Kay Granger,1011
+4640,DEM,Trey J. Hunt,184
+4640,REP,Kay Granger,125
+4649,DEM,Trey J. Hunt,464
+4649,REP,Kay Granger,1057
+4650,DEM,Trey J. Hunt,713
+4650,REP,Kay Granger,974
+4666,DEM,Trey J. Hunt,0
+4666,REP,Kay Granger,0
+4683,DEM,Trey J. Hunt,0
+4683,REP,Kay Granger,0
+4686,DEM,Trey J. Hunt,0
+4686,REP,Kay Granger,0
+4687,DEM,Trey J. Hunt,41
+4687,REP,Kay Granger,24
+4689,DEM,Trey J. Hunt,32
+4689,REP,Kay Granger,40
+4694,DEM,Trey J. Hunt,497
+4694,REP,Kay Granger,700
+4702,DEM,Trey J. Hunt,327
+4702,REP,Kay Granger,474
+4703,DEM,Trey J. Hunt,533
+4703,REP,Kay Granger,552
+4705,DEM,Trey J. Hunt,489
+4705,REP,Kay Granger,603
+4707,DEM,Trey J. Hunt,312
+4707,REP,Kay Granger,258
+4711,DEM,Trey J. Hunt,395
+4711,REP,Kay Granger,600
+4713,DEM,Trey J. Hunt,676
+4713,REP,Kay Granger,925
+4724,DEM,Trey J. Hunt,90
+4724,REP,Kay Granger,447
+4730,DEM,Trey J. Hunt,590
+4730,REP,Kay Granger,1069
+4733,DEM,Trey J. Hunt,450
+4733,REP,Kay Granger,495
+4736,DEM,Trey J. Hunt,216
+4736,REP,Kay Granger,691
+4737,DEM,Trey J. Hunt,313
+4737,REP,Kay Granger,430
+4820,DEM,Trey J. Hunt,0
+4820,REP,Kay Granger,0

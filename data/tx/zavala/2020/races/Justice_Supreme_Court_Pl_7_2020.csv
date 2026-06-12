@@ -1,0 +1,21 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,100
+1,DEM,Staci Williams,473
+1,LIB,William Bryan Strange III,14
+1,REP,Jeff Boyd,183
+2,,Over Votes,0
+2,,Under Votes,155
+2,DEM,Staci Williams,788
+2,LIB,William Bryan Strange III,26
+2,REP,Jeff Boyd,287
+3,,Over Votes,0
+3,,Under Votes,177
+3,DEM,Staci Williams,773
+3,LIB,William Bryan Strange III,23
+3,REP,Jeff Boyd,269
+4,,Over Votes,0
+4,,Under Votes,209
+4,DEM,Staci Williams,582
+4,LIB,William Bryan Strange III,19
+4,REP,Jeff Boyd,385

@@ -1,0 +1,586 @@
+precinct,party,candidate,votes
+1005,DEM,Marc Veasey,249
+1005,LIB,Ken Ashby,4
+1005,REP,Patrick David Gillespie,11
+1008,DEM,Marc Veasey,89
+1008,LIB,Ken Ashby,1
+1008,REP,Patrick David Gillespie,15
+1010,DEM,Marc Veasey,72
+1010,LIB,Ken Ashby,2
+1010,REP,Patrick David Gillespie,31
+1011,DEM,Marc Veasey,214
+1011,LIB,Ken Ashby,7
+1011,REP,Patrick David Gillespie,31
+1012,DEM,Marc Veasey,673
+1012,LIB,Ken Ashby,21
+1012,REP,Patrick David Gillespie,361
+1013,DEM,Marc Veasey,748
+1013,LIB,Ken Ashby,14
+1013,REP,Patrick David Gillespie,115
+1019,DEM,Marc Veasey,133
+1019,LIB,Ken Ashby,3
+1019,REP,Patrick David Gillespie,71
+1025,DEM,Marc Veasey,513
+1025,LIB,Ken Ashby,15
+1025,REP,Patrick David Gillespie,241
+1059,DEM,Marc Veasey,198
+1059,LIB,Ken Ashby,4
+1059,REP,Patrick David Gillespie,43
+1066,DEM,Marc Veasey,224
+1066,LIB,Ken Ashby,10
+1066,REP,Patrick David Gillespie,101
+1074,DEM,Marc Veasey,190
+1074,LIB,Ken Ashby,8
+1074,REP,Patrick David Gillespie,29
+1075,DEM,Marc Veasey,163
+1075,LIB,Ken Ashby,8
+1075,REP,Patrick David Gillespie,54
+1078,DEM,Marc Veasey,273
+1078,LIB,Ken Ashby,6
+1078,REP,Patrick David Gillespie,32
+1079,DEM,Marc Veasey,324
+1079,LIB,Ken Ashby,8
+1079,REP,Patrick David Gillespie,33
+1080,DEM,Marc Veasey,318
+1080,LIB,Ken Ashby,8
+1080,REP,Patrick David Gillespie,24
+1082,DEM,Marc Veasey,138
+1082,LIB,Ken Ashby,10
+1082,REP,Patrick David Gillespie,78
+1083,DEM,Marc Veasey,267
+1083,LIB,Ken Ashby,4
+1083,REP,Patrick David Gillespie,55
+1085,DEM,Marc Veasey,138
+1085,LIB,Ken Ashby,2
+1085,REP,Patrick David Gillespie,116
+1088,DEM,Marc Veasey,275
+1088,LIB,Ken Ashby,8
+1088,REP,Patrick David Gillespie,78
+1089,DEM,Marc Veasey,431
+1089,LIB,Ken Ashby,3
+1089,REP,Patrick David Gillespie,27
+1090,DEM,Marc Veasey,353
+1090,LIB,Ken Ashby,4
+1090,REP,Patrick David Gillespie,38
+1098,DEM,Marc Veasey,398
+1098,LIB,Ken Ashby,14
+1098,REP,Patrick David Gillespie,52
+1099,DEM,Marc Veasey,184
+1099,LIB,Ken Ashby,8
+1099,REP,Patrick David Gillespie,57
+1104,DEM,Marc Veasey,885
+1104,LIB,Ken Ashby,16
+1104,REP,Patrick David Gillespie,83
+1106,DEM,Marc Veasey,673
+1106,LIB,Ken Ashby,8
+1106,REP,Patrick David Gillespie,30
+1109,DEM,Marc Veasey,338
+1109,LIB,Ken Ashby,21
+1109,REP,Patrick David Gillespie,173
+1126,DEM,Marc Veasey,580
+1126,LIB,Ken Ashby,18
+1126,REP,Patrick David Gillespie,251
+1127,DEM,Marc Veasey,522
+1127,LIB,Ken Ashby,5
+1127,REP,Patrick David Gillespie,35
+1132,DEM,Marc Veasey,432
+1132,LIB,Ken Ashby,9
+1132,REP,Patrick David Gillespie,29
+1146,DEM,Marc Veasey,839
+1146,LIB,Ken Ashby,26
+1146,REP,Patrick David Gillespie,395
+1149,DEM,Marc Veasey,710
+1149,LIB,Ken Ashby,9
+1149,REP,Patrick David Gillespie,180
+1151,DEM,Marc Veasey,333
+1151,LIB,Ken Ashby,10
+1151,REP,Patrick David Gillespie,212
+1153,DEM,Marc Veasey,626
+1153,LIB,Ken Ashby,7
+1153,REP,Patrick David Gillespie,53
+1154,DEM,Marc Veasey,174
+1154,LIB,Ken Ashby,3
+1154,REP,Patrick David Gillespie,43
+1165,DEM,Marc Veasey,85
+1165,LIB,Ken Ashby,2
+1165,REP,Patrick David Gillespie,49
+1170,DEM,Marc Veasey,849
+1170,LIB,Ken Ashby,28
+1170,REP,Patrick David Gillespie,431
+1188,DEM,Marc Veasey,201
+1188,LIB,Ken Ashby,5
+1188,REP,Patrick David Gillespie,6
+1198,DEM,Marc Veasey,73
+1198,LIB,Ken Ashby,3
+1198,REP,Patrick David Gillespie,72
+1211,DEM,Marc Veasey,654
+1211,LIB,Ken Ashby,9
+1211,REP,Patrick David Gillespie,56
+1227,DEM,Marc Veasey,407
+1227,LIB,Ken Ashby,11
+1227,REP,Patrick David Gillespie,172
+1236,DEM,Marc Veasey,206
+1236,LIB,Ken Ashby,9
+1236,REP,Patrick David Gillespie,129
+1237,DEM,Marc Veasey,168
+1237,LIB,Ken Ashby,5
+1237,REP,Patrick David Gillespie,90
+1270,DEM,Marc Veasey,145
+1270,LIB,Ken Ashby,5
+1270,REP,Patrick David Gillespie,121
+1273,DEM,Marc Veasey,499
+1273,LIB,Ken Ashby,29
+1273,REP,Patrick David Gillespie,285
+1277,DEM,Marc Veasey,436
+1277,LIB,Ken Ashby,13
+1277,REP,Patrick David Gillespie,337
+1278,DEM,Marc Veasey,695
+1278,LIB,Ken Ashby,20
+1278,REP,Patrick David Gillespie,146
+1279,DEM,Marc Veasey,716
+1279,LIB,Ken Ashby,21
+1279,REP,Patrick David Gillespie,233
+1291,DEM,Marc Veasey,709
+1291,LIB,Ken Ashby,16
+1291,REP,Patrick David Gillespie,39
+1293,DEM,Marc Veasey,396
+1293,LIB,Ken Ashby,7
+1293,REP,Patrick David Gillespie,87
+1295,DEM,Marc Veasey,198
+1295,LIB,Ken Ashby,11
+1295,REP,Patrick David Gillespie,118
+1297,DEM,Marc Veasey,862
+1297,LIB,Ken Ashby,13
+1297,REP,Patrick David Gillespie,42
+1301,DEM,Marc Veasey,709
+1301,LIB,Ken Ashby,18
+1301,REP,Patrick David Gillespie,134
+1311,DEM,Marc Veasey,685
+1311,LIB,Ken Ashby,18
+1311,REP,Patrick David Gillespie,186
+1346,DEM,Marc Veasey,230
+1346,LIB,Ken Ashby,12
+1346,REP,Patrick David Gillespie,23
+1351,DEM,Marc Veasey,0
+1351,LIB,Ken Ashby,0
+1351,REP,Patrick David Gillespie,0
+1382,DEM,Marc Veasey,638
+1382,LIB,Ken Ashby,18
+1382,REP,Patrick David Gillespie,180
+1388,DEM,Marc Veasey,810
+1388,LIB,Ken Ashby,38
+1388,REP,Patrick David Gillespie,382
+1404,DEM,Marc Veasey,635
+1404,LIB,Ken Ashby,26
+1404,REP,Patrick David Gillespie,229
+1407,DEM,Marc Veasey,18
+1407,LIB,Ken Ashby,1
+1407,REP,Patrick David Gillespie,8
+1412,DEM,Marc Veasey,0
+1412,LIB,Ken Ashby,0
+1412,REP,Patrick David Gillespie,0
+1414,DEM,Marc Veasey,18
+1414,LIB,Ken Ashby,1
+1414,REP,Patrick David Gillespie,1
+1415,DEM,Marc Veasey,328
+1415,LIB,Ken Ashby,10
+1415,REP,Patrick David Gillespie,114
+1416,DEM,Marc Veasey,56
+1416,LIB,Ken Ashby,2
+1416,REP,Patrick David Gillespie,37
+1420,DEM,Marc Veasey,0
+1420,LIB,Ken Ashby,0
+1420,REP,Patrick David Gillespie,0
+1437,DEM,Marc Veasey,178
+1437,LIB,Ken Ashby,7
+1437,REP,Patrick David Gillespie,171
+1439,DEM,Marc Veasey,57
+1439,LIB,Ken Ashby,0
+1439,REP,Patrick David Gillespie,10
+1445,DEM,Marc Veasey,16
+1445,LIB,Ken Ashby,0
+1445,REP,Patrick David Gillespie,3
+1460,DEM,Marc Veasey,675
+1460,LIB,Ken Ashby,23
+1460,REP,Patrick David Gillespie,226
+1473,DEM,Marc Veasey,63
+1473,LIB,Ken Ashby,3
+1473,REP,Patrick David Gillespie,38
+1476,DEM,Marc Veasey,24
+1476,LIB,Ken Ashby,0
+1476,REP,Patrick David Gillespie,18
+1477,DEM,Marc Veasey,241
+1477,LIB,Ken Ashby,4
+1477,REP,Patrick David Gillespie,38
+1479,DEM,Marc Veasey,56
+1479,LIB,Ken Ashby,4
+1479,REP,Patrick David Gillespie,20
+1481,DEM,Marc Veasey,101
+1481,LIB,Ken Ashby,2
+1481,REP,Patrick David Gillespie,27
+1482,DEM,Marc Veasey,151
+1482,LIB,Ken Ashby,5
+1482,REP,Patrick David Gillespie,33
+1489,DEM,Marc Veasey,627
+1489,LIB,Ken Ashby,28
+1489,REP,Patrick David Gillespie,228
+1490,DEM,Marc Veasey,152
+1490,LIB,Ken Ashby,4
+1490,REP,Patrick David Gillespie,67
+1491,DEM,Marc Veasey,2
+1491,LIB,Ken Ashby,0
+1491,REP,Patrick David Gillespie,0
+1514,DEM,Marc Veasey,0
+1514,LIB,Ken Ashby,0
+1514,REP,Patrick David Gillespie,0
+1518,DEM,Marc Veasey,212
+1518,LIB,Ken Ashby,4
+1518,REP,Patrick David Gillespie,55
+1544,DEM,Marc Veasey,4
+1544,LIB,Ken Ashby,0
+1544,REP,Patrick David Gillespie,0
+1550,DEM,Marc Veasey,14
+1550,LIB,Ken Ashby,0
+1550,REP,Patrick David Gillespie,0
+1555,DEM,Marc Veasey,0
+1555,LIB,Ken Ashby,0
+1555,REP,Patrick David Gillespie,1
+1564,DEM,Marc Veasey,0
+1564,LIB,Ken Ashby,0
+1564,REP,Patrick David Gillespie,0
+1576,DEM,Marc Veasey,48
+1576,LIB,Ken Ashby,1
+1576,REP,Patrick David Gillespie,6
+1577,DEM,Marc Veasey,303
+1577,LIB,Ken Ashby,3
+1577,REP,Patrick David Gillespie,58
+1578,DEM,Marc Veasey,381
+1578,LIB,Ken Ashby,5
+1578,REP,Patrick David Gillespie,152
+1589,DEM,Marc Veasey,56
+1589,LIB,Ken Ashby,0
+1589,REP,Patrick David Gillespie,39
+1594,DEM,Marc Veasey,0
+1594,LIB,Ken Ashby,0
+1594,REP,Patrick David Gillespie,0
+1597,DEM,Marc Veasey,120
+1597,LIB,Ken Ashby,1
+1597,REP,Patrick David Gillespie,26
+1605,DEM,Marc Veasey,0
+1605,LIB,Ken Ashby,0
+1605,REP,Patrick David Gillespie,0
+1607,DEM,Marc Veasey,0
+1607,LIB,Ken Ashby,0
+1607,REP,Patrick David Gillespie,0
+1610,DEM,Marc Veasey,11
+1610,LIB,Ken Ashby,1
+1610,REP,Patrick David Gillespie,15
+1617,DEM,Marc Veasey,12
+1617,LIB,Ken Ashby,0
+1617,REP,Patrick David Gillespie,7
+1619,DEM,Marc Veasey,7
+1619,LIB,Ken Ashby,0
+1619,REP,Patrick David Gillespie,2
+1631,DEM,Marc Veasey,51
+1631,LIB,Ken Ashby,2
+1631,REP,Patrick David Gillespie,47
+1652,DEM,Marc Veasey,53
+1652,LIB,Ken Ashby,0
+1652,REP,Patrick David Gillespie,1
+1672,DEM,Marc Veasey,0
+1672,LIB,Ken Ashby,0
+1672,REP,Patrick David Gillespie,0
+1679,DEM,Marc Veasey,0
+1679,LIB,Ken Ashby,0
+1679,REP,Patrick David Gillespie,0
+1714,DEM,Marc Veasey,1110
+1714,LIB,Ken Ashby,34
+1714,REP,Patrick David Gillespie,461
+1738,DEM,Marc Veasey,5
+1738,LIB,Ken Ashby,0
+1738,REP,Patrick David Gillespie,15
+1753,DEM,Marc Veasey,0
+1753,LIB,Ken Ashby,0
+1753,REP,Patrick David Gillespie,0
+1754,DEM,Marc Veasey,0
+1754,LIB,Ken Ashby,0
+1754,REP,Patrick David Gillespie,0
+1797,DEM,Marc Veasey,0
+1797,LIB,Ken Ashby,0
+1797,REP,Patrick David Gillespie,0
+1799,DEM,Marc Veasey,0
+1799,LIB,Ken Ashby,0
+1799,REP,Patrick David Gillespie,0
+1801,DEM,Marc Veasey,0
+1801,LIB,Ken Ashby,0
+1801,REP,Patrick David Gillespie,0
+1807,DEM,Marc Veasey,0
+1807,LIB,Ken Ashby,0
+1807,REP,Patrick David Gillespie,0
+1808,DEM,Marc Veasey,0
+1808,LIB,Ken Ashby,0
+1808,REP,Patrick David Gillespie,0
+1809,DEM,Marc Veasey,0
+1809,LIB,Ken Ashby,0
+1809,REP,Patrick David Gillespie,0
+1810,DEM,Marc Veasey,0
+1810,LIB,Ken Ashby,0
+1810,REP,Patrick David Gillespie,0
+1812,DEM,Marc Veasey,0
+1812,LIB,Ken Ashby,0
+1812,REP,Patrick David Gillespie,0
+1814,DEM,Marc Veasey,0
+1814,LIB,Ken Ashby,0
+1814,REP,Patrick David Gillespie,0
+1816,DEM,Marc Veasey,0
+1816,LIB,Ken Ashby,0
+1816,REP,Patrick David Gillespie,0
+1821,DEM,Marc Veasey,0
+1821,LIB,Ken Ashby,0
+1821,REP,Patrick David Gillespie,0
+2134,DEM,Marc Veasey,162
+2134,LIB,Ken Ashby,11
+2134,REP,Patrick David Gillespie,161
+2169,DEM,Marc Veasey,128
+2169,LIB,Ken Ashby,5
+2169,REP,Patrick David Gillespie,42
+2180,DEM,Marc Veasey,434
+2180,LIB,Ken Ashby,8
+2180,REP,Patrick David Gillespie,127
+2225,DEM,Marc Veasey,354
+2225,LIB,Ken Ashby,14
+2225,REP,Patrick David Gillespie,125
+2413,DEM,Marc Veasey,230
+2413,LIB,Ken Ashby,4
+2413,REP,Patrick David Gillespie,77
+2428,DEM,Marc Veasey,109
+2428,LIB,Ken Ashby,2
+2428,REP,Patrick David Gillespie,42
+2442,DEM,Marc Veasey,1391
+2442,LIB,Ken Ashby,34
+2442,REP,Patrick David Gillespie,1042
+2461,DEM,Marc Veasey,519
+2461,LIB,Ken Ashby,20
+2461,REP,Patrick David Gillespie,186
+2609,DEM,Marc Veasey,0
+2609,LIB,Ken Ashby,0
+2609,REP,Patrick David Gillespie,0
+2673,DEM,Marc Veasey,0
+2673,LIB,Ken Ashby,0
+2673,REP,Patrick David Gillespie,0
+2741,DEM,Marc Veasey,24
+2741,LIB,Ken Ashby,2
+2741,REP,Patrick David Gillespie,2
+2742,DEM,Marc Veasey,140
+2742,LIB,Ken Ashby,4
+2742,REP,Patrick David Gillespie,98
+2755,DEM,Marc Veasey,0
+2755,LIB,Ken Ashby,0
+2755,REP,Patrick David Gillespie,0
+2756,DEM,Marc Veasey,0
+2756,LIB,Ken Ashby,0
+2756,REP,Patrick David Gillespie,0
+2767,DEM,Marc Veasey,0
+2767,LIB,Ken Ashby,0
+2767,REP,Patrick David Gillespie,0
+2768,DEM,Marc Veasey,0
+2768,LIB,Ken Ashby,0
+2768,REP,Patrick David Gillespie,0
+2769,DEM,Marc Veasey,0
+2769,LIB,Ken Ashby,0
+2769,REP,Patrick David Gillespie,0
+2770,DEM,Marc Veasey,0
+2770,LIB,Ken Ashby,0
+2770,REP,Patrick David Gillespie,0
+2771,DEM,Marc Veasey,0
+2771,LIB,Ken Ashby,0
+2771,REP,Patrick David Gillespie,0
+2772,DEM,Marc Veasey,0
+2772,LIB,Ken Ashby,0
+2772,REP,Patrick David Gillespie,0
+2773,DEM,Marc Veasey,0
+2773,LIB,Ken Ashby,0
+2773,REP,Patrick David Gillespie,0
+2774,DEM,Marc Veasey,0
+2774,LIB,Ken Ashby,0
+2774,REP,Patrick David Gillespie,0
+2775,DEM,Marc Veasey,0
+2775,LIB,Ken Ashby,0
+2775,REP,Patrick David Gillespie,0
+2776,DEM,Marc Veasey,0
+2776,LIB,Ken Ashby,0
+2776,REP,Patrick David Gillespie,0
+2777,DEM,Marc Veasey,0
+2777,LIB,Ken Ashby,0
+2777,REP,Patrick David Gillespie,0
+2778,DEM,Marc Veasey,0
+2778,LIB,Ken Ashby,0
+2778,REP,Patrick David Gillespie,0
+2779,DEM,Marc Veasey,0
+2779,LIB,Ken Ashby,0
+2779,REP,Patrick David Gillespie,0
+2780,DEM,Marc Veasey,0
+2780,LIB,Ken Ashby,0
+2780,REP,Patrick David Gillespie,0
+2781,DEM,Marc Veasey,0
+2781,LIB,Ken Ashby,0
+2781,REP,Patrick David Gillespie,0
+2782,DEM,Marc Veasey,0
+2782,LIB,Ken Ashby,0
+2782,REP,Patrick David Gillespie,0
+2783,DEM,Marc Veasey,0
+2783,LIB,Ken Ashby,0
+2783,REP,Patrick David Gillespie,0
+2784,DEM,Marc Veasey,0
+2784,LIB,Ken Ashby,0
+2784,REP,Patrick David Gillespie,0
+2785,DEM,Marc Veasey,0
+2785,LIB,Ken Ashby,0
+2785,REP,Patrick David Gillespie,0
+2786,DEM,Marc Veasey,0
+2786,LIB,Ken Ashby,0
+2786,REP,Patrick David Gillespie,0
+2787,DEM,Marc Veasey,0
+2787,LIB,Ken Ashby,0
+2787,REP,Patrick David Gillespie,0
+2788,DEM,Marc Veasey,0
+2788,LIB,Ken Ashby,0
+2788,REP,Patrick David Gillespie,0
+2789,DEM,Marc Veasey,0
+2789,LIB,Ken Ashby,0
+2789,REP,Patrick David Gillespie,0
+2824,DEM,Marc Veasey,0
+2824,LIB,Ken Ashby,0
+2824,REP,Patrick David Gillespie,0
+2825,DEM,Marc Veasey,0
+2825,LIB,Ken Ashby,0
+2825,REP,Patrick David Gillespie,0
+2827,DEM,Marc Veasey,0
+2827,LIB,Ken Ashby,0
+2827,REP,Patrick David Gillespie,0
+2828,DEM,Marc Veasey,0
+2828,LIB,Ken Ashby,0
+2828,REP,Patrick David Gillespie,0
+4017,DEM,Marc Veasey,537
+4017,LIB,Ken Ashby,19
+4017,REP,Patrick David Gillespie,178
+4048,DEM,Marc Veasey,146
+4048,LIB,Ken Ashby,5
+4048,REP,Patrick David Gillespie,45
+4050,DEM,Marc Veasey,313
+4050,LIB,Ken Ashby,5
+4050,REP,Patrick David Gillespie,70
+4051,DEM,Marc Veasey,0
+4051,LIB,Ken Ashby,0
+4051,REP,Patrick David Gillespie,2
+4067,DEM,Marc Veasey,317
+4067,LIB,Ken Ashby,10
+4067,REP,Patrick David Gillespie,104
+4068,DEM,Marc Veasey,255
+4068,LIB,Ken Ashby,13
+4068,REP,Patrick David Gillespie,115
+4077,DEM,Marc Veasey,115
+4077,LIB,Ken Ashby,1
+4077,REP,Patrick David Gillespie,68
+4087,DEM,Marc Veasey,133
+4087,LIB,Ken Ashby,4
+4087,REP,Patrick David Gillespie,25
+4092,DEM,Marc Veasey,209
+4092,LIB,Ken Ashby,5
+4092,REP,Patrick David Gillespie,57
+4093,DEM,Marc Veasey,389
+4093,LIB,Ken Ashby,13
+4093,REP,Patrick David Gillespie,124
+4097,DEM,Marc Veasey,312
+4097,LIB,Ken Ashby,9
+4097,REP,Patrick David Gillespie,106
+4101,DEM,Marc Veasey,286
+4101,LIB,Ken Ashby,8
+4101,REP,Patrick David Gillespie,206
+4107,DEM,Marc Veasey,216
+4107,LIB,Ken Ashby,6
+4107,REP,Patrick David Gillespie,74
+4110,DEM,Marc Veasey,291
+4110,LIB,Ken Ashby,10
+4110,REP,Patrick David Gillespie,94
+4122,DEM,Marc Veasey,309
+4122,LIB,Ken Ashby,7
+4122,REP,Patrick David Gillespie,118
+4123,DEM,Marc Veasey,324
+4123,LIB,Ken Ashby,12
+4123,REP,Patrick David Gillespie,121
+4124,DEM,Marc Veasey,438
+4124,LIB,Ken Ashby,25
+4124,REP,Patrick David Gillespie,335
+4155,DEM,Marc Veasey,508
+4155,LIB,Ken Ashby,25
+4155,REP,Patrick David Gillespie,203
+4162,DEM,Marc Veasey,122
+4162,LIB,Ken Ashby,1
+4162,REP,Patrick David Gillespie,100
+4195,DEM,Marc Veasey,314
+4195,LIB,Ken Ashby,11
+4195,REP,Patrick David Gillespie,97
+4201,DEM,Marc Veasey,242
+4201,LIB,Ken Ashby,11
+4201,REP,Patrick David Gillespie,73
+4231,DEM,Marc Veasey,310
+4231,LIB,Ken Ashby,7
+4231,REP,Patrick David Gillespie,99
+4233,DEM,Marc Veasey,447
+4233,LIB,Ken Ashby,20
+4233,REP,Patrick David Gillespie,137
+4245,DEM,Marc Veasey,20
+4245,LIB,Ken Ashby,3
+4245,REP,Patrick David Gillespie,9
+4256,DEM,Marc Veasey,148
+4256,LIB,Ken Ashby,3
+4256,REP,Patrick David Gillespie,52
+4288,DEM,Marc Veasey,48
+4288,LIB,Ken Ashby,4
+4288,REP,Patrick David Gillespie,11
+4312,DEM,Marc Veasey,35
+4312,LIB,Ken Ashby,3
+4312,REP,Patrick David Gillespie,23
+4370,DEM,Marc Veasey,0
+4370,LIB,Ken Ashby,0
+4370,REP,Patrick David Gillespie,0
+4432,DEM,Marc Veasey,7
+4432,LIB,Ken Ashby,1
+4432,REP,Patrick David Gillespie,1
+4475,DEM,Marc Veasey,26
+4475,LIB,Ken Ashby,0
+4475,REP,Patrick David Gillespie,9
+4478,DEM,Marc Veasey,0
+4478,LIB,Ken Ashby,0
+4478,REP,Patrick David Gillespie,0
+4494,DEM,Marc Veasey,20
+4494,LIB,Ken Ashby,1
+4494,REP,Patrick David Gillespie,17
+4495,DEM,Marc Veasey,33
+4495,LIB,Ken Ashby,0
+4495,REP,Patrick David Gillespie,21
+4503,DEM,Marc Veasey,227
+4503,LIB,Ken Ashby,9
+4503,REP,Patrick David Gillespie,141
+4563,DEM,Marc Veasey,0
+4563,LIB,Ken Ashby,0
+4563,REP,Patrick David Gillespie,0
+4573,DEM,Marc Veasey,0
+4573,LIB,Ken Ashby,0
+4573,REP,Patrick David Gillespie,0
+4587,DEM,Marc Veasey,61
+4587,LIB,Ken Ashby,2
+4587,REP,Patrick David Gillespie,5
+4596,DEM,Marc Veasey,33
+4596,LIB,Ken Ashby,1
+4596,REP,Patrick David Gillespie,13
+4598,DEM,Marc Veasey,0
+4598,LIB,Ken Ashby,0
+4598,REP,Patrick David Gillespie,0
+4682,DEM,Marc Veasey,82
+4682,LIB,Ken Ashby,3
+4682,REP,Patrick David Gillespie,51
+4685,DEM,Marc Veasey,0
+4685,LIB,Ken Ashby,0
+4685,REP,Patrick David Gillespie,0

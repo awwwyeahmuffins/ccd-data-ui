@@ -74,6 +74,10 @@ WRITE_IN_NAMES = {"write-in", "write-ins", "writein", "write-in totals",
 # Ballot-accounting rows that some counties report as "candidates"
 UNDER_NAMES = {"under votes", "undervotes", "under-votes", "under vote"}
 OVER_NAMES = {"over votes", "overvotes", "over-votes", "over vote"}
+# Officially rejected/unassigned write-in scribbles — not countable votes;
+# certified canvass totals exclude them (audit gate proved this in Tarrant)
+DISCARDED_NAMES = {"rejected write-ins", "rejected write-in", "unassigned write-ins",
+                   "unassigned write-in", "uncertified write-ins", "not assigned"}
 
 # Pseudo-offices that are turnout metadata, not races
 TURNOUT_OFFICES = {
@@ -203,6 +207,8 @@ def transform(df: pd.DataFrame, county: str):
         for _, r in grp.iterrows():
             party, is_wi = canonical_party(r.get("party"))
             cand = re.sub(r"\s+", " ", str(r["candidate"])).strip()
+            if cand.lower() in DISCARDED_NAMES:
+                continue
             if is_wi or cand.lower() in WRITE_IN_NAMES or cand.lower().startswith("write-in:"):
                 party, cand = "", "Write-in"
             elif cand.lower() in UNDER_NAMES:
