@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Texas Elections Data Viewer — a vanilla JavaScript (ES Modules) web app for visualizing Texas election data at the precinct level: interactive maps, demographic analysis, turnout visualization, and election forecasting. No build step; served via Python's `http.server`.
 
-**Statewide status:** all 254 Texas counties are selectable (`data/tx/counties.json` registry + `data/tx/county-boundaries.geojson`), but **only Collin County has real data**. The other 253 are explicit PLACEHOLDERS: their county outline renders as a single `PRECINCT: "PLACEHOLDER"` feature, the election list is empty, and a banner says so. NEVER fabricate data for a placeholder county — `docs/ADDING_FEATURES.md` Recipe F describes how to bring a county live with real data.
+**Statewide status:** all 254 Texas counties are selectable (`data/tx/counties.json` registry). **Live counties: Collin (2024+2026 boundary sets) and Bastrop (2022 pilot)**; the rest are explicit PLACEHOLDERS (county outline as a single `PRECINCT: "PLACEHOLDER"` feature, empty election list, banner). NEVER fabricate data for a placeholder county — `docs/ADDING_FEATURES.md` Recipe F is the bring-a-county-live pipeline (tx_etl.py + fetch_vtd_geojson.py + 100% join gate).
 
 ## Common Commands
 
@@ -96,27 +96,23 @@ make deploy-site    # Sync site content to S3 + invalidate CloudFront
 
 History note: an earlier app.js-based architecture (electionView.js, demographicsView.js, sidebarController.js, etc.) was abandoned mid-refactor and its 22 unreachable modules were deleted in June 2026 — recover from git history if ever needed.
 
-### Data Contract
+### Data Contract (v3, normalized)
 
-Election data lives in `data/`. The manifest (`data/elections.json`) lists all available elections. Each entry has `filename`, `year`, `category`, and `displayName`. CSVs have fixed columns (`PRECINCT CODE`, `REGISTERED VOTERS TOTAL`, `BALLOTS CAST TOTAL`, etc.) plus variable candidate columns prefixed with party codes (`Rep`, `Dem`, etc.). Full spec in `docs/DATA_LAYOUT_SPEC.md`.
-
-Supporting data files:
-- `data/Voting_Precincts.geojson` — precinct boundary polygons
-- `data/DNC Score By Precinct.csv` — party affiliation scores
-- `data/Racial Numbers by Precinct.csv` — demographic data
+Election data lives under `data/tx/<county-slug>/` per boundary set: long-format race CSVs (`precinct,party,candidate,votes`), per-election-date turnout CSVs, an object manifest (`{version:3, elections:[...]}`), boundaries GeoJSON, and optional `profile/` extras (dnc_scores, racial, census_profiles — absent = N/A). `js/v3Pivot.js` pivots race+turnout into the legacy in-memory row shape at load and computes winners (alphabetical first-max rule); the app's consumers never see the file format. Full spec: `docs/DATA_LAYOUT_SPEC.md`. Manifests are generated, never hand-edited.
 
 ### Data Pipeline (`data_processor/`)
 
-Python scripts for scraping and processing election data from Collin County's website:
-- `collin_harvest.py` — web scraper
-- `unified_parser.py` — multi-format CSV parser
-- `manifest_generator.py` — generates `data/elections.json`
-- `pipeline.py` — main orchestrator
+Python scripts for sourcing and converting election data:
+- `tx_etl.py` — OpenElections precinct results → v3 county data (any Texas county)
+- `fetch_vtd_geojson.py` — TLC election-vintage VTD boundaries → WGS84 GeoJSON + join validation
+- `v3_writer.py` — shared v3 emission helpers
+- `collin_harvest.py` / `unified_parser.py` / `pipeline.py` — Collin website scraper stack (legacy wide format; route new output through v3_writer)
+- `migrate_collin_v3.py` / `verify_v3_migration.py` — one-shot historical migration tools (legacy dirs now live only in git history)
 
 ### Testing
 
 - **Unit tests** (`tests/*.test.js`): Jest with jsdom environment. Uses `--experimental-vm-modules` for ES module support. Note: several test files test inline COPIES of source functions rather than importing the module — when changing a module, search tests for duplicated logic.
-- **E2E tests** (`e2e/*.spec.js`): 6 files covering core functionality, command palette, accessibility, mobile, boundary switching, and responsive screenshots. Playwright reuses the local server on port 3000. Run locally with `--workers=2` (the Python server is slow under parallel load).
+- **E2E tests** (`e2e/*.spec.js`): 8 files covering core functionality, command palette, accessibility, mobile, boundary switching, county switching, address lookup, and responsive screenshots. Playwright reuses the local server on port 3000. Run locally with `--workers=2` (the Python server is slow under parallel load).
 - **Lint**: `make lint` runs ESLint (flat config in `eslint.config.js`) over js/, e2e/, tests/ and fails on errors.
 
 ### State Management

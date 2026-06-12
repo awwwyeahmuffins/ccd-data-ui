@@ -181,35 +181,36 @@ repo root contains voter PII). Infra changes: `make cdk-diff` then
 
 ## Recipe F — Bring a Texas county live (statewide expansion)
 
-The app lists all 254 Texas counties (`data/tx/counties.json`); everything
-except Collin is a PLACEHOLDER: its county outline renders as one fake
-precinct (`PRECINCT: "PLACEHOLDER"`), the election list is empty, and a
-banner says so. **Never fabricate data to fill a placeholder.** To bring a
-county live you need three real artifacts:
+The app lists all 254 Texas counties (`data/tx/counties.json`); counties
+without data are PLACEHOLDERS (county outline as one fake precinct, empty
+election list, explicit banner). **Never fabricate data to fill one.**
+Live counties so far: Collin, Bastrop (the pilot — copy its layout).
 
-1. **Precinct boundaries** — a GeoJSON of the county's voting precincts with
-   a `PRECINCT` property per feature. Sources: the county elections office,
-   the Texas Legislative Council / Capitol Data Portal VTD shapefiles, or
-   Census TIGER VTDs (convert to GeoJSON, simplify to keep it small).
-2. **Election results CSVs** — per-precinct results matching
-   `docs/DATA_LAYOUT_SPEC.md` (`PRECINCT CODE`, `REGISTERED VOTERS TOTAL`,
-   `BALLOTS CAST TOTAL`, party-prefixed candidate columns). Sources: county
-   canvass reports (data_processor/collin_harvest.py is the model scraper),
-   or OpenElections (openelections.net) precinct files.
-3. **A manifest** — `elections.json` listing those CSVs, generated with
-   `data_processor/manifest_generator.py`, never by hand.
-
-Then:
-
-4. Put the files under `data/tx/<slug>/` (boundaries + CSVs + elections.json).
-5. In `data/tx/counties.json`, set the county's `status` to `"live"` and
-   `dataRoot` to `"data/tx/<slug>"`.
-6. Teach `js/dataLoader.js` to use `dataRoot` for non-Collin live counties
-   (today `loadAllData()`/`listElectionCSVs()` only special-case Collin's
-   legacy layout at `data/`; the first non-Collin live county should
-   generalize those paths — grep for `LIVE_DEFAULT_COUNTY`).
-7. Optional per-county extras (party scores, racial demographics, census
-   profiles) follow the same files Collin has; without them the relevant
-   panels show N/A, which is correct — N/A is honest, fabricated data is not.
-8. Update `tests/countyRegistry.test.js`'s live-county list, add the county
-   to the e2e boundary/county spec, run the full verify checklist.
+1. **Results** — run the ETL on an OpenElections precinct file
+   (https://github.com/openelections/openelections-data-tx):
+   ```bash
+   python3 data_processor/tx_etl.py \
+     https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2022/counties/20221108__tx__general__<county>__precinct.csv \
+     --county <slug>
+   ```
+   Writes v3 races/turnout/manifest to `data/tx/<slug>/<year>/`
+   (docs/DATA_LAYOUT_SPEC.md). Missing turnout = no turnout file = N/A.
+2. **Boundaries** — election-vintage TLC VTDs (NOT Census VTDs — counties
+   redraw between censuses):
+   ```bash
+   python3 data_processor/fetch_vtd_geojson.py --county <slug> --set <year> --validate
+   ```
+   Downloads the Capitol Data Portal statewide shapefile, extracts the
+   county, reprojects to WGS84, and validates the precinct-code join.
+   **Hard gate: 100% of vote-bearing precincts must match** or the county
+   stays a placeholder.
+3. **Registry flip** — in `data/tx/counties.json` set `status: "live"`,
+   `dataRoot: "data/tx/<slug>"`, `defaultBoundarySet`, and `boundarySets`
+   (single set: id `"original"`; the boundary selector auto-hides for
+   single-set counties).
+4. **Tests** — add the county to the live list in
+   `tests/countyRegistry.test.js`; extend `e2e/county-switching.spec.js`;
+   run the full verify checklist.
+5. **Optional extras** — per-set `profile/` files (dnc_scores.csv, racial.csv,
+   census_profiles.json…) light up the demographics panels; without them the
+   app shows N/A, which is correct.

@@ -1,363 +1,184 @@
-# Election Data Layout Specification v2.0
+# Election Data Layout Specification v3.0
 
-**Last Updated**: January 31, 2026  
-**Status**: Current Production Layout
+**Last Updated**: June 11, 2026
+**Status**: Current Production Layout (normalized, statewide)
 
-This document specifies the exact data contract between the data pipeline and the frontend application. Any changes to this layout must be coordinated with the frontend team.
+This document specifies the data contract between the pipeline
+(`data_processor/`) and the frontend. v3 replaced the legacy wide-CSV layout
+on June 11, 2026 (see the appendix). Principles:
 
----
+- **Normalized**: party is a data field, never a column-name convention.
+  Turnout is stored once per election date, not duplicated into every race.
+- **Derived values are computed, not stored**: per-precinct winners are
+  recomputed at load time (`js/v3Pivot.js`) with a deterministic rule.
+- **Honest gaps**: unknown values are EMPTY strings (the app shows N/A).
+  Data is never fabricated; placeholder counties are explicitly labeled.
 
-## 1. Manifest File
+## 1. Statewide county registry
 
-### Location
-- **Path**: `data/elections.json`
-- **Format**: JSON array
-- **Encoding**: UTF-8
-
-### Entry Schema
-
-Each entry in the manifest array is an object with the following structure:
+`data/tx/counties.json` — all 254 Texas counties:
 
 ```json
 {
-  "filename": "Governor_2024.csv",
-  "year": 2024,
-  "category": "State",
-  "displayName": "Governor (2024)"
-}
-```
-
-#### Required Fields
-
-| Field | Type | Description | Example |
-|-------|------|-------------|---------|
-| `filename` | string | CSV filename relative to `data/` directory. Can be flat (`Governor_2024.csv`) or include subdirectories (`2024/Governor.csv`) | `"State_Senator_District_8_2024.csv"` |
-
-#### Optional Fields
-
-| Field | Type | Description | Example |
-|-------|------|-------------|---------|
-| `year` | number \| null | Election year. Extracted from filename if not provided | `2024` |
-| `category` | string | Election category. One of: `"Federal"`, `"State"`, `"County"`, `"City"`, `"ISD"`, `"MUD"` | `"State"` |
-| `displayName` | string | Human-readable display name for UI | `"Governor (2024)"` |
-| `raceKey` | string | Unique race identifier for trends/comparison (optional) | `"governor-2024"` |
-| `sourceUrl` | string | Source URL for the data (optional) | `"https://..."` |
-
-### Example Manifest
-
-```json
-[
-  {
-    "filename": "Governor_2024.csv",
-    "year": 2024,
-    "category": "State",
-    "displayName": "Governor (2024)"
-  },
-  {
-    "filename": "State_Senator_District_8_2024.csv",
-    "year": 2024,
-    "category": "State",
-    "displayName": "State Senator District 8 (2024)"
-  },
-  {
-    "filename": "President_Vice_President.csv",
-    "year": 2024,
-    "category": "Federal",
-    "displayName": "President Vice President"
+  "fips": "48085", "name": "Collin", "slug": "collin",
+  "status": "live",                    // "live" | "placeholder"
+  "dataRoot": "data/tx/collin",        // null for placeholders
+  "defaultBoundarySet": "original",
+  "boundarySets": {
+    "original": { "label": "2024 Boundaries (252)", "geojson": "boundaries/2024.geojson", "dataDir": "2024" },
+    "2026":     { "label": "2026 Boundaries (273)", "geojson": "boundaries/2026.geojson", "dataDir": "2026" }
   }
-]
-```
-
-### Legacy Format Support
-
-The manifest supports legacy format (array of strings) for backward compatibility:
-
-```json
-[
-  "Governor_2024.csv",
-  "State_Senator_District_8_2024.csv"
-]
-```
-
-Legacy entries are automatically normalized to objects with inferred `year` and `category` fields.
-
----
-
-## 2. CSV File Location
-
-### Current Layout (Flat Structure)
-
-**Rule**: All CSV files are stored directly in the `data/` directory with flat filenames.
-
-**Path Building**:
-- If `filename` in manifest is `"Governor_2024.csv"`, the full path is `data/Governor_2024.csv`
-- The `filename` field is used as-is relative to the `data/` directory
-
-### Future Layout (Subdirectory Support)
-
-**Rule**: CSV files can be organized in subdirectories by year or category.
-
-**Path Building**:
-- If `filename` in manifest is `"2024/Governor.csv"`, the full path is `data/2024/Governor.csv`
-- If `filename` is `"State/Governor_2024.csv"`, the full path is `data/State/Governor_2024.csv`
-- The `filename` field includes the full relative path from `data/`
-
-**Note**: The frontend code supports both flat and subdirectory layouts. No code changes are required if switching to subdirectories, as long as the `filename` field contains the full relative path.
-
----
-
-## 3. CSV Schema
-
-### File Format
-- **Format**: CSV (Comma-Separated Values)
-- **Encoding**: UTF-8
-- **Line Endings**: Unix (LF) or Windows (CRLF) - both supported
-- **Header Row**: First row contains column names
-- **Data Rows**: One row per precinct
-
-### Column Structure
-
-Each CSV file contains the following columns in this order:
-
-#### 3.1 Static Metadata Columns (Required)
-
-These columns appear in every CSV file and contain precinct and turnout information:
-
-| Column Name | Type | Description | Example |
-|-------------|------|-------------|---------|
-| `COUNTY NUMBER` | string | County identifier | `"COLL"` |
-| `PRECINCT CODE` | string | Precinct code (unique identifier) | `"1"` or `"PCT 001"` |
-| `PRECINCT NAME` | string | Human-readable precinct name | `"PCT 001"` |
-| `REGISTERED VOTERS TOTAL` | number | Total registered voters in precinct | `2737` |
-| `BALLOTS CAST TOTAL` | number | Total ballots cast | `1491` |
-| `BALLOTS CAST BLANK` | number | Number of blank ballots | `0` |
-
-#### 3.2 Candidate Columns (Variable)
-
-One column per candidate containing vote counts. Column names follow the pattern:
-
-**Format**: `{PARTY_ABBREV} {Candidate Name}`
-
-**Examples**:
-- `REP Greg Abbott` - Republican candidate
-- `DEM Beto O'Rourke` - Democratic candidate
-- `LIB Mark Tippetts` - Libertarian candidate
-- `GRN Delilah Barrios` - Green Party candidate
-
-**Party Abbreviations**:
-- `REP` or `Rep` - Republican
-- `DEM` or `Dem` - Democrat
-- `LIB` or `Lib` - Libertarian
-- `GRN` or `Grn` - Green
-- `MOD` or `Mod` - Moderate
-- `IND` or `Ind` - Independent
-- `CON` or `Con` - Constitution
-
-**Note**: Party abbreviation may be uppercase or mixed case. The first word in the column name is used to identify the party.
-
-#### 3.3 Special Columns (Optional)
-
-| Column Name | Type | Description | Example |
-|-------------|------|-------------|---------|
-| `Write-in` | number | Write-in vote count | `0` |
-| `OVER VOTES` | number | Over votes (ballots with too many selections) | `0` |
-| `UNDER VOTES` | number | Under votes (ballots with too few selections) | `4` |
-| `Winning Candidate` | string | Name of winning candidate for this precinct | `"REP Greg Abbott"` |
-| `Winning Party` | string | Party abbreviation of winning candidate | `"REP"` |
-
-### Example CSV Row
-
-```csv
-COUNTY NUMBER,PRECINCT CODE,PRECINCT NAME,REGISTERED VOTERS TOTAL,BALLOTS CAST TOTAL,BALLOTS CAST BLANK,REP Greg Abbott,DEM Beto O'Rourke,LIB Mark Tippetts,GRN Delilah Barrios,Write-in,OVER VOTES,UNDER VOTES,Winning Candidate,Winning Party
-COLL,1,PCT 001,2737,1491,0,824,638,21,4,0,0,4,REP Greg Abbott,REP
-```
-
-### Candidate Column Detection
-
-**Rule**: All columns that are **NOT** in the metadata columns list are considered candidate columns.
-
-**Metadata Columns List** (excluded from candidate detection):
-- `COUNTY NUMBER`
-- `PRECINCT CODE`
-- `PRECINCT NAME`
-- `REGISTERED VOTERS TOTAL`
-- `BALLOTS CAST TOTAL`
-- `BALLOTS CAST BLANK`
-- `Write-in`
-- `OVER VOTES`
-- `UNDER VOTES`
-- `Winning Candidate`
-- `Winning Party`
-
-**Example**: If a CSV has columns `[PRECINCT CODE, PRECINCT NAME, REP John Doe, DEM Jane Smith]`, then `REP John Doe` and `DEM Jane Smith` are candidate columns.
-
-### Data Types
-
-| Column Type | Expected Type | Notes |
-|-------------|---------------|-------|
-| Metadata columns | As specified above | `PRECINCT CODE` and `PRECINCT NAME` are strings; vote/turnout columns are numbers |
-| Candidate columns | number | Vote counts are integers (may be 0) |
-| `Winning Candidate` | string | Full candidate name as it appears in candidate columns |
-| `Winning Party` | string | Party abbreviation (e.g., "REP", "DEM") |
-
-### Data Validation Rules
-
-1. **One row per precinct**: Each `PRECINCT CODE` should appear exactly once per CSV file
-2. **Vote counts**: Candidate columns must contain numeric values (integers ≥ 0)
-3. **Turnout consistency**: `BALLOTS CAST TOTAL` should equal sum of candidate votes + `BALLOTS CAST BLANK` + `OVER VOTES` + `UNDER VOTES` (within rounding)
-4. **Winning candidate**: `Winning Candidate` must match one of the candidate column names exactly
-5. **Winning party**: `Winning Party` must match the party abbreviation from the winning candidate's column name
-
----
-
-## 4. Backward Compatibility
-
-### Legacy Manifest Format
-
-The application supports legacy manifest format (array of strings) for backward compatibility:
-
-```json
-["Governor_2024.csv", "State_Senator_District_8_2024.csv"]
-```
-
-Legacy entries are automatically normalized:
-- `year` is extracted from filename pattern `_YYYY.csv`
-- `category` is inferred from filename using categorization rules
-- `displayName` is set to `undefined`
-
-### Legacy CSV Filenames
-
-The application supports both naming conventions:
-- **With year suffix**: `Governor_2024.csv`
-- **Without year suffix**: `Governor.csv`
-
-Both formats work as long as they are correctly referenced in the manifest.
-
----
-
-## 5. Schema Reference Implementation
-
-The frontend application uses `js/electionSchema.js` as the single source of truth for schema definitions. This module contains:
-
-- `ELECTION_MANIFEST_SCHEMA`: Manifest entry shape and configuration
-- `CSV_SCHEMA`: CSV column definitions and metadata
-- Utility functions: `getCandidateColumns()`, `buildCSVPath()`, `normalizeManifestEntry()`
-
-**Important**: When updating this specification, also update `js/electionSchema.js` to maintain consistency.
-
----
-
-## 6. Change Management
-
-### Making Schema Changes
-
-If you need to change the data layout:
-
-1. **Document the change**: Update this specification document
-2. **Update schema module**: Modify `js/electionSchema.js` to reflect changes
-3. **Test compatibility**: Ensure existing data still works
-4. **Coordinate with frontend**: Notify frontend team of changes
-5. **Version the spec**: Update version number and date in this document
-
-### Breaking Changes
-
-Breaking changes require:
-- Frontend code updates
-- Data migration scripts
-- Coordinated deployment
-- Version bump (e.g., v2.0 → v3.0)
-
-### Non-Breaking Changes
-
-Non-breaking changes (additive only):
-- Adding optional fields to manifest entries
-- Adding optional columns to CSV files
-- Supporting new file path structures
-
----
-
-## 7. Examples
-
-### Example 1: Simple Race (Governor)
-
-**Manifest Entry**:
-```json
-{
-  "filename": "Governor_2024.csv",
-  "year": 2024,
-  "category": "State",
-  "displayName": "Governor (2024)"
 }
 ```
 
-**CSV Header**:
-```csv
-COUNTY NUMBER,PRECINCT CODE,PRECINCT NAME,REGISTERED VOTERS TOTAL,BALLOTS CAST TOTAL,BALLOTS CAST BLANK,REP Greg Abbott,DEM Beto O'Rourke,LIB Mark Tippetts,GRN Delilah Barrios,Write-in,OVER VOTES,UNDER VOTES,Winning Candidate,Winning Party
+Placeholder counties render their outline (from `data/tx/county-boundaries.geojson`)
+as a single `PRECINCT: "PLACEHOLDER"` feature with an explicit banner and an
+empty election list.
+
+## 2. County data layout
+
+```
+data/tx/<slug>/
+  boundaries/<set>.geojson       precinct polygons, WGS84, PRECINCT property per feature
+  <setDir>/
+    elections.json               v3 manifest (object wrapper, below)
+    races/<RaceBase>.csv         one long-format file per race
+    turnout/<key>.csv            one per election date (or per year[-n] when date unknown)
+    profile/                     OPTIONAL extras — absent => app shows N/A
+      dnc_scores.csv             party scores   (was "DNC Score By Precinct.csv")
+      racial.csv                 demographics   (was "Racial Numbers by Precinct.csv")
+      census_profiles.json       ACS profiles
+      strategic_intelligence.json
+      precinct_metadata.json     boundary-change metadata (Collin 2026 set)
+  crosswalks/                    pipeline-only artifacts (app never fetches)
 ```
 
-### Example 2: District Race (State Senator)
+## 3. Race files (long format)
 
-**Manifest Entry**:
+`races/<RaceBase>.csv` — header `precinct,party,candidate,votes`:
+
+```csv
+precinct,party,candidate,votes
+1001,REP,Greg Abbott,512
+1001,DEM,Beto O'Rourke,387
+1001,,Write-in,2
+1001,,Under Votes,4
+```
+
+- `party`: the party token (`REP`, `DEM`, `LIB`, `GRN`, `MOD`, `IND`, `CON`;
+  legacy-migrated data may carry mixed case like `Dem`). EMPTY for
+  nonpartisan candidates and propositions (`For` / `Against` are candidates).
+- **Reserved pseudo-candidates** (party must be empty): `Write-in`,
+  `Over Votes`, `Under Votes`. These are contest-level counts (over/under
+  votes genuinely differ per contest) and pivot back to the legacy special
+  columns at load.
+- Office/district/year/date belong to the MANIFEST, not the rows.
+- Vote values may be empty strings (honest gap), which the pivot preserves.
+
+## 4. Turnout files
+
+`turnout/<key>.csv` — header `precinct,registered,ballots_cast,blank`:
+
+- `<key>` is the ISO election date (`2022-11-08`) when truly known (the ETL
+  infers it from OpenElections filenames), else the year. Multiple same-year
+  elections with conflicting turnout split into `<year>.csv`, `<year>-2.csv`, …
+  by deterministic greedy clustering in manifest order — conflicts are
+  reported, never averaged (Collin 2025 splits into 3: May / June runoff /
+  November).
+- Registered voters vary by election date; that's why turnout is per-date.
+- Races whose source had no turnout have `turnoutFile: null` → N/A in the app.
+
+## 5. Manifest (v3)
+
+`<setDir>/elections.json` is an OBJECT (the `version` field is the format
+detector — the legacy format was a bare array):
+
 ```json
 {
-  "filename": "State_Senator_District_8_2024.csv",
-  "year": 2024,
-  "category": "State",
-  "displayName": "State Senator District 8 (2024)"
+  "version": 3,
+  "county": "collin",
+  "boundarySet": "original",
+  "elections": [
+    {
+      "id": "governor-2022",
+      "displayName": "Governor (2022)",
+      "office": "Governor",
+      "district": null,
+      "year": 2022,
+      "date": null,
+      "category": "State",
+      "raceFile": "races/Governor_2022.csv",
+      "turnoutFile": "turnout/2022.csv",
+      "sourceUrl": null
+    }
+  ]
 }
 ```
 
-**CSV Header**:
-```csv
-COUNTY NUMBER,PRECINCT CODE,PRECINCT NAME,REGISTERED VOTERS TOTAL,BALLOTS CAST TOTAL,BALLOTS CAST BLANK,Dem Rachel Mello,Rep Angela Paxton,OVER VOTES,UNDER VOTES,Winning Candidate,Winning Party
+- `id` is the stable race key (used in `#race=` deep links).
+- `date` is filled only when truly known — never guessed.
+- `category`: `Federal | State | County | City | ISD | MUD`.
+
+## 6. Join keys
+
+- Precinct codes are **strings**, compared by exact equality after
+  `String(x).trim()`. Never zero-pad, case-fold, or numerically coerce.
+- Every `precinct` in race/turnout/profile files must match a `PRECINCT`
+  property in that set's boundary GeoJSON. Bringing a county live requires
+  **100% of vote-bearing precincts** to match
+  (`data_processor/fetch_vtd_geojson.py --validate`); otherwise the county
+  stays a placeholder.
+- Boundary sources: Texas Legislative Council VTD shapefiles
+  (data.capitol.texas.gov, **election-vintage** — e.g. `VTDs_22G` for the
+  2022 general). Census 2020 VTDs go stale as counties redraw (Bastrop:
+  22 Census VTDs vs 26 actual 2022 precincts) — don't use them.
+
+## 7. In-memory row contract (what the app consumes)
+
+`js/dataLoader.js` pivots race+turnout files (`js/v3Pivot.js`) into one object
+per precinct — the shape every consumer (simulator, margin view, exports,
+profiles) was built on:
+
+```
+{ "PRECINCT CODE": "1001",
+  "REGISTERED VOTERS TOTAL": "2210", "BALLOTS CAST TOTAL": "910",
+  "BALLOTS CAST BLANK": "",
+  "Write-in": "2",
+  "REP Greg Abbott": "512", "DEM Beto O'Rourke": "387",   // "<party> <candidate>"
+  "OVER VOTES": "0", "UNDER VOTES": "4",
+  "Winning Candidate": "REP Greg Abbott", "Winning Party": "REP" }
 ```
 
-### Example 3: Future Subdirectory Layout
+- All values are strings; missing turnout is `""` (renders N/A).
+- **Winner rule** (mirrors the historical `unified_parser.compute_winning_candidate`):
+  candidate columns (everything except metadata and `Write-in`) in
+  ALPHABETICAL order; winner = the FIRST maximum (ties break alphabetically);
+  `Winning Party` = first whitespace token of the winning column.
+- Candidate-vs-metadata detection: `js/electionSchema.js getCandidateColumns`.
+- Participation gotcha: county-wide turnout means `BALLOTS CAST TOTAL > 0`
+  even where a local race got zero votes — always check candidate votes
+  (`precinctHasCandidateVotes`), not ballots cast.
 
-**Manifest Entry**:
-```json
-{
-  "filename": "2024/Governor.csv",
-  "year": 2024,
-  "category": "State",
-  "displayName": "Governor (2024)"
-}
-```
+## 8. Producing v3 data
 
-**CSV Path**: `data/2024/Governor.csv`
-
----
-
-## 8. Checklist for Data Engineers
-
-When preparing new election data:
-
-- [ ] Manifest file (`data/elections.json`) follows the entry schema
-- [ ] All required fields (`filename`) are present
-- [ ] CSV files exist at paths specified in manifest `filename` fields
-- [ ] CSV files have required metadata columns (`PRECINCT CODE`, `PRECINCT NAME`)
-- [ ] Candidate columns follow naming pattern: `{PARTY} {Name}`
-- [ ] Vote counts are numeric (integers ≥ 0)
-- [ ] One row per precinct (no duplicate `PRECINCT CODE` values)
-- [ ] `Winning Candidate` matches a candidate column name exactly
-- [ ] `Winning Party` matches party abbreviation from winning candidate
-- [ ] Test with frontend application to verify compatibility
+- **New county results**: `data_processor/tx_etl.py` (OpenElections precinct
+  CSVs → v3). Boundaries: `data_processor/fetch_vtd_geojson.py` (TLC VTDs →
+  WGS84 GeoJSON + join validation). Full recipe:
+  `docs/ADDING_FEATURES.md` Recipe F.
+- **Shared emission helpers**: `data_processor/v3_writer.py`.
+- Manifests are generated, never hand-edited.
 
 ---
 
-## 9. Checklist for Frontend Developers
+## Appendix: Legacy v2 layout (retired June 11, 2026)
 
-When adapting to new data layouts:
-
-- [ ] Review this specification document
-- [ ] Update `js/electionSchema.js` if schema changed
-- [ ] Test manifest loading with new format
-- [ ] Test CSV loading with new path structure
-- [ ] Verify candidate column detection works correctly
-- [ ] Test backward compatibility with legacy formats
-- [ ] Update tests in `js/dataLoader.test.js` if needed
-- [ ] Manual smoke test: load election, view map, trends, export
-
----
-
-**Questions or Issues?** Contact the data engineering team or frontend team lead.
+One wide CSV per race in `data/` (2024 boundaries) and `data/2026/` (remap):
+`COUNTY NUMBER, PRECINCT CODE, PRECINCT NAME, REGISTERED VOTERS TOTAL,
+BALLOTS CAST TOTAL, BALLOTS CAST BLANK, <PARTY Candidate columns...>,
+Write-in, OVER VOTES, UNDER VOTES, Winning Candidate, Winning Party` with a
+bare-array `elections.json`. Flaws that motivated v3: party encoded in column
+names, turnout duplicated into all ~450 race files per set, stored derived
+winners (tie-breaks depended on pre-sort column order), fabricated precinct
+names. Migrated value-faithfully by `data_processor/migrate_collin_v3.py`
+(round-trip verified exactly equal on all 1,037 races by
+`verify_v3_migration.py`); recover the old files from git history if needed.
