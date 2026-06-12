@@ -1,0 +1,3101 @@
+{
+  "1": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 1,
+        "weight": 1.0
+      }
+    ]
+  },
+  "2": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 2,
+        "weight": 1.0
+      }
+    ]
+  },
+  "3": {
+    "dataQuality": "exact",
+    "interpolationType": "merged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 3,
+        "weight": 1.0
+      },
+      {
+        "old": 100,
+        "weight": 1.0
+      }
+    ]
+  },
+  "4": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 4,
+        "weight": 1.0
+      }
+    ]
+  },
+  "5": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 5,
+        "weight": 1.0
+      }
+    ]
+  },
+  "6": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 6,
+        "weight": 1.0
+      }
+    ]
+  },
+  "7": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 7,
+        "weight": 1.0
+      }
+    ]
+  },
+  "8": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.7519,
+    "sources": [
+      {
+        "old": 8,
+        "weight": 0.751936
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "9": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.7264,
+    "sources": [
+      {
+        "old": 9,
+        "weight": 0.726406
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "10": {
+    "dataQuality": "exact",
+    "interpolationType": "merged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 10,
+        "weight": 1.0
+      },
+      {
+        "old": 198,
+        "weight": 1.0
+      }
+    ]
+  },
+  "11": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.9686,
+    "sources": [
+      {
+        "old": 11,
+        "weight": 0.968602
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "12": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 12,
+        "weight": 1.0
+      }
+    ]
+  },
+  "13": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.9197,
+    "sources": [
+      {
+        "old": 13,
+        "weight": 0.919721
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "14": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 14,
+        "weight": 1.0
+      }
+    ]
+  },
+  "15": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 15,
+        "weight": 1.0
+      }
+    ]
+  },
+  "16": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.4288,
+    "sources": [
+      {
+        "old": 16,
+        "weight": 0.428816
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "17": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.6964,
+    "sources": [
+      {
+        "old": 17,
+        "weight": 0.69637
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "18": {
+    "dataQuality": "exact",
+    "interpolationType": "merged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 18,
+        "weight": 1.0
+      },
+      {
+        "old": 188,
+        "weight": 1.0
+      }
+    ]
+  },
+  "19": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 19,
+        "weight": 1.0
+      }
+    ]
+  },
+  "20": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 20,
+        "weight": 1.0
+      }
+    ]
+  },
+  "21": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 21,
+        "weight": 1.0
+      }
+    ]
+  },
+  "22": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.9123,
+    "sources": [
+      {
+        "old": 22,
+        "weight": 0.912291
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "23": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 23,
+        "weight": 1.0
+      }
+    ]
+  },
+  "24": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 24,
+        "weight": 1.0
+      }
+    ]
+  },
+  "25": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 25,
+        "weight": 1.0
+      }
+    ]
+  },
+  "26": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 26,
+        "weight": 1.0
+      }
+    ]
+  },
+  "27": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 27,
+        "weight": 1.0
+      }
+    ]
+  },
+  "28": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 28,
+        "weight": 1.0
+      }
+    ]
+  },
+  "29": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.6185,
+    "sources": [
+      {
+        "old": 29,
+        "weight": 0.618536
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "30": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.2041,
+    "sources": [
+      {
+        "old": 30,
+        "weight": 0.204059
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "31": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 31,
+        "weight": 1.0
+      }
+    ]
+  },
+  "32": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 32,
+        "weight": 1.0
+      }
+    ]
+  },
+  "33": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.5015,
+    "sources": [
+      {
+        "old": 33,
+        "weight": 0.501538
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "34": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 34,
+        "weight": 1.0
+      }
+    ]
+  },
+  "35": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 35,
+        "weight": 1.0
+      }
+    ]
+  },
+  "36": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 36,
+        "weight": 1.0
+      }
+    ]
+  },
+  "37": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 37,
+        "weight": 1.0
+      }
+    ]
+  },
+  "38": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 38,
+        "weight": 1.0
+      }
+    ]
+  },
+  "39": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 39,
+        "weight": 1.0
+      }
+    ]
+  },
+  "40": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 40,
+        "weight": 1.0
+      }
+    ]
+  },
+  "41": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.3622,
+    "sources": [
+      {
+        "old": 41,
+        "weight": 0.362182
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "42": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 42,
+        "weight": 1.0
+      }
+    ]
+  },
+  "43": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 43,
+        "weight": 1.0
+      }
+    ]
+  },
+  "44": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 44,
+        "weight": 1.0
+      }
+    ]
+  },
+  "45": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 45,
+        "weight": 1.0
+      }
+    ]
+  },
+  "46": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 46,
+        "weight": 1.0
+      }
+    ]
+  },
+  "47": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 47,
+        "weight": 1.0
+      }
+    ]
+  },
+  "48": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 48,
+        "weight": 1.0
+      }
+    ]
+  },
+  "49": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 49,
+        "weight": 1.0
+      }
+    ]
+  },
+  "50": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 50,
+        "weight": 1.0
+      }
+    ]
+  },
+  "51": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 51,
+        "weight": 1.0
+      }
+    ]
+  },
+  "52": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 52,
+        "weight": 1.0
+      }
+    ]
+  },
+  "53": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 53,
+        "weight": 1.0
+      }
+    ]
+  },
+  "54": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 54,
+        "weight": 1.0
+      }
+    ]
+  },
+  "55": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 55,
+        "weight": 1.0
+      }
+    ]
+  },
+  "56": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 56,
+        "weight": 1.0
+      }
+    ]
+  },
+  "57": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.2995,
+    "sources": [
+      {
+        "old": 57,
+        "weight": 0.29955
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "58": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 58,
+        "weight": 1.0
+      }
+    ]
+  },
+  "59": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 59,
+        "weight": 1.0
+      }
+    ]
+  },
+  "60": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 60,
+        "weight": 1.0
+      }
+    ]
+  },
+  "61": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 61,
+        "weight": 1.0
+      }
+    ]
+  },
+  "62": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.976,
+    "sources": [
+      {
+        "old": 62,
+        "weight": 0.976017
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "63": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 63,
+        "weight": 1.0
+      }
+    ]
+  },
+  "64": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 64,
+        "weight": 1.0
+      }
+    ]
+  },
+  "65": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 65,
+        "weight": 1.0
+      }
+    ]
+  },
+  "66": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 66,
+        "weight": 1.0
+      }
+    ]
+  },
+  "67": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 67,
+        "weight": 1.0
+      }
+    ]
+  },
+  "68": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 68,
+        "weight": 1.0
+      }
+    ]
+  },
+  "69": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 69,
+        "weight": 1.0
+      }
+    ]
+  },
+  "70": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 70,
+        "weight": 1.0
+      }
+    ]
+  },
+  "71": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 71,
+        "weight": 1.0
+      }
+    ]
+  },
+  "72": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 72,
+        "weight": 1.0
+      }
+    ]
+  },
+  "73": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 73,
+        "weight": 1.0
+      }
+    ]
+  },
+  "74": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 74,
+        "weight": 1.0
+      }
+    ]
+  },
+  "75": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 75,
+        "weight": 1.0
+      }
+    ]
+  },
+  "76": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 76,
+        "weight": 1.0
+      }
+    ]
+  },
+  "77": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.9882,
+    "sources": [
+      {
+        "old": 77,
+        "weight": 0.988159
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "78": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 78,
+        "weight": 1.0
+      }
+    ]
+  },
+  "79": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 79,
+        "weight": 1.0
+      }
+    ]
+  },
+  "80": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 80,
+        "weight": 1.0
+      }
+    ]
+  },
+  "81": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 81,
+        "weight": 1.0
+      }
+    ]
+  },
+  "82": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 82,
+        "weight": 1.0
+      }
+    ]
+  },
+  "83": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 83,
+        "weight": 1.0
+      }
+    ]
+  },
+  "84": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 84,
+        "weight": 1.0
+      }
+    ]
+  },
+  "85": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.9943,
+    "sources": [
+      {
+        "old": 77,
+        "weight": 0.011841
+      },
+      {
+        "old": 85,
+        "weight": 0.994331
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "86": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 86,
+        "weight": 1.0
+      }
+    ]
+  },
+  "87": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 87,
+        "weight": 1.0
+      }
+    ]
+  },
+  "88": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 88,
+        "weight": 1.0
+      }
+    ]
+  },
+  "89": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 89,
+        "weight": 1.0
+      }
+    ]
+  },
+  "90": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 90,
+        "weight": 1.0
+      }
+    ]
+  },
+  "91": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 91,
+        "weight": 1.0
+      }
+    ]
+  },
+  "92": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 92,
+        "weight": 1.0
+      }
+    ]
+  },
+  "93": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 93,
+        "weight": 1.0
+      }
+    ]
+  },
+  "94": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 94,
+        "weight": 1.0
+      }
+    ]
+  },
+  "95": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 95,
+        "weight": 1.0
+      }
+    ]
+  },
+  "96": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 96,
+        "weight": 1.0
+      }
+    ]
+  },
+  "97": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 97,
+        "weight": 1.0
+      }
+    ]
+  },
+  "98": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 98,
+        "weight": 1.0
+      }
+    ]
+  },
+  "99": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 99,
+        "weight": 1.0
+      }
+    ]
+  },
+  "100": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.2481,
+    "sources": [
+      {
+        "old": 8,
+        "weight": 0.248064
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "101": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 101,
+        "weight": 1.0
+      }
+    ]
+  },
+  "102": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 102,
+        "weight": 1.0
+      }
+    ]
+  },
+  "103": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 103,
+        "weight": 1.0
+      }
+    ]
+  },
+  "104": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 104,
+        "weight": 1.0
+      }
+    ]
+  },
+  "105": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 105,
+        "weight": 1.0
+      }
+    ]
+  },
+  "106": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 106,
+        "weight": 1.0
+      }
+    ]
+  },
+  "107": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 107,
+        "weight": 1.0
+      }
+    ]
+  },
+  "108": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 108,
+        "weight": 1.0
+      }
+    ]
+  },
+  "109": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 109,
+        "weight": 1.0
+      }
+    ]
+  },
+  "110": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 110,
+        "weight": 1.0
+      }
+    ]
+  },
+  "111": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 111,
+        "weight": 1.0
+      }
+    ]
+  },
+  "112": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 112,
+        "weight": 1.0
+      }
+    ]
+  },
+  "113": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 113,
+        "weight": 1.0
+      }
+    ]
+  },
+  "114": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 114,
+        "weight": 1.0
+      }
+    ]
+  },
+  "115": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 115,
+        "weight": 1.0
+      }
+    ]
+  },
+  "116": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 116,
+        "weight": 1.0
+      }
+    ]
+  },
+  "117": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 117,
+        "weight": 1.0
+      }
+    ]
+  },
+  "118": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 118,
+        "weight": 1.0
+      }
+    ]
+  },
+  "119": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 119,
+        "weight": 1.0
+      }
+    ]
+  },
+  "120": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 120,
+        "weight": 1.0
+      }
+    ]
+  },
+  "121": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 121,
+        "weight": 1.0
+      }
+    ]
+  },
+  "122": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 122,
+        "weight": 1.0
+      }
+    ]
+  },
+  "123": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 123,
+        "weight": 1.0
+      }
+    ]
+  },
+  "124": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 124,
+        "weight": 1.0
+      }
+    ]
+  },
+  "125": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.4248,
+    "sources": [
+      {
+        "old": 125,
+        "weight": 0.424841
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "126": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 126,
+        "weight": 1.0
+      }
+    ]
+  },
+  "127": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 127,
+        "weight": 1.0
+      }
+    ]
+  },
+  "128": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 128,
+        "weight": 1.0
+      }
+    ]
+  },
+  "129": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 129,
+        "weight": 1.0
+      }
+    ]
+  },
+  "130": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 130,
+        "weight": 1.0
+      }
+    ]
+  },
+  "131": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 131,
+        "weight": 1.0
+      }
+    ]
+  },
+  "132": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 132,
+        "weight": 1.0
+      }
+    ]
+  },
+  "133": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 133,
+        "weight": 1.0
+      }
+    ]
+  },
+  "134": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 134,
+        "weight": 1.0
+      }
+    ]
+  },
+  "135": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 135,
+        "weight": 1.0
+      }
+    ]
+  },
+  "136": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 136,
+        "weight": 1.0
+      }
+    ]
+  },
+  "137": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 137,
+        "weight": 1.0
+      }
+    ]
+  },
+  "138": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 138,
+        "weight": 1.0
+      }
+    ]
+  },
+  "139": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 139,
+        "weight": 1.0
+      }
+    ]
+  },
+  "140": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 140,
+        "weight": 1.0
+      }
+    ]
+  },
+  "141": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 141,
+        "weight": 1.0
+      }
+    ]
+  },
+  "142": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 142,
+        "weight": 1.0
+      }
+    ]
+  },
+  "143": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 143,
+        "weight": 1.0
+      }
+    ]
+  },
+  "144": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 144,
+        "weight": 1.0
+      }
+    ]
+  },
+  "145": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 145,
+        "weight": 1.0
+      }
+    ]
+  },
+  "146": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 146,
+        "weight": 1.0
+      }
+    ]
+  },
+  "147": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 147,
+        "weight": 1.0
+      }
+    ]
+  },
+  "148": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 148,
+        "weight": 1.0
+      }
+    ]
+  },
+  "149": {
+    "dataQuality": "exact",
+    "interpolationType": "merged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 149,
+        "weight": 1.0
+      },
+      {
+        "old": 205,
+        "weight": 1.0
+      }
+    ]
+  },
+  "150": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.4106,
+    "sources": [
+      {
+        "old": 150,
+        "weight": 0.410636
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "151": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 151,
+        "weight": 1.0
+      }
+    ]
+  },
+  "152": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 152,
+        "weight": 1.0
+      }
+    ]
+  },
+  "153": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.2299,
+    "sources": [
+      {
+        "old": 153,
+        "weight": 0.229878
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "154": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.9994,
+    "sources": [
+      {
+        "old": 154,
+        "weight": 0.999402
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "155": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 155,
+        "weight": 1.0
+      }
+    ]
+  },
+  "156": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 156,
+        "weight": 1.0
+      }
+    ]
+  },
+  "157": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 157,
+        "weight": 1.0
+      }
+    ]
+  },
+  "158": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 158,
+        "weight": 1.0
+      }
+    ]
+  },
+  "159": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 159,
+        "weight": 1.0
+      }
+    ]
+  },
+  "160": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 160,
+        "weight": 1.0
+      }
+    ]
+  },
+  "161": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 161,
+        "weight": 1.0
+      }
+    ]
+  },
+  "162": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 162,
+        "weight": 1.0
+      }
+    ]
+  },
+  "163": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 163,
+        "weight": 1.0
+      }
+    ]
+  },
+  "164": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 164,
+        "weight": 1.0
+      }
+    ]
+  },
+  "165": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 165,
+        "weight": 1.0
+      }
+    ]
+  },
+  "166": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 166,
+        "weight": 1.0
+      }
+    ]
+  },
+  "167": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.4191,
+    "sources": [
+      {
+        "old": 167,
+        "weight": 0.419098
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "168": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 168,
+        "weight": 1.0
+      }
+    ]
+  },
+  "169": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 169,
+        "weight": 1.0
+      }
+    ]
+  },
+  "170": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 170,
+        "weight": 1.0
+      }
+    ]
+  },
+  "171": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 171,
+        "weight": 1.0
+      }
+    ]
+  },
+  "172": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 172,
+        "weight": 1.0
+      }
+    ]
+  },
+  "173": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 173,
+        "weight": 1.0
+      }
+    ]
+  },
+  "174": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 174,
+        "weight": 1.0
+      }
+    ]
+  },
+  "175": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 175,
+        "weight": 1.0
+      }
+    ]
+  },
+  "176": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 176,
+        "weight": 1.0
+      }
+    ]
+  },
+  "177": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 177,
+        "weight": 1.0
+      }
+    ]
+  },
+  "178": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 178,
+        "weight": 1.0
+      }
+    ]
+  },
+  "179": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 179,
+        "weight": 1.0
+      }
+    ]
+  },
+  "180": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 180,
+        "weight": 1.0
+      }
+    ]
+  },
+  "181": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 181,
+        "weight": 1.0
+      }
+    ]
+  },
+  "182": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 182,
+        "weight": 1.0
+      }
+    ]
+  },
+  "183": {
+    "dataQuality": "exact",
+    "interpolationType": "merged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 183,
+        "weight": 1.0
+      },
+      {
+        "old": 185,
+        "weight": 1.0
+      }
+    ]
+  },
+  "184": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 184,
+        "weight": 1.0
+      }
+    ]
+  },
+  "185": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.5712,
+    "sources": [
+      {
+        "old": 16,
+        "weight": 0.571184
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "186": {
+    "dataQuality": "exact",
+    "interpolationType": "merged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 186,
+        "weight": 1.0
+      },
+      {
+        "old": 187,
+        "weight": 1.0
+      }
+    ]
+  },
+  "187": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.1785,
+    "sources": [
+      {
+        "old": 17,
+        "weight": 0.178548
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "188": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.1251,
+    "sources": [
+      {
+        "old": 17,
+        "weight": 0.125083
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "189": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 11,
+        "weight": 0.031398
+      },
+      {
+        "old": 189,
+        "weight": 1.0
+      },
+      {
+        "old": 190,
+        "weight": 1.0
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "190": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.2156,
+    "sources": [
+      {
+        "old": 214,
+        "weight": 0.215587
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "191": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 191,
+        "weight": 1.0
+      }
+    ]
+  },
+  "192": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.8429,
+    "sources": [
+      {
+        "old": 192,
+        "weight": 0.842854
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "193": {
+    "dataQuality": "exact",
+    "interpolationType": "merged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 193,
+        "weight": 1.0
+      },
+      {
+        "old": 194,
+        "weight": 1.0
+      }
+    ]
+  },
+  "194": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.4985,
+    "sources": [
+      {
+        "old": 33,
+        "weight": 0.498462
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "195": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 195,
+        "weight": 1.0
+      }
+    ]
+  },
+  "196": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 196,
+        "weight": 1.0
+      }
+    ]
+  },
+  "197": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 197,
+        "weight": 1.0
+      }
+    ]
+  },
+  "198": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.5894,
+    "sources": [
+      {
+        "old": 150,
+        "weight": 0.589364
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "199": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 199,
+        "weight": 1.0
+      }
+    ]
+  },
+  "200": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 200,
+        "weight": 1.0
+      }
+    ]
+  },
+  "201": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 201,
+        "weight": 1.0
+      }
+    ]
+  },
+  "202": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 202,
+        "weight": 1.0
+      }
+    ]
+  },
+  "203": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 203,
+        "weight": 1.0
+      }
+    ]
+  },
+  "204": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 204,
+        "weight": 1.0
+      }
+    ]
+  },
+  "205": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.7701,
+    "sources": [
+      {
+        "old": 153,
+        "weight": 0.770122
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "206": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 206,
+        "weight": 1.0
+      }
+    ]
+  },
+  "207": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 207,
+        "weight": 1.0
+      }
+    ]
+  },
+  "208": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 208,
+        "weight": 1.0
+      }
+    ]
+  },
+  "209": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.1425,
+    "sources": [
+      {
+        "old": 209,
+        "weight": 0.142468
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "210": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 210,
+        "weight": 1.0
+      }
+    ]
+  },
+  "211": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 211,
+        "weight": 1.0
+      }
+    ]
+  },
+  "212": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 212,
+        "weight": 1.0
+      }
+    ]
+  },
+  "213": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 213,
+        "weight": 1.0
+      }
+    ]
+  },
+  "214": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.7844,
+    "sources": [
+      {
+        "old": 214,
+        "weight": 0.784413
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "215": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 215,
+        "weight": 1.0
+      }
+    ]
+  },
+  "216": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 216,
+        "weight": 1.0
+      }
+    ]
+  },
+  "217": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 217,
+        "weight": 1.0
+      }
+    ]
+  },
+  "218": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 218,
+        "weight": 1.0
+      }
+    ]
+  },
+  "219": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 219,
+        "weight": 1.0
+      }
+    ]
+  },
+  "220": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.442,
+    "sources": [
+      {
+        "old": 220,
+        "weight": 0.442033
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "221": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.3893,
+    "sources": [
+      {
+        "old": 221,
+        "weight": 0.389284
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "222": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 222,
+        "weight": 1.0
+      }
+    ]
+  },
+  "223": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 223,
+        "weight": 1.0
+      }
+    ]
+  },
+  "224": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 224,
+        "weight": 1.0
+      }
+    ]
+  },
+  "225": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 225,
+        "weight": 1.0
+      }
+    ]
+  },
+  "226": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 226,
+        "weight": 1.0
+      }
+    ]
+  },
+  "227": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 227,
+        "weight": 1.0
+      }
+    ]
+  },
+  "228": {
+    "dataQuality": "estimated",
+    "interpolationType": "split",
+    "maxWeight": 0.7902,
+    "sources": [
+      {
+        "old": 228,
+        "weight": 0.79024
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "229": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 229,
+        "weight": 1.0
+      }
+    ]
+  },
+  "230": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 230,
+        "weight": 1.0
+      }
+    ]
+  },
+  "231": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 231,
+        "weight": 1.0
+      }
+    ]
+  },
+  "232": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 232,
+        "weight": 1.0
+      }
+    ]
+  },
+  "233": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 233,
+        "weight": 1.0
+      }
+    ]
+  },
+  "234": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 234,
+        "weight": 1.0
+      }
+    ]
+  },
+  "235": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 235,
+        "weight": 1.0
+      }
+    ]
+  },
+  "236": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 236,
+        "weight": 1.0
+      }
+    ]
+  },
+  "237": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 237,
+        "weight": 1.0
+      }
+    ]
+  },
+  "238": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 238,
+        "weight": 1.0
+      }
+    ]
+  },
+  "239": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 239,
+        "weight": 1.0
+      }
+    ]
+  },
+  "240": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 240,
+        "weight": 1.0
+      }
+    ]
+  },
+  "241": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 241,
+        "weight": 1.0
+      }
+    ]
+  },
+  "242": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 242,
+        "weight": 1.0
+      }
+    ]
+  },
+  "243": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 243,
+        "weight": 1.0
+      }
+    ]
+  },
+  "244": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 244,
+        "weight": 1.0
+      }
+    ]
+  },
+  "245": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 245,
+        "weight": 1.0
+      }
+    ]
+  },
+  "246": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 246,
+        "weight": 1.0
+      }
+    ]
+  },
+  "247": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 247,
+        "weight": 1.0
+      }
+    ]
+  },
+  "248": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 248,
+        "weight": 1.0
+      }
+    ]
+  },
+  "249": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 249,
+        "weight": 1.0
+      }
+    ]
+  },
+  "250": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 250,
+        "weight": 1.0
+      }
+    ]
+  },
+  "251": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 251,
+        "weight": 1.0
+      }
+    ]
+  },
+  "252": {
+    "dataQuality": "exact",
+    "interpolationType": "unchanged",
+    "maxWeight": 1.0,
+    "sources": [
+      {
+        "old": 252,
+        "weight": 1.0
+      }
+    ]
+  },
+  "253": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.558,
+    "sources": [
+      {
+        "old": 220,
+        "weight": 0.557967
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "254": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.2098,
+    "sources": [
+      {
+        "old": 228,
+        "weight": 0.20976
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "255": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.6378,
+    "sources": [
+      {
+        "old": 41,
+        "weight": 0.637818
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "256": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.1571,
+    "sources": [
+      {
+        "old": 192,
+        "weight": 0.157146
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "257": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.2736,
+    "sources": [
+      {
+        "old": 9,
+        "weight": 0.273594
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "258": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.5752,
+    "sources": [
+      {
+        "old": 125,
+        "weight": 0.575159
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "259": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.7005,
+    "sources": [
+      {
+        "old": 57,
+        "weight": 0.70045
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "260": {
+    "dataQuality": "low_confidence",
+    "interpolationType": "sliver",
+    "maxWeight": 0.0877,
+    "sources": [
+      {
+        "old": 22,
+        "weight": 0.087709
+      }
+    ],
+    "isSliver": true
+  },
+  "261": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.6107,
+    "sources": [
+      {
+        "old": 221,
+        "weight": 0.610716
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "262": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.5809,
+    "sources": [
+      {
+        "old": 167,
+        "weight": 0.580902
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "263": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.3815,
+    "sources": [
+      {
+        "old": 29,
+        "weight": 0.381464
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "264": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.7959,
+    "sources": [
+      {
+        "old": 30,
+        "weight": 0.795941
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "265": {
+    "dataQuality": "low_confidence",
+    "interpolationType": "sliver",
+    "maxWeight": 0.0,
+    "sources": [
+      {
+        "old": 26,
+        "weight": 0.0
+      }
+    ],
+    "isSliver": true
+  },
+  "266": {
+    "dataQuality": "low_confidence",
+    "interpolationType": "sliver",
+    "maxWeight": 0.024,
+    "sources": [
+      {
+        "old": 62,
+        "weight": 0.023983
+      }
+    ],
+    "isSliver": true
+  },
+  "267": {
+    "dataQuality": "low_confidence",
+    "interpolationType": "sliver",
+    "maxWeight": 0.0057,
+    "sources": [
+      {
+        "old": 85,
+        "weight": 0.005669
+      }
+    ],
+    "isSliver": true
+  },
+  "268": {
+    "dataQuality": "low_confidence",
+    "interpolationType": "sliver",
+    "maxWeight": 0.0,
+    "sources": [
+      {
+        "old": 94,
+        "weight": 0.0
+      }
+    ],
+    "isSliver": true
+  },
+  "269": {
+    "dataQuality": "low_confidence",
+    "interpolationType": "sliver",
+    "maxWeight": 0.0,
+    "sources": [
+      {
+        "old": 121,
+        "weight": 0.0
+      }
+    ],
+    "isSliver": true
+  },
+  "270": {
+    "dataQuality": "low_confidence",
+    "interpolationType": "sliver",
+    "maxWeight": 0.0006,
+    "sources": [
+      {
+        "old": 154,
+        "weight": 0.000598
+      }
+    ],
+    "isSliver": true
+  },
+  "271": {
+    "dataQuality": "estimated",
+    "interpolationType": "new_boundary",
+    "maxWeight": 0.8566,
+    "sources": [
+      {
+        "old": 209,
+        "weight": 0.856624
+      }
+    ],
+    "crosswalkMethod": "voter_file"
+  },
+  "272": {
+    "dataQuality": "low_confidence",
+    "interpolationType": "sliver",
+    "maxWeight": 0.0009,
+    "sources": [
+      {
+        "old": 209,
+        "weight": 0.000907
+      }
+    ],
+    "isSliver": true
+  },
+  "273": {
+    "dataQuality": "low_confidence",
+    "interpolationType": "sliver",
+    "maxWeight": 0.0803,
+    "sources": [
+      {
+        "old": 13,
+        "weight": 0.080279
+      }
+    ],
+    "isSliver": true
+  }
+}

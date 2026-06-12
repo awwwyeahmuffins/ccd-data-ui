@@ -1,0 +1,1105 @@
+precinct,party,candidate,votes
+1,REP,NO,55
+1,REP,YES,373
+1,,Over Votes,0
+1,,Under Votes,20
+10,REP,NO,15
+10,REP,YES,217
+10,,Over Votes,0
+10,,Under Votes,12
+100,REP,NO,13
+100,REP,YES,224
+100,,Over Votes,0
+100,,Under Votes,6
+101,REP,NO,72
+101,REP,YES,393
+101,,Over Votes,1
+101,,Under Votes,14
+102,REP,NO,76
+102,REP,YES,506
+102,,Over Votes,1
+102,,Under Votes,26
+103,REP,NO,8
+103,REP,YES,97
+103,,Over Votes,0
+103,,Under Votes,8
+104,REP,NO,30
+104,REP,YES,102
+104,,Over Votes,0
+104,,Under Votes,12
+105,REP,NO,1
+105,REP,YES,4
+105,,Over Votes,0
+105,,Under Votes,0
+106,REP,NO,48
+106,REP,YES,194
+106,,Over Votes,0
+106,,Under Votes,9
+107,REP,NO,77
+107,REP,YES,378
+107,,Over Votes,0
+107,,Under Votes,16
+108,REP,NO,73
+108,REP,YES,258
+108,,Over Votes,0
+108,,Under Votes,23
+109,REP,NO,97
+109,REP,YES,550
+109,,Over Votes,0
+109,,Under Votes,41
+11,REP,NO,58
+11,REP,YES,779
+11,,Over Votes,1
+11,,Under Votes,26
+110,REP,NO,92
+110,REP,YES,370
+110,,Over Votes,0
+110,,Under Votes,25
+111,REP,NO,73
+111,REP,YES,410
+111,,Over Votes,0
+111,,Under Votes,24
+112,REP,NO,87
+112,REP,YES,356
+112,,Over Votes,0
+112,,Under Votes,33
+113,REP,NO,40
+113,REP,YES,317
+113,,Over Votes,0
+113,,Under Votes,15
+114,REP,NO,50
+114,REP,YES,487
+114,,Over Votes,0
+114,,Under Votes,20
+115,REP,NO,74
+115,REP,YES,307
+115,,Over Votes,0
+115,,Under Votes,34
+116,REP,NO,157
+116,REP,YES,641
+116,,Over Votes,0
+116,,Under Votes,46
+117,REP,NO,46
+117,REP,YES,390
+117,,Over Votes,0
+117,,Under Votes,10
+118,REP,NO,76
+118,REP,YES,465
+118,,Over Votes,1
+118,,Under Votes,28
+119,REP,NO,67
+119,REP,YES,271
+119,,Over Votes,0
+119,,Under Votes,33
+12,REP,NO,33
+12,REP,YES,318
+12,,Over Votes,0
+12,,Under Votes,20
+120,REP,NO,140
+120,REP,YES,537
+120,,Over Votes,2
+120,,Under Votes,46
+121,REP,NO,29
+121,REP,YES,215
+121,,Over Votes,0
+121,,Under Votes,18
+122,REP,NO,149
+122,REP,YES,783
+122,,Over Votes,1
+122,,Under Votes,47
+123,REP,NO,51
+123,REP,YES,265
+123,,Over Votes,0
+123,,Under Votes,17
+124,REP,NO,66
+124,REP,YES,282
+124,,Over Votes,1
+124,,Under Votes,30
+125,REP,NO,52
+125,REP,YES,198
+125,,Over Votes,0
+125,,Under Votes,36
+126,REP,NO,77
+126,REP,YES,505
+126,,Over Votes,0
+126,,Under Votes,19
+127,REP,NO,48
+127,REP,YES,376
+127,,Over Votes,0
+127,,Under Votes,10
+128,REP,NO,116
+128,REP,YES,622
+128,,Over Votes,2
+128,,Under Votes,35
+129,REP,NO,71
+129,REP,YES,504
+129,,Over Votes,0
+129,,Under Votes,35
+13,REP,NO,38
+13,REP,YES,471
+13,,Over Votes,0
+13,,Under Votes,14
+130,REP,NO,70
+130,REP,YES,403
+130,,Over Votes,0
+130,,Under Votes,19
+131,REP,NO,75
+131,REP,YES,438
+131,,Over Votes,0
+131,,Under Votes,24
+132,REP,NO,54
+132,REP,YES,250
+132,,Over Votes,0
+132,,Under Votes,16
+133,REP,NO,25
+133,REP,YES,286
+133,,Over Votes,1
+133,,Under Votes,9
+134,REP,NO,40
+134,REP,YES,325
+134,,Over Votes,1
+134,,Under Votes,11
+135,REP,NO,55
+135,REP,YES,344
+135,,Over Votes,0
+135,,Under Votes,29
+136,REP,NO,66
+136,REP,YES,284
+136,,Over Votes,0
+136,,Under Votes,23
+137,REP,NO,64
+137,REP,YES,249
+137,,Over Votes,0
+137,,Under Votes,18
+138,REP,NO,69
+138,REP,YES,273
+138,,Over Votes,0
+138,,Under Votes,20
+139,REP,NO,63
+139,REP,YES,307
+139,,Over Votes,0
+139,,Under Votes,28
+14,REP,NO,28
+14,REP,YES,235
+14,,Over Votes,0
+14,,Under Votes,21
+140,REP,NO,136
+140,REP,YES,803
+140,,Over Votes,0
+140,,Under Votes,38
+141,REP,NO,106
+141,REP,YES,449
+141,,Over Votes,0
+141,,Under Votes,48
+142,REP,NO,73
+142,REP,YES,300
+142,,Over Votes,0
+142,,Under Votes,27
+143,REP,NO,66
+143,REP,YES,259
+143,,Over Votes,0
+143,,Under Votes,14
+144,REP,NO,51
+144,REP,YES,468
+144,,Over Votes,0
+144,,Under Votes,40
+145,REP,NO,13
+145,REP,YES,165
+145,,Over Votes,0
+145,,Under Votes,19
+146,REP,NO,55
+146,REP,YES,415
+146,,Over Votes,0
+146,,Under Votes,19
+147,REP,NO,15
+147,REP,YES,196
+147,,Over Votes,0
+147,,Under Votes,11
+148,REP,NO,35
+148,REP,YES,209
+148,,Over Votes,0
+148,,Under Votes,42
+149,REP,NO,69
+149,REP,YES,644
+149,,Over Votes,1
+149,,Under Votes,27
+15,REP,NO,20
+15,REP,YES,115
+15,,Over Votes,0
+15,,Under Votes,8
+150,REP,NO,58
+150,REP,YES,524
+150,,Over Votes,0
+150,,Under Votes,16
+151,REP,NO,24
+151,REP,YES,151
+151,,Over Votes,0
+151,,Under Votes,14
+152,REP,NO,0
+152,REP,YES,9
+152,,Over Votes,0
+152,,Under Votes,1
+153,REP,NO,16
+153,REP,YES,124
+153,,Over Votes,0
+153,,Under Votes,17
+154,REP,NO,39
+154,REP,YES,480
+154,,Over Votes,0
+154,,Under Votes,10
+155,REP,NO,41
+155,REP,YES,354
+155,,Over Votes,0
+155,,Under Votes,13
+156,REP,NO,48
+156,REP,YES,410
+156,,Over Votes,0
+156,,Under Votes,20
+157,REP,NO,81
+157,REP,YES,438
+157,,Over Votes,0
+157,,Under Votes,29
+158,REP,NO,33
+158,REP,YES,260
+158,,Over Votes,0
+158,,Under Votes,25
+159,REP,NO,36
+159,REP,YES,285
+159,,Over Votes,1
+159,,Under Votes,17
+16,REP,NO,37
+16,REP,YES,387
+16,,Over Votes,0
+16,,Under Votes,14
+160,REP,NO,14
+160,REP,YES,115
+160,,Over Votes,0
+160,,Under Votes,5
+161,REP,NO,4
+161,REP,YES,41
+161,,Over Votes,0
+161,,Under Votes,1
+162,REP,NO,12
+162,REP,YES,142
+162,,Over Votes,0
+162,,Under Votes,15
+163,REP,NO,23
+163,REP,YES,195
+163,,Over Votes,0
+163,,Under Votes,8
+164,REP,NO,182
+164,REP,YES,312
+164,,Over Votes,2
+164,,Under Votes,55
+165,REP,NO,33
+165,REP,YES,193
+165,,Over Votes,0
+165,,Under Votes,20
+166,REP,NO,79
+166,REP,YES,549
+166,,Over Votes,0
+166,,Under Votes,58
+167,REP,NO,21
+167,REP,YES,158
+167,,Over Votes,0
+167,,Under Votes,10
+168,REP,NO,56
+168,REP,YES,303
+168,,Over Votes,0
+168,,Under Votes,21
+169,REP,NO,44
+169,REP,YES,304
+169,,Over Votes,0
+169,,Under Votes,22
+17,REP,NO,44
+17,REP,YES,473
+17,,Over Votes,0
+17,,Under Votes,13
+170,REP,NO,40
+170,REP,YES,240
+170,,Over Votes,0
+170,,Under Votes,11
+171,REP,NO,42
+171,REP,YES,267
+171,,Over Votes,0
+171,,Under Votes,14
+172,REP,NO,38
+172,REP,YES,411
+172,,Over Votes,0
+172,,Under Votes,12
+173,REP,NO,41
+173,REP,YES,122
+173,,Over Votes,0
+173,,Under Votes,9
+174,REP,NO,45
+174,REP,YES,469
+174,,Over Votes,0
+174,,Under Votes,26
+175,REP,NO,38
+175,REP,YES,321
+175,,Over Votes,0
+175,,Under Votes,30
+176,REP,NO,20
+176,REP,YES,169
+176,,Over Votes,0
+176,,Under Votes,8
+177,REP,NO,42
+177,REP,YES,334
+177,,Over Votes,0
+177,,Under Votes,22
+178,REP,NO,58
+178,REP,YES,424
+178,,Over Votes,0
+178,,Under Votes,19
+179,REP,NO,228
+179,REP,YES,1149
+179,,Over Votes,2
+179,,Under Votes,63
+18,REP,NO,15
+18,REP,YES,195
+18,,Over Votes,0
+18,,Under Votes,7
+180,REP,NO,31
+180,REP,YES,272
+180,,Over Votes,0
+180,,Under Votes,19
+181,REP,NO,23
+181,REP,YES,328
+181,,Over Votes,0
+181,,Under Votes,6
+182,REP,NO,89
+182,REP,YES,445
+182,,Over Votes,0
+182,,Under Votes,49
+183,REP,NO,1
+183,REP,YES,34
+183,,Over Votes,0
+183,,Under Votes,0
+184,REP,NO,31
+184,REP,YES,172
+184,,Over Votes,0
+184,,Under Votes,9
+185,REP,NO,38
+185,REP,YES,429
+185,,Over Votes,0
+185,,Under Votes,23
+186,REP,NO,10
+186,REP,YES,161
+186,,Over Votes,0
+186,,Under Votes,3
+187,REP,NO,4
+187,REP,YES,88
+187,,Over Votes,0
+187,,Under Votes,2
+188,REP,NO,6
+188,REP,YES,76
+188,,Over Votes,0
+188,,Under Votes,3
+189,REP,NO,34
+189,REP,YES,374
+189,,Over Votes,0
+189,,Under Votes,12
+19,REP,NO,48
+19,REP,YES,216
+19,,Over Votes,0
+19,,Under Votes,18
+190,REP,NO,20
+190,REP,YES,147
+190,,Over Votes,0
+190,,Under Votes,6
+191,REP,NO,5
+191,REP,YES,102
+191,,Over Votes,0
+191,,Under Votes,2
+192,REP,NO,47
+192,REP,YES,595
+192,,Over Votes,0
+192,,Under Votes,20
+193,REP,NO,21
+193,REP,YES,252
+193,,Over Votes,0
+193,,Under Votes,17
+194,REP,NO,59
+194,REP,YES,542
+194,,Over Votes,0
+194,,Under Votes,17
+195,REP,NO,22
+195,REP,YES,192
+195,,Over Votes,1
+195,,Under Votes,8
+196,REP,NO,32
+196,REP,YES,227
+196,,Over Votes,0
+196,,Under Votes,12
+197,REP,NO,21
+197,REP,YES,98
+197,,Over Votes,0
+197,,Under Votes,8
+198,REP,NO,37
+198,REP,YES,429
+198,,Over Votes,1
+198,,Under Votes,27
+199,REP,NO,57
+199,REP,YES,557
+199,,Over Votes,0
+199,,Under Votes,31
+2,REP,NO,56
+2,REP,YES,465
+2,,Over Votes,0
+2,,Under Votes,17
+20,REP,NO,28
+20,REP,YES,368
+20,,Over Votes,0
+20,,Under Votes,15
+200,REP,NO,53
+200,REP,YES,391
+200,,Over Votes,0
+200,,Under Votes,8
+201,REP,NO,0
+201,REP,YES,0
+201,,Over Votes,0
+201,,Under Votes,0
+203,REP,NO,90
+203,REP,YES,527
+203,,Over Votes,1
+203,,Under Votes,18
+204,REP,NO,11
+204,REP,YES,88
+204,,Over Votes,0
+204,,Under Votes,7
+205,REP,NO,51
+205,REP,YES,471
+205,,Over Votes,0
+205,,Under Votes,34
+206,REP,NO,43
+206,REP,YES,261
+206,,Over Votes,0
+206,,Under Votes,8
+207,REP,NO,76
+207,REP,YES,492
+207,,Over Votes,0
+207,,Under Votes,31
+208,REP,NO,67
+208,REP,YES,627
+208,,Over Votes,0
+208,,Under Votes,32
+209,REP,NO,2
+209,REP,YES,39
+209,,Over Votes,0
+209,,Under Votes,1
+21,REP,NO,100
+21,REP,YES,517
+21,,Over Votes,0
+21,,Under Votes,26
+210,REP,NO,37
+210,REP,YES,246
+210,,Over Votes,0
+210,,Under Votes,24
+211,REP,NO,69
+211,REP,YES,429
+211,,Over Votes,0
+211,,Under Votes,24
+212,REP,NO,33
+212,REP,YES,263
+212,,Over Votes,1
+212,,Under Votes,8
+213,REP,NO,35
+213,REP,YES,298
+213,,Over Votes,0
+213,,Under Votes,13
+214,REP,NO,97
+214,REP,YES,740
+214,,Over Votes,0
+214,,Under Votes,33
+215,REP,NO,16
+215,REP,YES,339
+215,,Over Votes,1
+215,,Under Votes,17
+216,REP,NO,93
+216,REP,YES,709
+216,,Over Votes,0
+216,,Under Votes,30
+217,REP,NO,46
+217,REP,YES,388
+217,,Over Votes,0
+217,,Under Votes,12
+218,REP,NO,84
+218,REP,YES,469
+218,,Over Votes,0
+218,,Under Votes,37
+219,REP,NO,87
+219,REP,YES,436
+219,,Over Votes,0
+219,,Under Votes,31
+22,REP,NO,63
+22,REP,YES,723
+22,,Over Votes,0
+22,,Under Votes,28
+220,REP,NO,20
+220,REP,YES,155
+220,,Over Votes,1
+220,,Under Votes,8
+221,REP,NO,65
+221,REP,YES,354
+221,,Over Votes,0
+221,,Under Votes,14
+222,REP,NO,75
+222,REP,YES,405
+222,,Over Votes,1
+222,,Under Votes,31
+223,REP,NO,42
+223,REP,YES,307
+223,,Over Votes,1
+223,,Under Votes,9
+224,REP,NO,75
+224,REP,YES,584
+224,,Over Votes,0
+224,,Under Votes,23
+225,REP,NO,39
+225,REP,YES,303
+225,,Over Votes,0
+225,,Under Votes,12
+226,REP,NO,42
+226,REP,YES,385
+226,,Over Votes,0
+226,,Under Votes,20
+227,REP,NO,72
+227,REP,YES,429
+227,,Over Votes,0
+227,,Under Votes,33
+228,REP,NO,22
+228,REP,YES,276
+228,,Over Votes,0
+228,,Under Votes,15
+229,REP,NO,14
+229,REP,YES,155
+229,,Over Votes,0
+229,,Under Votes,7
+23,REP,NO,16
+23,REP,YES,119
+23,,Over Votes,0
+23,,Under Votes,14
+230,REP,NO,50
+230,REP,YES,319
+230,,Over Votes,0
+230,,Under Votes,17
+231,REP,NO,60
+231,REP,YES,529
+231,,Over Votes,1
+231,,Under Votes,26
+232,REP,NO,47
+232,REP,YES,478
+232,,Over Votes,0
+232,,Under Votes,25
+233,REP,NO,27
+233,REP,YES,287
+233,,Over Votes,0
+233,,Under Votes,10
+234,REP,NO,35
+234,REP,YES,305
+234,,Over Votes,0
+234,,Under Votes,6
+235,REP,NO,37
+235,REP,YES,142
+235,,Over Votes,0
+235,,Under Votes,7
+236,REP,NO,76
+236,REP,YES,500
+236,,Over Votes,0
+236,,Under Votes,33
+237,REP,NO,22
+237,REP,YES,215
+237,,Over Votes,0
+237,,Under Votes,23
+238,REP,NO,27
+238,REP,YES,227
+238,,Over Votes,0
+238,,Under Votes,18
+239,REP,NO,71
+239,REP,YES,577
+239,,Over Votes,0
+239,,Under Votes,25
+24,REP,NO,25
+24,REP,YES,88
+24,,Over Votes,1
+24,,Under Votes,5
+240,REP,NO,59
+240,REP,YES,557
+240,,Over Votes,1
+240,,Under Votes,25
+241,REP,NO,32
+241,REP,YES,246
+241,,Over Votes,0
+241,,Under Votes,20
+242,REP,NO,76
+242,REP,YES,444
+242,,Over Votes,1
+242,,Under Votes,34
+243,REP,NO,40
+243,REP,YES,297
+243,,Over Votes,0
+243,,Under Votes,25
+244,REP,NO,65
+244,REP,YES,354
+244,,Over Votes,0
+244,,Under Votes,42
+245,REP,NO,26
+245,REP,YES,210
+245,,Over Votes,0
+245,,Under Votes,14
+246,REP,NO,100
+246,REP,YES,397
+246,,Over Votes,1
+246,,Under Votes,25
+247,REP,NO,62
+247,REP,YES,482
+247,,Over Votes,0
+247,,Under Votes,23
+248,REP,NO,21
+248,REP,YES,220
+248,,Over Votes,0
+248,,Under Votes,5
+249,REP,NO,39
+249,REP,YES,432
+249,,Over Votes,0
+249,,Under Votes,15
+25,REP,NO,82
+25,REP,YES,587
+25,,Over Votes,1
+25,,Under Votes,59
+250,REP,NO,23
+250,REP,YES,206
+250,,Over Votes,0
+250,,Under Votes,12
+251,REP,NO,25
+251,REP,YES,287
+251,,Over Votes,0
+251,,Under Votes,10
+252,REP,NO,36
+252,REP,YES,407
+252,,Over Votes,1
+252,,Under Votes,14
+253,REP,NO,27
+253,REP,YES,210
+253,,Over Votes,0
+253,,Under Votes,12
+254,REP,NO,9
+254,REP,YES,95
+254,,Over Votes,0
+254,,Under Votes,5
+255,REP,NO,34
+255,REP,YES,437
+255,,Over Votes,0
+255,,Under Votes,12
+256,REP,NO,14
+256,REP,YES,170
+256,,Over Votes,0
+256,,Under Votes,6
+257,REP,NO,10
+257,REP,YES,127
+257,,Over Votes,0
+257,,Under Votes,4
+258,REP,NO,71
+258,REP,YES,333
+258,,Over Votes,0
+258,,Under Votes,24
+259,REP,NO,49
+259,REP,YES,453
+259,,Over Votes,0
+259,,Under Votes,21
+26,REP,NO,13
+26,REP,YES,114
+26,,Over Votes,0
+26,,Under Votes,7
+260,REP,NO,5
+260,REP,YES,91
+260,,Over Votes,0
+260,,Under Votes,0
+261,REP,NO,52
+261,REP,YES,399
+261,,Over Votes,0
+261,,Under Votes,27
+262,REP,NO,54
+262,REP,YES,250
+262,,Over Votes,0
+262,,Under Votes,22
+263,REP,NO,12
+263,REP,YES,219
+263,,Over Votes,0
+263,,Under Votes,8
+264,REP,NO,86
+264,REP,YES,530
+264,,Over Votes,1
+264,,Under Votes,21
+265,REP,NO,0
+265,REP,YES,0
+265,,Over Votes,0
+265,,Under Votes,0
+268,REP,NO,0
+268,REP,YES,0
+268,,Over Votes,0
+268,,Under Votes,0
+269,REP,NO,0
+269,REP,YES,0
+269,,Over Votes,0
+269,,Under Votes,0
+27,REP,NO,27
+27,REP,YES,334
+27,,Over Votes,0
+27,,Under Votes,15
+270,REP,NO,0
+270,REP,YES,0
+270,,Over Votes,0
+270,,Under Votes,0
+271,REP,NO,5
+271,REP,YES,78
+271,,Over Votes,0
+271,,Under Votes,5
+272,REP,NO,0
+272,REP,YES,0
+272,,Over Votes,0
+272,,Under Votes,0
+273,REP,NO,3
+273,REP,YES,67
+273,,Over Votes,0
+273,,Under Votes,5
+274,REP,NO,0
+274,REP,YES,0
+274,,Over Votes,0
+274,,Under Votes,0
+275,REP,NO,0
+275,REP,YES,0
+275,,Over Votes,0
+275,,Under Votes,0
+276,REP,NO,11
+276,REP,YES,83
+276,,Over Votes,0
+276,,Under Votes,4
+277,REP,NO,0
+277,REP,YES,0
+277,,Over Votes,0
+277,,Under Votes,0
+28,REP,NO,72
+28,REP,YES,380
+28,,Over Votes,0
+28,,Under Votes,23
+281,REP,NO,0
+281,REP,YES,0
+281,,Over Votes,0
+281,,Under Votes,0
+284,REP,NO,0
+284,REP,YES,0
+284,,Over Votes,0
+284,,Under Votes,0
+29,REP,NO,23
+29,REP,YES,438
+29,,Over Votes,0
+29,,Under Votes,15
+3,REP,NO,12
+3,REP,YES,95
+3,,Over Votes,1
+3,,Under Votes,5
+30,REP,NO,10
+30,REP,YES,86
+30,,Over Votes,0
+30,,Under Votes,3
+31,REP,NO,63
+31,REP,YES,350
+31,,Over Votes,1
+31,,Under Votes,18
+32,REP,NO,65
+32,REP,YES,351
+32,,Over Votes,1
+32,,Under Votes,20
+33,REP,NO,35
+33,REP,YES,542
+33,,Over Votes,0
+33,,Under Votes,20
+34,REP,NO,78
+34,REP,YES,357
+34,,Over Votes,0
+34,,Under Votes,24
+35,REP,NO,29
+35,REP,YES,332
+35,,Over Votes,0
+35,,Under Votes,11
+36,REP,NO,91
+36,REP,YES,307
+36,,Over Votes,0
+36,,Under Votes,31
+37,REP,NO,52
+37,REP,YES,525
+37,,Over Votes,1
+37,,Under Votes,18
+38,REP,NO,33
+38,REP,YES,256
+38,,Over Votes,0
+38,,Under Votes,13
+39,REP,NO,35
+39,REP,YES,212
+39,,Over Votes,0
+39,,Under Votes,16
+4,REP,NO,47
+4,REP,YES,559
+4,,Over Votes,0
+4,,Under Votes,17
+40,REP,NO,79
+40,REP,YES,555
+40,,Over Votes,1
+40,,Under Votes,27
+41,REP,NO,49
+41,REP,YES,432
+41,,Over Votes,0
+41,,Under Votes,19
+42,REP,NO,24
+42,REP,YES,315
+42,,Over Votes,0
+42,,Under Votes,8
+43,REP,NO,33
+43,REP,YES,232
+43,,Over Votes,0
+43,,Under Votes,9
+44,REP,NO,19
+44,REP,YES,139
+44,,Over Votes,0
+44,,Under Votes,7
+45,REP,NO,96
+45,REP,YES,540
+45,,Over Votes,1
+45,,Under Votes,34
+46,REP,NO,39
+46,REP,YES,221
+46,,Over Votes,0
+46,,Under Votes,20
+47,REP,NO,52
+47,REP,YES,262
+47,,Over Votes,0
+47,,Under Votes,15
+48,REP,NO,81
+48,REP,YES,366
+48,,Over Votes,0
+48,,Under Votes,36
+49,REP,NO,60
+49,REP,YES,342
+49,,Over Votes,0
+49,,Under Votes,25
+5,REP,NO,40
+5,REP,YES,152
+5,,Over Votes,0
+5,,Under Votes,6
+50,REP,NO,27
+50,REP,YES,171
+50,,Over Votes,0
+50,,Under Votes,14
+51,REP,NO,18
+51,REP,YES,121
+51,,Over Votes,0
+51,,Under Votes,5
+52,REP,NO,40
+52,REP,YES,536
+52,,Over Votes,1
+52,,Under Votes,99
+53,REP,NO,70
+53,REP,YES,260
+53,,Over Votes,0
+53,,Under Votes,28
+54,REP,NO,23
+54,REP,YES,237
+54,,Over Votes,1
+54,,Under Votes,12
+55,REP,NO,56
+55,REP,YES,242
+55,,Over Votes,0
+55,,Under Votes,14
+56,REP,NO,51
+56,REP,YES,421
+56,,Over Votes,2
+56,,Under Votes,27
+57,REP,NO,23
+57,REP,YES,153
+57,,Over Votes,0
+57,,Under Votes,5
+58,REP,NO,49
+58,REP,YES,334
+58,,Over Votes,0
+58,,Under Votes,10
+59,REP,NO,83
+59,REP,YES,471
+59,,Over Votes,0
+59,,Under Votes,35
+6,REP,NO,30
+6,REP,YES,122
+6,,Over Votes,0
+6,,Under Votes,5
+60,REP,NO,92
+60,REP,YES,596
+60,,Over Votes,1
+60,,Under Votes,41
+61,REP,NO,72
+61,REP,YES,270
+61,,Over Votes,0
+61,,Under Votes,14
+62,REP,NO,60
+62,REP,YES,248
+62,,Over Votes,0
+62,,Under Votes,23
+63,REP,NO,85
+63,REP,YES,336
+63,,Over Votes,0
+63,,Under Votes,17
+64,REP,NO,80
+64,REP,YES,254
+64,,Over Votes,0
+64,,Under Votes,20
+65,REP,NO,21
+65,REP,YES,127
+65,,Over Votes,0
+65,,Under Votes,14
+66,REP,NO,45
+66,REP,YES,212
+66,,Over Votes,0
+66,,Under Votes,20
+67,REP,NO,56
+67,REP,YES,313
+67,,Over Votes,0
+67,,Under Votes,21
+68,REP,NO,27
+68,REP,YES,188
+68,,Over Votes,1
+68,,Under Votes,23
+69,REP,NO,116
+69,REP,YES,511
+69,,Over Votes,0
+69,,Under Votes,36
+7,REP,NO,27
+7,REP,YES,164
+7,,Over Votes,0
+7,,Under Votes,7
+70,REP,NO,45
+70,REP,YES,264
+70,,Over Votes,0
+70,,Under Votes,16
+71,REP,NO,45
+71,REP,YES,223
+71,,Over Votes,0
+71,,Under Votes,23
+72,REP,NO,47
+72,REP,YES,226
+72,,Over Votes,1
+72,,Under Votes,12
+73,REP,NO,18
+73,REP,YES,117
+73,,Over Votes,0
+73,,Under Votes,10
+74,REP,NO,36
+74,REP,YES,223
+74,,Over Votes,0
+74,,Under Votes,18
+75,REP,NO,64
+75,REP,YES,284
+75,,Over Votes,0
+75,,Under Votes,26
+76,REP,NO,83
+76,REP,YES,436
+76,,Over Votes,1
+76,,Under Votes,42
+77,REP,NO,77
+77,REP,YES,305
+77,,Over Votes,1
+77,,Under Votes,35
+78,REP,NO,61
+78,REP,YES,349
+78,,Over Votes,1
+78,,Under Votes,20
+79,REP,NO,45
+79,REP,YES,239
+79,,Over Votes,0
+79,,Under Votes,17
+8,REP,NO,41
+8,REP,YES,560
+8,,Over Votes,1
+8,,Under Votes,24
+80,REP,NO,67
+80,REP,YES,401
+80,,Over Votes,0
+80,,Under Votes,23
+81,REP,NO,60
+81,REP,YES,255
+81,,Over Votes,0
+81,,Under Votes,28
+82,REP,NO,27
+82,REP,YES,269
+82,,Over Votes,0
+82,,Under Votes,15
+83,REP,NO,50
+83,REP,YES,644
+83,,Over Votes,0
+83,,Under Votes,29
+84,REP,NO,69
+84,REP,YES,295
+84,,Over Votes,0
+84,,Under Votes,21
+85,REP,NO,53
+85,REP,YES,289
+85,,Over Votes,0
+85,,Under Votes,18
+86,REP,NO,69
+86,REP,YES,383
+86,,Over Votes,1
+86,,Under Votes,22
+87,REP,NO,18
+87,REP,YES,151
+87,,Over Votes,0
+87,,Under Votes,12
+88,REP,NO,9
+88,REP,YES,58
+88,,Over Votes,0
+88,,Under Votes,8
+89,REP,NO,79
+89,REP,YES,333
+89,,Over Votes,2
+89,,Under Votes,15
+9,REP,NO,29
+9,REP,YES,395
+9,,Over Votes,0
+9,,Under Votes,10
+90,REP,NO,169
+90,REP,YES,462
+90,,Over Votes,0
+90,,Under Votes,59
+91,REP,NO,41
+91,REP,YES,253
+91,,Over Votes,0
+91,,Under Votes,18
+92,REP,NO,59
+92,REP,YES,324
+92,,Over Votes,0
+92,,Under Votes,12
+93,REP,NO,7
+93,REP,YES,60
+93,,Over Votes,0
+93,,Under Votes,5
+94,REP,NO,115
+94,REP,YES,441
+94,,Over Votes,0
+94,,Under Votes,62
+95,REP,NO,59
+95,REP,YES,307
+95,,Over Votes,0
+95,,Under Votes,19
+96,REP,NO,4
+96,REP,YES,86
+96,,Over Votes,0
+96,,Under Votes,6
+97,REP,NO,80
+97,REP,YES,319
+97,,Over Votes,1
+97,,Under Votes,23
+98,REP,NO,34
+98,REP,YES,151
+98,,Over Votes,1
+98,,Under Votes,15
+99,REP,NO,6
+99,REP,YES,34
+99,,Over Votes,0
+99,,Under Votes,1

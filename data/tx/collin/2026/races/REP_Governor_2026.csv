@@ -1,0 +1,3589 @@
+precinct,party,candidate,votes
+1,REP,Arturo Espinosa,6
+1,REP,Charles Andrew Crouch,1
+1,REP,Evelyn Brooks,17
+1,REP,Greg Abbott,352
+1,REP,Kenneth Hyde,0
+1,REP,Mark V. Goloby,0
+1,REP,Nathaniel Welch,1
+1,REP,"Pete ""Doc"" Chambers",56
+1,REP,"R.F. ""Bob"" Achgill",2
+1,REP,Ronnie Tullos,1
+1,REP,Stephen Samuelson,2
+1,,Over Votes,0
+1,,Under Votes,10
+10,REP,Arturo Espinosa,1
+10,REP,Charles Andrew Crouch,3
+10,REP,Evelyn Brooks,0
+10,REP,Greg Abbott,189
+10,REP,Kenneth Hyde,6
+10,REP,Mark V. Goloby,0
+10,REP,Nathaniel Welch,0
+10,REP,"Pete ""Doc"" Chambers",41
+10,REP,"R.F. ""Bob"" Achgill",0
+10,REP,Ronnie Tullos,0
+10,REP,Stephen Samuelson,0
+10,,Over Votes,0
+10,,Under Votes,4
+100,REP,Arturo Espinosa,0
+100,REP,Charles Andrew Crouch,0
+100,REP,Evelyn Brooks,3
+100,REP,Greg Abbott,193
+100,REP,Kenneth Hyde,1
+100,REP,Mark V. Goloby,0
+100,REP,Nathaniel Welch,1
+100,REP,"Pete ""Doc"" Chambers",43
+100,REP,"R.F. ""Bob"" Achgill",1
+100,REP,Ronnie Tullos,1
+100,REP,Stephen Samuelson,0
+100,,Over Votes,0
+100,,Under Votes,0
+101,REP,Arturo Espinosa,8
+101,REP,Charles Andrew Crouch,1
+101,REP,Evelyn Brooks,17
+101,REP,Greg Abbott,340
+101,REP,Kenneth Hyde,3
+101,REP,Mark V. Goloby,0
+101,REP,Nathaniel Welch,0
+101,REP,"Pete ""Doc"" Chambers",94
+101,REP,"R.F. ""Bob"" Achgill",1
+101,REP,Ronnie Tullos,0
+101,REP,Stephen Samuelson,3
+101,,Over Votes,0
+101,,Under Votes,13
+102,REP,Arturo Espinosa,4
+102,REP,Charles Andrew Crouch,0
+102,REP,Evelyn Brooks,6
+102,REP,Greg Abbott,495
+102,REP,Kenneth Hyde,5
+102,REP,Mark V. Goloby,1
+102,REP,Nathaniel Welch,1
+102,REP,"Pete ""Doc"" Chambers",75
+102,REP,"R.F. ""Bob"" Achgill",1
+102,REP,Ronnie Tullos,2
+102,REP,Stephen Samuelson,2
+102,,Over Votes,0
+102,,Under Votes,17
+103,REP,Arturo Espinosa,0
+103,REP,Charles Andrew Crouch,0
+103,REP,Evelyn Brooks,0
+103,REP,Greg Abbott,88
+103,REP,Kenneth Hyde,3
+103,REP,Mark V. Goloby,0
+103,REP,Nathaniel Welch,0
+103,REP,"Pete ""Doc"" Chambers",14
+103,REP,"R.F. ""Bob"" Achgill",4
+103,REP,Ronnie Tullos,1
+103,REP,Stephen Samuelson,2
+103,,Over Votes,0
+103,,Under Votes,1
+104,REP,Arturo Espinosa,1
+104,REP,Charles Andrew Crouch,0
+104,REP,Evelyn Brooks,1
+104,REP,Greg Abbott,111
+104,REP,Kenneth Hyde,2
+104,REP,Mark V. Goloby,4
+104,REP,Nathaniel Welch,1
+104,REP,"Pete ""Doc"" Chambers",16
+104,REP,"R.F. ""Bob"" Achgill",1
+104,REP,Ronnie Tullos,0
+104,REP,Stephen Samuelson,2
+104,,Over Votes,0
+104,,Under Votes,5
+105,REP,Arturo Espinosa,0
+105,REP,Charles Andrew Crouch,0
+105,REP,Evelyn Brooks,1
+105,REP,Greg Abbott,3
+105,REP,Kenneth Hyde,0
+105,REP,Mark V. Goloby,0
+105,REP,Nathaniel Welch,0
+105,REP,"Pete ""Doc"" Chambers",0
+105,REP,"R.F. ""Bob"" Achgill",0
+105,REP,Ronnie Tullos,0
+105,REP,Stephen Samuelson,1
+105,,Over Votes,0
+105,,Under Votes,0
+106,REP,Arturo Espinosa,4
+106,REP,Charles Andrew Crouch,0
+106,REP,Evelyn Brooks,7
+106,REP,Greg Abbott,193
+106,REP,Kenneth Hyde,0
+106,REP,Mark V. Goloby,0
+106,REP,Nathaniel Welch,2
+106,REP,"Pete ""Doc"" Chambers",33
+106,REP,"R.F. ""Bob"" Achgill",2
+106,REP,Ronnie Tullos,3
+106,REP,Stephen Samuelson,3
+106,,Over Votes,0
+106,,Under Votes,4
+107,REP,Arturo Espinosa,4
+107,REP,Charles Andrew Crouch,0
+107,REP,Evelyn Brooks,11
+107,REP,Greg Abbott,361
+107,REP,Kenneth Hyde,8
+107,REP,Mark V. Goloby,1
+107,REP,Nathaniel Welch,2
+107,REP,"Pete ""Doc"" Chambers",58
+107,REP,"R.F. ""Bob"" Achgill",4
+107,REP,Ronnie Tullos,4
+107,REP,Stephen Samuelson,4
+107,,Over Votes,0
+107,,Under Votes,14
+108,REP,Arturo Espinosa,5
+108,REP,Charles Andrew Crouch,2
+108,REP,Evelyn Brooks,13
+108,REP,Greg Abbott,267
+108,REP,Kenneth Hyde,0
+108,REP,Mark V. Goloby,1
+108,REP,Nathaniel Welch,0
+108,REP,"Pete ""Doc"" Chambers",50
+108,REP,"R.F. ""Bob"" Achgill",0
+108,REP,Ronnie Tullos,5
+108,REP,Stephen Samuelson,2
+108,,Over Votes,0
+108,,Under Votes,9
+109,REP,Arturo Espinosa,3
+109,REP,Charles Andrew Crouch,5
+109,REP,Evelyn Brooks,5
+109,REP,Greg Abbott,566
+109,REP,Kenneth Hyde,2
+109,REP,Mark V. Goloby,4
+109,REP,Nathaniel Welch,1
+109,REP,"Pete ""Doc"" Chambers",70
+109,REP,"R.F. ""Bob"" Achgill",7
+109,REP,Ronnie Tullos,1
+109,REP,Stephen Samuelson,4
+109,,Over Votes,0
+109,,Under Votes,20
+11,REP,Arturo Espinosa,3
+11,REP,Charles Andrew Crouch,1
+11,REP,Evelyn Brooks,9
+11,REP,Greg Abbott,690
+11,REP,Kenneth Hyde,3
+11,REP,Mark V. Goloby,4
+11,REP,Nathaniel Welch,1
+11,REP,"Pete ""Doc"" Chambers",133
+11,REP,"R.F. ""Bob"" Achgill",2
+11,REP,Ronnie Tullos,1
+11,REP,Stephen Samuelson,3
+11,,Over Votes,0
+11,,Under Votes,14
+110,REP,Arturo Espinosa,7
+110,REP,Charles Andrew Crouch,2
+110,REP,Evelyn Brooks,9
+110,REP,Greg Abbott,392
+110,REP,Kenneth Hyde,6
+110,REP,Mark V. Goloby,2
+110,REP,Nathaniel Welch,2
+110,REP,"Pete ""Doc"" Chambers",39
+110,REP,"R.F. ""Bob"" Achgill",4
+110,REP,Ronnie Tullos,1
+110,REP,Stephen Samuelson,5
+110,,Over Votes,0
+110,,Under Votes,18
+111,REP,Arturo Espinosa,5
+111,REP,Charles Andrew Crouch,1
+111,REP,Evelyn Brooks,7
+111,REP,Greg Abbott,401
+111,REP,Kenneth Hyde,2
+111,REP,Mark V. Goloby,0
+111,REP,Nathaniel Welch,0
+111,REP,"Pete ""Doc"" Chambers",81
+111,REP,"R.F. ""Bob"" Achgill",1
+111,REP,Ronnie Tullos,1
+111,REP,Stephen Samuelson,1
+111,,Over Votes,0
+111,,Under Votes,7
+112,REP,Arturo Espinosa,3
+112,REP,Charles Andrew Crouch,1
+112,REP,Evelyn Brooks,12
+112,REP,Greg Abbott,397
+112,REP,Kenneth Hyde,6
+112,REP,Mark V. Goloby,1
+112,REP,Nathaniel Welch,1
+112,REP,"Pete ""Doc"" Chambers",35
+112,REP,"R.F. ""Bob"" Achgill",3
+112,REP,Ronnie Tullos,2
+112,REP,Stephen Samuelson,3
+112,,Over Votes,0
+112,,Under Votes,12
+113,REP,Arturo Espinosa,3
+113,REP,Charles Andrew Crouch,4
+113,REP,Evelyn Brooks,11
+113,REP,Greg Abbott,294
+113,REP,Kenneth Hyde,2
+113,REP,Mark V. Goloby,0
+113,REP,Nathaniel Welch,2
+113,REP,"Pete ""Doc"" Chambers",33
+113,REP,"R.F. ""Bob"" Achgill",3
+113,REP,Ronnie Tullos,2
+113,REP,Stephen Samuelson,1
+113,,Over Votes,0
+113,,Under Votes,17
+114,REP,Arturo Espinosa,3
+114,REP,Charles Andrew Crouch,4
+114,REP,Evelyn Brooks,6
+114,REP,Greg Abbott,428
+114,REP,Kenneth Hyde,7
+114,REP,Mark V. Goloby,2
+114,REP,Nathaniel Welch,4
+114,REP,"Pete ""Doc"" Chambers",80
+114,REP,"R.F. ""Bob"" Achgill",2
+114,REP,Ronnie Tullos,5
+114,REP,Stephen Samuelson,3
+114,,Over Votes,0
+114,,Under Votes,13
+115,REP,Arturo Espinosa,2
+115,REP,Charles Andrew Crouch,2
+115,REP,Evelyn Brooks,9
+115,REP,Greg Abbott,325
+115,REP,Kenneth Hyde,2
+115,REP,Mark V. Goloby,3
+115,REP,Nathaniel Welch,2
+115,REP,"Pete ""Doc"" Chambers",50
+115,REP,"R.F. ""Bob"" Achgill",1
+115,REP,Ronnie Tullos,0
+115,REP,Stephen Samuelson,3
+115,,Over Votes,0
+115,,Under Votes,16
+116,REP,Arturo Espinosa,8
+116,REP,Charles Andrew Crouch,6
+116,REP,Evelyn Brooks,18
+116,REP,Greg Abbott,677
+116,REP,Kenneth Hyde,7
+116,REP,Mark V. Goloby,4
+116,REP,Nathaniel Welch,3
+116,REP,"Pete ""Doc"" Chambers",81
+116,REP,"R.F. ""Bob"" Achgill",4
+116,REP,Ronnie Tullos,3
+116,REP,Stephen Samuelson,1
+116,,Over Votes,0
+116,,Under Votes,32
+117,REP,Arturo Espinosa,7
+117,REP,Charles Andrew Crouch,1
+117,REP,Evelyn Brooks,9
+117,REP,Greg Abbott,340
+117,REP,Kenneth Hyde,2
+117,REP,Mark V. Goloby,2
+117,REP,Nathaniel Welch,3
+117,REP,"Pete ""Doc"" Chambers",68
+117,REP,"R.F. ""Bob"" Achgill",0
+117,REP,Ronnie Tullos,3
+117,REP,Stephen Samuelson,1
+117,,Over Votes,0
+117,,Under Votes,10
+118,REP,Arturo Espinosa,3
+118,REP,Charles Andrew Crouch,3
+118,REP,Evelyn Brooks,14
+118,REP,Greg Abbott,446
+118,REP,Kenneth Hyde,2
+118,REP,Mark V. Goloby,3
+118,REP,Nathaniel Welch,2
+118,REP,"Pete ""Doc"" Chambers",79
+118,REP,"R.F. ""Bob"" Achgill",5
+118,REP,Ronnie Tullos,1
+118,REP,Stephen Samuelson,2
+118,,Over Votes,0
+118,,Under Votes,10
+119,REP,Arturo Espinosa,6
+119,REP,Charles Andrew Crouch,3
+119,REP,Evelyn Brooks,12
+119,REP,Greg Abbott,271
+119,REP,Kenneth Hyde,4
+119,REP,Mark V. Goloby,3
+119,REP,Nathaniel Welch,4
+119,REP,"Pete ""Doc"" Chambers",47
+119,REP,"R.F. ""Bob"" Achgill",0
+119,REP,Ronnie Tullos,0
+119,REP,Stephen Samuelson,1
+119,,Over Votes,0
+119,,Under Votes,20
+12,REP,Arturo Espinosa,2
+12,REP,Charles Andrew Crouch,2
+12,REP,Evelyn Brooks,4
+12,REP,Greg Abbott,304
+12,REP,Kenneth Hyde,3
+12,REP,Mark V. Goloby,0
+12,REP,Nathaniel Welch,1
+12,REP,"Pete ""Doc"" Chambers",44
+12,REP,"R.F. ""Bob"" Achgill",0
+12,REP,Ronnie Tullos,2
+12,REP,Stephen Samuelson,1
+12,,Over Votes,0
+12,,Under Votes,8
+120,REP,Arturo Espinosa,13
+120,REP,Charles Andrew Crouch,1
+120,REP,Evelyn Brooks,20
+120,REP,Greg Abbott,542
+120,REP,Kenneth Hyde,7
+120,REP,Mark V. Goloby,4
+120,REP,Nathaniel Welch,3
+120,REP,"Pete ""Doc"" Chambers",91
+120,REP,"R.F. ""Bob"" Achgill",6
+120,REP,Ronnie Tullos,2
+120,REP,Stephen Samuelson,2
+120,,Over Votes,0
+120,,Under Votes,34
+121,REP,Arturo Espinosa,4
+121,REP,Charles Andrew Crouch,0
+121,REP,Evelyn Brooks,4
+121,REP,Greg Abbott,202
+121,REP,Kenneth Hyde,2
+121,REP,Mark V. Goloby,3
+121,REP,Nathaniel Welch,1
+121,REP,"Pete ""Doc"" Chambers",20
+121,REP,"R.F. ""Bob"" Achgill",0
+121,REP,Ronnie Tullos,3
+121,REP,Stephen Samuelson,2
+121,,Over Votes,0
+121,,Under Votes,21
+122,REP,Arturo Espinosa,9
+122,REP,Charles Andrew Crouch,7
+122,REP,Evelyn Brooks,19
+122,REP,Greg Abbott,753
+122,REP,Kenneth Hyde,1
+122,REP,Mark V. Goloby,8
+122,REP,Nathaniel Welch,3
+122,REP,"Pete ""Doc"" Chambers",131
+122,REP,"R.F. ""Bob"" Achgill",3
+122,REP,Ronnie Tullos,4
+122,REP,Stephen Samuelson,8
+122,,Over Votes,1
+122,,Under Votes,33
+123,REP,Arturo Espinosa,7
+123,REP,Charles Andrew Crouch,1
+123,REP,Evelyn Brooks,9
+123,REP,Greg Abbott,279
+123,REP,Kenneth Hyde,3
+123,REP,Mark V. Goloby,0
+123,REP,Nathaniel Welch,1
+123,REP,"Pete ""Doc"" Chambers",25
+123,REP,"R.F. ""Bob"" Achgill",0
+123,REP,Ronnie Tullos,0
+123,REP,Stephen Samuelson,1
+123,,Over Votes,0
+123,,Under Votes,7
+124,REP,Arturo Espinosa,5
+124,REP,Charles Andrew Crouch,2
+124,REP,Evelyn Brooks,11
+124,REP,Greg Abbott,296
+124,REP,Kenneth Hyde,3
+124,REP,Mark V. Goloby,0
+124,REP,Nathaniel Welch,1
+124,REP,"Pete ""Doc"" Chambers",36
+124,REP,"R.F. ""Bob"" Achgill",1
+124,REP,Ronnie Tullos,2
+124,REP,Stephen Samuelson,3
+124,,Over Votes,0
+124,,Under Votes,19
+125,REP,Arturo Espinosa,5
+125,REP,Charles Andrew Crouch,2
+125,REP,Evelyn Brooks,18
+125,REP,Greg Abbott,156
+125,REP,Kenneth Hyde,6
+125,REP,Mark V. Goloby,9
+125,REP,Nathaniel Welch,2
+125,REP,"Pete ""Doc"" Chambers",26
+125,REP,"R.F. ""Bob"" Achgill",1
+125,REP,Ronnie Tullos,3
+125,REP,Stephen Samuelson,0
+125,,Over Votes,0
+125,,Under Votes,58
+126,REP,Arturo Espinosa,5
+126,REP,Charles Andrew Crouch,2
+126,REP,Evelyn Brooks,19
+126,REP,Greg Abbott,446
+126,REP,Kenneth Hyde,10
+126,REP,Mark V. Goloby,5
+126,REP,Nathaniel Welch,6
+126,REP,"Pete ""Doc"" Chambers",83
+126,REP,"R.F. ""Bob"" Achgill",1
+126,REP,Ronnie Tullos,3
+126,REP,Stephen Samuelson,4
+126,,Over Votes,1
+126,,Under Votes,16
+127,REP,Arturo Espinosa,2
+127,REP,Charles Andrew Crouch,1
+127,REP,Evelyn Brooks,8
+127,REP,Greg Abbott,341
+127,REP,Kenneth Hyde,3
+127,REP,Mark V. Goloby,1
+127,REP,Nathaniel Welch,0
+127,REP,"Pete ""Doc"" Chambers",63
+127,REP,"R.F. ""Bob"" Achgill",2
+127,REP,Ronnie Tullos,2
+127,REP,Stephen Samuelson,0
+127,,Over Votes,0
+127,,Under Votes,11
+128,REP,Arturo Espinosa,9
+128,REP,Charles Andrew Crouch,3
+128,REP,Evelyn Brooks,18
+128,REP,Greg Abbott,603
+128,REP,Kenneth Hyde,6
+128,REP,Mark V. Goloby,2
+128,REP,Nathaniel Welch,0
+128,REP,"Pete ""Doc"" Chambers",117
+128,REP,"R.F. ""Bob"" Achgill",0
+128,REP,Ronnie Tullos,0
+128,REP,Stephen Samuelson,2
+128,,Over Votes,0
+128,,Under Votes,15
+129,REP,Arturo Espinosa,2
+129,REP,Charles Andrew Crouch,0
+129,REP,Evelyn Brooks,11
+129,REP,Greg Abbott,465
+129,REP,Kenneth Hyde,4
+129,REP,Mark V. Goloby,0
+129,REP,Nathaniel Welch,2
+129,REP,"Pete ""Doc"" Chambers",101
+129,REP,"R.F. ""Bob"" Achgill",1
+129,REP,Ronnie Tullos,1
+129,REP,Stephen Samuelson,0
+129,,Over Votes,0
+129,,Under Votes,23
+13,REP,Arturo Espinosa,3
+13,REP,Charles Andrew Crouch,4
+13,REP,Evelyn Brooks,9
+13,REP,Greg Abbott,391
+13,REP,Kenneth Hyde,4
+13,REP,Mark V. Goloby,1
+13,REP,Nathaniel Welch,1
+13,REP,"Pete ""Doc"" Chambers",100
+13,REP,"R.F. ""Bob"" Achgill",0
+13,REP,Ronnie Tullos,0
+13,REP,Stephen Samuelson,3
+13,,Over Votes,0
+13,,Under Votes,7
+130,REP,Arturo Espinosa,8
+130,REP,Charles Andrew Crouch,4
+130,REP,Evelyn Brooks,15
+130,REP,Greg Abbott,369
+130,REP,Kenneth Hyde,1
+130,REP,Mark V. Goloby,1
+130,REP,Nathaniel Welch,3
+130,REP,"Pete ""Doc"" Chambers",60
+130,REP,"R.F. ""Bob"" Achgill",3
+130,REP,Ronnie Tullos,6
+130,REP,Stephen Samuelson,2
+130,,Over Votes,0
+130,,Under Votes,20
+131,REP,Arturo Espinosa,11
+131,REP,Charles Andrew Crouch,4
+131,REP,Evelyn Brooks,11
+131,REP,Greg Abbott,412
+131,REP,Kenneth Hyde,1
+131,REP,Mark V. Goloby,3
+131,REP,Nathaniel Welch,2
+131,REP,"Pete ""Doc"" Chambers",68
+131,REP,"R.F. ""Bob"" Achgill",0
+131,REP,Ronnie Tullos,1
+131,REP,Stephen Samuelson,2
+131,,Over Votes,0
+131,,Under Votes,22
+132,REP,Arturo Espinosa,3
+132,REP,Charles Andrew Crouch,0
+132,REP,Evelyn Brooks,8
+132,REP,Greg Abbott,263
+132,REP,Kenneth Hyde,3
+132,REP,Mark V. Goloby,1
+132,REP,Nathaniel Welch,1
+132,REP,"Pete ""Doc"" Chambers",25
+132,REP,"R.F. ""Bob"" Achgill",4
+132,REP,Ronnie Tullos,0
+132,REP,Stephen Samuelson,1
+132,,Over Votes,0
+132,,Under Votes,11
+133,REP,Arturo Espinosa,3
+133,REP,Charles Andrew Crouch,1
+133,REP,Evelyn Brooks,4
+133,REP,Greg Abbott,242
+133,REP,Kenneth Hyde,2
+133,REP,Mark V. Goloby,1
+133,REP,Nathaniel Welch,2
+133,REP,"Pete ""Doc"" Chambers",51
+133,REP,"R.F. ""Bob"" Achgill",0
+133,REP,Ronnie Tullos,1
+133,REP,Stephen Samuelson,1
+133,,Over Votes,0
+133,,Under Votes,13
+134,REP,Arturo Espinosa,2
+134,REP,Charles Andrew Crouch,1
+134,REP,Evelyn Brooks,7
+134,REP,Greg Abbott,277
+134,REP,Kenneth Hyde,1
+134,REP,Mark V. Goloby,1
+134,REP,Nathaniel Welch,4
+134,REP,"Pete ""Doc"" Chambers",68
+134,REP,"R.F. ""Bob"" Achgill",1
+134,REP,Ronnie Tullos,1
+134,REP,Stephen Samuelson,1
+134,,Over Votes,0
+134,,Under Votes,13
+135,REP,Arturo Espinosa,11
+135,REP,Charles Andrew Crouch,2
+135,REP,Evelyn Brooks,14
+135,REP,Greg Abbott,306
+135,REP,Kenneth Hyde,8
+135,REP,Mark V. Goloby,2
+135,REP,Nathaniel Welch,4
+135,REP,"Pete ""Doc"" Chambers",49
+135,REP,"R.F. ""Bob"" Achgill",1
+135,REP,Ronnie Tullos,3
+135,REP,Stephen Samuelson,3
+135,,Over Votes,0
+135,,Under Votes,25
+136,REP,Arturo Espinosa,2
+136,REP,Charles Andrew Crouch,2
+136,REP,Evelyn Brooks,9
+136,REP,Greg Abbott,321
+136,REP,Kenneth Hyde,1
+136,REP,Mark V. Goloby,0
+136,REP,Nathaniel Welch,3
+136,REP,"Pete ""Doc"" Chambers",25
+136,REP,"R.F. ""Bob"" Achgill",1
+136,REP,Ronnie Tullos,0
+136,REP,Stephen Samuelson,1
+136,,Over Votes,0
+136,,Under Votes,8
+137,REP,Arturo Espinosa,2
+137,REP,Charles Andrew Crouch,0
+137,REP,Evelyn Brooks,11
+137,REP,Greg Abbott,279
+137,REP,Kenneth Hyde,4
+137,REP,Mark V. Goloby,0
+137,REP,Nathaniel Welch,1
+137,REP,"Pete ""Doc"" Chambers",22
+137,REP,"R.F. ""Bob"" Achgill",0
+137,REP,Ronnie Tullos,1
+137,REP,Stephen Samuelson,0
+137,,Over Votes,0
+137,,Under Votes,11
+138,REP,Arturo Espinosa,6
+138,REP,Charles Andrew Crouch,4
+138,REP,Evelyn Brooks,14
+138,REP,Greg Abbott,263
+138,REP,Kenneth Hyde,1
+138,REP,Mark V. Goloby,0
+138,REP,Nathaniel Welch,3
+138,REP,"Pete ""Doc"" Chambers",47
+138,REP,"R.F. ""Bob"" Achgill",2
+138,REP,Ronnie Tullos,3
+138,REP,Stephen Samuelson,3
+138,,Over Votes,0
+138,,Under Votes,16
+139,REP,Arturo Espinosa,7
+139,REP,Charles Andrew Crouch,2
+139,REP,Evelyn Brooks,15
+139,REP,Greg Abbott,288
+139,REP,Kenneth Hyde,2
+139,REP,Mark V. Goloby,5
+139,REP,Nathaniel Welch,3
+139,REP,"Pete ""Doc"" Chambers",51
+139,REP,"R.F. ""Bob"" Achgill",3
+139,REP,Ronnie Tullos,3
+139,REP,Stephen Samuelson,3
+139,,Over Votes,0
+139,,Under Votes,16
+14,REP,Arturo Espinosa,2
+14,REP,Charles Andrew Crouch,0
+14,REP,Evelyn Brooks,11
+14,REP,Greg Abbott,229
+14,REP,Kenneth Hyde,3
+14,REP,Mark V. Goloby,1
+14,REP,Nathaniel Welch,3
+14,REP,"Pete ""Doc"" Chambers",24
+14,REP,"R.F. ""Bob"" Achgill",0
+14,REP,Ronnie Tullos,3
+14,REP,Stephen Samuelson,0
+14,,Over Votes,0
+14,,Under Votes,8
+140,REP,Arturo Espinosa,10
+140,REP,Charles Andrew Crouch,9
+140,REP,Evelyn Brooks,25
+140,REP,Greg Abbott,701
+140,REP,Kenneth Hyde,6
+140,REP,Mark V. Goloby,6
+140,REP,Nathaniel Welch,5
+140,REP,"Pete ""Doc"" Chambers",174
+140,REP,"R.F. ""Bob"" Achgill",4
+140,REP,Ronnie Tullos,5
+140,REP,Stephen Samuelson,11
+140,,Over Votes,0
+140,,Under Votes,21
+141,REP,Arturo Espinosa,10
+141,REP,Charles Andrew Crouch,7
+141,REP,Evelyn Brooks,19
+141,REP,Greg Abbott,417
+141,REP,Kenneth Hyde,9
+141,REP,Mark V. Goloby,3
+141,REP,Nathaniel Welch,7
+141,REP,"Pete ""Doc"" Chambers",75
+141,REP,"R.F. ""Bob"" Achgill",0
+141,REP,Ronnie Tullos,3
+141,REP,Stephen Samuelson,0
+141,,Over Votes,1
+141,,Under Votes,52
+142,REP,Arturo Espinosa,0
+142,REP,Charles Andrew Crouch,0
+142,REP,Evelyn Brooks,9
+142,REP,Greg Abbott,334
+142,REP,Kenneth Hyde,1
+142,REP,Mark V. Goloby,0
+142,REP,Nathaniel Welch,2
+142,REP,"Pete ""Doc"" Chambers",35
+142,REP,"R.F. ""Bob"" Achgill",2
+142,REP,Ronnie Tullos,3
+142,REP,Stephen Samuelson,2
+142,,Over Votes,0
+142,,Under Votes,12
+143,REP,Arturo Espinosa,1
+143,REP,Charles Andrew Crouch,0
+143,REP,Evelyn Brooks,12
+143,REP,Greg Abbott,292
+143,REP,Kenneth Hyde,0
+143,REP,Mark V. Goloby,0
+143,REP,Nathaniel Welch,1
+143,REP,"Pete ""Doc"" Chambers",27
+143,REP,"R.F. ""Bob"" Achgill",0
+143,REP,Ronnie Tullos,1
+143,REP,Stephen Samuelson,1
+143,,Over Votes,0
+143,,Under Votes,4
+144,REP,Arturo Espinosa,5
+144,REP,Charles Andrew Crouch,2
+144,REP,Evelyn Brooks,11
+144,REP,Greg Abbott,388
+144,REP,Kenneth Hyde,6
+144,REP,Mark V. Goloby,1
+144,REP,Nathaniel Welch,0
+144,REP,"Pete ""Doc"" Chambers",108
+144,REP,"R.F. ""Bob"" Achgill",1
+144,REP,Ronnie Tullos,2
+144,REP,Stephen Samuelson,0
+144,,Over Votes,0
+144,,Under Votes,35
+145,REP,Arturo Espinosa,4
+145,REP,Charles Andrew Crouch,2
+145,REP,Evelyn Brooks,6
+145,REP,Greg Abbott,143
+145,REP,Kenneth Hyde,1
+145,REP,Mark V. Goloby,1
+145,REP,Nathaniel Welch,1
+145,REP,"Pete ""Doc"" Chambers",28
+145,REP,"R.F. ""Bob"" Achgill",1
+145,REP,Ronnie Tullos,0
+145,REP,Stephen Samuelson,3
+145,,Over Votes,0
+145,,Under Votes,7
+146,REP,Arturo Espinosa,11
+146,REP,Charles Andrew Crouch,3
+146,REP,Evelyn Brooks,11
+146,REP,Greg Abbott,376
+146,REP,Kenneth Hyde,2
+146,REP,Mark V. Goloby,4
+146,REP,Nathaniel Welch,1
+146,REP,"Pete ""Doc"" Chambers",68
+146,REP,"R.F. ""Bob"" Achgill",1
+146,REP,Ronnie Tullos,1
+146,REP,Stephen Samuelson,2
+146,,Over Votes,0
+146,,Under Votes,9
+147,REP,Arturo Espinosa,3
+147,REP,Charles Andrew Crouch,1
+147,REP,Evelyn Brooks,10
+147,REP,Greg Abbott,157
+147,REP,Kenneth Hyde,1
+147,REP,Mark V. Goloby,0
+147,REP,Nathaniel Welch,1
+147,REP,"Pete ""Doc"" Chambers",37
+147,REP,"R.F. ""Bob"" Achgill",1
+147,REP,Ronnie Tullos,1
+147,REP,Stephen Samuelson,1
+147,,Over Votes,0
+147,,Under Votes,9
+148,REP,Arturo Espinosa,5
+148,REP,Charles Andrew Crouch,4
+148,REP,Evelyn Brooks,16
+148,REP,Greg Abbott,147
+148,REP,Kenneth Hyde,6
+148,REP,Mark V. Goloby,5
+148,REP,Nathaniel Welch,7
+148,REP,"Pete ""Doc"" Chambers",9
+148,REP,"R.F. ""Bob"" Achgill",0
+148,REP,Ronnie Tullos,6
+148,REP,Stephen Samuelson,7
+148,,Over Votes,2
+148,,Under Votes,72
+149,REP,Arturo Espinosa,5
+149,REP,Charles Andrew Crouch,1
+149,REP,Evelyn Brooks,18
+149,REP,Greg Abbott,579
+149,REP,Kenneth Hyde,5
+149,REP,Mark V. Goloby,2
+149,REP,Nathaniel Welch,2
+149,REP,"Pete ""Doc"" Chambers",105
+149,REP,"R.F. ""Bob"" Achgill",3
+149,REP,Ronnie Tullos,3
+149,REP,Stephen Samuelson,0
+149,,Over Votes,0
+149,,Under Votes,18
+15,REP,Arturo Espinosa,2
+15,REP,Charles Andrew Crouch,0
+15,REP,Evelyn Brooks,4
+15,REP,Greg Abbott,100
+15,REP,Kenneth Hyde,1
+15,REP,Mark V. Goloby,0
+15,REP,Nathaniel Welch,2
+15,REP,"Pete ""Doc"" Chambers",25
+15,REP,"R.F. ""Bob"" Achgill",2
+15,REP,Ronnie Tullos,5
+15,REP,Stephen Samuelson,0
+15,,Over Votes,0
+15,,Under Votes,2
+150,REP,Arturo Espinosa,5
+150,REP,Charles Andrew Crouch,0
+150,REP,Evelyn Brooks,10
+150,REP,Greg Abbott,514
+150,REP,Kenneth Hyde,3
+150,REP,Mark V. Goloby,1
+150,REP,Nathaniel Welch,2
+150,REP,"Pete ""Doc"" Chambers",54
+150,REP,"R.F. ""Bob"" Achgill",1
+150,REP,Ronnie Tullos,0
+150,REP,Stephen Samuelson,2
+150,,Over Votes,0
+150,,Under Votes,6
+151,REP,Arturo Espinosa,2
+151,REP,Charles Andrew Crouch,0
+151,REP,Evelyn Brooks,2
+151,REP,Greg Abbott,144
+151,REP,Kenneth Hyde,3
+151,REP,Mark V. Goloby,1
+151,REP,Nathaniel Welch,2
+151,REP,"Pete ""Doc"" Chambers",22
+151,REP,"R.F. ""Bob"" Achgill",0
+151,REP,Ronnie Tullos,2
+151,REP,Stephen Samuelson,0
+151,,Over Votes,1
+151,,Under Votes,10
+152,REP,Arturo Espinosa,0
+152,REP,Charles Andrew Crouch,0
+152,REP,Evelyn Brooks,0
+152,REP,Greg Abbott,8
+152,REP,Kenneth Hyde,0
+152,REP,Mark V. Goloby,0
+152,REP,Nathaniel Welch,0
+152,REP,"Pete ""Doc"" Chambers",1
+152,REP,"R.F. ""Bob"" Achgill",0
+152,REP,Ronnie Tullos,1
+152,REP,Stephen Samuelson,0
+152,,Over Votes,0
+152,,Under Votes,0
+153,REP,Arturo Espinosa,3
+153,REP,Charles Andrew Crouch,1
+153,REP,Evelyn Brooks,7
+153,REP,Greg Abbott,95
+153,REP,Kenneth Hyde,3
+153,REP,Mark V. Goloby,2
+153,REP,Nathaniel Welch,1
+153,REP,"Pete ""Doc"" Chambers",22
+153,REP,"R.F. ""Bob"" Achgill",1
+153,REP,Ronnie Tullos,0
+153,REP,Stephen Samuelson,2
+153,,Over Votes,0
+153,,Under Votes,20
+154,REP,Arturo Espinosa,5
+154,REP,Charles Andrew Crouch,2
+154,REP,Evelyn Brooks,10
+154,REP,Greg Abbott,392
+154,REP,Kenneth Hyde,1
+154,REP,Mark V. Goloby,0
+154,REP,Nathaniel Welch,1
+154,REP,"Pete ""Doc"" Chambers",108
+154,REP,"R.F. ""Bob"" Achgill",2
+154,REP,Ronnie Tullos,2
+154,REP,Stephen Samuelson,0
+154,,Over Votes,0
+154,,Under Votes,6
+155,REP,Arturo Espinosa,8
+155,REP,Charles Andrew Crouch,2
+155,REP,Evelyn Brooks,10
+155,REP,Greg Abbott,295
+155,REP,Kenneth Hyde,4
+155,REP,Mark V. Goloby,3
+155,REP,Nathaniel Welch,2
+155,REP,"Pete ""Doc"" Chambers",60
+155,REP,"R.F. ""Bob"" Achgill",1
+155,REP,Ronnie Tullos,4
+155,REP,Stephen Samuelson,3
+155,,Over Votes,1
+155,,Under Votes,15
+156,REP,Arturo Espinosa,7
+156,REP,Charles Andrew Crouch,2
+156,REP,Evelyn Brooks,10
+156,REP,Greg Abbott,352
+156,REP,Kenneth Hyde,3
+156,REP,Mark V. Goloby,4
+156,REP,Nathaniel Welch,6
+156,REP,"Pete ""Doc"" Chambers",75
+156,REP,"R.F. ""Bob"" Achgill",1
+156,REP,Ronnie Tullos,3
+156,REP,Stephen Samuelson,1
+156,,Over Votes,1
+156,,Under Votes,13
+157,REP,Arturo Espinosa,3
+157,REP,Charles Andrew Crouch,7
+157,REP,Evelyn Brooks,17
+157,REP,Greg Abbott,429
+157,REP,Kenneth Hyde,4
+157,REP,Mark V. Goloby,2
+157,REP,Nathaniel Welch,4
+157,REP,"Pete ""Doc"" Chambers",58
+157,REP,"R.F. ""Bob"" Achgill",1
+157,REP,Ronnie Tullos,2
+157,REP,Stephen Samuelson,1
+157,,Over Votes,0
+157,,Under Votes,20
+158,REP,Arturo Espinosa,5
+158,REP,Charles Andrew Crouch,5
+158,REP,Evelyn Brooks,11
+158,REP,Greg Abbott,207
+158,REP,Kenneth Hyde,8
+158,REP,Mark V. Goloby,4
+158,REP,Nathaniel Welch,2
+158,REP,"Pete ""Doc"" Chambers",33
+158,REP,"R.F. ""Bob"" Achgill",1
+158,REP,Ronnie Tullos,1
+158,REP,Stephen Samuelson,4
+158,,Over Votes,0
+158,,Under Votes,37
+159,REP,Arturo Espinosa,6
+159,REP,Charles Andrew Crouch,0
+159,REP,Evelyn Brooks,9
+159,REP,Greg Abbott,217
+159,REP,Kenneth Hyde,6
+159,REP,Mark V. Goloby,1
+159,REP,Nathaniel Welch,3
+159,REP,"Pete ""Doc"" Chambers",63
+159,REP,"R.F. ""Bob"" Achgill",3
+159,REP,Ronnie Tullos,0
+159,REP,Stephen Samuelson,1
+159,,Over Votes,0
+159,,Under Votes,30
+16,REP,Arturo Espinosa,1
+16,REP,Charles Andrew Crouch,3
+16,REP,Evelyn Brooks,8
+16,REP,Greg Abbott,323
+16,REP,Kenneth Hyde,4
+16,REP,Mark V. Goloby,1
+16,REP,Nathaniel Welch,1
+16,REP,"Pete ""Doc"" Chambers",80
+16,REP,"R.F. ""Bob"" Achgill",4
+16,REP,Ronnie Tullos,1
+16,REP,Stephen Samuelson,2
+16,,Over Votes,0
+16,,Under Votes,10
+160,REP,Arturo Espinosa,0
+160,REP,Charles Andrew Crouch,1
+160,REP,Evelyn Brooks,2
+160,REP,Greg Abbott,92
+160,REP,Kenneth Hyde,1
+160,REP,Mark V. Goloby,0
+160,REP,Nathaniel Welch,0
+160,REP,"Pete ""Doc"" Chambers",33
+160,REP,"R.F. ""Bob"" Achgill",0
+160,REP,Ronnie Tullos,2
+160,REP,Stephen Samuelson,0
+160,,Over Votes,0
+160,,Under Votes,3
+161,REP,Arturo Espinosa,0
+161,REP,Charles Andrew Crouch,1
+161,REP,Evelyn Brooks,2
+161,REP,Greg Abbott,35
+161,REP,Kenneth Hyde,0
+161,REP,Mark V. Goloby,0
+161,REP,Nathaniel Welch,0
+161,REP,"Pete ""Doc"" Chambers",8
+161,REP,"R.F. ""Bob"" Achgill",0
+161,REP,Ronnie Tullos,0
+161,REP,Stephen Samuelson,0
+161,,Over Votes,0
+161,,Under Votes,0
+162,REP,Arturo Espinosa,0
+162,REP,Charles Andrew Crouch,4
+162,REP,Evelyn Brooks,9
+162,REP,Greg Abbott,130
+162,REP,Kenneth Hyde,1
+162,REP,Mark V. Goloby,0
+162,REP,Nathaniel Welch,1
+162,REP,"Pete ""Doc"" Chambers",15
+162,REP,"R.F. ""Bob"" Achgill",2
+162,REP,Ronnie Tullos,2
+162,REP,Stephen Samuelson,1
+162,,Over Votes,0
+162,,Under Votes,4
+163,REP,Arturo Espinosa,2
+163,REP,Charles Andrew Crouch,1
+163,REP,Evelyn Brooks,4
+163,REP,Greg Abbott,178
+163,REP,Kenneth Hyde,2
+163,REP,Mark V. Goloby,0
+163,REP,Nathaniel Welch,2
+163,REP,"Pete ""Doc"" Chambers",30
+163,REP,"R.F. ""Bob"" Achgill",0
+163,REP,Ronnie Tullos,0
+163,REP,Stephen Samuelson,1
+163,,Over Votes,1
+163,,Under Votes,5
+164,REP,Arturo Espinosa,4
+164,REP,Charles Andrew Crouch,2
+164,REP,Evelyn Brooks,19
+164,REP,Greg Abbott,474
+164,REP,Kenneth Hyde,2
+164,REP,Mark V. Goloby,3
+164,REP,Nathaniel Welch,3
+164,REP,"Pete ""Doc"" Chambers",19
+164,REP,"R.F. ""Bob"" Achgill",5
+164,REP,Ronnie Tullos,1
+164,REP,Stephen Samuelson,5
+164,,Over Votes,0
+164,,Under Votes,14
+165,REP,Arturo Espinosa,2
+165,REP,Charles Andrew Crouch,0
+165,REP,Evelyn Brooks,7
+165,REP,Greg Abbott,164
+165,REP,Kenneth Hyde,4
+165,REP,Mark V. Goloby,2
+165,REP,Nathaniel Welch,1
+165,REP,"Pete ""Doc"" Chambers",31
+165,REP,"R.F. ""Bob"" Achgill",0
+165,REP,Ronnie Tullos,1
+165,REP,Stephen Samuelson,5
+165,,Over Votes,0
+165,,Under Votes,29
+166,REP,Arturo Espinosa,6
+166,REP,Charles Andrew Crouch,9
+166,REP,Evelyn Brooks,17
+166,REP,Greg Abbott,424
+166,REP,Kenneth Hyde,19
+166,REP,Mark V. Goloby,5
+166,REP,Nathaniel Welch,3
+166,REP,"Pete ""Doc"" Chambers",89
+166,REP,"R.F. ""Bob"" Achgill",3
+166,REP,Ronnie Tullos,8
+166,REP,Stephen Samuelson,4
+166,,Over Votes,1
+166,,Under Votes,98
+167,REP,Arturo Espinosa,2
+167,REP,Charles Andrew Crouch,0
+167,REP,Evelyn Brooks,10
+167,REP,Greg Abbott,139
+167,REP,Kenneth Hyde,4
+167,REP,Mark V. Goloby,0
+167,REP,Nathaniel Welch,2
+167,REP,"Pete ""Doc"" Chambers",22
+167,REP,"R.F. ""Bob"" Achgill",2
+167,REP,Ronnie Tullos,0
+167,REP,Stephen Samuelson,2
+167,,Over Votes,1
+167,,Under Votes,5
+168,REP,Arturo Espinosa,3
+168,REP,Charles Andrew Crouch,4
+168,REP,Evelyn Brooks,12
+168,REP,Greg Abbott,286
+168,REP,Kenneth Hyde,6
+168,REP,Mark V. Goloby,1
+168,REP,Nathaniel Welch,5
+168,REP,"Pete ""Doc"" Chambers",47
+168,REP,"R.F. ""Bob"" Achgill",0
+168,REP,Ronnie Tullos,1
+168,REP,Stephen Samuelson,3
+168,,Over Votes,0
+168,,Under Votes,12
+169,REP,Arturo Espinosa,7
+169,REP,Charles Andrew Crouch,1
+169,REP,Evelyn Brooks,8
+169,REP,Greg Abbott,256
+169,REP,Kenneth Hyde,7
+169,REP,Mark V. Goloby,1
+169,REP,Nathaniel Welch,2
+169,REP,"Pete ""Doc"" Chambers",63
+169,REP,"R.F. ""Bob"" Achgill",3
+169,REP,Ronnie Tullos,2
+169,REP,Stephen Samuelson,4
+169,,Over Votes,0
+169,,Under Votes,16
+17,REP,Arturo Espinosa,6
+17,REP,Charles Andrew Crouch,1
+17,REP,Evelyn Brooks,6
+17,REP,Greg Abbott,406
+17,REP,Kenneth Hyde,2
+17,REP,Mark V. Goloby,2
+17,REP,Nathaniel Welch,1
+17,REP,"Pete ""Doc"" Chambers",93
+17,REP,"R.F. ""Bob"" Achgill",1
+17,REP,Ronnie Tullos,1
+17,REP,Stephen Samuelson,2
+17,,Over Votes,0
+17,,Under Votes,9
+170,REP,Arturo Espinosa,2
+170,REP,Charles Andrew Crouch,4
+170,REP,Evelyn Brooks,2
+170,REP,Greg Abbott,240
+170,REP,Kenneth Hyde,2
+170,REP,Mark V. Goloby,0
+170,REP,Nathaniel Welch,0
+170,REP,"Pete ""Doc"" Chambers",34
+170,REP,"R.F. ""Bob"" Achgill",0
+170,REP,Ronnie Tullos,2
+170,REP,Stephen Samuelson,1
+170,,Over Votes,0
+170,,Under Votes,4
+171,REP,Arturo Espinosa,1
+171,REP,Charles Andrew Crouch,0
+171,REP,Evelyn Brooks,12
+171,REP,Greg Abbott,259
+171,REP,Kenneth Hyde,4
+171,REP,Mark V. Goloby,1
+171,REP,Nathaniel Welch,4
+171,REP,"Pete ""Doc"" Chambers",25
+171,REP,"R.F. ""Bob"" Achgill",1
+171,REP,Ronnie Tullos,1
+171,REP,Stephen Samuelson,2
+171,,Over Votes,0
+171,,Under Votes,13
+172,REP,Arturo Espinosa,1
+172,REP,Charles Andrew Crouch,1
+172,REP,Evelyn Brooks,4
+172,REP,Greg Abbott,363
+172,REP,Kenneth Hyde,3
+172,REP,Mark V. Goloby,1
+172,REP,Nathaniel Welch,4
+172,REP,"Pete ""Doc"" Chambers",71
+172,REP,"R.F. ""Bob"" Achgill",0
+172,REP,Ronnie Tullos,0
+172,REP,Stephen Samuelson,2
+172,,Over Votes,0
+172,,Under Votes,11
+173,REP,Arturo Espinosa,1
+173,REP,Charles Andrew Crouch,0
+173,REP,Evelyn Brooks,3
+173,REP,Greg Abbott,151
+173,REP,Kenneth Hyde,1
+173,REP,Mark V. Goloby,0
+173,REP,Nathaniel Welch,1
+173,REP,"Pete ""Doc"" Chambers",11
+173,REP,"R.F. ""Bob"" Achgill",1
+173,REP,Ronnie Tullos,0
+173,REP,Stephen Samuelson,0
+173,,Over Votes,0
+173,,Under Votes,3
+174,REP,Arturo Espinosa,3
+174,REP,Charles Andrew Crouch,0
+174,REP,Evelyn Brooks,19
+174,REP,Greg Abbott,401
+174,REP,Kenneth Hyde,4
+174,REP,Mark V. Goloby,4
+174,REP,Nathaniel Welch,4
+174,REP,"Pete ""Doc"" Chambers",78
+174,REP,"R.F. ""Bob"" Achgill",1
+174,REP,Ronnie Tullos,1
+174,REP,Stephen Samuelson,3
+174,,Over Votes,0
+174,,Under Votes,22
+175,REP,Arturo Espinosa,3
+175,REP,Charles Andrew Crouch,2
+175,REP,Evelyn Brooks,6
+175,REP,Greg Abbott,279
+175,REP,Kenneth Hyde,3
+175,REP,Mark V. Goloby,3
+175,REP,Nathaniel Welch,4
+175,REP,"Pete ""Doc"" Chambers",61
+175,REP,"R.F. ""Bob"" Achgill",0
+175,REP,Ronnie Tullos,3
+175,REP,Stephen Samuelson,0
+175,,Over Votes,0
+175,,Under Votes,25
+176,REP,Arturo Espinosa,3
+176,REP,Charles Andrew Crouch,3
+176,REP,Evelyn Brooks,4
+176,REP,Greg Abbott,151
+176,REP,Kenneth Hyde,2
+176,REP,Mark V. Goloby,1
+176,REP,Nathaniel Welch,1
+176,REP,"Pete ""Doc"" Chambers",24
+176,REP,"R.F. ""Bob"" Achgill",1
+176,REP,Ronnie Tullos,0
+176,REP,Stephen Samuelson,2
+176,,Over Votes,0
+176,,Under Votes,5
+177,REP,Arturo Espinosa,1
+177,REP,Charles Andrew Crouch,1
+177,REP,Evelyn Brooks,2
+177,REP,Greg Abbott,315
+177,REP,Kenneth Hyde,2
+177,REP,Mark V. Goloby,0
+177,REP,Nathaniel Welch,1
+177,REP,"Pete ""Doc"" Chambers",69
+177,REP,"R.F. ""Bob"" Achgill",0
+177,REP,Ronnie Tullos,0
+177,REP,Stephen Samuelson,1
+177,,Over Votes,0
+177,,Under Votes,6
+178,REP,Arturo Espinosa,3
+178,REP,Charles Andrew Crouch,1
+178,REP,Evelyn Brooks,8
+178,REP,Greg Abbott,372
+178,REP,Kenneth Hyde,2
+178,REP,Mark V. Goloby,2
+178,REP,Nathaniel Welch,2
+178,REP,"Pete ""Doc"" Chambers",92
+178,REP,"R.F. ""Bob"" Achgill",0
+178,REP,Ronnie Tullos,0
+178,REP,Stephen Samuelson,0
+178,,Over Votes,0
+178,,Under Votes,19
+179,REP,Arturo Espinosa,5
+179,REP,Charles Andrew Crouch,5
+179,REP,Evelyn Brooks,25
+179,REP,Greg Abbott,1231
+179,REP,Kenneth Hyde,10
+179,REP,Mark V. Goloby,1
+179,REP,Nathaniel Welch,2
+179,REP,"Pete ""Doc"" Chambers",116
+179,REP,"R.F. ""Bob"" Achgill",3
+179,REP,Ronnie Tullos,2
+179,REP,Stephen Samuelson,5
+179,,Over Votes,0
+179,,Under Votes,37
+18,REP,Arturo Espinosa,1
+18,REP,Charles Andrew Crouch,0
+18,REP,Evelyn Brooks,2
+18,REP,Greg Abbott,167
+18,REP,Kenneth Hyde,2
+18,REP,Mark V. Goloby,1
+18,REP,Nathaniel Welch,0
+18,REP,"Pete ""Doc"" Chambers",38
+18,REP,"R.F. ""Bob"" Achgill",0
+18,REP,Ronnie Tullos,0
+18,REP,Stephen Samuelson,0
+18,,Over Votes,0
+18,,Under Votes,6
+180,REP,Arturo Espinosa,5
+180,REP,Charles Andrew Crouch,3
+180,REP,Evelyn Brooks,5
+180,REP,Greg Abbott,233
+180,REP,Kenneth Hyde,4
+180,REP,Mark V. Goloby,3
+180,REP,Nathaniel Welch,4
+180,REP,"Pete ""Doc"" Chambers",47
+180,REP,"R.F. ""Bob"" Achgill",3
+180,REP,Ronnie Tullos,2
+180,REP,Stephen Samuelson,1
+180,,Over Votes,0
+180,,Under Votes,12
+181,REP,Arturo Espinosa,2
+181,REP,Charles Andrew Crouch,2
+181,REP,Evelyn Brooks,4
+181,REP,Greg Abbott,267
+181,REP,Kenneth Hyde,3
+181,REP,Mark V. Goloby,1
+181,REP,Nathaniel Welch,1
+181,REP,"Pete ""Doc"" Chambers",72
+181,REP,"R.F. ""Bob"" Achgill",0
+181,REP,Ronnie Tullos,1
+181,REP,Stephen Samuelson,1
+181,,Over Votes,0
+181,,Under Votes,3
+182,REP,Arturo Espinosa,9
+182,REP,Charles Andrew Crouch,3
+182,REP,Evelyn Brooks,23
+182,REP,Greg Abbott,446
+182,REP,Kenneth Hyde,3
+182,REP,Mark V. Goloby,4
+182,REP,Nathaniel Welch,3
+182,REP,"Pete ""Doc"" Chambers",61
+182,REP,"R.F. ""Bob"" Achgill",2
+182,REP,Ronnie Tullos,3
+182,REP,Stephen Samuelson,3
+182,,Over Votes,0
+182,,Under Votes,23
+183,REP,Arturo Espinosa,0
+183,REP,Charles Andrew Crouch,0
+183,REP,Evelyn Brooks,0
+183,REP,Greg Abbott,27
+183,REP,Kenneth Hyde,0
+183,REP,Mark V. Goloby,0
+183,REP,Nathaniel Welch,0
+183,REP,"Pete ""Doc"" Chambers",8
+183,REP,"R.F. ""Bob"" Achgill",0
+183,REP,Ronnie Tullos,0
+183,REP,Stephen Samuelson,0
+183,,Over Votes,0
+183,,Under Votes,0
+184,REP,Arturo Espinosa,3
+184,REP,Charles Andrew Crouch,0
+184,REP,Evelyn Brooks,2
+184,REP,Greg Abbott,167
+184,REP,Kenneth Hyde,1
+184,REP,Mark V. Goloby,0
+184,REP,Nathaniel Welch,2
+184,REP,"Pete ""Doc"" Chambers",32
+184,REP,"R.F. ""Bob"" Achgill",0
+184,REP,Ronnie Tullos,0
+184,REP,Stephen Samuelson,1
+184,,Over Votes,1
+184,,Under Votes,3
+185,REP,Arturo Espinosa,5
+185,REP,Charles Andrew Crouch,0
+185,REP,Evelyn Brooks,8
+185,REP,Greg Abbott,379
+185,REP,Kenneth Hyde,5
+185,REP,Mark V. Goloby,0
+185,REP,Nathaniel Welch,5
+185,REP,"Pete ""Doc"" Chambers",66
+185,REP,"R.F. ""Bob"" Achgill",1
+185,REP,Ronnie Tullos,5
+185,REP,Stephen Samuelson,2
+185,,Over Votes,0
+185,,Under Votes,14
+186,REP,Arturo Espinosa,0
+186,REP,Charles Andrew Crouch,1
+186,REP,Evelyn Brooks,2
+186,REP,Greg Abbott,146
+186,REP,Kenneth Hyde,0
+186,REP,Mark V. Goloby,0
+186,REP,Nathaniel Welch,1
+186,REP,"Pete ""Doc"" Chambers",19
+186,REP,"R.F. ""Bob"" Achgill",0
+186,REP,Ronnie Tullos,0
+186,REP,Stephen Samuelson,0
+186,,Over Votes,0
+186,,Under Votes,5
+187,REP,Arturo Espinosa,0
+187,REP,Charles Andrew Crouch,0
+187,REP,Evelyn Brooks,0
+187,REP,Greg Abbott,70
+187,REP,Kenneth Hyde,0
+187,REP,Mark V. Goloby,0
+187,REP,Nathaniel Welch,1
+187,REP,"Pete ""Doc"" Chambers",20
+187,REP,"R.F. ""Bob"" Achgill",0
+187,REP,Ronnie Tullos,0
+187,REP,Stephen Samuelson,0
+187,,Over Votes,0
+187,,Under Votes,3
+188,REP,Arturo Espinosa,1
+188,REP,Charles Andrew Crouch,0
+188,REP,Evelyn Brooks,2
+188,REP,Greg Abbott,71
+188,REP,Kenneth Hyde,0
+188,REP,Mark V. Goloby,0
+188,REP,Nathaniel Welch,0
+188,REP,"Pete ""Doc"" Chambers",10
+188,REP,"R.F. ""Bob"" Achgill",0
+188,REP,Ronnie Tullos,0
+188,REP,Stephen Samuelson,0
+188,,Over Votes,0
+188,,Under Votes,1
+189,REP,Arturo Espinosa,3
+189,REP,Charles Andrew Crouch,1
+189,REP,Evelyn Brooks,5
+189,REP,Greg Abbott,338
+189,REP,Kenneth Hyde,1
+189,REP,Mark V. Goloby,0
+189,REP,Nathaniel Welch,3
+189,REP,"Pete ""Doc"" Chambers",58
+189,REP,"R.F. ""Bob"" Achgill",1
+189,REP,Ronnie Tullos,4
+189,REP,Stephen Samuelson,0
+189,,Over Votes,0
+189,,Under Votes,6
+19,REP,Arturo Espinosa,3
+19,REP,Charles Andrew Crouch,3
+19,REP,Evelyn Brooks,6
+19,REP,Greg Abbott,232
+19,REP,Kenneth Hyde,1
+19,REP,Mark V. Goloby,4
+19,REP,Nathaniel Welch,1
+19,REP,"Pete ""Doc"" Chambers",26
+19,REP,"R.F. ""Bob"" Achgill",0
+19,REP,Ronnie Tullos,0
+19,REP,Stephen Samuelson,0
+19,,Over Votes,0
+19,,Under Votes,6
+190,REP,Arturo Espinosa,2
+190,REP,Charles Andrew Crouch,2
+190,REP,Evelyn Brooks,2
+190,REP,Greg Abbott,131
+190,REP,Kenneth Hyde,1
+190,REP,Mark V. Goloby,0
+190,REP,Nathaniel Welch,2
+190,REP,"Pete ""Doc"" Chambers",30
+190,REP,"R.F. ""Bob"" Achgill",0
+190,REP,Ronnie Tullos,0
+190,REP,Stephen Samuelson,0
+190,,Over Votes,0
+190,,Under Votes,3
+191,REP,Arturo Espinosa,2
+191,REP,Charles Andrew Crouch,2
+191,REP,Evelyn Brooks,3
+191,REP,Greg Abbott,77
+191,REP,Kenneth Hyde,1
+191,REP,Mark V. Goloby,1
+191,REP,Nathaniel Welch,0
+191,REP,"Pete ""Doc"" Chambers",21
+191,REP,"R.F. ""Bob"" Achgill",0
+191,REP,Ronnie Tullos,0
+191,REP,Stephen Samuelson,1
+191,,Over Votes,0
+191,,Under Votes,1
+192,REP,Arturo Espinosa,3
+192,REP,Charles Andrew Crouch,4
+192,REP,Evelyn Brooks,9
+192,REP,Greg Abbott,491
+192,REP,Kenneth Hyde,4
+192,REP,Mark V. Goloby,1
+192,REP,Nathaniel Welch,3
+192,REP,"Pete ""Doc"" Chambers",132
+192,REP,"R.F. ""Bob"" Achgill",2
+192,REP,Ronnie Tullos,4
+192,REP,Stephen Samuelson,0
+192,,Over Votes,0
+192,,Under Votes,9
+193,REP,Arturo Espinosa,2
+193,REP,Charles Andrew Crouch,2
+193,REP,Evelyn Brooks,4
+193,REP,Greg Abbott,234
+193,REP,Kenneth Hyde,2
+193,REP,Mark V. Goloby,0
+193,REP,Nathaniel Welch,0
+193,REP,"Pete ""Doc"" Chambers",39
+193,REP,"R.F. ""Bob"" Achgill",2
+193,REP,Ronnie Tullos,2
+193,REP,Stephen Samuelson,0
+193,,Over Votes,0
+193,,Under Votes,3
+194,REP,Arturo Espinosa,3
+194,REP,Charles Andrew Crouch,8
+194,REP,Evelyn Brooks,12
+194,REP,Greg Abbott,471
+194,REP,Kenneth Hyde,1
+194,REP,Mark V. Goloby,4
+194,REP,Nathaniel Welch,5
+194,REP,"Pete ""Doc"" Chambers",96
+194,REP,"R.F. ""Bob"" Achgill",2
+194,REP,Ronnie Tullos,3
+194,REP,Stephen Samuelson,0
+194,,Over Votes,0
+194,,Under Votes,13
+195,REP,Arturo Espinosa,0
+195,REP,Charles Andrew Crouch,3
+195,REP,Evelyn Brooks,3
+195,REP,Greg Abbott,164
+195,REP,Kenneth Hyde,1
+195,REP,Mark V. Goloby,1
+195,REP,Nathaniel Welch,0
+195,REP,"Pete ""Doc"" Chambers",41
+195,REP,"R.F. ""Bob"" Achgill",2
+195,REP,Ronnie Tullos,0
+195,REP,Stephen Samuelson,1
+195,,Over Votes,0
+195,,Under Votes,7
+196,REP,Arturo Espinosa,3
+196,REP,Charles Andrew Crouch,3
+196,REP,Evelyn Brooks,5
+196,REP,Greg Abbott,193
+196,REP,Kenneth Hyde,4
+196,REP,Mark V. Goloby,1
+196,REP,Nathaniel Welch,1
+196,REP,"Pete ""Doc"" Chambers",44
+196,REP,"R.F. ""Bob"" Achgill",0
+196,REP,Ronnie Tullos,2
+196,REP,Stephen Samuelson,2
+196,,Over Votes,1
+196,,Under Votes,12
+197,REP,Arturo Espinosa,2
+197,REP,Charles Andrew Crouch,1
+197,REP,Evelyn Brooks,3
+197,REP,Greg Abbott,95
+197,REP,Kenneth Hyde,1
+197,REP,Mark V. Goloby,0
+197,REP,Nathaniel Welch,1
+197,REP,"Pete ""Doc"" Chambers",13
+197,REP,"R.F. ""Bob"" Achgill",0
+197,REP,Ronnie Tullos,1
+197,REP,Stephen Samuelson,1
+197,,Over Votes,0
+197,,Under Votes,9
+198,REP,Arturo Espinosa,5
+198,REP,Charles Andrew Crouch,4
+198,REP,Evelyn Brooks,11
+198,REP,Greg Abbott,389
+198,REP,Kenneth Hyde,2
+198,REP,Mark V. Goloby,0
+198,REP,Nathaniel Welch,3
+198,REP,"Pete ""Doc"" Chambers",68
+198,REP,"R.F. ""Bob"" Achgill",1
+198,REP,Ronnie Tullos,2
+198,REP,Stephen Samuelson,3
+198,,Over Votes,0
+198,,Under Votes,6
+199,REP,Arturo Espinosa,3
+199,REP,Charles Andrew Crouch,0
+199,REP,Evelyn Brooks,14
+199,REP,Greg Abbott,504
+199,REP,Kenneth Hyde,1
+199,REP,Mark V. Goloby,3
+199,REP,Nathaniel Welch,3
+199,REP,"Pete ""Doc"" Chambers",97
+199,REP,"R.F. ""Bob"" Achgill",1
+199,REP,Ronnie Tullos,4
+199,REP,Stephen Samuelson,1
+199,,Over Votes,0
+199,,Under Votes,14
+2,REP,Arturo Espinosa,5
+2,REP,Charles Andrew Crouch,1
+2,REP,Evelyn Brooks,14
+2,REP,Greg Abbott,429
+2,REP,Kenneth Hyde,5
+2,REP,Mark V. Goloby,4
+2,REP,Nathaniel Welch,5
+2,REP,"Pete ""Doc"" Chambers",62
+2,REP,"R.F. ""Bob"" Achgill",0
+2,REP,Ronnie Tullos,2
+2,REP,Stephen Samuelson,3
+2,,Over Votes,1
+2,,Under Votes,7
+20,REP,Arturo Espinosa,5
+20,REP,Charles Andrew Crouch,0
+20,REP,Evelyn Brooks,8
+20,REP,Greg Abbott,322
+20,REP,Kenneth Hyde,2
+20,REP,Mark V. Goloby,1
+20,REP,Nathaniel Welch,3
+20,REP,"Pete ""Doc"" Chambers",60
+20,REP,"R.F. ""Bob"" Achgill",1
+20,REP,Ronnie Tullos,1
+20,REP,Stephen Samuelson,1
+20,,Over Votes,0
+20,,Under Votes,7
+200,REP,Arturo Espinosa,0
+200,REP,Charles Andrew Crouch,2
+200,REP,Evelyn Brooks,5
+200,REP,Greg Abbott,344
+200,REP,Kenneth Hyde,7
+200,REP,Mark V. Goloby,0
+200,REP,Nathaniel Welch,5
+200,REP,"Pete ""Doc"" Chambers",71
+200,REP,"R.F. ""Bob"" Achgill",0
+200,REP,Ronnie Tullos,1
+200,REP,Stephen Samuelson,2
+200,,Over Votes,0
+200,,Under Votes,15
+201,REP,Arturo Espinosa,0
+201,REP,Charles Andrew Crouch,0
+201,REP,Evelyn Brooks,0
+201,REP,Greg Abbott,0
+201,REP,Kenneth Hyde,0
+201,REP,Mark V. Goloby,0
+201,REP,Nathaniel Welch,0
+201,REP,"Pete ""Doc"" Chambers",0
+201,REP,"R.F. ""Bob"" Achgill",0
+201,REP,Ronnie Tullos,0
+201,REP,Stephen Samuelson,0
+201,,Over Votes,0
+201,,Under Votes,0
+203,REP,Arturo Espinosa,5
+203,REP,Charles Andrew Crouch,2
+203,REP,Evelyn Brooks,12
+203,REP,Greg Abbott,524
+203,REP,Kenneth Hyde,7
+203,REP,Mark V. Goloby,1
+203,REP,Nathaniel Welch,1
+203,REP,"Pete ""Doc"" Chambers",63
+203,REP,"R.F. ""Bob"" Achgill",1
+203,REP,Ronnie Tullos,0
+203,REP,Stephen Samuelson,2
+203,,Over Votes,0
+203,,Under Votes,18
+204,REP,Arturo Espinosa,1
+204,REP,Charles Andrew Crouch,0
+204,REP,Evelyn Brooks,5
+204,REP,Greg Abbott,73
+204,REP,Kenneth Hyde,0
+204,REP,Mark V. Goloby,1
+204,REP,Nathaniel Welch,0
+204,REP,"Pete ""Doc"" Chambers",19
+204,REP,"R.F. ""Bob"" Achgill",0
+204,REP,Ronnie Tullos,0
+204,REP,Stephen Samuelson,0
+204,,Over Votes,0
+204,,Under Votes,7
+205,REP,Arturo Espinosa,13
+205,REP,Charles Andrew Crouch,4
+205,REP,Evelyn Brooks,9
+205,REP,Greg Abbott,387
+205,REP,Kenneth Hyde,3
+205,REP,Mark V. Goloby,4
+205,REP,Nathaniel Welch,3
+205,REP,"Pete ""Doc"" Chambers",72
+205,REP,"R.F. ""Bob"" Achgill",4
+205,REP,Ronnie Tullos,4
+205,REP,Stephen Samuelson,7
+205,,Over Votes,0
+205,,Under Votes,46
+206,REP,Arturo Espinosa,5
+206,REP,Charles Andrew Crouch,0
+206,REP,Evelyn Brooks,5
+206,REP,Greg Abbott,252
+206,REP,Kenneth Hyde,4
+206,REP,Mark V. Goloby,0
+206,REP,Nathaniel Welch,1
+206,REP,"Pete ""Doc"" Chambers",34
+206,REP,"R.F. ""Bob"" Achgill",0
+206,REP,Ronnie Tullos,1
+206,REP,Stephen Samuelson,0
+206,,Over Votes,0
+206,,Under Votes,10
+207,REP,Arturo Espinosa,8
+207,REP,Charles Andrew Crouch,7
+207,REP,Evelyn Brooks,6
+207,REP,Greg Abbott,453
+207,REP,Kenneth Hyde,3
+207,REP,Mark V. Goloby,0
+207,REP,Nathaniel Welch,3
+207,REP,"Pete ""Doc"" Chambers",88
+207,REP,"R.F. ""Bob"" Achgill",3
+207,REP,Ronnie Tullos,1
+207,REP,Stephen Samuelson,0
+207,,Over Votes,0
+207,,Under Votes,27
+208,REP,Arturo Espinosa,7
+208,REP,Charles Andrew Crouch,1
+208,REP,Evelyn Brooks,13
+208,REP,Greg Abbott,556
+208,REP,Kenneth Hyde,9
+208,REP,Mark V. Goloby,1
+208,REP,Nathaniel Welch,2
+208,REP,"Pete ""Doc"" Chambers",103
+208,REP,"R.F. ""Bob"" Achgill",3
+208,REP,Ronnie Tullos,6
+208,REP,Stephen Samuelson,5
+208,,Over Votes,0
+208,,Under Votes,20
+209,REP,Arturo Espinosa,0
+209,REP,Charles Andrew Crouch,0
+209,REP,Evelyn Brooks,0
+209,REP,Greg Abbott,26
+209,REP,Kenneth Hyde,1
+209,REP,Mark V. Goloby,0
+209,REP,Nathaniel Welch,0
+209,REP,"Pete ""Doc"" Chambers",14
+209,REP,"R.F. ""Bob"" Achgill",0
+209,REP,Ronnie Tullos,0
+209,REP,Stephen Samuelson,0
+209,,Over Votes,0
+209,,Under Votes,1
+21,REP,Arturo Espinosa,8
+21,REP,Charles Andrew Crouch,1
+21,REP,Evelyn Brooks,23
+21,REP,Greg Abbott,521
+21,REP,Kenneth Hyde,2
+21,REP,Mark V. Goloby,3
+21,REP,Nathaniel Welch,2
+21,REP,"Pete ""Doc"" Chambers",65
+21,REP,"R.F. ""Bob"" Achgill",5
+21,REP,Ronnie Tullos,2
+21,REP,Stephen Samuelson,1
+21,,Over Votes,1
+21,,Under Votes,9
+210,REP,Arturo Espinosa,10
+210,REP,Charles Andrew Crouch,1
+210,REP,Evelyn Brooks,9
+210,REP,Greg Abbott,131
+210,REP,Kenneth Hyde,28
+210,REP,Mark V. Goloby,2
+210,REP,Nathaniel Welch,4
+210,REP,"Pete ""Doc"" Chambers",44
+210,REP,"R.F. ""Bob"" Achgill",1
+210,REP,Ronnie Tullos,3
+210,REP,Stephen Samuelson,1
+210,,Over Votes,0
+210,,Under Votes,73
+211,REP,Arturo Espinosa,7
+211,REP,Charles Andrew Crouch,4
+211,REP,Evelyn Brooks,14
+211,REP,Greg Abbott,383
+211,REP,Kenneth Hyde,4
+211,REP,Mark V. Goloby,6
+211,REP,Nathaniel Welch,2
+211,REP,"Pete ""Doc"" Chambers",78
+211,REP,"R.F. ""Bob"" Achgill",1
+211,REP,Ronnie Tullos,1
+211,REP,Stephen Samuelson,7
+211,,Over Votes,0
+211,,Under Votes,15
+212,REP,Arturo Espinosa,6
+212,REP,Charles Andrew Crouch,1
+212,REP,Evelyn Brooks,8
+212,REP,Greg Abbott,215
+212,REP,Kenneth Hyde,2
+212,REP,Mark V. Goloby,8
+212,REP,Nathaniel Welch,5
+212,REP,"Pete ""Doc"" Chambers",35
+212,REP,"R.F. ""Bob"" Achgill",4
+212,REP,Ronnie Tullos,3
+212,REP,Stephen Samuelson,2
+212,,Over Votes,0
+212,,Under Votes,16
+213,REP,Arturo Espinosa,3
+213,REP,Charles Andrew Crouch,2
+213,REP,Evelyn Brooks,3
+213,REP,Greg Abbott,253
+213,REP,Kenneth Hyde,4
+213,REP,Mark V. Goloby,1
+213,REP,Nathaniel Welch,2
+213,REP,"Pete ""Doc"" Chambers",61
+213,REP,"R.F. ""Bob"" Achgill",2
+213,REP,Ronnie Tullos,4
+213,REP,Stephen Samuelson,0
+213,,Over Votes,0
+213,,Under Votes,11
+214,REP,Arturo Espinosa,2
+214,REP,Charles Andrew Crouch,8
+214,REP,Evelyn Brooks,9
+214,REP,Greg Abbott,674
+214,REP,Kenneth Hyde,1
+214,REP,Mark V. Goloby,1
+214,REP,Nathaniel Welch,4
+214,REP,"Pete ""Doc"" Chambers",157
+214,REP,"R.F. ""Bob"" Achgill",4
+214,REP,Ronnie Tullos,0
+214,REP,Stephen Samuelson,0
+214,,Over Votes,0
+214,,Under Votes,10
+215,REP,Arturo Espinosa,1
+215,REP,Charles Andrew Crouch,1
+215,REP,Evelyn Brooks,1
+215,REP,Greg Abbott,294
+215,REP,Kenneth Hyde,2
+215,REP,Mark V. Goloby,4
+215,REP,Nathaniel Welch,1
+215,REP,"Pete ""Doc"" Chambers",56
+215,REP,"R.F. ""Bob"" Achgill",0
+215,REP,Ronnie Tullos,4
+215,REP,Stephen Samuelson,2
+215,,Over Votes,0
+215,,Under Votes,7
+216,REP,Arturo Espinosa,4
+216,REP,Charles Andrew Crouch,3
+216,REP,Evelyn Brooks,18
+216,REP,Greg Abbott,650
+216,REP,Kenneth Hyde,5
+216,REP,Mark V. Goloby,2
+216,REP,Nathaniel Welch,6
+216,REP,"Pete ""Doc"" Chambers",120
+216,REP,"R.F. ""Bob"" Achgill",3
+216,REP,Ronnie Tullos,2
+216,REP,Stephen Samuelson,4
+216,,Over Votes,0
+216,,Under Votes,15
+217,REP,Arturo Espinosa,4
+217,REP,Charles Andrew Crouch,2
+217,REP,Evelyn Brooks,6
+217,REP,Greg Abbott,330
+217,REP,Kenneth Hyde,2
+217,REP,Mark V. Goloby,2
+217,REP,Nathaniel Welch,3
+217,REP,"Pete ""Doc"" Chambers",82
+217,REP,"R.F. ""Bob"" Achgill",2
+217,REP,Ronnie Tullos,2
+217,REP,Stephen Samuelson,1
+217,,Over Votes,1
+217,,Under Votes,9
+218,REP,Arturo Espinosa,6
+218,REP,Charles Andrew Crouch,2
+218,REP,Evelyn Brooks,25
+218,REP,Greg Abbott,456
+218,REP,Kenneth Hyde,6
+218,REP,Mark V. Goloby,1
+218,REP,Nathaniel Welch,4
+218,REP,"Pete ""Doc"" Chambers",55
+218,REP,"R.F. ""Bob"" Achgill",1
+218,REP,Ronnie Tullos,2
+218,REP,Stephen Samuelson,6
+218,,Over Votes,1
+218,,Under Votes,25
+219,REP,Arturo Espinosa,4
+219,REP,Charles Andrew Crouch,2
+219,REP,Evelyn Brooks,18
+219,REP,Greg Abbott,427
+219,REP,Kenneth Hyde,5
+219,REP,Mark V. Goloby,3
+219,REP,Nathaniel Welch,0
+219,REP,"Pete ""Doc"" Chambers",55
+219,REP,"R.F. ""Bob"" Achgill",3
+219,REP,Ronnie Tullos,2
+219,REP,Stephen Samuelson,3
+219,,Over Votes,1
+219,,Under Votes,31
+22,REP,Arturo Espinosa,5
+22,REP,Charles Andrew Crouch,6
+22,REP,Evelyn Brooks,14
+22,REP,Greg Abbott,584
+22,REP,Kenneth Hyde,8
+22,REP,Mark V. Goloby,2
+22,REP,Nathaniel Welch,2
+22,REP,"Pete ""Doc"" Chambers",167
+22,REP,"R.F. ""Bob"" Achgill",3
+22,REP,Ronnie Tullos,6
+22,REP,Stephen Samuelson,5
+22,,Over Votes,0
+22,,Under Votes,12
+220,REP,Arturo Espinosa,0
+220,REP,Charles Andrew Crouch,0
+220,REP,Evelyn Brooks,2
+220,REP,Greg Abbott,124
+220,REP,Kenneth Hyde,0
+220,REP,Mark V. Goloby,1
+220,REP,Nathaniel Welch,4
+220,REP,"Pete ""Doc"" Chambers",40
+220,REP,"R.F. ""Bob"" Achgill",1
+220,REP,Ronnie Tullos,0
+220,REP,Stephen Samuelson,0
+220,,Over Votes,0
+220,,Under Votes,12
+221,REP,Arturo Espinosa,3
+221,REP,Charles Andrew Crouch,0
+221,REP,Evelyn Brooks,7
+221,REP,Greg Abbott,324
+221,REP,Kenneth Hyde,3
+221,REP,Mark V. Goloby,0
+221,REP,Nathaniel Welch,2
+221,REP,"Pete ""Doc"" Chambers",80
+221,REP,"R.F. ""Bob"" Achgill",2
+221,REP,Ronnie Tullos,0
+221,REP,Stephen Samuelson,3
+221,,Over Votes,0
+221,,Under Votes,9
+222,REP,Arturo Espinosa,8
+222,REP,Charles Andrew Crouch,3
+222,REP,Evelyn Brooks,16
+222,REP,Greg Abbott,397
+222,REP,Kenneth Hyde,7
+222,REP,Mark V. Goloby,4
+222,REP,Nathaniel Welch,3
+222,REP,"Pete ""Doc"" Chambers",49
+222,REP,"R.F. ""Bob"" Achgill",0
+222,REP,Ronnie Tullos,1
+222,REP,Stephen Samuelson,2
+222,,Over Votes,0
+222,,Under Votes,22
+223,REP,Arturo Espinosa,2
+223,REP,Charles Andrew Crouch,3
+223,REP,Evelyn Brooks,6
+223,REP,Greg Abbott,275
+223,REP,Kenneth Hyde,1
+223,REP,Mark V. Goloby,6
+223,REP,Nathaniel Welch,2
+223,REP,"Pete ""Doc"" Chambers",57
+223,REP,"R.F. ""Bob"" Achgill",1
+223,REP,Ronnie Tullos,0
+223,REP,Stephen Samuelson,0
+223,,Over Votes,0
+223,,Under Votes,6
+224,REP,Arturo Espinosa,2
+224,REP,Charles Andrew Crouch,6
+224,REP,Evelyn Brooks,8
+224,REP,Greg Abbott,517
+224,REP,Kenneth Hyde,2
+224,REP,Mark V. Goloby,1
+224,REP,Nathaniel Welch,2
+224,REP,"Pete ""Doc"" Chambers",126
+224,REP,"R.F. ""Bob"" Achgill",5
+224,REP,Ronnie Tullos,1
+224,REP,Stephen Samuelson,4
+224,,Over Votes,1
+224,,Under Votes,7
+225,REP,Arturo Espinosa,5
+225,REP,Charles Andrew Crouch,5
+225,REP,Evelyn Brooks,12
+225,REP,Greg Abbott,243
+225,REP,Kenneth Hyde,1
+225,REP,Mark V. Goloby,1
+225,REP,Nathaniel Welch,4
+225,REP,"Pete ""Doc"" Chambers",66
+225,REP,"R.F. ""Bob"" Achgill",0
+225,REP,Ronnie Tullos,2
+225,REP,Stephen Samuelson,2
+225,,Over Votes,1
+225,,Under Votes,12
+226,REP,Arturo Espinosa,3
+226,REP,Charles Andrew Crouch,5
+226,REP,Evelyn Brooks,9
+226,REP,Greg Abbott,329
+226,REP,Kenneth Hyde,4
+226,REP,Mark V. Goloby,6
+226,REP,Nathaniel Welch,1
+226,REP,"Pete ""Doc"" Chambers",65
+226,REP,"R.F. ""Bob"" Achgill",2
+226,REP,Ronnie Tullos,4
+226,REP,Stephen Samuelson,7
+226,,Over Votes,0
+226,,Under Votes,12
+227,REP,Arturo Espinosa,10
+227,REP,Charles Andrew Crouch,8
+227,REP,Evelyn Brooks,13
+227,REP,Greg Abbott,397
+227,REP,Kenneth Hyde,8
+227,REP,Mark V. Goloby,1
+227,REP,Nathaniel Welch,4
+227,REP,"Pete ""Doc"" Chambers",68
+227,REP,"R.F. ""Bob"" Achgill",2
+227,REP,Ronnie Tullos,1
+227,REP,Stephen Samuelson,3
+227,,Over Votes,0
+227,,Under Votes,19
+228,REP,Arturo Espinosa,4
+228,REP,Charles Andrew Crouch,0
+228,REP,Evelyn Brooks,6
+228,REP,Greg Abbott,232
+228,REP,Kenneth Hyde,3
+228,REP,Mark V. Goloby,2
+228,REP,Nathaniel Welch,3
+228,REP,"Pete ""Doc"" Chambers",52
+228,REP,"R.F. ""Bob"" Achgill",2
+228,REP,Ronnie Tullos,2
+228,REP,Stephen Samuelson,2
+228,,Over Votes,0
+228,,Under Votes,5
+229,REP,Arturo Espinosa,2
+229,REP,Charles Andrew Crouch,2
+229,REP,Evelyn Brooks,1
+229,REP,Greg Abbott,128
+229,REP,Kenneth Hyde,0
+229,REP,Mark V. Goloby,1
+229,REP,Nathaniel Welch,1
+229,REP,"Pete ""Doc"" Chambers",34
+229,REP,"R.F. ""Bob"" Achgill",1
+229,REP,Ronnie Tullos,0
+229,REP,Stephen Samuelson,1
+229,,Over Votes,0
+229,,Under Votes,5
+23,REP,Arturo Espinosa,3
+23,REP,Charles Andrew Crouch,3
+23,REP,Evelyn Brooks,4
+23,REP,Greg Abbott,86
+23,REP,Kenneth Hyde,4
+23,REP,Mark V. Goloby,2
+23,REP,Nathaniel Welch,2
+23,REP,"Pete ""Doc"" Chambers",14
+23,REP,"R.F. ""Bob"" Achgill",1
+23,REP,Ronnie Tullos,1
+23,REP,Stephen Samuelson,1
+23,,Over Votes,0
+23,,Under Votes,28
+230,REP,Arturo Espinosa,2
+230,REP,Charles Andrew Crouch,4
+230,REP,Evelyn Brooks,14
+230,REP,Greg Abbott,277
+230,REP,Kenneth Hyde,7
+230,REP,Mark V. Goloby,3
+230,REP,Nathaniel Welch,2
+230,REP,"Pete ""Doc"" Chambers",53
+230,REP,"R.F. ""Bob"" Achgill",2
+230,REP,Ronnie Tullos,5
+230,REP,Stephen Samuelson,2
+230,,Over Votes,0
+230,,Under Votes,15
+231,REP,Arturo Espinosa,4
+231,REP,Charles Andrew Crouch,3
+231,REP,Evelyn Brooks,6
+231,REP,Greg Abbott,469
+231,REP,Kenneth Hyde,5
+231,REP,Mark V. Goloby,1
+231,REP,Nathaniel Welch,4
+231,REP,"Pete ""Doc"" Chambers",86
+231,REP,"R.F. ""Bob"" Achgill",0
+231,REP,Ronnie Tullos,3
+231,REP,Stephen Samuelson,3
+231,,Over Votes,0
+231,,Under Votes,32
+232,REP,Arturo Espinosa,5
+232,REP,Charles Andrew Crouch,1
+232,REP,Evelyn Brooks,12
+232,REP,Greg Abbott,424
+232,REP,Kenneth Hyde,1
+232,REP,Mark V. Goloby,2
+232,REP,Nathaniel Welch,6
+232,REP,"Pete ""Doc"" Chambers",74
+232,REP,"R.F. ""Bob"" Achgill",1
+232,REP,Ronnie Tullos,3
+232,REP,Stephen Samuelson,3
+232,,Over Votes,0
+232,,Under Votes,18
+233,REP,Arturo Espinosa,1
+233,REP,Charles Andrew Crouch,3
+233,REP,Evelyn Brooks,7
+233,REP,Greg Abbott,254
+233,REP,Kenneth Hyde,1
+233,REP,Mark V. Goloby,2
+233,REP,Nathaniel Welch,5
+233,REP,"Pete ""Doc"" Chambers",40
+233,REP,"R.F. ""Bob"" Achgill",0
+233,REP,Ronnie Tullos,5
+233,REP,Stephen Samuelson,1
+233,,Over Votes,0
+233,,Under Votes,5
+234,REP,Arturo Espinosa,4
+234,REP,Charles Andrew Crouch,2
+234,REP,Evelyn Brooks,11
+234,REP,Greg Abbott,240
+234,REP,Kenneth Hyde,8
+234,REP,Mark V. Goloby,1
+234,REP,Nathaniel Welch,0
+234,REP,"Pete ""Doc"" Chambers",56
+234,REP,"R.F. ""Bob"" Achgill",4
+234,REP,Ronnie Tullos,1
+234,REP,Stephen Samuelson,4
+234,,Over Votes,0
+234,,Under Votes,15
+235,REP,Arturo Espinosa,2
+235,REP,Charles Andrew Crouch,1
+235,REP,Evelyn Brooks,3
+235,REP,Greg Abbott,149
+235,REP,Kenneth Hyde,1
+235,REP,Mark V. Goloby,1
+235,REP,Nathaniel Welch,2
+235,REP,"Pete ""Doc"" Chambers",17
+235,REP,"R.F. ""Bob"" Achgill",0
+235,REP,Ronnie Tullos,1
+235,REP,Stephen Samuelson,4
+235,,Over Votes,0
+235,,Under Votes,5
+236,REP,Arturo Espinosa,5
+236,REP,Charles Andrew Crouch,3
+236,REP,Evelyn Brooks,8
+236,REP,Greg Abbott,464
+236,REP,Kenneth Hyde,1
+236,REP,Mark V. Goloby,1
+236,REP,Nathaniel Welch,1
+236,REP,"Pete ""Doc"" Chambers",95
+236,REP,"R.F. ""Bob"" Achgill",2
+236,REP,Ronnie Tullos,1
+236,REP,Stephen Samuelson,4
+236,,Over Votes,0
+236,,Under Votes,24
+237,REP,Arturo Espinosa,2
+237,REP,Charles Andrew Crouch,0
+237,REP,Evelyn Brooks,6
+237,REP,Greg Abbott,175
+237,REP,Kenneth Hyde,7
+237,REP,Mark V. Goloby,1
+237,REP,Nathaniel Welch,1
+237,REP,"Pete ""Doc"" Chambers",39
+237,REP,"R.F. ""Bob"" Achgill",1
+237,REP,Ronnie Tullos,2
+237,REP,Stephen Samuelson,1
+237,,Over Votes,1
+237,,Under Votes,24
+238,REP,Arturo Espinosa,8
+238,REP,Charles Andrew Crouch,0
+238,REP,Evelyn Brooks,11
+238,REP,Greg Abbott,187
+238,REP,Kenneth Hyde,4
+238,REP,Mark V. Goloby,1
+238,REP,Nathaniel Welch,1
+238,REP,"Pete ""Doc"" Chambers",39
+238,REP,"R.F. ""Bob"" Achgill",0
+238,REP,Ronnie Tullos,2
+238,REP,Stephen Samuelson,3
+238,,Over Votes,0
+238,,Under Votes,16
+239,REP,Arturo Espinosa,5
+239,REP,Charles Andrew Crouch,4
+239,REP,Evelyn Brooks,12
+239,REP,Greg Abbott,516
+239,REP,Kenneth Hyde,5
+239,REP,Mark V. Goloby,0
+239,REP,Nathaniel Welch,1
+239,REP,"Pete ""Doc"" Chambers",107
+239,REP,"R.F. ""Bob"" Achgill",6
+239,REP,Ronnie Tullos,1
+239,REP,Stephen Samuelson,1
+239,,Over Votes,0
+239,,Under Votes,15
+24,REP,Arturo Espinosa,3
+24,REP,Charles Andrew Crouch,0
+24,REP,Evelyn Brooks,1
+24,REP,Greg Abbott,98
+24,REP,Kenneth Hyde,0
+24,REP,Mark V. Goloby,0
+24,REP,Nathaniel Welch,0
+24,REP,"Pete ""Doc"" Chambers",15
+24,REP,"R.F. ""Bob"" Achgill",0
+24,REP,Ronnie Tullos,0
+24,REP,Stephen Samuelson,0
+24,,Over Votes,0
+24,,Under Votes,2
+240,REP,Arturo Espinosa,6
+240,REP,Charles Andrew Crouch,3
+240,REP,Evelyn Brooks,8
+240,REP,Greg Abbott,475
+240,REP,Kenneth Hyde,2
+240,REP,Mark V. Goloby,2
+240,REP,Nathaniel Welch,3
+240,REP,"Pete ""Doc"" Chambers",126
+240,REP,"R.F. ""Bob"" Achgill",1
+240,REP,Ronnie Tullos,2
+240,REP,Stephen Samuelson,1
+240,,Over Votes,0
+240,,Under Votes,13
+241,REP,Arturo Espinosa,4
+241,REP,Charles Andrew Crouch,3
+241,REP,Evelyn Brooks,6
+241,REP,Greg Abbott,179
+241,REP,Kenneth Hyde,10
+241,REP,Mark V. Goloby,2
+241,REP,Nathaniel Welch,3
+241,REP,"Pete ""Doc"" Chambers",44
+241,REP,"R.F. ""Bob"" Achgill",0
+241,REP,Ronnie Tullos,0
+241,REP,Stephen Samuelson,0
+241,,Over Votes,1
+241,,Under Votes,46
+242,REP,Arturo Espinosa,6
+242,REP,Charles Andrew Crouch,3
+242,REP,Evelyn Brooks,17
+242,REP,Greg Abbott,429
+242,REP,Kenneth Hyde,8
+242,REP,Mark V. Goloby,2
+242,REP,Nathaniel Welch,2
+242,REP,"Pete ""Doc"" Chambers",56
+242,REP,"R.F. ""Bob"" Achgill",3
+242,REP,Ronnie Tullos,1
+242,REP,Stephen Samuelson,4
+242,,Over Votes,0
+242,,Under Votes,24
+243,REP,Arturo Espinosa,4
+243,REP,Charles Andrew Crouch,1
+243,REP,Evelyn Brooks,11
+243,REP,Greg Abbott,259
+243,REP,Kenneth Hyde,5
+243,REP,Mark V. Goloby,2
+243,REP,Nathaniel Welch,1
+243,REP,"Pete ""Doc"" Chambers",59
+243,REP,"R.F. ""Bob"" Achgill",3
+243,REP,Ronnie Tullos,3
+243,REP,Stephen Samuelson,1
+243,,Over Votes,0
+243,,Under Votes,13
+244,REP,Arturo Espinosa,9
+244,REP,Charles Andrew Crouch,3
+244,REP,Evelyn Brooks,17
+244,REP,Greg Abbott,325
+244,REP,Kenneth Hyde,10
+244,REP,Mark V. Goloby,3
+244,REP,Nathaniel Welch,2
+244,REP,"Pete ""Doc"" Chambers",67
+244,REP,"R.F. ""Bob"" Achgill",3
+244,REP,Ronnie Tullos,0
+244,REP,Stephen Samuelson,2
+244,,Over Votes,0
+244,,Under Votes,20
+245,REP,Arturo Espinosa,3
+245,REP,Charles Andrew Crouch,1
+245,REP,Evelyn Brooks,4
+245,REP,Greg Abbott,194
+245,REP,Kenneth Hyde,0
+245,REP,Mark V. Goloby,0
+245,REP,Nathaniel Welch,0
+245,REP,"Pete ""Doc"" Chambers",39
+245,REP,"R.F. ""Bob"" Achgill",1
+245,REP,Ronnie Tullos,1
+245,REP,Stephen Samuelson,0
+245,,Over Votes,0
+245,,Under Votes,7
+246,REP,Arturo Espinosa,5
+246,REP,Charles Andrew Crouch,7
+246,REP,Evelyn Brooks,14
+246,REP,Greg Abbott,410
+246,REP,Kenneth Hyde,2
+246,REP,Mark V. Goloby,1
+246,REP,Nathaniel Welch,1
+246,REP,"Pete ""Doc"" Chambers",53
+246,REP,"R.F. ""Bob"" Achgill",0
+246,REP,Ronnie Tullos,5
+246,REP,Stephen Samuelson,1
+246,,Over Votes,0
+246,,Under Votes,24
+247,REP,Arturo Espinosa,4
+247,REP,Charles Andrew Crouch,2
+247,REP,Evelyn Brooks,9
+247,REP,Greg Abbott,447
+247,REP,Kenneth Hyde,2
+247,REP,Mark V. Goloby,3
+247,REP,Nathaniel Welch,1
+247,REP,"Pete ""Doc"" Chambers",75
+247,REP,"R.F. ""Bob"" Achgill",2
+247,REP,Ronnie Tullos,3
+247,REP,Stephen Samuelson,1
+247,,Over Votes,0
+247,,Under Votes,18
+248,REP,Arturo Espinosa,3
+248,REP,Charles Andrew Crouch,1
+248,REP,Evelyn Brooks,8
+248,REP,Greg Abbott,183
+248,REP,Kenneth Hyde,1
+248,REP,Mark V. Goloby,1
+248,REP,Nathaniel Welch,1
+248,REP,"Pete ""Doc"" Chambers",35
+248,REP,"R.F. ""Bob"" Achgill",1
+248,REP,Ronnie Tullos,1
+248,REP,Stephen Samuelson,2
+248,,Over Votes,0
+248,,Under Votes,9
+249,REP,Arturo Espinosa,6
+249,REP,Charles Andrew Crouch,3
+249,REP,Evelyn Brooks,5
+249,REP,Greg Abbott,378
+249,REP,Kenneth Hyde,4
+249,REP,Mark V. Goloby,0
+249,REP,Nathaniel Welch,2
+249,REP,"Pete ""Doc"" Chambers",79
+249,REP,"R.F. ""Bob"" Achgill",2
+249,REP,Ronnie Tullos,4
+249,REP,Stephen Samuelson,2
+249,,Over Votes,0
+249,,Under Votes,1
+25,REP,Arturo Espinosa,18
+25,REP,Charles Andrew Crouch,2
+25,REP,Evelyn Brooks,18
+25,REP,Greg Abbott,415
+25,REP,Kenneth Hyde,23
+25,REP,Mark V. Goloby,8
+25,REP,Nathaniel Welch,5
+25,REP,"Pete ""Doc"" Chambers",103
+25,REP,"R.F. ""Bob"" Achgill",3
+25,REP,Ronnie Tullos,1
+25,REP,Stephen Samuelson,4
+25,,Over Votes,1
+25,,Under Votes,128
+250,REP,Arturo Espinosa,4
+250,REP,Charles Andrew Crouch,3
+250,REP,Evelyn Brooks,11
+250,REP,Greg Abbott,154
+250,REP,Kenneth Hyde,4
+250,REP,Mark V. Goloby,8
+250,REP,Nathaniel Welch,1
+250,REP,"Pete ""Doc"" Chambers",18
+250,REP,"R.F. ""Bob"" Achgill",0
+250,REP,Ronnie Tullos,2
+250,REP,Stephen Samuelson,7
+250,,Over Votes,0
+250,,Under Votes,29
+251,REP,Arturo Espinosa,0
+251,REP,Charles Andrew Crouch,0
+251,REP,Evelyn Brooks,8
+251,REP,Greg Abbott,237
+251,REP,Kenneth Hyde,3
+251,REP,Mark V. Goloby,0
+251,REP,Nathaniel Welch,4
+251,REP,"Pete ""Doc"" Chambers",60
+251,REP,"R.F. ""Bob"" Achgill",1
+251,REP,Ronnie Tullos,0
+251,REP,Stephen Samuelson,0
+251,,Over Votes,0
+251,,Under Votes,9
+252,REP,Arturo Espinosa,1
+252,REP,Charles Andrew Crouch,5
+252,REP,Evelyn Brooks,6
+252,REP,Greg Abbott,352
+252,REP,Kenneth Hyde,2
+252,REP,Mark V. Goloby,2
+252,REP,Nathaniel Welch,2
+252,REP,"Pete ""Doc"" Chambers",76
+252,REP,"R.F. ""Bob"" Achgill",0
+252,REP,Ronnie Tullos,0
+252,REP,Stephen Samuelson,3
+252,,Over Votes,0
+252,,Under Votes,9
+253,REP,Arturo Espinosa,3
+253,REP,Charles Andrew Crouch,0
+253,REP,Evelyn Brooks,7
+253,REP,Greg Abbott,162
+253,REP,Kenneth Hyde,6
+253,REP,Mark V. Goloby,7
+253,REP,Nathaniel Welch,5
+253,REP,"Pete ""Doc"" Chambers",44
+253,REP,"R.F. ""Bob"" Achgill",1
+253,REP,Ronnie Tullos,0
+253,REP,Stephen Samuelson,0
+253,,Over Votes,1
+253,,Under Votes,13
+254,REP,Arturo Espinosa,3
+254,REP,Charles Andrew Crouch,0
+254,REP,Evelyn Brooks,2
+254,REP,Greg Abbott,76
+254,REP,Kenneth Hyde,0
+254,REP,Mark V. Goloby,0
+254,REP,Nathaniel Welch,0
+254,REP,"Pete ""Doc"" Chambers",25
+254,REP,"R.F. ""Bob"" Achgill",0
+254,REP,Ronnie Tullos,2
+254,REP,Stephen Samuelson,0
+254,,Over Votes,0
+254,,Under Votes,1
+255,REP,Arturo Espinosa,0
+255,REP,Charles Andrew Crouch,1
+255,REP,Evelyn Brooks,8
+255,REP,Greg Abbott,341
+255,REP,Kenneth Hyde,3
+255,REP,Mark V. Goloby,2
+255,REP,Nathaniel Welch,2
+255,REP,"Pete ""Doc"" Chambers",100
+255,REP,"R.F. ""Bob"" Achgill",1
+255,REP,Ronnie Tullos,3
+255,REP,Stephen Samuelson,4
+255,,Over Votes,0
+255,,Under Votes,18
+256,REP,Arturo Espinosa,0
+256,REP,Charles Andrew Crouch,1
+256,REP,Evelyn Brooks,0
+256,REP,Greg Abbott,164
+256,REP,Kenneth Hyde,0
+256,REP,Mark V. Goloby,0
+256,REP,Nathaniel Welch,1
+256,REP,"Pete ""Doc"" Chambers",22
+256,REP,"R.F. ""Bob"" Achgill",0
+256,REP,Ronnie Tullos,1
+256,REP,Stephen Samuelson,0
+256,,Over Votes,0
+256,,Under Votes,1
+257,REP,Arturo Espinosa,2
+257,REP,Charles Andrew Crouch,0
+257,REP,Evelyn Brooks,2
+257,REP,Greg Abbott,110
+257,REP,Kenneth Hyde,1
+257,REP,Mark V. Goloby,0
+257,REP,Nathaniel Welch,2
+257,REP,"Pete ""Doc"" Chambers",21
+257,REP,"R.F. ""Bob"" Achgill",0
+257,REP,Ronnie Tullos,1
+257,REP,Stephen Samuelson,0
+257,,Over Votes,0
+257,,Under Votes,2
+258,REP,Arturo Espinosa,11
+258,REP,Charles Andrew Crouch,3
+258,REP,Evelyn Brooks,16
+258,REP,Greg Abbott,314
+258,REP,Kenneth Hyde,4
+258,REP,Mark V. Goloby,5
+258,REP,Nathaniel Welch,3
+258,REP,"Pete ""Doc"" Chambers",33
+258,REP,"R.F. ""Bob"" Achgill",1
+258,REP,Ronnie Tullos,2
+258,REP,Stephen Samuelson,0
+258,,Over Votes,0
+258,,Under Votes,36
+259,REP,Arturo Espinosa,4
+259,REP,Charles Andrew Crouch,3
+259,REP,Evelyn Brooks,12
+259,REP,Greg Abbott,404
+259,REP,Kenneth Hyde,7
+259,REP,Mark V. Goloby,3
+259,REP,Nathaniel Welch,5
+259,REP,"Pete ""Doc"" Chambers",68
+259,REP,"R.F. ""Bob"" Achgill",3
+259,REP,Ronnie Tullos,0
+259,REP,Stephen Samuelson,0
+259,,Over Votes,1
+259,,Under Votes,13
+26,REP,Arturo Espinosa,0
+26,REP,Charles Andrew Crouch,3
+26,REP,Evelyn Brooks,2
+26,REP,Greg Abbott,114
+26,REP,Kenneth Hyde,1
+26,REP,Mark V. Goloby,0
+26,REP,Nathaniel Welch,1
+26,REP,"Pete ""Doc"" Chambers",12
+26,REP,"R.F. ""Bob"" Achgill",0
+26,REP,Ronnie Tullos,0
+26,REP,Stephen Samuelson,0
+26,,Over Votes,0
+26,,Under Votes,1
+260,REP,Arturo Espinosa,1
+260,REP,Charles Andrew Crouch,1
+260,REP,Evelyn Brooks,0
+260,REP,Greg Abbott,73
+260,REP,Kenneth Hyde,0
+260,REP,Mark V. Goloby,0
+260,REP,Nathaniel Welch,0
+260,REP,"Pete ""Doc"" Chambers",20
+260,REP,"R.F. ""Bob"" Achgill",0
+260,REP,Ronnie Tullos,0
+260,REP,Stephen Samuelson,0
+260,,Over Votes,0
+260,,Under Votes,1
+261,REP,Arturo Espinosa,5
+261,REP,Charles Andrew Crouch,3
+261,REP,Evelyn Brooks,6
+261,REP,Greg Abbott,323
+261,REP,Kenneth Hyde,3
+261,REP,Mark V. Goloby,0
+261,REP,Nathaniel Welch,2
+261,REP,"Pete ""Doc"" Chambers",108
+261,REP,"R.F. ""Bob"" Achgill",1
+261,REP,Ronnie Tullos,1
+261,REP,Stephen Samuelson,2
+261,,Over Votes,0
+261,,Under Votes,24
+262,REP,Arturo Espinosa,5
+262,REP,Charles Andrew Crouch,4
+262,REP,Evelyn Brooks,15
+262,REP,Greg Abbott,250
+262,REP,Kenneth Hyde,5
+262,REP,Mark V. Goloby,6
+262,REP,Nathaniel Welch,1
+262,REP,"Pete ""Doc"" Chambers",26
+262,REP,"R.F. ""Bob"" Achgill",4
+262,REP,Ronnie Tullos,3
+262,REP,Stephen Samuelson,2
+262,,Over Votes,0
+262,,Under Votes,5
+263,REP,Arturo Espinosa,2
+263,REP,Charles Andrew Crouch,0
+263,REP,Evelyn Brooks,1
+263,REP,Greg Abbott,180
+263,REP,Kenneth Hyde,2
+263,REP,Mark V. Goloby,0
+263,REP,Nathaniel Welch,1
+263,REP,"Pete ""Doc"" Chambers",48
+263,REP,"R.F. ""Bob"" Achgill",0
+263,REP,Ronnie Tullos,3
+263,REP,Stephen Samuelson,0
+263,,Over Votes,0
+263,,Under Votes,2
+264,REP,Arturo Espinosa,8
+264,REP,Charles Andrew Crouch,8
+264,REP,Evelyn Brooks,10
+264,REP,Greg Abbott,483
+264,REP,Kenneth Hyde,4
+264,REP,Mark V. Goloby,1
+264,REP,Nathaniel Welch,1
+264,REP,"Pete ""Doc"" Chambers",96
+264,REP,"R.F. ""Bob"" Achgill",8
+264,REP,Ronnie Tullos,1
+264,REP,Stephen Samuelson,3
+264,,Over Votes,0
+264,,Under Votes,15
+265,REP,Arturo Espinosa,0
+265,REP,Charles Andrew Crouch,0
+265,REP,Evelyn Brooks,0
+265,REP,Greg Abbott,0
+265,REP,Kenneth Hyde,0
+265,REP,Mark V. Goloby,0
+265,REP,Nathaniel Welch,0
+265,REP,"Pete ""Doc"" Chambers",0
+265,REP,"R.F. ""Bob"" Achgill",0
+265,REP,Ronnie Tullos,0
+265,REP,Stephen Samuelson,0
+265,,Over Votes,0
+265,,Under Votes,0
+268,REP,Arturo Espinosa,0
+268,REP,Charles Andrew Crouch,0
+268,REP,Evelyn Brooks,0
+268,REP,Greg Abbott,0
+268,REP,Kenneth Hyde,0
+268,REP,Mark V. Goloby,0
+268,REP,Nathaniel Welch,0
+268,REP,"Pete ""Doc"" Chambers",0
+268,REP,"R.F. ""Bob"" Achgill",0
+268,REP,Ronnie Tullos,0
+268,REP,Stephen Samuelson,0
+268,,Over Votes,0
+268,,Under Votes,0
+269,REP,Arturo Espinosa,0
+269,REP,Charles Andrew Crouch,0
+269,REP,Evelyn Brooks,0
+269,REP,Greg Abbott,0
+269,REP,Kenneth Hyde,0
+269,REP,Mark V. Goloby,0
+269,REP,Nathaniel Welch,0
+269,REP,"Pete ""Doc"" Chambers",0
+269,REP,"R.F. ""Bob"" Achgill",0
+269,REP,Ronnie Tullos,0
+269,REP,Stephen Samuelson,0
+269,,Over Votes,0
+269,,Under Votes,0
+27,REP,Arturo Espinosa,2
+27,REP,Charles Andrew Crouch,0
+27,REP,Evelyn Brooks,4
+27,REP,Greg Abbott,285
+27,REP,Kenneth Hyde,1
+27,REP,Mark V. Goloby,1
+27,REP,Nathaniel Welch,0
+27,REP,"Pete ""Doc"" Chambers",61
+27,REP,"R.F. ""Bob"" Achgill",0
+27,REP,Ronnie Tullos,0
+27,REP,Stephen Samuelson,2
+27,,Over Votes,0
+27,,Under Votes,20
+270,REP,Arturo Espinosa,0
+270,REP,Charles Andrew Crouch,0
+270,REP,Evelyn Brooks,0
+270,REP,Greg Abbott,0
+270,REP,Kenneth Hyde,0
+270,REP,Mark V. Goloby,0
+270,REP,Nathaniel Welch,0
+270,REP,"Pete ""Doc"" Chambers",0
+270,REP,"R.F. ""Bob"" Achgill",0
+270,REP,Ronnie Tullos,0
+270,REP,Stephen Samuelson,0
+270,,Over Votes,0
+270,,Under Votes,0
+271,REP,Arturo Espinosa,3
+271,REP,Charles Andrew Crouch,1
+271,REP,Evelyn Brooks,2
+271,REP,Greg Abbott,68
+271,REP,Kenneth Hyde,0
+271,REP,Mark V. Goloby,0
+271,REP,Nathaniel Welch,1
+271,REP,"Pete ""Doc"" Chambers",9
+271,REP,"R.F. ""Bob"" Achgill",0
+271,REP,Ronnie Tullos,1
+271,REP,Stephen Samuelson,1
+271,,Over Votes,0
+271,,Under Votes,2
+272,REP,Arturo Espinosa,0
+272,REP,Charles Andrew Crouch,0
+272,REP,Evelyn Brooks,0
+272,REP,Greg Abbott,0
+272,REP,Kenneth Hyde,0
+272,REP,Mark V. Goloby,0
+272,REP,Nathaniel Welch,0
+272,REP,"Pete ""Doc"" Chambers",0
+272,REP,"R.F. ""Bob"" Achgill",0
+272,REP,Ronnie Tullos,0
+272,REP,Stephen Samuelson,0
+272,,Over Votes,0
+272,,Under Votes,0
+273,REP,Arturo Espinosa,0
+273,REP,Charles Andrew Crouch,0
+273,REP,Evelyn Brooks,3
+273,REP,Greg Abbott,68
+273,REP,Kenneth Hyde,0
+273,REP,Mark V. Goloby,0
+273,REP,Nathaniel Welch,1
+273,REP,"Pete ""Doc"" Chambers",1
+273,REP,"R.F. ""Bob"" Achgill",0
+273,REP,Ronnie Tullos,0
+273,REP,Stephen Samuelson,0
+273,,Over Votes,0
+273,,Under Votes,2
+274,REP,Arturo Espinosa,0
+274,REP,Charles Andrew Crouch,0
+274,REP,Evelyn Brooks,0
+274,REP,Greg Abbott,0
+274,REP,Kenneth Hyde,0
+274,REP,Mark V. Goloby,0
+274,REP,Nathaniel Welch,0
+274,REP,"Pete ""Doc"" Chambers",0
+274,REP,"R.F. ""Bob"" Achgill",0
+274,REP,Ronnie Tullos,0
+274,REP,Stephen Samuelson,0
+274,,Over Votes,0
+274,,Under Votes,0
+275,REP,Arturo Espinosa,0
+275,REP,Charles Andrew Crouch,0
+275,REP,Evelyn Brooks,0
+275,REP,Greg Abbott,0
+275,REP,Kenneth Hyde,0
+275,REP,Mark V. Goloby,0
+275,REP,Nathaniel Welch,0
+275,REP,"Pete ""Doc"" Chambers",0
+275,REP,"R.F. ""Bob"" Achgill",0
+275,REP,Ronnie Tullos,0
+275,REP,Stephen Samuelson,0
+275,,Over Votes,0
+275,,Under Votes,0
+276,REP,Arturo Espinosa,1
+276,REP,Charles Andrew Crouch,1
+276,REP,Evelyn Brooks,1
+276,REP,Greg Abbott,73
+276,REP,Kenneth Hyde,0
+276,REP,Mark V. Goloby,1
+276,REP,Nathaniel Welch,1
+276,REP,"Pete ""Doc"" Chambers",19
+276,REP,"R.F. ""Bob"" Achgill",0
+276,REP,Ronnie Tullos,0
+276,REP,Stephen Samuelson,0
+276,,Over Votes,0
+276,,Under Votes,1
+277,REP,Arturo Espinosa,0
+277,REP,Charles Andrew Crouch,0
+277,REP,Evelyn Brooks,0
+277,REP,Greg Abbott,0
+277,REP,Kenneth Hyde,0
+277,REP,Mark V. Goloby,0
+277,REP,Nathaniel Welch,0
+277,REP,"Pete ""Doc"" Chambers",0
+277,REP,"R.F. ""Bob"" Achgill",0
+277,REP,Ronnie Tullos,0
+277,REP,Stephen Samuelson,0
+277,,Over Votes,0
+277,,Under Votes,0
+28,REP,Arturo Espinosa,5
+28,REP,Charles Andrew Crouch,9
+28,REP,Evelyn Brooks,8
+28,REP,Greg Abbott,373
+28,REP,Kenneth Hyde,5
+28,REP,Mark V. Goloby,0
+28,REP,Nathaniel Welch,6
+28,REP,"Pete ""Doc"" Chambers",53
+28,REP,"R.F. ""Bob"" Achgill",0
+28,REP,Ronnie Tullos,1
+28,REP,Stephen Samuelson,5
+28,,Over Votes,0
+28,,Under Votes,10
+281,REP,Arturo Espinosa,0
+281,REP,Charles Andrew Crouch,0
+281,REP,Evelyn Brooks,0
+281,REP,Greg Abbott,0
+281,REP,Kenneth Hyde,0
+281,REP,Mark V. Goloby,0
+281,REP,Nathaniel Welch,0
+281,REP,"Pete ""Doc"" Chambers",0
+281,REP,"R.F. ""Bob"" Achgill",0
+281,REP,Ronnie Tullos,0
+281,REP,Stephen Samuelson,0
+281,,Over Votes,0
+281,,Under Votes,0
+284,REP,Arturo Espinosa,0
+284,REP,Charles Andrew Crouch,0
+284,REP,Evelyn Brooks,0
+284,REP,Greg Abbott,0
+284,REP,Kenneth Hyde,0
+284,REP,Mark V. Goloby,0
+284,REP,Nathaniel Welch,0
+284,REP,"Pete ""Doc"" Chambers",0
+284,REP,"R.F. ""Bob"" Achgill",0
+284,REP,Ronnie Tullos,0
+284,REP,Stephen Samuelson,0
+284,,Over Votes,0
+284,,Under Votes,0
+29,REP,Arturo Espinosa,4
+29,REP,Charles Andrew Crouch,3
+29,REP,Evelyn Brooks,2
+29,REP,Greg Abbott,313
+29,REP,Kenneth Hyde,0
+29,REP,Mark V. Goloby,1
+29,REP,Nathaniel Welch,1
+29,REP,"Pete ""Doc"" Chambers",140
+29,REP,"R.F. ""Bob"" Achgill",2
+29,REP,Ronnie Tullos,0
+29,REP,Stephen Samuelson,2
+29,,Over Votes,0
+29,,Under Votes,8
+3,REP,Arturo Espinosa,1
+3,REP,Charles Andrew Crouch,1
+3,REP,Evelyn Brooks,4
+3,REP,Greg Abbott,85
+3,REP,Kenneth Hyde,0
+3,REP,Mark V. Goloby,0
+3,REP,Nathaniel Welch,1
+3,REP,"Pete ""Doc"" Chambers",13
+3,REP,"R.F. ""Bob"" Achgill",1
+3,REP,Ronnie Tullos,1
+3,REP,Stephen Samuelson,1
+3,,Over Votes,0
+3,,Under Votes,5
+30,REP,Arturo Espinosa,0
+30,REP,Charles Andrew Crouch,0
+30,REP,Evelyn Brooks,1
+30,REP,Greg Abbott,76
+30,REP,Kenneth Hyde,3
+30,REP,Mark V. Goloby,1
+30,REP,Nathaniel Welch,2
+30,REP,"Pete ""Doc"" Chambers",11
+30,REP,"R.F. ""Bob"" Achgill",1
+30,REP,Ronnie Tullos,1
+30,REP,Stephen Samuelson,1
+30,,Over Votes,0
+30,,Under Votes,2
+31,REP,Arturo Espinosa,3
+31,REP,Charles Andrew Crouch,3
+31,REP,Evelyn Brooks,12
+31,REP,Greg Abbott,340
+31,REP,Kenneth Hyde,5
+31,REP,Mark V. Goloby,0
+31,REP,Nathaniel Welch,1
+31,REP,"Pete ""Doc"" Chambers",47
+31,REP,"R.F. ""Bob"" Achgill",6
+31,REP,Ronnie Tullos,3
+31,REP,Stephen Samuelson,3
+31,,Over Votes,0
+31,,Under Votes,9
+32,REP,Arturo Espinosa,3
+32,REP,Charles Andrew Crouch,3
+32,REP,Evelyn Brooks,9
+32,REP,Greg Abbott,351
+32,REP,Kenneth Hyde,0
+32,REP,Mark V. Goloby,2
+32,REP,Nathaniel Welch,6
+32,REP,"Pete ""Doc"" Chambers",47
+32,REP,"R.F. ""Bob"" Achgill",3
+32,REP,Ronnie Tullos,0
+32,REP,Stephen Samuelson,3
+32,,Over Votes,0
+32,,Under Votes,10
+33,REP,Arturo Espinosa,5
+33,REP,Charles Andrew Crouch,1
+33,REP,Evelyn Brooks,14
+33,REP,Greg Abbott,456
+33,REP,Kenneth Hyde,4
+33,REP,Mark V. Goloby,0
+33,REP,Nathaniel Welch,1
+33,REP,"Pete ""Doc"" Chambers",103
+33,REP,"R.F. ""Bob"" Achgill",1
+33,REP,Ronnie Tullos,2
+33,REP,Stephen Samuelson,2
+33,,Over Votes,1
+33,,Under Votes,7
+34,REP,Arturo Espinosa,4
+34,REP,Charles Andrew Crouch,1
+34,REP,Evelyn Brooks,17
+34,REP,Greg Abbott,349
+34,REP,Kenneth Hyde,6
+34,REP,Mark V. Goloby,2
+34,REP,Nathaniel Welch,0
+34,REP,"Pete ""Doc"" Chambers",58
+34,REP,"R.F. ""Bob"" Achgill",1
+34,REP,Ronnie Tullos,2
+34,REP,Stephen Samuelson,3
+34,,Over Votes,0
+34,,Under Votes,16
+35,REP,Arturo Espinosa,4
+35,REP,Charles Andrew Crouch,0
+35,REP,Evelyn Brooks,4
+35,REP,Greg Abbott,303
+35,REP,Kenneth Hyde,6
+35,REP,Mark V. Goloby,0
+35,REP,Nathaniel Welch,1
+35,REP,"Pete ""Doc"" Chambers",42
+35,REP,"R.F. ""Bob"" Achgill",2
+35,REP,Ronnie Tullos,0
+35,REP,Stephen Samuelson,2
+35,,Over Votes,0
+35,,Under Votes,8
+36,REP,Arturo Espinosa,2
+36,REP,Charles Andrew Crouch,0
+36,REP,Evelyn Brooks,6
+36,REP,Greg Abbott,362
+36,REP,Kenneth Hyde,1
+36,REP,Mark V. Goloby,4
+36,REP,Nathaniel Welch,0
+36,REP,"Pete ""Doc"" Chambers",36
+36,REP,"R.F. ""Bob"" Achgill",1
+36,REP,Ronnie Tullos,1
+36,REP,Stephen Samuelson,3
+36,,Over Votes,0
+36,,Under Votes,13
+37,REP,Arturo Espinosa,2
+37,REP,Charles Andrew Crouch,3
+37,REP,Evelyn Brooks,8
+37,REP,Greg Abbott,460
+37,REP,Kenneth Hyde,3
+37,REP,Mark V. Goloby,2
+37,REP,Nathaniel Welch,0
+37,REP,"Pete ""Doc"" Chambers",97
+37,REP,"R.F. ""Bob"" Achgill",4
+37,REP,Ronnie Tullos,3
+37,REP,Stephen Samuelson,3
+37,,Over Votes,0
+37,,Under Votes,11
+38,REP,Arturo Espinosa,4
+38,REP,Charles Andrew Crouch,3
+38,REP,Evelyn Brooks,10
+38,REP,Greg Abbott,233
+38,REP,Kenneth Hyde,2
+38,REP,Mark V. Goloby,0
+38,REP,Nathaniel Welch,2
+38,REP,"Pete ""Doc"" Chambers",31
+38,REP,"R.F. ""Bob"" Achgill",2
+38,REP,Ronnie Tullos,0
+38,REP,Stephen Samuelson,1
+38,,Over Votes,0
+38,,Under Votes,14
+39,REP,Arturo Espinosa,6
+39,REP,Charles Andrew Crouch,0
+39,REP,Evelyn Brooks,5
+39,REP,Greg Abbott,213
+39,REP,Kenneth Hyde,4
+39,REP,Mark V. Goloby,2
+39,REP,Nathaniel Welch,1
+39,REP,"Pete ""Doc"" Chambers",27
+39,REP,"R.F. ""Bob"" Achgill",0
+39,REP,Ronnie Tullos,1
+39,REP,Stephen Samuelson,1
+39,,Over Votes,0
+39,,Under Votes,3
+4,REP,Arturo Espinosa,3
+4,REP,Charles Andrew Crouch,2
+4,REP,Evelyn Brooks,13
+4,REP,Greg Abbott,484
+4,REP,Kenneth Hyde,6
+4,REP,Mark V. Goloby,0
+4,REP,Nathaniel Welch,1
+4,REP,"Pete ""Doc"" Chambers",90
+4,REP,"R.F. ""Bob"" Achgill",1
+4,REP,Ronnie Tullos,2
+4,REP,Stephen Samuelson,4
+4,,Over Votes,0
+4,,Under Votes,17
+40,REP,Arturo Espinosa,3
+40,REP,Charles Andrew Crouch,1
+40,REP,Evelyn Brooks,18
+40,REP,Greg Abbott,532
+40,REP,Kenneth Hyde,2
+40,REP,Mark V. Goloby,2
+40,REP,Nathaniel Welch,8
+40,REP,"Pete ""Doc"" Chambers",81
+40,REP,"R.F. ""Bob"" Achgill",1
+40,REP,Ronnie Tullos,2
+40,REP,Stephen Samuelson,3
+40,,Over Votes,0
+40,,Under Votes,9
+41,REP,Arturo Espinosa,6
+41,REP,Charles Andrew Crouch,0
+41,REP,Evelyn Brooks,8
+41,REP,Greg Abbott,416
+41,REP,Kenneth Hyde,1
+41,REP,Mark V. Goloby,1
+41,REP,Nathaniel Welch,0
+41,REP,"Pete ""Doc"" Chambers",56
+41,REP,"R.F. ""Bob"" Achgill",0
+41,REP,Ronnie Tullos,0
+41,REP,Stephen Samuelson,3
+41,,Over Votes,0
+41,,Under Votes,9
+42,REP,Arturo Espinosa,4
+42,REP,Charles Andrew Crouch,4
+42,REP,Evelyn Brooks,5
+42,REP,Greg Abbott,265
+42,REP,Kenneth Hyde,5
+42,REP,Mark V. Goloby,1
+42,REP,Nathaniel Welch,0
+42,REP,"Pete ""Doc"" Chambers",59
+42,REP,"R.F. ""Bob"" Achgill",1
+42,REP,Ronnie Tullos,1
+42,REP,Stephen Samuelson,0
+42,,Over Votes,0
+42,,Under Votes,2
+43,REP,Arturo Espinosa,7
+43,REP,Charles Andrew Crouch,2
+43,REP,Evelyn Brooks,7
+43,REP,Greg Abbott,212
+43,REP,Kenneth Hyde,7
+43,REP,Mark V. Goloby,0
+43,REP,Nathaniel Welch,0
+43,REP,"Pete ""Doc"" Chambers",31
+43,REP,"R.F. ""Bob"" Achgill",0
+43,REP,Ronnie Tullos,3
+43,REP,Stephen Samuelson,2
+43,,Over Votes,0
+43,,Under Votes,3
+44,REP,Arturo Espinosa,0
+44,REP,Charles Andrew Crouch,0
+44,REP,Evelyn Brooks,6
+44,REP,Greg Abbott,131
+44,REP,Kenneth Hyde,1
+44,REP,Mark V. Goloby,1
+44,REP,Nathaniel Welch,3
+44,REP,"Pete ""Doc"" Chambers",14
+44,REP,"R.F. ""Bob"" Achgill",1
+44,REP,Ronnie Tullos,0
+44,REP,Stephen Samuelson,0
+44,,Over Votes,0
+44,,Under Votes,8
+45,REP,Arturo Espinosa,5
+45,REP,Charles Andrew Crouch,2
+45,REP,Evelyn Brooks,19
+45,REP,Greg Abbott,539
+45,REP,Kenneth Hyde,4
+45,REP,Mark V. Goloby,4
+45,REP,Nathaniel Welch,3
+45,REP,"Pete ""Doc"" Chambers",75
+45,REP,"R.F. ""Bob"" Achgill",1
+45,REP,Ronnie Tullos,0
+45,REP,Stephen Samuelson,0
+45,,Over Votes,0
+45,,Under Votes,19
+46,REP,Arturo Espinosa,1
+46,REP,Charles Andrew Crouch,4
+46,REP,Evelyn Brooks,12
+46,REP,Greg Abbott,228
+46,REP,Kenneth Hyde,0
+46,REP,Mark V. Goloby,3
+46,REP,Nathaniel Welch,0
+46,REP,"Pete ""Doc"" Chambers",22
+46,REP,"R.F. ""Bob"" Achgill",1
+46,REP,Ronnie Tullos,2
+46,REP,Stephen Samuelson,1
+46,,Over Votes,2
+46,,Under Votes,4
+47,REP,Arturo Espinosa,5
+47,REP,Charles Andrew Crouch,1
+47,REP,Evelyn Brooks,10
+47,REP,Greg Abbott,261
+47,REP,Kenneth Hyde,0
+47,REP,Mark V. Goloby,3
+47,REP,Nathaniel Welch,0
+47,REP,"Pete ""Doc"" Chambers",35
+47,REP,"R.F. ""Bob"" Achgill",2
+47,REP,Ronnie Tullos,2
+47,REP,Stephen Samuelson,0
+47,,Over Votes,0
+47,,Under Votes,10
+48,REP,Arturo Espinosa,7
+48,REP,Charles Andrew Crouch,4
+48,REP,Evelyn Brooks,11
+48,REP,Greg Abbott,383
+48,REP,Kenneth Hyde,3
+48,REP,Mark V. Goloby,1
+48,REP,Nathaniel Welch,1
+48,REP,"Pete ""Doc"" Chambers",46
+48,REP,"R.F. ""Bob"" Achgill",4
+48,REP,Ronnie Tullos,0
+48,REP,Stephen Samuelson,0
+48,,Over Votes,0
+48,,Under Votes,23
+49,REP,Arturo Espinosa,1
+49,REP,Charles Andrew Crouch,5
+49,REP,Evelyn Brooks,13
+49,REP,Greg Abbott,345
+49,REP,Kenneth Hyde,1
+49,REP,Mark V. Goloby,1
+49,REP,Nathaniel Welch,2
+49,REP,"Pete ""Doc"" Chambers",43
+49,REP,"R.F. ""Bob"" Achgill",2
+49,REP,Ronnie Tullos,0
+49,REP,Stephen Samuelson,1
+49,,Over Votes,0
+49,,Under Votes,13
+5,REP,Arturo Espinosa,0
+5,REP,Charles Andrew Crouch,2
+5,REP,Evelyn Brooks,4
+5,REP,Greg Abbott,142
+5,REP,Kenneth Hyde,1
+5,REP,Mark V. Goloby,1
+5,REP,Nathaniel Welch,0
+5,REP,"Pete ""Doc"" Chambers",37
+5,REP,"R.F. ""Bob"" Achgill",2
+5,REP,Ronnie Tullos,0
+5,REP,Stephen Samuelson,0
+5,,Over Votes,0
+5,,Under Votes,9
+50,REP,Arturo Espinosa,4
+50,REP,Charles Andrew Crouch,3
+50,REP,Evelyn Brooks,7
+50,REP,Greg Abbott,146
+50,REP,Kenneth Hyde,4
+50,REP,Mark V. Goloby,4
+50,REP,Nathaniel Welch,0
+50,REP,"Pete ""Doc"" Chambers",18
+50,REP,"R.F. ""Bob"" Achgill",4
+50,REP,Ronnie Tullos,1
+50,REP,Stephen Samuelson,2
+50,,Over Votes,0
+50,,Under Votes,19
+51,REP,Arturo Espinosa,4
+51,REP,Charles Andrew Crouch,0
+51,REP,Evelyn Brooks,3
+51,REP,Greg Abbott,109
+51,REP,Kenneth Hyde,0
+51,REP,Mark V. Goloby,2
+51,REP,Nathaniel Welch,1
+51,REP,"Pete ""Doc"" Chambers",19
+51,REP,"R.F. ""Bob"" Achgill",1
+51,REP,Ronnie Tullos,0
+51,REP,Stephen Samuelson,2
+51,,Over Votes,0
+51,,Under Votes,3
+52,REP,Arturo Espinosa,15
+52,REP,Charles Andrew Crouch,6
+52,REP,Evelyn Brooks,40
+52,REP,Greg Abbott,282
+52,REP,Kenneth Hyde,62
+52,REP,Mark V. Goloby,4
+52,REP,Nathaniel Welch,10
+52,REP,"Pete ""Doc"" Chambers",45
+52,REP,"R.F. ""Bob"" Achgill",3
+52,REP,Ronnie Tullos,4
+52,REP,Stephen Samuelson,3
+52,,Over Votes,0
+52,,Under Votes,202
+53,REP,Arturo Espinosa,5
+53,REP,Charles Andrew Crouch,3
+53,REP,Evelyn Brooks,16
+53,REP,Greg Abbott,268
+53,REP,Kenneth Hyde,3
+53,REP,Mark V. Goloby,1
+53,REP,Nathaniel Welch,2
+53,REP,"Pete ""Doc"" Chambers",48
+53,REP,"R.F. ""Bob"" Achgill",4
+53,REP,Ronnie Tullos,1
+53,REP,Stephen Samuelson,2
+53,,Over Votes,0
+53,,Under Votes,5
+54,REP,Arturo Espinosa,2
+54,REP,Charles Andrew Crouch,2
+54,REP,Evelyn Brooks,7
+54,REP,Greg Abbott,211
+54,REP,Kenneth Hyde,0
+54,REP,Mark V. Goloby,3
+54,REP,Nathaniel Welch,2
+54,REP,"Pete ""Doc"" Chambers",32
+54,REP,"R.F. ""Bob"" Achgill",3
+54,REP,Ronnie Tullos,0
+54,REP,Stephen Samuelson,2
+54,,Over Votes,0
+54,,Under Votes,9
+55,REP,Arturo Espinosa,3
+55,REP,Charles Andrew Crouch,0
+55,REP,Evelyn Brooks,8
+55,REP,Greg Abbott,244
+55,REP,Kenneth Hyde,1
+55,REP,Mark V. Goloby,0
+55,REP,Nathaniel Welch,2
+55,REP,"Pete ""Doc"" Chambers",42
+55,REP,"R.F. ""Bob"" Achgill",3
+55,REP,Ronnie Tullos,0
+55,REP,Stephen Samuelson,1
+55,,Over Votes,0
+55,,Under Votes,8
+56,REP,Arturo Espinosa,5
+56,REP,Charles Andrew Crouch,2
+56,REP,Evelyn Brooks,14
+56,REP,Greg Abbott,368
+56,REP,Kenneth Hyde,8
+56,REP,Mark V. Goloby,3
+56,REP,Nathaniel Welch,1
+56,REP,"Pete ""Doc"" Chambers",89
+56,REP,"R.F. ""Bob"" Achgill",0
+56,REP,Ronnie Tullos,0
+56,REP,Stephen Samuelson,0
+56,,Over Votes,0
+56,,Under Votes,11
+57,REP,Arturo Espinosa,1
+57,REP,Charles Andrew Crouch,0
+57,REP,Evelyn Brooks,1
+57,REP,Greg Abbott,146
+57,REP,Kenneth Hyde,0
+57,REP,Mark V. Goloby,1
+57,REP,Nathaniel Welch,1
+57,REP,"Pete ""Doc"" Chambers",25
+57,REP,"R.F. ""Bob"" Achgill",0
+57,REP,Ronnie Tullos,1
+57,REP,Stephen Samuelson,2
+57,,Over Votes,0
+57,,Under Votes,3
+58,REP,Arturo Espinosa,3
+58,REP,Charles Andrew Crouch,3
+58,REP,Evelyn Brooks,11
+58,REP,Greg Abbott,306
+58,REP,Kenneth Hyde,5
+58,REP,Mark V. Goloby,2
+58,REP,Nathaniel Welch,1
+58,REP,"Pete ""Doc"" Chambers",52
+58,REP,"R.F. ""Bob"" Achgill",2
+58,REP,Ronnie Tullos,1
+58,REP,Stephen Samuelson,0
+58,,Over Votes,0
+58,,Under Votes,7
+59,REP,Arturo Espinosa,2
+59,REP,Charles Andrew Crouch,6
+59,REP,Evelyn Brooks,24
+59,REP,Greg Abbott,448
+59,REP,Kenneth Hyde,4
+59,REP,Mark V. Goloby,3
+59,REP,Nathaniel Welch,0
+59,REP,"Pete ""Doc"" Chambers",79
+59,REP,"R.F. ""Bob"" Achgill",0
+59,REP,Ronnie Tullos,1
+59,REP,Stephen Samuelson,2
+59,,Over Votes,1
+59,,Under Votes,19
+6,REP,Arturo Espinosa,2
+6,REP,Charles Andrew Crouch,1
+6,REP,Evelyn Brooks,7
+6,REP,Greg Abbott,114
+6,REP,Kenneth Hyde,2
+6,REP,Mark V. Goloby,0
+6,REP,Nathaniel Welch,2
+6,REP,"Pete ""Doc"" Chambers",20
+6,REP,"R.F. ""Bob"" Achgill",0
+6,REP,Ronnie Tullos,0
+6,REP,Stephen Samuelson,1
+6,,Over Votes,0
+6,,Under Votes,8
+60,REP,Arturo Espinosa,17
+60,REP,Charles Andrew Crouch,5
+60,REP,Evelyn Brooks,20
+60,REP,Greg Abbott,536
+60,REP,Kenneth Hyde,13
+60,REP,Mark V. Goloby,3
+60,REP,Nathaniel Welch,8
+60,REP,"Pete ""Doc"" Chambers",72
+60,REP,"R.F. ""Bob"" Achgill",5
+60,REP,Ronnie Tullos,0
+60,REP,Stephen Samuelson,2
+60,,Over Votes,0
+60,,Under Votes,49
+61,REP,Arturo Espinosa,1
+61,REP,Charles Andrew Crouch,2
+61,REP,Evelyn Brooks,8
+61,REP,Greg Abbott,286
+61,REP,Kenneth Hyde,4
+61,REP,Mark V. Goloby,1
+61,REP,Nathaniel Welch,1
+61,REP,"Pete ""Doc"" Chambers",32
+61,REP,"R.F. ""Bob"" Achgill",0
+61,REP,Ronnie Tullos,0
+61,REP,Stephen Samuelson,4
+61,,Over Votes,0
+61,,Under Votes,17
+62,REP,Arturo Espinosa,4
+62,REP,Charles Andrew Crouch,2
+62,REP,Evelyn Brooks,9
+62,REP,Greg Abbott,260
+62,REP,Kenneth Hyde,3
+62,REP,Mark V. Goloby,0
+62,REP,Nathaniel Welch,0
+62,REP,"Pete ""Doc"" Chambers",39
+62,REP,"R.F. ""Bob"" Achgill",3
+62,REP,Ronnie Tullos,2
+62,REP,Stephen Samuelson,2
+62,,Over Votes,0
+62,,Under Votes,7
+63,REP,Arturo Espinosa,7
+63,REP,Charles Andrew Crouch,4
+63,REP,Evelyn Brooks,12
+63,REP,Greg Abbott,352
+63,REP,Kenneth Hyde,1
+63,REP,Mark V. Goloby,5
+63,REP,Nathaniel Welch,3
+63,REP,"Pete ""Doc"" Chambers",40
+63,REP,"R.F. ""Bob"" Achgill",1
+63,REP,Ronnie Tullos,2
+63,REP,Stephen Samuelson,2
+63,,Over Votes,0
+63,,Under Votes,9
+64,REP,Arturo Espinosa,1
+64,REP,Charles Andrew Crouch,2
+64,REP,Evelyn Brooks,7
+64,REP,Greg Abbott,271
+64,REP,Kenneth Hyde,1
+64,REP,Mark V. Goloby,4
+64,REP,Nathaniel Welch,2
+64,REP,"Pete ""Doc"" Chambers",35
+64,REP,"R.F. ""Bob"" Achgill",3
+64,REP,Ronnie Tullos,3
+64,REP,Stephen Samuelson,2
+64,,Over Votes,0
+64,,Under Votes,23
+65,REP,Arturo Espinosa,0
+65,REP,Charles Andrew Crouch,0
+65,REP,Evelyn Brooks,3
+65,REP,Greg Abbott,135
+65,REP,Kenneth Hyde,2
+65,REP,Mark V. Goloby,1
+65,REP,Nathaniel Welch,1
+65,REP,"Pete ""Doc"" Chambers",16
+65,REP,"R.F. ""Bob"" Achgill",0
+65,REP,Ronnie Tullos,1
+65,REP,Stephen Samuelson,1
+65,,Over Votes,0
+65,,Under Votes,2
+66,REP,Arturo Espinosa,4
+66,REP,Charles Andrew Crouch,0
+66,REP,Evelyn Brooks,3
+66,REP,Greg Abbott,240
+66,REP,Kenneth Hyde,0
+66,REP,Mark V. Goloby,2
+66,REP,Nathaniel Welch,0
+66,REP,"Pete ""Doc"" Chambers",18
+66,REP,"R.F. ""Bob"" Achgill",2
+66,REP,Ronnie Tullos,0
+66,REP,Stephen Samuelson,1
+66,,Over Votes,0
+66,,Under Votes,7
+67,REP,Arturo Espinosa,3
+67,REP,Charles Andrew Crouch,4
+67,REP,Evelyn Brooks,10
+67,REP,Greg Abbott,309
+67,REP,Kenneth Hyde,5
+67,REP,Mark V. Goloby,5
+67,REP,Nathaniel Welch,3
+67,REP,"Pete ""Doc"" Chambers",34
+67,REP,"R.F. ""Bob"" Achgill",3
+67,REP,Ronnie Tullos,0
+67,REP,Stephen Samuelson,4
+67,,Over Votes,0
+67,,Under Votes,10
+68,REP,Arturo Espinosa,4
+68,REP,Charles Andrew Crouch,2
+68,REP,Evelyn Brooks,6
+68,REP,Greg Abbott,195
+68,REP,Kenneth Hyde,3
+68,REP,Mark V. Goloby,0
+68,REP,Nathaniel Welch,0
+68,REP,"Pete ""Doc"" Chambers",20
+68,REP,"R.F. ""Bob"" Achgill",0
+68,REP,Ronnie Tullos,2
+68,REP,Stephen Samuelson,4
+68,,Over Votes,0
+68,,Under Votes,3
+69,REP,Arturo Espinosa,7
+69,REP,Charles Andrew Crouch,3
+69,REP,Evelyn Brooks,17
+69,REP,Greg Abbott,534
+69,REP,Kenneth Hyde,7
+69,REP,Mark V. Goloby,3
+69,REP,Nathaniel Welch,3
+69,REP,"Pete ""Doc"" Chambers",62
+69,REP,"R.F. ""Bob"" Achgill",2
+69,REP,Ronnie Tullos,5
+69,REP,Stephen Samuelson,3
+69,,Over Votes,0
+69,,Under Votes,17
+7,REP,Arturo Espinosa,1
+7,REP,Charles Andrew Crouch,1
+7,REP,Evelyn Brooks,2
+7,REP,Greg Abbott,163
+7,REP,Kenneth Hyde,1
+7,REP,Mark V. Goloby,0
+7,REP,Nathaniel Welch,0
+7,REP,"Pete ""Doc"" Chambers",20
+7,REP,"R.F. ""Bob"" Achgill",0
+7,REP,Ronnie Tullos,1
+7,REP,Stephen Samuelson,2
+7,,Over Votes,0
+7,,Under Votes,7
+70,REP,Arturo Espinosa,3
+70,REP,Charles Andrew Crouch,3
+70,REP,Evelyn Brooks,12
+70,REP,Greg Abbott,251
+70,REP,Kenneth Hyde,2
+70,REP,Mark V. Goloby,2
+70,REP,Nathaniel Welch,1
+70,REP,"Pete ""Doc"" Chambers",38
+70,REP,"R.F. ""Bob"" Achgill",2
+70,REP,Ronnie Tullos,2
+70,REP,Stephen Samuelson,2
+70,,Over Votes,0
+70,,Under Votes,7
+71,REP,Arturo Espinosa,2
+71,REP,Charles Andrew Crouch,5
+71,REP,Evelyn Brooks,11
+71,REP,Greg Abbott,205
+71,REP,Kenneth Hyde,2
+71,REP,Mark V. Goloby,0
+71,REP,Nathaniel Welch,1
+71,REP,"Pete ""Doc"" Chambers",48
+71,REP,"R.F. ""Bob"" Achgill",1
+71,REP,Ronnie Tullos,1
+71,REP,Stephen Samuelson,2
+71,,Over Votes,0
+71,,Under Votes,13
+72,REP,Arturo Espinosa,2
+72,REP,Charles Andrew Crouch,1
+72,REP,Evelyn Brooks,6
+72,REP,Greg Abbott,227
+72,REP,Kenneth Hyde,1
+72,REP,Mark V. Goloby,3
+72,REP,Nathaniel Welch,2
+72,REP,"Pete ""Doc"" Chambers",35
+72,REP,"R.F. ""Bob"" Achgill",3
+72,REP,Ronnie Tullos,0
+72,REP,Stephen Samuelson,0
+72,,Over Votes,0
+72,,Under Votes,6
+73,REP,Arturo Espinosa,1
+73,REP,Charles Andrew Crouch,0
+73,REP,Evelyn Brooks,3
+73,REP,Greg Abbott,112
+73,REP,Kenneth Hyde,2
+73,REP,Mark V. Goloby,1
+73,REP,Nathaniel Welch,0
+73,REP,"Pete ""Doc"" Chambers",19
+73,REP,"R.F. ""Bob"" Achgill",0
+73,REP,Ronnie Tullos,0
+73,REP,Stephen Samuelson,1
+73,,Over Votes,0
+73,,Under Votes,6
+74,REP,Arturo Espinosa,3
+74,REP,Charles Andrew Crouch,1
+74,REP,Evelyn Brooks,7
+74,REP,Greg Abbott,222
+74,REP,Kenneth Hyde,1
+74,REP,Mark V. Goloby,2
+74,REP,Nathaniel Welch,0
+74,REP,"Pete ""Doc"" Chambers",29
+74,REP,"R.F. ""Bob"" Achgill",0
+74,REP,Ronnie Tullos,0
+74,REP,Stephen Samuelson,2
+74,,Over Votes,0
+74,,Under Votes,10
+75,REP,Arturo Espinosa,2
+75,REP,Charles Andrew Crouch,1
+75,REP,Evelyn Brooks,2
+75,REP,Greg Abbott,314
+75,REP,Kenneth Hyde,2
+75,REP,Mark V. Goloby,3
+75,REP,Nathaniel Welch,0
+75,REP,"Pete ""Doc"" Chambers",36
+75,REP,"R.F. ""Bob"" Achgill",7
+75,REP,Ronnie Tullos,0
+75,REP,Stephen Samuelson,1
+75,,Over Votes,0
+75,,Under Votes,6
+76,REP,Arturo Espinosa,3
+76,REP,Charles Andrew Crouch,4
+76,REP,Evelyn Brooks,13
+76,REP,Greg Abbott,464
+76,REP,Kenneth Hyde,1
+76,REP,Mark V. Goloby,3
+76,REP,Nathaniel Welch,2
+76,REP,"Pete ""Doc"" Chambers",53
+76,REP,"R.F. ""Bob"" Achgill",1
+76,REP,Ronnie Tullos,1
+76,REP,Stephen Samuelson,0
+76,,Over Votes,0
+76,,Under Votes,17
+77,REP,Arturo Espinosa,10
+77,REP,Charles Andrew Crouch,0
+77,REP,Evelyn Brooks,9
+77,REP,Greg Abbott,317
+77,REP,Kenneth Hyde,4
+77,REP,Mark V. Goloby,2
+77,REP,Nathaniel Welch,4
+77,REP,"Pete ""Doc"" Chambers",44
+77,REP,"R.F. ""Bob"" Achgill",3
+77,REP,Ronnie Tullos,4
+77,REP,Stephen Samuelson,2
+77,,Over Votes,0
+77,,Under Votes,19
+78,REP,Arturo Espinosa,4
+78,REP,Charles Andrew Crouch,1
+78,REP,Evelyn Brooks,8
+78,REP,Greg Abbott,347
+78,REP,Kenneth Hyde,1
+78,REP,Mark V. Goloby,2
+78,REP,Nathaniel Welch,1
+78,REP,"Pete ""Doc"" Chambers",48
+78,REP,"R.F. ""Bob"" Achgill",1
+78,REP,Ronnie Tullos,3
+78,REP,Stephen Samuelson,0
+78,,Over Votes,0
+78,,Under Votes,15
+79,REP,Arturo Espinosa,3
+79,REP,Charles Andrew Crouch,3
+79,REP,Evelyn Brooks,6
+79,REP,Greg Abbott,242
+79,REP,Kenneth Hyde,1
+79,REP,Mark V. Goloby,1
+79,REP,Nathaniel Welch,3
+79,REP,"Pete ""Doc"" Chambers",34
+79,REP,"R.F. ""Bob"" Achgill",1
+79,REP,Ronnie Tullos,1
+79,REP,Stephen Samuelson,0
+79,,Over Votes,0
+79,,Under Votes,6
+8,REP,Arturo Espinosa,6
+8,REP,Charles Andrew Crouch,4
+8,REP,Evelyn Brooks,11
+8,REP,Greg Abbott,494
+8,REP,Kenneth Hyde,2
+8,REP,Mark V. Goloby,2
+8,REP,Nathaniel Welch,3
+8,REP,"Pete ""Doc"" Chambers",91
+8,REP,"R.F. ""Bob"" Achgill",1
+8,REP,Ronnie Tullos,0
+8,REP,Stephen Samuelson,3
+8,,Over Votes,0
+8,,Under Votes,9
+80,REP,Arturo Espinosa,2
+80,REP,Charles Andrew Crouch,2
+80,REP,Evelyn Brooks,14
+80,REP,Greg Abbott,369
+80,REP,Kenneth Hyde,2
+80,REP,Mark V. Goloby,4
+80,REP,Nathaniel Welch,4
+80,REP,"Pete ""Doc"" Chambers",67
+80,REP,"R.F. ""Bob"" Achgill",2
+80,REP,Ronnie Tullos,5
+80,REP,Stephen Samuelson,5
+80,,Over Votes,0
+80,,Under Votes,15
+81,REP,Arturo Espinosa,3
+81,REP,Charles Andrew Crouch,1
+81,REP,Evelyn Brooks,12
+81,REP,Greg Abbott,282
+81,REP,Kenneth Hyde,4
+81,REP,Mark V. Goloby,2
+81,REP,Nathaniel Welch,0
+81,REP,"Pete ""Doc"" Chambers",25
+81,REP,"R.F. ""Bob"" Achgill",1
+81,REP,Ronnie Tullos,1
+81,REP,Stephen Samuelson,3
+81,,Over Votes,0
+81,,Under Votes,9
+82,REP,Arturo Espinosa,3
+82,REP,Charles Andrew Crouch,2
+82,REP,Evelyn Brooks,3
+82,REP,Greg Abbott,231
+82,REP,Kenneth Hyde,4
+82,REP,Mark V. Goloby,2
+82,REP,Nathaniel Welch,2
+82,REP,"Pete ""Doc"" Chambers",54
+82,REP,"R.F. ""Bob"" Achgill",3
+82,REP,Ronnie Tullos,0
+82,REP,Stephen Samuelson,1
+82,,Over Votes,0
+82,,Under Votes,6
+83,REP,Arturo Espinosa,4
+83,REP,Charles Andrew Crouch,5
+83,REP,Evelyn Brooks,10
+83,REP,Greg Abbott,586
+83,REP,Kenneth Hyde,5
+83,REP,Mark V. Goloby,3
+83,REP,Nathaniel Welch,5
+83,REP,"Pete ""Doc"" Chambers",77
+83,REP,"R.F. ""Bob"" Achgill",2
+83,REP,Ronnie Tullos,3
+83,REP,Stephen Samuelson,1
+83,,Over Votes,2
+83,,Under Votes,20
+84,REP,Arturo Espinosa,7
+84,REP,Charles Andrew Crouch,2
+84,REP,Evelyn Brooks,12
+84,REP,Greg Abbott,300
+84,REP,Kenneth Hyde,3
+84,REP,Mark V. Goloby,1
+84,REP,Nathaniel Welch,4
+84,REP,"Pete ""Doc"" Chambers",36
+84,REP,"R.F. ""Bob"" Achgill",1
+84,REP,Ronnie Tullos,3
+84,REP,Stephen Samuelson,4
+84,,Over Votes,0
+84,,Under Votes,12
+85,REP,Arturo Espinosa,2
+85,REP,Charles Andrew Crouch,3
+85,REP,Evelyn Brooks,12
+85,REP,Greg Abbott,285
+85,REP,Kenneth Hyde,8
+85,REP,Mark V. Goloby,1
+85,REP,Nathaniel Welch,3
+85,REP,"Pete ""Doc"" Chambers",32
+85,REP,"R.F. ""Bob"" Achgill",1
+85,REP,Ronnie Tullos,0
+85,REP,Stephen Samuelson,1
+85,,Over Votes,0
+85,,Under Votes,12
+86,REP,Arturo Espinosa,3
+86,REP,Charles Andrew Crouch,4
+86,REP,Evelyn Brooks,14
+86,REP,Greg Abbott,375
+86,REP,Kenneth Hyde,6
+86,REP,Mark V. Goloby,0
+86,REP,Nathaniel Welch,3
+86,REP,"Pete ""Doc"" Chambers",51
+86,REP,"R.F. ""Bob"" Achgill",0
+86,REP,Ronnie Tullos,1
+86,REP,Stephen Samuelson,2
+86,,Over Votes,0
+86,,Under Votes,16
+87,REP,Arturo Espinosa,7
+87,REP,Charles Andrew Crouch,3
+87,REP,Evelyn Brooks,7
+87,REP,Greg Abbott,105
+87,REP,Kenneth Hyde,2
+87,REP,Mark V. Goloby,3
+87,REP,Nathaniel Welch,3
+87,REP,"Pete ""Doc"" Chambers",19
+87,REP,"R.F. ""Bob"" Achgill",2
+87,REP,Ronnie Tullos,1
+87,REP,Stephen Samuelson,3
+87,,Over Votes,0
+87,,Under Votes,26
+88,REP,Arturo Espinosa,2
+88,REP,Charles Andrew Crouch,0
+88,REP,Evelyn Brooks,2
+88,REP,Greg Abbott,55
+88,REP,Kenneth Hyde,2
+88,REP,Mark V. Goloby,0
+88,REP,Nathaniel Welch,0
+88,REP,"Pete ""Doc"" Chambers",9
+88,REP,"R.F. ""Bob"" Achgill",0
+88,REP,Ronnie Tullos,0
+88,REP,Stephen Samuelson,0
+88,,Over Votes,0
+88,,Under Votes,5
+89,REP,Arturo Espinosa,2
+89,REP,Charles Andrew Crouch,2
+89,REP,Evelyn Brooks,13
+89,REP,Greg Abbott,320
+89,REP,Kenneth Hyde,2
+89,REP,Mark V. Goloby,3
+89,REP,Nathaniel Welch,4
+89,REP,"Pete ""Doc"" Chambers",69
+89,REP,"R.F. ""Bob"" Achgill",1
+89,REP,Ronnie Tullos,2
+89,REP,Stephen Samuelson,6
+89,,Over Votes,0
+89,,Under Votes,5
+9,REP,Arturo Espinosa,4
+9,REP,Charles Andrew Crouch,4
+9,REP,Evelyn Brooks,7
+9,REP,Greg Abbott,333
+9,REP,Kenneth Hyde,3
+9,REP,Mark V. Goloby,2
+9,REP,Nathaniel Welch,2
+9,REP,"Pete ""Doc"" Chambers",65
+9,REP,"R.F. ""Bob"" Achgill",1
+9,REP,Ronnie Tullos,2
+9,REP,Stephen Samuelson,0
+9,,Over Votes,2
+9,,Under Votes,9
+90,REP,Arturo Espinosa,5
+90,REP,Charles Andrew Crouch,2
+90,REP,Evelyn Brooks,17
+90,REP,Greg Abbott,575
+90,REP,Kenneth Hyde,5
+90,REP,Mark V. Goloby,2
+90,REP,Nathaniel Welch,1
+90,REP,"Pete ""Doc"" Chambers",56
+90,REP,"R.F. ""Bob"" Achgill",1
+90,REP,Ronnie Tullos,2
+90,REP,Stephen Samuelson,5
+90,,Over Votes,0
+90,,Under Votes,19
+91,REP,Arturo Espinosa,3
+91,REP,Charles Andrew Crouch,3
+91,REP,Evelyn Brooks,13
+91,REP,Greg Abbott,248
+91,REP,Kenneth Hyde,2
+91,REP,Mark V. Goloby,2
+91,REP,Nathaniel Welch,4
+91,REP,"Pete ""Doc"" Chambers",18
+91,REP,"R.F. ""Bob"" Achgill",2
+91,REP,Ronnie Tullos,2
+91,REP,Stephen Samuelson,3
+91,,Over Votes,1
+91,,Under Votes,11
+92,REP,Arturo Espinosa,5
+92,REP,Charles Andrew Crouch,1
+92,REP,Evelyn Brooks,14
+92,REP,Greg Abbott,293
+92,REP,Kenneth Hyde,3
+92,REP,Mark V. Goloby,3
+92,REP,Nathaniel Welch,1
+92,REP,"Pete ""Doc"" Chambers",61
+92,REP,"R.F. ""Bob"" Achgill",5
+92,REP,Ronnie Tullos,0
+92,REP,Stephen Samuelson,3
+92,,Over Votes,0
+92,,Under Votes,6
+93,REP,Arturo Espinosa,0
+93,REP,Charles Andrew Crouch,0
+93,REP,Evelyn Brooks,2
+93,REP,Greg Abbott,59
+93,REP,Kenneth Hyde,1
+93,REP,Mark V. Goloby,1
+93,REP,Nathaniel Welch,0
+93,REP,"Pete ""Doc"" Chambers",9
+93,REP,"R.F. ""Bob"" Achgill",0
+93,REP,Ronnie Tullos,0
+93,REP,Stephen Samuelson,0
+93,,Over Votes,0
+93,,Under Votes,0
+94,REP,Arturo Espinosa,16
+94,REP,Charles Andrew Crouch,6
+94,REP,Evelyn Brooks,24
+94,REP,Greg Abbott,437
+94,REP,Kenneth Hyde,5
+94,REP,Mark V. Goloby,4
+94,REP,Nathaniel Welch,7
+94,REP,"Pete ""Doc"" Chambers",55
+94,REP,"R.F. ""Bob"" Achgill",4
+94,REP,Ronnie Tullos,3
+94,REP,Stephen Samuelson,4
+94,,Over Votes,0
+94,,Under Votes,53
+95,REP,Arturo Espinosa,10
+95,REP,Charles Andrew Crouch,6
+95,REP,Evelyn Brooks,2
+95,REP,Greg Abbott,303
+95,REP,Kenneth Hyde,0
+95,REP,Mark V. Goloby,0
+95,REP,Nathaniel Welch,3
+95,REP,"Pete ""Doc"" Chambers",49
+95,REP,"R.F. ""Bob"" Achgill",0
+95,REP,Ronnie Tullos,6
+95,REP,Stephen Samuelson,0
+95,,Over Votes,0
+95,,Under Votes,6
+96,REP,Arturo Espinosa,1
+96,REP,Charles Andrew Crouch,2
+96,REP,Evelyn Brooks,4
+96,REP,Greg Abbott,71
+96,REP,Kenneth Hyde,2
+96,REP,Mark V. Goloby,0
+96,REP,Nathaniel Welch,0
+96,REP,"Pete ""Doc"" Chambers",12
+96,REP,"R.F. ""Bob"" Achgill",0
+96,REP,Ronnie Tullos,0
+96,REP,Stephen Samuelson,2
+96,,Over Votes,0
+96,,Under Votes,2
+97,REP,Arturo Espinosa,2
+97,REP,Charles Andrew Crouch,6
+97,REP,Evelyn Brooks,10
+97,REP,Greg Abbott,332
+97,REP,Kenneth Hyde,6
+97,REP,Mark V. Goloby,2
+97,REP,Nathaniel Welch,1
+97,REP,"Pete ""Doc"" Chambers",34
+97,REP,"R.F. ""Bob"" Achgill",1
+97,REP,Ronnie Tullos,1
+97,REP,Stephen Samuelson,3
+97,,Over Votes,0
+97,,Under Votes,25
+98,REP,Arturo Espinosa,3
+98,REP,Charles Andrew Crouch,1
+98,REP,Evelyn Brooks,6
+98,REP,Greg Abbott,172
+98,REP,Kenneth Hyde,1
+98,REP,Mark V. Goloby,1
+98,REP,Nathaniel Welch,0
+98,REP,"Pete ""Doc"" Chambers",12
+98,REP,"R.F. ""Bob"" Achgill",1
+98,REP,Ronnie Tullos,0
+98,REP,Stephen Samuelson,1
+98,,Over Votes,0
+98,,Under Votes,3
+99,REP,Arturo Espinosa,0
+99,REP,Charles Andrew Crouch,0
+99,REP,Evelyn Brooks,3
+99,REP,Greg Abbott,24
+99,REP,Kenneth Hyde,0
+99,REP,Mark V. Goloby,1
+99,REP,Nathaniel Welch,0
+99,REP,"Pete ""Doc"" Chambers",10
+99,REP,"R.F. ""Bob"" Achgill",0
+99,REP,Ronnie Tullos,0
+99,REP,Stephen Samuelson,0
+99,,Over Votes,0
+99,,Under Votes,3
