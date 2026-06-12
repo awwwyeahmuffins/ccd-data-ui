@@ -1,0 +1,21 @@
+precinct,party,candidate,votes
+1,,Rejected write-ins,0
+1,,Unassigned write-ins,0
+1,DEM,Jay Kleberg,59
+1,GRN,"Alfred Molison, Jr.",3
+1,REP,Dawn Buckingham,450
+2,,Rejected write-ins,0
+2,,Unassigned write-ins,0
+2,DEM,Jay Kleberg,39
+2,GRN,"Alfred Molison, Jr.",2
+2,REP,Dawn Buckingham,398
+3,,Rejected write-ins,0
+3,,Unassigned write-ins,0
+3,DEM,Jay Kleberg,46
+3,GRN,"Alfred Molison, Jr.",2
+3,REP,Dawn Buckingham,168
+4,,Rejected write-ins,1
+4,,Unassigned write-ins,0
+4,DEM,Jay Kleberg,51
+4,GRN,"Alfred Molison, Jr.",8
+4,REP,Dawn Buckingham,217

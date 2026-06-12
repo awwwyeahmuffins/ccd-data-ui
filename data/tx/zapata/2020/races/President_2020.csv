@@ -1,0 +1,25 @@
+precinct,party,candidate,votes
+1,,Rejected write-ins,0
+1,,Unassigned write-ins,4
+1,DEM,Joseph R. Biden Kamala D. Harris,495
+1,GRN,Howie Hawkins Angela Walker,1
+1,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",2
+1,REP,Donald J. Trump Michael R. Pence,526
+2,,Rejected write-ins,0
+2,,Unassigned write-ins,0
+2,DEM,Joseph R. Biden Kamala D. Harris,484
+2,GRN,Howie Hawkins Angela Walker,0
+2,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",3
+2,REP,Donald J. Trump Michael R. Pence,519
+3,,Rejected write-ins,0
+3,,Unassigned write-ins,0
+3,DEM,Joseph R. Biden Kamala D. Harris,469
+3,GRN,Howie Hawkins Angela Walker,3
+3,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",6
+3,REP,Donald J. Trump Michael R. Pence,649
+4,,Rejected write-ins,0
+4,,Unassigned write-ins,0
+4,DEM,Joseph R. Biden Kamala D. Harris,378
+4,GRN,Howie Hawkins Angela Walker,0
+4,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",0
+4,REP,Donald J. Trump Michael R. Pence,339

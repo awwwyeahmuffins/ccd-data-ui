@@ -4,7 +4,7 @@
 // is selectable, but only "live" counties may point at real data.
 
 import { describe, it, expect } from '@jest/globals';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 
 const registry = JSON.parse(readFileSync('data/tx/counties.json', 'utf-8'));
 const boundaries = JSON.parse(readFileSync('data/tx/county-boundaries.geojson', 'utf-8'));
@@ -31,9 +31,22 @@ describe('Texas county registry', () => {
     }
   });
 
-  it('marks exactly the expected counties as live (update as counties go live)', () => {
+  it('keeps the founding counties live and only allows known statuses', () => {
     const live = registry.filter(c => c.status === 'live').map(c => c.name);
-    expect(live).toEqual(['Bastrop', 'Collin']);
+    expect(live).toContain('Collin');
+    expect(live).toContain('Bastrop');
+    // batch-imported counties may grow this list; placeholders shrink it
+    expect(live.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('every live county has its boundary + manifest files on disk', () => {
+    for (const c of registry) {
+      if (c.status !== 'live') continue;
+      for (const set of Object.values(c.boundarySets)) {
+        expect(existsSync(`${c.dataRoot}/${set.geojson}`)).toBe(true);
+        expect(existsSync(`${c.dataRoot}/${set.dataDir}/elections.json`)).toBe(true);
+      }
+    }
   });
 
   it('gives every live county a dataRoot + boundarySets and every placeholder none', () => {

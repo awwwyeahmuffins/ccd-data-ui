@@ -1,0 +1,29 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,5
+1,,Write-in,0
+1,DEM,Beto O'Rourke,145
+1,GRN,Delilah Barrios,3
+1,LIB,Mark Tippetts,11
+1,REP,Greg Abbott,716
+2,,Over Votes,0
+2,,Under Votes,5
+2,,Write-in,1
+2,DEM,Beto O'Rourke,163
+2,GRN,Delilah Barrios,2
+2,LIB,Mark Tippetts,9
+2,REP,Greg Abbott,1036
+3,,Over Votes,0
+3,,Under Votes,4
+3,,Write-in,0
+3,DEM,Beto O'Rourke,120
+3,GRN,Delilah Barrios,2
+3,LIB,Mark Tippetts,20
+3,REP,Greg Abbott,1326
+4,,Over Votes,0
+4,,Under Votes,1
+4,,Write-in,0
+4,DEM,Beto O'Rourke,153
+4,GRN,Delilah Barrios,2
+4,LIB,Mark Tippetts,12
+4,REP,Greg Abbott,1271

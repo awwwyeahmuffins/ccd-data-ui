@@ -1,0 +1,26 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,5
+1,DEM,Janet T. Dudding,111
+1,LIB,V. Alonzo Echevarria-Garza,15
+1,REP,Glenn Hegar,159
+2,,Over Votes,0
+2,,Under Votes,10
+2,DEM,Janet T. Dudding,79
+2,LIB,V. Alonzo Echevarria-Garza,8
+2,REP,Glenn Hegar,130
+3,,Over Votes,0
+3,,Under Votes,5
+3,DEM,Janet T. Dudding,84
+3,LIB,V. Alonzo Echevarria-Garza,7
+3,REP,Glenn Hegar,155
+4,,Over Votes,0
+4,,Under Votes,0
+4,DEM,Janet T. Dudding,31
+4,LIB,V. Alonzo Echevarria-Garza,2
+4,REP,Glenn Hegar,75
+5,,Over Votes,0
+5,,Under Votes,5
+5,DEM,Janet T. Dudding,66
+5,LIB,V. Alonzo Echevarria-Garza,3
+5,REP,Glenn Hegar,104

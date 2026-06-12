@@ -1,0 +1,25 @@
+precinct,party,candidate,votes
+1,,Overvotes:,4
+1,,Undervotes:,3
+1,DEM,Joseph R. Biden Kamala D. Harris,256
+1,GRN,Howie Hawkins Angela Walker,1
+1,LIB,Jo Jorgensen Jeremy Spike Cohen,7
+1,REP,Donald J. Trump Michael R. Pence,565
+2,,Overvotes:,2
+2,,Undervotes:,1
+2,DEM,Joseph R. Biden Kamala D. Harris,324
+2,GRN,Howie Hawkins Angela Walker,4
+2,LIB,Jo Jorgensen Jeremy Spike Cohen,10
+2,REP,Donald J. Trump Michael R. Pence,550
+3,,Overvotes:,3
+3,,Undervotes:,14
+3,DEM,Joseph R. Biden Kamala D. Harris,354
+3,GRN,Howie Hawkins Angela Walker,6
+3,LIB,Jo Jorgensen Jeremy Spike Cohen,11
+3,REP,Donald J. Trump Michael R. Pence,1497
+4,,Overvotes:,1
+4,,Undervotes:,3
+4,DEM,Joseph R. Biden Kamala D. Harris,330
+4,GRN,Howie Hawkins Angela Walker,6
+4,LIB,Jo Jorgensen Jeremy Spike Cohen,7
+4,REP,Donald J. Trump Michael R. Pence,682

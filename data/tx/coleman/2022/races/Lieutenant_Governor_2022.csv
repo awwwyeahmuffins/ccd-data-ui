@@ -1,0 +1,26 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,2
+1,DEM,Mike Collier,53
+1,LIB,Shanna Steele,4
+1,REP,Dan Patrick,761
+2,,Over Votes,0
+2,,Under Votes,6
+2,DEM,Mike Collier,68
+2,LIB,Shanna Steele,6
+2,REP,Dan Patrick,563
+2E,,Over Votes,0
+2E,,Under Votes,1
+2E,DEM,Mike Collier,22
+2E,LIB,Shanna Steele,4
+2E,REP,Dan Patrick,202
+3,,Over Votes,0
+3,,Under Votes,7
+3,DEM,Mike Collier,62
+3,LIB,Shanna Steele,13
+3,REP,Dan Patrick,588
+4,,Over Votes,0
+4,,Under Votes,6
+4,DEM,Mike Collier,76
+4,LIB,Shanna Steele,7
+4,REP,Dan Patrick,791

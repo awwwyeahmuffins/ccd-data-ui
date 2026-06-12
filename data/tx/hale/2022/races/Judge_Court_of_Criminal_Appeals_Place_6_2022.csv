@@ -1,0 +1,61 @@
+precinct,party,candidate,votes
+101,DEM,Robert Johnson,16
+101,REP,Jesse F. McClure III,126
+102,DEM,Robert Johnson,5
+102,REP,Jesse F. McClure III,30
+103,DEM,Robert Johnson,53
+103,REP,Jesse F. McClure III,67
+104,DEM,Robert Johnson,64
+104,REP,Jesse F. McClure III,103
+105,DEM,Robert Johnson,21
+105,REP,Jesse F. McClure III,52
+108,DEM,Robert Johnson,3
+108,REP,Jesse F. McClure III,15
+110,DEM,Robert Johnson,17
+110,REP,Jesse F. McClure III,201
+111,DEM,Robert Johnson,37
+111,REP,Jesse F. McClure III,210
+112,DEM,Robert Johnson,17
+112,REP,Jesse F. McClure III,304
+202,DEM,Robert Johnson,30
+202,REP,Jesse F. McClure III,32
+203,DEM,Robert Johnson,60
+203,REP,Jesse F. McClure III,59
+204,DEM,Robert Johnson,50
+204,REP,Jesse F. McClure III,125
+205,DEM,Robert Johnson,27
+205,REP,Jesse F. McClure III,38
+206,DEM,Robert Johnson,1
+206,REP,Jesse F. McClure III,9
+213,DEM,Robert Johnson,12
+213,REP,Jesse F. McClure III,94
+214,DEM,Robert Johnson,46
+214,REP,Jesse F. McClure III,232
+215,DEM,Robert Johnson,27
+215,REP,Jesse F. McClure III,118
+304,DEM,Robert Johnson,85
+304,REP,Jesse F. McClure III,309
+305,DEM,Robert Johnson,68
+305,REP,Jesse F. McClure III,500
+306,DEM,Robert Johnson,15
+306,REP,Jesse F. McClure III,16
+307,DEM,Robert Johnson,26
+307,REP,Jesse F. McClure III,87
+316,DEM,Robert Johnson,78
+316,REP,Jesse F. McClure III,382
+317,DEM,Robert Johnson,7
+317,REP,Jesse F. McClure III,59
+318,DEM,Robert Johnson,66
+318,REP,Jesse F. McClure III,477
+406,DEM,Robert Johnson,56
+406,REP,Jesse F. McClure III,116
+407,DEM,Robert Johnson,126
+407,REP,Jesse F. McClure III,521
+408,DEM,Robert Johnson,61
+408,REP,Jesse F. McClure III,280
+409,DEM,Robert Johnson,65
+409,REP,Jesse F. McClure III,201
+419,DEM,Robert Johnson,9
+419,REP,Jesse F. McClure III,88
+420,DEM,Robert Johnson,11
+420,REP,Jesse F. McClure III,206

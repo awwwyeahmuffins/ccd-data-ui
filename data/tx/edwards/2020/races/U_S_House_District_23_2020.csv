@@ -1,0 +1,21 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,15
+1,DEM,Gina Ortiz Jones,34
+1,LIB,Beto Villela,4
+1,REP,Tony Gonzales,115
+2,,Over Votes,0
+2,,Under Votes,11
+2,DEM,Gina Ortiz Jones,35
+2,LIB,Beto Villela,3
+2,REP,Tony Gonzales,308
+3,,Over Votes,0
+3,,Under Votes,13
+3,DEM,Gina Ortiz Jones,35
+3,LIB,Beto Villela,4
+3,REP,Tony Gonzales,264
+4,,Over Votes,0
+4,,Under Votes,25
+4,DEM,Gina Ortiz Jones,50
+4,LIB,Beto Villela,1
+4,REP,Tony Gonzales,146

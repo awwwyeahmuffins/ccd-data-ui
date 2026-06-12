@@ -1,0 +1,21 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,9
+1,DEM,Gus Trujillo,50
+1,LIB,Jack B. Westbrook,11
+1,REP,Ronny Jackson,387
+2,,Over Votes,0
+2,,Under Votes,16
+2,DEM,Gus Trujillo,70
+2,LIB,Jack B. Westbrook,4
+2,REP,Ronny Jackson,578
+3,,Over Votes,0
+3,,Under Votes,16
+3,DEM,Gus Trujillo,78
+3,LIB,Jack B. Westbrook,15
+3,REP,Ronny Jackson,1066
+4,,Over Votes,0
+4,,Under Votes,7
+4,DEM,Gus Trujillo,80
+4,LIB,Jack B. Westbrook,15
+4,REP,Ronny Jackson,762

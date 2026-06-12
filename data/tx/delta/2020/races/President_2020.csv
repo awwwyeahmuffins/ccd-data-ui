@@ -1,0 +1,43 @@
+precinct,party,candidate,votes
+1,GRN,Howie Hawkins,1
+1,LIB,Jo Jorgensen,5
+1,,Over Votes,0
+1,,Under Votes,3
+1,DEM,Joseph R. Biden,76
+1,REP,Donald J. Trump,527
+10,GRN,Howie Hawkins,0
+10,LIB,Jo Jorgensen,4
+10,,Over Votes,0
+10,,Under Votes,1
+10,DEM,Joseph R. Biden,61
+10,REP,Donald J. Trump,256
+3,GRN,Howie Hawkins,2
+3,LIB,Jo Jorgensen,2
+3,,Over Votes,0
+3,,Under Votes,1
+3,DEM,Joseph R. Biden,81
+3,REP,Donald J. Trump,228
+4,GRN,Howie Hawkins,0
+4,LIB,Jo Jorgensen,6
+4,,Over Votes,0
+4,,Under Votes,2
+4,DEM,Joseph R. Biden,52
+4,REP,Donald J. Trump,305
+5,GRN,Howie Hawkins,0
+5,LIB,Jo Jorgensen,5
+5,,Over Votes,0
+5,,Under Votes,0
+5,DEM,Joseph R. Biden,92
+5,REP,Donald J. Trump,490
+7,GRN,Howie Hawkins,0
+7,LIB,Jo Jorgensen,2
+7,,Over Votes,0
+7,,Under Votes,0
+7,DEM,Joseph R. Biden,20
+7,REP,Donald J. Trump,157
+9,GRN,Howie Hawkins,0
+9,LIB,Jo Jorgensen,0
+9,,Over Votes,0
+9,,Under Votes,1
+9,DEM,Joseph R. Biden,21
+9,REP,Donald J. Trump,199

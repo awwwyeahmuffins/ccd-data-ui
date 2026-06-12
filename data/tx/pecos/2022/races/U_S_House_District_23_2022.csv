@@ -1,0 +1,28 @@
+precinct,party,candidate,votes
+1,DEM,John Lira,210
+1,IND,IND Frank Lopez Jr,61
+1,REP,Tony Gonzales,722
+10,DEM,John Lira,89
+10,IND,IND Frank Lopez Jr,22
+10,REP,Tony Gonzales,240
+2,DEM,John Lira,259
+2,IND,IND Frank Lopez Jr,50
+2,REP,Tony Gonzales,615
+3,DEM,John Lira,7
+3,IND,IND Frank Lopez Jr,15
+3,REP,Tony Gonzales,87
+4,DEM,John Lira,32
+4,IND,IND Frank Lopez Jr,13
+4,REP,Tony Gonzales,229
+5,DEM,John Lira,0
+5,IND,IND Frank Lopez Jr,1
+5,REP,Tony Gonzales,41
+6,DEM,John Lira,13
+6,IND,IND Frank Lopez Jr,3
+6,REP,Tony Gonzales,43
+7,DEM,John Lira,204
+7,IND,IND Frank Lopez Jr,24
+7,REP,Tony Gonzales,499
+9,DEM,John Lira,10
+9,IND,IND Frank Lopez Jr,13
+9,REP,Tony Gonzales,98

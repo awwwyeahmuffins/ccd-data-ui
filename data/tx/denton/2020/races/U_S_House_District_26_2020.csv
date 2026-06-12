@@ -1,0 +1,463 @@
+precinct,party,candidate,votes
+1000,DEM,Carol H. Iannuzzi,371
+1000,LIB,Mark Boler,46
+1000,REP,Michael C. Burgess,1857
+1001,DEM,Carol H. Iannuzzi,227
+1001,LIB,Mark Boler,26
+1001,REP,Michael C. Burgess,1016
+1002,DEM,Carol H. Iannuzzi,219
+1002,LIB,Mark Boler,23
+1002,REP,Michael C. Burgess,996
+1003,DEM,Carol H. Iannuzzi,468
+1003,LIB,Mark Boler,50
+1003,REP,Michael C. Burgess,1999
+1004,DEM,Carol H. Iannuzzi,1444
+1004,LIB,Mark Boler,77
+1004,REP,Michael C. Burgess,1714
+1005,DEM,Carol H. Iannuzzi,333
+1005,LIB,Mark Boler,34
+1005,REP,Michael C. Burgess,1542
+1006,DEM,Carol H. Iannuzzi,1664
+1006,LIB,Mark Boler,124
+1006,REP,Michael C. Burgess,2502
+1007,DEM,Carol H. Iannuzzi,1427
+1007,LIB,Mark Boler,103
+1007,REP,Michael C. Burgess,2088
+1008,DEM,Carol H. Iannuzzi,220
+1008,LIB,Mark Boler,23
+1008,REP,Michael C. Burgess,783
+1009,DEM,Carol H. Iannuzzi,1082
+1009,LIB,Mark Boler,63
+1009,REP,Michael C. Burgess,1084
+1010,DEM,Carol H. Iannuzzi,909
+1010,LIB,Mark Boler,55
+1010,REP,Michael C. Burgess,1262
+1011,DEM,Carol H. Iannuzzi,1180
+1011,LIB,Mark Boler,80
+1011,REP,Michael C. Burgess,913
+1012,DEM,Carol H. Iannuzzi,1087
+1012,LIB,Mark Boler,44
+1012,REP,Michael C. Burgess,1041
+1013,DEM,Carol H. Iannuzzi,846
+1013,LIB,Mark Boler,74
+1013,REP,Michael C. Burgess,1153
+1014,DEM,Carol H. Iannuzzi,139
+1014,LIB,Mark Boler,7
+1014,REP,Michael C. Burgess,50
+1015,DEM,Carol H. Iannuzzi,847
+1015,LIB,Mark Boler,50
+1015,REP,Michael C. Burgess,1216
+1016,DEM,Carol H. Iannuzzi,995
+1016,LIB,Mark Boler,48
+1016,REP,Michael C. Burgess,1625
+1017,DEM,Carol H. Iannuzzi,402
+1017,LIB,Mark Boler,19
+1017,REP,Michael C. Burgess,627
+1018,DEM,Carol H. Iannuzzi,1541
+1018,LIB,Mark Boler,84
+1018,REP,Michael C. Burgess,2223
+1019,DEM,Carol H. Iannuzzi,882
+1019,LIB,Mark Boler,62
+1019,REP,Michael C. Burgess,1107
+1020,DEM,Carol H. Iannuzzi,1017
+1020,LIB,Mark Boler,60
+1020,REP,Michael C. Burgess,2344
+1021,DEM,Carol H. Iannuzzi,827
+1021,LIB,Mark Boler,60
+1021,REP,Michael C. Burgess,1773
+1022,DEM,Carol H. Iannuzzi,945
+1022,LIB,Mark Boler,74
+1022,REP,Michael C. Burgess,1742
+1023,DEM,Carol H. Iannuzzi,975
+1023,LIB,Mark Boler,66
+1023,REP,Michael C. Burgess,1988
+1024,DEM,Carol H. Iannuzzi,406
+1024,LIB,Mark Boler,25
+1024,REP,Michael C. Burgess,1318
+1025,DEM,Carol H. Iannuzzi,1389
+1025,LIB,Mark Boler,120
+1025,REP,Michael C. Burgess,2560
+1026,DEM,Carol H. Iannuzzi,1396
+1026,LIB,Mark Boler,54
+1026,REP,Michael C. Burgess,1216
+1027,DEM,Carol H. Iannuzzi,748
+1027,LIB,Mark Boler,33
+1027,REP,Michael C. Burgess,681
+1028,DEM,Carol H. Iannuzzi,1106
+1028,LIB,Mark Boler,44
+1028,REP,Michael C. Burgess,963
+1029,DEM,Carol H. Iannuzzi,1199
+1029,LIB,Mark Boler,45
+1029,REP,Michael C. Burgess,1558
+1030,DEM,Carol H. Iannuzzi,1289
+1030,LIB,Mark Boler,48
+1030,REP,Michael C. Burgess,2286
+1031,DEM,Carol H. Iannuzzi,818
+1031,LIB,Mark Boler,37
+1031,REP,Michael C. Burgess,1379
+1032,DEM,Carol H. Iannuzzi,1676
+1032,LIB,Mark Boler,62
+1032,REP,Michael C. Burgess,2506
+1033,DEM,Carol H. Iannuzzi,1869
+1033,LIB,Mark Boler,44
+1033,REP,Michael C. Burgess,2006
+1034,DEM,Carol H. Iannuzzi,1621
+1034,LIB,Mark Boler,46
+1034,REP,Michael C. Burgess,2216
+1035,DEM,Carol H. Iannuzzi,813
+1035,LIB,Mark Boler,27
+1035,REP,Michael C. Burgess,1604
+1036,DEM,Carol H. Iannuzzi,1290
+1036,LIB,Mark Boler,22
+1036,REP,Michael C. Burgess,3018
+1037,DEM,Carol H. Iannuzzi,160
+1037,LIB,Mark Boler,14
+1037,REP,Michael C. Burgess,531
+1038,DEM,Carol H. Iannuzzi,133
+1038,LIB,Mark Boler,10
+1038,REP,Michael C. Burgess,108
+1039,DEM,Carol H. Iannuzzi,47
+1039,LIB,Mark Boler,1
+1039,REP,Michael C. Burgess,73
+1040,DEM,Carol H. Iannuzzi,761
+1040,LIB,Mark Boler,21
+1040,REP,Michael C. Burgess,1495
+1041,DEM,Carol H. Iannuzzi,2055
+1041,LIB,Mark Boler,79
+1041,REP,Michael C. Burgess,2258
+1042,DEM,Carol H. Iannuzzi,20
+1042,LIB,Mark Boler,6
+1042,REP,Michael C. Burgess,125
+1043,DEM,Carol H. Iannuzzi,369
+1043,LIB,Mark Boler,16
+1043,REP,Michael C. Burgess,467
+1044,DEM,Carol H. Iannuzzi,1883
+1044,LIB,Mark Boler,63
+1044,REP,Michael C. Burgess,2811
+1045,DEM,Carol H. Iannuzzi,201
+1045,LIB,Mark Boler,19
+1045,REP,Michael C. Burgess,1034
+1046,DEM,Carol H. Iannuzzi,1340
+1046,LIB,Mark Boler,77
+1046,REP,Michael C. Burgess,1921
+1047,DEM,Carol H. Iannuzzi,173
+1047,LIB,Mark Boler,8
+1047,REP,Michael C. Burgess,314
+1048,DEM,Carol H. Iannuzzi,161
+1048,LIB,Mark Boler,12
+1048,REP,Michael C. Burgess,449
+1049,DEM,Carol H. Iannuzzi,314
+1049,LIB,Mark Boler,8
+1049,REP,Michael C. Burgess,345
+1050,DEM,Carol H. Iannuzzi,816
+1050,LIB,Mark Boler,35
+1050,REP,Michael C. Burgess,1324
+1051,DEM,Carol H. Iannuzzi,616
+1051,LIB,Mark Boler,19
+1051,REP,Michael C. Burgess,1102
+1052,DEM,Carol H. Iannuzzi,1369
+1052,LIB,Mark Boler,48
+1052,REP,Michael C. Burgess,1733
+1053,DEM,Carol H. Iannuzzi,512
+1053,LIB,Mark Boler,53
+1053,REP,Michael C. Burgess,1732
+1054,DEM,Carol H. Iannuzzi,1298
+1054,LIB,Mark Boler,47
+1054,REP,Michael C. Burgess,874
+1055,DEM,Carol H. Iannuzzi,566
+1055,LIB,Mark Boler,11
+1055,REP,Michael C. Burgess,627
+1056,DEM,Carol H. Iannuzzi,607
+1056,LIB,Mark Boler,19
+1056,REP,Michael C. Burgess,792
+1057,DEM,Carol H. Iannuzzi,389
+1057,LIB,Mark Boler,23
+1057,REP,Michael C. Burgess,371
+2019,DEM,Carol H. Iannuzzi,0
+2019,LIB,Mark Boler,0
+2019,REP,Michael C. Burgess,0
+2021,DEM,Carol H. Iannuzzi,1409
+2021,LIB,Mark Boler,75
+2021,REP,Michael C. Burgess,1544
+2022,DEM,Carol H. Iannuzzi,841
+2022,LIB,Mark Boler,59
+2022,REP,Michael C. Burgess,1378
+2023,DEM,Carol H. Iannuzzi,1302
+2023,LIB,Mark Boler,69
+2023,REP,Michael C. Burgess,1521
+2024,DEM,Carol H. Iannuzzi,667
+2024,LIB,Mark Boler,53
+2024,REP,Michael C. Burgess,883
+2025,DEM,Carol H. Iannuzzi,662
+2025,LIB,Mark Boler,44
+2025,REP,Michael C. Burgess,914
+2026,DEM,Carol H. Iannuzzi,1032
+2026,LIB,Mark Boler,73
+2026,REP,Michael C. Burgess,1696
+2027,DEM,Carol H. Iannuzzi,1339
+2027,LIB,Mark Boler,42
+2027,REP,Michael C. Burgess,2327
+2028,DEM,Carol H. Iannuzzi,1411
+2028,LIB,Mark Boler,102
+2028,REP,Michael C. Burgess,1372
+2029,DEM,Carol H. Iannuzzi,959
+2029,LIB,Mark Boler,46
+2029,REP,Michael C. Burgess,941
+2030,DEM,Carol H. Iannuzzi,1879
+2030,LIB,Mark Boler,92
+2030,REP,Michael C. Burgess,1894
+2031,DEM,Carol H. Iannuzzi,1402
+2031,LIB,Mark Boler,61
+2031,REP,Michael C. Burgess,1538
+2032,DEM,Carol H. Iannuzzi,881
+2032,LIB,Mark Boler,56
+2032,REP,Michael C. Burgess,1031
+2035,DEM,Carol H. Iannuzzi,1393
+2035,LIB,Mark Boler,66
+2035,REP,Michael C. Burgess,1352
+3000,DEM,Carol H. Iannuzzi,996
+3000,LIB,Mark Boler,78
+3000,REP,Michael C. Burgess,1927
+3001,DEM,Carol H. Iannuzzi,801
+3001,LIB,Mark Boler,63
+3001,REP,Michael C. Burgess,2011
+3002,DEM,Carol H. Iannuzzi,1091
+3002,LIB,Mark Boler,67
+3002,REP,Michael C. Burgess,2481
+3003,DEM,Carol H. Iannuzzi,730
+3003,LIB,Mark Boler,37
+3003,REP,Michael C. Burgess,1486
+3004,DEM,Carol H. Iannuzzi,698
+3004,LIB,Mark Boler,48
+3004,REP,Michael C. Burgess,1780
+3005,DEM,Carol H. Iannuzzi,453
+3005,LIB,Mark Boler,31
+3005,REP,Michael C. Burgess,1168
+3006,DEM,Carol H. Iannuzzi,1218
+3006,LIB,Mark Boler,70
+3006,REP,Michael C. Burgess,1773
+3007,DEM,Carol H. Iannuzzi,1530
+3007,LIB,Mark Boler,57
+3007,REP,Michael C. Burgess,1569
+3008,DEM,Carol H. Iannuzzi,844
+3008,LIB,Mark Boler,48
+3008,REP,Michael C. Burgess,1361
+3009,DEM,Carol H. Iannuzzi,746
+3009,LIB,Mark Boler,49
+3009,REP,Michael C. Burgess,1129
+3010,DEM,Carol H. Iannuzzi,1456
+3010,LIB,Mark Boler,88
+3010,REP,Michael C. Burgess,1646
+3011,DEM,Carol H. Iannuzzi,1552
+3011,LIB,Mark Boler,71
+3011,REP,Michael C. Burgess,1375
+3012,DEM,Carol H. Iannuzzi,558
+3012,LIB,Mark Boler,27
+3012,REP,Michael C. Burgess,782
+3013,DEM,Carol H. Iannuzzi,863
+3013,LIB,Mark Boler,40
+3013,REP,Michael C. Burgess,1010
+3014,DEM,Carol H. Iannuzzi,761
+3014,LIB,Mark Boler,38
+3014,REP,Michael C. Burgess,809
+3015,DEM,Carol H. Iannuzzi,879
+3015,LIB,Mark Boler,49
+3015,REP,Michael C. Burgess,765
+3016,DEM,Carol H. Iannuzzi,851
+3016,LIB,Mark Boler,34
+3016,REP,Michael C. Burgess,538
+3017,DEM,Carol H. Iannuzzi,1582
+3017,LIB,Mark Boler,64
+3017,REP,Michael C. Burgess,736
+3018,DEM,Carol H. Iannuzzi,471
+3018,LIB,Mark Boler,26
+3018,REP,Michael C. Burgess,443
+3019,DEM,Carol H. Iannuzzi,2004
+3019,LIB,Mark Boler,73
+3019,REP,Michael C. Burgess,1356
+3020,DEM,Carol H. Iannuzzi,385
+3020,LIB,Mark Boler,9
+3020,REP,Michael C. Burgess,216
+3021,DEM,Carol H. Iannuzzi,1670
+3021,LIB,Mark Boler,78
+3021,REP,Michael C. Burgess,1788
+3024,DEM,Carol H. Iannuzzi,1117
+3024,LIB,Mark Boler,33
+3024,REP,Michael C. Burgess,1750
+3025,DEM,Carol H. Iannuzzi,1192
+3025,LIB,Mark Boler,56
+3025,REP,Michael C. Burgess,2121
+3026,DEM,Carol H. Iannuzzi,749
+3026,LIB,Mark Boler,40
+3026,REP,Michael C. Burgess,1271
+3027,DEM,Carol H. Iannuzzi,1262
+3027,LIB,Mark Boler,68
+3027,REP,Michael C. Burgess,2159
+3028,DEM,Carol H. Iannuzzi,1213
+3028,LIB,Mark Boler,67
+3028,REP,Michael C. Burgess,2106
+3029,DEM,Carol H. Iannuzzi,713
+3029,LIB,Mark Boler,51
+3029,REP,Michael C. Burgess,1171
+3030,DEM,Carol H. Iannuzzi,699
+3030,LIB,Mark Boler,51
+3030,REP,Michael C. Burgess,1274
+3031,DEM,Carol H. Iannuzzi,862
+3031,LIB,Mark Boler,53
+3031,REP,Michael C. Burgess,1808
+3032,DEM,Carol H. Iannuzzi,937
+3032,LIB,Mark Boler,40
+3032,REP,Michael C. Burgess,430
+3033,DEM,Carol H. Iannuzzi,777
+3033,LIB,Mark Boler,48
+3033,REP,Michael C. Burgess,1290
+3098,DEM,Carol H. Iannuzzi,0
+3098,LIB,Mark Boler,0
+3098,REP,Michael C. Burgess,0
+4000,DEM,Carol H. Iannuzzi,779
+4000,LIB,Mark Boler,85
+4000,REP,Michael C. Burgess,2712
+4001,DEM,Carol H. Iannuzzi,274
+4001,LIB,Mark Boler,22
+4001,REP,Michael C. Burgess,961
+4002,DEM,Carol H. Iannuzzi,506
+4002,LIB,Mark Boler,56
+4002,REP,Michael C. Burgess,2470
+4003,DEM,Carol H. Iannuzzi,907
+4003,LIB,Mark Boler,18
+4003,REP,Michael C. Burgess,3137
+4004,DEM,Carol H. Iannuzzi,954
+4004,LIB,Mark Boler,36
+4004,REP,Michael C. Burgess,322
+4005,DEM,Carol H. Iannuzzi,1023
+4005,LIB,Mark Boler,45
+4005,REP,Michael C. Burgess,991
+4006,DEM,Carol H. Iannuzzi,1053
+4006,LIB,Mark Boler,45
+4006,REP,Michael C. Burgess,693
+4007,DEM,Carol H. Iannuzzi,1208
+4007,LIB,Mark Boler,60
+4007,REP,Michael C. Burgess,565
+4008,DEM,Carol H. Iannuzzi,827
+4008,LIB,Mark Boler,41
+4008,REP,Michael C. Burgess,334
+4009,DEM,Carol H. Iannuzzi,1536
+4009,LIB,Mark Boler,80
+4009,REP,Michael C. Burgess,738
+4010,DEM,Carol H. Iannuzzi,788
+4010,LIB,Mark Boler,32
+4010,REP,Michael C. Burgess,600
+4011,DEM,Carol H. Iannuzzi,2390
+4011,LIB,Mark Boler,99
+4011,REP,Michael C. Burgess,1135
+4012,DEM,Carol H. Iannuzzi,872
+4012,LIB,Mark Boler,44
+4012,REP,Michael C. Burgess,1182
+4013,DEM,Carol H. Iannuzzi,174
+4013,LIB,Mark Boler,13
+4013,REP,Michael C. Burgess,64
+4014,DEM,Carol H. Iannuzzi,890
+4014,LIB,Mark Boler,37
+4014,REP,Michael C. Burgess,188
+4015,DEM,Carol H. Iannuzzi,327
+4015,LIB,Mark Boler,14
+4015,REP,Michael C. Burgess,176
+4016,DEM,Carol H. Iannuzzi,0
+4016,LIB,Mark Boler,0
+4016,REP,Michael C. Burgess,1
+4017,DEM,Carol H. Iannuzzi,615
+4017,LIB,Mark Boler,56
+4017,REP,Michael C. Burgess,2942
+4018,DEM,Carol H. Iannuzzi,469
+4018,LIB,Mark Boler,25
+4018,REP,Michael C. Burgess,1371
+4019,DEM,Carol H. Iannuzzi,41
+4019,LIB,Mark Boler,4
+4019,REP,Michael C. Burgess,143
+4020,DEM,Carol H. Iannuzzi,163
+4020,LIB,Mark Boler,9
+4020,REP,Michael C. Burgess,639
+4021,DEM,Carol H. Iannuzzi,278
+4021,LIB,Mark Boler,23
+4021,REP,Michael C. Burgess,1175
+4022,DEM,Carol H. Iannuzzi,444
+4022,LIB,Mark Boler,39
+4022,REP,Michael C. Burgess,1601
+4023,DEM,Carol H. Iannuzzi,799
+4023,LIB,Mark Boler,36
+4023,REP,Michael C. Burgess,2175
+4024,DEM,Carol H. Iannuzzi,756
+4024,LIB,Mark Boler,43
+4024,REP,Michael C. Burgess,1706
+4025,DEM,Carol H. Iannuzzi,1133
+4025,LIB,Mark Boler,30
+4025,REP,Michael C. Burgess,1696
+4026,DEM,Carol H. Iannuzzi,501
+4026,LIB,Mark Boler,20
+4026,REP,Michael C. Burgess,825
+4027,DEM,Carol H. Iannuzzi,1257
+4027,LIB,Mark Boler,50
+4027,REP,Michael C. Burgess,2055
+4028,DEM,Carol H. Iannuzzi,891
+4028,LIB,Mark Boler,64
+4028,REP,Michael C. Burgess,2723
+4029,DEM,Carol H. Iannuzzi,282
+4029,LIB,Mark Boler,23
+4029,REP,Michael C. Burgess,832
+4031,DEM,Carol H. Iannuzzi,871
+4031,LIB,Mark Boler,62
+4031,REP,Michael C. Burgess,2601
+4032,DEM,Carol H. Iannuzzi,1144
+4032,LIB,Mark Boler,68
+4032,REP,Michael C. Burgess,3039
+4033,DEM,Carol H. Iannuzzi,720
+4033,LIB,Mark Boler,50
+4033,REP,Michael C. Burgess,1723
+4034,DEM,Carol H. Iannuzzi,1193
+4034,LIB,Mark Boler,104
+4034,REP,Michael C. Burgess,2423
+4035,DEM,Carol H. Iannuzzi,1523
+4035,LIB,Mark Boler,124
+4035,REP,Michael C. Burgess,4131
+4036,DEM,Carol H. Iannuzzi,466
+4036,LIB,Mark Boler,56
+4036,REP,Michael C. Burgess,2248
+4037,DEM,Carol H. Iannuzzi,739
+4037,LIB,Mark Boler,38
+4037,REP,Michael C. Burgess,484
+4038,DEM,Carol H. Iannuzzi,59
+4038,LIB,Mark Boler,6
+4038,REP,Michael C. Burgess,139
+4039,DEM,Carol H. Iannuzzi,1005
+4039,LIB,Mark Boler,59
+4039,REP,Michael C. Burgess,201
+4040,DEM,Carol H. Iannuzzi,480
+4040,LIB,Mark Boler,27
+4040,REP,Michael C. Burgess,450
+4041,DEM,Carol H. Iannuzzi,801
+4041,LIB,Mark Boler,44
+4041,REP,Michael C. Burgess,830
+4042,DEM,Carol H. Iannuzzi,5
+4042,LIB,Mark Boler,1
+4042,REP,Michael C. Burgess,24
+4043,DEM,Carol H. Iannuzzi,676
+4043,LIB,Mark Boler,34
+4043,REP,Michael C. Burgess,1924
+4044,DEM,Carol H. Iannuzzi,755
+4044,LIB,Mark Boler,76
+4044,REP,Michael C. Burgess,2266
+4045,DEM,Carol H. Iannuzzi,1845
+4045,LIB,Mark Boler,93
+4045,REP,Michael C. Burgess,413
+4046,DEM,Carol H. Iannuzzi,831
+4046,LIB,Mark Boler,51
+4046,REP,Michael C. Burgess,2114
+4047,DEM,Carol H. Iannuzzi,512
+4047,LIB,Mark Boler,36
+4047,REP,Michael C. Burgess,1141
+4048,DEM,Carol H. Iannuzzi,1236
+4048,LIB,Mark Boler,96
+4048,REP,Michael C. Burgess,2698
+4049,DEM,Carol H. Iannuzzi,279
+4049,LIB,Mark Boler,31
+4049,REP,Michael C. Burgess,1281

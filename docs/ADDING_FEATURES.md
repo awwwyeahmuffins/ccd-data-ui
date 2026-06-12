@@ -214,3 +214,28 @@ Live counties so far: Collin, Bastrop (the pilot — copy its layout).
 5. **Optional extras** — per-set `profile/` files (dnc_scores.csv, racial.csv,
    census_profiles.json…) light up the demographics panels; without them the
    app shows N/A, which is correct.
+
+### Batch imports + the audit gates (statewide rollout, June 2026)
+
+`data_processor/batch_import.py` is the scaled version of Recipe F: it takes
+every county with published precinct data through three hard gates — no gate,
+no flip:
+
+1. **ETL** — OpenElections precinct results (transcribed from official county
+   canvasses; `sourceUrl` recorded per race).
+2. **Canvass audit** — county totals for the major statewide races must
+   reconcile against an independent officially-sourced dataset
+   (2022: MEDSL `2022-elections-official`; 2020: VEST precinct returns).
+   REP/DEM/LIB exact per office; all other candidates + write-ins as one
+   OTHER bucket; the only tolerance is write-in votes the official accounting
+   doesn't carry, and only when the gap equals our write-in tally exactly.
+   Party labels the source omitted are filled from the official dataset
+   (recorded as `parties_enriched_from_official`).
+3. **Boundary join** — TLC election-vintage VTDs; 100% of vote-bearing
+   precinct codes must join, via at most one deterministic normalization
+   rule from a fixed ladder (exact → strip-leading-zeros → first-integer →
+   first-integer-merge for sub-precinct splits). The rule used is recorded.
+
+Per-county outcomes (gates, cells compared, mismatch detail, join rule) live
+in `data/tx/AUDIT_REPORT.json`. Counties that fail any gate stay placeholders
+with the reason recorded — fix the data, never the gate.

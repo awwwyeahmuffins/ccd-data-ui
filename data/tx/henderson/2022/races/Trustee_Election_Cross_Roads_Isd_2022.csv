@@ -1,0 +1,25 @@
+precinct,party,candidate,votes
+1CR,,Chuck Brown,321
+1CR,,Felicia Baker,412
+1CR,,Naomi Logan,375
+1CR,,Over Votes,0
+1CR,,Under Votes,1094
+1CR,,Wade Braddock,396
+1M,,Chuck Brown,5
+1M,,Felicia Baker,10
+1M,,Naomi Logan,9
+1M,,Over Votes,0
+1M,,Under Votes,27
+1M,,Wade Braddock,6
+4B,,Chuck Brown,6
+4B,,Felicia Baker,5
+4B,,Naomi Logan,5
+4B,,Over Votes,0
+4B,,Under Votes,17
+4B,,Wade Braddock,3
+4W,,Chuck Brown,106
+4W,,Felicia Baker,130
+4W,,Naomi Logan,97
+4W,,Over Votes,0
+4W,,Under Votes,460
+4W,,Wade Braddock,80

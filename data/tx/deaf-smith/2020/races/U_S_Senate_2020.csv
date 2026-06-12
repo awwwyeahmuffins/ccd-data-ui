@@ -1,0 +1,25 @@
+precinct,party,candidate,votes
+1,,Overvotes:,2
+1,,Undervotes:,20
+1,DEM,Mary MJ Hegar,233
+1,GRN,David B. Collins,6
+1,LIB,Kerry Douglas McKennon,16
+1,REP,John Cornyn,559
+2,,Overvotes:,2
+2,,Undervotes:,23
+2,DEM,Mary MJ Hegar,288
+2,GRN,David B. Collins,8
+2,LIB,Kerry Douglas McKennon,17
+2,REP,John Cornyn,553
+3,,Overvotes:,0
+3,,Undervotes:,27
+3,DEM,Mary MJ Hegar,330
+3,GRN,David B. Collins,11
+3,LIB,Kerry Douglas McKennon,22
+3,REP,John Cornyn,1495
+4,,Overvotes:,0
+4,,Undervotes:,34
+4,DEM,Mary MJ Hegar,300
+4,GRN,David B. Collins,11
+4,LIB,Kerry Douglas McKennon,18
+4,REP,John Cornyn,666

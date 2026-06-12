@@ -1,0 +1,29 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,0
+1,,Write-in,0
+1,DEM,Joseph R. Biden / Kamala D. Harris,52
+1,GRN,Howie Hawkins / Angela Walker,2
+1,LIB,"Jo Jorgensen / Jeremy ""Spike""",9
+1,REP,Donald J. Trump / Michael R. Pence,394
+2,,Over Votes,0
+2,,Under Votes,3
+2,,Write-in,1
+2,DEM,Joseph R. Biden / Kamala D. Harris,69
+2,GRN,Howie Hawkins / Angela Walker,1
+2,LIB,"Jo Jorgensen / Jeremy ""Spike""",3
+2,REP,Donald J. Trump / Michael R. Pence,591
+3,,Over Votes,0
+3,,Under Votes,2
+3,,Write-in,2
+3,DEM,Joseph R. Biden / Kamala D. Harris,98
+3,GRN,Howie Hawkins / Angela Walker,0
+3,LIB,"Jo Jorgensen / Jeremy ""Spike""",16
+3,REP,Donald J. Trump / Michael R. Pence,1057
+4,,Over Votes,0
+4,,Under Votes,0
+4,,Write-in,2
+4,DEM,Joseph R. Biden / Kamala D. Harris,83
+4,GRN,Howie Hawkins / Angela Walker,0
+4,LIB,"Jo Jorgensen / Jeremy ""Spike""",9
+4,REP,Donald J. Trump / Michael R. Pence,770

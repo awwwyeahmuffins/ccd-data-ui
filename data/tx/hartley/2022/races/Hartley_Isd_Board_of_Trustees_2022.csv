@@ -1,0 +1,13 @@
+precinct,party,candidate,votes
+101,,Glen Green,60
+101,,J D Clark,99
+101,,Mike Thompson,121
+101,,Shelly Bishop,101
+201,,Glen Green,0
+201,,J D Clark,0
+201,,Mike Thompson,1
+201,,Shelly Bishop,0
+202,,Glen Green,7
+202,,J D Clark,0
+202,,Mike Thompson,2
+202,,Shelly Bishop,1

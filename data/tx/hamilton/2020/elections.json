@@ -1,0 +1,79 @@
+{
+  "version": 3,
+  "county": "hamilton",
+  "boundarySet": "2020",
+  "elections": [
+    {
+      "id": "president-2020",
+      "displayName": "President (2020)",
+      "office": "President",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "Federal",
+      "raceFile": "races/President_2020.csv",
+      "turnoutFile": "turnout/2020-11-03.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2020/counties/20201103__tx__general__hamilton__precinct.csv"
+    },
+    {
+      "id": "railroad-commissioner-2020",
+      "displayName": "Railroad Commissioner (2020)",
+      "office": "Railroad Commissioner",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/Railroad_Commissioner_2020.csv",
+      "turnoutFile": "turnout/2020-11-03.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2020/counties/20201103__tx__general__hamilton__precinct.csv"
+    },
+    {
+      "id": "state-representative-district-59-2020",
+      "displayName": "State Representative District 59 (2020)",
+      "office": "State Representative",
+      "district": "59",
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/State_Representative_District_59_2020.csv",
+      "turnoutFile": "turnout/2020-11-03.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2020/counties/20201103__tx__general__hamilton__precinct.csv"
+    },
+    {
+      "id": "state-senate-district-24-2020",
+      "displayName": "State Senate District 24 (2020)",
+      "office": "State Senate",
+      "district": "24",
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "County",
+      "raceFile": "races/State_Senate_District_24_2020.csv",
+      "turnoutFile": "turnout/2020-11-03.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2020/counties/20201103__tx__general__hamilton__precinct.csv"
+    },
+    {
+      "id": "u-s-house-district-25-2020",
+      "displayName": "U S House District 25 (2020)",
+      "office": "U.S. House",
+      "district": "25",
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "County",
+      "raceFile": "races/U_S_House_District_25_2020.csv",
+      "turnoutFile": "turnout/2020-11-03.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2020/counties/20201103__tx__general__hamilton__precinct.csv"
+    },
+    {
+      "id": "u-s-senate-2020",
+      "displayName": "U S Senate (2020)",
+      "office": "U.S. Senate",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "County",
+      "raceFile": "races/U_S_Senate_2020.csv",
+      "turnoutFile": "turnout/2020-11-03.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2020/counties/20201103__tx__general__hamilton__precinct.csv"
+    }
+  ]
+}

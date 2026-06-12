@@ -1,0 +1,33 @@
+precinct,party,candidate,votes
+101,DEM,Luke Warford,28
+101,GRN,Hunter Wayne Crow,1
+101,LIB,Jaime Andres Diez,3
+101,REP,Wayne Christian,236
+201,DEM,Luke Warford,32
+201,GRN,Hunter Wayne Crow,1
+201,LIB,Jaime Andres Diez,4
+201,REP,Wayne Christian,218
+202,DEM,Luke Warford,1
+202,GRN,Hunter Wayne Crow,0
+202,LIB,Jaime Andres Diez,0
+202,REP,Wayne Christian,17
+301,DEM,Luke Warford,28
+301,GRN,Hunter Wayne Crow,1
+301,LIB,Jaime Andres Diez,6
+301,REP,Wayne Christian,339
+302,DEM,Luke Warford,1
+302,GRN,Hunter Wayne Crow,0
+302,LIB,Jaime Andres Diez,1
+302,REP,Wayne Christian,20
+303,DEM,Luke Warford,6
+303,GRN,Hunter Wayne Crow,0
+303,LIB,Jaime Andres Diez,0
+303,REP,Wayne Christian,59
+401,DEM,Luke Warford,14
+401,GRN,Hunter Wayne Crow,2
+401,LIB,Jaime Andres Diez,3
+401,REP,Wayne Christian,199
+402,DEM,Luke Warford,12
+402,GRN,Hunter Wayne Crow,1
+402,LIB,Jaime Andres Diez,1
+402,REP,Wayne Christian,72

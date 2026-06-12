@@ -1,0 +1,607 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,49
+1,DEM,Luke Warford,312
+1,GRN,Hunter Wayne Crow,8
+1,LIB,Jaime Andres Diez,44
+1,REP,Wayne Christian,208
+10,,Over Votes,2
+10,,Under Votes,43
+10,DEM,Luke Warford,317
+10,GRN,Hunter Wayne Crow,9
+10,LIB,Jaime Andres Diez,68
+10,REP,Wayne Christian,131
+100,,Over Votes,0
+100,,Under Votes,48
+100,DEM,Luke Warford,619
+100,GRN,Hunter Wayne Crow,12
+100,LIB,Jaime Andres Diez,212
+100,REP,Wayne Christian,524
+101,,Over Votes,0
+101,,Under Votes,10
+101,DEM,Luke Warford,188
+101,GRN,Hunter Wayne Crow,5
+101,LIB,Jaime Andres Diez,20
+101,REP,Wayne Christian,122
+11,,Over Votes,0
+11,,Under Votes,24
+11,DEM,Luke Warford,282
+11,GRN,Hunter Wayne Crow,9
+11,LIB,Jaime Andres Diez,57
+11,REP,Wayne Christian,165
+12,,Over Votes,1
+12,,Under Votes,45
+12,DEM,Luke Warford,431
+12,GRN,Hunter Wayne Crow,11
+12,LIB,Jaime Andres Diez,123
+12,REP,Wayne Christian,332
+13,,Over Votes,0
+13,,Under Votes,12
+13,DEM,Luke Warford,97
+13,GRN,Hunter Wayne Crow,3
+13,LIB,Jaime Andres Diez,23
+13,REP,Wayne Christian,56
+14,,Over Votes,0
+14,,Under Votes,29
+14,DEM,Luke Warford,410
+14,GRN,Hunter Wayne Crow,17
+14,LIB,Jaime Andres Diez,95
+14,REP,Wayne Christian,259
+15,,Over Votes,1
+15,,Under Votes,30
+15,DEM,Luke Warford,407
+15,GRN,Hunter Wayne Crow,11
+15,LIB,Jaime Andres Diez,110
+15,REP,Wayne Christian,235
+16,,Over Votes,0
+16,,Under Votes,12
+16,DEM,Luke Warford,95
+16,GRN,Hunter Wayne Crow,2
+16,LIB,Jaime Andres Diez,12
+16,REP,Wayne Christian,198
+17,,Over Votes,0
+17,,Under Votes,50
+17,DEM,Luke Warford,595
+17,GRN,Hunter Wayne Crow,7
+17,LIB,Jaime Andres Diez,100
+17,REP,Wayne Christian,411
+18,,Over Votes,0
+18,,Under Votes,26
+18,DEM,Luke Warford,379
+18,GRN,Hunter Wayne Crow,7
+18,LIB,Jaime Andres Diez,38
+18,REP,Wayne Christian,252
+19,,Over Votes,0
+19,,Under Votes,24
+19,DEM,Luke Warford,301
+19,GRN,Hunter Wayne Crow,11
+19,LIB,Jaime Andres Diez,25
+19,REP,Wayne Christian,197
+2,,Over Votes,0
+2,,Under Votes,7
+2,DEM,Luke Warford,89
+2,GRN,Hunter Wayne Crow,4
+2,LIB,Jaime Andres Diez,10
+2,REP,Wayne Christian,174
+20,,Over Votes,0
+20,,Under Votes,22
+20,DEM,Luke Warford,223
+20,GRN,Hunter Wayne Crow,4
+20,LIB,Jaime Andres Diez,17
+20,REP,Wayne Christian,260
+21,,Over Votes,0
+21,,Under Votes,10
+21,DEM,Luke Warford,179
+21,GRN,Hunter Wayne Crow,5
+21,LIB,Jaime Andres Diez,16
+21,REP,Wayne Christian,88
+22,,Over Votes,0
+22,,Under Votes,28
+22,DEM,Luke Warford,437
+22,GRN,Hunter Wayne Crow,5
+22,LIB,Jaime Andres Diez,50
+22,REP,Wayne Christian,256
+23,,Over Votes,0
+23,,Under Votes,1
+23,DEM,Luke Warford,21
+23,GRN,Hunter Wayne Crow,0
+23,LIB,Jaime Andres Diez,5
+23,REP,Wayne Christian,55
+24,,Over Votes,0
+24,,Under Votes,113
+24,DEM,Luke Warford,256
+24,GRN,Hunter Wayne Crow,4
+24,LIB,Jaime Andres Diez,42
+24,REP,Wayne Christian,144
+25,,Over Votes,0
+25,,Under Votes,15
+25,DEM,Luke Warford,141
+25,GRN,Hunter Wayne Crow,4
+25,LIB,Jaime Andres Diez,13
+25,REP,Wayne Christian,99
+26,,Over Votes,0
+26,,Under Votes,49
+26,DEM,Luke Warford,381
+26,GRN,Hunter Wayne Crow,10
+26,LIB,Jaime Andres Diez,57
+26,REP,Wayne Christian,376
+27,,Over Votes,1
+27,,Under Votes,82
+27,DEM,Luke Warford,464
+27,GRN,Hunter Wayne Crow,11
+27,LIB,Jaime Andres Diez,74
+27,REP,Wayne Christian,289
+28,,Over Votes,0
+28,,Under Votes,32
+28,DEM,Luke Warford,372
+28,GRN,Hunter Wayne Crow,9
+28,LIB,Jaime Andres Diez,46
+28,REP,Wayne Christian,358
+29,,Over Votes,0
+29,,Under Votes,19
+29,DEM,Luke Warford,358
+29,GRN,Hunter Wayne Crow,6
+29,LIB,Jaime Andres Diez,47
+29,REP,Wayne Christian,624
+3,,Over Votes,0
+3,,Under Votes,64
+3,DEM,Luke Warford,759
+3,GRN,Hunter Wayne Crow,32
+3,LIB,Jaime Andres Diez,121
+3,REP,Wayne Christian,775
+30,,Over Votes,0
+30,,Under Votes,15
+30,DEM,Luke Warford,177
+30,GRN,Hunter Wayne Crow,6
+30,LIB,Jaime Andres Diez,27
+30,REP,Wayne Christian,265
+31,,Over Votes,0
+31,,Under Votes,5
+31,DEM,Luke Warford,62
+31,GRN,Hunter Wayne Crow,3
+31,LIB,Jaime Andres Diez,7
+31,REP,Wayne Christian,45
+32,,Over Votes,0
+32,,Under Votes,34
+32,DEM,Luke Warford,471
+32,GRN,Hunter Wayne Crow,11
+32,LIB,Jaime Andres Diez,49
+32,REP,Wayne Christian,458
+33,,Over Votes,0
+33,,Under Votes,11
+33,DEM,Luke Warford,110
+33,GRN,Hunter Wayne Crow,5
+33,LIB,Jaime Andres Diez,15
+33,REP,Wayne Christian,72
+34,,Over Votes,0
+34,,Under Votes,21
+34,DEM,Luke Warford,258
+34,GRN,Hunter Wayne Crow,7
+34,LIB,Jaime Andres Diez,28
+34,REP,Wayne Christian,466
+35,,Over Votes,0
+35,,Under Votes,14
+35,DEM,Luke Warford,230
+35,GRN,Hunter Wayne Crow,4
+35,LIB,Jaime Andres Diez,18
+35,REP,Wayne Christian,291
+36,,Over Votes,0
+36,,Under Votes,25
+36,DEM,Luke Warford,483
+36,GRN,Hunter Wayne Crow,15
+36,LIB,Jaime Andres Diez,35
+36,REP,Wayne Christian,456
+37,,Over Votes,2
+37,,Under Votes,25
+37,DEM,Luke Warford,307
+37,GRN,Hunter Wayne Crow,5
+37,LIB,Jaime Andres Diez,56
+37,REP,Wayne Christian,122
+38,,Over Votes,0
+38,,Under Votes,6
+38,DEM,Luke Warford,129
+38,GRN,Hunter Wayne Crow,3
+38,LIB,Jaime Andres Diez,108
+38,REP,Wayne Christian,133
+39,,Over Votes,0
+39,,Under Votes,21
+39,DEM,Luke Warford,185
+39,GRN,Hunter Wayne Crow,4
+39,LIB,Jaime Andres Diez,21
+39,REP,Wayne Christian,115
+4,,Over Votes,0
+4,,Under Votes,46
+4,DEM,Luke Warford,485
+4,GRN,Hunter Wayne Crow,17
+4,LIB,Jaime Andres Diez,162
+4,REP,Wayne Christian,616
+40,,Over Votes,0
+40,,Under Votes,27
+40,DEM,Luke Warford,415
+40,GRN,Hunter Wayne Crow,11
+40,LIB,Jaime Andres Diez,47
+40,REP,Wayne Christian,335
+41,,Over Votes,1
+41,,Under Votes,49
+41,DEM,Luke Warford,749
+41,GRN,Hunter Wayne Crow,18
+41,LIB,Jaime Andres Diez,66
+41,REP,Wayne Christian,407
+42,,Over Votes,0
+42,,Under Votes,24
+42,DEM,Luke Warford,179
+42,GRN,Hunter Wayne Crow,6
+42,LIB,Jaime Andres Diez,19
+42,REP,Wayne Christian,108
+43,,Over Votes,0
+43,,Under Votes,14
+43,DEM,Luke Warford,168
+43,GRN,Hunter Wayne Crow,4
+43,LIB,Jaime Andres Diez,27
+43,REP,Wayne Christian,149
+44,,Over Votes,0
+44,,Under Votes,33
+44,DEM,Luke Warford,589
+44,GRN,Hunter Wayne Crow,16
+44,LIB,Jaime Andres Diez,76
+44,REP,Wayne Christian,789
+45,,Over Votes,1
+45,,Under Votes,21
+45,DEM,Luke Warford,297
+45,GRN,Hunter Wayne Crow,6
+45,LIB,Jaime Andres Diez,59
+45,REP,Wayne Christian,132
+46,,Over Votes,0
+46,,Under Votes,35
+46,DEM,Luke Warford,664
+46,GRN,Hunter Wayne Crow,14
+46,LIB,Jaime Andres Diez,170
+46,REP,Wayne Christian,438
+47,,Over Votes,0
+47,,Under Votes,31
+47,DEM,Luke Warford,286
+47,GRN,Hunter Wayne Crow,5
+47,LIB,Jaime Andres Diez,92
+47,REP,Wayne Christian,168
+48,,Over Votes,1
+48,,Under Votes,46
+48,DEM,Luke Warford,631
+48,GRN,Hunter Wayne Crow,24
+48,LIB,Jaime Andres Diez,186
+48,REP,Wayne Christian,495
+49,,Over Votes,1
+49,,Under Votes,15
+49,DEM,Luke Warford,353
+49,GRN,Hunter Wayne Crow,8
+49,LIB,Jaime Andres Diez,43
+49,REP,Wayne Christian,360
+5,,Over Votes,0
+5,,Under Votes,29
+5,DEM,Luke Warford,442
+5,GRN,Hunter Wayne Crow,13
+5,LIB,Jaime Andres Diez,103
+5,REP,Wayne Christian,454
+50,,Over Votes,0
+50,,Under Votes,24
+50,DEM,Luke Warford,454
+50,GRN,Hunter Wayne Crow,11
+50,LIB,Jaime Andres Diez,52
+50,REP,Wayne Christian,418
+51,,Over Votes,0
+51,,Under Votes,20
+51,DEM,Luke Warford,173
+51,GRN,Hunter Wayne Crow,3
+51,LIB,Jaime Andres Diez,23
+51,REP,Wayne Christian,133
+52,,Over Votes,0
+52,,Under Votes,42
+52,DEM,Luke Warford,430
+52,GRN,Hunter Wayne Crow,20
+52,LIB,Jaime Andres Diez,57
+52,REP,Wayne Christian,781
+53,,Over Votes,0
+53,,Under Votes,44
+53,DEM,Luke Warford,454
+53,GRN,Hunter Wayne Crow,16
+53,LIB,Jaime Andres Diez,108
+53,REP,Wayne Christian,227
+54,,Over Votes,0
+54,,Under Votes,60
+54,DEM,Luke Warford,909
+54,GRN,Hunter Wayne Crow,22
+54,LIB,Jaime Andres Diez,210
+54,REP,Wayne Christian,606
+55,,Over Votes,0
+55,,Under Votes,58
+55,DEM,Luke Warford,604
+55,GRN,Hunter Wayne Crow,20
+55,LIB,Jaime Andres Diez,68
+55,REP,Wayne Christian,525
+56,,Over Votes,0
+56,,Under Votes,31
+56,DEM,Luke Warford,420
+56,GRN,Hunter Wayne Crow,10
+56,LIB,Jaime Andres Diez,35
+56,REP,Wayne Christian,428
+57,,Over Votes,0
+57,,Under Votes,5
+57,DEM,Luke Warford,69
+57,GRN,Hunter Wayne Crow,0
+57,LIB,Jaime Andres Diez,2
+57,REP,Wayne Christian,34
+58,,Over Votes,0
+58,,Under Votes,52
+58,DEM,Luke Warford,422
+58,GRN,Hunter Wayne Crow,12
+58,LIB,Jaime Andres Diez,71
+58,REP,Wayne Christian,523
+59,,Over Votes,0
+59,,Under Votes,13
+59,DEM,Luke Warford,79
+59,GRN,Hunter Wayne Crow,4
+59,LIB,Jaime Andres Diez,6
+59,REP,Wayne Christian,192
+6,,Over Votes,0
+6,,Under Votes,10
+6,DEM,Luke Warford,147
+6,GRN,Hunter Wayne Crow,5
+6,LIB,Jaime Andres Diez,26
+6,REP,Wayne Christian,60
+60,,Over Votes,0
+60,,Under Votes,15
+60,DEM,Luke Warford,172
+60,GRN,Hunter Wayne Crow,8
+60,LIB,Jaime Andres Diez,29
+60,REP,Wayne Christian,132
+61,,Over Votes,0
+61,,Under Votes,26
+61,DEM,Luke Warford,371
+61,GRN,Hunter Wayne Crow,15
+61,LIB,Jaime Andres Diez,167
+61,REP,Wayne Christian,285
+62,,Over Votes,0
+62,,Under Votes,64
+62,DEM,Luke Warford,595
+62,GRN,Hunter Wayne Crow,14
+62,LIB,Jaime Andres Diez,150
+62,REP,Wayne Christian,307
+63,,Over Votes,0
+63,,Under Votes,26
+63,DEM,Luke Warford,368
+63,GRN,Hunter Wayne Crow,10
+63,LIB,Jaime Andres Diez,94
+63,REP,Wayne Christian,172
+64,,Over Votes,0
+64,,Under Votes,7
+64,DEM,Luke Warford,74
+64,GRN,Hunter Wayne Crow,3
+64,LIB,Jaime Andres Diez,19
+64,REP,Wayne Christian,93
+65,,Over Votes,0
+65,,Under Votes,41
+65,DEM,Luke Warford,349
+65,GRN,Hunter Wayne Crow,9
+65,LIB,Jaime Andres Diez,49
+65,REP,Wayne Christian,334
+66,,Over Votes,1
+66,,Under Votes,46
+66,DEM,Luke Warford,409
+66,GRN,Hunter Wayne Crow,16
+66,LIB,Jaime Andres Diez,65
+66,REP,Wayne Christian,574
+67,,Over Votes,0
+67,,Under Votes,88
+67,DEM,Luke Warford,697
+67,GRN,Hunter Wayne Crow,20
+67,LIB,Jaime Andres Diez,63
+67,REP,Wayne Christian,1095
+68,,Over Votes,2
+68,,Under Votes,34
+68,DEM,Luke Warford,353
+68,GRN,Hunter Wayne Crow,10
+68,LIB,Jaime Andres Diez,80
+68,REP,Wayne Christian,184
+69,,Over Votes,0
+69,,Under Votes,46
+69,DEM,Luke Warford,574
+69,GRN,Hunter Wayne Crow,14
+69,LIB,Jaime Andres Diez,123
+69,REP,Wayne Christian,267
+7,,Over Votes,0
+7,,Under Votes,35
+7,DEM,Luke Warford,371
+7,GRN,Hunter Wayne Crow,10
+7,LIB,Jaime Andres Diez,91
+7,REP,Wayne Christian,343
+70,,Over Votes,2
+70,,Under Votes,11
+70,DEM,Luke Warford,162
+70,GRN,Hunter Wayne Crow,7
+70,LIB,Jaime Andres Diez,42
+70,REP,Wayne Christian,79
+71,,Over Votes,0
+71,,Under Votes,40
+71,DEM,Luke Warford,480
+71,GRN,Hunter Wayne Crow,14
+71,LIB,Jaime Andres Diez,97
+71,REP,Wayne Christian,252
+72,,Over Votes,0
+72,,Under Votes,43
+72,DEM,Luke Warford,678
+72,GRN,Hunter Wayne Crow,23
+72,LIB,Jaime Andres Diez,183
+72,REP,Wayne Christian,490
+73,,Over Votes,1
+73,,Under Votes,39
+73,DEM,Luke Warford,764
+73,GRN,Hunter Wayne Crow,20
+73,LIB,Jaime Andres Diez,242
+73,REP,Wayne Christian,506
+74,,Over Votes,0
+74,,Under Votes,64
+74,DEM,Luke Warford,642
+74,GRN,Hunter Wayne Crow,25
+74,LIB,Jaime Andres Diez,178
+74,REP,Wayne Christian,464
+75,,Over Votes,1
+75,,Under Votes,66
+75,DEM,Luke Warford,471
+75,GRN,Hunter Wayne Crow,17
+75,LIB,Jaime Andres Diez,112
+75,REP,Wayne Christian,227
+76,,Over Votes,3
+76,,Under Votes,44
+76,DEM,Luke Warford,579
+76,GRN,Hunter Wayne Crow,16
+76,LIB,Jaime Andres Diez,190
+76,REP,Wayne Christian,333
+77,,Over Votes,0
+77,,Under Votes,40
+77,DEM,Luke Warford,367
+77,GRN,Hunter Wayne Crow,10
+77,LIB,Jaime Andres Diez,80
+77,REP,Wayne Christian,205
+78,,Over Votes,0
+78,,Under Votes,28
+78,DEM,Luke Warford,568
+78,GRN,Hunter Wayne Crow,12
+78,LIB,Jaime Andres Diez,53
+78,REP,Wayne Christian,565
+79,,Over Votes,0
+79,,Under Votes,37
+79,DEM,Luke Warford,568
+79,GRN,Hunter Wayne Crow,22
+79,LIB,Jaime Andres Diez,58
+79,REP,Wayne Christian,623
+8,,Over Votes,0
+8,,Under Votes,5
+8,DEM,Luke Warford,89
+8,GRN,Hunter Wayne Crow,3
+8,LIB,Jaime Andres Diez,13
+8,REP,Wayne Christian,33
+80,,Over Votes,0
+80,,Under Votes,45
+80,DEM,Luke Warford,632
+80,GRN,Hunter Wayne Crow,12
+80,LIB,Jaime Andres Diez,68
+80,REP,Wayne Christian,1183
+81,,Over Votes,1
+81,,Under Votes,34
+81,DEM,Luke Warford,266
+81,GRN,Hunter Wayne Crow,0
+81,LIB,Jaime Andres Diez,31
+81,REP,Wayne Christian,435
+82,,Over Votes,1
+82,,Under Votes,21
+82,DEM,Luke Warford,282
+82,GRN,Hunter Wayne Crow,12
+82,LIB,Jaime Andres Diez,71
+82,REP,Wayne Christian,170
+83,,Over Votes,0
+83,,Under Votes,69
+83,DEM,Luke Warford,361
+83,GRN,Hunter Wayne Crow,5
+83,LIB,Jaime Andres Diez,34
+83,REP,Wayne Christian,326
+84,,Over Votes,0
+84,,Under Votes,25
+84,DEM,Luke Warford,401
+84,GRN,Hunter Wayne Crow,14
+84,LIB,Jaime Andres Diez,34
+84,REP,Wayne Christian,433
+85,,Over Votes,0
+85,,Under Votes,40
+85,DEM,Luke Warford,474
+85,GRN,Hunter Wayne Crow,18
+85,LIB,Jaime Andres Diez,57
+85,REP,Wayne Christian,692
+86,,Over Votes,0
+86,,Under Votes,27
+86,DEM,Luke Warford,232
+86,GRN,Hunter Wayne Crow,8
+86,LIB,Jaime Andres Diez,51
+86,REP,Wayne Christian,162
+87,,Over Votes,0
+87,,Under Votes,36
+87,DEM,Luke Warford,368
+87,GRN,Hunter Wayne Crow,11
+87,LIB,Jaime Andres Diez,46
+87,REP,Wayne Christian,496
+88,,Over Votes,0
+88,,Under Votes,39
+88,DEM,Luke Warford,477
+88,GRN,Hunter Wayne Crow,17
+88,LIB,Jaime Andres Diez,122
+88,REP,Wayne Christian,373
+89,,Over Votes,0
+89,,Under Votes,13
+89,DEM,Luke Warford,188
+89,GRN,Hunter Wayne Crow,7
+89,LIB,Jaime Andres Diez,50
+89,REP,Wayne Christian,138
+9,,Over Votes,1
+9,,Under Votes,39
+9,DEM,Luke Warford,365
+9,GRN,Hunter Wayne Crow,9
+9,LIB,Jaime Andres Diez,91
+9,REP,Wayne Christian,144
+90,,Over Votes,0
+90,,Under Votes,3
+90,DEM,Luke Warford,73
+90,GRN,Hunter Wayne Crow,1
+90,LIB,Jaime Andres Diez,13
+90,REP,Wayne Christian,61
+91,,Over Votes,0
+91,,Under Votes,11
+91,DEM,Luke Warford,194
+91,GRN,Hunter Wayne Crow,3
+91,LIB,Jaime Andres Diez,68
+91,REP,Wayne Christian,135
+92,,Over Votes,0
+92,,Under Votes,4
+92,DEM,Luke Warford,35
+92,GRN,Hunter Wayne Crow,0
+92,LIB,Jaime Andres Diez,7
+92,REP,Wayne Christian,19
+93,,Over Votes,0
+93,,Under Votes,2
+93,DEM,Luke Warford,74
+93,GRN,Hunter Wayne Crow,1
+93,LIB,Jaime Andres Diez,3
+93,REP,Wayne Christian,58
+94,,Over Votes,0
+94,,Under Votes,21
+94,DEM,Luke Warford,201
+94,GRN,Hunter Wayne Crow,6
+94,LIB,Jaime Andres Diez,32
+94,REP,Wayne Christian,172
+95,,Over Votes,0
+95,,Under Votes,9
+95,DEM,Luke Warford,87
+95,GRN,Hunter Wayne Crow,2
+95,LIB,Jaime Andres Diez,16
+95,REP,Wayne Christian,50
+96,,Over Votes,0
+96,,Under Votes,41
+96,DEM,Luke Warford,514
+96,GRN,Hunter Wayne Crow,10
+96,LIB,Jaime Andres Diez,52
+96,REP,Wayne Christian,480
+97,,Over Votes,0
+97,,Under Votes,12
+97,DEM,Luke Warford,121
+97,GRN,Hunter Wayne Crow,4
+97,LIB,Jaime Andres Diez,35
+97,REP,Wayne Christian,53
+98,,Over Votes,0
+98,,Under Votes,71
+98,DEM,Luke Warford,840
+98,GRN,Hunter Wayne Crow,23
+98,LIB,Jaime Andres Diez,190
+98,REP,Wayne Christian,535
+99,,Over Votes,0
+99,,Under Votes,5
+99,DEM,Luke Warford,66
+99,GRN,Hunter Wayne Crow,0
+99,LIB,Jaime Andres Diez,11
+99,REP,Wayne Christian,57

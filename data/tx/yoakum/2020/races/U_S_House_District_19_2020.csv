@@ -1,0 +1,31 @@
+precinct,party,candidate,votes
+101,,Over Votes,0
+101,,Under Votes,3
+101,DEM,Tom Watson,71
+101,LIB,Joe Burnes,9
+101,REP,Jodey C. Arrington,625
+202,,Over Votes,0
+202,,Under Votes,14
+202,DEM,Tom Watson,86
+202,LIB,Joe Burnes,14
+202,REP,Jodey C. Arrington,570
+303,,Over Votes,0
+303,,Under Votes,14
+303,DEM,Tom Watson,45
+303,LIB,Joe Burnes,5
+303,REP,Jodey C. Arrington,278
+305,,Over Votes,0
+305,,Under Votes,3
+305,DEM,Tom Watson,50
+305,LIB,Joe Burnes,7
+305,REP,Jodey C. Arrington,167
+404,,Over Votes,0
+404,,Under Votes,5
+404,DEM,Tom Watson,45
+404,LIB,Joe Burnes,8
+404,REP,Jodey C. Arrington,322
+406,,Over Votes,1
+406,,Under Votes,8
+406,DEM,Tom Watson,67
+406,LIB,Joe Burnes,7
+406,REP,Jodey C. Arrington,218

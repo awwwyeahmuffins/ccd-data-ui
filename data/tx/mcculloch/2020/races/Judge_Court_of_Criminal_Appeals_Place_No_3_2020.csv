@@ -1,0 +1,37 @@
+precinct,party,candidate,votes
+101,,Over Votes,0
+101,,Under Votes,32
+101,DEM,Elizabeth Davis Frizell,119
+101,REP,Bert Richardson,812
+102,,Over Votes,0
+102,,Under Votes,2
+102,DEM,Elizabeth Davis Frizell,13
+102,REP,Bert Richardson,108
+201,,Over Votes,0
+201,,Under Votes,19
+201,DEM,Elizabeth Davis Frizell,122
+201,REP,Bert Richardson,320
+202,,Over Votes,0
+202,,Under Votes,3
+202,DEM,Elizabeth Davis Frizell,16
+202,REP,Bert Richardson,102
+301,,Over Votes,0
+301,,Under Votes,26
+301,DEM,Elizabeth Davis Frizell,106
+301,REP,Bert Richardson,639
+302,,Over Votes,0
+302,,Under Votes,2
+302,DEM,Elizabeth Davis Frizell,16
+302,REP,Bert Richardson,176
+401,,Over Votes,0
+401,,Under Votes,17
+401,DEM,Elizabeth Davis Frizell,52
+401,REP,Bert Richardson,368
+402,,Over Votes,0
+402,,Under Votes,13
+402,DEM,Elizabeth Davis Frizell,24
+402,REP,Bert Richardson,230
+403,,Over Votes,0
+403,,Under Votes,2
+403,DEM,Elizabeth Davis Frizell,11
+403,REP,Bert Richardson,102

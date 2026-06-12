@@ -1,0 +1,25 @@
+precinct,party,candidate,votes
+1,,Rejected write-ins,1
+1,,Unassigned write-ins,0
+1,DEM,Beto O'Rourke,57
+1,GRN,Delilah Barrios,0
+1,LIB,Mark Tippetts,5
+1,REP,Greg Abbott,458
+2,,Rejected write-ins,0
+2,,Unassigned write-ins,0
+2,DEM,Beto O'Rourke,39
+2,GRN,Delilah Barrios,1
+2,LIB,Mark Tippetts,1
+2,REP,Greg Abbott,403
+3,,Rejected write-ins,0
+3,,Unassigned write-ins,0
+3,DEM,Beto O'Rourke,45
+3,GRN,Delilah Barrios,0
+3,LIB,Mark Tippetts,2
+3,REP,Greg Abbott,173
+4,,Rejected write-ins,0
+4,,Unassigned write-ins,0
+4,DEM,Beto O'Rourke,60
+4,GRN,Delilah Barrios,3
+4,LIB,Mark Tippetts,4
+4,REP,Greg Abbott,216

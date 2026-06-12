@@ -1,0 +1,43 @@
+precinct,party,candidate,votes
+101,,Over Votes,0
+101,,Under Votes,2
+101,DEM,Joseph R. Biden Kamala D. Harris,32
+101,GRN,Howie Hawkins Angela Walker,1
+101,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",1
+101,REP,Donald J. Trump Michael R. Pence,341
+202,,Over Votes,0
+202,,Under Votes,2
+202,DEM,Joseph R. Biden Kamala D. Harris,27
+202,GRN,Howie Hawkins Angela Walker,0
+202,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",3
+202,REP,Donald J. Trump Michael R. Pence,425
+303,,Over Votes,0
+303,,Under Votes,1
+303,DEM,Joseph R. Biden Kamala D. Harris,10
+303,GRN,Howie Hawkins Angela Walker,2
+303,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",3
+303,REP,Donald J. Trump Michael R. Pence,182
+307,,Over Votes,0
+307,,Under Votes,0
+307,DEM,Joseph R. Biden Kamala D. Harris,15
+307,GRN,Howie Hawkins Angela Walker,0
+307,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",0
+307,REP,Donald J. Trump Michael R. Pence,195
+404,,Over Votes,0
+404,,Under Votes,0
+404,DEM,Joseph R. Biden Kamala D. Harris,1
+404,GRN,Howie Hawkins Angela Walker,0
+404,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",0
+404,REP,Donald J. Trump Michael R. Pence,27
+405,,Over Votes,0
+405,,Under Votes,0
+405,DEM,Joseph R. Biden Kamala D. Harris,22
+405,GRN,Howie Hawkins Angela Walker,1
+405,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",4
+405,REP,Donald J. Trump Michael R. Pence,145
+406,,Over Votes,0
+406,,Under Votes,1
+406,DEM,Joseph R. Biden Kamala D. Harris,23
+406,GRN,Howie Hawkins Angela Walker,0
+406,LIB,"Jo Jorgensen Jeremy ""Spike"" Cohen",0
+406,REP,Donald J. Trump Michael R. Pence,169

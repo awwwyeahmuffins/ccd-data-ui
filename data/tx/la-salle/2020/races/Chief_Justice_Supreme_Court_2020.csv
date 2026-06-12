@@ -1,0 +1,31 @@
+precinct,party,candidate,votes
+1,,Over Votes,1
+1,,Under Votes,170
+1,DEM,Amy Clark Meachum,282
+1,LIB,Mark Ash,13
+1,REP,Nathan Hecht,342
+2,,Over Votes,0
+2,,Under Votes,38
+2,DEM,Amy Clark Meachum,128
+2,LIB,Mark Ash,14
+2,REP,Nathan Hecht,111
+3,,Over Votes,1
+3,,Under Votes,95
+3,DEM,Amy Clark Meachum,249
+3,LIB,Mark Ash,15
+3,REP,Nathan Hecht,171
+4,,Over Votes,0
+4,,Under Votes,7
+4,DEM,Amy Clark Meachum,5
+4,LIB,Mark Ash,0
+4,REP,Nathan Hecht,50
+5,,Over Votes,0
+5,,Under Votes,75
+5,DEM,Amy Clark Meachum,207
+5,LIB,Mark Ash,12
+5,REP,Nathan Hecht,192
+6,,Over Votes,0
+6,,Under Votes,47
+6,DEM,Amy Clark Meachum,115
+6,LIB,Mark Ash,1
+6,REP,Nathan Hecht,98

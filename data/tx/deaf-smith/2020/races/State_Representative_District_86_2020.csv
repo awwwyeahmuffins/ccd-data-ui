@@ -1,0 +1,13 @@
+precinct,party,candidate,votes
+1,,Overvotes:,0
+1,,Undervotes:,181
+1,REP,John Smithee,655
+2,,Overvotes:,0
+2,,Undervotes:,226
+2,REP,John Smithee,665
+3,,Overvotes:,0
+3,,Undervotes:,210
+3,REP,John Smithee,1675
+4,,Overvotes:,0
+4,,Undervotes:,219
+4,REP,John Smithee,810

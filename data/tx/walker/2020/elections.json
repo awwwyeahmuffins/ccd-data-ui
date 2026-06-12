@@ -1,0 +1,67 @@
+{
+  "version": 3,
+  "county": "walker",
+  "boundarySet": "2020",
+  "elections": [
+    {
+      "id": "president-2020",
+      "displayName": "President (2020)",
+      "office": "President",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "Federal",
+      "raceFile": "races/President_2020.csv",
+      "turnoutFile": "turnout/2020-11-03.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2020/counties/20201103__tx__general__walker__precinct.csv"
+    },
+    {
+      "id": "railroad-commissioner-2020",
+      "displayName": "Railroad Commissioner (2020)",
+      "office": "Railroad Commissioner",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/Railroad_Commissioner_2020.csv",
+      "turnoutFile": "turnout/2020-11-03.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2020/counties/20201103__tx__general__walker__precinct.csv"
+    },
+    {
+      "id": "state-representative-district-18-2020",
+      "displayName": "State Representative District 18 (2020)",
+      "office": "State Representative",
+      "district": "18",
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/State_Representative_District_18_2020.csv",
+      "turnoutFile": "turnout/2020-11-03.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2020/counties/20201103__tx__general__walker__precinct.csv"
+    },
+    {
+      "id": "u-s-house-district-8-2020",
+      "displayName": "U S House District 8 (2020)",
+      "office": "U.S. House",
+      "district": "8",
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "County",
+      "raceFile": "races/U_S_House_District_8_2020.csv",
+      "turnoutFile": "turnout/2020-11-03.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2020/counties/20201103__tx__general__walker__precinct.csv"
+    },
+    {
+      "id": "u-s-senate-2020",
+      "displayName": "U S Senate (2020)",
+      "office": "U.S. Senate",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "County",
+      "raceFile": "races/U_S_Senate_2020.csv",
+      "turnoutFile": "turnout/2020-11-03.csv",
+      "sourceUrl": "https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2020/counties/20201103__tx__general__walker__precinct.csv"
+    }
+  ]
+}

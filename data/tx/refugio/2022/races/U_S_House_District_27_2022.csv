@@ -1,0 +1,21 @@
+precinct,party,candidate,votes
+1,DEM,Maclovio Perez Jr.,70
+1,REP,Michael Cloud,100
+1A,DEM,Maclovio Perez Jr.,112
+1A,REP,Michael Cloud,103
+2,DEM,Maclovio Perez Jr.,91
+2,REP,Michael Cloud,376
+2A,DEM,Maclovio Perez Jr.,11
+2A,REP,Michael Cloud,118
+2B,DEM,Maclovio Perez Jr.,47
+2B,REP,Michael Cloud,124
+3,DEM,Maclovio Perez Jr.,45
+3,REP,Michael Cloud,222
+3A,DEM,Maclovio Perez Jr.,55
+3A,REP,Michael Cloud,265
+4,DEM,Maclovio Perez Jr.,119
+4,REP,Michael Cloud,94
+4A,DEM,Maclovio Perez Jr.,91
+4A,REP,Michael Cloud,121
+4B,DEM,Maclovio Perez Jr.,41
+4B,REP,Michael Cloud,79

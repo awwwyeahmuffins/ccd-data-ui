@@ -1,0 +1,21 @@
+precinct,party,candidate,votes
+1,DEM,Susan Hays,70
+1,REP,Sid Miller,95
+1A,DEM,Susan Hays,111
+1A,REP,Sid Miller,103
+2,DEM,Susan Hays,89
+2,REP,Sid Miller,375
+2A,DEM,Susan Hays,10
+2A,REP,Sid Miller,119
+2B,DEM,Susan Hays,45
+2B,REP,Sid Miller,125
+3,DEM,Susan Hays,46
+3,REP,Sid Miller,217
+3A,DEM,Susan Hays,60
+3A,REP,Sid Miller,259
+4,DEM,Susan Hays,119
+4,REP,Sid Miller,94
+4A,DEM,Susan Hays,81
+4A,REP,Sid Miller,126
+4B,DEM,Susan Hays,41
+4B,REP,Sid Miller,73

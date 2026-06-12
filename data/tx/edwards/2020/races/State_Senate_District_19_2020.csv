@@ -1,0 +1,21 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,22
+1,DEM,Roland Gutierrez,22
+1,LIB,Jo-Anne Valdivia,3
+1,REP,"Peter P. ""Pete"" Flores",121
+2,,Over Votes,0
+2,,Under Votes,15
+2,DEM,Roland Gutierrez,30
+2,LIB,Jo-Anne Valdivia,5
+2,REP,"Peter P. ""Pete"" Flores",307
+3,,Over Votes,0
+3,,Under Votes,22
+3,DEM,Roland Gutierrez,39
+3,LIB,Jo-Anne Valdivia,4
+3,REP,"Peter P. ""Pete"" Flores",251
+4,,Over Votes,0
+4,,Under Votes,40
+4,DEM,Roland Gutierrez,41
+4,LIB,Jo-Anne Valdivia,2
+4,REP,"Peter P. ""Pete"" Flores",140

@@ -1,0 +1,17 @@
+precinct,party,candidate,votes
+101,DEM,Susan Hays,35
+101,REP,Sid Miller,236
+201,DEM,Susan Hays,39
+201,REP,Sid Miller,217
+202,DEM,Susan Hays,0
+202,REP,Sid Miller,19
+301,DEM,Susan Hays,38
+301,REP,Sid Miller,340
+302,DEM,Susan Hays,1
+302,REP,Sid Miller,21
+303,DEM,Susan Hays,6
+303,REP,Sid Miller,59
+401,DEM,Susan Hays,16
+401,REP,Sid Miller,199
+402,DEM,Susan Hays,13
+402,REP,Sid Miller,74

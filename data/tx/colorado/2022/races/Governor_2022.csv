@@ -1,0 +1,78 @@
+precinct,party,candidate,votes
+101,,Over Votes,0
+101,,Under Votes,10
+101,,Write-in,0
+101,DEM,Beto O'Rourke,235
+101,GRN,Delilah Barrios,5
+101,LIB,Mark Tippetts,5
+101,REP,Greg Abbott,838
+102,,Over Votes,0
+102,,Under Votes,0
+102,,Write-in,0
+102,DEM,Beto O'Rourke,26
+102,GRN,Delilah Barrios,0
+102,LIB,Mark Tippetts,3
+102,REP,Greg Abbott,125
+103,,Over Votes,0
+103,,Under Votes,2
+103,,Write-in,0
+103,DEM,Beto O'Rourke,28
+103,GRN,Delilah Barrios,0
+103,LIB,Mark Tippetts,1
+103,REP,Greg Abbott,322
+201,,Over Votes,0
+201,,Under Votes,7
+201,,Write-in,1
+201,DEM,Beto O'Rourke,287
+201,GRN,Delilah Barrios,2
+201,LIB,Mark Tippetts,9
+201,REP,Greg Abbott,1492
+202,,Over Votes,1
+202,,Under Votes,0
+202,,Write-in,0
+202,DEM,Beto O'Rourke,30
+202,GRN,Delilah Barrios,0
+202,LIB,Mark Tippetts,2
+202,REP,Greg Abbott,317
+302,,Over Votes,0
+302,,Under Votes,3
+302,,Write-in,0
+302,DEM,Beto O'Rourke,84
+302,GRN,Delilah Barrios,0
+302,LIB,Mark Tippetts,0
+302,REP,Greg Abbott,675
+303,,Over Votes,0
+303,,Under Votes,4
+303,,Write-in,0
+303,DEM,Beto O'Rourke,51
+303,GRN,Delilah Barrios,2
+303,LIB,Mark Tippetts,6
+303,REP,Greg Abbott,346
+304,,Over Votes,0
+304,,Under Votes,0
+304,,Write-in,0
+304,DEM,Beto O'Rourke,37
+304,GRN,Delilah Barrios,1
+304,LIB,Mark Tippetts,2
+304,REP,Greg Abbott,316
+305,,Over Votes,0
+305,,Under Votes,6
+305,,Write-in,2
+305,DEM,Beto O'Rourke,183
+305,GRN,Delilah Barrios,1
+305,LIB,Mark Tippetts,12
+305,REP,Greg Abbott,819
+401,,Over Votes,0
+401,,Under Votes,0
+401,,Write-in,0
+401,DEM,Beto O'Rourke,62
+401,GRN,Delilah Barrios,0
+401,LIB,Mark Tippetts,2
+401,REP,Greg Abbott,186
+402,,Over Votes,0
+402,,Under Votes,8
+402,,Write-in,1
+402,DEM,Beto O'Rourke,372
+402,GRN,Delilah Barrios,6
+402,LIB,Mark Tippetts,8
+402,REP,Greg Abbott,648

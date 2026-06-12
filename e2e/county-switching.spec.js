@@ -36,14 +36,14 @@ test.describe('County Switching', () => {
   });
 
   test('placeholder county shows banner and a single PLACEHOLDER feature', async ({ page }) => {
-    await page.selectOption('#county-select', 'harris');
+    await page.selectOption('#county-select', 'kinney');
     await expect(page.locator('#county-placeholder-banner')).toBeVisible({ timeout: 20000 });
     // Collin-only boundary selector hides
     await expect(page.locator('#boundary-select')).toBeHidden();
   });
 
   test('switching back to Collin restores boundary selector and data', async ({ page }) => {
-    await page.selectOption('#county-select', 'harris');
+    await page.selectOption('#county-select', 'kinney');
     await expect(page.locator('#county-placeholder-banner')).toBeVisible({ timeout: 20000 });
     await page.selectOption('#county-select', 'collin');
     await expect(page.locator('#county-placeholder-banner')).toBeHidden({ timeout: 20000 });

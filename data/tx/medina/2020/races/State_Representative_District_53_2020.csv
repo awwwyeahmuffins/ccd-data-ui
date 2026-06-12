@@ -1,0 +1,57 @@
+precinct,party,candidate,votes
+1A,,Over Votes,0
+1A,,Under Votes,35
+1A,DEM,Joe P. Herrera,175
+1A,REP,Andrew S Murr,919
+1B,,Over Votes,0
+1B,,Under Votes,53
+1B,DEM,Joe P. Herrera,191
+1B,REP,Andrew S Murr,1035
+1C,,Over Votes,0
+1C,,Under Votes,84
+1C,DEM,Joe P. Herrera,654
+1C,REP,Andrew S Murr,1634
+1D,,Over Votes,0
+1D,,Under Votes,77
+1D,DEM,Joe P. Herrera,432
+1D,REP,Andrew S Murr,1310
+2A,,Over Votes,0
+2A,,Under Votes,96
+2A,DEM,Joe P. Herrera,782
+2A,REP,Andrew S Murr,1144
+2B,,Over Votes,0
+2B,,Under Votes,106
+2B,DEM,Joe P. Herrera,496
+2B,REP,Andrew S Murr,1747
+2C,,Over Votes,0
+2C,,Under Votes,116
+2C,DEM,Joe P. Herrera,733
+2C,REP,Andrew S Murr,1993
+3A,,Over Votes,0
+3A,,Under Votes,28
+3A,DEM,Joe P. Herrera,200
+3A,REP,Andrew S Murr,539
+3B,,Over Votes,0
+3B,,Under Votes,23
+3B,DEM,Joe P. Herrera,79
+3B,REP,Andrew S Murr,330
+3C,,Over Votes,1
+3C,,Under Votes,92
+3C,DEM,Joe P. Herrera,546
+3C,REP,Andrew S Murr,1088
+3D,,Over Votes,0
+3D,,Under Votes,103
+3D,DEM,Joe P. Herrera,684
+3D,REP,Andrew S Murr,453
+4A,,Over Votes,0
+4A,,Under Votes,59
+4A,DEM,Joe P. Herrera,291
+4A,REP,Andrew S Murr,855
+4B,,Over Votes,0
+4B,,Under Votes,118
+4B,DEM,Joe P. Herrera,739
+4B,REP,Andrew S Murr,1666
+4C,,Over Votes,0
+4C,,Under Votes,53
+4C,DEM,Joe P. Herrera,434
+4C,REP,Andrew S Murr,571

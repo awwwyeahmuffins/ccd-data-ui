@@ -1,0 +1,11 @@
+precinct,party,candidate,votes
+1,DEM,John Betancourt,9
+1,REP,Jay Johnson,220
+2,DEM,John Betancourt,16
+2,REP,Jay Johnson,186
+3003,DEM,John Betancourt,26
+3003,REP,Jay Johnson,191
+4005,DEM,John Betancourt,13
+4005,REP,Jay Johnson,45
+4006,DEM,John Betancourt,8
+4006,REP,Jay Johnson,132

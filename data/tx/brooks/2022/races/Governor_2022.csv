@@ -1,0 +1,21 @@
+precinct,party,candidate,votes
+1,,Delilah Barrios,3
+1,LIB,Mark Tippetts,2
+1,DEM,Beto O'rourke,308
+1,REP,Greg Abbott,154
+2,,Delilah Barrios,2
+2,LIB,Mark Tippetts,5
+2,DEM,Beto O'rourke,309
+2,REP,Greg Abbott,249
+3,,Delilah Barrios,4
+3,LIB,Mark Tippetts,0
+3,DEM,Beto O'rourke,228
+3,REP,Greg Abbott,113
+3S,,Delilah Barrios,0
+3S,LIB,Mark Tippetts,0
+3S,DEM,Beto O'rourke,49
+3S,REP,Greg Abbott,63
+4,,Delilah Barrios,1
+4,LIB,Mark Tippetts,2
+4,DEM,Beto O'rourke,310
+4,REP,Greg Abbott,206

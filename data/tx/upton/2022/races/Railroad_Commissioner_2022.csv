@@ -1,0 +1,25 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,15
+1,DEM,Luke Warford,17
+1,GRN,Hunter Wayne Crow,9
+1,LIB,Jaime Andres Diez,12
+1,REP,Wayne Christian,295
+2,,Over Votes,0
+2,,Under Votes,28
+2,DEM,Luke Warford,26
+2,GRN,Hunter Wayne Crow,0
+2,LIB,Jaime Andres Diez,15
+2,REP,Wayne Christian,178
+3,,Over Votes,0
+3,,Under Votes,16
+3,DEM,Luke Warford,30
+3,GRN,Hunter Wayne Crow,2
+3,LIB,Jaime Andres Diez,8
+3,REP,Wayne Christian,127
+4,,Over Votes,0
+4,,Under Votes,29
+4,DEM,Luke Warford,29
+4,GRN,Hunter Wayne Crow,4
+4,LIB,Jaime Andres Diez,15
+4,REP,Wayne Christian,232

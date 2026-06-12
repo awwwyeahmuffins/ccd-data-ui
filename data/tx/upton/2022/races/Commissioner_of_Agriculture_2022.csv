@@ -1,0 +1,17 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,13
+1,DEM,Susan Hays,28
+1,REP,Sid Miller,307
+2,,Over Votes,0
+2,,Under Votes,29
+2,DEM,Susan Hays,32
+2,REP,Sid Miller,186
+3,,Over Votes,0
+3,,Under Votes,17
+3,DEM,Susan Hays,44
+3,REP,Sid Miller,122
+4,,Over Votes,0
+4,,Under Votes,30
+4,DEM,Susan Hays,41
+4,REP,Sid Miller,238

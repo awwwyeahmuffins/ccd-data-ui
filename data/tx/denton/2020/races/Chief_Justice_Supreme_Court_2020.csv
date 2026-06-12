@@ -1,0 +1,556 @@
+precinct,party,candidate,votes
+1000,,Amy Clark Meachum,401
+1000,,Mark Ash,46
+1000,,Nathan Hecht,1820
+1001,,Amy Clark Meachum,252
+1001,,Mark Ash,24
+1001,,Nathan Hecht,992
+1002,,Amy Clark Meachum,239
+1002,,Mark Ash,26
+1002,,Nathan Hecht,976
+1003,,Amy Clark Meachum,498
+1003,,Mark Ash,55
+1003,,Nathan Hecht,1940
+1004,,Amy Clark Meachum,1489
+1004,,Mark Ash,93
+1004,,Nathan Hecht,1666
+1005,,Amy Clark Meachum,366
+1005,,Mark Ash,29
+1005,,Nathan Hecht,1506
+1006,,Amy Clark Meachum,1782
+1006,,Mark Ash,144
+1006,,Nathan Hecht,2368
+1007,,Amy Clark Meachum,1476
+1007,,Mark Ash,120
+1007,,Nathan Hecht,2016
+1008,,Amy Clark Meachum,233
+1008,,Mark Ash,20
+1008,,Nathan Hecht,762
+1009,,Amy Clark Meachum,1142
+1009,,Mark Ash,80
+1009,,Nathan Hecht,1017
+1010,,Amy Clark Meachum,941
+1010,,Mark Ash,62
+1010,,Nathan Hecht,1197
+1011,,Amy Clark Meachum,1240
+1011,,Mark Ash,96
+1011,,Nathan Hecht,830
+1012,,Amy Clark Meachum,1115
+1012,,Mark Ash,51
+1012,,Nathan Hecht,985
+1013,,Amy Clark Meachum,906
+1013,,Mark Ash,84
+1013,,Nathan Hecht,1075
+1014,,Amy Clark Meachum,146
+1014,,Mark Ash,9
+1014,,Nathan Hecht,52
+1015,,Amy Clark Meachum,885
+1015,,Mark Ash,49
+1015,,Nathan Hecht,1158
+1016,,Amy Clark Meachum,1044
+1016,,Mark Ash,52
+1016,,Nathan Hecht,1555
+1017,,Amy Clark Meachum,402
+1017,,Mark Ash,27
+1017,,Nathan Hecht,609
+1018,,Amy Clark Meachum,1629
+1018,,Mark Ash,109
+1018,,Nathan Hecht,2091
+1019,,Amy Clark Meachum,934
+1019,,Mark Ash,69
+1019,,Nathan Hecht,1045
+1020,,Amy Clark Meachum,1114
+1020,,Mark Ash,73
+1020,,Nathan Hecht,2221
+1021,,Amy Clark Meachum,876
+1021,,Mark Ash,57
+1021,,Nathan Hecht,1697
+1022,,Amy Clark Meachum,1000
+1022,,Mark Ash,78
+1022,,Nathan Hecht,1674
+1023,,Amy Clark Meachum,1030
+1023,,Mark Ash,85
+1023,,Nathan Hecht,1886
+1024,,Amy Clark Meachum,428
+1024,,Mark Ash,34
+1024,,Nathan Hecht,1266
+1025,,Amy Clark Meachum,1480
+1025,,Mark Ash,111
+1025,,Nathan Hecht,2486
+1026,,Amy Clark Meachum,1439
+1026,,Mark Ash,71
+1026,,Nathan Hecht,1158
+1027,,Amy Clark Meachum,780
+1027,,Mark Ash,35
+1027,,Nathan Hecht,657
+1028,,Amy Clark Meachum,1123
+1028,,Mark Ash,64
+1028,,Nathan Hecht,926
+1029,,Amy Clark Meachum,1248
+1029,,Mark Ash,52
+1029,,Nathan Hecht,1502
+1030,,Amy Clark Meachum,1327
+1030,,Mark Ash,68
+1030,,Nathan Hecht,2213
+1031,,Amy Clark Meachum,875
+1031,,Mark Ash,35
+1031,,Nathan Hecht,1307
+1032,,Amy Clark Meachum,1769
+1032,,Mark Ash,74
+1032,,Nathan Hecht,2403
+1033,,Amy Clark Meachum,1944
+1033,,Mark Ash,81
+1033,,Nathan Hecht,1892
+1034,,Amy Clark Meachum,1691
+1034,,Mark Ash,75
+1034,,Nathan Hecht,2106
+1035,,Amy Clark Meachum,834
+1035,,Mark Ash,38
+1035,,Nathan Hecht,1575
+1036,,Amy Clark Meachum,1306
+1036,,Mark Ash,19
+1036,,Nathan Hecht,2971
+1037,,Amy Clark Meachum,171
+1037,,Mark Ash,24
+1037,,Nathan Hecht,510
+1038,,Amy Clark Meachum,145
+1038,,Mark Ash,10
+1038,,Nathan Hecht,96
+1039,,Amy Clark Meachum,58
+1039,,Mark Ash,2
+1039,,Nathan Hecht,69
+1040,,Amy Clark Meachum,800
+1040,,Mark Ash,27
+1040,,Nathan Hecht,1436
+1041,,Amy Clark Meachum,2150
+1041,,Mark Ash,112
+1041,,Nathan Hecht,2188
+1042,,Amy Clark Meachum,26
+1042,,Mark Ash,5
+1042,,Nathan Hecht,120
+1043,,Amy Clark Meachum,384
+1043,,Mark Ash,20
+1043,,Nathan Hecht,464
+1044,,Amy Clark Meachum,1929
+1044,,Mark Ash,94
+1044,,Nathan Hecht,2737
+1045,,Amy Clark Meachum,211
+1045,,Mark Ash,22
+1045,,Nathan Hecht,1007
+1046,,Amy Clark Meachum,1403
+1046,,Mark Ash,93
+1046,,Nathan Hecht,1814
+1047,,Amy Clark Meachum,184
+1047,,Mark Ash,12
+1047,,Nathan Hecht,299
+1048,,Amy Clark Meachum,171
+1048,,Mark Ash,12
+1048,,Nathan Hecht,439
+1049,,Amy Clark Meachum,329
+1049,,Mark Ash,10
+1049,,Nathan Hecht,334
+1050,,Amy Clark Meachum,855
+1050,,Mark Ash,35
+1050,,Nathan Hecht,1273
+1051,,Amy Clark Meachum,642
+1051,,Mark Ash,29
+1051,,Nathan Hecht,1060
+1052,,Amy Clark Meachum,1434
+1052,,Mark Ash,43
+1052,,Nathan Hecht,1668
+1053,,Amy Clark Meachum,572
+1053,,Mark Ash,64
+1053,,Nathan Hecht,1654
+1054,,Amy Clark Meachum,1336
+1054,,Mark Ash,65
+1054,,Nathan Hecht,817
+1055,,Amy Clark Meachum,590
+1055,,Mark Ash,22
+1055,,Nathan Hecht,598
+1056,,Amy Clark Meachum,629
+1056,,Mark Ash,24
+1056,,Nathan Hecht,765
+1057,,Amy Clark Meachum,412
+1057,,Mark Ash,25
+1057,,Nathan Hecht,341
+2000,,Amy Clark Meachum,1817
+2000,,Mark Ash,75
+2000,,Nathan Hecht,566
+2001,,Amy Clark Meachum,1648
+2001,,Mark Ash,75
+2001,,Nathan Hecht,643
+2002,,Amy Clark Meachum,2052
+2002,,Mark Ash,73
+2002,,Nathan Hecht,1049
+2003,,Amy Clark Meachum,832
+2003,,Mark Ash,52
+2003,,Nathan Hecht,628
+2004,,Amy Clark Meachum,1482
+2004,,Mark Ash,73
+2004,,Nathan Hecht,1038
+2005,,Amy Clark Meachum,1447
+2005,,Mark Ash,69
+2005,,Nathan Hecht,1707
+2006,,Amy Clark Meachum,1294
+2006,,Mark Ash,49
+2006,,Nathan Hecht,1323
+2007,,Amy Clark Meachum,1982
+2007,,Mark Ash,60
+2007,,Nathan Hecht,1289
+2008,,Amy Clark Meachum,1505
+2008,,Mark Ash,79
+2008,,Nathan Hecht,1166
+2009,,Amy Clark Meachum,879
+2009,,Mark Ash,50
+2009,,Nathan Hecht,864
+2010,,Amy Clark Meachum,1543
+2010,,Mark Ash,73
+2010,,Nathan Hecht,1564
+2011,,Amy Clark Meachum,1247
+2011,,Mark Ash,77
+2011,,Nathan Hecht,1149
+2012,,Amy Clark Meachum,586
+2012,,Mark Ash,20
+2012,,Nathan Hecht,1077
+2013,,Amy Clark Meachum,600
+2013,,Mark Ash,33
+2013,,Nathan Hecht,760
+2014,,Amy Clark Meachum,927
+2014,,Mark Ash,53
+2014,,Nathan Hecht,1217
+2015,,Amy Clark Meachum,1568
+2015,,Mark Ash,69
+2015,,Nathan Hecht,1611
+2016,,Amy Clark Meachum,1421
+2016,,Mark Ash,82
+2016,,Nathan Hecht,1312
+2017,,Amy Clark Meachum,1438
+2017,,Mark Ash,72
+2017,,Nathan Hecht,2547
+2018,,Amy Clark Meachum,1962
+2018,,Mark Ash,126
+2018,,Nathan Hecht,1419
+2019,,Amy Clark Meachum,0
+2019,,Mark Ash,0
+2019,,Nathan Hecht,0
+2020,,Amy Clark Meachum,1177
+2020,,Mark Ash,49
+2020,,Nathan Hecht,2267
+2021,,Amy Clark Meachum,1473
+2021,,Mark Ash,96
+2021,,Nathan Hecht,1466
+2022,,Amy Clark Meachum,896
+2022,,Mark Ash,63
+2022,,Nathan Hecht,1320
+2023,,Amy Clark Meachum,1341
+2023,,Mark Ash,81
+2023,,Nathan Hecht,1451
+2024,,Amy Clark Meachum,712
+2024,,Mark Ash,54
+2024,,Nathan Hecht,831
+2025,,Amy Clark Meachum,695
+2025,,Mark Ash,54
+2025,,Nathan Hecht,870
+2026,,Amy Clark Meachum,1096
+2026,,Mark Ash,92
+2026,,Nathan Hecht,1596
+2027,,Amy Clark Meachum,1388
+2027,,Mark Ash,73
+2027,,Nathan Hecht,2241
+2028,,Amy Clark Meachum,1470
+2028,,Mark Ash,111
+2028,,Nathan Hecht,1307
+2029,,Amy Clark Meachum,982
+2029,,Mark Ash,61
+2029,,Nathan Hecht,915
+2030,,Amy Clark Meachum,1964
+2030,,Mark Ash,99
+2030,,Nathan Hecht,1801
+2031,,Amy Clark Meachum,1482
+2031,,Mark Ash,73
+2031,,Nathan Hecht,1461
+2032,,Amy Clark Meachum,910
+2032,,Mark Ash,63
+2032,,Nathan Hecht,993
+2033,,Amy Clark Meachum,1481
+2033,,Mark Ash,75
+2033,,Nathan Hecht,1004
+2034,,Amy Clark Meachum,1325
+2034,,Mark Ash,50
+2034,,Nathan Hecht,904
+2035,,Amy Clark Meachum,1434
+2035,,Mark Ash,73
+2035,,Nathan Hecht,1313
+2036,,Amy Clark Meachum,301
+2036,,Mark Ash,13
+2036,,Nathan Hecht,331
+2096,,Amy Clark Meachum,0
+2096,,Mark Ash,0
+2096,,Nathan Hecht,0
+2097,,Amy Clark Meachum,0
+2097,,Mark Ash,0
+2097,,Nathan Hecht,0
+2098,,Amy Clark Meachum,0
+2098,,Mark Ash,0
+2098,,Nathan Hecht,0
+2099,,Amy Clark Meachum,0
+2099,,Mark Ash,0
+2099,,Nathan Hecht,0
+3000,,Amy Clark Meachum,1074
+3000,,Mark Ash,82
+3000,,Nathan Hecht,1829
+3001,,Amy Clark Meachum,853
+3001,,Mark Ash,78
+3001,,Nathan Hecht,1915
+3002,,Amy Clark Meachum,1168
+3002,,Mark Ash,70
+3002,,Nathan Hecht,2392
+3003,,Amy Clark Meachum,781
+3003,,Mark Ash,45
+3003,,Nathan Hecht,1415
+3004,,Amy Clark Meachum,718
+3004,,Mark Ash,56
+3004,,Nathan Hecht,1724
+3005,,Amy Clark Meachum,470
+3005,,Mark Ash,43
+3005,,Nathan Hecht,1130
+3006,,Amy Clark Meachum,1254
+3006,,Mark Ash,87
+3006,,Nathan Hecht,1708
+3007,,Amy Clark Meachum,1589
+3007,,Mark Ash,74
+3007,,Nathan Hecht,1482
+3008,,Amy Clark Meachum,884
+3008,,Mark Ash,60
+3008,,Nathan Hecht,1300
+3009,,Amy Clark Meachum,769
+3009,,Mark Ash,53
+3009,,Nathan Hecht,1084
+3010,,Amy Clark Meachum,1529
+3010,,Mark Ash,104
+3010,,Nathan Hecht,1533
+3011,,Amy Clark Meachum,1657
+3011,,Mark Ash,83
+3011,,Nathan Hecht,1259
+3012,,Amy Clark Meachum,592
+3012,,Mark Ash,38
+3012,,Nathan Hecht,738
+3013,,Amy Clark Meachum,891
+3013,,Mark Ash,56
+3013,,Nathan Hecht,961
+3014,,Amy Clark Meachum,777
+3014,,Mark Ash,46
+3014,,Nathan Hecht,778
+3015,,Amy Clark Meachum,936
+3015,,Mark Ash,58
+3015,,Nathan Hecht,698
+3016,,Amy Clark Meachum,873
+3016,,Mark Ash,43
+3016,,Nathan Hecht,509
+3017,,Amy Clark Meachum,1639
+3017,,Mark Ash,80
+3017,,Nathan Hecht,670
+3018,,Amy Clark Meachum,496
+3018,,Mark Ash,27
+3018,,Nathan Hecht,415
+3019,,Amy Clark Meachum,2060
+3019,,Mark Ash,82
+3019,,Nathan Hecht,1289
+3020,,Amy Clark Meachum,390
+3020,,Mark Ash,19
+3020,,Nathan Hecht,205
+3021,,Amy Clark Meachum,1735
+3021,,Mark Ash,86
+3021,,Nathan Hecht,1735
+3022,,Amy Clark Meachum,55
+3022,,Mark Ash,2
+3022,,Nathan Hecht,115
+3023,,Amy Clark Meachum,175
+3023,,Mark Ash,10
+3023,,Nathan Hecht,181
+3024,,Amy Clark Meachum,1188
+3024,,Mark Ash,46
+3024,,Nathan Hecht,1659
+3025,,Amy Clark Meachum,1246
+3025,,Mark Ash,72
+3025,,Nathan Hecht,2018
+3026,,Amy Clark Meachum,759
+3026,,Mark Ash,56
+3026,,Nathan Hecht,1227
+3027,,Amy Clark Meachum,1345
+3027,,Mark Ash,89
+3027,,Nathan Hecht,2024
+3028,,Amy Clark Meachum,1270
+3028,,Mark Ash,97
+3028,,Nathan Hecht,1975
+3029,,Amy Clark Meachum,741
+3029,,Mark Ash,52
+3029,,Nathan Hecht,1133
+3030,,Amy Clark Meachum,746
+3030,,Mark Ash,59
+3030,,Nathan Hecht,1201
+3031,,Amy Clark Meachum,920
+3031,,Mark Ash,63
+3031,,Nathan Hecht,1727
+3032,,Amy Clark Meachum,955
+3032,,Mark Ash,47
+3032,,Nathan Hecht,418
+3033,,Amy Clark Meachum,815
+3033,,Mark Ash,53
+3033,,Nathan Hecht,1228
+3098,,Amy Clark Meachum,0
+3098,,Mark Ash,0
+3098,,Nathan Hecht,0
+3099,,Amy Clark Meachum,0
+3099,,Mark Ash,0
+3099,,Nathan Hecht,0
+4000,,Amy Clark Meachum,864
+4000,,Mark Ash,93
+4000,,Nathan Hecht,2603
+4001,,Amy Clark Meachum,304
+4001,,Mark Ash,24
+4001,,Nathan Hecht,917
+4002,,Amy Clark Meachum,575
+4002,,Mark Ash,68
+4002,,Nathan Hecht,2381
+4003,,Amy Clark Meachum,926
+4003,,Mark Ash,31
+4003,,Nathan Hecht,3086
+4004,,Amy Clark Meachum,1000
+4004,,Mark Ash,57
+4004,,Nathan Hecht,295
+4005,,Amy Clark Meachum,1061
+4005,,Mark Ash,48
+4005,,Nathan Hecht,929
+4006,,Amy Clark Meachum,1078
+4006,,Mark Ash,49
+4006,,Nathan Hecht,645
+4007,,Amy Clark Meachum,1243
+4007,,Mark Ash,76
+4007,,Nathan Hecht,509
+4008,,Amy Clark Meachum,839
+4008,,Mark Ash,57
+4008,,Nathan Hecht,307
+4009,,Amy Clark Meachum,1613
+4009,,Mark Ash,98
+4009,,Nathan Hecht,665
+4010,,Amy Clark Meachum,807
+4010,,Mark Ash,56
+4010,,Nathan Hecht,548
+4011,,Amy Clark Meachum,2472
+4011,,Mark Ash,124
+4011,,Nathan Hecht,1033
+4012,,Amy Clark Meachum,914
+4012,,Mark Ash,55
+4012,,Nathan Hecht,1122
+4013,,Amy Clark Meachum,177
+4013,,Mark Ash,13
+4013,,Nathan Hecht,59
+4014,,Amy Clark Meachum,932
+4014,,Mark Ash,55
+4014,,Nathan Hecht,163
+4015,,Amy Clark Meachum,346
+4015,,Mark Ash,15
+4015,,Nathan Hecht,157
+4016,,Amy Clark Meachum,0
+4016,,Mark Ash,0
+4016,,Nathan Hecht,1
+4017,,Amy Clark Meachum,674
+4017,,Mark Ash,53
+4017,,Nathan Hecht,2865
+4018,,Amy Clark Meachum,508
+4018,,Mark Ash,29
+4018,,Nathan Hecht,1332
+4019,,Amy Clark Meachum,42
+4019,,Mark Ash,4
+4019,,Nathan Hecht,138
+4020,,Amy Clark Meachum,188
+4020,,Mark Ash,9
+4020,,Nathan Hecht,606
+4021,,Amy Clark Meachum,282
+4021,,Mark Ash,30
+4021,,Nathan Hecht,1153
+4022,,Amy Clark Meachum,488
+4022,,Mark Ash,45
+4022,,Nathan Hecht,1529
+4023,,Amy Clark Meachum,864
+4023,,Mark Ash,53
+4023,,Nathan Hecht,2069
+4024,,Amy Clark Meachum,799
+4024,,Mark Ash,63
+4024,,Nathan Hecht,1629
+4025,,Amy Clark Meachum,1203
+4025,,Mark Ash,42
+4025,,Nathan Hecht,1591
+4026,,Amy Clark Meachum,538
+4026,,Mark Ash,25
+4026,,Nathan Hecht,770
+4027,,Amy Clark Meachum,1347
+4027,,Mark Ash,65
+4027,,Nathan Hecht,1924
+4028,,Amy Clark Meachum,956
+4028,,Mark Ash,76
+4028,,Nathan Hecht,2620
+4029,,Amy Clark Meachum,319
+4029,,Mark Ash,29
+4029,,Nathan Hecht,793
+4030,,Amy Clark Meachum,116
+4030,,Mark Ash,2
+4030,,Nathan Hecht,274
+4031,,Amy Clark Meachum,911
+4031,,Mark Ash,75
+4031,,Nathan Hecht,2527
+4032,,Amy Clark Meachum,1204
+4032,,Mark Ash,95
+4032,,Nathan Hecht,2926
+4033,,Amy Clark Meachum,768
+4033,,Mark Ash,67
+4033,,Nathan Hecht,1653
+4034,,Amy Clark Meachum,1240
+4034,,Mark Ash,128
+4034,,Nathan Hecht,2341
+4035,,Amy Clark Meachum,1641
+4035,,Mark Ash,135
+4035,,Nathan Hecht,4022
+4036,,Amy Clark Meachum,513
+4036,,Mark Ash,73
+4036,,Nathan Hecht,2191
+4037,,Amy Clark Meachum,764
+4037,,Mark Ash,53
+4037,,Nathan Hecht,452
+4038,,Amy Clark Meachum,62
+4038,,Mark Ash,8
+4038,,Nathan Hecht,134
+4039,,Amy Clark Meachum,1059
+4039,,Mark Ash,53
+4039,,Nathan Hecht,194
+4040,,Amy Clark Meachum,498
+4040,,Mark Ash,28
+4040,,Nathan Hecht,421
+4041,,Amy Clark Meachum,845
+4041,,Mark Ash,60
+4041,,Nathan Hecht,767
+4042,,Amy Clark Meachum,4
+4042,,Mark Ash,1
+4042,,Nathan Hecht,24
+4043,,Amy Clark Meachum,708
+4043,,Mark Ash,44
+4043,,Nathan Hecht,1854
+4044,,Amy Clark Meachum,800
+4044,,Mark Ash,96
+4044,,Nathan Hecht,2208
+4045,,Amy Clark Meachum,1925
+4045,,Mark Ash,124
+4045,,Nathan Hecht,362
+4046,,Amy Clark Meachum,877
+4046,,Mark Ash,55
+4046,,Nathan Hecht,2043
+4047,,Amy Clark Meachum,529
+4047,,Mark Ash,48
+4047,,Nathan Hecht,1106
+4048,,Amy Clark Meachum,1302
+4048,,Mark Ash,104
+4048,,Nathan Hecht,2630
+4049,,Amy Clark Meachum,311
+4049,,Mark Ash,41
+4049,,Nathan Hecht,1233

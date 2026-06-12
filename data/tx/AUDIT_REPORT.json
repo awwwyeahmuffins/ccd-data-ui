@@ -1,0 +1,6586 @@
+{
+  "anderson": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 22,
+        "races": 33
+      },
+      "join": {
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 22
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "andrews": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 15
+      },
+      "join": {
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "angelina": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 41,
+        "races": 16
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 41
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "aransas": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 6,
+        "races": 17
+      },
+      "join": {
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "archer": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 31
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 11
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "armstrong": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 9,
+        "races": 13
+      },
+      "join": {
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "atascosa": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 3,
+        "races": 31
+      },
+      "join": {
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 20
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "austin": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 15,
+        "races": 27
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 15
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "bailey": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 12,
+        "precincts": 0,
+        "races": 22
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "bandera": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 24
+      },
+      "join": {
+        "merged_into": 10,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 15
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "baylor": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 4,
+        "precincts": 4,
+        "races": 15
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "bee": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 20
+      },
+      "join": {
+        "merged_into": 13,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 22
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "bell": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 62,
+        "races": 31
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 61
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "bexar": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "GOVERNOR/OTHER: ours=2960 official=2928 (diff +32)"
+        ],
+        "mismatches": 1,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 802,
+        "races": 112
+      }
+    },
+    "reason": "audit failed: ['GOVERNOR/OTHER: ours=2960 official=2928 (diff +32)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "blanco": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 5 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 6,
+        "races": 26
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "borden": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 9,
+        "races": 8
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Early Voting",
+          "Mail"
+        ],
+        "vote_bearing": 9
+      }
+    },
+    "reason": "join failed: ['Early Voting', 'Mail']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "bosque": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 7 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 7
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 1",
+          "Precinct 10",
+          "Precinct 11",
+          "Precinct 2",
+          "Precinct 3",
+          "Precinct 4",
+          "Precinct 5",
+          "Precinct 6",
+          "Precinct 7",
+          "Precinct 8"
+        ],
+        "vote_bearing": 11
+      }
+    },
+    "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 2', 'Precinct 3']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "bowie": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 49,
+        "races": 18
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 48
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "brazoria": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 29
+      },
+      "join": {
+        "merged_into": 78,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 234
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "brazos": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "GOVERNOR/OTHER: ours=241 official=239 (diff +2)"
+        ],
+        "mismatches": 1,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 23
+      }
+    },
+    "reason": "audit failed: ['GOVERNOR/OTHER: ours=241 official=239 (diff +2)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "brewster": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 32,
+        "precincts": 0,
+        "races": 21
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "briscoe": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 5,
+        "races": 13
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 5
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "brooks": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 20,
+        "precincts": 0,
+        "races": 21
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 5
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "brown": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 44,
+        "races": 18
+      },
+      "join": {
+        "merged_into": 18,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 44
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "burleson": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 35
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "CISD",
+          "SMRVISD"
+        ],
+        "vote_bearing": 15
+      }
+    },
+    "reason": "join failed: ['CISD', 'SMRVISD']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "burnet": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 17
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 20
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "caldwell": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 24,
+        "races": 34
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 24
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "calhoun": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 11,
+        "races": 17
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 11
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "callahan": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US PRESIDENT: 6 write-in votes not carried in official accounting (all certified votes exact)",
+          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 29
+      },
+      "join": {
+        "merged_into": 7,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 17
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "cameron": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 101,
+        "races": 47
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 101
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "camp": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "ATTORNEY GENERAL/DEMOCRAT: ours=0 official=862 (diff -862)",
+          "ATTORNEY GENERAL/LIBERTARIAN: ours=0 official=67 (diff -67)",
+          "ATTORNEY GENERAL/REPUBLICAN: ours=0 official=3032 (diff -3032)",
+          "COMPTROLLER/DEMOCRAT: ours=0 official=834 (diff -834)",
+          "COMPTROLLER/LIBERTARIAN: ours=0 official=55 (diff -55)",
+          "COMPTROLLER/REPUBLICAN: ours=0 official=3049 (diff -3049)",
+          "GOVERNOR/DEMOCRAT: ours=0 official=863 (diff -863)",
+          "GOVERNOR/LIBERTARIAN: ours=0 official=26 (diff -26)",
+          "GOVERNOR/OTHER: ours=0 official=12 (diff -12)",
+          "GOVERNOR/REPUBLICAN: ours=0 official=3082 (diff -3082)",
+          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=0 official=873 (diff -873)",
+          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=0 official=53 (diff -53)"
+        ],
+        "mismatches": 13,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 14
+      }
+    },
+    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=0 official=862 (diff -862)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=0 official=67 (diff -67)', 'ATTORNEY GENERAL/REPUBLICAN: ours=0 official=3032 (diff -3032)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "carson": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 8,
+        "races": 27
+      },
+      "join": {
+        "merged_into": 8,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 20
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "cass": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 216,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 1",
+          "Precinct 11",
+          "Precinct 12",
+          "Precinct 13T",
+          "Precinct 14",
+          "Precinct 15",
+          "Precinct 16",
+          "Precinct 17",
+          "Precinct 18",
+          "Precinct 19"
+        ],
+        "vote_bearing": 18
+      }
+    },
+    "reason": "join failed: ['Precinct 1', 'Precinct 11', 'Precinct 12', 'Precinct 13T', 'Precinct 14']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "castro": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 8,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "chambers": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=50 official=52 (diff -2)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=50 official=52 (diff -2)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "cherokee": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=0 official=4210 (diff -4210)",
+          "US PRESIDENT/LIBERTARIAN: ours=0 official=161 (diff -161)",
+          "US PRESIDENT/OTHER: ours=19508 official=36 (diff +19472)",
+          "US PRESIDENT/REPUBLICAN: ours=0 official=15101 (diff -15101)"
+        ],
+        "mismatches": 4,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 200,
+        "precincts": 25,
+        "races": 5
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=0 official=4210 (diff -4210)', 'US PRESIDENT/LIBERTARIAN: ours=0 official=161 (diff -161)', 'US PRESIDENT/OTHER: ours=19508 official=36 (diff +19472)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "childress": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 14
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "clay": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 12 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 16,
+        "races": 18
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 16
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "cochran": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 28
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 5
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "coke": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=67 official=178 (diff -111)",
+          "US PRESIDENT/LIBERTARIAN: ours=5 official=10 (diff -5)",
+          "US PRESIDENT/OTHER: ours=2 official=5 (diff -3)",
+          "US PRESIDENT/REPUBLICAN: ours=566 official=1586 (diff -1020)",
+          "RAILROAD COMMISSIONER/DEMOCRAT: ours=52 official=142 (diff -90)",
+          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=12 official=24 (diff -12)",
+          "RAILROAD COMMISSIONER/OTHER: ours=3 official=8 (diff -5)",
+          "RAILROAD COMMISSIONER/REPUBLICAN: ours=547 official=1543 (diff -996)",
+          "US SENATE/DEMOCRAT: ours=58 official=171 (diff -113)",
+          "US SENATE/LIBERTARIAN: ours=11 official=23 (diff -12)",
+          "US SENATE/OTHER: ours=2 official=3 (diff -1)",
+          "US SENATE/REPUBLICAN: ours=560 official=1557 (diff -997)"
+        ],
+        "mismatches": 12,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=67 official=178 (diff -111)', 'US PRESIDENT/LIBERTARIAN: ours=5 official=10 (diff -5)', 'US PRESIDENT/OTHER: ours=2 official=5 (diff -3)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "coleman": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 5,
+        "races": 13
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 5
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "collingsworth": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 5
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Calvary Baptist Church",
+          "Collingsworth County Courthouse",
+          "Community Building",
+          "Dodson Town Hall",
+          "Early Voting",
+          "Mail",
+          "Quail Booster Building",
+          "Rocket House",
+          "Samnorwood High School Gym"
+        ],
+        "vote_bearing": 9
+      }
+    },
+    "reason": "join failed: ['Calvary Baptist Church', 'Collingsworth County Courthouse', 'Community Building', 'Dodson Town Hall', 'Early Voting']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "colorado": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 11,
+        "races": 20
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 11
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "comal": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=360 official=220 (diff +140)",
+          "note US SENATE: 16 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 40
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=360 official=220 (diff +140)', 'note US SENATE: 16 write-in votes not carried in official accounting (all certified votes exact)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "comanche": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 28,
+        "precincts": 0,
+        "races": 17
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 14
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "concho": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "cooke": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 30
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 17
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "coryell": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 31
+      },
+      "join": {
+        "merged_into": 16,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 39
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "cottle": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "COMPTROLLER/REPUBLICAN: ours=353 official=434 (diff -81)"
+        ],
+        "mismatches": 1,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 48,
+        "precincts": 0,
+        "races": 14
+      }
+    },
+    "reason": "audit failed: ['COMPTROLLER/REPUBLICAN: ours=353 official=434 (diff -81)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "crane": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 17
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "crockett": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 48,
+        "precincts": 0,
+        "races": 26
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "crosby": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "culberson": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 60,
+        "precincts": 0,
+        "races": 18
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "3~3",
+          "3~5"
+        ],
+        "vote_bearing": 5
+      }
+    },
+    "reason": "join failed: ['3~3', '3~5']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "dallam": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 9,
+        "races": 13
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 9
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "dallas": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 97
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "1004-01",
+          "1004-02",
+          "1006-01",
+          "1007-01",
+          "1039-01",
+          "1040-01",
+          "1040-02",
+          "1041-01",
+          "1043-01",
+          "1043-02"
+        ],
+        "vote_bearing": 1192
+      }
+    },
+    "reason": "join failed: ['1004-01', '1004-02', '1006-01', '1007-01', '1039-01']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "dawson": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=803 official=808 (diff -5)",
+          "US PRESIDENT/REPUBLICAN: ours=2932 official=2951 (diff -19)",
+          "RAILROAD COMMISSIONER/DEMOCRAT: ours=732 official=740 (diff -8)",
+          "RAILROAD COMMISSIONER/REPUBLICAN: ours=2713 official=2726 (diff -13)",
+          "US SENATE/DEMOCRAT: ours=732 official=738 (diff -6)",
+          "US SENATE/LIBERTARIAN: ours=59 official=60 (diff -1)",
+          "US SENATE/REPUBLICAN: ours=2811 official=2827 (diff -16)"
+        ],
+        "mismatches": 7,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 9,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=803 official=808 (diff -5)', 'US PRESIDENT/REPUBLICAN: ours=2932 official=2951 (diff -19)', 'RAILROAD COMMISSIONER/DEMOCRAT: ours=732 official=740 (diff -8)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "deaf-smith": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US PRESIDENT: 31 write-in votes not carried in official accounting (all certified votes exact)",
+          "note RAILROAD COMMISSIONER: 130 write-in votes not carried in official accounting (all certified votes exact)",
+          "note US SENATE: 108 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 18
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "delta": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 42,
+        "precincts": 7,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 7
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "denton": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 22 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 37
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 178
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "dewitt": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 10
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "dickens": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 72,
+        "precincts": 6,
+        "races": 6
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 1",
+          "Precinct 2",
+          "Precinct 3",
+          "Precinct 4",
+          "Precinct 5",
+          "Precinct 6"
+        ],
+        "vote_bearing": 6
+      }
+    },
+    "reason": "join failed: ['Precinct 1', 'Precinct 2', 'Precinct 3', 'Precinct 4', 'Precinct 5']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "dimmit": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 7,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 7
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "donley": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US SENATE/OTHER: ours=7 official=4 (diff +3)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 84,
+        "precincts": 0,
+        "races": 17
+      }
+    },
+    "reason": "audit failed: ['US SENATE/OTHER: ours=7 official=4 (diff +3)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "duval": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 9,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 9
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "eastland": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 15
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 9
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "ector": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 39
+      },
+      "join": {
+        "merged_into": 41,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 46
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "edwards": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 21
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "el-paso": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 221,
+        "races": 46
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 215
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "ellis": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 59,
+        "races": 19
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 58
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "erath": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 13 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 21,
+        "races": 32
+      },
+      "join": {
+        "merged_into": 21,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 53
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "falls": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 144,
+        "precincts": 0,
+        "races": 17
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 12
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "fannin": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 23
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 16
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "fayette": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/REPUBLICAN: ours=10170 official=10171 (diff -1)",
+          "note US SENATE: 8 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 44
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=10170 official=10171 (diff -1)', 'note US SENATE: 8 write-in votes not carried in official accounting (all certified votes exact)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "fisher": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 18
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "floyd": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 13
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "foard": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "fort-bend": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 175,
+        "races": 62
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "1004 K1",
+          "1005 L1",
+          "1008 A",
+          "1013 L1",
+          "1014 K1",
+          "1019 L2",
+          "1038 K1",
+          "1057 L1",
+          "1103 L3",
+          "1104 F2"
+        ],
+        "vote_bearing": 173
+      }
+    },
+    "reason": "join failed: ['1004 K1', '1005 L1', '1008 A', '1013 L1', '1014 K1']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "franklin": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 24,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "freestone": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 4 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 15,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 15
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "frio": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=2488 official=2422 (diff +66)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 108,
+        "precincts": 0,
+        "races": 16
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=2488 official=2422 (diff +66)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "gaines": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 16
+      },
+      "join": {
+        "merged_into": 7,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 13
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "galveston": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=394 official=662 (diff -268)",
+          "note US SENATE: 3 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 110
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=394 official=662 (diff -268)', 'note US SENATE: 3 write-in votes not carried in official accounting (all certified votes exact)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "garza": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/REPUBLICAN: ours=1483 official=1413 (diff +70)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=1483 official=1413 (diff +70)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "gillespie": {
+    "gates": {
+      "audit": {
+        "cells": 4,
+        "detail": [
+          "only 1 audited offices found \u2014 too few to certify"
+        ],
+        "mismatches": 0,
+        "offices": 1,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 13,
+        "races": 4
+      }
+    },
+    "reason": "audit failed: ['only 1 audited offices found \u2014 too few to certify']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "glasscock": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 5
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Early Voting"
+        ],
+        "vote_bearing": 5
+      }
+    },
+    "reason": "join failed: ['Early Voting']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "goliad": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 9,
+        "races": 20
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 9
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "gonzales": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 15,
+        "races": 33
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 1",
+          "Precinct 10",
+          "Precinct 11",
+          "Precinct 12",
+          "Precinct 13",
+          "Precinct 14",
+          "Precinct 15",
+          "Precinct 2",
+          "Precinct 3",
+          "Precinct 4"
+        ],
+        "vote_bearing": 15
+      }
+    },
+    "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 12', 'Precinct 13']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "gray": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 14
+      },
+      "join": {
+        "merged_into": 7,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "grayson": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 28 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 36,
+        "races": 48
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 101",
+          "Precinct 101 H",
+          "Precinct 101 S",
+          "Precinct 102",
+          "Precinct 102 S",
+          "Precinct 103",
+          "Precinct 103 S",
+          "Precinct 104",
+          "Precinct 104 H",
+          "Precinct 104 S"
+        ],
+        "vote_bearing": 107
+      }
+    },
+    "reason": "join failed: ['Precinct 101', 'Precinct 101 H', 'Precinct 101 S', 'Precinct 102', 'Precinct 102 S']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "gregg": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "GOVERNOR/OTHER: ours=105 official=102 (diff +3)"
+        ],
+        "mismatches": 1,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 15
+      }
+    },
+    "reason": "audit failed: ['GOVERNOR/OTHER: ours=105 official=102 (diff +3)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "grimes": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 14,
+        "races": 43
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 14
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "guadalupe": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 76,
+        "races": 54
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 75
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "hale": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 16
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 30
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "hall": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 7,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 7
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "hamilton": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 19 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 66,
+        "precincts": 11,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 11
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "hansford": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 96,
+        "precincts": 0,
+        "races": 14
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "hardeman": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=351 official=241 (diff +110)",
+          "US PRESIDENT/LIBERTARIAN: ours=20 official=9 (diff +11)"
+        ],
+        "mismatches": 2,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=351 official=241 (diff +110)', 'US PRESIDENT/LIBERTARIAN: ours=20 official=9 (diff +11)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "hardin": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 19,
+        "races": 48
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 19
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "harris": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 33 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 1012,
+        "races": 41
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 972
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "harrison": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 1",
+          "Precinct 10",
+          "Precinct 11",
+          "Precinct 12",
+          "Precinct 13",
+          "Precinct 14",
+          "Precinct 15",
+          "Precinct 16",
+          "Precinct 17",
+          "Precinct 18"
+        ],
+        "vote_bearing": 27
+      }
+    },
+    "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 12', 'Precinct 13']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "hartley": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 6,
+        "races": 14
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "haskell": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "GOVERNOR/OTHER: ours=9 official=7 (diff +2)"
+        ],
+        "mismatches": 1,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 120,
+        "precincts": 0,
+        "races": 15
+      }
+    },
+    "reason": "audit failed: ['GOVERNOR/OTHER: ours=9 official=7 (diff +2)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "hays": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "ATTORNEY GENERAL/DEMOCRAT: ours=36895 official=48434 (diff -11539)",
+          "ATTORNEY GENERAL/LIBERTARIAN: ours=2136 official=3363 (diff -1227)",
+          "ATTORNEY GENERAL/REPUBLICAN: ours=26552 official=37150 (diff -10598)",
+          "COMPTROLLER/DEMOCRAT: ours=34560 official=45267 (diff -10707)",
+          "COMPTROLLER/LIBERTARIAN: ours=1703 official=2765 (diff -1062)",
+          "COMPTROLLER/REPUBLICAN: ours=29086 official=40494 (diff -11408)",
+          "GOVERNOR/DEMOCRAT: ours=36995 official=48970 (diff -11975)",
+          "GOVERNOR/LIBERTARIAN: ours=757 official=1267 (diff -510)",
+          "GOVERNOR/OTHER: ours=231 official=405 (diff -174)",
+          "GOVERNOR/REPUBLICAN: ours=28085 official=39085 (diff -11000)",
+          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=36584 official=47952 (diff -11368)",
+          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=2056 official=3371 (diff -1315)"
+        ],
+        "mismatches": 13,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 63
+      }
+    },
+    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=36895 official=48434 (diff -11539)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=2136 official=3363 (diff -1227)', 'ATTORNEY GENERAL/REPUBLICAN: ours=26552 official=37150 (diff -10598)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "hemphill": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 9,
+        "races": 13
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "henderson": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 30,
+        "races": 36
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 30
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "hidalgo": {
+    "gates": {},
+    "reason": "No rows for county 'Hidalgo'. Counties present include: ['Hildalgo']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "hill": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 40,
+        "races": 41
+      },
+      "join": {
+        "merged_into": 22,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 40
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "hockley": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 15,
+        "races": 15
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "School8"
+        ],
+        "vote_bearing": 15
+      }
+    },
+    "reason": "join failed: ['School8']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "hood": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 16 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 16,
+        "races": 6
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 1",
+          "Precinct 10",
+          "Precinct 11",
+          "Precinct 12",
+          "Precinct 13",
+          "Precinct 14",
+          "Precinct 15",
+          "Precinct 16",
+          "Precinct 2",
+          "Precinct 3"
+        ],
+        "vote_bearing": 16
+      }
+    },
+    "reason": "join failed: ['Precinct 1', 'Precinct 10', 'Precinct 11', 'Precinct 12', 'Precinct 13']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "hopkins": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=51 official=33 (diff +18)",
+          "note US SENATE: 4 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 34
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=51 official=33 (diff +18)', 'note US SENATE: 4 write-in votes not carried in official accounting (all certified votes exact)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "houston": {
+    "gates": {
+      "audit": {
+        "cells": 8,
+        "detail": [
+          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 2,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 84,
+        "precincts": 21,
+        "races": 4
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 21
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "howard": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 14
+      },
+      "join": {
+        "merged_into": 27,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 30
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "hudspeth": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Early Voting",
+          "Mail",
+          "Provisional"
+        ],
+        "vote_bearing": 8
+      }
+    },
+    "reason": "join failed: ['Early Voting', 'Mail', 'Provisional']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "hunt": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 52
+      },
+      "join": {
+        "merged_into": 34,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 134
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "hutchinson": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 8,
+        "races": 14
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "irion": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/LIBERTARIAN: ours=188 official=8 (diff +180)",
+          "US PRESIDENT/OTHER: ours=34 official=2 (diff +32)"
+        ],
+        "mismatches": 2,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/LIBERTARIAN: ours=188 official=8 (diff +180)', 'US PRESIDENT/OTHER: ours=34 official=2 (diff +32)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "jack": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "jackson": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 4 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 54,
+        "precincts": 9,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 9
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "jasper": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 4 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 20,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 20
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "jeff-davis": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 5,
+        "races": 19
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 5
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "jefferson": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "ATTORNEY GENERAL/DEMOCRAT: ours=26695 official=26673 (diff +22)",
+          "ATTORNEY GENERAL/LIBERTARIAN: ours=1012 official=1011 (diff +1)",
+          "ATTORNEY GENERAL/REPUBLICAN: ours=34065 official=34028 (diff +37)",
+          "COMPTROLLER/DEMOCRAT: ours=25964 official=25942 (diff +22)",
+          "COMPTROLLER/LIBERTARIAN: ours=1065 official=1064 (diff +1)",
+          "COMPTROLLER/REPUBLICAN: ours=34439 official=34402 (diff +37)",
+          "GOVERNOR/DEMOCRAT: ours=26641 official=26617 (diff +24)",
+          "GOVERNOR/REPUBLICAN: ours=34988 official=34952 (diff +36)",
+          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=26532 official=26509 (diff +23)",
+          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=1179 official=1177 (diff +2)",
+          "LIEUTENANT GOVERNOR/REPUBLICAN: ours=34097 official=34062 (diff +35)"
+        ],
+        "mismatches": 11,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 105,
+        "races": 37
+      }
+    },
+    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=26695 official=26673 (diff +22)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=1012 official=1011 (diff +1)', 'ATTORNEY GENERAL/REPUBLICAN: ours=34065 official=34028 (diff +37)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "jim-hogg": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 5,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 5
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "jim-wells": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=49 official=41 (diff +8)",
+          "note US SENATE: 5 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 43
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=49 official=41 (diff +8)', 'note US SENATE: 5 write-in votes not carried in official accounting (all certified votes exact)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "johnson": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=142 official=156 (diff -14)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=142 official=156 (diff -14)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "jones": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 25
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "karnes": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "COMPTROLLER/LIBERTARIAN: ours=85 official=83 (diff +2)",
+          "LIEUTENANT GOVERNOR/REPUBLICAN: ours=2829 official=2925 (diff -96)"
+        ],
+        "mismatches": 2,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 180,
+        "precincts": 0,
+        "races": 21
+      }
+    },
+    "reason": "audit failed: ['COMPTROLLER/LIBERTARIAN: ours=85 official=83 (diff +2)', 'LIEUTENANT GOVERNOR/REPUBLICAN: ours=2829 official=2925 (diff -96)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "kaufman": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 55
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 37
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "kendall": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 9 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 11,
+        "races": 41
+      },
+      "join": {
+        "merged_into": 11,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 36
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "kenedy": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 19
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "kent": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/REPUBLICAN: ours=411 official=408 (diff +3)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 6,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=411 official=408 (diff +3)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "kerr": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "GOVERNOR/OTHER: ours=62 official=61 (diff +1)"
+        ],
+        "mismatches": 1,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 28
+      }
+    },
+    "reason": "audit failed: ['GOVERNOR/OTHER: ours=62 official=61 (diff +1)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "kimble": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "COMPTROLLER/REPUBLICAN: ours=1648 official=1657 (diff -9)",
+          "GOVERNOR/REPUBLICAN: ours=1658 official=1666 (diff -8)",
+          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=45 official=42 (diff +3)"
+        ],
+        "mismatches": 3,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 84,
+        "precincts": 0,
+        "races": 18
+      }
+    },
+    "reason": "audit failed: ['COMPTROLLER/REPUBLICAN: ours=1648 official=1657 (diff -9)', 'GOVERNOR/REPUBLICAN: ours=1658 official=1666 (diff -8)', 'LIEUTENANT GOVERNOR/LIBERTARIAN: ours=45 official=42 (diff +3)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "king": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 12,
+        "precincts": 0,
+        "races": 18
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "kleberg": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=29 official=44 (diff -15)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 17,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=29 official=44 (diff -15)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "knox": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US PRESIDENT: 1 write-in votes not carried in official accounting (all certified votes exact)",
+          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 6,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "la-salle": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 18
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "lamar": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "GOVERNOR/OTHER: ours=24 official=31 (diff -7)"
+        ],
+        "mismatches": 1,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 26,
+        "races": 38
+      }
+    },
+    "reason": "audit failed: ['GOVERNOR/OTHER: ours=24 official=31 (diff -7)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "lamb": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 11,
+        "races": 13
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 11
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "lampasas": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 9,
+        "races": 19
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 9
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "lavaca": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 19,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 19
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "lee": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 3 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 15,
+        "races": 26
+      },
+      "join": {
+        "merged_into": 15,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 32
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "leon": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 14,
+        "races": 18
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 14
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "liberty": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 40
+      },
+      "join": {
+        "merged_into": 30,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 72
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "limestone": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 22,
+        "races": 15
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 21
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "lipscomb": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 7,
+        "races": 5
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 106",
+          "Precinct 202",
+          "Precinct 207",
+          "Precinct 303",
+          "Precinct 308",
+          "Precinct 404",
+          "Precinct 409"
+        ],
+        "vote_bearing": 7
+      }
+    },
+    "reason": "join failed: ['Precinct 106', 'Precinct 202', 'Precinct 207', 'Precinct 303', 'Precinct 308']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "live-oak": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 14,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 14
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "llano": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 19
+      },
+      "join": {
+        "merged_into": 9,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 11
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "loving": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 5
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Early Voting",
+          "Precinct 1",
+          "Precinct 2",
+          "Precinct 3",
+          "Precinct 4"
+        ],
+        "vote_bearing": 5
+      }
+    },
+    "reason": "join failed: ['Early Voting', 'Precinct 1', 'Precinct 2', 'Precinct 3', 'Precinct 4']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "lubbock": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 1368,
+        "precincts": 0,
+        "races": 15
+      },
+      "join": {
+        "merged_into": 99,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 110
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "lynn": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 10,
+        "races": 6
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 1/5",
+          "Precinct 12",
+          "Precinct 13",
+          "Precinct 14",
+          "Precinct 2/8",
+          "Precinct 3/10",
+          "Precinct 4/11",
+          "Precinct 6",
+          "Precinct 7",
+          "Precinct 9"
+        ],
+        "vote_bearing": 10
+      }
+    },
+    "reason": "join failed: ['Precinct 1/5', 'Precinct 12', 'Precinct 13', 'Precinct 14', 'Precinct 2/8']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "madison": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=165 official=1088 (diff -923)",
+          "US PRESIDENT/LIBERTARIAN: ours=0 official=30 (diff -30)",
+          "US PRESIDENT/OTHER: ours=1 official=11 (diff -10)",
+          "US PRESIDENT/REPUBLICAN: ours=310 official=4169 (diff -3859)",
+          "RAILROAD COMMISSIONER/DEMOCRAT: ours=150 official=1008 (diff -858)",
+          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=6 official=65 (diff -59)",
+          "RAILROAD COMMISSIONER/OTHER: ours=4 official=29 (diff -25)",
+          "RAILROAD COMMISSIONER/REPUBLICAN: ours=298 official=4086 (diff -3788)",
+          "US SENATE/DEMOCRAT: ours=164 official=1030 (diff -866)",
+          "US SENATE/LIBERTARIAN: ours=1 official=61 (diff -60)",
+          "US SENATE/OTHER: ours=0 official=14 (diff -14)",
+          "US SENATE/REPUBLICAN: ours=307 official=4118 (diff -3811)"
+        ],
+        "mismatches": 12,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 27
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=165 official=1088 (diff -923)', 'US PRESIDENT/LIBERTARIAN: ours=0 official=30 (diff -30)', 'US PRESIDENT/OTHER: ours=1 official=11 (diff -10)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "marion": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 10,
+        "races": 29
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 10
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "martin": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 21
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Grady ISD",
+          "Grady ISD 2",
+          "Klondike ISD",
+          "Midland City",
+          "Sands CISD",
+          "Stanton ISD"
+        ],
+        "vote_bearing": 12
+      }
+    },
+    "reason": "join failed: ['Grady ISD', 'Grady ISD 2', 'Klondike ISD', 'Midland City', 'Sands CISD']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "mason": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "ATTORNEY GENERAL/DEMOCRAT: ours=366 official=365 (diff +1)",
+          "ATTORNEY GENERAL/REPUBLICAN: ours=1624 official=1623 (diff +1)",
+          "COMPTROLLER/DEMOCRAT: ours=312 official=311 (diff +1)",
+          "COMPTROLLER/REPUBLICAN: ours=1684 official=1683 (diff +1)",
+          "GOVERNOR/DEMOCRAT: ours=340 official=339 (diff +1)",
+          "GOVERNOR/REPUBLICAN: ours=1703 official=1702 (diff +1)",
+          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=364 official=362 (diff +2)",
+          "LIEUTENANT GOVERNOR/REPUBLICAN: ours=1643 official=1642 (diff +1)"
+        ],
+        "mismatches": 8,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 48,
+        "precincts": 0,
+        "races": 16
+      }
+    },
+    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=366 official=365 (diff +1)', 'ATTORNEY GENERAL/REPUBLICAN: ours=1624 official=1623 (diff +1)', 'COMPTROLLER/DEMOCRAT: ours=312 official=311 (diff +1)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "matagorda": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 18,
+        "races": 6
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 10",
+          "Precinct 12",
+          "Precinct 13",
+          "Precinct 1A",
+          "Precinct 1B",
+          "Precinct 1C",
+          "Precinct 1D",
+          "Precinct 1E",
+          "Precinct 1F",
+          "Precinct 2"
+        ],
+        "vote_bearing": 18
+      }
+    },
+    "reason": "join failed: ['Precinct 10', 'Precinct 12', 'Precinct 13', 'Precinct 1A', 'Precinct 1B']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "maverick": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US PRESIDENT: 19 write-in votes not carried in official accounting (all certified votes exact)",
+          "note US SENATE: 7 write-in votes not carried in official accounting (all certified votes exact)",
+          "US SENATE/REPUBLICAN: ours=7907 official=5708 (diff +2199)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['note US PRESIDENT: 19 write-in votes not carried in official accounting (all certified votes exact)', 'note US SENATE: 7 write-in votes not carried in official accounting (all certified votes exact)', 'US SENATE/REPUBLICAN: ours=7907 official=5708 (diff +2199)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "mcculloch": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 24,
+        "races": 23
+      },
+      "join": {
+        "merged_into": 9,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 24
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "mclennan": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 31
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 91
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "mcmullen": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 6
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 1",
+          "Precinct 2A & 2B",
+          "Precinct 3",
+          "Precinct 4A & 4B"
+        ],
+        "vote_bearing": 4
+      }
+    },
+    "reason": "join failed: ['Precinct 1', 'Precinct 2A & 2B', 'Precinct 3', 'Precinct 4A & 4B']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "medina": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 14
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "menard": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 6,
+        "races": 16
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "midland": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 46,
+        "races": 25
+      },
+      "join": {
+        "merged_into": 40,
+        "ok": true,
+        "rule": "first-integer-merge+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 44
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "milam": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 5
+      },
+      "join": {
+        "merged_into": 11,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 50
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "mills": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 7,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 7
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "mitchell": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 6,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "montague": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 15,
+        "races": 22
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 15
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "montgomery": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 21
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "43"
+        ],
+        "vote_bearing": 111
+      }
+    },
+    "reason": "join failed: ['01', '02', '03', '04', '05']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "moore": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 7,
+        "races": 14
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 7
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "morris": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 13,
+        "races": 22
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "motley": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 6,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "nacogdoches": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 16
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "14 - CHISD",
+          "14 - NISD",
+          "CHISD",
+          "MISD"
+        ],
+        "vote_bearing": 22
+      }
+    },
+    "reason": "join failed: ['14 - CHISD', '14 - NISD', 'CHISD', 'MISD']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "navarro": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 180,
+        "precincts": 30,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 30
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "newton": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US SENATE/DEMOCRAT: ours=1411 official=1163 (diff +248)",
+          "US SENATE/LIBERTARIAN: ours=75 official=47 (diff +28)",
+          "US SENATE/OTHER: ours=27 official=23 (diff +4)",
+          "US SENATE/REPUBLICAN: ours=4504 official=4784 (diff -280)"
+        ],
+        "mismatches": 4,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 20,
+        "races": 5
+      }
+    },
+    "reason": "audit failed: ['US SENATE/DEMOCRAT: ours=1411 official=1163 (diff +248)', 'US SENATE/LIBERTARIAN: ours=75 official=47 (diff +28)', 'US SENATE/OTHER: ours=27 official=23 (diff +4)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "nolan": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 9,
+        "races": 14
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 9
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "nueces": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "GOVERNOR/OTHER: ours=424 official=428 (diff -4)"
+        ],
+        "mismatches": 1,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 72
+      }
+    },
+    "reason": "audit failed: ['GOVERNOR/OTHER: ours=424 official=428 (diff -4)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "ochiltree": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "oldham": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 7,
+        "races": 13
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 7
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "orange": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 34,
+        "races": 21
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 34
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "palo-pinto": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "GOVERNOR/OTHER: ours=29 official=26 (diff +3)"
+        ],
+        "mismatches": 1,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 16
+      }
+    },
+    "reason": "audit failed: ['GOVERNOR/OTHER: ours=29 official=26 (diff +3)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "panola": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "RAILROAD COMMISSIONER/REPUBLICAN: ours=9382 official=9152 (diff +230)",
+          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 228,
+        "precincts": 19,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['RAILROAD COMMISSIONER/REPUBLICAN: ours=9382 official=9152 (diff +230)', 'note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "parker": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 3 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 93,
+        "races": 48
+      },
+      "join": {
+        "merged_into": 44,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 90
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "parmer": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 7,
+        "races": 13
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 7
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "pecos": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 9,
+        "races": 27
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 9
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "polk": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 5
+      },
+      "join": {
+        "merged_into": 21,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 41
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "potter": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "GOVERNOR/OTHER: ours=107 official=97 (diff +10)"
+        ],
+        "mismatches": 1,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 17
+      }
+    },
+    "reason": "audit failed: ['GOVERNOR/OTHER: ours=107 official=97 (diff +10)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "presidio": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=12 official=14 (diff -2)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=12 official=14 (diff -2)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "rains": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "randall": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 14
+      },
+      "join": {
+        "merged_into": 31,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 32
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "reagan": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 20
+      },
+      "join": {
+        "merged_into": 4,
+        "ok": true,
+        "rule": "first-integer-merge+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 11
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "real": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 23
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 5
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "red-river": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 15
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "2-1",
+          "3-1"
+        ],
+        "vote_bearing": 14
+      }
+    },
+    "reason": "join failed: ['2-1', '3-1']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "reeves": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 9,
+        "races": 18
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 9
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "refugio": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 18
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 10
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "roberts": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 14
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "1 - MISD",
+          "2 - MISD",
+          "3 - MISD",
+          "4 - 1 MISD",
+          "4 - 2 MISD",
+          "4-2."
+        ],
+        "vote_bearing": 7
+      }
+    },
+    "reason": "join failed: ['1 - MISD', '2 - MISD', '3 - MISD', '4 - 1 MISD', '4 - 2 MISD']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "robertson": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 13,
+        "races": 16
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 13
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "rockwall": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "note GOVERNOR: 40 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 26,
+        "races": 37
+      },
+      "join": {
+        "merged_into": 4,
+        "ok": true,
+        "rule": "first-integer-merge+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 26
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "runnels": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 10
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "rusk": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 10 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 22,
+        "races": 17
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "PCT 111",
+          "PCT 112",
+          "PCT 113",
+          "PCT 114",
+          "PCT 201",
+          "PCT 212",
+          "PCT 213",
+          "PCT 214",
+          "PCT 215",
+          "PCT 302"
+        ],
+        "vote_bearing": 22
+      }
+    },
+    "reason": "join failed: ['PCT 111', 'PCT 112', 'PCT 113', 'PCT 114', 'PCT 201']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "sabine": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 14
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "san-augustine": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "GOVERNOR/REPUBLICAN: ours=2286 official=2288 (diff -2)",
+          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=29 official=32 (diff -3)"
+        ],
+        "mismatches": 2,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 132,
+        "precincts": 0,
+        "races": 15
+      }
+    },
+    "reason": "audit failed: ['GOVERNOR/REPUBLICAN: ours=2286 official=2288 (diff -2)', 'LIEUTENANT GOVERNOR/LIBERTARIAN: ours=29 official=32 (diff -3)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "san-jacinto": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 26
+      },
+      "join": {
+        "merged_into": 11,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 15
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "san-patricio": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 20
+      },
+      "join": {
+        "merged_into": 25,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 33
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "san-saba": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 42,
+        "precincts": 7,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 7
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "schleicher": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "scurry": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 11,
+        "races": 17
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 11
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "shackelford": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 11,
+        "races": 26
+      },
+      "join": {
+        "merged_into": 7,
+        "ok": true,
+        "rule": "first-integer-merge+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 11
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "shelby": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=4 official=7 (diff -3)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 14,
+        "races": 5
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=4 official=7 (diff -3)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "sherman": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 1 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 11,
+        "races": 5
+      },
+      "join": {
+        "merged_into": 7,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 11
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "smith": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 72,
+        "races": 23
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 72
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "somervell": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "ATTORNEY GENERAL/DEMOCRAT: ours=531 official=554 (diff -23)",
+          "ATTORNEY GENERAL/LIBERTARIAN: ours=100 official=104 (diff -4)",
+          "ATTORNEY GENERAL/REPUBLICAN: ours=3293 official=3336 (diff -43)",
+          "COMPTROLLER/DEMOCRAT: ours=475 official=500 (diff -25)",
+          "COMPTROLLER/REPUBLICAN: ours=3365 official=3406 (diff -41)",
+          "GOVERNOR/DEMOCRAT: ours=529 official=553 (diff -24)",
+          "GOVERNOR/LIBERTARIAN: ours=48 official=49 (diff -1)",
+          "GOVERNOR/OTHER: ours=8 official=6 (diff +2)",
+          "GOVERNOR/REPUBLICAN: ours=3385 official=3430 (diff -45)",
+          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=575 official=600 (diff -25)",
+          "LIEUTENANT GOVERNOR/LIBERTARIAN: ours=64 official=66 (diff -2)",
+          "LIEUTENANT GOVERNOR/REPUBLICAN: ours=3303 official=3346 (diff -43)"
+        ],
+        "mismatches": 12,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 48,
+        "precincts": 0,
+        "races": 15
+      }
+    },
+    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=531 official=554 (diff -23)', 'ATTORNEY GENERAL/LIBERTARIAN: ours=100 official=104 (diff -4)', 'ATTORNEY GENERAL/REPUBLICAN: ours=3293 official=3336 (diff -43)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "starr": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=9099 official=9148 (diff -49)",
+          "US PRESIDENT/LIBERTARIAN: ours=91 official=92 (diff -1)",
+          "US PRESIDENT/REPUBLICAN: ours=8224 official=8259 (diff -35)",
+          "RAILROAD COMMISSIONER/DEMOCRAT: ours=8606 official=8648 (diff -42)",
+          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=322 official=323 (diff -1)",
+          "RAILROAD COMMISSIONER/REPUBLICAN: ours=5025 official=5049 (diff -24)",
+          "US SENATE/DEMOCRAT: ours=8139 official=8178 (diff -39)",
+          "US SENATE/LIBERTARIAN: ours=356 official=357 (diff -1)",
+          "US SENATE/OTHER: ours=402 official=388 (diff +14)",
+          "US SENATE/REPUBLICAN: ours=5825 official=5851 (diff -26)"
+        ],
+        "mismatches": 10,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 10,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=9099 official=9148 (diff -49)', 'US PRESIDENT/LIBERTARIAN: ours=91 official=92 (diff -1)', 'US PRESIDENT/REPUBLICAN: ours=8224 official=8259 (diff -35)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "stephens": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 8,
+        "races": 7
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 1-11",
+          "Precinct 2-11",
+          "Precinct 2-19",
+          "Precinct 3-11",
+          "Precinct 3-19",
+          "Precinct 4-11",
+          "Precinct 4-19",
+          "Precinct 5-11"
+        ],
+        "vote_bearing": 8
+      }
+    },
+    "reason": "join failed: ['Precinct 1-11', 'Precinct 2-11', 'Precinct 2-19', 'Precinct 3-11', 'Precinct 3-19']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "sterling": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 22
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "stonewall": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 48,
+        "precincts": 0,
+        "races": 14
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "sutton": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 4,
+        "races": 7
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 4
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "swisher": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 8,
+        "races": 13
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "tarrant": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "GOVERNOR/OTHER: ours=2249 official=1902 (diff +347)"
+        ],
+        "mismatches": 1,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 62
+      }
+    },
+    "reason": "audit failed: ['GOVERNOR/OTHER: ours=2249 official=1902 (diff +347)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "taylor": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [
+          "ATTORNEY GENERAL/DEMOCRAT: ours=8996 official=8987 (diff +9)",
+          "ATTORNEY GENERAL/REPUBLICAN: ours=29047 official=28991 (diff +56)",
+          "COMPTROLLER/DEMOCRAT: ours=8100 official=8091 (diff +9)",
+          "COMPTROLLER/REPUBLICAN: ours=29960 official=29904 (diff +56)",
+          "GOVERNOR/DEMOCRAT: ours=8888 official=8878 (diff +10)",
+          "GOVERNOR/REPUBLICAN: ours=30030 official=29974 (diff +56)",
+          "LIEUTENANT GOVERNOR/DEMOCRAT: ours=8809 official=8799 (diff +10)",
+          "LIEUTENANT GOVERNOR/REPUBLICAN: ours=29262 official=29207 (diff +55)"
+        ],
+        "mismatches": 8,
+        "offices": 4,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 23
+      }
+    },
+    "reason": "audit failed: ['ATTORNEY GENERAL/DEMOCRAT: ours=8996 official=8987 (diff +9)', 'ATTORNEY GENERAL/REPUBLICAN: ours=29047 official=28991 (diff +56)', 'COMPTROLLER/DEMOCRAT: ours=8100 official=8091 (diff +9)']",
+    "status": "placeholder",
+    "wave": "2022"
+  },
+  "terrell": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=122 official=119 (diff +3)",
+          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=122 official=119 (diff +3)', 'note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "terry": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 42,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 7
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "throckmorton": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 10,
+        "precincts": 0,
+        "races": 22
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 5
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "titus": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 19
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "tom-green": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=12185 official=12239 (diff -54)",
+          "US PRESIDENT/LIBERTARIAN: ours=541 official=546 (diff -5)",
+          "US PRESIDENT/OTHER: ours=164 official=112 (diff +52)",
+          "US PRESIDENT/REPUBLICAN: ours=32258 official=32313 (diff -55)",
+          "RAILROAD COMMISSIONER/DEMOCRAT: ours=11009 official=11048 (diff -39)",
+          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=997 official=999 (diff -2)",
+          "RAILROAD COMMISSIONER/OTHER: ours=382 official=384 (diff -2)",
+          "RAILROAD COMMISSIONER/REPUBLICAN: ours=31752 official=31806 (diff -54)",
+          "US SENATE/DEMOCRAT: ours=11329 official=11371 (diff -42)",
+          "US SENATE/OTHER: ours=243 official=234 (diff +9)",
+          "US SENATE/REPUBLICAN: ours=32274 official=32340 (diff -66)"
+        ],
+        "mismatches": 11,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 25
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=12185 official=12239 (diff -54)', 'US PRESIDENT/LIBERTARIAN: ours=541 official=546 (diff -5)', 'US PRESIDENT/OTHER: ours=164 official=112 (diff +52)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "travis": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 188 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 237,
+        "precincts": 247,
+        "races": 175
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 237
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "trinity": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 5
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "EARLY",
+          "Provisional"
+        ],
+        "vote_bearing": 22
+      }
+    },
+    "reason": "join failed: ['EARLY', 'Provisional']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "tyler": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 5 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 68,
+        "precincts": 20,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 17
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "upshur": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=54 official=27 (diff +27)",
+          "note US SENATE: 6 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 21,
+        "races": 25
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=54 official=27 (diff +27)', 'note US SENATE: 6 write-in votes not carried in official accounting (all certified votes exact)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "upton": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 6,
+        "races": 23
+      },
+      "join": {
+        "merged_into": 4,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "uvalde": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 24
+      },
+      "join": {
+        "merged_into": 14,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 16
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "val-verde": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 17
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "van-zandt": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/REPUBLICAN: ours=22370 official=22270 (diff +100)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 5
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/REPUBLICAN: ours=22370 official=22270 (diff +100)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "victoria": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 18 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 35,
+        "races": 6
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 35
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "walker": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 16 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 16,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 16
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "waller": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=8164 official=8191 (diff -27)",
+          "note US PRESIDENT: 39 write-in votes not carried in official accounting (all certified votes exact)",
+          "US PRESIDENT/REPUBLICAN: ours=14233 official=14260 (diff -27)",
+          "RAILROAD COMMISSIONER/DEMOCRAT: ours=7532 official=7556 (diff -24)",
+          "RAILROAD COMMISSIONER/OTHER: ours=171 official=172 (diff -1)",
+          "RAILROAD COMMISSIONER/REPUBLICAN: ours=13978 official=14006 (diff -28)",
+          "US SENATE/DEMOCRAT: ours=7701 official=7725 (diff -24)",
+          "note US SENATE: 6 write-in votes not carried in official accounting (all certified votes exact)",
+          "US SENATE/REPUBLICAN: ours=14189 official=14219 (diff -30)"
+        ],
+        "mismatches": 7,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 1,
+        "races": 60
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=8164 official=8191 (diff -27)', 'note US PRESIDENT: 39 write-in votes not carried in official accounting (all certified votes exact)', 'US PRESIDENT/REPUBLICAN: ours=14233 official=14260 (diff -27)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "ward": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 96,
+        "precincts": 0,
+        "races": 14
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact",
+        "unmatched": [],
+        "vote_bearing": 8
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "washington": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 20,
+        "races": 20
+      },
+      "join": {
+        "merged_into": 19,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 20
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "webb": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=41820 official=41842 (diff -22)",
+          "US PRESIDENT/OTHER: ours=341 official=342 (diff -1)",
+          "US PRESIDENT/REPUBLICAN: ours=25898 official=25904 (diff -6)",
+          "RAILROAD COMMISSIONER/DEMOCRAT: ours=42102 official=42123 (diff -21)",
+          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=1160 official=1162 (diff -2)",
+          "RAILROAD COMMISSIONER/REPUBLICAN: ours=21285 official=21288 (diff -3)",
+          "US SENATE/DEMOCRAT: ours=40822 official=40845 (diff -23)",
+          "US SENATE/LIBERTARIAN: ours=1246 official=1247 (diff -1)",
+          "note US SENATE: 69 write-in votes not carried in official accounting (all certified votes exact)",
+          "US SENATE/REPUBLICAN: ours=23143 official=23159 (diff -16)"
+        ],
+        "mismatches": 9,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 69,
+        "races": 7
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=41820 official=41842 (diff -22)', 'US PRESIDENT/OTHER: ours=341 official=342 (diff -1)', 'US PRESIDENT/REPUBLICAN: ours=25898 official=25904 (diff -6)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "wharton": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 8 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 12,
+        "races": 6
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 101",
+          "Precinct 102",
+          "Precinct 103",
+          "Precinct 201",
+          "Precinct 202",
+          "Precinct 203",
+          "Precinct 301",
+          "Precinct 302",
+          "Precinct 303",
+          "Precinct 401"
+        ],
+        "vote_bearing": 12
+      }
+    },
+    "reason": "join failed: ['Precinct 101', 'Precinct 102', 'Precinct 103', 'Precinct 201', 'Precinct 202']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "wheeler": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US PRESIDENT: 3 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 17,
+        "precincts": 0,
+        "races": 29
+      },
+      "join": {
+        "merged_into": 10,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 17
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "wichita": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "parties_enriched_from_official": 732,
+        "precincts": 61,
+        "races": 5
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "Precinct 101",
+          "Precinct 102",
+          "Precinct 103",
+          "Precinct 104",
+          "Precinct 105",
+          "Precinct 106",
+          "Precinct 107",
+          "Precinct 108",
+          "Precinct 109",
+          "Precinct 110"
+        ],
+        "vote_bearing": 59
+      }
+    },
+    "reason": "join failed: ['Precinct 101', 'Precinct 102', 'Precinct 103', 'Precinct 104', 'Precinct 105']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "wilbarger": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 6
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "PCT 1 ALL",
+          "PCT 1 GEN ONLY",
+          "PCT 1 GEN\u2010 VISD",
+          "PCT 19 ALL",
+          "PCT 19 GEN-ONLY",
+          "PCT 19 GEN\u2010VISD",
+          "PCT 20 ALL",
+          "PCT 20 GEN ONLY",
+          "PCT 20 GEN-VISD",
+          "PCT 21 ALL"
+        ],
+        "vote_bearing": 12
+      }
+    },
+    "reason": "join failed: ['PCT 1 ALL', 'PCT 1 GEN ONLY', 'PCT 1 GEN\u2010 VISD', 'PCT 19 ALL', 'PCT 19 GEN-ONLY']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "willacy": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=2953 official=3108 (diff -155)",
+          "US PRESIDENT/LIBERTARIAN: ours=24 official=25 (diff -1)",
+          "US PRESIDENT/OTHER: ours=15 official=16 (diff -1)",
+          "US PRESIDENT/REPUBLICAN: ours=2281 official=2441 (diff -160)",
+          "RAILROAD COMMISSIONER/DEMOCRAT: ours=2890 official=3031 (diff -141)",
+          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=72 official=77 (diff -5)",
+          "RAILROAD COMMISSIONER/OTHER: ours=83 official=86 (diff -3)",
+          "RAILROAD COMMISSIONER/REPUBLICAN: ours=1774 official=1924 (diff -150)",
+          "US SENATE/DEMOCRAT: ours=2827 official=2968 (diff -141)",
+          "US SENATE/LIBERTARIAN: ours=83 official=87 (diff -4)",
+          "US SENATE/OTHER: ours=51 official=53 (diff -2)",
+          "US SENATE/REPUBLICAN: ours=2023 official=2183 (diff -160)"
+        ],
+        "mismatches": 12,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 17,
+        "races": 27
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=2953 official=3108 (diff -155)', 'US PRESIDENT/LIBERTARIAN: ours=24 official=25 (diff -1)', 'US PRESIDENT/OTHER: ours=15 official=16 (diff -1)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "williamson": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 163,
+        "races": 126
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "exact+boundary-dissolve",
+        "unmatched": [],
+        "vote_bearing": 163
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "wilson": {
+    "gates": {
+      "audit": {
+        "cells": 13,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 4,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 13,
+        "races": 20
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 13
+      }
+    },
+    "status": "live",
+    "wave": "2022"
+  },
+  "winkler": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/DEMOCRAT: ours=423 official=358 (diff +65)",
+          "US PRESIDENT/REPUBLICAN: ours=1814 official=1753 (diff +61)",
+          "RAILROAD COMMISSIONER/DEMOCRAT: ours=413 official=355 (diff +58)",
+          "RAILROAD COMMISSIONER/LIBERTARIAN: ours=22 official=21 (diff +1)",
+          "RAILROAD COMMISSIONER/OTHER: ours=7 official=5 (diff +2)",
+          "RAILROAD COMMISSIONER/REPUBLICAN: ours=1764 official=1707 (diff +57)",
+          "US SENATE/DEMOCRAT: ours=399 official=338 (diff +61)",
+          "US SENATE/LIBERTARIAN: ours=31 official=30 (diff +1)",
+          "US SENATE/REPUBLICAN: ours=1775 official=1714 (diff +61)"
+        ],
+        "mismatches": 9,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 5
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/DEMOCRAT: ours=423 official=358 (diff +65)', 'US PRESIDENT/REPUBLICAN: ours=1814 official=1753 (diff +61)', 'RAILROAD COMMISSIONER/DEMOCRAT: ours=413 official=355 (diff +58)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "wise": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=92 official=50 (diff +42)",
+          "note US SENATE: 13 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 79,
+        "races": 32
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=92 official=50 (diff +42)', 'note US SENATE: 13 write-in votes not carried in official accounting (all certified votes exact)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "wood": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 14,
+        "races": 27
+      },
+      "join": {
+        "ok": false,
+        "rule": null,
+        "unmatched": [
+          "1~1",
+          "1~2",
+          "1~3",
+          "1~4",
+          "2~1",
+          "2~2",
+          "2~3",
+          "3~1",
+          "3~2",
+          "3~3"
+        ],
+        "vote_bearing": 14
+      }
+    },
+    "reason": "join failed: ['1~1', '1~2', '1~3', '1~4', '2~1']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "yoakum": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 6,
+        "races": 5
+      },
+      "join": {
+        "merged_into": null,
+        "ok": true,
+        "rule": "first-integer",
+        "unmatched": [],
+        "vote_bearing": 6
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "young": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=35 official=19 (diff +16)",
+          "note US SENATE: 3 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 27
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=35 official=19 (diff +16)', 'note US SENATE: 3 write-in votes not carried in official accounting (all certified votes exact)']",
+    "status": "placeholder",
+    "wave": "2020"
+  },
+  "zapata": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "note US SENATE: 2 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 0,
+        "offices": 3,
+        "ok": true
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 0,
+        "races": 25
+      },
+      "join": {
+        "merged_into": 4,
+        "ok": true,
+        "rule": "first-integer-merge",
+        "unmatched": [],
+        "vote_bearing": 7
+      }
+    },
+    "status": "live",
+    "wave": "2020"
+  },
+  "zavala": {
+    "gates": {
+      "audit": {
+        "cells": 12,
+        "detail": [
+          "US PRESIDENT/OTHER: ours=18 official=15 (diff +3)",
+          "note US SENATE: 12 write-in votes not carried in official accounting (all certified votes exact)"
+        ],
+        "mismatches": 1,
+        "offices": 3,
+        "ok": false
+      },
+      "etl": {
+        "ok": true,
+        "precincts": 6,
+        "races": 30
+      }
+    },
+    "reason": "audit failed: ['US PRESIDENT/OTHER: ours=18 official=15 (diff +3)', 'note US SENATE: 12 write-in votes not carried in official accounting (all certified votes exact)']",
+    "status": "placeholder",
+    "wave": "2020"
+  }
+}

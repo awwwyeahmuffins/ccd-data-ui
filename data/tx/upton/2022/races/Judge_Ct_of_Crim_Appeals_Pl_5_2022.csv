@@ -1,0 +1,17 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,20
+1,DEM,Dana Huffman,24
+1,REP,Scott Walker,304
+2,,Over Votes,0
+2,,Under Votes,31
+2,DEM,Dana Huffman,38
+2,REP,Scott Walker,178
+3,,Over Votes,0
+3,,Under Votes,17
+3,DEM,Dana Huffman,38
+3,REP,Scott Walker,128
+4,,Over Votes,0
+4,,Under Votes,34
+4,DEM,Dana Huffman,45
+4,REP,Scott Walker,230

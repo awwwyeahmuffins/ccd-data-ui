@@ -63,13 +63,17 @@ logger = logging.getLogger("tx_etl")
 PARTY_MAP = {
     "REP": "REP", "REPUBLICAN": "REP", "R": "REP",
     "DEM": "DEM", "DEMOCRAT": "DEM", "DEMOCRATIC": "DEM", "D": "DEM",
-    "LIB": "LIB", "LIBERTARIAN": "LIB", "L": "LIB",
-    "GRN": "GRN", "GREEN": "GRN", "G": "GRN",
+    "LIB": "LIB", "LIBERTARIAN": "LIB", "L": "LIB", "LBT": "LIB",
+    "GRN": "GRN", "GREEN": "GRN", "G": "GRN", "GRE": "GRN",
     "IND": "IND", "INDEPENDENT": "IND", "I": "IND",
     "CON": "CON", "CONSTITUTION": "CON",
 }
 WRITE_IN_PARTIES = {"W", "WI", "W-I", "WRITE-IN"}
-WRITE_IN_NAMES = {"write-in", "write-ins", "writein"}
+WRITE_IN_NAMES = {"write-in", "write-ins", "writein", "write-in totals",
+                  "write-in total", "total write-ins", "write in"}
+# Ballot-accounting rows that some counties report as "candidates"
+UNDER_NAMES = {"under votes", "undervotes", "under-votes", "under vote"}
+OVER_NAMES = {"over votes", "overvotes", "over-votes", "over vote"}
 
 # Pseudo-offices that are turnout metadata, not races
 TURNOUT_OFFICES = {
@@ -97,6 +101,10 @@ def load_input(source: str) -> pd.DataFrame:
         df = pd.read_csv(source, dtype=str)
     df.columns = [c.strip().lower() for c in df.columns]
     missing = REQUIRED_INPUT_COLS - set(df.columns)
+    if missing == {"county"}:
+        # Some per-county files omit the county column entirely
+        df["county"] = None
+        missing = set()
     if missing:
         raise SystemExit(
             f"Input is missing required OpenElections columns: {sorted(missing)}. "
@@ -137,7 +145,10 @@ def transform(df: pd.DataFrame, county: str):
       races: [{office, district, race_name, rows: [(precinct,party,candidate,votes)]}]
       turnout: {precinct: {registered, ballots_cast, blank}}
     """
-    rows = df[df["county"].str.strip().str.lower() == county.lower()].copy()
+    if df["county"].isna().all():
+        rows = df.copy()  # single-county file without a county column
+    else:
+        rows = df[df["county"].fillna("").str.strip().str.lower() == county.lower()].copy()
     if rows.empty:
         available = sorted(df["county"].dropna().str.strip().unique())[:20]
         raise SystemExit(
@@ -178,14 +189,26 @@ def transform(df: pd.DataFrame, county: str):
             notes.append(f"skipped (no candidate rows): {race_name}")
             continue
 
+        # Some counties report BOTH a write-in total row and per-candidate
+        # "Write-In: X" breakdown rows — keep only the total (else they
+        # double count; the audit gate caught this in Blanco 2020)
+        cand_lower = grp["candidate"].astype(str).str.strip().str.lower()
+        has_wi_total = cand_lower.isin(WRITE_IN_NAMES).any()
+        if has_wi_total:
+            grp = grp[~cand_lower.str.startswith("write-in:")]
+
         # Aggregate duplicates (e.g. absentee/early/election-day rows) and
         # build normalized long rows
         agg = {}
         for _, r in grp.iterrows():
             party, is_wi = canonical_party(r.get("party"))
             cand = re.sub(r"\s+", " ", str(r["candidate"])).strip()
-            if is_wi or cand.lower() in WRITE_IN_NAMES:
+            if is_wi or cand.lower() in WRITE_IN_NAMES or cand.lower().startswith("write-in:"):
                 party, cand = "", "Write-in"
+            elif cand.lower() in UNDER_NAMES:
+                party, cand = "", "Under Votes"
+            elif cand.lower() in OVER_NAMES:
+                party, cand = "", "Over Votes"
             agg[(r["precinct"], party, cand)] = (
                 agg.get((r["precinct"], party, cand), 0) + int(r["votes_n"])
             )

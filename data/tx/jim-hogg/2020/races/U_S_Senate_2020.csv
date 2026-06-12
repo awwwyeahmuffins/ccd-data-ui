@@ -1,0 +1,31 @@
+precinct,party,candidate,votes
+1,,Over Votes,0
+1,,Under Votes,75
+1,DEM,"Mary ""MJ"" Hegar",306
+1,GRN,David B. Collins,8
+1,LIB,Kerry Douglas McKennon,8
+1,REP,John Cornyn,156
+2,,Over Votes,2
+2,,Under Votes,50
+2,DEM,"Mary ""MJ"" Hegar",299
+2,GRN,David B. Collins,5
+2,LIB,Kerry Douglas McKennon,4
+2,REP,John Cornyn,180
+3,,Over Votes,0
+3,,Under Votes,54
+3,DEM,"Mary ""MJ"" Hegar",248
+3,GRN,David B. Collins,6
+3,LIB,Kerry Douglas McKennon,9
+3,REP,John Cornyn,166
+4,,Over Votes,0
+4,,Under Votes,68
+4,DEM,"Mary ""MJ"" Hegar",278
+4,GRN,David B. Collins,7
+4,LIB,Kerry Douglas McKennon,7
+4,REP,John Cornyn,146
+5,,Over Votes,0
+5,,Under Votes,0
+5,DEM,"Mary ""MJ"" Hegar",5
+5,GRN,David B. Collins,0
+5,LIB,Kerry Douglas McKennon,2
+5,REP,John Cornyn,4

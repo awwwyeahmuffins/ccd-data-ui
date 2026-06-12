@@ -1,0 +1,36 @@
+precinct,party,candidate,votes
+101,,Over Votes,0
+101,,Under Votes,2
+101,DEM,Erin A. Nowell,9
+101,LIB,Thomas Edward Oxford,2
+101,REP,Debra Lehrmann,83
+103,,Over Votes,0
+103,,Under Votes,1
+103,DEM,Erin A. Nowell,2
+103,LIB,Thomas Edward Oxford,1
+103,REP,Debra Lehrmann,89
+202,,Over Votes,0
+202,,Under Votes,2
+202,DEM,Erin A. Nowell,10
+202,LIB,Thomas Edward Oxford,1
+202,REP,Debra Lehrmann,86
+203,,Over Votes,0
+203,,Under Votes,1
+203,DEM,Erin A. Nowell,6
+203,LIB,Thomas Edward Oxford,1
+203,REP,Debra Lehrmann,132
+303,,Over Votes,0
+303,,Under Votes,0
+303,DEM,Erin A. Nowell,14
+303,LIB,Thomas Edward Oxford,1
+303,REP,Debra Lehrmann,147
+403,,Over Votes,0
+403,,Under Votes,1
+403,DEM,Erin A. Nowell,4
+403,LIB,Thomas Edward Oxford,3
+403,REP,Debra Lehrmann,72
+404,,Over Votes,0
+404,,Under Votes,2
+404,DEM,Erin A. Nowell,3
+404,LIB,Thomas Edward Oxford,2
+404,REP,Debra Lehrmann,95
