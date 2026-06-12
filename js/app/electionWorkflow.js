@@ -114,7 +114,8 @@ export function updateURLState() {
     urlState.county = getActiveCounty();
   }
   if (state.currentElection) {
-    urlState.race = state.currentElection.filename;
+    // Prefer the stable race id (v3); fall back to filename for legacy entries
+    urlState.race = state.currentElection.raceKey || state.currentElection.filename;
   }
   const hash = buildURLHash(urlState);
   if (hash) {
@@ -128,7 +129,13 @@ export function updateURLState() {
 export function restoreFromURL() {
   const urlState = parseURLHash(window.location.hash);
   if (urlState.race) {
-    const entry = state.elections?.find(e => e.filename === urlState.race);
+    // Match by race id (v3), exact filename, or a legacy bare filename from
+    // an old bookmark (v3 race files live under races/)
+    const entry = state.elections?.find(e =>
+      e.raceKey === urlState.race ||
+      e.filename === urlState.race ||
+      e.filename === `races/${urlState.race}`
+    );
     if (entry) {
       selectElection(entry);
     }
