@@ -316,3 +316,40 @@ export function getRaceKey(entry) {
   // Fallback to filename
   return entry.filename || null;
 }
+
+// =============================================================================
+// V3 MANIFEST SUPPORT (DATA_LAYOUT_SPEC v3 — normalized long format)
+// =============================================================================
+
+/**
+ * v3 manifests are an OBJECT wrapper (the version field is the format detector):
+ * { version: 3, county, boundarySet, elections: [{ id, displayName, office,
+ *   district, year, date, category, raceFile, turnoutFile, sourceUrl }] }
+ */
+export function isV3Manifest(json) {
+  return json != null && !Array.isArray(json) && typeof json === 'object' && json.version === 3;
+}
+
+/**
+ * Normalize a v3 manifest entry to the shape the app consumes everywhere.
+ * `filename` is set to raceFile so cache keys, race grouping, filtering, and
+ * URL deep links keep working without changes; `_v3: true` routes
+ * loadElectionData through the pivot path.
+ */
+export function normalizeV3Entry(entry, categorizeFn) {
+  if (!entry || typeof entry !== 'object' || !entry.raceFile) return null;
+  return {
+    filename: entry.raceFile,
+    raceFile: entry.raceFile,
+    turnoutFile: entry.turnoutFile ?? null,
+    office: entry.office ?? null,
+    district: entry.district ?? null,
+    date: entry.date ?? null,
+    year: entry.year ?? null,
+    category: entry.category ?? categorizeFn?.(entry.raceFile) ?? null,
+    displayName: entry.displayName ?? null,
+    raceKey: entry.id ?? null,
+    sourceUrl: entry.sourceUrl ?? null,
+    _v3: true,
+  };
+}

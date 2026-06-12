@@ -11,11 +11,14 @@
 // Import categorizeElection for normalizing legacy manifest entries
 import { categorizeElection } from "./electionFilters.js";
 // Import schema definitions and utilities
-import { 
-  ELECTION_MANIFEST_SCHEMA, 
-  normalizeManifestEntry, 
-  buildCSVPath 
+import {
+  ELECTION_MANIFEST_SCHEMA,
+  normalizeManifestEntry,
+  buildCSVPath,
+  isV3Manifest,
+  normalizeV3Entry
 } from "./electionSchema.js";
+import { pivotRace, computeWinners } from "./v3Pivot.js";
 
 // ---------------------------------------------------------------------------
 // STATEWIDE COUNTY LAYER
@@ -23,9 +26,14 @@ import {
 // status "live" in data/tx/counties.json have real precinct data. Placeholder
 // counties get their county outline as a single PLACEHOLDER "precinct" and an
 // empty election list — no data is ever fabricated.
+//
+// Live counties are registry-driven: their entry's `dataRoot` + `boundarySets`
+// describe where boundaries, race files, turnout, and profile extras live
+// (DATA_LAYOUT_SPEC v3). A legacy fallback keeps the original hard-coded
+// Collin layout working for registry entries without `boundarySets`.
 // ---------------------------------------------------------------------------
-const LIVE_DEFAULT_COUNTY = "collin";
-let activeCounty = LIVE_DEFAULT_COUNTY; // county slug from data/tx/counties.json
+let activeCounty = "collin"; // county slug from data/tx/counties.json
+let activeCountyEntry = null; // cached registry entry for activeCounty
 let countyRegistryPromise = null;
 let countyBoundariesPromise = null;
 
@@ -45,6 +53,16 @@ export function loadCountyRegistry() {
   return countyRegistryPromise;
 }
 
+/** Resolve (and cache) the registry entry for the active county. */
+async function ensureCountyEntry() {
+  if (activeCountyEntry && activeCountyEntry.slug === activeCounty) {
+    return activeCountyEntry;
+  }
+  const registry = await loadCountyRegistry();
+  activeCountyEntry = registry.find(c => c.slug === activeCounty) || null;
+  return activeCountyEntry;
+}
+
 function loadCountyBoundaries() {
   if (!countyBoundariesPromise) {
     countyBoundariesPromise = fetch("data/tx/county-boundaries.geojson").then(r => {
@@ -62,15 +80,16 @@ export async function setActiveCounty(slug) {
   if (!entry) throw new Error(`Unknown county: ${slug}`);
   console.log(`[DataLoader] setActiveCounty: ${slug} (${entry.status})`);
   activeCounty = slug;
+  activeCountyEntry = entry;
+  // Reset the boundary set to the county's default
+  activeBoundary = entry.defaultBoundarySet ?? "original";
   clearDataCache();
   return entry;
 }
 
 /** True when the active county has no real precinct data yet. */
 export async function isPlaceholderCounty() {
-  if (activeCounty === LIVE_DEFAULT_COUNTY) return false;
-  const registry = await loadCountyRegistry();
-  const entry = registry.find(c => c.slug === activeCounty);
+  const entry = await ensureCountyEntry();
   return !entry || entry.status !== "live";
 }
 
@@ -100,11 +119,12 @@ async function loadPlaceholderCountyData() {
   return result;
 }
 
-// Active boundary set: "original" (252 precincts) or "2026" (273 precincts)
+// Active boundary set id (e.g. "original" or "2026")
 let activeBoundary = "original";
 
-// Data paths per boundary set
-let BOUNDARY_CONFIGS = {
+// LEGACY fallback paths (pre-v3 Collin layout) — used only while the active
+// county's registry entry has no `boundarySets`. Removed once Collin is on v3.
+const LEGACY_BOUNDARY_CONFIGS = {
   original: {
     geojson: "data/Voting_Precincts.geojson",
     dataDir: "data",
@@ -117,11 +137,39 @@ let BOUNDARY_CONFIGS = {
   },
 };
 
+/**
+ * Boundary-set configs for the ACTIVE county, derived from its registry entry
+ * (v3) or the legacy hard-coded layout. Synchronous: relies on the entry being
+ * cached by any prior loadAllData()/setActiveCounty() call.
+ */
+export function getBoundaryConfigs() {
+  const entry = activeCountyEntry;
+  if (entry?.boundarySets) {
+    const configs = {};
+    for (const [id, set] of Object.entries(entry.boundarySets)) {
+      configs[id] = {
+        geojson: `${entry.dataRoot}/${set.geojson}`,
+        dataDir: `${entry.dataRoot}/${set.dataDir}`,
+        profileDir: `${entry.dataRoot}/${set.dataDir}/profile`,
+        label: set.label,
+      };
+    }
+    return configs;
+  }
+  return LEGACY_BOUNDARY_CONFIGS;
+}
+
+function activeConfig() {
+  const configs = getBoundaryConfigs();
+  return configs[activeBoundary] ?? configs[Object.keys(configs)[0]];
+}
+
 // Data cache to prevent redundant fetches
 let dataCache = {
   allData: null,
   elections: {},
-  electionsList: null
+  electionsList: null,
+  turnout: {}
 };
 
 /**
@@ -132,21 +180,15 @@ export function getActiveBoundary() {
 }
 
 /**
- * Get available boundary configs
- */
-export function getBoundaryConfigs() {
-  return BOUNDARY_CONFIGS;
-}
-
-/**
- * Switch to a different boundary set. Clears all cached data.
- * @param {string} boundaryId - "original" or "2026"
+ * Switch to a different boundary set of the active county. Clears all cached data.
+ * @param {string} boundaryId - e.g. "original" or "2026"
  */
 export function setActiveBoundary(boundaryId) {
-  if (!BOUNDARY_CONFIGS[boundaryId]) {
+  const configs = getBoundaryConfigs();
+  if (!configs[boundaryId]) {
     throw new Error(`Unknown boundary set: ${boundaryId}`);
   }
-  console.log(`[DataLoader] setActiveBoundary: ${boundaryId} (dataDir: ${BOUNDARY_CONFIGS[boundaryId].dataDir})`);
+  console.log(`[DataLoader] setActiveBoundary: ${boundaryId} (dataDir: ${configs[boundaryId].dataDir})`);
   activeBoundary = boundaryId;
   clearDataCache();
 }
@@ -158,6 +200,7 @@ export function clearDataCache() {
   dataCache.allData = null;
   dataCache.elections = {};
   dataCache.electionsList = null;
+  dataCache.turnout = {};
 }
 
 /**
@@ -171,24 +214,31 @@ export async function loadAllData() {
   }
 
   // Placeholder counties have no real files — synthesize obvious placeholders
-  if (activeCounty !== LIVE_DEFAULT_COUNTY) {
+  const countyEntry = await ensureCountyEntry();
+  if (!countyEntry || countyEntry.status !== "live") {
     return loadPlaceholderCountyData();
   }
 
-  let config = BOUNDARY_CONFIGS[activeBoundary];
+  let config = activeConfig();
   const dir = config.dataDir;
+  // v3 layout keeps optional extras under profile/ with stable names;
+  // the legacy Collin layout used long human filenames in the data dir
+  const isV3Layout = Boolean(config.profileDir);
+  const dncPath = isV3Layout
+    ? `${config.profileDir}/dnc_scores.csv`
+    : `${dir}/DNC Score By Precinct.csv`;
+  const racialPath = isV3Layout
+    ? `${config.profileDir}/racial.csv`
+    : `${dir}/Racial Numbers by Precinct.csv`;
 
-  // 1) Fetch GeoJSON (2026 boundaries use separate file; original uses default)
-  const geojsonUrl = activeBoundary === "2026"
-    ? "data/Voting_Precincts_2026.geojson"
-    : "data/Voting_Precincts.geojson";
-  let geojsonPromise = fetch(geojsonUrl).then(function handleGeoJSONResponse(r) {
+  // 1) Fetch GeoJSON for the active boundary set
+  let geojsonPromise = fetch(config.geojson).then(function handleGeoJSONResponse(r) {
     if (!r.ok) throw new Error("Failed to fetch GeoJSON");
     return r.json();
   });
 
-  // 2) Fetch DNC Score CSV
-  let dncPromise = d3.csv(`${dir}/DNC Score By Precinct.csv`, function parseDNCRow(d) {
+  // 2) Fetch DNC Score CSV (optional — counties without it show N/A)
+  let dncPromise = d3.csv(dncPath, function parseDNCRow(d) {
     return {
       precinct: d.Precinct,
       rep: +d["Rep"],
@@ -202,8 +252,8 @@ export async function loadAllData() {
     };
   });
 
-  // 3) Fetch Racial Numbers CSV
-  let racialPromise = d3.csv(`${dir}/Racial Numbers by Precinct.csv`, function parseRacialRow(d) {
+  // 3) Fetch Racial Numbers CSV (optional)
+  let racialPromise = d3.csv(racialPath, function parseRacialRow(d) {
     return {
       precinct: d.precinct,
       asian: +d.asian,
@@ -223,18 +273,22 @@ export async function loadAllData() {
   // 4) Fetch precinct metadata (2026 boundaries only — quality/interpolation info)
   let metadataPromise;
   if (activeBoundary === "2026") {
-    metadataPromise = fetch(`${dir}/precinct_metadata.json`)
+    const metadataPath = isV3Layout
+      ? `${config.profileDir}/precinct_metadata.json`
+      : `${dir}/precinct_metadata.json`;
+    metadataPromise = fetch(metadataPath)
       .then(r => r.ok ? r.json() : {})
       .catch(() => ({}));
   } else {
     metadataPromise = Promise.resolve({});
   }
 
-  // Wait for all data
+  // Wait for all data. Profile extras (DNC/racial) are OPTIONAL: a live county
+  // without them renders with honest N/A values instead of failing to load.
   let [geojson, dncData, racialData, precinctMetadata] = await Promise.all([
     geojsonPromise,
-    dncPromise,
-    racialPromise,
+    dncPromise.catch(() => []),
+    racialPromise.catch(() => []),
     metadataPromise
   ]);
 
@@ -318,24 +372,50 @@ export async function loadElectionData(filenameOrEntry) {
     return dataCache.elections[cacheKey];
   }
 
-  // Build path using schema utility (supports subdirectories)
-  let entry = typeof filenameOrEntry === 'object' ? filenameOrEntry : { filename };
-  const basePath = BOUNDARY_CONFIGS[activeBoundary].dataDir;
+  // Resolve the manifest entry: a bare string may name a v3 race, so look it
+  // up in the cached manifest before falling back to a legacy {filename} stub
+  let entry;
+  if (typeof filenameOrEntry === 'object') {
+    entry = filenameOrEntry;
+  } else {
+    entry = dataCache.electionsList?.find(e => e.filename === filename) ?? { filename };
+  }
+
+  const basePath = activeConfig().dataDir;
+
+  // v3 path: long race file + optional turnout file, pivoted to legacy rows
+  if (entry._v3) {
+    const [longRows, turnoutRows] = await Promise.all([
+      fetchCSVRows(`${basePath}/${entry.raceFile}`),
+      loadTurnoutFile(basePath, entry.turnoutFile),
+    ]);
+    const rows = computeWinners(pivotRace(longRows, turnoutRows));
+    dataCache.elections[cacheKey] = rows;
+    return rows;
+  }
+
+  // Legacy path: wide per-race CSV
   const csvPath = buildCSVPath(entry, basePath);
-  
+  const rows = await fetchCSVRows(csvPath);
+  dataCache.elections[cacheKey] = rows;
+  return rows;
+}
+
+/** Fetch and parse a CSV into row objects (string values). */
+async function fetchCSVRows(csvPath) {
   let resp = await fetch(csvPath);
   if (!resp.ok) {
     throw new Error(`Could not load CSV ${csvPath}: ${resp.statusText}`);
   }
   const text = await resp.text();
-  
+
   // Handle Windows CRLF line endings
   let lines = text.trim().replace(/\r\n/g, '\n').split("\n");
   if (lines.length < 2) return []; // no data
 
   // Parse header and data rows using robust CSV parser
   let headers = parseCSVLine(lines[0]);
-  let rows = lines.slice(1).map(function buildRowObject(line) {
+  return lines.slice(1).map(function buildRowObject(line) {
     let values = parseCSVLine(line);
     let obj = {};
     for (const [idx, h] of headers.entries()) {
@@ -343,11 +423,19 @@ export async function loadElectionData(filenameOrEntry) {
     }
     return obj;
   });
+}
 
-  // Cache the result
-  dataCache.elections[cacheKey] = rows;
-  
-  return rows;
+/** Fetch a v3 turnout file, cached per path (many races share one). */
+async function loadTurnoutFile(basePath, turnoutFile) {
+  if (!turnoutFile) return null; // honest gap — pivot leaves turnout columns ''
+  const path = `${basePath}/${turnoutFile}`;
+  if (!dataCache.turnout[path]) {
+    dataCache.turnout[path] = fetchCSVRows(path).catch(err => {
+      console.warn(`[DataLoader] turnout file missing: ${path}`, err);
+      return null;
+    });
+  }
+  return dataCache.turnout[path];
 }
 
 /**
@@ -379,20 +467,23 @@ export async function listElectionCSVs() {
   }
 
   // Placeholder counties have no election data yet — an empty list, never fakes
-  if (activeCounty !== LIVE_DEFAULT_COUNTY) {
+  const countyEntry = await ensureCountyEntry();
+  if (!countyEntry || countyEntry.status !== "live") {
     dataCache.electionsList = [];
     return dataCache.electionsList;
   }
 
-  const manifestPath = `${BOUNDARY_CONFIGS[activeBoundary].dataDir}/elections.json`;
+  const manifestPath = `${activeConfig().dataDir}/elections.json`;
   let res = await fetch(manifestPath);
   if (!res.ok) {
     throw new Error(`Failed to load elections manifest: ${res.statusText}`);
   }
   let rawManifest = await res.json();
 
-  // Normalize to ensure consistent format using schema module
-  let normalized = normalizeElectionManifest(rawManifest);
+  // Normalize: v3 manifests are an object wrapper; legacy is a bare array
+  let normalized = isV3Manifest(rawManifest)
+    ? rawManifest.elections.map(e => normalizeV3Entry(e, categorizeElection)).filter(Boolean)
+    : normalizeElectionManifest(rawManifest);
   
   // Cache and return
   dataCache.electionsList = normalized;
@@ -406,10 +497,8 @@ export async function listElectionCSVs() {
  */
 export async function preloadAllElections() {
   let files = await listElectionCSVs();
-  // Extract filename from objects if needed
   await Promise.all(files.map(function loadEntry(entry) {
-    const filename = typeof entry === 'string' ? entry : entry.filename;
-    return loadElectionData(filename);
+    return loadElectionData(entry);
   }));
   return files;
 }
