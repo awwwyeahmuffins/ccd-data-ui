@@ -194,14 +194,86 @@
       border-color: var(--primary);
       color: var(--primary);
     }
-    .forecast-btn-icon { margin-right: 4px; }
-    @media (max-width: 640px) {
-      .forecast-btn-text { display: none; }
-    }
+    .forecast-btn-icon { margin-right: 0; }
+    /* The forecast power-tool is icon-only: the "Forecast" nav link beside it
+       already labels the feature, and the duplicate word was the item that
+       overflowed/clipped the header on common laptop widths. */
+    .forecast-btn-text { display: none; }
 
     .header-btn.primary:hover {
       background: var(--primary-hover);
     }
+
+    /* App menu — single hub for every page/feature, available at all widths */
+    .app-menu { position: relative; flex-shrink: 0; }
+    .app-menu > summary {
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+    .app-menu > summary::-webkit-details-marker { display: none; }
+    .app-menu > summary::marker { content: ""; }
+    .app-menu > summary:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+    .app-menu[open] > summary {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+    }
+    .app-menu-panel {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 232px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+      padding: 6px;
+      z-index: 10050; /* above header content (10000) */
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .app-menu-heading {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      padding: 8px 12px 4px;
+    }
+    .app-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 10px 12px;
+      min-height: 44px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+    }
+    .app-menu-item:hover,
+    .app-menu-item:focus-visible {
+      background: var(--bg-secondary);
+      outline: none;
+    }
+    .app-menu-item[aria-current="page"] {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .app-menu-ico { width: 20px; text-align: center; flex-shrink: 0; }
 
     /* Boundary Selector */
     .boundary-selector select {
@@ -229,6 +301,82 @@
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(0, 87, 183, 0.15);
+    }
+
+    /* Searchable county picker (type-to-filter combobox over 254 counties +
+       districts). The native <select> sits underneath, invisible but present. */
+    .county-combobox { position: relative; display: inline-block; min-width: 200px; }
+    .county-search-input {
+      width: 100%;
+      padding: 10px 32px 10px 14px;
+      min-height: 44px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: text;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23717171' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      transition: var(--transition-fast);
+    }
+    .county-search-input:hover { border-color: var(--primary); }
+    .county-search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 87, 183, 0.15);
+    }
+    .county-select-native {
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .county-combobox-list {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      min-width: 260px;
+      max-width: 340px;
+      max-height: 320px;
+      overflow-y: auto;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md, 12px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+      z-index: 11000;
+      padding: 4px;
+    }
+    .county-combobox-list.active { display: block; }
+    .county-combobox-group {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      padding: 8px 10px 4px;
+    }
+    .county-combobox-option {
+      padding: 9px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .county-combobox-option.highlighted,
+    .county-combobox-option:hover { background: var(--bg-secondary); }
+    .county-combobox-option.is-current { font-weight: 700; }
+    .county-combobox-empty { padding: 12px 10px; color: var(--text-muted); font-size: 13px; }
+    @media (max-width: 640px) {
+      .county-combobox { flex: 1 1 auto; min-width: 0; }
     }
 
     .boundary-selector {
@@ -508,6 +656,87 @@
     #map {
       width: 100%;
       height: 100%;
+    }
+
+    /* Topline result — a Stripe-style stat header over the map: hairline-divided
+       cells, quiet uppercase eyebrows, confident values, tabular figures. */
+    #result-topline {
+      position: absolute;
+      top: calc(var(--header-h) + var(--space-md, 12px));
+      left: var(--inset, 16px);
+      z-index: 600;
+      /* Left-anchored with a cap that always leaves room for the top-right
+         info card (340px) so the two never collide at any width. */
+      max-width: calc(100vw - 388px);
+      display: flex;
+      align-items: stretch;
+      background: var(--bg-primary, #fff);
+      border: 1px solid var(--border, rgba(0,0,0,0.10));
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+      font-variant-numeric: tabular-nums;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    #result-topline[hidden] { display: none; }
+    #result-topline .tl-cell {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      padding: 9px 18px;
+      min-width: 0;
+    }
+    #result-topline .tl-cell + .tl-cell { border-left: 1px solid var(--border, rgba(0,0,0,0.08)); }
+    #result-topline .tl-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted, #8a8a8a);
+      white-space: nowrap;
+    }
+    #result-topline .tl-value {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text-primary, #1a1a1a);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #result-topline .tl-context-cell { max-width: 320px; }
+    #result-topline .tl-margin { margin-left: 5px; font-weight: 700; }
+
+    /* When the centered stat header is showing, drop the left-hand map controls
+       and breadcrumb below it so nothing collides in the top band. */
+    body:has(#result-topline:not([hidden])) .map-view-controls {
+      top: calc(var(--header-h) + 78px);
+    }
+    /* The stat header already names where you are, so the breadcrumb is just
+       noise while a result is shown — hide it for a calmer top band. */
+    body:has(#result-topline:not([hidden])) .breadcrumb-bar {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+      #result-topline {
+        top: calc(var(--header-h) + 6px);
+        border-radius: 12px;
+      }
+      #result-topline .tl-cell { padding: 7px 12px; }
+      #result-topline .tl-value { font-size: 13px; }
+      #result-topline .tl-eyebrow { font-size: 10px; }
+      #result-topline .tl-context-cell { max-width: 150px; }
+      /* Phone: 3 divided cells won't fit cleanly — drop turnout from the header
+         (it lives in the card's coverage line) so the headline stays intact. */
+      #result-topline .tl-cell:last-child { display: none; }
+    }
+
+    /* At phone width the info card is a bottom sheet, so the header has the full
+       top to itself again. */
+    @media (max-width: 640px) {
+      #result-topline { max-width: calc(100vw - 24px); }
     }
 
     /* The fixed header overlays the full-screen map, so push Leaflet's
@@ -1033,6 +1262,18 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
+
+    /* Candidate breakdown (county-result card) — ranked vote bars that
+       complement the topline rather than echoing its headline stats. */
+    .info-card-stats:has(.ic-cand) { display: flex; flex-direction: column; gap: 11px; }
+    .ic-cand { display: flex; flex-direction: column; gap: 5px; }
+    .ic-cand-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+    .ic-cand-name { font-size: 14px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ic-cand-figs { font-size: 13px; font-weight: 600; color: var(--text-primary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .ic-cand-pct { color: var(--text-muted); margin-left: 6px; }
+    .ic-cand-track { height: 6px; border-radius: 999px; background: var(--bg-secondary); overflow: hidden; }
+    .ic-cand-fill { height: 100%; border-radius: 999px; }
+    .ic-coverage { margin-top: 2px; font-size: 12px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
 
     .stat-item {
       padding: 12px;
@@ -1946,6 +2187,13 @@
     .legend-gradient-container { margin-bottom: 8px; }
     .legend-gradient-labels { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
 
+    /* The header's ⌘K search button hides at ≤900px, so give touch/tablet users
+       a visible on-map search box (address + precinct). Hidden on desktop where
+       the header search and ⌘K cover it. */
+    @media (max-width: 900px) {
+      #precinct-search-widget { display: block; }
+    }
+
     @media (max-width: 768px) {
       #precinct-profile-panel {
         width: 100vw;
@@ -1959,6 +2207,11 @@
       .map-view-controls #heatmap-metric-select { padding: 8px 12px; font-size: 14px; max-width: 180px; min-height: 40px; }
       .map-view-controls #label-toggle-btn { padding: 4px 10px; font-size: 11px; }
       #competitive-ranker-panel { width: 100vw; max-width: 100vw; }
+      /* When the browse panel is open it covers the map full-screen, so hide the
+         floating map controls — otherwise they overlap the panel's tabs and
+         steal taps (e.g. the Swing Precincts button over the Saved tab). */
+      body:has(#election-panel.active) .map-view-controls,
+      #election-panel.active ~ .map-view-controls { display: none !important; }
     }
 
     /* BOUNDARY TABLE */
@@ -2560,13 +2813,19 @@
       }
     }
 
-    /* Mid-desktop: drop the wordmark + search hint before anything clips */
-    @media (max-width: 1280px) {
+    /* Laptop band (≤1860px): the full-size header — wordmark + view labels +
+       search pill + chevron + Collin's boundary extras — needs ~1860px to fit,
+       so anything narrower clipped the right-side actions (Search/Browse) off
+       screen. Compress to icons here; the full labelled header returns ≥1861px.
+       Keep the high-value text: county selector and the nav action labels. */
+    @media (max-width: 1860px) {
       .header-brand-text { display: none !important; }
       #cmd-k-trigger { min-width: 0 !important; }
       #cmd-k-trigger kbd { display: none !important; }
       .view-mode-btn .view-label { display: none !important; } /* icons carry the row */
       .view-mode-btn { padding: 10px 12px !important; }
+      #toggle-header { display: none !important; }       /* niche collapse control */
+      .boundary-changes-trigger { display: none !important; } /* Collin-only extra */
     }
 
     /* Tablet band: tab bar handles views; collapse header extras so the
@@ -3384,9 +3643,17 @@
 
       <!-- County + Boundary Selectors -->
       <div class="boundary-selector">
-        <select id="county-select" aria-label="County">
-          <option value="collin">Collin County</option>
-        </select>
+        <div id="county-combobox" class="county-combobox">
+          <input type="text" id="county-search-input" class="county-search-input" placeholder="Find your county…"
+                 autocomplete="off" role="combobox" aria-expanded="false" aria-controls="county-combobox-list"
+                 aria-label="Find your county or district" />
+          <div id="county-combobox-list" class="county-combobox-list" role="listbox" aria-label="Counties and districts"></div>
+          <!-- Native select kept as the source of truth (programmatic switches,
+               deep links, and tests drive it); the combobox above is the visible UI. -->
+          <select id="county-select" class="county-select-native" aria-hidden="true" tabindex="-1">
+            <option value="collin">Collin County</option>
+          </select>
+        </div>
         <select id="boundary-select" aria-label="Precinct boundary set">
           <option value="original">2024 Boundaries (252)</option>
           <option value="2026">2026 Boundaries (273)</option>
@@ -3400,9 +3667,9 @@
           <span class="view-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>
           <span class="view-label">Demographics</span>
         </button>
-        <button class="view-mode-btn" data-view="election" role="tab" aria-selected="false" aria-label="Elections view">
+        <button class="view-mode-btn" data-view="election" role="tab" aria-selected="false" aria-label="Results view">
           <span class="view-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
-          <span class="view-label">Elections</span>
+          <span class="view-label">Results</span>
         </button>
         <button class="view-mode-btn" data-view="turnout" role="tab" aria-selected="false" aria-label="Turnout view">
           <span class="view-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
@@ -3411,7 +3678,26 @@
       </nav>
       
       <div class="header-actions">
-        <a href="precinct.html" class="header-btn header-btn-lookup" style="background:var(--secondary);color:white;font-weight:600;">Lookup</a>
+        <!-- Single, always-visible hub to reach every page/feature at any width.
+             Native <details> = built-in open/close + keyboard access, no JS to
+             toggle. Replaces the three separate header links that were cramped on
+             laptops and easy to miss on phones. -->
+        <details id="app-menu" class="app-menu">
+          <summary class="header-btn app-menu-trigger" aria-haspopup="true" aria-label="Open menu of all pages and features">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <span class="app-menu-label">Menu</span>
+          </summary>
+          <div class="app-menu-panel" role="menu" aria-label="All pages and features">
+            <div class="app-menu-heading">Go to</div>
+            <a href="index.html" class="app-menu-item" role="menuitem" aria-current="page"><span class="app-menu-ico" aria-hidden="true">🗺️</span><span>Map</span></a>
+            <a href="elections.html" class="app-menu-item" role="menuitem"><span class="app-menu-ico" aria-hidden="true">🗳️</span><span>Elections catalog</span></a>
+            <a href="forecast.html" class="app-menu-item" role="menuitem"><span class="app-menu-ico" aria-hidden="true">📊</span><span>Forecast tool</span></a>
+            <a href="precinct.html" class="app-menu-item" role="menuitem"><span class="app-menu-ico" aria-hidden="true">🔎</span><span>Precinct Lookup</span></a>
+            <div class="app-menu-heading">On this map</div>
+            <button type="button" class="app-menu-item" role="menuitem" data-app-menu-action="browse"><span class="app-menu-ico" aria-hidden="true">🗳️</span><span>Browse elections</span></button>
+            <button type="button" class="app-menu-item" role="menuitem" data-app-menu-action="search"><span class="app-menu-ico" aria-hidden="true">⌘</span><span>Search (⌘K)</span></button>
+          </div>
+        </details>
         <button class="header-btn" id="logout-btn" style="display:none;">Sign Out</button>
         <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
         <button class="header-btn" id="toggle-header" title="Hide header" aria-label="Hide header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
@@ -3449,9 +3735,9 @@
       <circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>
     </svg>
     <span>
-      <strong>PLACEHOLDER</strong> &mdash; No precinct boundaries, election results, or
-      demographics are loaded for this county yet. The outline below is the county
-      border, not real precincts. See docs/ADDING_FEATURES.md → "Bring a county live".
+      <strong>Coming soon</strong> &mdash; precinct results for this county aren't available
+      yet. The shape below is the county border, not its precincts. Try another county from
+      the menu above.
     </span>
   </div>
 
@@ -3466,7 +3752,7 @@
       <input
         type="text"
         class="command-palette-input"
-        placeholder="Search elections, precincts, views, or commands..."
+        placeholder="Search addresses, elections, precincts, views, or commands..."
         id="command-input"
         autocomplete="off"
       />
@@ -3511,6 +3797,9 @@
   <!-- Full-Screen Map -->
   <div id="map-container">
     <div id="map" role="application" aria-label="Interactive precinct map"></div>
+    <!-- Topline result headline: the "so what" for the selected race, always
+         visible over the map. Hidden until an election is selected. -->
+    <div id="result-topline" role="status" aria-live="polite" hidden></div>
   </div>
 
   <!-- Floating Action Button (A2: menu icon, swaps to X when active) -->
@@ -3579,7 +3868,7 @@
 
   <!-- Precinct Search Widget -->
   <div id="precinct-search-widget">
-    <input type="text" id="precinct-search-input-map" placeholder="Search precinct #..." autocomplete="off" aria-label="Search for a precinct by number" />
+    <input type="text" id="precinct-search-input-map" placeholder="Search address or precinct #..." autocomplete="off" aria-label="Search by address, place, or precinct number" />
     <div class="precinct-search-results" id="precinct-search-results"></div>
   </div>
 
@@ -3621,9 +3910,9 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
         <span class="tab-label">Voters</span>
       </button>
-      <button class="tab-btn" data-view="election" role="tab" aria-selected="false" aria-label="Elections">
+      <button class="tab-btn" data-view="election" role="tab" aria-selected="false" aria-label="Results">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-        <span class="tab-label">Elections</span>
+        <span class="tab-label">Results</span>
       </button>
       <button class="tab-btn" data-view="turnout" role="tab" aria-selected="false" aria-label="Turnout">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
@@ -3643,8 +3932,8 @@
   <!-- Welcome Overlay (D11 + Gap 7) - Enhanced onboarding -->
   <div id="welcome-overlay" role="dialog" aria-modal="false" aria-labelledby="welcome-title">
     <button class="welcome-close" id="welcome-close-btn" title="Dismiss" aria-label="Dismiss welcome message">&times;</button>
-    <h2 id="welcome-title">Welcome to Collin County Elections</h2>
-    <p>See how every precinct in Collin County votes. Pick a topic below, or browse election results.</p>
+    <h2 id="welcome-title">Welcome to Texas Elections</h2>
+    <p>See how every precinct voted — all 254 Texas counties. Start by finding your county, or explore results, turnout, and demographics below.</p>
     <div class="welcome-features">
       <div class="welcome-feature" data-view="demographics">
         <div class="welcome-feature-icon">
@@ -3657,7 +3946,7 @@
         <div class="welcome-feature-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
         </div>
-        <div class="welcome-feature-title">Elections</div>
+        <div class="welcome-feature-title">Results</div>
         <div class="welcome-feature-desc">Results for past races, precinct by precinct</div>
       </div>
       <div class="welcome-feature" data-view="turnout">
@@ -3668,7 +3957,7 @@
         <div class="welcome-feature-desc">How many people voted, and where</div>
       </div>
     </div>
-    <button class="welcome-btn" id="welcome-browse-btn">Browse Elections</button>
+    <button class="welcome-btn" id="welcome-browse-btn">Find my county</button>
     <div class="welcome-shortcut" style="display: none;">or press <kbd>Cmd</kbd>+<kbd>K</kbd> to search</div>
   </div>
 

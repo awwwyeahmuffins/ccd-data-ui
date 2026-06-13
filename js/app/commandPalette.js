@@ -11,6 +11,7 @@ import { closeProfilePanel } from "./precinctPanel.js";
 import { getPrecinctList, selectPrecinctByCode } from "./search.js";
 import { selectElection } from "./electionWorkflow.js";
 import { closeBoundaryPanel } from "./boundary.js";
+import { findPrecinctForAddress, TEXAS_VIEWBOX } from "../geoLookup.js";
 import { MAP_CONFIG } from "../constants.js";
 import { formatElectionName } from "../electionFilters.js";
 import { toggleTheme, DARK_TILE_URL, LIGHT_TILE_URL } from "../themeManager.js";
@@ -20,9 +21,15 @@ const commandInput = document.getElementById('command-input');
 const commandResults = document.getElementById('command-results');
 const cmdKTrigger = document.getElementById('cmd-k-trigger');
 const electionPanelEl = document.getElementById('election-panel');
+const appMenu = document.getElementById('app-menu');
 
 export function buildCommands() {
   state.commands = [
+    // Page navigation — reach every standalone feature page from here
+    { type: 'page', title: 'Elections Catalog', subtitle: 'Open the elections.html page', icon: '🗳️', action: () => { window.location.href = 'elections.html'; } },
+    { type: 'page', title: 'Forecast Tool', subtitle: 'Open the forecast.html scenario builder', icon: '📊', action: () => { window.location.href = 'forecast.html'; } },
+    { type: 'page', title: 'Precinct Lookup', subtitle: 'Open the precinct.html lookup & report page', icon: '🔎', action: () => { window.location.href = 'precinct.html'; } },
+
     // View commands
     { type: 'view', title: 'Demographics View', subtitle: 'Show party lean by precinct', icon: '📊', action: () => setViewMode('demographics') },
     { type: 'view', title: 'Election View', subtitle: 'Show selected election results', icon: '🗳️', action: () => setViewMode('election') },
@@ -86,14 +93,52 @@ function getCategoryIcon(category) {
   return icons[category] || '📋';
 }
 
+// Geocode a free-text address/place and drop the user on the precinct that
+// contains it. Matching is within the loaded county (point-in-polygon).
+async function runAddressLookup(query) {
+  showNotification('Finding address…');
+  const features = state.geojsonData?.features || [];
+  let result;
+  try {
+    result = await findPrecinctForAddress(query, features, fetch, TEXAS_VIEWBOX);
+  } catch (err) {
+    console.error('[Palette] address lookup failed:', err);
+    showNotification('Address lookup unavailable — try again');
+    return;
+  }
+  if (!result) { showNotification('No match for that address'); return; }
+  if (!result.code) {
+    showNotification('That address is outside the county shown — switch counties first');
+    return;
+  }
+  selectPrecinctByCode(result.code);
+}
+
 function filterCommands(query) {
   if (!query) return state.commands.slice(0, 10);
 
   const lowerQuery = query.toLowerCase();
-  return state.commands.filter(cmd =>
+  const matches = state.commands.filter(cmd =>
     cmd.title.toLowerCase().includes(lowerQuery) ||
     cmd.subtitle.toLowerCase().includes(lowerQuery)
   ).slice(0, 10);
+
+  // Offer an address-lookup result for address-like queries: a street number,
+  // a comma, or any text that didn't match an election/precinct/command.
+  const q = query.trim();
+  const wantAddress = /[a-zA-Z]/.test(q) && q.length >= 3 &&
+    (matches.length === 0 || /\d/.test(q) || q.includes(',') || /\s/.test(q));
+  if (wantAddress) {
+    const addrCmd = {
+      type: 'address',
+      title: `Find “${q}”`,
+      subtitle: 'Geocode this address or place and zoom to its precinct',
+      icon: '📍',
+      action: () => runAddressLookup(q)
+    };
+    return matches.length === 0 ? [addrCmd] : [...matches.slice(0, 9), addrCmd];
+  }
+  return matches;
 }
 
 function renderCommands(commands) {
@@ -190,6 +235,10 @@ document.addEventListener('keydown', (e) => {
 
   // Escape to close modals
   if (e.key === 'Escape') {
+    if (appMenu && appMenu.hasAttribute('open')) {
+      appMenu.removeAttribute('open');
+      return;
+    }
     if (commandPalette.classList.contains('active')) {
       closeCommandPalette();
     } else if (document.getElementById('boundary-changes-panel').classList.contains('open')) {
@@ -220,6 +269,27 @@ document.addEventListener('keydown', (e) => {
 });
 
 cmdKTrigger.addEventListener('click', openCommandPalette);
+
+// App menu (header hub): native <details> handles open/close + the page links;
+// here we wire the in-app action items and close it on outside-click / Escape.
+if (appMenu) {
+  appMenu.addEventListener('click', (e) => {
+    const actionBtn = e.target.closest('[data-app-menu-action]');
+    if (!actionBtn) return;
+    appMenu.removeAttribute('open');
+    const action = actionBtn.dataset.appMenuAction;
+    if (action === 'browse') {
+      if (!electionPanelEl.classList.contains('active')) togglePanel();
+    } else if (action === 'search') {
+      openCommandPalette();
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (appMenu.hasAttribute('open') && !appMenu.contains(e.target)) {
+      appMenu.removeAttribute('open');
+    }
+  });
+}
 
 // Click outside to close
 commandPalette.addEventListener('click', (e) => {

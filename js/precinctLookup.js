@@ -52,6 +52,14 @@ import {
   printOnePager,
   copyOnePagerToClipboard,
 } from "./fieldOnePager.js";
+import {
+  AUDIENCES,
+  isAudience,
+  derivePrecinctSignature,
+  recommendAudience,
+  buildTargetedTalkingPoints,
+  buildCanvassScript,
+} from "./talkingPointsBuilder.js";
 
 // ---------------------------------------------------------------------------
 // Module state
@@ -1745,107 +1753,115 @@ function renderTurnoutGap(precinctCode, votingHistory, partyData, allElectionDat
 // Feature 7: Talking Points Generator
 // ---------------------------------------------------------------------------
 
+// Interactive, audience-targeted talking points. The chair picks an objective
+// (Mobilize / Persuade / Register) and the points + a copy/print-ready door
+// script retune to this precinct's numbers. Pure logic lives in
+// js/talkingPointsBuilder.js (statewide; census only enriches). All interpolated
+// text is escaped here before it reaches innerHTML.
 function renderTalkingPoints(code, census, partyData, racialData, votingHistory, pvi, strategy) {
   let el = document.getElementById('section-talking-points');
   if (!el) return;
 
-  let points = generateTalkingPointsList(code, census, partyData, racialData, votingHistory, pvi, strategy);
-
-  if (points.length === 0) {
+  let sig = derivePrecinctSignature({ partyData, racialData, votingHistory, pvi, strategy, census });
+  if (!sig.hasData) {
     el.innerHTML = '';
     return;
   }
 
-  let html = '<div class="talking-points">';
-  html += '<div class="talking-points-title">Precinct Chair Talking Points</div>';
+  let current = recommendAudience(sig);
 
-  for (let pt of points) {
-    html += `<div class="talking-point">
-      <div class="talking-point-icon">${pt.icon}</div>
-      <div><div class="talking-point-category">${escapeHtml(pt.category)}</div>${escapeHtml(pt.text)}</div>
-    </div>`;
+  function pointsHTML(audId) {
+    let pts = buildTargetedTalkingPoints(sig, audId);
+    if (pts.length === 0) {
+      return '<div class="tpb-empty">Not enough data to tailor points for this goal.</div>';
+    }
+    return pts.map((pt) => `<div class="talking-point">
+        <div class="talking-point-icon">${pt.icon}</div>
+        <div><div class="talking-point-category">${escapeHtml(pt.category)}</div>${escapeHtml(pt.text)}</div>
+      </div>`).join('');
   }
 
-  html += '</div>';
-  el.innerHTML = html;
+  function audBlurb(audId) {
+    let a = AUDIENCES.find((x) => x.id === audId);
+    return a ? escapeHtml(a.blurb) : '';
+  }
+
+  let audBtns = AUDIENCES.map((a) => `<button type="button" class="tpb-aud-btn${a.id === current ? ' active' : ''}" data-aud="${escapeHtml(a.id)}" role="tab" aria-selected="${a.id === current ? 'true' : 'false'}">
+      <span class="tpb-aud-icon" aria-hidden="true">${a.icon}</span><span class="tpb-aud-label">${escapeHtml(a.label)}</span>
+    </button>`).join('');
+
+  el.innerHTML = `
+    <div class="talking-points-builder">
+      <div class="talking-points-title">Precinct Chair Talking Points</div>
+      <div class="tpb-intro">Choose your goal — the points and the door-knocking script below retune to <strong>this precinct's</strong> own numbers.</div>
+      <div class="tpb-audience" role="tablist" aria-label="Canvassing goal">${audBtns}</div>
+      <div class="tpb-blurb" id="tpb-blurb">${audBlurb(current)}</div>
+      <div class="tpb-points" id="tpb-points">${pointsHTML(current)}</div>
+      <div class="tpb-actions">
+        <button type="button" class="tpb-action-btn" id="tpb-copy-script">Copy door script</button>
+        <button type="button" class="tpb-action-btn" id="tpb-print-script">Print sheet</button>
+      </div>
+    </div>`;
+
+  let audWrap = el.querySelector('.tpb-audience');
+  audWrap.addEventListener('click', function onAud(e) {
+    let btn = e.target.closest('.tpb-aud-btn');
+    if (!btn) return;
+    let id = btn.dataset.aud;
+    if (!isAudience(id) || id === current) return;
+    current = id;
+    audWrap.querySelectorAll('.tpb-aud-btn').forEach((b) => {
+      let on = b.dataset.aud === current;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    el.querySelector('#tpb-blurb').innerHTML = audBlurb(current);
+    el.querySelector('#tpb-points').innerHTML = pointsHTML(current);
+  });
+
+  let copyBtn = el.querySelector('#tpb-copy-script');
+  copyBtn.addEventListener('click', async function onCopy() {
+    let ok = await copyOnePagerToClipboard(buildCanvassScript(sig, current, code));
+    copyBtn.textContent = ok ? 'Copied!' : 'Copy failed';
+    setTimeout(function resetLabel() { copyBtn.textContent = 'Copy door script'; }, 2000);
+  });
+
+  let printBtn = el.querySelector('#tpb-print-script');
+  printBtn.addEventListener('click', function onPrintScript() {
+    printCanvassSheet(code, current, sig);
+  });
 }
 
-function generateTalkingPointsList(code, census, partyData, racialData, votingHistory, pvi, strategy) {
-  let points = [];
+// Open a print-friendly sheet with the tailored points + door script.
+function printCanvassSheet(code, audId, sig) {
+  let aud = AUDIENCES.find((a) => a.id === audId);
+  let points = buildTargetedTalkingPoints(sig, audId);
+  let script = buildCanvassScript(sig, audId, code);
+  let w = window.open('', '_blank');
+  if (!w) return;
 
-  // Economic points
-  if (census?.income?.medianHousehold != null && countyAverages?.income != null) {
-    let income = census.income.medianHousehold;
-    let countyInc = countyAverages.income;
-    if (income < countyInc * 0.85) {
-      points.push({ icon: '\u{1F4B0}', category: 'Economic Pressure', text: `Median household income here is ${formatCurrency(income)} — ${((1 - income/countyInc) * 100).toFixed(0)}% below the county median. Cost of living and wages are real concerns for these voters.` });
-    } else if (income > countyInc * 1.15) {
-      points.push({ icon: '\u{1F4B0}', category: 'Economic Profile', text: `Median household income of ${formatCurrency(income)} is ${(((income/countyInc) - 1) * 100).toFixed(0)}% above the county median. Voters here may respond to property tax and business-friendly messaging.` });
-    }
-  }
-
-  // Housing pressure
-  if (census?.housing?.medianHomeValue != null && countyAverages?.homeValue != null) {
-    let hv = census.housing.medianHomeValue;
-    let countyHV = countyAverages.homeValue;
-    if (census.housing.renterOccupied != null && census.housing.renterOccupied > 0.45) {
-      points.push({ icon: '\u{1F3E0}', category: 'Housing', text: `${(census.housing.renterOccupied * 100).toFixed(0)}% of households here rent — well above the ownership-heavy county norm. Rental affordability and tenant protections resonate here.` });
-    } else if (hv > countyHV * 1.2) {
-      points.push({ icon: '\u{1F3E0}', category: 'Housing', text: `Median home values of ${formatCurrency(hv)} are ${(((hv/countyHV) - 1) * 100).toFixed(0)}% above county median. Property taxes are likely a top concern.` });
-    }
-  }
-
-  // Age demographics
-  if (census?.age?.medianAge != null && countyAverages?.age != null) {
-    let age = census.age.medianAge;
-    let countyAge = countyAverages.age;
-    if (age < countyAge - 4) {
-      points.push({ icon: '\u{1F464}', category: 'Demographic Opportunity', text: `Median age of ${age} is ${(countyAge - age).toFixed(0)} years younger than the county average. Younger voters here tend to be more diverse and education-focused.` });
-    } else if (age > countyAge + 5) {
-      points.push({ icon: '\u{1F464}', category: 'Demographic Profile', text: `Median age of ${age} skews older than the county (${countyAge.toFixed(0)}). Healthcare, Medicare, and Social Security messaging lands well here.` });
-    }
-  }
-
-  // Education
-  if (census?.education) {
-    let collegePct = ((census.education.bachelors || 0) + (census.education.graduateProfessional || 0)) * 100;
-    let countyCollege = (countyAverages?.college || 0) * 100;
-    if (collegePct > countyCollege + 10) {
-      points.push({ icon: '\u{1F393}', category: 'Education', text: `${collegePct.toFixed(0)}% of adults have a college degree — ${(collegePct - countyCollege).toFixed(0)} points above county avg. This educated electorate often responds to policy-detailed messaging.` });
-    }
-  }
-
-  // Diversity
-  if (racialData) {
-    let nonWhitePct = (1 - (racialData.pct_white || 0)) * 100;
-    if (nonWhitePct > 50) {
-      points.push({ icon: '\u{1F30D}', category: 'Diversity', text: `This is a majority-minority precinct (${nonWhitePct.toFixed(0)}% non-white). Culturally relevant outreach and multilingual materials are essential here.` });
-    } else if (nonWhitePct > 35) {
-      points.push({ icon: '\u{1F30D}', category: 'Diversity', text: `${nonWhitePct.toFixed(0)}% of residents are non-white — a growing and diverse community that's changing the precinct's political landscape.` });
-    }
-  }
-
-  // Turnout opportunity
-  let federal = votingHistory?.byCategory?.Federal || [];
-  if (federal.length > 0) {
-    let sorted = [...federal].sort((a, b) => extractYear(b.raceName) - extractYear(a.raceName));
-    let recent = sorted[0];
-    let turnout = calculateTurnout(recent.totalVotes, recent.registeredVoters);
-    if (turnout < 55 && partyData?.demShare > 0.25) {
-      let nonVoters = recent.registeredVoters - recent.totalVotes;
-      let estDem = Math.round(nonVoters * (partyData.demShare || 0));
-      points.push({ icon: '\u{1F5F3}', category: 'Turnout Opportunity', text: `Only ${turnout.toFixed(0)}% turnout in the most recent federal race. An estimated ${formatNum(estDem)} registered Democrats stayed home — every contact matters.` });
-    }
-  }
-
-  // PVI / Competitiveness
-  if (pvi && pvi.label !== 'N/A') {
-    if (Math.abs(pvi.pvi) < 5) {
-      points.push({ icon: '\u{2696}', category: 'Competitiveness', text: `This precinct is a true battleground (${pvi.label}). Small shifts in turnout or persuasion can flip outcomes. Every vote here counts double.` });
-    }
-  }
-
-  return points.slice(0, 7);
+  let pointsHtml = points.map((p) => `<div class="tp"><div class="cat">${escapeHtml(p.category)}</div><div>${escapeHtml(p.text)}</div></div>`).join('');
+  let styles = `<style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;padding:0.6in;max-width:740px;margin:0 auto;color:#1a1a1a;}
+    h1{font-size:22px;margin-bottom:2px;}
+    .sub{color:#666;font-size:13px;margin-bottom:18px;border-bottom:2px solid #222;padding-bottom:10px;}
+    .tp{margin-bottom:12px;}
+    .cat{font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:#0057B7;margin-bottom:2px;}
+    h2{font-size:14px;text-transform:uppercase;letter-spacing:.03em;color:#717171;margin:22px 0 8px;}
+    pre{white-space:pre-wrap;background:#f6f6f6;border:1px solid #e2e2e2;border-radius:8px;padding:14px;font-size:13px;line-height:1.5;}
+    .foot{margin-top:18px;font-size:11px;color:#999;border-top:1px solid #ddd;padding-top:10px;}
+    @page{margin:0.5in;size:letter portrait;}
+  </style>`;
+  w.document.write(`<!DOCTYPE html><html><head><title>Precinct ${escapeHtml(code)} — Talking Points</title>${styles}</head><body>` +
+    `<h1>Precinct ${escapeHtml(code)} — Talking Points</h1>` +
+    `<div class="sub">Goal: ${escapeHtml(aud ? aud.label : '')}</div>` +
+    pointsHtml +
+    `<h2>Door script</h2><pre>${escapeHtml(script)}</pre>` +
+    `<div class="foot">Generated from collincountyelections.com</div>` +
+    `</body></html>`);
+  w.document.close();
+  w.addEventListener('load', function onLoad() { w.print(); });
 }
 
 // ---------------------------------------------------------------------------
