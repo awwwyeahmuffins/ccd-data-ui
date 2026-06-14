@@ -51,7 +51,7 @@ test.describe('Explore view', () => {
     await load(page);
     const before = await page.locator('#ex-head th').count();
     await page.click('details.cols summary');
-    await page.check('input[data-col="medianHomeValue"]');
+    await page.check('input[data-col="pctVeterans"]'); // a non-default metric
     expect(await page.locator('#ex-head th').count()).toBe(before + 1);
   });
 

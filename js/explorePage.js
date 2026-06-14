@@ -25,7 +25,7 @@ import {
 } from "./precinctMetrics.js";
 import { escapeHtml } from "./utils.js";
 
-const DEFAULT_COLUMNS = ["winner", "demShare", "population", "medianIncome", "medianAge", "nonWhite", "pctFamily", "turnoutRate"];
+const DEFAULT_COLUMNS = ["winner", "demShare", "population", "medianIncome", "medianHomeValue", "medianAge", "pctFamily", "pctBachelorsPlus", "nonWhite", "turnoutRate"];
 
 const pg = {
   county: "collin",

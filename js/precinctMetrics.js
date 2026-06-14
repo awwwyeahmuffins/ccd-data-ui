@@ -59,6 +59,8 @@ export function buildRecords(features, census, turnout) {
         const h = c.households;
         rec.households = num(h.total);
         rec.familyHouseholds = num(h.familyHouseholds);
+        rec.marriedCouples = num(h.marriedCouples);
+        rec.nonFamily = num(h.nonFamily);
         rec.avgHouseholdSize = num(h.averageSize);
         rec.singleParent = num(h.singleParent);
         if (h.total) {
@@ -71,9 +73,13 @@ export function buildRecords(features, census, turnout) {
       if (c.income) {
         rec.medianIncome = num(c.income.medianHousehold);
         rec.povertyRate = num(c.income.povertyRate);
-        if (c.income.brackets) {
-          rec.pctOver200k = num(c.income.brackets.over200k);
-          rec.pctUnder50k = num(c.income.brackets.under50k);
+        const br = c.income.brackets;
+        if (br) {
+          rec.pctUnder50k = num(br.under50k);
+          rec.pct50to100k = num(br["50kTo100k"]);
+          rec.pct100to150k = num(br["100kTo150k"]);
+          rec.pct150to200k = num(br["150kTo200k"]);
+          rec.pctOver200k = num(br.over200k);
         }
       }
       if (c.education) {
@@ -86,6 +92,8 @@ export function buildRecords(features, census, turnout) {
       if (c.employment) {
         rec.laborForce = num(c.employment.laborForceParticipation);
         rec.unemployment = num(c.employment.unemploymentRate);
+        rec.topOccupation = c.employment.topOccupations?.[0]?.name || null;
+        rec.topIndustry = c.employment.topIndustries?.[0]?.name || null;
       }
       if (c.housing) {
         const h = c.housing;
@@ -96,9 +104,30 @@ export function buildRecords(features, census, turnout) {
       }
       if (c.commute) {
         rec.pctDroveAlone = num(c.commute.droveAlone);
+        rec.pctCarpooled = num(c.commute.carpooled);
         rec.pctWFH = num(c.commute.workedFromHome);
         rec.pctTransit = num(c.commute.publicTransit);
         rec.meanCommute = num(c.commute.meanCommuteMinutes);
+      }
+      if (c.language) {
+        rec.pctEnglishOnly = num(c.language.englishOnly);
+        rec.pctSpanish = num(c.language.spanish);
+        rec.pctAsianLang = num(c.language.asianLanguages);
+      }
+      if (c.veterans) {
+        rec.veterans = num(c.veterans.total);
+        rec.pctVeterans = num(c.veterans.share);
+      }
+      if (c.insurance) {
+        rec.pctInsured = num(c.insurance.insured);
+        rec.pctUninsured = num(c.insurance.uninsured);
+      }
+      if (c.projections) {
+        const pr = c.projections;
+        if (pr.population) { rec.projPopulation = num(pr.population.projected); rec.popGrowth = num(pr.population.cagr); }
+        if (pr.medianIncome) { rec.projIncome = num(pr.medianIncome.projected); rec.incomeGrowth = num(pr.medianIncome.cagr); }
+        if (pr.medianHomeValue) { rec.projHomeValue = num(pr.medianHomeValue.projected); rec.homeValueGrowth = num(pr.medianHomeValue.cagr); }
+        if (pr.medianAge) rec.projMedianAge = num(pr.medianAge.projected);
       }
     }
 
@@ -134,6 +163,8 @@ export const METRIC_CATEGORIES = [
   { id: "housing", label: "Housing" },
   { id: "education", label: "Education" },
   { id: "commute", label: "Commute" },
+  { id: "community", label: "Language & Community" },
+  { id: "growth", label: "Growth to 2030" },
   { id: "turnout", label: "Turnout" },
 ];
 
@@ -165,17 +196,24 @@ export const METRICS = [
   // income & work
   { id: "medianIncome", label: "Median income", cat: "income", fmt: "usd" },
   { id: "pctOver200k", label: "Income $200k+", cat: "income", fmt: "pct" },
+  { id: "pct150to200k", label: "Income $150k–200k", cat: "income", fmt: "pct" },
+  { id: "pct100to150k", label: "Income $100k–150k", cat: "income", fmt: "pct" },
+  { id: "pct50to100k", label: "Income $50k–100k", cat: "income", fmt: "pct" },
   { id: "pctUnder50k", label: "Income under $50k", cat: "income", fmt: "pct" },
   { id: "povertyRate", label: "Poverty rate", cat: "income", fmt: "pct" },
   { id: "laborForce", label: "Labor-force part.", cat: "income", fmt: "pct" },
   { id: "unemployment", label: "Unemployment", cat: "income", fmt: "pct" },
+  { id: "topOccupation", label: "Top occupation", cat: "income", fmt: "text" },
+  { id: "topIndustry", label: "Top industry", cat: "income", fmt: "text" },
   // households & families
   { id: "households", label: "Households", cat: "family", fmt: "num" },
   { id: "familyHouseholds", label: "Family households", cat: "family", fmt: "num" },
   { id: "pctFamily", label: "% family households", cat: "family", fmt: "pct" },
+  { id: "marriedCouples", label: "Married couples", cat: "family", fmt: "num" },
   { id: "pctMarried", label: "% married couples", cat: "family", fmt: "pct" },
   { id: "singleParent", label: "Single-parent homes", cat: "family", fmt: "num" },
   { id: "pctSingleParent", label: "% single-parent", cat: "family", fmt: "pct" },
+  { id: "nonFamily", label: "Non-family homes", cat: "family", fmt: "num" },
   { id: "avgHouseholdSize", label: "Avg household size", cat: "family", fmt: "dec" },
   // housing
   { id: "medianHomeValue", label: "Median home value", cat: "housing", fmt: "usd" },
@@ -190,8 +228,25 @@ export const METRICS = [
   // commute
   { id: "meanCommute", label: "Mean commute (min)", cat: "commute", fmt: "dec" },
   { id: "pctDroveAlone", label: "Drove alone", cat: "commute", fmt: "pct" },
+  { id: "pctCarpooled", label: "Carpooled", cat: "commute", fmt: "pct" },
   { id: "pctWFH", label: "Work from home", cat: "commute", fmt: "pct" },
   { id: "pctTransit", label: "Public transit", cat: "commute", fmt: "pct" },
+  // language & community
+  { id: "pctEnglishOnly", label: "English only", cat: "community", fmt: "pct" },
+  { id: "pctSpanish", label: "Spanish at home", cat: "community", fmt: "pct" },
+  { id: "pctAsianLang", label: "Asian lang. at home", cat: "community", fmt: "pct" },
+  { id: "pctVeterans", label: "Veterans", cat: "community", fmt: "pct" },
+  { id: "veterans", label: "Veterans (count)", cat: "community", fmt: "num" },
+  { id: "pctInsured", label: "Health insured", cat: "community", fmt: "pct" },
+  { id: "pctUninsured", label: "Uninsured", cat: "community", fmt: "pct" },
+  // growth to 2030 (projections)
+  { id: "incomeGrowth", label: "Income growth/yr", cat: "growth", fmt: "pct" },
+  { id: "projIncome", label: "Proj. income (2030)", cat: "growth", fmt: "usd" },
+  { id: "homeValueGrowth", label: "Home-value growth/yr", cat: "growth", fmt: "pct" },
+  { id: "projHomeValue", label: "Proj. home value (2030)", cat: "growth", fmt: "usd" },
+  { id: "popGrowth", label: "Population growth/yr", cat: "growth", fmt: "pct" },
+  { id: "projPopulation", label: "Proj. population (2030)", cat: "growth", fmt: "num" },
+  { id: "projMedianAge", label: "Proj. median age (2030)", cat: "growth", fmt: "dec" },
   // turnout
   { id: "turnoutRate", label: "Turnout rate", cat: "turnout", fmt: "pct" },
   { id: "registered", label: "Registered voters", cat: "turnout", fmt: "num" },
