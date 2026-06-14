@@ -1,76 +1,4 @@
 precinct,party,candidate,votes
-bowie:11,,Over Votes,0
-bowie:11,,Under Votes,5
-bowie:11,DEM,Luke Warford,49
-bowie:11,GRN,Hunter Wayne Crow,1
-bowie:11,LIB,Jaime Andres Diez,4
-bowie:11,REP,Wayne Christian,490
-bowie:12A,,Over Votes,0
-bowie:12A,,Under Votes,0
-bowie:12A,DEM,Luke Warford,0
-bowie:12A,GRN,Hunter Wayne Crow,0
-bowie:12A,LIB,Jaime Andres Diez,0
-bowie:12A,REP,Wayne Christian,40
-bowie:13,,Over Votes,0
-bowie:13,,Under Votes,0
-bowie:13,DEM,Luke Warford,0
-bowie:13,GRN,Hunter Wayne Crow,0
-bowie:13,LIB,Jaime Andres Diez,0
-bowie:13,REP,Wayne Christian,2
-bowie:14,,Over Votes,0
-bowie:14,,Under Votes,7
-bowie:14,DEM,Luke Warford,75
-bowie:14,GRN,Hunter Wayne Crow,7
-bowie:14,LIB,Jaime Andres Diez,5
-bowie:14,REP,Wayne Christian,487
-bowie:15,,Over Votes,0
-bowie:15,,Under Votes,3
-bowie:15,DEM,Luke Warford,28
-bowie:15,GRN,Hunter Wayne Crow,1
-bowie:15,LIB,Jaime Andres Diez,2
-bowie:15,REP,Wayne Christian,304
-bowie:16A,,Over Votes,0
-bowie:16A,,Under Votes,1
-bowie:16A,DEM,Luke Warford,5
-bowie:16A,GRN,Hunter Wayne Crow,0
-bowie:16A,LIB,Jaime Andres Diez,1
-bowie:16A,REP,Wayne Christian,30
-bowie:18A,,Over Votes,0
-bowie:18A,,Under Votes,0
-bowie:18A,DEM,Luke Warford,5
-bowie:18A,GRN,Hunter Wayne Crow,1
-bowie:18A,LIB,Jaime Andres Diez,1
-bowie:18A,REP,Wayne Christian,42
-bowie:20,,Over Votes,0
-bowie:20,,Under Votes,8
-bowie:20,DEM,Luke Warford,27
-bowie:20,GRN,Hunter Wayne Crow,1
-bowie:20,LIB,Jaime Andres Diez,2
-bowie:20,REP,Wayne Christian,138
-bowie:21,,Over Votes,0
-bowie:21,,Under Votes,2
-bowie:21,DEM,Luke Warford,21
-bowie:21,GRN,Hunter Wayne Crow,2
-bowie:21,LIB,Jaime Andres Diez,0
-bowie:21,REP,Wayne Christian,120
-bowie:22A,,Over Votes,0
-bowie:22A,,Under Votes,3
-bowie:22A,DEM,Luke Warford,5
-bowie:22A,GRN,Hunter Wayne Crow,1
-bowie:22A,LIB,Jaime Andres Diez,0
-bowie:22A,REP,Wayne Christian,67
-bowie:30,,Over Votes,0
-bowie:30,,Under Votes,19
-bowie:30,DEM,Luke Warford,236
-bowie:30,GRN,Hunter Wayne Crow,11
-bowie:30,LIB,Jaime Andres Diez,16
-bowie:30,REP,Wayne Christian,957
-bowie:9A,,Over Votes,0
-bowie:9A,,Under Votes,3
-bowie:9A,DEM,Luke Warford,13
-bowie:9A,GRN,Hunter Wayne Crow,0
-bowie:9A,LIB,Jaime Andres Diez,2
-bowie:9A,REP,Wayne Christian,127
 collin:14,DEM,Luke Warford,778
 collin:14,GRN,Hunter Wayne Crow,11
 collin:14,LIB,Jaime Andres Diez,35
@@ -461,19 +389,13 @@ collin:250,LIB,Jaime Andres Diez,8
 collin:250,REP,Wayne Christian,73
 collin:250,,Over Votes,0
 collin:250,,Under Votes,4
-rockwall:1,DEM,Luke Warford,3006
-rockwall:1,GRN,Hunter Wayne Crow,95
-rockwall:1,LIB,Jaime Andres Diez,267
-rockwall:1,REP,Wayne Christian,8516
-rockwall:2,DEM,Luke Warford,2889
-rockwall:2,GRN,Hunter Wayne Crow,92
-rockwall:2,LIB,Jaime Andres Diez,252
-rockwall:2,REP,Wayne Christian,6166
-rockwall:3,DEM,Luke Warford,2496
-rockwall:3,GRN,Hunter Wayne Crow,95
-rockwall:3,LIB,Jaime Andres Diez,243
-rockwall:3,REP,Wayne Christian,9358
-rockwall:4,DEM,Luke Warford,2606
-rockwall:4,GRN,Hunter Wayne Crow,88
-rockwall:4,LIB,Jaime Andres Diez,298
-rockwall:4,REP,Wayne Christian,6247
+bowie:ALL,,Over Votes,0
+bowie:ALL,,Under Votes,51
+bowie:ALL,DEM,Luke Warford,464
+bowie:ALL,GRN,Hunter Wayne Crow,25
+bowie:ALL,LIB,Jaime Andres Diez,33
+bowie:ALL,REP,Wayne Christian,2804
+rockwall:ALL,DEM,Luke Warford,10997
+rockwall:ALL,GRN,Hunter Wayne Crow,370
+rockwall:ALL,LIB,Jaime Andres Diez,1060
+rockwall:ALL,REP,Wayne Christian,30287

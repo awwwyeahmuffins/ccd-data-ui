@@ -63,11 +63,5 @@ collin:232,DEM,Susan Hays,764
 collin:232,REP,Sid Miller,1165
 collin:232,,Over Votes,0
 collin:232,,Under Votes,62
-rockwall:1,DEM,Susan Hays,3232
-rockwall:1,REP,Sid Miller,8658
-rockwall:2,DEM,Susan Hays,3125
-rockwall:2,REP,Sid Miller,6283
-rockwall:3,DEM,Susan Hays,2735
-rockwall:3,REP,Sid Miller,9464
-rockwall:4,DEM,Susan Hays,2808
-rockwall:4,REP,Sid Miller,6432
+rockwall:ALL,DEM,Susan Hays,11900
+rockwall:ALL,REP,Sid Miller,30837

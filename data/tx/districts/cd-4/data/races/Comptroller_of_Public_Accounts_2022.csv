@@ -1,64 +1,4 @@
 precinct,party,candidate,votes
-bowie:11,,Over Votes,0
-bowie:11,,Under Votes,6
-bowie:11,DEM,Janet T. Dudding,49
-bowie:11,LIB,V. Alonzo Echevarria-Garza,2
-bowie:11,REP,Glenn Hegar,492
-bowie:12A,,Over Votes,0
-bowie:12A,,Under Votes,0
-bowie:12A,DEM,Janet T. Dudding,0
-bowie:12A,LIB,V. Alonzo Echevarria-Garza,0
-bowie:12A,REP,Glenn Hegar,40
-bowie:13,,Over Votes,0
-bowie:13,,Under Votes,0
-bowie:13,DEM,Janet T. Dudding,0
-bowie:13,LIB,V. Alonzo Echevarria-Garza,0
-bowie:13,REP,Glenn Hegar,2
-bowie:14,,Over Votes,0
-bowie:14,,Under Votes,9
-bowie:14,DEM,Janet T. Dudding,80
-bowie:14,LIB,V. Alonzo Echevarria-Garza,4
-bowie:14,REP,Glenn Hegar,488
-bowie:15,,Over Votes,0
-bowie:15,,Under Votes,4
-bowie:15,DEM,Janet T. Dudding,28
-bowie:15,LIB,V. Alonzo Echevarria-Garza,0
-bowie:15,REP,Glenn Hegar,306
-bowie:16A,,Over Votes,0
-bowie:16A,,Under Votes,1
-bowie:16A,DEM,Janet T. Dudding,5
-bowie:16A,LIB,V. Alonzo Echevarria-Garza,0
-bowie:16A,REP,Glenn Hegar,31
-bowie:18A,,Over Votes,0
-bowie:18A,,Under Votes,0
-bowie:18A,DEM,Janet T. Dudding,6
-bowie:18A,LIB,V. Alonzo Echevarria-Garza,0
-bowie:18A,REP,Glenn Hegar,43
-bowie:20,,Over Votes,0
-bowie:20,,Under Votes,3
-bowie:20,DEM,Janet T. Dudding,27
-bowie:20,LIB,V. Alonzo Echevarria-Garza,3
-bowie:20,REP,Glenn Hegar,143
-bowie:21,,Over Votes,0
-bowie:21,,Under Votes,2
-bowie:21,DEM,Janet T. Dudding,19
-bowie:21,LIB,V. Alonzo Echevarria-Garza,2
-bowie:21,REP,Glenn Hegar,122
-bowie:22A,,Over Votes,0
-bowie:22A,,Under Votes,3
-bowie:22A,DEM,Janet T. Dudding,4
-bowie:22A,LIB,V. Alonzo Echevarria-Garza,0
-bowie:22A,REP,Glenn Hegar,69
-bowie:30,,Over Votes,0
-bowie:30,,Under Votes,18
-bowie:30,DEM,Janet T. Dudding,247
-bowie:30,LIB,V. Alonzo Echevarria-Garza,15
-bowie:30,REP,Glenn Hegar,959
-bowie:9A,,Over Votes,0
-bowie:9A,,Under Votes,1
-bowie:9A,DEM,Janet T. Dudding,15
-bowie:9A,LIB,V. Alonzo Echevarria-Garza,4
-bowie:9A,REP,Glenn Hegar,125
 collin:14,DEM,Janet T. Dudding,797
 collin:14,LIB,V. Alonzo Echevarria-Garza,22
 collin:14,REP,Glenn Hegar,733
@@ -384,15 +324,11 @@ collin:250,LIB,V. Alonzo Echevarria-Garza,2
 collin:250,REP,Glenn Hegar,72
 collin:250,,Over Votes,0
 collin:250,,Under Votes,3
-rockwall:1,DEM,Janet T. Dudding,2956
-rockwall:1,LIB,V. Alonzo Echevarria-Garza,211
-rockwall:1,REP,Glenn Hegar,8740
-rockwall:2,DEM,Janet T. Dudding,2884
-rockwall:2,LIB,V. Alonzo Echevarria-Garza,210
-rockwall:2,REP,Glenn Hegar,6319
-rockwall:3,DEM,Janet T. Dudding,2460
-rockwall:3,LIB,V. Alonzo Echevarria-Garza,226
-rockwall:3,REP,Glenn Hegar,9531
-rockwall:4,DEM,Janet T. Dudding,2645
-rockwall:4,LIB,V. Alonzo Echevarria-Garza,265
-rockwall:4,REP,Glenn Hegar,6341
+bowie:ALL,,Over Votes,0
+bowie:ALL,,Under Votes,47
+bowie:ALL,DEM,Janet T. Dudding,480
+bowie:ALL,LIB,V. Alonzo Echevarria-Garza,30
+bowie:ALL,REP,Glenn Hegar,2820
+rockwall:ALL,DEM,Janet T. Dudding,10945
+rockwall:ALL,LIB,V. Alonzo Echevarria-Garza,912
+rockwall:ALL,REP,Glenn Hegar,30931

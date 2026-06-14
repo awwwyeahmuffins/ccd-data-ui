@@ -1,64 +1,4 @@
 precinct,party,candidate,votes
-bowie:11,,Over Votes,0
-bowie:11,,Under Votes,3
-bowie:11,DEM,Rochelle Mercedes Garza,50
-bowie:11,LIB,Mark Ash,3
-bowie:11,REP,Ken Paxton,493
-bowie:12A,,Over Votes,0
-bowie:12A,,Under Votes,0
-bowie:12A,DEM,Rochelle Mercedes Garza,0
-bowie:12A,LIB,Mark Ash,0
-bowie:12A,REP,Ken Paxton,40
-bowie:13,,Over Votes,0
-bowie:13,,Under Votes,0
-bowie:13,DEM,Rochelle Mercedes Garza,0
-bowie:13,LIB,Mark Ash,0
-bowie:13,REP,Ken Paxton,2
-bowie:14,,Over Votes,0
-bowie:14,,Under Votes,7
-bowie:14,DEM,Rochelle Mercedes Garza,81
-bowie:14,LIB,Mark Ash,11
-bowie:14,REP,Ken Paxton,482
-bowie:15,,Over Votes,0
-bowie:15,,Under Votes,2
-bowie:15,DEM,Rochelle Mercedes Garza,28
-bowie:15,LIB,Mark Ash,1
-bowie:15,REP,Ken Paxton,307
-bowie:16A,,Over Votes,0
-bowie:16A,,Under Votes,1
-bowie:16A,DEM,Rochelle Mercedes Garza,4
-bowie:16A,LIB,Mark Ash,1
-bowie:16A,REP,Ken Paxton,31
-bowie:18A,,Over Votes,0
-bowie:18A,,Under Votes,0
-bowie:18A,DEM,Rochelle Mercedes Garza,7
-bowie:18A,LIB,Mark Ash,1
-bowie:18A,REP,Ken Paxton,41
-bowie:20,,Over Votes,0
-bowie:20,,Under Votes,1
-bowie:20,DEM,Rochelle Mercedes Garza,28
-bowie:20,LIB,Mark Ash,1
-bowie:20,REP,Ken Paxton,146
-bowie:21,,Over Votes,0
-bowie:21,,Under Votes,2
-bowie:21,DEM,Rochelle Mercedes Garza,22
-bowie:21,LIB,Mark Ash,1
-bowie:21,REP,Ken Paxton,120
-bowie:22A,,Over Votes,0
-bowie:22A,,Under Votes,3
-bowie:22A,DEM,Rochelle Mercedes Garza,5
-bowie:22A,LIB,Mark Ash,0
-bowie:22A,REP,Ken Paxton,68
-bowie:30,,Over Votes,0
-bowie:30,,Under Votes,13
-bowie:30,DEM,Rochelle Mercedes Garza,244
-bowie:30,LIB,Mark Ash,20
-bowie:30,REP,Ken Paxton,962
-bowie:9A,,Over Votes,0
-bowie:9A,,Under Votes,0
-bowie:9A,DEM,Rochelle Mercedes Garza,16
-bowie:9A,LIB,Mark Ash,1
-bowie:9A,REP,Ken Paxton,128
 collin:14,DEM,Rochelle Mercedes Garza,858
 collin:14,LIB,Mark Ash,44
 collin:14,REP,Ken Paxton,650
@@ -384,15 +324,11 @@ collin:250,LIB,Mark Ash,1
 collin:250,REP,Ken Paxton,73
 collin:250,,Over Votes,0
 collin:250,,Under Votes,4
-rockwall:1,DEM,Rochelle Mercedes Garza,3311
-rockwall:1,LIB,Mark Ash,435
-rockwall:1,REP,Ken Paxton,8148
-rockwall:2,DEM,Rochelle Mercedes Garza,3182
-rockwall:2,LIB,Mark Ash,338
-rockwall:2,REP,Ken Paxton,5891
-rockwall:3,DEM,Rochelle Mercedes Garza,2805
-rockwall:3,LIB,Mark Ash,411
-rockwall:3,REP,Ken Paxton,8982
-rockwall:4,DEM,Rochelle Mercedes Garza,2849
-rockwall:4,LIB,Mark Ash,303
-rockwall:4,REP,Ken Paxton,6097
+bowie:ALL,,Over Votes,0
+bowie:ALL,,Under Votes,32
+bowie:ALL,DEM,Rochelle Mercedes Garza,485
+bowie:ALL,LIB,Mark Ash,40
+bowie:ALL,REP,Ken Paxton,2820
+rockwall:ALL,DEM,Rochelle Mercedes Garza,12147
+rockwall:ALL,LIB,Mark Ash,1487
+rockwall:ALL,REP,Ken Paxton,29118

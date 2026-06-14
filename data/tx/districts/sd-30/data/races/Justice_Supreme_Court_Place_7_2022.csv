@@ -1,4 +1,3 @@
 precinct,party,candidate,votes
-cooke:4,REP,Debra Lehrmann,184
-cooke:4,REP,Rebeca Huddle,184
-cooke:4C,REP,Rebeca Huddle,816
+cooke:ALL,REP,Debra Lehrmann,184
+cooke:ALL,REP,Rebeca Huddle,1000

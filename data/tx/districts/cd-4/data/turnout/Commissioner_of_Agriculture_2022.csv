@@ -1,16 +1,4 @@
 precinct,registered,ballots_cast,blank
-bowie:11,1090,549,0
-bowie:12A,59,40,0
-bowie:13,2,2,0
-bowie:14,1191,581,0
-bowie:15,598,338,0
-bowie:16A,75,37,0
-bowie:18A,102,49,0
-bowie:20,346,176,0
-bowie:21,300,145,1
-bowie:22A,132,76,0
-bowie:30,2752,1239,0
-bowie:9A,274,145,0
 collin:104,2569,847,4
 collin:105,33,4,0
 collin:108,2970,1563,1
@@ -76,7 +64,5 @@ collin:85,3183,1666,0
 collin:88,2051,697,7
 collin:89,3232,1783,0
 collin:92,4113,1733,0
-rockwall:1,,11958,2
-rockwall:2,,9465,0
-rockwall:3,,12277,1
-rockwall:4,,9282,1
+bowie:ALL,6921,3377,1
+rockwall:ALL,0,42982,4

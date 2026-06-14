@@ -1,16 +1,4 @@
 precinct,party,candidate,votes
-denton:2000,,Jeff Boyd,551
-denton:2000,,Staci Williams,1794
-denton:2000,,William Bryan Strange III,81
-denton:2001,,Jeff Boyd,636
-denton:2001,,Staci Williams,1626
-denton:2001,,William Bryan Strange III,73
-denton:2002,,Jeff Boyd,1022
-denton:2002,,Staci Williams,2019
-denton:2002,,William Bryan Strange III,88
-denton:2003,,Jeff Boyd,628
-denton:2003,,Staci Williams,832
-denton:2003,,William Bryan Strange III,47
-denton:2004,,Jeff Boyd,1015
-denton:2004,,Staci Williams,1491
-denton:2004,,William Bryan Strange III,77
+denton:ALL,,Jeff Boyd,3852
+denton:ALL,,Staci Williams,7762
+denton:ALL,,William Bryan Strange III,366

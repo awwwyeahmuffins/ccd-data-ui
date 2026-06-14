@@ -1,66 +1,14 @@
 precinct,party,candidate,votes
-denton:2000,,Abram Loeb/Jennifer Jairala,0
-denton:2000,,Brian Carroll / Amar Patel,0
-denton:2000,,Gloria La Riva / Leonard Peltier,0
-denton:2000,,Jesse Cuellar / Jimmy Monreal,0
-denton:2000,,Kasey Wells / Rachel Wells,0
-denton:2000,,President R. Boddie / Eric C. Stoneham,0
-denton:2000,,Robert Morrow / Anne Beckett,0
-denton:2000,,Todd Cella / Tim Cella,1
-denton:2000,,Tom Hoefling / Andy Prior,0
-denton:2000,DEM,Joseph R. Biden/ Kamala D. Harris,1954
-denton:2000,GRN,Howie Hawkins/ Angela Walker,12
-denton:2000,LIB,Jo Jorgensen/ Jeremy ''Spike'' Cohen,32
-denton:2000,REP,Donald J. Trump/ Michael R. Pence,568
-denton:2001,,Abram Loeb/Jennifer Jairala,0
-denton:2001,,Brian Carroll / Amar Patel,0
-denton:2001,,Gloria La Riva / Leonard Peltier,1
-denton:2001,,Jesse Cuellar / Jimmy Monreal,0
-denton:2001,,Kasey Wells / Rachel Wells,0
-denton:2001,,President R. Boddie / Eric C. Stoneham,0
-denton:2001,,Robert Morrow / Anne Beckett,0
-denton:2001,,Todd Cella / Tim Cella,0
-denton:2001,,Tom Hoefling / Andy Prior,0
-denton:2001,DEM,Joseph R. Biden/ Kamala D. Harris,1770
-denton:2001,GRN,Howie Hawkins/ Angela Walker,12
-denton:2001,LIB,Jo Jorgensen/ Jeremy ''Spike'' Cohen,40
-denton:2001,REP,Donald J. Trump/ Michael R. Pence,648
-denton:2002,,Abram Loeb/Jennifer Jairala,0
-denton:2002,,Brian Carroll / Amar Patel,0
-denton:2002,,Gloria La Riva / Leonard Peltier,0
-denton:2002,,Jesse Cuellar / Jimmy Monreal,0
-denton:2002,,Kasey Wells / Rachel Wells,0
-denton:2002,,President R. Boddie / Eric C. Stoneham,0
-denton:2002,,Robert Morrow / Anne Beckett,0
-denton:2002,,Todd Cella / Tim Cella,0
-denton:2002,,Tom Hoefling / Andy Prior,0
-denton:2002,DEM,Joseph R. Biden/ Kamala D. Harris,2183
-denton:2002,GRN,Howie Hawkins/ Angela Walker,13
-denton:2002,LIB,Jo Jorgensen/ Jeremy ''Spike'' Cohen,47
-denton:2002,REP,Donald J. Trump/ Michael R. Pence,1042
-denton:2003,,Abram Loeb/Jennifer Jairala,0
-denton:2003,,Brian Carroll / Amar Patel,1
-denton:2003,,Gloria La Riva / Leonard Peltier,0
-denton:2003,,Jesse Cuellar / Jimmy Monreal,0
-denton:2003,,Kasey Wells / Rachel Wells,0
-denton:2003,,President R. Boddie / Eric C. Stoneham,0
-denton:2003,,Robert Morrow / Anne Beckett,0
-denton:2003,,Todd Cella / Tim Cella,0
-denton:2003,,Tom Hoefling / Andy Prior,0
-denton:2003,DEM,Joseph R. Biden/ Kamala D. Harris,904
-denton:2003,GRN,Howie Hawkins/ Angela Walker,4
-denton:2003,LIB,Jo Jorgensen/ Jeremy ''Spike'' Cohen,19
-denton:2003,REP,Donald J. Trump/ Michael R. Pence,627
-denton:2004,,Abram Loeb/Jennifer Jairala,0
-denton:2004,,Brian Carroll / Amar Patel,1
-denton:2004,,Gloria La Riva / Leonard Peltier,0
-denton:2004,,Jesse Cuellar / Jimmy Monreal,0
-denton:2004,,Kasey Wells / Rachel Wells,0
-denton:2004,,President R. Boddie / Eric C. Stoneham,0
-denton:2004,,Robert Morrow / Anne Beckett,0
-denton:2004,,Todd Cella / Tim Cella,0
-denton:2004,,Tom Hoefling / Andy Prior,0
-denton:2004,DEM,Joseph R. Biden/ Kamala D. Harris,1626
-denton:2004,GRN,Howie Hawkins/ Angela Walker,6
-denton:2004,LIB,Jo Jorgensen/ Jeremy ''Spike'' Cohen,40
-denton:2004,REP,Donald J. Trump/ Michael R. Pence,1001
+denton:ALL,,Abram Loeb/Jennifer Jairala,0
+denton:ALL,,Brian Carroll / Amar Patel,2
+denton:ALL,,Gloria La Riva / Leonard Peltier,1
+denton:ALL,,Jesse Cuellar / Jimmy Monreal,0
+denton:ALL,,Kasey Wells / Rachel Wells,0
+denton:ALL,,President R. Boddie / Eric C. Stoneham,0
+denton:ALL,,Robert Morrow / Anne Beckett,0
+denton:ALL,,Todd Cella / Tim Cella,1
+denton:ALL,,Tom Hoefling / Andy Prior,0
+denton:ALL,DEM,Joseph R. Biden/ Kamala D. Harris,8437
+denton:ALL,GRN,Howie Hawkins/ Angela Walker,47
+denton:ALL,LIB,Jo Jorgensen/ Jeremy ''Spike'' Cohen,178
+denton:ALL,REP,Donald J. Trump/ Michael R. Pence,3886

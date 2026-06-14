@@ -1,21 +1,5 @@
 precinct,party,candidate,votes
-denton:2000,DEM,Chrysta Castañeda,1734
-denton:2000,GRN,Katija ''Kat'' Gruene,58
-denton:2000,LIB,Matt Sterett,80
-denton:2000,REP,James ''Jim'' Wright,565
-denton:2001,DEM,Chrysta Castañeda,1568
-denton:2001,GRN,Katija ''Kat'' Gruene,53
-denton:2001,LIB,Matt Sterett,74
-denton:2001,REP,James ''Jim'' Wright,651
-denton:2002,DEM,Chrysta Castañeda,1974
-denton:2002,GRN,Katija ''Kat'' Gruene,68
-denton:2002,LIB,Matt Sterett,74
-denton:2002,REP,James ''Jim'' Wright,1029
-denton:2003,DEM,Chrysta Castañeda,814
-denton:2003,GRN,Katija ''Kat'' Gruene,23
-denton:2003,LIB,Matt Sterett,41
-denton:2003,REP,James ''Jim'' Wright,630
-denton:2004,DEM,Chrysta Castañeda,1445
-denton:2004,GRN,Katija ''Kat'' Gruene,46
-denton:2004,LIB,Matt Sterett,68
-denton:2004,REP,James ''Jim'' Wright,1037
+denton:ALL,DEM,Chrysta Castañeda,7535
+denton:ALL,GRN,Katija ''Kat'' Gruene,248
+denton:ALL,LIB,Matt Sterett,337
+denton:ALL,REP,James ''Jim'' Wright,3912

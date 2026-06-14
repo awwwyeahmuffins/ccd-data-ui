@@ -21,30 +21,25 @@ import {
 import { pivotRace, computeWinners } from "./v3Pivot.js";
 
 // ---------------------------------------------------------------------------
-// STATEWIDE COUNTY LAYER
-// The app is structured for all 254 Texas counties, but only counties with
-// status "live" in data/tx/counties.json have real precinct data. Placeholder
-// counties get their county outline as a single PLACEHOLDER "precinct" and an
-// empty election list — no data is ever fabricated.
-//
-// Live counties are registry-driven: their entry's `dataRoot` + `boundarySets`
-// describe where boundaries, race files, turnout, and profile extras live
-// (DATA_LAYOUT_SPEC v3). A legacy fallback keeps the original hard-coded
-// Collin layout working for registry entries without `boundarySets`.
+// COUNTY LAYER (Collin-focused)
+// The app focuses on Collin County (data/tx/counties.json) plus the cross-county
+// districts that include Collin (data/tx/districts.json — CD/SD/HD), where the
+// non-Collin counties are collapsed to county-level totals. Every registry
+// entry is "live" and registry-driven: its `dataRoot` + `boundarySets` describe
+// where boundaries, race files, turnout, and profile extras live (v3).
 // ---------------------------------------------------------------------------
 let activeCounty = "collin"; // county slug from data/tx/counties.json
 let activeCountyEntry = null; // cached registry entry for activeCounty
 let countyRegistryPromise = null;
-let countyBoundariesPromise = null;
 
 /** Get the active county slug (default "collin"). */
 export function getActiveCounty() {
   return activeCounty;
 }
 
-/** Load (and cache) the statewide registry: 254 counties, the full-Texas
- * statewide view (each unit = a county), plus the cross-county district views
- * (congressional / state senate / state house) — all behave like counties. */
+/** Load (and cache) the registry: Collin County plus the cross-county district
+ * views (congressional / state senate / state house) that include Collin —
+ * all behave like counties. */
 export function loadCountyRegistry() {
   if (!countyRegistryPromise) {
     countyRegistryPromise = Promise.all([
@@ -52,9 +47,8 @@ export function loadCountyRegistry() {
         if (!r.ok) throw new Error("Failed to fetch county registry");
         return r.json();
       }),
-      fetch("data/tx/texas.json").then(r => r.ok ? r.json() : []).catch(() => []),
       fetch("data/tx/districts.json").then(r => r.ok ? r.json() : []).catch(() => []),
-    ]).then(([counties, texas, districts]) => [...counties, ...texas, ...districts]);
+    ]).then(([counties, districts]) => [...counties, ...districts]);
   }
   return countyRegistryPromise;
 }
@@ -69,16 +63,6 @@ async function ensureCountyEntry() {
   return activeCountyEntry;
 }
 
-function loadCountyBoundaries() {
-  if (!countyBoundariesPromise) {
-    countyBoundariesPromise = fetch("data/tx/county-boundaries.geojson").then(r => {
-      if (!r.ok) throw new Error("Failed to fetch county boundaries");
-      return r.json();
-    });
-  }
-  return countyBoundariesPromise;
-}
-
 /** Switch the active county. Clears all cached data. */
 export async function setActiveCounty(slug) {
   const registry = await loadCountyRegistry();
@@ -91,38 +75,6 @@ export async function setActiveCounty(slug) {
   activeBoundary = entry.defaultBoundarySet ?? "original";
   clearDataCache();
   return entry;
-}
-
-/** True when the active county has no real precinct data yet. */
-export async function isPlaceholderCounty() {
-  const entry = await ensureCountyEntry();
-  return !entry || entry.status !== "live";
-}
-
-// Placeholder county: the county outline becomes a single fake "precinct"
-// whose code is the literal string "PLACEHOLDER" so nothing looks real.
-async function loadPlaceholderCountyData() {
-  const [registry, boundaries] = await Promise.all([
-    loadCountyRegistry(), loadCountyBoundaries()
-  ]);
-  const entry = registry.find(c => c.slug === activeCounty);
-  const feature = boundaries.features.find(f => f.properties.SLUG === activeCounty);
-  if (!entry || !feature) throw new Error(`No boundary for county: ${activeCounty}`);
-  const geojson = {
-    type: "FeatureCollection",
-    features: [{
-      type: "Feature",
-      properties: {
-        PRECINCT: "PLACEHOLDER",
-        COUNTY: entry.name,
-        placeholder: true,
-      },
-      geometry: feature.geometry,
-    }],
-  };
-  const result = { geojson, dncLookup: {}, racialLookup: {} };
-  dataCache.allData = result;
-  return result;
 }
 
 // Active boundary set id (e.g. "original" or "2026")
@@ -202,10 +154,9 @@ export async function loadAllData() {
     return dataCache.allData;
   }
 
-  // Placeholder counties have no real files — synthesize obvious placeholders
   const countyEntry = await ensureCountyEntry();
   if (!countyEntry || countyEntry.status !== "live") {
-    return loadPlaceholderCountyData();
+    throw new Error(`No live data for: ${activeCounty}`);
   }
 
   let config = activeConfig();
