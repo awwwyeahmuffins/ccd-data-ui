@@ -10,6 +10,7 @@ import {
   getBoundaryConfigs,
   listElectionCSVs,
   getActiveCounty,
+  setActiveCounty,
   loadCountyRegistry,
 } from "./dataLoader.js";
 import { findPrecinctForAddress, findPrecinctForPoint } from "./geoLookup.js";
@@ -178,6 +179,16 @@ export async function initPrecinctLookup() {
     });
   }
   bindOnePagerButton();
+
+  // A #county= deep link (e.g. from the Targets view) must be applied BEFORE we
+  // load any data — loadAllData() otherwise defaults to Collin.
+  const preHash = parseHash();
+  if (preHash.county && preHash.county !== getActiveCounty()) {
+    try {
+      await setActiveCounty(preHash.county);
+      applyCountyBranding();
+    } catch (_) { /* unknown slug — fall back to the default county */ }
+  }
 
   // Load data
   await loadBaseData();

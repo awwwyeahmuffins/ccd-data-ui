@@ -51,7 +51,7 @@ make cdk-deploy     # Deploy CDK stack
 make deploy-site    # Sync site content to S3 + invalidate CloudFront
 ```
 
-`deploy-site` is allowlist-only (`js/`, `data/` minus cache, `index.html`, `classic.html`, `precinct.html`, `elections.html`, `forecast.html`, `styles.css`). NEVER run a bare `aws s3 sync .` — the repo root contains voter PII (`VoterRegistrationFile.txt`) and internal files that must not reach the public bucket.
+`deploy-site` is allowlist-only (`js/`, `data/` minus cache, `index.html`, `classic.html`, `precinct.html`, `elections.html`, `forecast.html`, `targets.html`, `styles.css`). NEVER run a bare `aws s3 sync .` — the repo root contains voter PII (`VoterRegistrationFile.txt`) and internal files that must not reach the public bucket.
 
 ## Architecture
 
