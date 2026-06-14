@@ -184,6 +184,7 @@ deploy-site:
 	aws s3 cp elections.html s3://$(SITE_BUCKET)/elections.html --profile $(DEPLOY_PROFILE)
 	aws s3 cp forecast.html s3://$(SITE_BUCKET)/forecast.html --profile $(DEPLOY_PROFILE)
 	aws s3 cp targets.html s3://$(SITE_BUCKET)/targets.html --profile $(DEPLOY_PROFILE)
+	aws s3 cp explore.html s3://$(SITE_BUCKET)/explore.html --profile $(DEPLOY_PROFILE)
 	aws s3 cp styles.css s3://$(SITE_BUCKET)/styles.css --profile $(DEPLOY_PROFILE)
 	aws cloudfront create-invalidation --distribution-id $(DISTRIBUTION_ID) --paths "/*" --profile $(DEPLOY_PROFILE)
 	@echo "Site deployed and CloudFront invalidated."

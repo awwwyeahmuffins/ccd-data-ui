@@ -62,6 +62,7 @@ test.describe('Command Center', () => {
     await expect(page.locator('.cc-rail a[href="elections.html"]')).toHaveCount(1);
     await expect(page.locator('.cc-rail a[href="forecast.html"]')).toHaveCount(1);
     await expect(page.locator('.cc-rail a[href="targets.html"]')).toHaveCount(1);
+    await expect(page.locator('.cc-rail a[href="explore.html"]')).toHaveCount(1);
     await expect(page.locator('.cc-rail a[href="precinct.html"]')).toHaveCount(1);
   });
 });
