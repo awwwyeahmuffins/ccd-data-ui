@@ -1,0 +1,276 @@
+precinct,party,candidate,votes
+brown:101,DEM,Jon Mark Hogg,229
+brown:101,LIB,Wacey Alpha Cody,16
+brown:101,REP,August Pfluger,1471
+brown:105,DEM,Jon Mark Hogg,165
+brown:105,LIB,Wacey Alpha Cody,16
+brown:105,REP,August Pfluger,986
+brown:109,DEM,Jon Mark Hogg,10
+brown:109,LIB,Wacey Alpha Cody,4
+brown:109,REP,August Pfluger,211
+brown:113,DEM,Jon Mark Hogg,180
+brown:113,LIB,Wacey Alpha Cody,18
+brown:113,REP,August Pfluger,1083
+brown:202,DEM,Jon Mark Hogg,129
+brown:202,LIB,Wacey Alpha Cody,10
+brown:202,REP,August Pfluger,603
+brown:204,DEM,Jon Mark Hogg,182
+brown:204,LIB,Wacey Alpha Cody,18
+brown:204,REP,August Pfluger,543
+brown:212,DEM,Jon Mark Hogg,47
+brown:212,LIB,Wacey Alpha Cody,8
+brown:212,REP,August Pfluger,560
+brown:214,DEM,Jon Mark Hogg,44
+brown:214,LIB,Wacey Alpha Cody,7
+brown:214,REP,August Pfluger,491
+brown:215,DEM,Jon Mark Hogg,10
+brown:215,LIB,Wacey Alpha Cody,5
+brown:215,REP,August Pfluger,188
+brown:303,DEM,Jon Mark Hogg,132
+brown:303,LIB,Wacey Alpha Cody,21
+brown:303,REP,August Pfluger,628
+brown:306,DEM,Jon Mark Hogg,127
+brown:306,LIB,Wacey Alpha Cody,28
+brown:306,REP,August Pfluger,1175
+brown:307,DEM,Jon Mark Hogg,51
+brown:307,LIB,Wacey Alpha Cody,11
+brown:307,REP,August Pfluger,479
+brown:308,DEM,Jon Mark Hogg,32
+brown:308,LIB,Wacey Alpha Cody,4
+brown:308,REP,August Pfluger,425
+brown:316,DEM,Jon Mark Hogg,16
+brown:316,LIB,Wacey Alpha Cody,2
+brown:316,REP,August Pfluger,184
+brown:318,DEM,Jon Mark Hogg,127
+brown:318,LIB,Wacey Alpha Cody,25
+brown:318,REP,August Pfluger,1066
+brown:410,DEM,Jon Mark Hogg,168
+brown:410,LIB,Wacey Alpha Cody,20
+brown:410,REP,August Pfluger,1521
+brown:411,DEM,Jon Mark Hogg,126
+brown:411,LIB,Wacey Alpha Cody,19
+brown:411,REP,August Pfluger,559
+brown:417,DEM,Jon Mark Hogg,136
+brown:417,LIB,Wacey Alpha Cody,19
+brown:417,REP,August Pfluger,1297
+concho:101,,Over Votes,0
+concho:101,,Under Votes,7
+concho:101,DEM,Jon Mark Hogg,36
+concho:101,LIB,Wacey Alpha Cody,11
+concho:101,REP,August Pfluger,278
+concho:102,,Over Votes,0
+concho:102,,Under Votes,2
+concho:102,DEM,Jon Mark Hogg,13
+concho:102,LIB,Wacey Alpha Cody,1
+concho:102,REP,August Pfluger,63
+concho:203,,Over Votes,0
+concho:203,,Under Votes,2
+concho:203,DEM,Jon Mark Hogg,3
+concho:203,LIB,Wacey Alpha Cody,2
+concho:203,REP,August Pfluger,108
+concho:204,,Over Votes,0
+concho:204,,Under Votes,2
+concho:204,DEM,Jon Mark Hogg,16
+concho:204,LIB,Wacey Alpha Cody,0
+concho:204,REP,August Pfluger,72
+concho:205,,Over Votes,0
+concho:205,,Under Votes,5
+concho:205,DEM,Jon Mark Hogg,16
+concho:205,LIB,Wacey Alpha Cody,2
+concho:205,REP,August Pfluger,101
+concho:306,,Over Votes,0
+concho:306,,Under Votes,5
+concho:306,DEM,Jon Mark Hogg,47
+concho:306,LIB,Wacey Alpha Cody,3
+concho:306,REP,August Pfluger,182
+concho:407,,Over Votes,0
+concho:407,,Under Votes,1
+concho:407,DEM,Jon Mark Hogg,0
+concho:407,LIB,Wacey Alpha Cody,0
+concho:407,REP,August Pfluger,80
+concho:408,,Over Votes,0
+concho:408,,Under Votes,9
+concho:408,DEM,Jon Mark Hogg,41
+concho:408,LIB,Wacey Alpha Cody,3
+concho:408,REP,August Pfluger,168
+mcculloch:101,,Over Votes,1
+mcculloch:101,,Under Votes,16
+mcculloch:101,DEM,Jon Mark Hogg,114
+mcculloch:101,LIB,Wacey Alpha Cody,27
+mcculloch:101,REP,August Pfluger,805
+mcculloch:102,,Over Votes,0
+mcculloch:102,,Under Votes,2
+mcculloch:102,DEM,Jon Mark Hogg,14
+mcculloch:102,LIB,Wacey Alpha Cody,2
+mcculloch:102,REP,August Pfluger,105
+mcculloch:201,,Over Votes,0
+mcculloch:201,,Under Votes,12
+mcculloch:201,DEM,Jon Mark Hogg,117
+mcculloch:201,LIB,Wacey Alpha Cody,8
+mcculloch:201,REP,August Pfluger,324
+mcculloch:202,,Over Votes,0
+mcculloch:202,,Under Votes,1
+mcculloch:202,DEM,Jon Mark Hogg,14
+mcculloch:202,LIB,Wacey Alpha Cody,3
+mcculloch:202,REP,August Pfluger,103
+mcculloch:301,,Over Votes,0
+mcculloch:301,,Under Votes,19
+mcculloch:301,DEM,Jon Mark Hogg,94
+mcculloch:301,LIB,Wacey Alpha Cody,22
+mcculloch:301,REP,August Pfluger,636
+mcculloch:302,,Over Votes,0
+mcculloch:302,,Under Votes,2
+mcculloch:302,DEM,Jon Mark Hogg,13
+mcculloch:302,LIB,Wacey Alpha Cody,3
+mcculloch:302,REP,August Pfluger,176
+mcculloch:401,,Over Votes,0
+mcculloch:401,,Under Votes,15
+mcculloch:401,DEM,Jon Mark Hogg,47
+mcculloch:401,LIB,Wacey Alpha Cody,15
+mcculloch:401,REP,August Pfluger,360
+mcculloch:402,,Over Votes,0
+mcculloch:402,,Under Votes,12
+mcculloch:402,DEM,Jon Mark Hogg,20
+mcculloch:402,LIB,Wacey Alpha Cody,6
+mcculloch:402,REP,August Pfluger,229
+mcculloch:403,,Over Votes,0
+mcculloch:403,,Under Votes,1
+mcculloch:403,DEM,Jon Mark Hogg,11
+mcculloch:403,LIB,Wacey Alpha Cody,2
+mcculloch:403,REP,August Pfluger,101
+menard:1,DEM,Jon Mark Hogg,52
+menard:1,LIB,Wacey Alpha Cody,1
+menard:1,REP,August Pfluger,142
+menard:2,DEM,Jon Mark Hogg,44
+menard:2,LIB,Wacey Alpha Cody,5
+menard:2,REP,August Pfluger,191
+menard:3,DEM,Jon Mark Hogg,44
+menard:3,LIB,Wacey Alpha Cody,3
+menard:3,REP,August Pfluger,216
+menard:4,DEM,Jon Mark Hogg,31
+menard:4,LIB,Wacey Alpha Cody,5
+menard:4,REP,August Pfluger,146
+menard:5,DEM,Jon Mark Hogg,4
+menard:5,LIB,Wacey Alpha Cody,1
+menard:5,REP,August Pfluger,39
+menard:6,DEM,Jon Mark Hogg,11
+menard:6,LIB,Wacey Alpha Cody,2
+menard:6,REP,August Pfluger,66
+mills:1,,Over Votes,0
+mills:1,,Under Votes,24
+mills:1,DEM,Jon Mark Hogg,71
+mills:1,LIB,Wacey Alpha Cody,11
+mills:1,REP,August Pfluger,592
+mills:11,,Over Votes,0
+mills:11,,Under Votes,0
+mills:11,DEM,Jon Mark Hogg,12
+mills:11,LIB,Wacey Alpha Cody,3
+mills:11,REP,August Pfluger,116
+mills:2,,Over Votes,0
+mills:2,,Under Votes,5
+mills:2,DEM,Jon Mark Hogg,26
+mills:2,LIB,Wacey Alpha Cody,3
+mills:2,REP,August Pfluger,299
+mills:4,,Over Votes,0
+mills:4,,Under Votes,3
+mills:4,DEM,Jon Mark Hogg,21
+mills:4,LIB,Wacey Alpha Cody,3
+mills:4,REP,August Pfluger,224
+mills:6,,Over Votes,0
+mills:6,,Under Votes,6
+mills:6,DEM,Jon Mark Hogg,16
+mills:6,LIB,Wacey Alpha Cody,1
+mills:6,REP,August Pfluger,186
+mills:8,,Over Votes,0
+mills:8,,Under Votes,3
+mills:8,DEM,Jon Mark Hogg,49
+mills:8,LIB,Wacey Alpha Cody,8
+mills:8,REP,August Pfluger,367
+mills:9,,Over Votes,0
+mills:9,,Under Votes,7
+mills:9,DEM,Jon Mark Hogg,45
+mills:9,LIB,Wacey Alpha Cody,6
+mills:9,REP,August Pfluger,405
+runnels:1,,Over Votes,0
+runnels:1,,Under Votes,25
+runnels:1,DEM,Jon Mark Hogg,117
+runnels:1,LIB,Wacey Alpha Cody,14
+runnels:1,REP,August Pfluger,753
+runnels:10,,Over Votes,0
+runnels:10,,Under Votes,5
+runnels:10,DEM,Jon Mark Hogg,15
+runnels:10,LIB,Wacey Alpha Cody,7
+runnels:10,REP,August Pfluger,289
+runnels:2,,Over Votes,0
+runnels:2,,Under Votes,1
+runnels:2,DEM,Jon Mark Hogg,21
+runnels:2,LIB,Wacey Alpha Cody,2
+runnels:2,REP,August Pfluger,60
+runnels:3,,Over Votes,2
+runnels:3,,Under Votes,24
+runnels:3,DEM,Jon Mark Hogg,109
+runnels:3,LIB,Wacey Alpha Cody,12
+runnels:3,REP,August Pfluger,794
+runnels:4,,Over Votes,0
+runnels:4,,Under Votes,28
+runnels:4,DEM,Jon Mark Hogg,33
+runnels:4,LIB,Wacey Alpha Cody,4
+runnels:4,REP,August Pfluger,207
+runnels:5,,Over Votes,0
+runnels:5,,Under Votes,3
+runnels:5,DEM,Jon Mark Hogg,8
+runnels:5,LIB,Wacey Alpha Cody,2
+runnels:5,REP,August Pfluger,120
+runnels:6,,Over Votes,0
+runnels:6,,Under Votes,4
+runnels:6,DEM,Jon Mark Hogg,7
+runnels:6,LIB,Wacey Alpha Cody,2
+runnels:6,REP,August Pfluger,91
+runnels:7,,Over Votes,1
+runnels:7,,Under Votes,11
+runnels:7,DEM,Jon Mark Hogg,69
+runnels:7,LIB,Wacey Alpha Cody,9
+runnels:7,REP,August Pfluger,502
+runnels:8,,Over Votes,0
+runnels:8,,Under Votes,9
+runnels:8,DEM,Jon Mark Hogg,48
+runnels:8,LIB,Wacey Alpha Cody,12
+runnels:8,REP,August Pfluger,457
+runnels:9,,Over Votes,0
+runnels:9,,Under Votes,12
+runnels:9,DEM,Jon Mark Hogg,67
+runnels:9,LIB,Wacey Alpha Cody,11
+runnels:9,REP,August Pfluger,469
+san-saba:1,,Cody,7
+san-saba:1,DEM,Hogg,70
+san-saba:1,REP,Pfluger,568
+san-saba:2A,,Cody,1
+san-saba:2A,DEM,Hogg,43
+san-saba:2A,REP,Pfluger,397
+san-saba:2B,,Cody,1
+san-saba:2B,DEM,Hogg,16
+san-saba:2B,REP,Pfluger,177
+san-saba:3A,,Cody,6
+san-saba:3A,DEM,Hogg,41
+san-saba:3A,REP,Pfluger,334
+san-saba:3B,,Cody,3
+san-saba:3B,DEM,Hogg,31
+san-saba:3B,REP,Pfluger,240
+san-saba:4A,,Cody,6
+san-saba:4A,DEM,Hogg,50
+san-saba:4A,REP,Pfluger,470
+san-saba:4B,,Cody,1
+san-saba:4B,DEM,Hogg,8
+san-saba:4B,REP,Pfluger,72
+sterling:1,DEM,Jon Mark Hogg,13
+sterling:1,LIB,Wacey Alpha Cody,2
+sterling:1,REP,August Pfluger,157
+sterling:2,DEM,Jon Mark Hogg,17
+sterling:2,LIB,Wacey Alpha Cody,3
+sterling:2,REP,August Pfluger,110
+sterling:3,DEM,Jon Mark Hogg,6
+sterling:3,LIB,Wacey Alpha Cody,0
+sterling:3,REP,August Pfluger,161
+sterling:4,DEM,Jon Mark Hogg,11
+sterling:4,LIB,Wacey Alpha Cody,1
+sterling:4,REP,August Pfluger,142

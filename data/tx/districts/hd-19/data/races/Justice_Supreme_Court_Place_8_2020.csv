@@ -1,4 +1,128 @@
 precinct,party,candidate,votes
+blanco:102,,Over Votes,0
+blanco:102,,Under Votes,41
+blanco:102,DEM,Gisela D. Triana,406
+blanco:102,LIB,Tom Oxford,34
+blanco:102,REP,Brett Busby,1368
+blanco:201,,Over Votes,0
+blanco:201,,Under Votes,28
+blanco:201,DEM,Gisela D. Triana,432
+blanco:201,LIB,Tom Oxford,49
+blanco:201,REP,Brett Busby,1328
+blanco:302,,Over Votes,0
+blanco:302,,Under Votes,19
+blanco:302,DEM,Gisela D. Triana,269
+blanco:302,LIB,Tom Oxford,26
+blanco:302,REP,Brett Busby,688
+blanco:303,,Over Votes,0
+blanco:303,,Under Votes,6
+blanco:303,DEM,Gisela D. Triana,93
+blanco:303,LIB,Tom Oxford,5
+blanco:303,REP,Brett Busby,393
+blanco:304,,Over Votes,0
+blanco:304,,Under Votes,1
+blanco:304,DEM,Gisela D. Triana,64
+blanco:304,LIB,Tom Oxford,5
+blanco:304,REP,Brett Busby,168
+blanco:401,,Over Votes,0
+blanco:401,,Under Votes,30
+blanco:401,DEM,Gisela D. Triana,481
+blanco:401,LIB,Tom Oxford,55
+blanco:401,REP,Brett Busby,1488
+gillespie:1,DEM,Gisela D. Triana,444
+gillespie:1,LIB,Tom Oxford,28
+gillespie:1,REP,Brett Busby,1443
+gillespie:10,DEM,Gisela D. Triana,136
+gillespie:10,LIB,Tom Oxford,17
+gillespie:10,REP,Brett Busby,624
+gillespie:12,DEM,Gisela D. Triana,298
+gillespie:12,LIB,Tom Oxford,29
+gillespie:12,REP,Brett Busby,1685
+gillespie:13,DEM,Gisela D. Triana,219
+gillespie:13,LIB,Tom Oxford,27
+gillespie:13,REP,Brett Busby,1374
+gillespie:15,DEM,Gisela D. Triana,124
+gillespie:15,LIB,Tom Oxford,11
+gillespie:15,REP,Brett Busby,529
+gillespie:2,DEM,Gisela D. Triana,237
+gillespie:2,LIB,Tom Oxford,24
+gillespie:2,REP,Brett Busby,759
+gillespie:3,DEM,Gisela D. Triana,187
+gillespie:3,LIB,Tom Oxford,20
+gillespie:3,REP,Brett Busby,625
+gillespie:4,DEM,Gisela D. Triana,484
+gillespie:4,LIB,Tom Oxford,43
+gillespie:4,REP,Brett Busby,1538
+gillespie:5,DEM,Gisela D. Triana,138
+gillespie:5,LIB,Tom Oxford,26
+gillespie:5,REP,Brett Busby,1226
+gillespie:6,DEM,Gisela D. Triana,87
+gillespie:6,LIB,Tom Oxford,11
+gillespie:6,REP,Brett Busby,415
+gillespie:7,DEM,Gisela D. Triana,377
+gillespie:7,LIB,Tom Oxford,39
+gillespie:7,REP,Brett Busby,1790
+gillespie:8,DEM,Gisela D. Triana,37
+gillespie:8,LIB,Tom Oxford,7
+gillespie:8,REP,Brett Busby,225
+gillespie:9,DEM,Gisela D. Triana,14
+gillespie:9,LIB,Tom Oxford,1
+gillespie:9,REP,Brett Busby,144
+kendall:1010,,Over Votes,0
+kendall:1010,,Under Votes,46
+kendall:1010,DEM,DEM Gisela D. Triana,539
+kendall:1010,LIB,LIB Tom Oxford,43
+kendall:1010,REP,REP Brett Busby,1458
+kendall:1110,,Over Votes,0
+kendall:1110,,Under Votes,74
+kendall:1110,DEM,DEM Gisela D. Triana,743
+kendall:1110,LIB,LIB Tom Oxford,85
+kendall:1110,REP,REP Brett Busby,2992
+kendall:2020,,Over Votes,0
+kendall:2020,,Under Votes,24
+kendall:2020,DEM,DEM Gisela D. Triana,281
+kendall:2020,LIB,LIB Tom Oxford,29
+kendall:2020,REP,REP Brett Busby,1655
+kendall:2080,,Over Votes,0
+kendall:2080,,Under Votes,64
+kendall:2080,DEM,DEM Gisela D. Triana,701
+kendall:2080,LIB,LIB Tom Oxford,61
+kendall:2080,REP,REP Brett Busby,2746
+kendall:2120,,Over Votes,0
+kendall:2120,,Under Votes,63
+kendall:2120,DEM,DEM Gisela D. Triana,819
+kendall:2120,LIB,LIB Tom Oxford,91
+kendall:2120,REP,REP Brett Busby,3047
+kendall:3030,,Over Votes,0
+kendall:3030,,Under Votes,27
+kendall:3030,DEM,DEM Gisela D. Triana,350
+kendall:3030,LIB,LIB Tom Oxford,47
+kendall:3030,REP,REP Brett Busby,1719
+kendall:3040,,Over Votes,0
+kendall:3040,,Under Votes,43
+kendall:3040,DEM,DEM Gisela D. Triana,613
+kendall:3040,LIB,LIB Tom Oxford,69
+kendall:3040,REP,REP Brett Busby,2293
+kendall:3060,,Over Votes,0
+kendall:3060,,Under Votes,6
+kendall:3060,DEM,DEM Gisela D. Triana,70
+kendall:3060,LIB,LIB Tom Oxford,8
+kendall:3060,REP,REP Brett Busby,427
+kendall:4050,,Over Votes,0
+kendall:4050,,Under Votes,31
+kendall:4050,DEM,DEM Gisela D. Triana,498
+kendall:4050,LIB,LIB Tom Oxford,51
+kendall:4050,REP,REP Brett Busby,1649
+kendall:4070,,Over Votes,0
+kendall:4070,,Under Votes,1
+kendall:4070,DEM,DEM Gisela D. Triana,40
+kendall:4070,LIB,LIB Tom Oxford,9
+kendall:4070,REP,REP Brett Busby,251
+kendall:4100,,Over Votes,0
+kendall:4100,,Under Votes,47
+kendall:4100,DEM,DEM Gisela D. Triana,519
+kendall:4100,LIB,LIB Tom Oxford,52
+kendall:4100,REP,REP Brett Busby,2195
 travis:306,DEM,Gisela D. Triana,1148
 travis:306,LIB,Tom Oxford,63
 travis:306,REP,Brett Busby,1817

@@ -1,0 +1,75 @@
+precinct,party,candidate,votes
+brooks:1,DEM,Martha M. Gutierrez,298
+brooks:1,REP,Ryan Guillen,140
+brooks:2,DEM,Martha M. Gutierrez,315
+brooks:2,REP,Ryan Guillen,213
+brooks:3,DEM,Martha M. Gutierrez,211
+brooks:3,REP,Ryan Guillen,119
+brooks:3S,DEM,Martha M. Gutierrez,49
+brooks:3S,REP,Ryan Guillen,64
+brooks:4,DEM,Martha M. Gutierrez,299
+brooks:4,REP,Ryan Guillen,303
+kenedy:1,DEM,Martha M. Gutierrez,11
+kenedy:1,REP,Ryan Gullen,35
+kenedy:2,DEM,Martha M. Gutierrez,12
+kenedy:2,REP,Ryan Gullen,12
+kenedy:3,DEM,Martha M. Gutierrez,4
+kenedy:3,REP,Ryan Gullen,7
+kenedy:4,DEM,Martha M. Gutierrez,2
+kenedy:4,REP,Ryan Gullen,33
+kenedy:5,DEM,Martha M. Gutierrez,3
+kenedy:5,REP,Ryan Gullen,6
+kenedy:6,DEM,Martha M. Gutierrez,4
+kenedy:6,REP,Ryan Gullen,5
+wilson:101,,Over Votes,0
+wilson:101,,Under Votes,30
+wilson:101,DEM,Martha M. Gutierrez,666
+wilson:101,REP,Ryan Guillen,1351
+wilson:102,,Over Votes,0
+wilson:102,,Under Votes,54
+wilson:102,DEM,Martha M. Gutierrez,473
+wilson:102,REP,Ryan Guillen,401
+wilson:103,,Over Votes,0
+wilson:103,,Under Votes,30
+wilson:103,DEM,Martha M. Gutierrez,316
+wilson:103,REP,Ryan Guillen,603
+wilson:104,,Over Votes,0
+wilson:104,,Under Votes,18
+wilson:104,DEM,Martha M. Gutierrez,167
+wilson:104,REP,Ryan Guillen,528
+wilson:205,,Over Votes,0
+wilson:205,,Under Votes,58
+wilson:205,DEM,Martha M. Gutierrez,255
+wilson:205,REP,Ryan Guillen,1413
+wilson:206,,Over Votes,0
+wilson:206,,Under Votes,30
+wilson:206,DEM,Martha M. Gutierrez,407
+wilson:206,REP,Ryan Guillen,772
+wilson:207,,Over Votes,0
+wilson:207,,Under Votes,53
+wilson:207,DEM,Martha M. Gutierrez,461
+wilson:207,REP,Ryan Guillen,1342
+wilson:311,,Over Votes,0
+wilson:311,,Under Votes,33
+wilson:311,DEM,Martha M. Gutierrez,203
+wilson:311,REP,Ryan Guillen,1326
+wilson:312,,Over Votes,0
+wilson:312,,Under Votes,43
+wilson:312,DEM,Martha M. Gutierrez,212
+wilson:312,REP,Ryan Guillen,1382
+wilson:313,,Over Votes,0
+wilson:313,,Under Votes,48
+wilson:313,DEM,Martha M. Gutierrez,299
+wilson:313,REP,Ryan Guillen,1694
+wilson:414,,Over Votes,0
+wilson:414,,Under Votes,43
+wilson:414,DEM,Martha M. Gutierrez,221
+wilson:414,REP,Ryan Guillen,1298
+wilson:415,,Over Votes,0
+wilson:415,,Under Votes,48
+wilson:415,DEM,Martha M. Gutierrez,422
+wilson:415,REP,Ryan Guillen,1668
+wilson:416,,Over Votes,0
+wilson:416,,Under Votes,21
+wilson:416,DEM,Martha M. Gutierrez,224
+wilson:416,REP,Ryan Guillen,1008

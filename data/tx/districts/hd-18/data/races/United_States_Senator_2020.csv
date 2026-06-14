@@ -1,4 +1,80 @@
 precinct,party,candidate,votes
+hardin:1,DEM,"Mary ""MJ"" Hegar",276
+hardin:1,GRN,David B. Collins,6
+hardin:1,LIB,Kerry Douglas McKennon,19
+hardin:1,REP,John Cornyn,756
+hardin:10,DEM,"Mary ""MJ"" Hegar",573
+hardin:10,GRN,David B. Collins,9
+hardin:10,LIB,Kerry Douglas McKennon,16
+hardin:10,REP,John Cornyn,585
+hardin:11,DEM,"Mary ""MJ"" Hegar",77
+hardin:11,GRN,David B. Collins,3
+hardin:11,LIB,Kerry Douglas McKennon,13
+hardin:11,REP,John Cornyn,638
+hardin:12,DEM,"Mary ""MJ"" Hegar",98
+hardin:12,GRN,David B. Collins,5
+hardin:12,LIB,Kerry Douglas McKennon,10
+hardin:12,REP,John Cornyn,629
+hardin:13,DEM,"Mary ""MJ"" Hegar",159
+hardin:13,GRN,David B. Collins,2
+hardin:13,LIB,Kerry Douglas McKennon,31
+hardin:13,REP,John Cornyn,1611
+hardin:14,DEM,"Mary ""MJ"" Hegar",84
+hardin:14,GRN,David B. Collins,1
+hardin:14,LIB,Kerry Douglas McKennon,10
+hardin:14,REP,John Cornyn,943
+hardin:15,DEM,"Mary ""MJ"" Hegar",138
+hardin:15,GRN,David B. Collins,9
+hardin:15,LIB,Kerry Douglas McKennon,17
+hardin:15,REP,John Cornyn,1277
+hardin:16,DEM,"Mary ""MJ"" Hegar",157
+hardin:16,GRN,David B. Collins,2
+hardin:16,LIB,Kerry Douglas McKennon,25
+hardin:16,REP,John Cornyn,1463
+hardin:17,DEM,"Mary ""MJ"" Hegar",63
+hardin:17,GRN,David B. Collins,3
+hardin:17,LIB,Kerry Douglas McKennon,13
+hardin:17,REP,John Cornyn,817
+hardin:18,DEM,"Mary ""MJ"" Hegar",465
+hardin:18,GRN,David B. Collins,12
+hardin:18,LIB,Kerry Douglas McKennon,63
+hardin:18,REP,John Cornyn,3894
+hardin:19,DEM,"Mary ""MJ"" Hegar",79
+hardin:19,GRN,David B. Collins,3
+hardin:19,LIB,Kerry Douglas McKennon,13
+hardin:19,REP,John Cornyn,660
+hardin:2,DEM,"Mary ""MJ"" Hegar",344
+hardin:2,GRN,David B. Collins,14
+hardin:2,LIB,Kerry Douglas McKennon,52
+hardin:2,REP,John Cornyn,3146
+hardin:3,DEM,"Mary ""MJ"" Hegar",20
+hardin:3,GRN,David B. Collins,3
+hardin:3,LIB,Kerry Douglas McKennon,7
+hardin:3,REP,John Cornyn,439
+hardin:4,DEM,"Mary ""MJ"" Hegar",43
+hardin:4,GRN,David B. Collins,2
+hardin:4,LIB,Kerry Douglas McKennon,4
+hardin:4,REP,John Cornyn,578
+hardin:5,DEM,"Mary ""MJ"" Hegar",27
+hardin:5,GRN,David B. Collins,2
+hardin:5,LIB,Kerry Douglas McKennon,1
+hardin:5,REP,John Cornyn,424
+hardin:6,DEM,"Mary ""MJ"" Hegar",351
+hardin:6,GRN,David B. Collins,7
+hardin:6,LIB,Kerry Douglas McKennon,62
+hardin:6,REP,John Cornyn,3132
+hardin:7,DEM,"Mary ""MJ"" Hegar",32
+hardin:7,GRN,David B. Collins,0
+hardin:7,LIB,Kerry Douglas McKennon,2
+hardin:7,REP,John Cornyn,532
+hardin:8,DEM,"Mary ""MJ"" Hegar",64
+hardin:8,GRN,David B. Collins,0
+hardin:8,LIB,Kerry Douglas McKennon,7
+hardin:8,REP,John Cornyn,591
+hardin:9,DEM,"Mary ""MJ"" Hegar",338
+hardin:9,GRN,David B. Collins,4
+hardin:9,LIB,Kerry Douglas McKennon,28
+hardin:9,REP,John Cornyn,1401
 liberty:1,DEM,"Mary ""MJ"" Hegar",57
 liberty:1,GRN,David B. Collins,1
 liberty:1,LIB,Kerry Douglas McKennon,6
@@ -119,3 +195,19 @@ liberty:9,DEM,"Mary ""MJ"" Hegar",175
 liberty:9,GRN,David B. Collins,6
 liberty:9,LIB,Kerry Douglas McKennon,35
 liberty:9,REP,John Cornyn,1542
+montgomery:16,DEM,"Mary ""MJ"" Hegar",371
+montgomery:16,GRN,David B. Collins,9
+montgomery:16,LIB,Kerry Douglas McKennon,42
+montgomery:16,REP,John Cornyn,2171
+montgomery:41,DEM,"Mary ""MJ"" Hegar",317
+montgomery:41,GRN,David B. Collins,10
+montgomery:41,LIB,Kerry Douglas McKennon,38
+montgomery:41,REP,John Cornyn,2160
+montgomery:53,DEM,"Mary ""MJ"" Hegar",726
+montgomery:53,GRN,David B. Collins,17
+montgomery:53,LIB,Kerry Douglas McKennon,64
+montgomery:53,REP,John Cornyn,2438
+montgomery:54,DEM,"Mary ""MJ"" Hegar",216
+montgomery:54,GRN,David B. Collins,12
+montgomery:54,LIB,Kerry Douglas McKennon,16
+montgomery:54,REP,John Cornyn,647

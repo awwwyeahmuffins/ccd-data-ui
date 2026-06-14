@@ -1,4 +1,366 @@
 precinct,party,candidate,votes
+bexar:1001,DEM,Elizabeth Davis Frizell,395
+bexar:1001,REP,Bert Richardson,127
+bexar:1003,DEM,Elizabeth Davis Frizell,1060
+bexar:1003,REP,Bert Richardson,276
+bexar:1008,DEM,Elizabeth Davis Frizell,1020
+bexar:1008,REP,Bert Richardson,227
+bexar:1098,DEM,Elizabeth Davis Frizell,374
+bexar:1098,REP,Bert Richardson,74
+bexar:2001,DEM,Elizabeth Davis Frizell,271
+bexar:2001,REP,Bert Richardson,69
+bexar:2002,DEM,Elizabeth Davis Frizell,456
+bexar:2002,REP,Bert Richardson,132
+bexar:2003,DEM,Elizabeth Davis Frizell,720
+bexar:2003,REP,Bert Richardson,184
+bexar:2004,DEM,Elizabeth Davis Frizell,1044
+bexar:2004,REP,Bert Richardson,269
+bexar:2005,DEM,Elizabeth Davis Frizell,464
+bexar:2005,REP,Bert Richardson,123
+bexar:2007,DEM,Elizabeth Davis Frizell,587
+bexar:2007,REP,Bert Richardson,198
+bexar:2008,DEM,Elizabeth Davis Frizell,408
+bexar:2008,REP,Bert Richardson,125
+bexar:2018,DEM,Elizabeth Davis Frizell,547
+bexar:2018,REP,Bert Richardson,162
+bexar:2029,DEM,Elizabeth Davis Frizell,406
+bexar:2029,REP,Bert Richardson,117
+bexar:2031,DEM,Elizabeth Davis Frizell,563
+bexar:2031,REP,Bert Richardson,118
+bexar:2032,DEM,Elizabeth Davis Frizell,217
+bexar:2032,REP,Bert Richardson,65
+bexar:2033,DEM,Elizabeth Davis Frizell,259
+bexar:2033,REP,Bert Richardson,77
+bexar:2034,DEM,Elizabeth Davis Frizell,284
+bexar:2034,REP,Bert Richardson,86
+bexar:2035,DEM,Elizabeth Davis Frizell,712
+bexar:2035,REP,Bert Richardson,248
+bexar:2036,DEM,Elizabeth Davis Frizell,770
+bexar:2036,REP,Bert Richardson,469
+bexar:2039,DEM,Elizabeth Davis Frizell,691
+bexar:2039,REP,Bert Richardson,185
+bexar:2051,DEM,Elizabeth Davis Frizell,286
+bexar:2051,REP,Bert Richardson,118
+bexar:2052,DEM,Elizabeth Davis Frizell,374
+bexar:2052,REP,Bert Richardson,131
+bexar:2053,DEM,Elizabeth Davis Frizell,510
+bexar:2053,REP,Bert Richardson,163
+bexar:2054,DEM,Elizabeth Davis Frizell,980
+bexar:2054,REP,Bert Richardson,292
+bexar:2055,DEM,Elizabeth Davis Frizell,804
+bexar:2055,REP,Bert Richardson,296
+bexar:2067,DEM,Elizabeth Davis Frizell,138
+bexar:2067,REP,Bert Richardson,38
+bexar:2070,DEM,Elizabeth Davis Frizell,763
+bexar:2070,REP,Bert Richardson,146
+bexar:2071,DEM,Elizabeth Davis Frizell,262
+bexar:2071,REP,Bert Richardson,85
+bexar:2075,DEM,Elizabeth Davis Frizell,397
+bexar:2075,REP,Bert Richardson,88
+bexar:2079,DEM,Elizabeth Davis Frizell,242
+bexar:2079,REP,Bert Richardson,38
+bexar:2104,DEM,Elizabeth Davis Frizell,127
+bexar:2104,REP,Bert Richardson,33
+bexar:2105,DEM,Elizabeth Davis Frizell,224
+bexar:2105,REP,Bert Richardson,72
+bexar:2117,DEM,Elizabeth Davis Frizell,279
+bexar:2117,REP,Bert Richardson,69
+bexar:2152,DEM,Elizabeth Davis Frizell,226
+bexar:2152,REP,Bert Richardson,75
+bexar:3159,DEM,Elizabeth Davis Frizell,900
+bexar:3159,REP,Bert Richardson,558
+bexar:3204,DEM,Elizabeth Davis Frizell,0
+bexar:3204,REP,Bert Richardson,0
+bexar:3205,DEM,Elizabeth Davis Frizell,0
+bexar:3205,REP,Bert Richardson,0
+bexar:3206,DEM,Elizabeth Davis Frizell,80
+bexar:3206,REP,Bert Richardson,20
+bexar:3207,DEM,Elizabeth Davis Frizell,2
+bexar:3207,REP,Bert Richardson,1
+bexar:3208,DEM,Elizabeth Davis Frizell,38
+bexar:3208,REP,Bert Richardson,18
+bexar:4001,DEM,Elizabeth Davis Frizell,1326
+bexar:4001,REP,Bert Richardson,699
+bexar:4005,DEM,Elizabeth Davis Frizell,792
+bexar:4005,REP,Bert Richardson,213
+bexar:4006,DEM,Elizabeth Davis Frizell,299
+bexar:4006,REP,Bert Richardson,100
+bexar:4009,DEM,Elizabeth Davis Frizell,364
+bexar:4009,REP,Bert Richardson,84
+bexar:4010,DEM,Elizabeth Davis Frizell,558
+bexar:4010,REP,Bert Richardson,90
+bexar:4015,DEM,Elizabeth Davis Frizell,776
+bexar:4015,REP,Bert Richardson,209
+bexar:4017,DEM,Elizabeth Davis Frizell,1043
+bexar:4017,REP,Bert Richardson,307
+bexar:4018,DEM,Elizabeth Davis Frizell,574
+bexar:4018,REP,Bert Richardson,224
+bexar:4021,DEM,Elizabeth Davis Frizell,391
+bexar:4021,REP,Bert Richardson,253
+bexar:4035,DEM,Elizabeth Davis Frizell,12
+bexar:4035,REP,Bert Richardson,13
+bexar:4040,DEM,Elizabeth Davis Frizell,519
+bexar:4040,REP,Bert Richardson,125
+bexar:4042,DEM,Elizabeth Davis Frizell,94
+bexar:4042,REP,Bert Richardson,56
+bexar:4043,DEM,Elizabeth Davis Frizell,1166
+bexar:4043,REP,Bert Richardson,730
+bexar:4044,DEM,Elizabeth Davis Frizell,509
+bexar:4044,REP,Bert Richardson,294
+bexar:4045,DEM,Elizabeth Davis Frizell,914
+bexar:4045,REP,Bert Richardson,565
+bexar:4047,DEM,Elizabeth Davis Frizell,955
+bexar:4047,REP,Bert Richardson,551
+bexar:4049,DEM,Elizabeth Davis Frizell,922
+bexar:4049,REP,Bert Richardson,464
+bexar:4053,DEM,Elizabeth Davis Frizell,793
+bexar:4053,REP,Bert Richardson,582
+bexar:4054,DEM,Elizabeth Davis Frizell,1350
+bexar:4054,REP,Bert Richardson,1216
+bexar:4060,DEM,Elizabeth Davis Frizell,652
+bexar:4060,REP,Bert Richardson,484
+bexar:4061,DEM,Elizabeth Davis Frizell,901
+bexar:4061,REP,Bert Richardson,394
+bexar:4063,DEM,Elizabeth Davis Frizell,307
+bexar:4063,REP,Bert Richardson,193
+bexar:4064,DEM,Elizabeth Davis Frizell,781
+bexar:4064,REP,Bert Richardson,655
+bexar:4065,DEM,Elizabeth Davis Frizell,1601
+bexar:4065,REP,Bert Richardson,660
+bexar:4066,DEM,Elizabeth Davis Frizell,1358
+bexar:4066,REP,Bert Richardson,695
+bexar:4067,DEM,Elizabeth Davis Frizell,581
+bexar:4067,REP,Bert Richardson,442
+bexar:4068,DEM,Elizabeth Davis Frizell,295
+bexar:4068,REP,Bert Richardson,170
+bexar:4076,DEM,Elizabeth Davis Frizell,1287
+bexar:4076,REP,Bert Richardson,681
+bexar:4080,DEM,Elizabeth Davis Frizell,847
+bexar:4080,REP,Bert Richardson,454
+bexar:4082,DEM,Elizabeth Davis Frizell,738
+bexar:4082,REP,Bert Richardson,179
+bexar:4083,DEM,Elizabeth Davis Frizell,309
+bexar:4083,REP,Bert Richardson,232
+bexar:4087,DEM,Elizabeth Davis Frizell,1112
+bexar:4087,REP,Bert Richardson,619
+bexar:4088,DEM,Elizabeth Davis Frizell,1598
+bexar:4088,REP,Bert Richardson,793
+bexar:4091,DEM,Elizabeth Davis Frizell,424
+bexar:4091,REP,Bert Richardson,236
+bexar:4093,DEM,Elizabeth Davis Frizell,957
+bexar:4093,REP,Bert Richardson,777
+bexar:4096,DEM,Elizabeth Davis Frizell,903
+bexar:4096,REP,Bert Richardson,565
+bexar:4097,DEM,Elizabeth Davis Frizell,715
+bexar:4097,REP,Bert Richardson,700
+bexar:4099,DEM,Elizabeth Davis Frizell,470
+bexar:4099,REP,Bert Richardson,265
+bexar:4100,DEM,Elizabeth Davis Frizell,376
+bexar:4100,REP,Bert Richardson,300
+bexar:4102,DEM,Elizabeth Davis Frizell,307
+bexar:4102,REP,Bert Richardson,150
+bexar:4105,DEM,Elizabeth Davis Frizell,597
+bexar:4105,REP,Bert Richardson,795
+bexar:4106,DEM,Elizabeth Davis Frizell,174
+bexar:4106,REP,Bert Richardson,74
+bexar:4107,DEM,Elizabeth Davis Frizell,465
+bexar:4107,REP,Bert Richardson,433
+bexar:4109,DEM,Elizabeth Davis Frizell,544
+bexar:4109,REP,Bert Richardson,338
+bexar:4110,DEM,Elizabeth Davis Frizell,582
+bexar:4110,REP,Bert Richardson,213
+bexar:4111,DEM,Elizabeth Davis Frizell,166
+bexar:4111,REP,Bert Richardson,25
+bexar:4114,DEM,Elizabeth Davis Frizell,30
+bexar:4114,REP,Bert Richardson,15
+bexar:4119,DEM,Elizabeth Davis Frizell,292
+bexar:4119,REP,Bert Richardson,113
+bexar:4120,DEM,Elizabeth Davis Frizell,74
+bexar:4120,REP,Bert Richardson,37
+bexar:4122,DEM,Elizabeth Davis Frizell,38
+bexar:4122,REP,Bert Richardson,14
+bexar:4123,DEM,Elizabeth Davis Frizell,67
+bexar:4123,REP,Bert Richardson,24
+bexar:4125,DEM,Elizabeth Davis Frizell,27
+bexar:4125,REP,Bert Richardson,13
+bexar:4128,DEM,Elizabeth Davis Frizell,69
+bexar:4128,REP,Bert Richardson,49
+bexar:4131,DEM,Elizabeth Davis Frizell,159
+bexar:4131,REP,Bert Richardson,74
+bexar:4132,DEM,Elizabeth Davis Frizell,1052
+bexar:4132,REP,Bert Richardson,583
+bexar:4134,DEM,Elizabeth Davis Frizell,3
+bexar:4134,REP,Bert Richardson,1
+bexar:4135,DEM,Elizabeth Davis Frizell,0
+bexar:4135,REP,Bert Richardson,0
+bexar:4138,DEM,Elizabeth Davis Frizell,0
+bexar:4138,REP,Bert Richardson,0
+bexar:4139,DEM,Elizabeth Davis Frizell,1
+bexar:4139,REP,Bert Richardson,0
+bexar:4140,DEM,Elizabeth Davis Frizell,0
+bexar:4140,REP,Bert Richardson,0
+bexar:4142,DEM,Elizabeth Davis Frizell,282
+bexar:4142,REP,Bert Richardson,60
+bexar:4143,DEM,Elizabeth Davis Frizell,1963
+bexar:4143,REP,Bert Richardson,821
+bexar:4145,DEM,Elizabeth Davis Frizell,3
+bexar:4145,REP,Bert Richardson,2
+bexar:4146,DEM,Elizabeth Davis Frizell,11
+bexar:4146,REP,Bert Richardson,6
+bexar:4148,DEM,Elizabeth Davis Frizell,46
+bexar:4148,REP,Bert Richardson,51
+bexar:4149,DEM,Elizabeth Davis Frizell,158
+bexar:4149,REP,Bert Richardson,108
+bexar:4150,DEM,Elizabeth Davis Frizell,768
+bexar:4150,REP,Bert Richardson,391
+bexar:4152,DEM,Elizabeth Davis Frizell,756
+bexar:4152,REP,Bert Richardson,482
+bexar:4154,DEM,Elizabeth Davis Frizell,257
+bexar:4154,REP,Bert Richardson,180
+bexar:4155,DEM,Elizabeth Davis Frizell,1202
+bexar:4155,REP,Bert Richardson,388
+bexar:4156,DEM,Elizabeth Davis Frizell,474
+bexar:4156,REP,Bert Richardson,222
+bexar:4157,DEM,Elizabeth Davis Frizell,805
+bexar:4157,REP,Bert Richardson,205
+bexar:4158,DEM,Elizabeth Davis Frizell,188
+bexar:4158,REP,Bert Richardson,127
+bexar:4160,DEM,Elizabeth Davis Frizell,826
+bexar:4160,REP,Bert Richardson,370
+bexar:4161,DEM,Elizabeth Davis Frizell,350
+bexar:4161,REP,Bert Richardson,69
+bexar:4163,DEM,Elizabeth Davis Frizell,887
+bexar:4163,REP,Bert Richardson,471
+bexar:4166,DEM,Elizabeth Davis Frizell,154
+bexar:4166,REP,Bert Richardson,67
+bexar:4168,DEM,Elizabeth Davis Frizell,946
+bexar:4168,REP,Bert Richardson,451
+bexar:4175,DEM,Elizabeth Davis Frizell,0
+bexar:4175,REP,Bert Richardson,0
+bexar:4178,DEM,Elizabeth Davis Frizell,2
+bexar:4178,REP,Bert Richardson,0
+bexar:4181,DEM,Elizabeth Davis Frizell,0
+bexar:4181,REP,Bert Richardson,1
+bexar:4182,DEM,Elizabeth Davis Frizell,0
+bexar:4182,REP,Bert Richardson,0
+bexar:4183,DEM,Elizabeth Davis Frizell,51
+bexar:4183,REP,Bert Richardson,13
+bexar:4184,DEM,Elizabeth Davis Frizell,10
+bexar:4184,REP,Bert Richardson,1
+bexar:4185,DEM,Elizabeth Davis Frizell,0
+bexar:4185,REP,Bert Richardson,1
+bexar:4186,DEM,Elizabeth Davis Frizell,58
+bexar:4186,REP,Bert Richardson,15
+bexar:4189,DEM,Elizabeth Davis Frizell,382
+bexar:4189,REP,Bert Richardson,184
+bexar:4190,DEM,Elizabeth Davis Frizell,0
+bexar:4190,REP,Bert Richardson,2
+bexar:4191,DEM,Elizabeth Davis Frizell,1
+bexar:4191,REP,Bert Richardson,0
+bexar:4192,DEM,Elizabeth Davis Frizell,0
+bexar:4192,REP,Bert Richardson,0
+bexar:4193,DEM,Elizabeth Davis Frizell,26
+bexar:4193,REP,Bert Richardson,12
+bexar:4195,DEM,Elizabeth Davis Frizell,0
+bexar:4195,REP,Bert Richardson,0
+bexar:4196,DEM,Elizabeth Davis Frizell,0
+bexar:4196,REP,Bert Richardson,0
+bexar:4197,DEM,Elizabeth Davis Frizell,2
+bexar:4197,REP,Bert Richardson,1
+bexar:4198,DEM,Elizabeth Davis Frizell,688
+bexar:4198,REP,Bert Richardson,278
+bexar:4199,DEM,Elizabeth Davis Frizell,500
+bexar:4199,REP,Bert Richardson,320
+bexar:4203,DEM,Elizabeth Davis Frizell,207
+bexar:4203,REP,Bert Richardson,48
+bexar:4205,DEM,Elizabeth Davis Frizell,39
+bexar:4205,REP,Bert Richardson,42
+bexar:4211,DEM,Elizabeth Davis Frizell,19
+bexar:4211,REP,Bert Richardson,1
+bexar:4213,DEM,Elizabeth Davis Frizell,15
+bexar:4213,REP,Bert Richardson,11
+comal:201,DEM,Elizabeth Davis Frizell,1254
+comal:201,REP,Bert Richardson,2544
+comal:302,DEM,Elizabeth Davis Frizell,1304
+comal:302,REP,Bert Richardson,2267
+comal:304,DEM,Elizabeth Davis Frizell,1217
+comal:304,REP,Bert Richardson,1900
+comal:306,DEM,Elizabeth Davis Frizell,628
+comal:306,REP,Bert Richardson,1097
+hays:110,DEM,Elizabeth Davis Frizell,851
+hays:110,REP,Bert Richardson,664
+hays:111,DEM,Elizabeth Davis Frizell,166
+hays:111,REP,Bert Richardson,55
+hays:112,DEM,Elizabeth Davis Frizell,1072
+hays:112,REP,Bert Richardson,353
+hays:113,DEM,Elizabeth Davis Frizell,538
+hays:113,REP,Bert Richardson,217
+hays:114,DEM,Elizabeth Davis Frizell,744
+hays:114,REP,Bert Richardson,331
+hays:115,DEM,Elizabeth Davis Frizell,961
+hays:115,REP,Bert Richardson,378
+hays:120,DEM,Elizabeth Davis Frizell,519
+hays:120,REP,Bert Richardson,346
+hays:121,DEM,Elizabeth Davis Frizell,1111
+hays:121,REP,Bert Richardson,199
+hays:122,DEM,Elizabeth Davis Frizell,531
+hays:122,REP,Bert Richardson,124
+hays:123,DEM,Elizabeth Davis Frizell,541
+hays:123,REP,Bert Richardson,168
+hays:125,DEM,Elizabeth Davis Frizell,1362
+hays:125,REP,Bert Richardson,832
+hays:126,DEM,Elizabeth Davis Frizell,1210
+hays:126,REP,Bert Richardson,956
+hays:127,DEM,Elizabeth Davis Frizell,398
+hays:127,REP,Bert Richardson,319
+hays:128,DEM,Elizabeth Davis Frizell,1102
+hays:128,REP,Bert Richardson,809
+hays:129,DEM,Elizabeth Davis Frizell,1056
+hays:129,REP,Bert Richardson,641
+hays:130,DEM,Elizabeth Davis Frizell,1320
+hays:130,REP,Bert Richardson,739
+hays:220,DEM,Elizabeth Davis Frizell,1144
+hays:220,REP,Bert Richardson,1066
+hays:221,DEM,Elizabeth Davis Frizell,1070
+hays:221,REP,Bert Richardson,723
+hays:223,DEM,Elizabeth Davis Frizell,1028
+hays:223,REP,Bert Richardson,703
+hays:227,DEM,Elizabeth Davis Frizell,1304
+hays:227,REP,Bert Richardson,851
+hays:228,DEM,Elizabeth Davis Frizell,1753
+hays:228,REP,Bert Richardson,1130
+hays:229,DEM,Elizabeth Davis Frizell,784
+hays:229,REP,Bert Richardson,445
+hays:231,DEM,Elizabeth Davis Frizell,1450
+hays:231,REP,Bert Richardson,835
+hays:233,DEM,Elizabeth Davis Frizell,527
+hays:233,REP,Bert Richardson,350
+hays:234,DEM,Elizabeth Davis Frizell,437
+hays:234,REP,Bert Richardson,317
+hays:301,DEM,Elizabeth Davis Frizell,0
+hays:301,REP,Bert Richardson,0
+hays:316,DEM,Elizabeth Davis Frizell,686
+hays:316,REP,Bert Richardson,547
+hays:317,DEM,Elizabeth Davis Frizell,236
+hays:317,REP,Bert Richardson,66
+hays:318,DEM,Elizabeth Davis Frizell,66
+hays:318,REP,Bert Richardson,19
+hays:330,DEM,Elizabeth Davis Frizell,933
+hays:330,REP,Bert Richardson,355
+hays:334,DEM,Elizabeth Davis Frizell,1240
+hays:334,REP,Bert Richardson,365
+hays:340,DEM,Elizabeth Davis Frizell,857
+hays:340,REP,Bert Richardson,465
+hays:413,DEM,Elizabeth Davis Frizell,550
+hays:413,REP,Bert Richardson,122
+hays:414,DEM,Elizabeth Davis Frizell,722
+hays:414,REP,Bert Richardson,240
+hays:415,DEM,Elizabeth Davis Frizell,1184
+hays:415,REP,Bert Richardson,331
+hays:416,DEM,Elizabeth Davis Frizell,65
+hays:416,REP,Bert Richardson,36
+hays:418,DEM,Elizabeth Davis Frizell,1
+hays:418,REP,Bert Richardson,2
 travis:101,DEM,Elizabeth Davis Frizell,4304
 travis:101,REP,Bert Richardson,949
 travis:105,DEM,Elizabeth Davis Frizell,6408

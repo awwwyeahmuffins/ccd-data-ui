@@ -1,0 +1,436 @@
+precinct,party,candidate,votes
+harris:1000,,Over Votes,0
+harris:1000,,Under Votes,11
+harris:1000,DEM,Al Green,166
+harris:1000,LIB,Jose R. Sosa,8
+harris:1000,REP,Johnny Teague,44
+harris:1001,,Over Votes,0
+harris:1001,,Under Votes,48
+harris:1001,DEM,Al Green,671
+harris:1001,LIB,Jose R. Sosa,19
+harris:1001,REP,Johnny Teague,229
+harris:1002,,Over Votes,1
+harris:1002,,Under Votes,43
+harris:1002,DEM,Al Green,600
+harris:1002,LIB,Jose R. Sosa,30
+harris:1002,REP,Johnny Teague,163
+harris:1010,,Over Votes,0
+harris:1010,,Under Votes,21
+harris:1010,DEM,Al Green,599
+harris:1010,LIB,Jose R. Sosa,27
+harris:1010,REP,Johnny Teague,159
+harris:131,,Over Votes,0
+harris:131,,Under Votes,39
+harris:131,DEM,Al Green,1071
+harris:131,LIB,Jose R. Sosa,61
+harris:131,REP,Johnny Teague,283
+harris:132,,Over Votes,0
+harris:132,,Under Votes,21
+harris:132,DEM,Al Green,1298
+harris:132,LIB,Jose R. Sosa,18
+harris:132,REP,Johnny Teague,43
+harris:158,,Over Votes,0
+harris:158,,Under Votes,23
+harris:158,DEM,Al Green,1505
+harris:158,LIB,Jose R. Sosa,18
+harris:158,REP,Johnny Teague,37
+harris:216,,Over Votes,0
+harris:216,,Under Votes,30
+harris:216,DEM,Al Green,1008
+harris:216,LIB,Jose R. Sosa,40
+harris:216,REP,Johnny Teague,94
+harris:22,,Over Votes,0
+harris:22,,Under Votes,45
+harris:22,DEM,Al Green,1253
+harris:22,LIB,Jose R. Sosa,36
+harris:22,REP,Johnny Teague,212
+harris:223,,Over Votes,0
+harris:223,,Under Votes,54
+harris:223,DEM,Al Green,2054
+harris:223,LIB,Jose R. Sosa,92
+harris:223,REP,Johnny Teague,510
+harris:239,,Over Votes,0
+harris:239,,Under Votes,28
+harris:239,DEM,Al Green,923
+harris:239,LIB,Jose R. Sosa,23
+harris:239,REP,Johnny Teague,48
+harris:240,,Over Votes,0
+harris:240,,Under Votes,38
+harris:240,DEM,Al Green,1323
+harris:240,LIB,Jose R. Sosa,22
+harris:240,REP,Johnny Teague,53
+harris:243,,Over Votes,0
+harris:243,,Under Votes,2
+harris:243,DEM,Al Green,372
+harris:243,LIB,Jose R. Sosa,5
+harris:243,REP,Johnny Teague,7
+harris:271,,Over Votes,0
+harris:271,,Under Votes,32
+harris:271,DEM,Al Green,1637
+harris:271,LIB,Jose R. Sosa,14
+harris:271,REP,Johnny Teague,43
+harris:276,,Over Votes,0
+harris:276,,Under Votes,21
+harris:276,DEM,Al Green,1251
+harris:276,LIB,Jose R. Sosa,16
+harris:276,REP,Johnny Teague,29
+harris:284,,Over Votes,0
+harris:284,,Under Votes,103
+harris:284,DEM,Al Green,1392
+harris:284,LIB,Jose R. Sosa,97
+harris:284,REP,Johnny Teague,752
+harris:285,,Over Votes,1
+harris:285,,Under Votes,55
+harris:285,DEM,Al Green,1355
+harris:285,LIB,Jose R. Sosa,60
+harris:285,REP,Johnny Teague,156
+harris:286,,Over Votes,0
+harris:286,,Under Votes,64
+harris:286,DEM,Al Green,2153
+harris:286,LIB,Jose R. Sosa,88
+harris:286,REP,Johnny Teague,263
+harris:288,,Over Votes,0
+harris:288,,Under Votes,16
+harris:288,DEM,Al Green,1193
+harris:288,LIB,Jose R. Sosa,15
+harris:288,REP,Johnny Teague,31
+harris:291,,Over Votes,0
+harris:291,,Under Votes,28
+harris:291,DEM,Al Green,507
+harris:291,LIB,Jose R. Sosa,21
+harris:291,REP,Johnny Teague,317
+harris:292,,Over Votes,0
+harris:292,,Under Votes,23
+harris:292,DEM,Al Green,674
+harris:292,LIB,Jose R. Sosa,34
+harris:292,REP,Johnny Teague,128
+harris:293,,Over Votes,0
+harris:293,,Under Votes,38
+harris:293,DEM,Al Green,858
+harris:293,LIB,Jose R. Sosa,44
+harris:293,REP,Johnny Teague,481
+harris:294,,Over Votes,0
+harris:294,,Under Votes,30
+harris:294,DEM,Al Green,1063
+harris:294,LIB,Jose R. Sosa,21
+harris:294,REP,Johnny Teague,28
+harris:295,,Over Votes,0
+harris:295,,Under Votes,6
+harris:295,DEM,Al Green,414
+harris:295,LIB,Jose R. Sosa,10
+harris:295,REP,Johnny Teague,14
+harris:296,,Over Votes,0
+harris:296,,Under Votes,48
+harris:296,DEM,Al Green,547
+harris:296,LIB,Jose R. Sosa,33
+harris:296,REP,Johnny Teague,539
+harris:311,,Over Votes,0
+harris:311,,Under Votes,94
+harris:311,DEM,Al Green,886
+harris:311,LIB,Jose R. Sosa,58
+harris:311,REP,Johnny Teague,807
+harris:318,,Over Votes,1
+harris:318,,Under Votes,58
+harris:318,DEM,Al Green,2169
+harris:318,LIB,Jose R. Sosa,52
+harris:318,REP,Johnny Teague,168
+harris:319,,Over Votes,0
+harris:319,,Under Votes,35
+harris:319,DEM,Al Green,1186
+harris:319,LIB,Jose R. Sosa,37
+harris:319,REP,Johnny Teague,111
+harris:332,,Over Votes,0
+harris:332,,Under Votes,93
+harris:332,DEM,Al Green,1962
+harris:332,LIB,Jose R. Sosa,99
+harris:332,REP,Johnny Teague,336
+harris:336,,Over Votes,0
+harris:336,,Under Votes,79
+harris:336,DEM,Al Green,3844
+harris:336,LIB,Jose R. Sosa,134
+harris:336,REP,Johnny Teague,475
+harris:337,,Over Votes,0
+harris:337,,Under Votes,26
+harris:337,DEM,Al Green,523
+harris:337,LIB,Jose R. Sosa,25
+harris:337,REP,Johnny Teague,90
+harris:355,,Over Votes,0
+harris:355,,Under Votes,15
+harris:355,DEM,Al Green,1139
+harris:355,LIB,Jose R. Sosa,26
+harris:355,REP,Johnny Teague,131
+harris:359,,Over Votes,0
+harris:359,,Under Votes,45
+harris:359,DEM,Al Green,1230
+harris:359,LIB,Jose R. Sosa,48
+harris:359,REP,Johnny Teague,213
+harris:36,,Over Votes,1
+harris:36,,Under Votes,72
+harris:36,DEM,Al Green,1092
+harris:36,LIB,Jose R. Sosa,63
+harris:36,REP,Johnny Teague,504
+harris:372,,Over Votes,0
+harris:372,,Under Votes,15
+harris:372,DEM,Al Green,663
+harris:372,LIB,Jose R. Sosa,16
+harris:372,REP,Johnny Teague,109
+harris:379,,Over Votes,0
+harris:379,,Under Votes,38
+harris:379,DEM,Al Green,1055
+harris:379,LIB,Jose R. Sosa,48
+harris:379,REP,Johnny Teague,126
+harris:384,,Over Votes,0
+harris:384,,Under Votes,47
+harris:384,DEM,Al Green,1325
+harris:384,LIB,Jose R. Sosa,28
+harris:384,REP,Johnny Teague,478
+harris:392,,Over Votes,0
+harris:392,,Under Votes,12
+harris:392,DEM,Al Green,770
+harris:392,LIB,Jose R. Sosa,13
+harris:392,REP,Johnny Teague,21
+harris:402,,Over Votes,0
+harris:402,,Under Votes,29
+harris:402,DEM,Al Green,1202
+harris:402,LIB,Jose R. Sosa,22
+harris:402,REP,Johnny Teague,86
+harris:422,,Over Votes,0
+harris:422,,Under Votes,44
+harris:422,DEM,Al Green,1939
+harris:422,LIB,Jose R. Sosa,35
+harris:422,REP,Johnny Teague,75
+harris:425,,Over Votes,0
+harris:425,,Under Votes,19
+harris:425,DEM,Al Green,276
+harris:425,LIB,Jose R. Sosa,22
+harris:425,REP,Johnny Teague,97
+harris:426,,Over Votes,0
+harris:426,,Under Votes,30
+harris:426,DEM,Al Green,419
+harris:426,LIB,Jose R. Sosa,24
+harris:426,REP,Johnny Teague,372
+harris:427,,Over Votes,0
+harris:427,,Under Votes,43
+harris:427,DEM,Al Green,404
+harris:427,LIB,Jose R. Sosa,24
+harris:427,REP,Johnny Teague,252
+harris:429,,Over Votes,1
+harris:429,,Under Votes,80
+harris:429,DEM,Al Green,1134
+harris:429,LIB,Jose R. Sosa,63
+harris:429,REP,Johnny Teague,450
+harris:453,,Over Votes,0
+harris:453,,Under Votes,41
+harris:453,DEM,Al Green,935
+harris:453,LIB,Jose R. Sosa,58
+harris:453,REP,Johnny Teague,340
+harris:458,,Over Votes,0
+harris:458,,Under Votes,40
+harris:458,DEM,Al Green,1150
+harris:458,LIB,Jose R. Sosa,45
+harris:458,REP,Johnny Teague,94
+harris:462,,Over Votes,0
+harris:462,,Under Votes,63
+harris:462,DEM,Al Green,1661
+harris:462,LIB,Jose R. Sosa,75
+harris:462,REP,Johnny Teague,805
+harris:488,,Over Votes,0
+harris:488,,Under Votes,60
+harris:488,DEM,Al Green,975
+harris:488,LIB,Jose R. Sosa,56
+harris:488,REP,Johnny Teague,459
+harris:489,,Over Votes,0
+harris:489,,Under Votes,38
+harris:489,DEM,Al Green,950
+harris:489,LIB,Jose R. Sosa,60
+harris:489,REP,Johnny Teague,334
+harris:490,,Over Votes,1
+harris:490,,Under Votes,47
+harris:490,DEM,Al Green,1000
+harris:490,LIB,Jose R. Sosa,50
+harris:490,REP,Johnny Teague,432
+harris:506,,Over Votes,0
+harris:506,,Under Votes,69
+harris:506,DEM,Al Green,1993
+harris:506,LIB,Jose R. Sosa,61
+harris:506,REP,Johnny Teague,398
+harris:525,,Over Votes,1
+harris:525,,Under Votes,74
+harris:525,DEM,Al Green,1701
+harris:525,LIB,Jose R. Sosa,33
+harris:525,REP,Johnny Teague,481
+harris:540,,Over Votes,0
+harris:540,,Under Votes,55
+harris:540,DEM,Al Green,1446
+harris:540,LIB,Jose R. Sosa,52
+harris:540,REP,Johnny Teague,515
+harris:541,,Over Votes,0
+harris:541,,Under Votes,73
+harris:541,DEM,Al Green,2897
+harris:541,LIB,Jose R. Sosa,82
+harris:541,REP,Johnny Teague,472
+harris:542,,Over Votes,1
+harris:542,,Under Votes,76
+harris:542,DEM,Al Green,1464
+harris:542,LIB,Jose R. Sosa,84
+harris:542,REP,Johnny Teague,134
+harris:554,,Over Votes,1
+harris:554,,Under Votes,37
+harris:554,DEM,Al Green,759
+harris:554,LIB,Jose R. Sosa,27
+harris:554,REP,Johnny Teague,221
+harris:555,,Over Votes,0
+harris:555,,Under Votes,49
+harris:555,DEM,Al Green,840
+harris:555,LIB,Jose R. Sosa,38
+harris:555,REP,Johnny Teague,197
+harris:556,,Over Votes,0
+harris:556,,Under Votes,73
+harris:556,DEM,Al Green,984
+harris:556,LIB,Jose R. Sosa,55
+harris:556,REP,Johnny Teague,369
+harris:557,,Over Votes,0
+harris:557,,Under Votes,117
+harris:557,DEM,Al Green,1002
+harris:557,LIB,Jose R. Sosa,64
+harris:557,REP,Johnny Teague,643
+harris:564,,Over Votes,1
+harris:564,,Under Votes,41
+harris:564,DEM,Al Green,2052
+harris:564,LIB,Jose R. Sosa,81
+harris:564,REP,Johnny Teague,500
+harris:565,,Over Votes,0
+harris:565,,Under Votes,37
+harris:565,DEM,Al Green,395
+harris:565,LIB,Jose R. Sosa,27
+harris:565,REP,Johnny Teague,146
+harris:607,,Over Votes,0
+harris:607,,Under Votes,18
+harris:607,DEM,Al Green,466
+harris:607,LIB,Jose R. Sosa,13
+harris:607,REP,Johnny Teague,50
+harris:627,,Over Votes,0
+harris:627,,Under Votes,94
+harris:627,DEM,Al Green,1195
+harris:627,LIB,Jose R. Sosa,63
+harris:627,REP,Johnny Teague,528
+harris:630,,Over Votes,0
+harris:630,,Under Votes,57
+harris:630,DEM,Al Green,3706
+harris:630,LIB,Jose R. Sosa,86
+harris:630,REP,Johnny Teague,358
+harris:632,,Over Votes,0
+harris:632,,Under Votes,2
+harris:632,DEM,Al Green,2
+harris:632,LIB,Jose R. Sosa,0
+harris:632,REP,Johnny Teague,0
+harris:638,,Over Votes,1
+harris:638,,Under Votes,45
+harris:638,DEM,Al Green,1198
+harris:638,LIB,Jose R. Sosa,40
+harris:638,REP,Johnny Teague,130
+harris:649,,Over Votes,0
+harris:649,,Under Votes,124
+harris:649,DEM,Al Green,1942
+harris:649,LIB,Jose R. Sosa,96
+harris:649,REP,Johnny Teague,838
+harris:652,,Over Votes,0
+harris:652,,Under Votes,57
+harris:652,DEM,Al Green,1652
+harris:652,LIB,Jose R. Sosa,31
+harris:652,REP,Johnny Teague,386
+harris:68,,Over Votes,0
+harris:68,,Under Votes,41
+harris:68,DEM,Al Green,1848
+harris:68,LIB,Jose R. Sosa,33
+harris:68,REP,Johnny Teague,62
+harris:685,,Over Votes,0
+harris:685,,Under Votes,8
+harris:685,DEM,Al Green,62
+harris:685,LIB,Jose R. Sosa,4
+harris:685,REP,Johnny Teague,58
+harris:693,,Over Votes,0
+harris:693,,Under Votes,16
+harris:693,DEM,Al Green,363
+harris:693,LIB,Jose R. Sosa,23
+harris:693,REP,Johnny Teague,110
+harris:722,,Over Votes,1
+harris:722,,Under Votes,83
+harris:722,DEM,Al Green,2380
+harris:722,LIB,Jose R. Sosa,105
+harris:722,REP,Johnny Teague,197
+harris:749,,Over Votes,0
+harris:749,,Under Votes,8
+harris:749,DEM,Al Green,139
+harris:749,LIB,Jose R. Sosa,10
+harris:749,REP,Johnny Teague,38
+harris:754,,Over Votes,0
+harris:754,,Under Votes,25
+harris:754,DEM,Al Green,611
+harris:754,LIB,Jose R. Sosa,14
+harris:754,REP,Johnny Teague,48
+harris:798,,Over Votes,0
+harris:798,,Under Votes,9
+harris:798,DEM,Al Green,258
+harris:798,LIB,Jose R. Sosa,21
+harris:798,REP,Johnny Teague,142
+harris:829,,Over Votes,0
+harris:829,,Under Votes,1
+harris:829,DEM,Al Green,36
+harris:829,LIB,Jose R. Sosa,2
+harris:829,REP,Johnny Teague,24
+harris:830,,Over Votes,0
+harris:830,,Under Votes,2
+harris:830,DEM,Al Green,57
+harris:830,LIB,Jose R. Sosa,0
+harris:830,REP,Johnny Teague,22
+harris:863,,Over Votes,0
+harris:863,,Under Votes,7
+harris:863,DEM,Al Green,285
+harris:863,LIB,Jose R. Sosa,5
+harris:863,REP,Johnny Teague,24
+harris:869,,Over Votes,0
+harris:869,,Under Votes,11
+harris:869,DEM,Al Green,172
+harris:869,LIB,Jose R. Sosa,6
+harris:869,REP,Johnny Teague,44
+harris:893,,Over Votes,0
+harris:893,,Under Votes,0
+harris:893,DEM,Al Green,1
+harris:893,LIB,Jose R. Sosa,0
+harris:893,REP,Johnny Teague,1
+harris:943,,Over Votes,0
+harris:943,,Under Votes,20
+harris:943,DEM,Al Green,211
+harris:943,LIB,Jose R. Sosa,17
+harris:943,REP,Johnny Teague,91
+harris:969,,Over Votes,0
+harris:969,,Under Votes,8
+harris:969,DEM,Al Green,406
+harris:969,LIB,Jose R. Sosa,7
+harris:969,REP,Johnny Teague,6
+harris:984,,Over Votes,0
+harris:984,,Under Votes,2
+harris:984,DEM,Al Green,98
+harris:984,LIB,Jose R. Sosa,5
+harris:984,REP,Johnny Teague,16
+harris:985,,Over Votes,0
+harris:985,,Under Votes,4
+harris:985,DEM,Al Green,131
+harris:985,LIB,Jose R. Sosa,7
+harris:985,REP,Johnny Teague,107
+harris:986,,Over Votes,0
+harris:986,,Under Votes,10
+harris:986,DEM,Al Green,211
+harris:986,LIB,Jose R. Sosa,12
+harris:986,REP,Johnny Teague,42
+harris:994,,Over Votes,0
+harris:994,,Under Votes,2
+harris:994,DEM,Al Green,161
+harris:994,LIB,Jose R. Sosa,6
+harris:994,REP,Johnny Teague,54
+harris:995,,Over Votes,0
+harris:995,,Under Votes,27
+harris:995,DEM,Al Green,1209
+harris:995,LIB,Jose R. Sosa,38
+harris:995,REP,Johnny Teague,136

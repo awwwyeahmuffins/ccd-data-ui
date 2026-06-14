@@ -1,0 +1,93 @@
+precinct,party,candidate,votes
+anderson:1,LIB,R. Edwin Adams,126
+anderson:1,REP,Cody Harris,640
+anderson:10,LIB,R. Edwin Adams,20
+anderson:10,REP,Cody Harris,254
+anderson:11,LIB,R. Edwin Adams,81
+anderson:11,REP,Cody Harris,547
+anderson:13,LIB,R. Edwin Adams,126
+anderson:13,REP,Cody Harris,610
+anderson:15,LIB,R. Edwin Adams,39
+anderson:15,REP,Cody Harris,479
+anderson:16,LIB,R. Edwin Adams,66
+anderson:16,REP,Cody Harris,435
+anderson:17,LIB,R. Edwin Adams,53
+anderson:17,REP,Cody Harris,360
+anderson:18,LIB,R. Edwin Adams,81
+anderson:18,REP,Cody Harris,953
+anderson:19,LIB,R. Edwin Adams,142
+anderson:19,REP,Cody Harris,821
+anderson:2,LIB,R. Edwin Adams,85
+anderson:2,REP,Cody Harris,1186
+anderson:20,LIB,R. Edwin Adams,78
+anderson:20,REP,Cody Harris,452
+anderson:21,LIB,R. Edwin Adams,73
+anderson:21,REP,Cody Harris,845
+anderson:22,LIB,R. Edwin Adams,48
+anderson:22,REP,Cody Harris,583
+anderson:23,LIB,R. Edwin Adams,38
+anderson:23,REP,Cody Harris,738
+anderson:24,LIB,R. Edwin Adams,26
+anderson:24,REP,Cody Harris,492
+anderson:3,LIB,R. Edwin Adams,45
+anderson:3,REP,Cody Harris,583
+anderson:4,LIB,R. Edwin Adams,50
+anderson:4,REP,Cody Harris,804
+anderson:5,LIB,R. Edwin Adams,7
+anderson:5,REP,Cody Harris,162
+anderson:6,LIB,R. Edwin Adams,159
+anderson:6,REP,Cody Harris,329
+anderson:7,LIB,R. Edwin Adams,132
+anderson:7,REP,Cody Harris,131
+anderson:8,LIB,R. Edwin Adams,36
+anderson:8,REP,Cody Harris,69
+anderson:9,LIB,R. Edwin Adams,75
+anderson:9,REP,Cody Harris,596
+henderson:1CR,,Over Votes,0
+henderson:1CR,,Under Votes,45
+henderson:1CR,LIB,R. Edwin Adams,91
+henderson:1CR,REP,Cody Harris,1028
+henderson:3B,,Over Votes,0
+henderson:3B,,Under Votes,72
+henderson:3B,LIB,R. Edwin Adams,125
+henderson:3B,REP,Cody Harris,1446
+henderson:3C,,Over Votes,0
+henderson:3C,,Under Votes,91
+henderson:3C,LIB,R. Edwin Adams,131
+henderson:3C,REP,Cody Harris,948
+henderson:3CS,,Over Votes,0
+henderson:3CS,,Under Votes,67
+henderson:3CS,LIB,R. Edwin Adams,93
+henderson:3CS,REP,Cody Harris,975
+henderson:3M,,Over Votes,0
+henderson:3M,,Under Votes,45
+henderson:3M,LIB,R. Edwin Adams,71
+henderson:3M,REP,Cody Harris,733
+henderson:3N,,Over Votes,0
+henderson:3N,,Under Votes,26
+henderson:3N,LIB,R. Edwin Adams,43
+henderson:3N,REP,Cody Harris,597
+henderson:3WS,,Over Votes,0
+henderson:3WS,,Under Votes,43
+henderson:3WS,LIB,R. Edwin Adams,73
+henderson:3WS,REP,Cody Harris,579
+henderson:4LP,,Over Votes,0
+henderson:4LP,,Under Votes,81
+henderson:4LP,LIB,R. Edwin Adams,185
+henderson:4LP,REP,Cody Harris,1207
+henderson:4MS,,Over Votes,0
+henderson:4MS,,Under Votes,89
+henderson:4MS,LIB,R. Edwin Adams,110
+henderson:4MS,REP,Cody Harris,411
+henderson:4NLP,,Over Votes,0
+henderson:4NLP,,Under Votes,32
+henderson:4NLP,LIB,R. Edwin Adams,61
+henderson:4NLP,REP,Cody Harris,853
+henderson:4SE,,Over Votes,0
+henderson:4SE,,Under Votes,97
+henderson:4SE,LIB,R. Edwin Adams,201
+henderson:4SE,REP,Cody Harris,1781
+henderson:4W,,Over Votes,0
+henderson:4W,,Under Votes,43
+henderson:4W,LIB,R. Edwin Adams,67
+henderson:4W,REP,Cody Harris,500

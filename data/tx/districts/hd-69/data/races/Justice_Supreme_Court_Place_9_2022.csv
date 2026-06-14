@@ -1,4 +1,12 @@
 precinct,party,candidate,votes
+baylor:1,DEM,Julia Maldonado,22
+baylor:1,REP,Evan Young,338
+baylor:2,DEM,Julia Maldonado,23
+baylor:2,REP,Evan Young,301
+baylor:3,DEM,Julia Maldonado,30
+baylor:3,REP,Evan Young,248
+baylor:4,DEM,Julia Maldonado,31
+baylor:4,REP,Evan Young,280
 stonewall:1,,Evan Young,123
 stonewall:1,,Julia Maldonado,9
 stonewall:2,,Evan Young,127

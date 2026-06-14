@@ -1,0 +1,544 @@
+precinct,party,candidate,votes
+collin:24,DEM,Prince S. Giadolor,571
+collin:24,REP,Bob Hall,321
+collin:24,,Over Votes,0
+collin:24,,Under Votes,35
+collin:36,DEM,Prince S. Giadolor,442
+collin:36,REP,Bob Hall,804
+collin:36,,Over Votes,0
+collin:36,,Under Votes,50
+collin:48,DEM,Prince S. Giadolor,1077
+collin:48,REP,Bob Hall,1017
+collin:48,,Over Votes,0
+collin:48,,Under Votes,66
+collin:55,DEM,Prince S. Giadolor,1279
+collin:55,REP,Bob Hall,714
+collin:55,,Over Votes,0
+collin:55,,Under Votes,108
+collin:73,DEM,Prince S. Giadolor,543
+collin:73,REP,Bob Hall,324
+collin:73,,Over Votes,0
+collin:73,,Under Votes,39
+collin:74,DEM,Prince S. Giadolor,494
+collin:74,REP,Bob Hall,543
+collin:74,,Over Votes,0
+collin:74,,Under Votes,32
+collin:78,DEM,Prince S. Giadolor,1240
+collin:78,REP,Bob Hall,919
+collin:78,,Over Votes,0
+collin:78,,Under Votes,87
+collin:79,DEM,Prince S. Giadolor,597
+collin:79,REP,Bob Hall,679
+collin:79,,Over Votes,0
+collin:79,,Under Votes,49
+collin:84,DEM,Prince S. Giadolor,570
+collin:84,REP,Bob Hall,695
+collin:84,,Over Votes,0
+collin:84,,Under Votes,52
+collin:88,DEM,Prince S. Giadolor,476
+collin:88,REP,Bob Hall,191
+collin:88,,Over Votes,0
+collin:88,,Under Votes,30
+collin:94,DEM,Prince S. Giadolor,1262
+collin:94,REP,Bob Hall,1092
+collin:94,,Over Votes,0
+collin:94,,Under Votes,91
+collin:104,DEM,Prince S. Giadolor,542
+collin:104,REP,Bob Hall,274
+collin:104,,Over Votes,0
+collin:104,,Under Votes,31
+collin:110,DEM,Prince S. Giadolor,685
+collin:110,REP,Bob Hall,822
+collin:110,,Over Votes,0
+collin:110,,Under Votes,56
+collin:115,DEM,Prince S. Giadolor,846
+collin:115,REP,Bob Hall,797
+collin:115,,Over Votes,0
+collin:115,,Under Votes,86
+collin:125,DEM,Prince S. Giadolor,1389
+collin:125,REP,Bob Hall,1195
+collin:125,,Over Votes,0
+collin:125,,Under Votes,90
+collin:132,DEM,Prince S. Giadolor,850
+collin:132,REP,Bob Hall,699
+collin:132,,Over Votes,0
+collin:132,,Under Votes,56
+collin:136,DEM,Prince S. Giadolor,525
+collin:136,REP,Bob Hall,664
+collin:136,,Over Votes,0
+collin:136,,Under Votes,43
+collin:142,DEM,Prince S. Giadolor,865
+collin:142,REP,Bob Hall,796
+collin:142,,Over Votes,0
+collin:142,,Under Votes,80
+collin:164,DEM,Prince S. Giadolor,571
+collin:164,REP,Bob Hall,719
+collin:164,,Over Votes,0
+collin:164,,Under Votes,102
+dallas:1139,DEM,Prince S. Giadolor,2
+dallas:1139,REP,Bob Hall,3
+dallas:1302,,Under Votes,14
+dallas:1302,DEM,Prince S. Giadolor,562
+dallas:1302,REP,Bob Hall,314
+dallas:1324,,Under Votes,21
+dallas:1324,DEM,Prince S. Giadolor,682
+dallas:1324,REP,Bob Hall,687
+dallas:1325,,Under Votes,18
+dallas:1325,DEM,Prince S. Giadolor,599
+dallas:1325,REP,Bob Hall,694
+dallas:1326,,Under Votes,10
+dallas:1326,DEM,Prince S. Giadolor,335
+dallas:1326,REP,Bob Hall,329
+dallas:1700,,Under Votes,15
+dallas:1700,DEM,Prince S. Giadolor,435
+dallas:1700,REP,Bob Hall,303
+dallas:1701,,Under Votes,12
+dallas:1701,DEM,Prince S. Giadolor,454
+dallas:1701,REP,Bob Hall,376
+dallas:1702,,Under Votes,20
+dallas:1702,DEM,Prince S. Giadolor,569
+dallas:1702,REP,Bob Hall,473
+dallas:1703,,Under Votes,29
+dallas:1703,DEM,Prince S. Giadolor,695
+dallas:1703,REP,Bob Hall,459
+dallas:1704,,Under Votes,10
+dallas:1704,DEM,Prince S. Giadolor,335
+dallas:1704,REP,Bob Hall,230
+dallas:1705,,Under Votes,15
+dallas:1705,DEM,Prince S. Giadolor,489
+dallas:1705,REP,Bob Hall,345
+dallas:1706,,Under Votes,21
+dallas:1706,DEM,Prince S. Giadolor,583
+dallas:1706,REP,Bob Hall,413
+dallas:1707,,Under Votes,3
+dallas:1707,DEM,Prince S. Giadolor,90
+dallas:1707,REP,Bob Hall,32
+dallas:1708,,Under Votes,4
+dallas:1708,DEM,Prince S. Giadolor,193
+dallas:1708,REP,Bob Hall,125
+dallas:1709,,Under Votes,17
+dallas:1709,DEM,Prince S. Giadolor,875
+dallas:1709,REP,Bob Hall,367
+dallas:1710,,Under Votes,17
+dallas:1710,DEM,Prince S. Giadolor,374
+dallas:1710,REP,Bob Hall,75
+dallas:1711,,Under Votes,14
+dallas:1711,DEM,Prince S. Giadolor,438
+dallas:1711,REP,Bob Hall,314
+dallas:1712,,Under Votes,21
+dallas:1712,DEM,Prince S. Giadolor,490
+dallas:1712,REP,Bob Hall,509
+dallas:1713,,Under Votes,7
+dallas:1713,DEM,Prince S. Giadolor,205
+dallas:1713,REP,Bob Hall,276
+dallas:1714,,Under Votes,8
+dallas:1714,DEM,Prince S. Giadolor,419
+dallas:1714,REP,Bob Hall,383
+dallas:1715,,Under Votes,9
+dallas:1715,DEM,Prince S. Giadolor,285
+dallas:1715,REP,Bob Hall,166
+dallas:1716,,Under Votes,24
+dallas:1716,DEM,Prince S. Giadolor,512
+dallas:1716,REP,Bob Hall,727
+dallas:1717,,Under Votes,29
+dallas:1717,DEM,Prince S. Giadolor,762
+dallas:1717,REP,Bob Hall,582
+dallas:1718,,Under Votes,13
+dallas:1718,DEM,Prince S. Giadolor,353
+dallas:1718,REP,Bob Hall,373
+dallas:1719,,Under Votes,16
+dallas:1719,DEM,Prince S. Giadolor,604
+dallas:1719,REP,Bob Hall,391
+dallas:1720,,Under Votes,28
+dallas:1720,DEM,Prince S. Giadolor,680
+dallas:1720,REP,Bob Hall,547
+dallas:1721,,Under Votes,18
+dallas:1721,DEM,Prince S. Giadolor,515
+dallas:1721,REP,Bob Hall,549
+dallas:1722,,Under Votes,13
+dallas:1722,DEM,Prince S. Giadolor,704
+dallas:1722,REP,Bob Hall,385
+dallas:1723,,Under Votes,1
+dallas:1723,DEM,Prince S. Giadolor,33
+dallas:1723,REP,Bob Hall,20
+dallas:1724,DEM,Prince S. Giadolor,38
+dallas:1724,REP,Bob Hall,16
+dallas:1725,,Under Votes,6
+dallas:1725,DEM,Prince S. Giadolor,124
+dallas:1725,REP,Bob Hall,170
+dallas:1726,,Under Votes,17
+dallas:1726,DEM,Prince S. Giadolor,447
+dallas:1726,REP,Bob Hall,324
+dallas:1727,,Under Votes,3
+dallas:1727,DEM,Prince S. Giadolor,58
+dallas:1727,REP,Bob Hall,35
+dallas:1728,,Under Votes,8
+dallas:1728,DEM,Prince S. Giadolor,289
+dallas:1728,REP,Bob Hall,287
+dallas:1729,,Under Votes,6
+dallas:1729,DEM,Prince S. Giadolor,361
+dallas:1729,REP,Bob Hall,218
+dallas:1732,,Under Votes,9
+dallas:1732,DEM,Prince S. Giadolor,269
+dallas:1732,REP,Bob Hall,231
+dallas:1733,,Under Votes,28
+dallas:1733,DEM,Prince S. Giadolor,782
+dallas:1733,REP,Bob Hall,699
+dallas:1734,,Under Votes,12
+dallas:1734,DEM,Prince S. Giadolor,326
+dallas:1734,REP,Bob Hall,381
+dallas:1735,,Under Votes,39
+dallas:1735,DEM,Prince S. Giadolor,1166
+dallas:1735,REP,Bob Hall,1307
+dallas:1736,,Under Votes,17
+dallas:1736,DEM,Prince S. Giadolor,405
+dallas:1736,REP,Bob Hall,700
+dallas:1737,,Under Votes,64
+dallas:1737,DEM,Prince S. Giadolor,1091
+dallas:1737,REP,Bob Hall,1878
+dallas:1738,,Under Votes,12
+dallas:1738,DEM,Prince S. Giadolor,645
+dallas:1738,REP,Bob Hall,537
+dallas:1739,,Under Votes,22
+dallas:1739,DEM,Prince S. Giadolor,727
+dallas:1739,REP,Bob Hall,634
+dallas:1740,,Under Votes,22
+dallas:1740,DEM,Prince S. Giadolor,1060
+dallas:1740,REP,Bob Hall,835
+dallas:1741,,Under Votes,35
+dallas:1741,DEM,Prince S. Giadolor,1130
+dallas:1741,REP,Bob Hall,1003
+dallas:1742,,Under Votes,28
+dallas:1742,DEM,Prince S. Giadolor,1172
+dallas:1742,REP,Bob Hall,793
+dallas:1743,,Under Votes,25
+dallas:1743,DEM,Prince S. Giadolor,1097
+dallas:1743,REP,Bob Hall,822
+dallas:1744,DEM,Prince S. Giadolor,13
+dallas:1744,REP,Bob Hall,23
+dallas:1745,,Under Votes,12
+dallas:1745,DEM,Prince S. Giadolor,603
+dallas:1745,REP,Bob Hall,549
+dallas:1746,,Under Votes,13
+dallas:1746,DEM,Prince S. Giadolor,413
+dallas:1746,REP,Bob Hall,303
+dallas:1747,,Under Votes,13
+dallas:1747,DEM,Prince S. Giadolor,690
+dallas:1747,REP,Bob Hall,594
+dallas:1748,,Under Votes,15
+dallas:1748,DEM,Prince S. Giadolor,561
+dallas:1748,REP,Bob Hall,321
+dallas:1749,,Under Votes,22
+dallas:1749,DEM,Prince S. Giadolor,933
+dallas:1749,REP,Bob Hall,639
+dallas:1750,,Under Votes,23
+dallas:1750,DEM,Prince S. Giadolor,689
+dallas:1750,REP,Bob Hall,715
+dallas:1751,,Under Votes,41
+dallas:1751,DEM,Prince S. Giadolor,1478
+dallas:1751,REP,Bob Hall,1300
+dallas:1752,,Under Votes,32
+dallas:1752,DEM,Prince S. Giadolor,964
+dallas:1752,REP,Bob Hall,747
+dallas:2042,,Under Votes,41
+dallas:2042,DEM,Prince S. Giadolor,1127
+dallas:2042,REP,Bob Hall,873
+dallas:2043,,Under Votes,37
+dallas:2043,DEM,Prince S. Giadolor,750
+dallas:2043,REP,Bob Hall,639
+dallas:2044,,Under Votes,20
+dallas:2044,DEM,Prince S. Giadolor,337
+dallas:2044,REP,Bob Hall,314
+dallas:2045,,Under Votes,33
+dallas:2045,DEM,Prince S. Giadolor,726
+dallas:2045,REP,Bob Hall,565
+dallas:2046,,Under Votes,38
+dallas:2046,DEM,Prince S. Giadolor,554
+dallas:2046,REP,Bob Hall,627
+dallas:2047,,Under Votes,41
+dallas:2047,DEM,Prince S. Giadolor,750
+dallas:2047,REP,Bob Hall,790
+dallas:2501,,Under Votes,42
+dallas:2501,DEM,Prince S. Giadolor,410
+dallas:2501,REP,Bob Hall,485
+dallas:2502,,Under Votes,62
+dallas:2502,DEM,Prince S. Giadolor,464
+dallas:2502,REP,Bob Hall,806
+dallas:2504,,Under Votes,47
+dallas:2504,DEM,Prince S. Giadolor,365
+dallas:2504,REP,Bob Hall,404
+dallas:2505,,Under Votes,65
+dallas:2505,DEM,Prince S. Giadolor,628
+dallas:2505,REP,Bob Hall,475
+dallas:2508,,Under Votes,71
+dallas:2508,DEM,Prince S. Giadolor,994
+dallas:2508,REP,Bob Hall,528
+dallas:2509,,Under Votes,110
+dallas:2509,DEM,Prince S. Giadolor,834
+dallas:2509,REP,Bob Hall,947
+dallas:2510,,Under Votes,51
+dallas:2510,DEM,Prince S. Giadolor,590
+dallas:2510,REP,Bob Hall,414
+dallas:2511,,Under Votes,74
+dallas:2511,DEM,Prince S. Giadolor,568
+dallas:2511,REP,Bob Hall,556
+dallas:2515,,Under Votes,21
+dallas:2515,DEM,Prince S. Giadolor,232
+dallas:2515,REP,Bob Hall,194
+dallas:3304,,Under Votes,22
+dallas:3304,DEM,Prince S. Giadolor,642
+dallas:3304,REP,Bob Hall,614
+dallas:3305,,Under Votes,41
+dallas:3305,DEM,Prince S. Giadolor,910
+dallas:3305,REP,Bob Hall,809
+dallas:3500,,Under Votes,47
+dallas:3500,DEM,Prince S. Giadolor,731
+dallas:3500,REP,Bob Hall,1481
+dallas:3501,DEM,Prince S. Giadolor,1
+dallas:3501,REP,Bob Hall,5
+dallas:3503,,Under Votes,12
+dallas:3503,DEM,Prince S. Giadolor,199
+dallas:3503,REP,Bob Hall,497
+dallas:3504,,Under Votes,11
+dallas:3504,DEM,Prince S. Giadolor,145
+dallas:3504,REP,Bob Hall,364
+dallas:3701,REP,Bob Hall,3
+dallas:3920,DEM,Prince S. Giadolor,353
+dallas:3920,REP,Bob Hall,585
+dallas:3920,,Under Votes,15
+dallas:3921,,Under Votes,25
+dallas:3921,DEM,Prince S. Giadolor,1061
+dallas:3921,REP,Bob Hall,830
+dallas:3960,,Under Votes,24
+dallas:3960,DEM,Prince S. Giadolor,796
+dallas:3960,REP,Bob Hall,1035
+dallas:3961,,Under Votes,13
+dallas:3961,DEM,Prince S. Giadolor,648
+dallas:3961,REP,Bob Hall,739
+dallas:3962,,Under Votes,39
+dallas:3962,DEM,Prince S. Giadolor,1171
+dallas:3962,REP,Bob Hall,1350
+dallas:3963,,Under Votes,13
+dallas:3963,DEM,Prince S. Giadolor,511
+dallas:3963,REP,Bob Hall,715
+dallas:3964,,Under Votes,28
+dallas:3964,DEM,Prince S. Giadolor,546
+dallas:3964,REP,Bob Hall,524
+dallas:3965,,Under Votes,29
+dallas:3965,DEM,Prince S. Giadolor,790
+dallas:3965,REP,Bob Hall,834
+dallas:3966,,Under Votes,28
+dallas:3966,DEM,Prince S. Giadolor,821
+dallas:3966,REP,Bob Hall,899
+dallas:3967,,Under Votes,7
+dallas:3967,DEM,Prince S. Giadolor,351
+dallas:3967,REP,Bob Hall,375
+dallas:3968,,Under Votes,20
+dallas:3968,DEM,Prince S. Giadolor,909
+dallas:3968,REP,Bob Hall,1015
+dallas:3969,,Under Votes,24
+dallas:3969,DEM,Prince S. Giadolor,573
+dallas:3969,REP,Bob Hall,1159
+dallas:3970,,Under Votes,33
+dallas:3970,DEM,Prince S. Giadolor,769
+dallas:3970,REP,Bob Hall,1196
+dallas:3971,,Under Votes,17
+dallas:3971,DEM,Prince S. Giadolor,618
+dallas:3971,REP,Bob Hall,700
+dallas:3980,,Under Votes,22
+dallas:3980,DEM,Prince S. Giadolor,726
+dallas:3980,REP,Bob Hall,1021
+dallas:3981,,Under Votes,15
+dallas:3981,DEM,Prince S. Giadolor,290
+dallas:3981,REP,Bob Hall,572
+dallas:3982,,Under Votes,21
+dallas:3982,DEM,Prince S. Giadolor,735
+dallas:3982,REP,Bob Hall,1180
+dallas:3983,,Under Votes,15
+dallas:3983,DEM,Prince S. Giadolor,477
+dallas:3983,REP,Bob Hall,762
+dallas:3984,,Under Votes,12
+dallas:3984,DEM,Prince S. Giadolor,282
+dallas:3984,REP,Bob Hall,425
+ellis:1002,,Over Votes,0
+ellis:1002,,Under Votes,1
+ellis:1002,DEM,Prince S. Giadolor,17
+ellis:1002,REP,Bob Hall,85
+ellis:1005,,Over Votes,0
+ellis:1005,,Under Votes,84
+ellis:1005,DEM,Prince S. Giadolor,613
+ellis:1005,REP,Bob Hall,1362
+ellis:1006,,Over Votes,0
+ellis:1006,,Under Votes,87
+ellis:1006,DEM,Prince S. Giadolor,806
+ellis:1006,REP,Bob Hall,1158
+ellis:1007,,Over Votes,0
+ellis:1007,,Under Votes,34
+ellis:1007,DEM,Prince S. Giadolor,249
+ellis:1007,REP,Bob Hall,824
+ellis:1008,,Over Votes,0
+ellis:1008,,Under Votes,3
+ellis:1008,DEM,Prince S. Giadolor,16
+ellis:1008,REP,Bob Hall,45
+ellis:1009,,Over Votes,0
+ellis:1009,,Under Votes,56
+ellis:1009,DEM,Prince S. Giadolor,312
+ellis:1009,REP,Bob Hall,1336
+ellis:1012,,Over Votes,0
+ellis:1012,,Under Votes,90
+ellis:1012,DEM,Prince S. Giadolor,597
+ellis:1012,REP,Bob Hall,840
+ellis:1013,,Over Votes,0
+ellis:1013,,Under Votes,51
+ellis:1013,DEM,Prince S. Giadolor,243
+ellis:1013,REP,Bob Hall,632
+ellis:1014,,Over Votes,0
+ellis:1014,,Under Votes,34
+ellis:1014,DEM,Prince S. Giadolor,169
+ellis:1014,REP,Bob Hall,980
+ellis:1015,,Over Votes,0
+ellis:1015,,Under Votes,50
+ellis:1015,DEM,Prince S. Giadolor,286
+ellis:1015,REP,Bob Hall,1091
+ellis:1016,,Over Votes,0
+ellis:1016,,Under Votes,38
+ellis:1016,DEM,Prince S. Giadolor,262
+ellis:1016,REP,Bob Hall,218
+ellis:1017,,Over Votes,0
+ellis:1017,,Under Votes,44
+ellis:1017,DEM,Prince S. Giadolor,369
+ellis:1017,REP,Bob Hall,966
+ellis:1018,,Over Votes,0
+ellis:1018,,Under Votes,42
+ellis:1018,DEM,Prince S. Giadolor,367
+ellis:1018,REP,Bob Hall,403
+ellis:1019,,Over Votes,0
+ellis:1019,,Under Votes,56
+ellis:1019,DEM,Prince S. Giadolor,254
+ellis:1019,REP,Bob Hall,960
+ellis:1020,,Over Votes,0
+ellis:1020,,Under Votes,34
+ellis:1020,DEM,Prince S. Giadolor,172
+ellis:1020,REP,Bob Hall,762
+ellis:1021,,Over Votes,0
+ellis:1021,,Under Votes,18
+ellis:1021,DEM,Prince S. Giadolor,134
+ellis:1021,REP,Bob Hall,688
+ellis:1022,,Over Votes,0
+ellis:1022,,Under Votes,60
+ellis:1022,DEM,Prince S. Giadolor,417
+ellis:1022,REP,Bob Hall,1054
+ellis:1029,,Over Votes,0
+ellis:1029,,Under Votes,15
+ellis:1029,DEM,Prince S. Giadolor,47
+ellis:1029,REP,Bob Hall,254
+ellis:1030,,Over Votes,0
+ellis:1030,,Under Votes,23
+ellis:1030,DEM,Prince S. Giadolor,207
+ellis:1030,REP,Bob Hall,735
+ellis:1044,,Over Votes,0
+ellis:1044,,Under Votes,11
+ellis:1044,DEM,Prince S. Giadolor,61
+ellis:1044,REP,Bob Hall,295
+ellis:1045,,Over Votes,0
+ellis:1045,,Under Votes,2
+ellis:1045,DEM,Prince S. Giadolor,12
+ellis:1045,REP,Bob Hall,93
+ellis:1046,,Over Votes,0
+ellis:1046,,Under Votes,7
+ellis:1046,DEM,Prince S. Giadolor,69
+ellis:1046,REP,Bob Hall,194
+ellis:1047,,Over Votes,0
+ellis:1047,,Under Votes,9
+ellis:1047,DEM,Prince S. Giadolor,38
+ellis:1047,REP,Bob Hall,151
+ellis:1048,,Over Votes,0
+ellis:1048,,Under Votes,43
+ellis:1048,DEM,Prince S. Giadolor,337
+ellis:1048,REP,Bob Hall,830
+ellis:1049,,Over Votes,0
+ellis:1049,,Under Votes,9
+ellis:1049,DEM,Prince S. Giadolor,76
+ellis:1049,REP,Bob Hall,295
+kaufman:1,DEM,Prince S. Giadolor,366
+kaufman:1,REP,Bob Hall,846
+kaufman:10,DEM,Prince S. Giadolor,169
+kaufman:10,REP,Bob Hall,1241
+kaufman:11,DEM,Prince S. Giadolor,239
+kaufman:11,REP,Bob Hall,631
+kaufman:12,DEM,Prince S. Giadolor,108
+kaufman:12,REP,Bob Hall,840
+kaufman:13,DEM,Prince S. Giadolor,797
+kaufman:13,REP,Bob Hall,917
+kaufman:14,DEM,Prince S. Giadolor,1054
+kaufman:14,REP,Bob Hall,790
+kaufman:15,DEM,Prince S. Giadolor,197
+kaufman:15,REP,Bob Hall,1221
+kaufman:16,DEM,Prince S. Giadolor,205
+kaufman:16,REP,Bob Hall,1426
+kaufman:17,DEM,Prince S. Giadolor,145
+kaufman:17,REP,Bob Hall,890
+kaufman:18,DEM,Prince S. Giadolor,235
+kaufman:18,REP,Bob Hall,982
+kaufman:19,DEM,Prince S. Giadolor,384
+kaufman:19,REP,Bob Hall,894
+kaufman:2,DEM,Prince S. Giadolor,115
+kaufman:2,REP,Bob Hall,646
+kaufman:20,DEM,Prince S. Giadolor,139
+kaufman:20,REP,Bob Hall,567
+kaufman:21,DEM,Prince S. Giadolor,200
+kaufman:21,REP,Bob Hall,1057
+kaufman:22,DEM,Prince S. Giadolor,105
+kaufman:22,REP,Bob Hall,631
+kaufman:23,DEM,Prince S. Giadolor,180
+kaufman:23,REP,Bob Hall,609
+kaufman:24,DEM,Prince S. Giadolor,182
+kaufman:24,REP,Bob Hall,535
+kaufman:25,DEM,Prince S. Giadolor,119
+kaufman:25,REP,Bob Hall,264
+kaufman:26,DEM,Prince S. Giadolor,350
+kaufman:26,REP,Bob Hall,177
+kaufman:27,DEM,Prince S. Giadolor,684
+kaufman:27,REP,Bob Hall,1252
+kaufman:28,DEM,Prince S. Giadolor,191
+kaufman:28,REP,Bob Hall,695
+kaufman:29,DEM,Prince S. Giadolor,1023
+kaufman:29,REP,Bob Hall,599
+kaufman:3,DEM,Prince S. Giadolor,604
+kaufman:3,REP,Bob Hall,1201
+kaufman:30,DEM,Prince S. Giadolor,180
+kaufman:30,REP,Bob Hall,770
+kaufman:31,DEM,Prince S. Giadolor,302
+kaufman:31,REP,Bob Hall,369
+kaufman:32,DEM,Prince S. Giadolor,407
+kaufman:32,REP,Bob Hall,825
+kaufman:33,DEM,Prince S. Giadolor,62
+kaufman:33,REP,Bob Hall,66
+kaufman:34,DEM,Prince S. Giadolor,552
+kaufman:34,REP,Bob Hall,1088
+kaufman:35,DEM,Prince S. Giadolor,878
+kaufman:35,REP,Bob Hall,683
+kaufman:36,DEM,Prince S. Giadolor,469
+kaufman:36,REP,Bob Hall,850
+kaufman:37,DEM,Prince S. Giadolor,513
+kaufman:37,REP,Bob Hall,424
+kaufman:4,DEM,Prince S. Giadolor,246
+kaufman:4,REP,Bob Hall,951
+kaufman:5,DEM,Prince S. Giadolor,433
+kaufman:5,REP,Bob Hall,197
+kaufman:6,DEM,Prince S. Giadolor,190
+kaufman:6,REP,Bob Hall,1004
+kaufman:7,DEM,Prince S. Giadolor,850
+kaufman:7,REP,Bob Hall,1101
+kaufman:8,DEM,Prince S. Giadolor,303
+kaufman:8,REP,Bob Hall,547
+kaufman:9,DEM,Prince S. Giadolor,189
+kaufman:9,REP,Bob Hall,809
+rockwall:1,DEM,Prince S. Giadolor,3099
+rockwall:1,REP,Bob Hall,8757
+rockwall:2,DEM,Prince S. Giadolor,3017
+rockwall:2,REP,Bob Hall,6337
+rockwall:3,DEM,Prince S. Giadolor,2600
+rockwall:3,REP,Bob Hall,9546
+rockwall:4,DEM,Prince S. Giadolor,2745
+rockwall:4,REP,Bob Hall,6444

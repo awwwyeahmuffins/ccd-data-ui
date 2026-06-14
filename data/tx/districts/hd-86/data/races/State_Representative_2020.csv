@@ -1,0 +1,13 @@
+precinct,party,candidate,votes
+deaf-smith:1,,Overvotes:,0
+deaf-smith:1,,Undervotes:,181
+deaf-smith:1,REP,John Smithee,655
+deaf-smith:2,,Overvotes:,0
+deaf-smith:2,,Undervotes:,226
+deaf-smith:2,REP,John Smithee,665
+deaf-smith:3,,Overvotes:,0
+deaf-smith:3,,Undervotes:,210
+deaf-smith:3,REP,John Smithee,1675
+deaf-smith:4,,Overvotes:,0
+deaf-smith:4,,Undervotes:,219
+deaf-smith:4,REP,John Smithee,810

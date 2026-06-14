@@ -4,27 +4,15 @@
   "boundarySet": "members",
   "elections": [
     {
-      "id": "attorney-general-2022",
-      "displayName": "Attorney General (2022)",
-      "office": "Attorney General",
-      "district": null,
+      "id": "state-representative-2022",
+      "displayName": "State Representative District 54 (2022)",
+      "office": "State Representative",
+      "district": "54",
       "year": 2022,
       "date": "2022-11-08",
       "category": "State",
-      "raceFile": "races/Attorney_General_2022.csv",
-      "turnoutFile": "turnout/Attorney_General_2022.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "comm-general-land-office-2022",
-      "displayName": "Comm General Land Office (2022)",
-      "office": "Comm. General Land Office",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "County",
-      "raceFile": "races/Comm_General_Land_Office_2022.csv",
-      "turnoutFile": "turnout/Comm_General_Land_Office_2022.csv",
+      "raceFile": "races/State_Representative_2022.csv",
+      "turnoutFile": "turnout/State_Representative_2022.csv",
       "sourceUrl": null
     },
     {
@@ -37,6 +25,18 @@
       "category": "State",
       "raceFile": "races/Commissioner_of_Agriculture_2022.csv",
       "turnoutFile": "turnout/Commissioner_of_Agriculture_2022.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "attorney-general-2022",
+      "displayName": "Attorney General (2022)",
+      "office": "Attorney General",
+      "district": null,
+      "year": 2022,
+      "date": "2022-11-08",
+      "category": "State",
+      "raceFile": "races/Attorney_General_2022.csv",
+      "turnoutFile": "turnout/Attorney_General_2022.csv",
       "sourceUrl": null
     },
     {
@@ -61,6 +61,18 @@
       "category": "State",
       "raceFile": "races/Governor_2022.csv",
       "turnoutFile": "turnout/Governor_2022.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "commissioner-of-the-general-land-office-2022",
+      "displayName": "Commissioner of the General Land Office (2022)",
+      "office": "Commissioner of the General Land Office",
+      "district": null,
+      "year": 2022,
+      "date": "2022-11-08",
+      "category": "County",
+      "raceFile": "races/Commissioner_of_the_General_Land_Office_2022.csv",
+      "turnoutFile": "turnout/Commissioner_of_the_General_Land_Office_2022.csv",
       "sourceUrl": null
     },
     {

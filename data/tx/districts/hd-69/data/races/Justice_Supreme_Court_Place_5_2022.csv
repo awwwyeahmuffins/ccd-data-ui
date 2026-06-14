@@ -1,4 +1,12 @@
 precinct,party,candidate,votes
+baylor:1,DEM,Amanda Reichek,20
+baylor:1,REP,Rebeca Huddle,340
+baylor:2,DEM,Amanda Reichek,28
+baylor:2,REP,Rebeca Huddle,295
+baylor:3,DEM,Amanda Reichek,29
+baylor:3,REP,Rebeca Huddle,247
+baylor:4,DEM,Amanda Reichek,31
+baylor:4,REP,Rebeca Huddle,278
 stonewall:1,,Amanda Reichek,12
 stonewall:1,,Rebeca Huddle,121
 stonewall:2,,Amanda Reichek,24

@@ -1,4 +1,196 @@
 precinct,party,candidate,votes
+brown:101,,Kevin Patrick Yeary,1462
+brown:101,,Tina Clinton,237
+brown:105,,Kevin Patrick Yeary,994
+brown:105,,Tina Clinton,156
+brown:109,,Kevin Patrick Yeary,208
+brown:109,,Tina Clinton,15
+brown:113,,Kevin Patrick Yeary,1089
+brown:113,,Tina Clinton,182
+brown:202,,Kevin Patrick Yeary,605
+brown:202,,Tina Clinton,131
+brown:204,,Kevin Patrick Yeary,546
+brown:204,,Tina Clinton,185
+brown:212,,Kevin Patrick Yeary,550
+brown:212,,Tina Clinton,52
+brown:214,,Kevin Patrick Yeary,492
+brown:214,,Tina Clinton,48
+brown:215,,Kevin Patrick Yeary,192
+brown:215,,Tina Clinton,9
+brown:303,,Kevin Patrick Yeary,639
+brown:303,,Tina Clinton,133
+brown:306,,Kevin Patrick Yeary,1190
+brown:306,,Tina Clinton,136
+brown:307,,Kevin Patrick Yeary,472
+brown:307,,Tina Clinton,53
+brown:308,,Kevin Patrick Yeary,426
+brown:308,,Tina Clinton,30
+brown:316,,Kevin Patrick Yeary,184
+brown:316,,Tina Clinton,16
+brown:318,,Kevin Patrick Yeary,1073
+brown:318,,Tina Clinton,134
+brown:410,,Kevin Patrick Yeary,1519
+brown:410,,Tina Clinton,170
+brown:411,,Kevin Patrick Yeary,561
+brown:411,,Tina Clinton,132
+brown:417,,Kevin Patrick Yeary,1291
+brown:417,,Tina Clinton,149
+callahan:1,,Over Votes,0
+callahan:1,,Under Votes,55
+callahan:1,DEM,Tina Clinton,175
+callahan:1,REP,Kevin Patrick Yeary,1482
+callahan:2,,Over Votes,0
+callahan:2,,Under Votes,86
+callahan:2,DEM,Tina Clinton,146
+callahan:2,REP,Kevin Patrick Yeary,1245
+callahan:3,,Over Votes,0
+callahan:3,,Under Votes,67
+callahan:3,DEM,Tina Clinton,165
+callahan:3,REP,Kevin Patrick Yeary,1306
+callahan:4,,Over Votes,0
+callahan:4,,Under Votes,39
+callahan:4,DEM,Tina Clinton,74
+callahan:4,REP,Kevin Patrick Yeary,973
+callahan:5,,Over Votes,0
+callahan:5,,Under Votes,3
+callahan:5,DEM,Tina Clinton,8
+callahan:5,REP,Kevin Patrick Yeary,84
+callahan:6,,Over Votes,0
+callahan:6,,Under Votes,17
+callahan:6,DEM,Tina Clinton,60
+callahan:6,REP,Kevin Patrick Yeary,515
+callahan:7,,Over Votes,0
+callahan:7,,Under Votes,3
+callahan:7,DEM,Tina Clinton,39
+callahan:7,REP,Kevin Patrick Yeary,324
+johnson:1,DEM,Tina Clinton,135
+johnson:1,REP,Kevin Patrick Yeary,799
+johnson:10,DEM,Tina Clinton,595
+johnson:10,REP,Kevin Patrick Yeary,1900
+johnson:11,DEM,Tina Clinton,502
+johnson:11,REP,Kevin Patrick Yeary,2236
+johnson:12,DEM,Tina Clinton,387
+johnson:12,REP,Kevin Patrick Yeary,1734
+johnson:13,DEM,Tina Clinton,257
+johnson:13,REP,Kevin Patrick Yeary,1138
+johnson:14,DEM,Tina Clinton,39
+johnson:14,REP,Kevin Patrick Yeary,307
+johnson:15,DEM,Tina Clinton,184
+johnson:15,REP,Kevin Patrick Yeary,961
+johnson:16,DEM,Tina Clinton,78
+johnson:16,REP,Kevin Patrick Yeary,325
+johnson:17,DEM,Tina Clinton,528
+johnson:17,REP,Kevin Patrick Yeary,1533
+johnson:18,DEM,Tina Clinton,609
+johnson:18,REP,Kevin Patrick Yeary,1901
+johnson:19,DEM,Tina Clinton,907
+johnson:19,REP,Kevin Patrick Yeary,3382
+johnson:2,DEM,Tina Clinton,723
+johnson:2,REP,Kevin Patrick Yeary,2998
+johnson:20,DEM,Tina Clinton,288
+johnson:20,REP,Kevin Patrick Yeary,436
+johnson:21,DEM,Tina Clinton,179
+johnson:21,REP,Kevin Patrick Yeary,984
+johnson:22,DEM,Tina Clinton,694
+johnson:22,REP,Kevin Patrick Yeary,1873
+johnson:23,DEM,Tina Clinton,244
+johnson:23,REP,Kevin Patrick Yeary,1504
+johnson:24,DEM,Tina Clinton,176
+johnson:24,REP,Kevin Patrick Yeary,844
+johnson:25,DEM,Tina Clinton,237
+johnson:25,REP,Kevin Patrick Yeary,700
+johnson:26,DEM,Tina Clinton,150
+johnson:26,REP,Kevin Patrick Yeary,1001
+johnson:27,DEM,Tina Clinton,221
+johnson:27,REP,Kevin Patrick Yeary,1535
+johnson:28,DEM,Tina Clinton,252
+johnson:28,REP,Kevin Patrick Yeary,1168
+johnson:29,DEM,Tina Clinton,147
+johnson:29,REP,Kevin Patrick Yeary,720
+johnson:3,DEM,Tina Clinton,751
+johnson:3,REP,Kevin Patrick Yeary,2477
+johnson:30,DEM,Tina Clinton,145
+johnson:30,REP,Kevin Patrick Yeary,1007
+johnson:31,DEM,Tina Clinton,185
+johnson:31,REP,Kevin Patrick Yeary,859
+johnson:32,DEM,Tina Clinton,499
+johnson:32,REP,Kevin Patrick Yeary,1859
+johnson:33,DEM,Tina Clinton,149
+johnson:33,REP,Kevin Patrick Yeary,760
+johnson:34,DEM,Tina Clinton,375
+johnson:34,REP,Kevin Patrick Yeary,1152
+johnson:35,DEM,Tina Clinton,569
+johnson:35,REP,Kevin Patrick Yeary,2422
+johnson:36,DEM,Tina Clinton,191
+johnson:36,REP,Kevin Patrick Yeary,424
+johnson:4,DEM,Tina Clinton,1089
+johnson:4,REP,Kevin Patrick Yeary,3232
+johnson:5,DEM,Tina Clinton,659
+johnson:5,REP,Kevin Patrick Yeary,2384
+johnson:6,DEM,Tina Clinton,67
+johnson:6,REP,Kevin Patrick Yeary,340
+johnson:7,DEM,Tina Clinton,1002
+johnson:7,REP,Kevin Patrick Yeary,3755
+johnson:8,DEM,Tina Clinton,2141
+johnson:8,REP,Kevin Patrick Yeary,3313
+johnson:9,DEM,Tina Clinton,97
+johnson:9,REP,Kevin Patrick Yeary,687
+palo-pinto:1,DEM,Tina Clinton,69
+palo-pinto:1,REP,Kevin Patrick Yeary,338
+palo-pinto:11,DEM,Tina Clinton,29
+palo-pinto:11,REP,Kevin Patrick Yeary,209
+palo-pinto:12,DEM,Tina Clinton,53
+palo-pinto:12,REP,Kevin Patrick Yeary,257
+palo-pinto:13,DEM,Tina Clinton,81
+palo-pinto:13,REP,Kevin Patrick Yeary,399
+palo-pinto:14,DEM,Tina Clinton,13
+palo-pinto:14,REP,Kevin Patrick Yeary,89
+palo-pinto:15,DEM,Tina Clinton,67
+palo-pinto:15,REP,Kevin Patrick Yeary,580
+palo-pinto:16,DEM,Tina Clinton,34
+palo-pinto:16,REP,Kevin Patrick Yeary,302
+palo-pinto:17,DEM,Tina Clinton,99
+palo-pinto:17,REP,Kevin Patrick Yeary,242
+palo-pinto:18,DEM,Tina Clinton,16
+palo-pinto:18,REP,Kevin Patrick Yeary,115
+palo-pinto:2,DEM,Tina Clinton,1
+palo-pinto:2,REP,Kevin Patrick Yeary,14
+palo-pinto:20,DEM,Tina Clinton,11
+palo-pinto:20,REP,Kevin Patrick Yeary,150
+palo-pinto:21,DEM,Tina Clinton,109
+palo-pinto:21,REP,Kevin Patrick Yeary,455
+palo-pinto:22,DEM,Tina Clinton,73
+palo-pinto:22,REP,Kevin Patrick Yeary,601
+palo-pinto:23,DEM,Tina Clinton,220
+palo-pinto:23,REP,Kevin Patrick Yeary,699
+palo-pinto:24,DEM,Tina Clinton,17
+palo-pinto:24,REP,Kevin Patrick Yeary,76
+palo-pinto:25,DEM,Tina Clinton,19
+palo-pinto:25,REP,Kevin Patrick Yeary,70
+palo-pinto:26,DEM,Tina Clinton,13
+palo-pinto:26,REP,Kevin Patrick Yeary,35
+palo-pinto:27,DEM,Tina Clinton,209
+palo-pinto:27,REP,Kevin Patrick Yeary,874
+palo-pinto:28,DEM,Tina Clinton,98
+palo-pinto:28,REP,Kevin Patrick Yeary,378
+palo-pinto:29,DEM,Tina Clinton,154
+palo-pinto:29,REP,Kevin Patrick Yeary,469
+palo-pinto:3,DEM,Tina Clinton,90
+palo-pinto:3,REP,Kevin Patrick Yeary,600
+palo-pinto:30,DEM,Tina Clinton,125
+palo-pinto:30,REP,Kevin Patrick Yeary,236
+palo-pinto:4,DEM,Tina Clinton,25
+palo-pinto:4,REP,Kevin Patrick Yeary,278
+palo-pinto:5,DEM,Tina Clinton,60
+palo-pinto:5,REP,Kevin Patrick Yeary,267
+palo-pinto:6,DEM,Tina Clinton,138
+palo-pinto:6,REP,Kevin Patrick Yeary,595
+palo-pinto:7,DEM,Tina Clinton,42
+palo-pinto:7,REP,Kevin Patrick Yeary,354
+palo-pinto:8,DEM,Tina Clinton,135
+palo-pinto:8,REP,Kevin Patrick Yeary,1130
+palo-pinto:9,DEM,Tina Clinton,38
+palo-pinto:9,REP,Kevin Patrick Yeary,268
 parker:215,,Over Votes,0
 parker:215,,Under Votes,75
 parker:215,DEM,Tina Clinton,328
@@ -71,3 +263,47 @@ parker:450,,Over Votes,0
 parker:450,,Under Votes,52
 parker:450,DEM,Tina Clinton,371
 parker:450,REP,Kevin Patrick Yeary,1626
+shackelford:101,,Over Votes,1
+shackelford:101,,Under Votes,14
+shackelford:101,DEM,Tina Clinton,29
+shackelford:101,REP,Kevin Patrick Yeary,333
+shackelford:202,,Over Votes,1
+shackelford:202,,Under Votes,12
+shackelford:202,DEM,Tina Clinton,21
+shackelford:202,REP,Kevin Patrick Yeary,423
+shackelford:303,,Over Votes,0
+shackelford:303,,Under Votes,6
+shackelford:303,DEM,Tina Clinton,11
+shackelford:303,REP,Kevin Patrick Yeary,181
+shackelford:307,,Over Votes,2
+shackelford:307,,Under Votes,10
+shackelford:307,DEM,Tina Clinton,12
+shackelford:307,REP,Kevin Patrick Yeary,186
+shackelford:404,,Over Votes,0
+shackelford:404,,Under Votes,1
+shackelford:404,DEM,Tina Clinton,0
+shackelford:404,REP,Kevin Patrick Yeary,27
+shackelford:405,,Over Votes,0
+shackelford:405,,Under Votes,3
+shackelford:405,DEM,Tina Clinton,20
+shackelford:405,REP,Kevin Patrick Yeary,149
+shackelford:406,,Over Votes,0
+shackelford:406,,Under Votes,7
+shackelford:406,DEM,Tina Clinton,22
+shackelford:406,REP,Kevin Patrick Yeary,164
+stephens:1-11,DEM,Tina Clinton,62
+stephens:1-11,REP,Kevin Patrick Yeary,595
+stephens:2-11,DEM,Tina Clinton,88
+stephens:2-11,REP,Kevin Patrick Yeary,750
+stephens:2-19,DEM,Tina Clinton,8
+stephens:2-19,REP,Kevin Patrick Yeary,154
+stephens:3-11,DEM,Tina Clinton,67
+stephens:3-11,REP,Kevin Patrick Yeary,299
+stephens:3-19,DEM,Tina Clinton,30
+stephens:3-19,REP,Kevin Patrick Yeary,302
+stephens:4-11,DEM,Tina Clinton,43
+stephens:4-11,REP,Kevin Patrick Yeary,361
+stephens:4-19,DEM,Tina Clinton,45
+stephens:4-19,REP,Kevin Patrick Yeary,576
+stephens:5-11,DEM,Tina Clinton,12
+stephens:5-11,REP,Kevin Patrick Yeary,223

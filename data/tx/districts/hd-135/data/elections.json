@@ -4,15 +4,27 @@
   "boundarySet": "members",
   "elections": [
     {
-      "id": "president-2020",
-      "displayName": "President (2020)",
-      "office": "President",
+      "id": "state-representative-2020",
+      "displayName": "State Representative District 135 (2020)",
+      "office": "State Representative",
+      "district": "135",
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/State_Representative_2020.csv",
+      "turnoutFile": "turnout/State_Representative_2020.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "president-vice-president-2020",
+      "displayName": "President & Vice President (2020)",
+      "office": "President & Vice President",
       "district": null,
       "year": 2020,
       "date": "2020-11-03",
       "category": "Federal",
-      "raceFile": "races/President_2020.csv",
-      "turnoutFile": "turnout/President_2020.csv",
+      "raceFile": "races/President_Vice_President_2020.csv",
+      "turnoutFile": "turnout/President_Vice_President_2020.csv",
       "sourceUrl": null
     },
     {
@@ -28,15 +40,15 @@
       "sourceUrl": null
     },
     {
-      "id": "u-s-senate-2020",
-      "displayName": "U S Senate (2020)",
-      "office": "U.S. Senate",
+      "id": "united-states-senator-2020",
+      "displayName": "United States Senator (2020)",
+      "office": "United States Senator",
       "district": null,
       "year": 2020,
       "date": "2020-11-03",
       "category": "County",
-      "raceFile": "races/U_S_Senate_2020.csv",
-      "turnoutFile": "turnout/U_S_Senate_2020.csv",
+      "raceFile": "races/United_States_Senator_2020.csv",
+      "turnoutFile": "turnout/United_States_Senator_2020.csv",
       "sourceUrl": null
     }
   ]

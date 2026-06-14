@@ -1,0 +1,346 @@
+precinct,party,candidate,votes
+brewster:1,DEM,John Lira,308
+brewster:1,IND,Frank Lopez Jr,74
+brewster:1,REP,Tony Gonzales,657
+brewster:2,DEM,John Lira,316
+brewster:2,IND,Frank Lopez Jr,55
+brewster:2,REP,Tony Gonzales,324
+brewster:3,DEM,John Lira,98
+brewster:3,IND,Frank Lopez Jr,14
+brewster:3,REP,Tony Gonzales,105
+brewster:4,DEM,John Lira,347
+brewster:4,IND,Frank Lopez Jr,47
+brewster:4,REP,Tony Gonzales,467
+brewster:5,DEM,John Lira,39
+brewster:5,IND,Frank Lopez Jr,3
+brewster:5,REP,Tony Gonzales,35
+brewster:6,DEM,John Lira,186
+brewster:6,IND,Frank Lopez Jr,44
+brewster:6,REP,Tony Gonzales,212
+brewster:7,DEM,John Lira,52
+brewster:7,IND,Frank Lopez Jr,3
+brewster:7,REP,Tony Gonzales,27
+brewster:8,DEM,John Lira,160
+brewster:8,IND,Frank Lopez Jr,25
+brewster:8,REP,Tony Gonzales,116
+crane:1,DEM,John Lira,32
+crane:1,IND,IND Frank Lopez Jr,14
+crane:1,REP,Tony Gonzales,338
+crane:2,DEM,John Lira,36
+crane:2,IND,IND Frank Lopez Jr,14
+crane:2,REP,Tony Gonzales,260
+crane:3,DEM,John Lira,36
+crane:3,IND,IND Frank Lopez Jr,12
+crane:3,REP,Tony Gonzales,143
+crane:4,DEM,John Lira,20
+crane:4,IND,IND Frank Lopez Jr,10
+crane:4,REP,Tony Gonzales,192
+crockett:1,,Frank Lopez Jr,16
+crockett:1,,John Lira,73
+crockett:1,,Tony Gonzales,228
+crockett:2,,Frank Lopez Jr,11
+crockett:2,,John Lira,50
+crockett:2,,Tony Gonzales,262
+crockett:3,,Frank Lopez Jr,10
+crockett:3,,John Lira,46
+crockett:3,,Tony Gonzales,288
+crockett:4,,Frank Lopez Jr,14
+crockett:4,,John Lira,54
+crockett:4,,Tony Gonzales,168
+el-paso:127,,Over Votes,0
+el-paso:127,,Under Votes,8
+el-paso:127,DEM,John Lira,41
+el-paso:127,IND,Frank Lopez Jr.,5
+el-paso:127,REP,Tony Gonzales,47
+el-paso:156,,Over Votes,0
+el-paso:156,,Under Votes,28
+el-paso:156,DEM,John Lira,293
+el-paso:156,IND,Frank Lopez Jr.,27
+el-paso:156,REP,Tony Gonzales,125
+el-paso:157,,Over Votes,0
+el-paso:157,,Under Votes,11
+el-paso:157,DEM,John Lira,89
+el-paso:157,IND,Frank Lopez Jr.,4
+el-paso:157,REP,Tony Gonzales,27
+el-paso:164,,Over Votes,1
+el-paso:164,,Under Votes,46
+el-paso:164,DEM,John Lira,512
+el-paso:164,IND,Frank Lopez Jr.,85
+el-paso:164,REP,Tony Gonzales,303
+el-paso:165,,Over Votes,0
+el-paso:165,,Under Votes,45
+el-paso:165,DEM,John Lira,515
+el-paso:165,IND,Frank Lopez Jr.,83
+el-paso:165,REP,Tony Gonzales,236
+el-paso:166,,Over Votes,1
+el-paso:166,,Under Votes,40
+el-paso:166,DEM,John Lira,375
+el-paso:166,IND,Frank Lopez Jr.,59
+el-paso:166,REP,Tony Gonzales,440
+el-paso:167,,Over Votes,0
+el-paso:167,,Under Votes,75
+el-paso:167,DEM,John Lira,484
+el-paso:167,IND,Frank Lopez Jr.,69
+el-paso:167,REP,Tony Gonzales,244
+el-paso:168,,Over Votes,0
+el-paso:168,,Under Votes,3
+el-paso:168,DEM,John Lira,37
+el-paso:168,IND,Frank Lopez Jr.,8
+el-paso:168,REP,Tony Gonzales,26
+el-paso:169,,Over Votes,0
+el-paso:169,,Under Votes,35
+el-paso:169,DEM,John Lira,288
+el-paso:169,IND,Frank Lopez Jr.,48
+el-paso:169,REP,Tony Gonzales,184
+el-paso:170,,Over Votes,0
+el-paso:170,,Under Votes,45
+el-paso:170,DEM,John Lira,446
+el-paso:170,IND,Frank Lopez Jr.,116
+el-paso:170,REP,Tony Gonzales,466
+el-paso:171,,Over Votes,0
+el-paso:171,,Under Votes,30
+el-paso:171,DEM,John Lira,262
+el-paso:171,IND,Frank Lopez Jr.,146
+el-paso:171,REP,Tony Gonzales,153
+el-paso:172,,Over Votes,1
+el-paso:172,,Under Votes,102
+el-paso:172,DEM,John Lira,555
+el-paso:172,IND,Frank Lopez Jr.,115
+el-paso:172,REP,Tony Gonzales,368
+el-paso:173,,Over Votes,0
+el-paso:173,,Under Votes,18
+el-paso:173,DEM,John Lira,187
+el-paso:173,IND,Frank Lopez Jr.,23
+el-paso:173,REP,Tony Gonzales,128
+el-paso:174,,Over Votes,0
+el-paso:174,,Under Votes,1
+el-paso:174,DEM,John Lira,7
+el-paso:174,IND,Frank Lopez Jr.,0
+el-paso:174,REP,Tony Gonzales,5
+el-paso:183,,Over Votes,0
+el-paso:183,,Under Votes,0
+el-paso:183,DEM,John Lira,0
+el-paso:183,IND,Frank Lopez Jr.,0
+el-paso:183,REP,Tony Gonzales,0
+el-paso:194,,Over Votes,0
+el-paso:194,,Under Votes,21
+el-paso:194,DEM,John Lira,500
+el-paso:194,IND,Frank Lopez Jr.,40
+el-paso:194,REP,Tony Gonzales,441
+el-paso:195,,Over Votes,0
+el-paso:195,,Under Votes,27
+el-paso:195,DEM,John Lira,541
+el-paso:195,IND,Frank Lopez Jr.,71
+el-paso:195,REP,Tony Gonzales,487
+el-paso:206,,Over Votes,0
+el-paso:206,,Under Votes,6
+el-paso:206,DEM,John Lira,88
+el-paso:206,IND,Frank Lopez Jr.,24
+el-paso:206,REP,Tony Gonzales,50
+el-paso:207,,Over Votes,0
+el-paso:207,,Under Votes,26
+el-paso:207,DEM,John Lira,217
+el-paso:207,IND,Frank Lopez Jr.,116
+el-paso:207,REP,Tony Gonzales,108
+el-paso:208,,Over Votes,0
+el-paso:208,,Under Votes,13
+el-paso:208,DEM,John Lira,157
+el-paso:208,IND,Frank Lopez Jr.,53
+el-paso:208,REP,Tony Gonzales,80
+el-paso:214,,Over Votes,0
+el-paso:214,,Under Votes,0
+el-paso:214,DEM,John Lira,0
+el-paso:214,IND,Frank Lopez Jr.,0
+el-paso:214,REP,Tony Gonzales,0
+el-paso:221,,Over Votes,0
+el-paso:221,,Under Votes,0
+el-paso:221,DEM,John Lira,3
+el-paso:221,IND,Frank Lopez Jr.,0
+el-paso:221,REP,Tony Gonzales,0
+el-paso:43,,Over Votes,0
+el-paso:43,,Under Votes,36
+el-paso:43,DEM,John Lira,458
+el-paso:43,IND,Frank Lopez Jr.,38
+el-paso:43,REP,Tony Gonzales,530
+el-paso:86,,Over Votes,0
+el-paso:86,,Under Votes,2
+el-paso:86,DEM,John Lira,0
+el-paso:86,IND,Frank Lopez Jr.,0
+el-paso:86,REP,Tony Gonzales,3
+jeff-davis:1,,Over Votes,0
+jeff-davis:1,,Under Votes,4
+jeff-davis:1,DEM,John Lira,111
+jeff-davis:1,IND,IND Frank Lopez Jr.,13
+jeff-davis:1,REP,Tony Gonzales,162
+jeff-davis:2,,Over Votes,0
+jeff-davis:2,,Under Votes,12
+jeff-davis:2,DEM,John Lira,75
+jeff-davis:2,IND,IND Frank Lopez Jr.,9
+jeff-davis:2,REP,Tony Gonzales,131
+jeff-davis:3,,Over Votes,0
+jeff-davis:3,,Under Votes,2
+jeff-davis:3,DEM,John Lira,87
+jeff-davis:3,IND,IND Frank Lopez Jr.,11
+jeff-davis:3,REP,Tony Gonzales,151
+jeff-davis:4,,Over Votes,0
+jeff-davis:4,,Under Votes,1
+jeff-davis:4,DEM,John Lira,28
+jeff-davis:4,IND,IND Frank Lopez Jr.,4
+jeff-davis:4,REP,Tony Gonzales,75
+jeff-davis:5,,Over Votes,0
+jeff-davis:5,,Under Votes,6
+jeff-davis:5,DEM,John Lira,65
+jeff-davis:5,IND,IND Frank Lopez Jr.,9
+jeff-davis:5,REP,Tony Gonzales,98
+pecos:1,DEM,John Lira,210
+pecos:1,IND,IND Frank Lopez Jr,61
+pecos:1,REP,Tony Gonzales,722
+pecos:10,DEM,John Lira,89
+pecos:10,IND,IND Frank Lopez Jr,22
+pecos:10,REP,Tony Gonzales,240
+pecos:2,DEM,John Lira,259
+pecos:2,IND,IND Frank Lopez Jr,50
+pecos:2,REP,Tony Gonzales,615
+pecos:3,DEM,John Lira,7
+pecos:3,IND,IND Frank Lopez Jr,15
+pecos:3,REP,Tony Gonzales,87
+pecos:4,DEM,John Lira,32
+pecos:4,IND,IND Frank Lopez Jr,13
+pecos:4,REP,Tony Gonzales,229
+pecos:5,DEM,John Lira,0
+pecos:5,IND,IND Frank Lopez Jr,1
+pecos:5,REP,Tony Gonzales,41
+pecos:6,DEM,John Lira,13
+pecos:6,IND,IND Frank Lopez Jr,3
+pecos:6,REP,Tony Gonzales,43
+pecos:7,DEM,John Lira,204
+pecos:7,IND,IND Frank Lopez Jr,24
+pecos:7,REP,Tony Gonzales,499
+pecos:9,DEM,John Lira,10
+pecos:9,IND,IND Frank Lopez Jr,13
+pecos:9,REP,Tony Gonzales,98
+reagan:1,DEM,John Lira,16
+reagan:1,IND,Frank Lopez Jr,17
+reagan:1,REP,Tony Gonzales,50
+reagan:2,DEM,John Lira,19
+reagan:2,IND,Frank Lopez Jr,36
+reagan:2,REP,Tony Gonzales,194
+reagan:3,DEM,John Lira,21
+reagan:3,IND,Frank Lopez Jr,31
+reagan:3,REP,Tony Gonzales,171
+reagan:4,DEM,John Lira,9
+reagan:4,IND,Frank Lopez Jr,22
+reagan:4,REP,Tony Gonzales,123
+reeves:10,DEM,John Lira,112
+reeves:10,IND,Frank Lopez Jr,10
+reeves:10,REP,Tony Gonzales,230
+reeves:11,DEM,John Lira,102
+reeves:11,IND,Frank Lopez Jr,4
+reeves:11,REP,Tony Gonzales,68
+reeves:2,DEM,John Lira,158
+reeves:2,IND,Frank Lopez Jr,19
+reeves:2,REP,Tony Gonzales,205
+reeves:3,DEM,John Lira,105
+reeves:3,IND,Frank Lopez Jr,15
+reeves:3,REP,Tony Gonzales,233
+reeves:4,DEM,John Lira,3
+reeves:4,IND,Frank Lopez Jr,0
+reeves:4,REP,Tony Gonzales,11
+reeves:5,DEM,John Lira,35
+reeves:5,IND,Frank Lopez Jr,18
+reeves:5,REP,Tony Gonzales,99
+reeves:6,DEM,John Lira,5
+reeves:6,IND,Frank Lopez Jr,1
+reeves:6,REP,Tony Gonzales,22
+reeves:7,DEM,John Lira,156
+reeves:7,IND,Frank Lopez Jr,18
+reeves:7,REP,Tony Gonzales,282
+reeves:8,DEM,John Lira,38
+reeves:8,IND,Frank Lopez Jr,10
+reeves:8,REP,Tony Gonzales,91
+upton:1,,Over Votes,0
+upton:1,,Under Votes,5
+upton:1,DEM,John Lira,18
+upton:1,IND,IND Frank Lopez Jr,26
+upton:1,REP,Tony Gonzales,299
+upton:2,,Over Votes,0
+upton:2,,Under Votes,12
+upton:2,DEM,John Lira,22
+upton:2,IND,IND Frank Lopez Jr,18
+upton:2,REP,Tony Gonzales,195
+upton:3,,Over Votes,0
+upton:3,,Under Votes,11
+upton:3,DEM,John Lira,26
+upton:3,IND,IND Frank Lopez Jr,14
+upton:3,REP,Tony Gonzales,132
+upton:4,,Over Votes,0
+upton:4,,Under Votes,23
+upton:4,DEM,John Lira,32
+upton:4,IND,IND Frank Lopez Jr,27
+upton:4,REP,Tony Gonzales,227
+uvalde:1,DEM,John Lira,148
+uvalde:1,IND,Frank Lopez Jr.,35
+uvalde:1,REP,Tony Gonzales,258
+uvalde:10,DEM,John Lira,178
+uvalde:10,IND,Frank Lopez Jr.,29
+uvalde:10,REP,Tony Gonzales,173
+uvalde:11,DEM,John Lira,48
+uvalde:11,IND,Frank Lopez Jr.,27
+uvalde:11,REP,Tony Gonzales,215
+uvalde:12,DEM,John Lira,407
+uvalde:12,IND,Frank Lopez Jr.,126
+uvalde:12,REP,Tony Gonzales,790
+uvalde:13,DEM,John Lira,537
+uvalde:13,IND,Frank Lopez Jr.,81
+uvalde:13,REP,Tony Gonzales,494
+uvalde:14,DEM,John Lira,10
+uvalde:14,IND,Frank Lopez Jr.,7
+uvalde:14,REP,Tony Gonzales,62
+uvalde:2,DEM,John Lira,159
+uvalde:2,IND,Frank Lopez Jr.,55
+uvalde:2,REP,Tony Gonzales,417
+uvalde:3,DEM,John Lira,20
+uvalde:3,IND,Frank Lopez Jr.,44
+uvalde:3,REP,Tony Gonzales,342
+uvalde:4,DEM,John Lira,39
+uvalde:4,IND,Frank Lopez Jr.,31
+uvalde:4,REP,Tony Gonzales,296
+uvalde:5,DEM,John Lira,191
+uvalde:5,IND,Frank Lopez Jr.,77
+uvalde:5,REP,Tony Gonzales,667
+uvalde:6,DEM,John Lira,22
+uvalde:6,IND,Frank Lopez Jr.,21
+uvalde:6,REP,Tony Gonzales,137
+uvalde:7,DEM,John Lira,48
+uvalde:7,IND,Frank Lopez Jr.,34
+uvalde:7,REP,Tony Gonzales,298
+uvalde:8,DEM,John Lira,331
+uvalde:8,IND,Frank Lopez Jr.,54
+uvalde:8,REP,Tony Gonzales,385
+uvalde:9,DEM,John Lira,337
+uvalde:9,IND,Frank Lopez Jr.,20
+uvalde:9,REP,Tony Gonzales,186
+ward:1E,,Frank Lopez Jr,21
+ward:1E,,John Lira,87
+ward:1E,,Tony Gonzales,217
+ward:1W,,Frank Lopez Jr,4
+ward:1W,,John Lira,26
+ward:1W,,Tony Gonzales,45
+ward:2,,Frank Lopez Jr,44
+ward:2,,John Lira,110
+ward:2,,Tony Gonzales,713
+ward:3N,,Frank Lopez Jr,37
+ward:3N,,John Lira,47
+ward:3N,,Tony Gonzales,487
+ward:3S,,Frank Lopez Jr,8
+ward:3S,,John Lira,16
+ward:3S,,Tony Gonzales,113
+ward:4E,,Frank Lopez Jr,14
+ward:4E,,John Lira,53
+ward:4E,,Tony Gonzales,312
+ward:4M,,Frank Lopez Jr,8
+ward:4M,,John Lira,15
+ward:4M,,Tony Gonzales,73
+ward:4W,,Frank Lopez Jr,2
+ward:4W,,John Lira,8
+ward:4W,,Tony Gonzales,36

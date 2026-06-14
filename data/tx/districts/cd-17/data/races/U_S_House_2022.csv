@@ -1,0 +1,615 @@
+precinct,party,candidate,votes
+angelina:1,,Over Votes,0
+angelina:1,,Under Votes,9
+angelina:1,DEM,Mary Jo Woods,72
+angelina:1,REP,Pete Sessions,142
+angelina:10,,Over Votes,0
+angelina:10,,Under Votes,10
+angelina:10,DEM,Mary Jo Woods,229
+angelina:10,REP,Pete Sessions,295
+angelina:11,,Over Votes,0
+angelina:11,,Under Votes,11
+angelina:11,DEM,Mary Jo Woods,91
+angelina:11,REP,Pete Sessions,1131
+angelina:11B,,Over Votes,0
+angelina:11B,,Under Votes,11
+angelina:11B,DEM,Mary Jo Woods,76
+angelina:11B,REP,Pete Sessions,446
+angelina:12,,Over Votes,0
+angelina:12,,Under Votes,4
+angelina:12,DEM,Mary Jo Woods,68
+angelina:12,REP,Pete Sessions,382
+angelina:13,,Over Votes,0
+angelina:13,,Under Votes,6
+angelina:13,DEM,Mary Jo Woods,69
+angelina:13,REP,Pete Sessions,158
+angelina:14,,Over Votes,0
+angelina:14,,Under Votes,18
+angelina:14,DEM,Mary Jo Woods,274
+angelina:14,REP,Pete Sessions,680
+angelina:15,,Over Votes,0
+angelina:15,,Under Votes,8
+angelina:15,DEM,Mary Jo Woods,36
+angelina:15,REP,Pete Sessions,313
+angelina:16,,Over Votes,0
+angelina:16,,Under Votes,21
+angelina:16,DEM,Mary Jo Woods,268
+angelina:16,REP,Pete Sessions,420
+angelina:17,,Over Votes,0
+angelina:17,,Under Votes,13
+angelina:17,DEM,Mary Jo Woods,84
+angelina:17,REP,Pete Sessions,877
+angelina:17B,,Over Votes,0
+angelina:17B,,Under Votes,7
+angelina:17B,DEM,Mary Jo Woods,8
+angelina:17B,REP,Pete Sessions,176
+angelina:18,,Over Votes,0
+angelina:18,,Under Votes,3
+angelina:18,DEM,Mary Jo Woods,86
+angelina:18,REP,Pete Sessions,234
+angelina:19,,Over Votes,0
+angelina:19,,Under Votes,18
+angelina:19,DEM,Mary Jo Woods,236
+angelina:19,REP,Pete Sessions,606
+angelina:2,,Over Votes,0
+angelina:2,,Under Votes,26
+angelina:2,DEM,Mary Jo Woods,517
+angelina:2,REP,Pete Sessions,201
+angelina:20,,Over Votes,0
+angelina:20,,Under Votes,20
+angelina:20,DEM,Mary Jo Woods,593
+angelina:20,REP,Pete Sessions,140
+angelina:21,,Over Votes,0
+angelina:21,,Under Votes,5
+angelina:21,DEM,Mary Jo Woods,126
+angelina:21,REP,Pete Sessions,403
+angelina:22,,Over Votes,0
+angelina:22,,Under Votes,8
+angelina:22,DEM,Mary Jo Woods,61
+angelina:22,REP,Pete Sessions,591
+angelina:23,,Over Votes,0
+angelina:23,,Under Votes,4
+angelina:23,DEM,Mary Jo Woods,49
+angelina:23,REP,Pete Sessions,290
+angelina:24,,Over Votes,0
+angelina:24,,Under Votes,13
+angelina:24,DEM,Mary Jo Woods,179
+angelina:24,REP,Pete Sessions,935
+angelina:25,,Over Votes,0
+angelina:25,,Under Votes,11
+angelina:25,DEM,Mary Jo Woods,143
+angelina:25,REP,Pete Sessions,1001
+angelina:26,,Over Votes,0
+angelina:26,,Under Votes,11
+angelina:26,DEM,Mary Jo Woods,105
+angelina:26,REP,Pete Sessions,880
+angelina:27,,Over Votes,0
+angelina:27,,Under Votes,6
+angelina:27,DEM,Mary Jo Woods,13
+angelina:27,REP,Pete Sessions,186
+angelina:28,,Over Votes,0
+angelina:28,,Under Votes,8
+angelina:28,DEM,Mary Jo Woods,100
+angelina:28,REP,Pete Sessions,567
+angelina:29,,Over Votes,0
+angelina:29,,Under Votes,10
+angelina:29,DEM,Mary Jo Woods,78
+angelina:29,REP,Pete Sessions,696
+angelina:3,,Over Votes,0
+angelina:3,,Under Votes,12
+angelina:3,DEM,Mary Jo Woods,119
+angelina:3,REP,Pete Sessions,745
+angelina:30,,Over Votes,0
+angelina:30,,Under Votes,7
+angelina:30,DEM,Mary Jo Woods,47
+angelina:30,REP,Pete Sessions,584
+angelina:31,,Over Votes,0
+angelina:31,,Under Votes,3
+angelina:31,DEM,Mary Jo Woods,23
+angelina:31,REP,Pete Sessions,154
+angelina:32,,Over Votes,0
+angelina:32,,Under Votes,0
+angelina:32,DEM,Mary Jo Woods,3
+angelina:32,REP,Pete Sessions,65
+angelina:33,,Over Votes,0
+angelina:33,,Under Votes,9
+angelina:33,DEM,Mary Jo Woods,46
+angelina:33,REP,Pete Sessions,740
+angelina:34,,Over Votes,0
+angelina:34,,Under Votes,24
+angelina:34,DEM,Mary Jo Woods,286
+angelina:34,REP,Pete Sessions,890
+angelina:35,,Over Votes,0
+angelina:35,,Under Votes,10
+angelina:35,DEM,Mary Jo Woods,214
+angelina:35,REP,Pete Sessions,775
+angelina:37,,Over Votes,0
+angelina:37,,Under Votes,3
+angelina:37,DEM,Mary Jo Woods,41
+angelina:37,REP,Pete Sessions,250
+angelina:38,,Over Votes,0
+angelina:38,,Under Votes,2
+angelina:38,DEM,Mary Jo Woods,19
+angelina:38,REP,Pete Sessions,171
+angelina:39,,Over Votes,0
+angelina:39,,Under Votes,7
+angelina:39,DEM,Mary Jo Woods,57
+angelina:39,REP,Pete Sessions,176
+angelina:4,,Over Votes,0
+angelina:4,,Under Votes,16
+angelina:4,DEM,Mary Jo Woods,210
+angelina:4,REP,Pete Sessions,332
+angelina:40,,Over Votes,0
+angelina:40,,Under Votes,8
+angelina:40,DEM,Mary Jo Woods,111
+angelina:40,REP,Pete Sessions,256
+angelina:5,,Over Votes,0
+angelina:5,,Under Votes,12
+angelina:5,DEM,Mary Jo Woods,224
+angelina:5,REP,Pete Sessions,416
+angelina:6,,Over Votes,0
+angelina:6,,Under Votes,5
+angelina:6,DEM,Mary Jo Woods,35
+angelina:6,REP,Pete Sessions,273
+angelina:7,,Over Votes,0
+angelina:7,,Under Votes,6
+angelina:7,DEM,Mary Jo Woods,72
+angelina:7,REP,Pete Sessions,728
+angelina:8,,Over Votes,0
+angelina:8,,Under Votes,6
+angelina:8,DEM,Mary Jo Woods,65
+angelina:8,REP,Pete Sessions,723
+angelina:9,,Over Votes,0
+angelina:9,,Under Votes,1
+angelina:9,DEM,Mary Jo Woods,39
+angelina:9,REP,Pete Sessions,117
+falls:101,,Mary Jo Woods,96
+falls:101,,Pete Sessions,132
+falls:102,,Mary Jo Woods,145
+falls:102,,Pete Sessions,294
+falls:103,,Mary Jo Woods,45
+falls:103,,Pete Sessions,383
+falls:201,,Mary Jo Woods,50
+falls:201,,Pete Sessions,320
+falls:202,,Mary Jo Woods,256
+falls:202,,Pete Sessions,167
+falls:203,,Mary Jo Woods,147
+falls:203,,Pete Sessions,35
+falls:301,,Mary Jo Woods,76
+falls:301,,Pete Sessions,355
+falls:302,,Mary Jo Woods,108
+falls:302,,Pete Sessions,491
+falls:303,,Mary Jo Woods,20
+falls:303,,Pete Sessions,298
+falls:401,,Mary Jo Woods,20
+falls:401,,Pete Sessions,307
+falls:402,,Mary Jo Woods,93
+falls:402,,Pete Sessions,423
+falls:403,,Mary Jo Woods,91
+falls:403,,Pete Sessions,318
+leon:1,DEM,Mary Jo Woods,105
+leon:1,REP,Pete Sessions,876
+leon:10,DEM,Mary Jo Woods,40
+leon:10,REP,Pete Sessions,570
+leon:11,DEM,Mary Jo Woods,61
+leon:11,REP,Pete Sessions,441
+leon:12,DEM,Mary Jo Woods,108
+leon:12,REP,Pete Sessions,409
+leon:13,DEM,Mary Jo Woods,44
+leon:13,REP,Pete Sessions,535
+leon:14,DEM,Mary Jo Woods,26
+leon:14,REP,Pete Sessions,124
+leon:2,DEM,Mary Jo Woods,24
+leon:2,REP,Pete Sessions,212
+leon:3,DEM,Mary Jo Woods,25
+leon:3,REP,Pete Sessions,327
+leon:4,DEM,Mary Jo Woods,48
+leon:4,REP,Pete Sessions,446
+leon:5,DEM,Mary Jo Woods,38
+leon:5,REP,Pete Sessions,343
+leon:6,DEM,Mary Jo Woods,80
+leon:6,REP,Pete Sessions,704
+leon:7,DEM,Mary Jo Woods,14
+leon:7,REP,Pete Sessions,347
+leon:8,DEM,Mary Jo Woods,55
+leon:8,REP,Pete Sessions,541
+leon:9,DEM,Mary Jo Woods,13
+leon:9,REP,Pete Sessions,236
+limestone:101,,Over Votes,27
+limestone:101,,Under Votes,10
+limestone:101,DEM,Mary Jo Woods,187
+limestone:101,REP,Pete Sessions,692
+limestone:102,,Over Votes,0
+limestone:102,,Under Votes,2
+limestone:102,DEM,Mary Jo Woods,24
+limestone:102,REP,Pete Sessions,345
+limestone:103,,Over Votes,0
+limestone:103,,Under Votes,3
+limestone:103,DEM,Mary Jo Woods,52
+limestone:103,REP,Pete Sessions,355
+limestone:104,,Over Votes,1
+limestone:104,,Under Votes,2
+limestone:104,DEM,Mary Jo Woods,44
+limestone:104,REP,Pete Sessions,453
+limestone:201,,Over Votes,0
+limestone:201,,Under Votes,4
+limestone:201,DEM,Mary Jo Woods,65
+limestone:201,REP,Pete Sessions,173
+limestone:202,,Over Votes,0
+limestone:202,,Under Votes,4
+limestone:202,DEM,Mary Jo Woods,171
+limestone:202,REP,Pete Sessions,105
+limestone:203,,Over Votes,0
+limestone:203,,Under Votes,3
+limestone:203,DEM,Mary Jo Woods,29
+limestone:203,REP,Pete Sessions,31
+limestone:204,,Over Votes,0
+limestone:204,,Under Votes,3
+limestone:204,DEM,Mary Jo Woods,53
+limestone:204,REP,Pete Sessions,245
+limestone:205,,Over Votes,0
+limestone:205,,Under Votes,3
+limestone:205,DEM,Mary Jo Woods,73
+limestone:205,REP,Pete Sessions,182
+limestone:206,,Over Votes,0
+limestone:206,,Under Votes,2
+limestone:206,DEM,Mary Jo Woods,30
+limestone:206,REP,Pete Sessions,213
+limestone:301,,Over Votes,0
+limestone:301,,Under Votes,8
+limestone:301,DEM,Mary Jo Woods,125
+limestone:301,REP,Pete Sessions,531
+limestone:302,,Over Votes,0
+limestone:302,,Under Votes,0
+limestone:302,DEM,Mary Jo Woods,66
+limestone:302,REP,Pete Sessions,219
+limestone:303,,Over Votes,0
+limestone:303,,Under Votes,0
+limestone:303,DEM,Mary Jo Woods,13
+limestone:303,REP,Pete Sessions,105
+limestone:304,,Over Votes,0
+limestone:304,,Under Votes,1
+limestone:304,DEM,Mary Jo Woods,50
+limestone:304,REP,Pete Sessions,338
+limestone:305,,Over Votes,0
+limestone:305,,Under Votes,0
+limestone:305,DEM,Mary Jo Woods,52
+limestone:305,REP,Pete Sessions,171
+limestone:401,,Over Votes,3
+limestone:401,,Under Votes,11
+limestone:401,DEM,Mary Jo Woods,208
+limestone:401,REP,Pete Sessions,325
+limestone:402,,Over Votes,0
+limestone:402,,Under Votes,1
+limestone:402,DEM,Mary Jo Woods,26
+limestone:402,REP,Pete Sessions,254
+limestone:403,,Over Votes,0
+limestone:403,,Under Votes,1
+limestone:403,DEM,Mary Jo Woods,22
+limestone:403,REP,Pete Sessions,167
+limestone:404,,Over Votes,0
+limestone:404,,Under Votes,1
+limestone:404,DEM,Mary Jo Woods,28
+limestone:404,REP,Pete Sessions,231
+limestone:405,,Over Votes,0
+limestone:405,,Under Votes,2
+limestone:405,DEM,Mary Jo Woods,23
+limestone:405,REP,Pete Sessions,180
+limestone:406,,Over Votes,0
+limestone:406,,Under Votes,2
+limestone:406,DEM,Mary Jo Woods,15
+limestone:406,REP,Pete Sessions,104
+mclennan:1,DEM,Mary Jo Woods,71
+mclennan:1,REP,Pete Sessions,47
+mclennan:10,DEM,Mary Jo Woods,422
+mclennan:10,REP,Pete Sessions,94
+mclennan:11,DEM,Mary Jo Woods,424
+mclennan:11,REP,Pete Sessions,960
+mclennan:12,DEM,Mary Jo Woods,838
+mclennan:12,REP,Pete Sessions,78
+mclennan:13,DEM,Mary Jo Woods,22
+mclennan:13,REP,Pete Sessions,15
+mclennan:14,DEM,Mary Jo Woods,356
+mclennan:14,REP,Pete Sessions,53
+mclennan:15,DEM,Mary Jo Woods,40
+mclennan:15,REP,Pete Sessions,83
+mclennan:16,DEM,Mary Jo Woods,426
+mclennan:16,REP,Pete Sessions,705
+mclennan:17,DEM,Mary Jo Woods,278
+mclennan:17,REP,Pete Sessions,287
+mclennan:18,DEM,Mary Jo Woods,93
+mclennan:18,REP,Pete Sessions,54
+mclennan:19,DEM,Mary Jo Woods,617
+mclennan:19,REP,Pete Sessions,1338
+mclennan:2,DEM,Mary Jo Woods,77
+mclennan:2,REP,Pete Sessions,45
+mclennan:20,DEM,Mary Jo Woods,95
+mclennan:20,REP,Pete Sessions,34
+mclennan:21,DEM,Mary Jo Woods,121
+mclennan:21,REP,Pete Sessions,56
+mclennan:22,DEM,Mary Jo Woods,81
+mclennan:22,REP,Pete Sessions,86
+mclennan:23,DEM,Mary Jo Woods,591
+mclennan:23,REP,Pete Sessions,1602
+mclennan:24,DEM,Mary Jo Woods,99
+mclennan:24,REP,Pete Sessions,323
+mclennan:25,DEM,Mary Jo Woods,326
+mclennan:25,REP,Pete Sessions,210
+mclennan:26,DEM,Mary Jo Woods,137
+mclennan:26,REP,Pete Sessions,100
+mclennan:27,DEM,Mary Jo Woods,173
+mclennan:27,REP,Pete Sessions,67
+mclennan:28,DEM,Mary Jo Woods,261
+mclennan:28,REP,Pete Sessions,295
+mclennan:29,DEM,Mary Jo Woods,135
+mclennan:29,REP,Pete Sessions,127
+mclennan:3,DEM,Mary Jo Woods,497
+mclennan:3,REP,Pete Sessions,314
+mclennan:30,DEM,Mary Jo Woods,412
+mclennan:30,REP,Pete Sessions,450
+mclennan:31,DEM,Mary Jo Woods,427
+mclennan:31,REP,Pete Sessions,542
+mclennan:32,DEM,Mary Jo Woods,188
+mclennan:32,REP,Pete Sessions,408
+mclennan:33,DEM,Mary Jo Woods,356
+mclennan:33,REP,Pete Sessions,570
+mclennan:34,DEM,Mary Jo Woods,301
+mclennan:34,REP,Pete Sessions,491
+mclennan:35,DEM,Mary Jo Woods,198
+mclennan:35,REP,Pete Sessions,123
+mclennan:36,DEM,Mary Jo Woods,251
+mclennan:36,REP,Pete Sessions,417
+mclennan:37,DEM,Mary Jo Woods,213
+mclennan:37,REP,Pete Sessions,195
+mclennan:38,DEM,Mary Jo Woods,163
+mclennan:38,REP,Pete Sessions,124
+mclennan:39,DEM,Mary Jo Woods,154
+mclennan:39,REP,Pete Sessions,64
+mclennan:4,DEM,Mary Jo Woods,44
+mclennan:4,REP,Pete Sessions,34
+mclennan:40,DEM,Mary Jo Woods,456
+mclennan:40,REP,Pete Sessions,666
+mclennan:41,DEM,Mary Jo Woods,331
+mclennan:41,REP,Pete Sessions,453
+mclennan:42,DEM,Mary Jo Woods,245
+mclennan:42,REP,Pete Sessions,159
+mclennan:43,DEM,Mary Jo Woods,76
+mclennan:43,REP,Pete Sessions,96
+mclennan:44,DEM,Mary Jo Woods,512
+mclennan:44,REP,Pete Sessions,1728
+mclennan:45,DEM,Mary Jo Woods,98
+mclennan:45,REP,Pete Sessions,107
+mclennan:46,DEM,Mary Jo Woods,54
+mclennan:46,REP,Pete Sessions,36
+mclennan:47,DEM,Mary Jo Woods,140
+mclennan:47,REP,Pete Sessions,99
+mclennan:48,DEM,Mary Jo Woods,65
+mclennan:48,REP,Pete Sessions,60
+mclennan:49,DEM,Mary Jo Woods,91
+mclennan:49,REP,Pete Sessions,103
+mclennan:5,DEM,Mary Jo Woods,145
+mclennan:5,REP,Pete Sessions,63
+mclennan:50,DEM,Mary Jo Woods,242
+mclennan:50,REP,Pete Sessions,232
+mclennan:51,DEM,Mary Jo Woods,765
+mclennan:51,REP,Pete Sessions,1617
+mclennan:52,DEM,Mary Jo Woods,197
+mclennan:52,REP,Pete Sessions,367
+mclennan:53,DEM,Mary Jo Woods,14
+mclennan:53,REP,Pete Sessions,17
+mclennan:54,DEM,Mary Jo Woods,363
+mclennan:54,REP,Pete Sessions,878
+mclennan:55,DEM,Mary Jo Woods,660
+mclennan:55,REP,Pete Sessions,1622
+mclennan:56,DEM,Mary Jo Woods,155
+mclennan:56,REP,Pete Sessions,133
+mclennan:57,DEM,Mary Jo Woods,303
+mclennan:57,REP,Pete Sessions,317
+mclennan:58,DEM,Mary Jo Woods,464
+mclennan:58,REP,Pete Sessions,718
+mclennan:59,DEM,Mary Jo Woods,466
+mclennan:59,REP,Pete Sessions,1646
+mclennan:6,DEM,Mary Jo Woods,139
+mclennan:6,REP,Pete Sessions,62
+mclennan:60,DEM,Mary Jo Woods,491
+mclennan:60,REP,Pete Sessions,1475
+mclennan:61,DEM,Mary Jo Woods,545
+mclennan:61,REP,Pete Sessions,1275
+mclennan:62,DEM,Mary Jo Woods,607
+mclennan:62,REP,Pete Sessions,1201
+mclennan:63,DEM,Mary Jo Woods,696
+mclennan:63,REP,Pete Sessions,2362
+mclennan:64,DEM,Mary Jo Woods,115
+mclennan:64,REP,Pete Sessions,378
+mclennan:65,DEM,Mary Jo Woods,92
+mclennan:65,REP,Pete Sessions,618
+mclennan:66,DEM,Mary Jo Woods,104
+mclennan:66,REP,Pete Sessions,716
+mclennan:67,DEM,Mary Jo Woods,215
+mclennan:67,REP,Pete Sessions,1475
+mclennan:68,DEM,Mary Jo Woods,114
+mclennan:68,REP,Pete Sessions,581
+mclennan:69,DEM,Mary Jo Woods,106
+mclennan:69,REP,Pete Sessions,883
+mclennan:7,DEM,Mary Jo Woods,315
+mclennan:7,REP,Pete Sessions,205
+mclennan:70,DEM,Mary Jo Woods,24
+mclennan:70,REP,Pete Sessions,223
+mclennan:71,DEM,Mary Jo Woods,87
+mclennan:71,REP,Pete Sessions,267
+mclennan:72,DEM,Mary Jo Woods,134
+mclennan:72,REP,Pete Sessions,441
+mclennan:73,DEM,Mary Jo Woods,80
+mclennan:73,REP,Pete Sessions,510
+mclennan:74,DEM,Mary Jo Woods,67
+mclennan:74,REP,Pete Sessions,413
+mclennan:75,DEM,Mary Jo Woods,319
+mclennan:75,REP,Pete Sessions,1673
+mclennan:76,DEM,Mary Jo Woods,206
+mclennan:76,REP,Pete Sessions,1049
+mclennan:77,DEM,Mary Jo Woods,122
+mclennan:77,REP,Pete Sessions,788
+mclennan:78,DEM,Mary Jo Woods,453
+mclennan:78,REP,Pete Sessions,1665
+mclennan:79,DEM,Mary Jo Woods,178
+mclennan:79,REP,Pete Sessions,469
+mclennan:8,DEM,Mary Jo Woods,334
+mclennan:8,REP,Pete Sessions,183
+mclennan:80,DEM,Mary Jo Woods,117
+mclennan:80,REP,Pete Sessions,1480
+mclennan:81,DEM,Mary Jo Woods,421
+mclennan:81,REP,Pete Sessions,2191
+mclennan:82,DEM,Mary Jo Woods,297
+mclennan:82,REP,Pete Sessions,1404
+mclennan:83,DEM,Mary Jo Woods,55
+mclennan:83,REP,Pete Sessions,281
+mclennan:84,DEM,Mary Jo Woods,295
+mclennan:84,REP,Pete Sessions,951
+mclennan:85,DEM,Mary Jo Woods,161
+mclennan:85,REP,Pete Sessions,181
+mclennan:86,DEM,Mary Jo Woods,426
+mclennan:86,REP,Pete Sessions,322
+mclennan:87,DEM,Mary Jo Woods,239
+mclennan:87,REP,Pete Sessions,259
+mclennan:88,DEM,Mary Jo Woods,76
+mclennan:88,REP,Pete Sessions,77
+mclennan:89,DEM,Mary Jo Woods,21
+mclennan:89,REP,Pete Sessions,6
+mclennan:9,DEM,Mary Jo Woods,201
+mclennan:9,REP,Pete Sessions,107
+mclennan:90,DEM,Mary Jo Woods,76
+mclennan:90,REP,Pete Sessions,124
+mclennan:91,DEM,Mary Jo Woods,340
+mclennan:91,REP,Pete Sessions,861
+robertson:4,,Over Votes,0
+robertson:4,,Under Votes,12
+robertson:4,DEM,Mary Jo Woods,57
+robertson:4,REP,Pete Sessions,369
+robertson:11,,Over Votes,0
+robertson:11,,Under Votes,7
+robertson:11,DEM,Mary Jo Woods,142
+robertson:11,REP,Pete Sessions,527
+robertson:5,,Over Votes,0
+robertson:5,,Under Votes,12
+robertson:5,DEM,Mary Jo Woods,121
+robertson:5,REP,Pete Sessions,666
+robertson:1,,Over Votes,0
+robertson:1,,Under Votes,12
+robertson:1,DEM,Mary Jo Woods,168
+robertson:1,REP,Pete Sessions,443
+robertson:23,,Over Votes,0
+robertson:23,,Under Votes,5
+robertson:23,DEM,Mary Jo Woods,95
+robertson:23,REP,Pete Sessions,155
+robertson:16,,Over Votes,1
+robertson:16,,Under Votes,4
+robertson:16,DEM,Mary Jo Woods,14
+robertson:16,REP,Pete Sessions,129
+robertson:13,,Over Votes,0
+robertson:13,,Under Votes,0
+robertson:13,DEM,Mary Jo Woods,10
+robertson:13,REP,Pete Sessions,152
+robertson:6,,Over Votes,0
+robertson:6,,Under Votes,15
+robertson:6,DEM,Mary Jo Woods,89
+robertson:6,REP,Pete Sessions,748
+robertson:2,,Over Votes,0
+robertson:2,,Under Votes,12
+robertson:2,DEM,Mary Jo Woods,168
+robertson:2,REP,Pete Sessions,455
+robertson:19,,Over Votes,0
+robertson:19,,Under Votes,5
+robertson:19,DEM,Mary Jo Woods,37
+robertson:19,REP,Pete Sessions,349
+robertson:8,,Over Votes,0
+robertson:8,,Under Votes,2
+robertson:8,DEM,Mary Jo Woods,13
+robertson:8,REP,Pete Sessions,176
+robertson:22,,Over Votes,0
+robertson:22,,Under Votes,2
+robertson:22,DEM,Mary Jo Woods,336
+robertson:22,REP,Pete Sessions,128
+robertson:3,,Over Votes,0
+robertson:3,,Under Votes,3
+robertson:3,DEM,Mary Jo Woods,38
+robertson:3,REP,Pete Sessions,360
+williamson:123,,Over Votes,0
+williamson:123,,Under Votes,85
+williamson:123,DEM,Mary Jo Woods,898
+williamson:123,REP,Pete Sessions,610
+williamson:135,,Over Votes,1
+williamson:135,,Under Votes,58
+williamson:135,DEM,Mary Jo Woods,882
+williamson:135,REP,Pete Sessions,417
+williamson:136,,Over Votes,0
+williamson:136,,Under Votes,9
+williamson:136,DEM,Mary Jo Woods,78
+williamson:136,REP,Pete Sessions,40
+williamson:139,,Over Votes,0
+williamson:139,,Under Votes,84
+williamson:139,DEM,Mary Jo Woods,925
+williamson:139,REP,Pete Sessions,650
+williamson:143,,Over Votes,0
+williamson:143,,Under Votes,10
+williamson:143,DEM,Mary Jo Woods,230
+williamson:143,REP,Pete Sessions,101
+williamson:144,,Over Votes,0
+williamson:144,,Under Votes,16
+williamson:144,DEM,Mary Jo Woods,256
+williamson:144,REP,Pete Sessions,115
+williamson:145,,Over Votes,0
+williamson:145,,Under Votes,51
+williamson:145,DEM,Mary Jo Woods,698
+williamson:145,REP,Pete Sessions,398
+williamson:149,,Over Votes,0
+williamson:149,,Under Votes,53
+williamson:149,DEM,Mary Jo Woods,763
+williamson:149,REP,Pete Sessions,444
+williamson:150,,Over Votes,0
+williamson:150,,Under Votes,91
+williamson:150,DEM,Mary Jo Woods,1099
+williamson:150,REP,Pete Sessions,573
+williamson:155,,Over Votes,0
+williamson:155,,Under Votes,84
+williamson:155,DEM,Mary Jo Woods,1059
+williamson:155,REP,Pete Sessions,536
+williamson:163,,Over Votes,0
+williamson:163,,Under Votes,57
+williamson:163,DEM,Mary Jo Woods,822
+williamson:163,REP,Pete Sessions,380
+williamson:164,,Over Votes,0
+williamson:164,,Under Votes,15
+williamson:164,DEM,Mary Jo Woods,166
+williamson:164,REP,Pete Sessions,190
+williamson:180,,Over Votes,0
+williamson:180,,Under Votes,94
+williamson:180,DEM,Mary Jo Woods,1235
+williamson:180,REP,Pete Sessions,670
+williamson:181,,Over Votes,0
+williamson:181,,Under Votes,28
+williamson:181,DEM,Mary Jo Woods,644
+williamson:181,REP,Pete Sessions,456
+williamson:413,,Over Votes,0
+williamson:413,,Under Votes,73
+williamson:413,DEM,Mary Jo Woods,408
+williamson:413,REP,Pete Sessions,1468
+williamson:418,,Over Votes,0
+williamson:418,,Under Votes,14
+williamson:418,DEM,Mary Jo Woods,96
+williamson:418,REP,Pete Sessions,37
+williamson:421,,Over Votes,0
+williamson:421,,Under Votes,25
+williamson:421,DEM,Mary Jo Woods,311
+williamson:421,REP,Pete Sessions,205
+williamson:426,,Over Votes,0
+williamson:426,,Under Votes,28
+williamson:426,DEM,Mary Jo Woods,255
+williamson:426,REP,Pete Sessions,429
+williamson:489,,Over Votes,0
+williamson:489,,Under Votes,61
+williamson:489,DEM,Mary Jo Woods,1016
+williamson:489,REP,Pete Sessions,851
+williamson:490,,Over Votes,0
+williamson:490,,Under Votes,83
+williamson:490,DEM,Mary Jo Woods,1236
+williamson:490,REP,Pete Sessions,1173

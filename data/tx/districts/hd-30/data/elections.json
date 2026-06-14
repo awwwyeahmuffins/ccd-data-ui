@@ -4,30 +4,6 @@
   "boundarySet": "members",
   "elections": [
     {
-      "id": "attorney-general-2022",
-      "displayName": "Attorney General (2022)",
-      "office": "Attorney General",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Attorney_General_2022.csv",
-      "turnoutFile": "turnout/Attorney_General_2022.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "comm-general-land-office-2022",
-      "displayName": "Comm General Land Office (2022)",
-      "office": "Comm. General Land Office",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "County",
-      "raceFile": "races/Comm_General_Land_Office_2022.csv",
-      "turnoutFile": "turnout/Comm_General_Land_Office_2022.csv",
-      "sourceUrl": null
-    },
-    {
       "id": "commissioner-of-agriculture-2022",
       "displayName": "Commissioner of Agriculture (2022)",
       "office": "Commissioner of Agriculture",
@@ -37,6 +13,18 @@
       "category": "State",
       "raceFile": "races/Commissioner_of_Agriculture_2022.csv",
       "turnoutFile": "turnout/Commissioner_of_Agriculture_2022.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "attorney-general-2022",
+      "displayName": "Attorney General (2022)",
+      "office": "Attorney General",
+      "district": null,
+      "year": 2022,
+      "date": "2022-11-08",
+      "category": "State",
+      "raceFile": "races/Attorney_General_2022.csv",
+      "turnoutFile": "turnout/Attorney_General_2022.csv",
       "sourceUrl": null
     },
     {
@@ -64,6 +52,18 @@
       "sourceUrl": null
     },
     {
+      "id": "commissioner-of-the-general-land-office-2022",
+      "displayName": "Commissioner of the General Land Office (2022)",
+      "office": "Commissioner of the General Land Office",
+      "district": null,
+      "year": 2022,
+      "date": "2022-11-08",
+      "category": "County",
+      "raceFile": "races/Commissioner_of_the_General_Land_Office_2022.csv",
+      "turnoutFile": "turnout/Commissioner_of_the_General_Land_Office_2022.csv",
+      "sourceUrl": null
+    },
+    {
       "id": "lieutenant-governor-2022",
       "displayName": "Lieutenant Governor (2022)",
       "office": "Lieutenant Governor",
@@ -88,27 +88,27 @@
       "sourceUrl": null
     },
     {
-      "id": "president-2020",
-      "displayName": "President (2020)",
-      "office": "President",
+      "id": "state-representative-2020",
+      "displayName": "State Representative District 30 (2020)",
+      "office": "State Representative",
+      "district": "30",
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/State_Representative_2020.csv",
+      "turnoutFile": "turnout/State_Representative_2020.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "president-vice-president-2020",
+      "displayName": "President & Vice President (2020)",
+      "office": "President & Vice President",
       "district": null,
       "year": 2020,
       "date": "2020-11-03",
       "category": "Federal",
-      "raceFile": "races/President_2020.csv",
-      "turnoutFile": "turnout/President_2020.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "railroad-commissioiner-2020",
-      "displayName": "Railroad Commissioiner (2020)",
-      "office": "Railroad Commissioiner",
-      "district": null,
-      "year": 2020,
-      "date": "2020-11-03",
-      "category": "County",
-      "raceFile": "races/Railroad_Commissioiner_2020.csv",
-      "turnoutFile": null,
+      "raceFile": "races/President_Vice_President_2020.csv",
+      "turnoutFile": "turnout/President_Vice_President_2020.csv",
       "sourceUrl": null
     },
     {
@@ -118,21 +118,21 @@
       "district": null,
       "year": 2020,
       "date": "2020-11-03",
-      "category": "State",
+      "category": "County",
       "raceFile": "races/Railroad_Commissioner_2020.csv",
       "turnoutFile": "turnout/Railroad_Commissioner_2020.csv",
       "sourceUrl": null
     },
     {
-      "id": "u-s-senate-2020",
-      "displayName": "U S Senate (2020)",
-      "office": "U.S. Senate",
+      "id": "united-states-senator-2020",
+      "displayName": "United States Senator (2020)",
+      "office": "United States Senator",
       "district": null,
       "year": 2020,
       "date": "2020-11-03",
       "category": "County",
-      "raceFile": "races/U_S_Senate_2020.csv",
-      "turnoutFile": "turnout/U_S_Senate_2020.csv",
+      "raceFile": "races/United_States_Senator_2020.csv",
+      "turnoutFile": "turnout/United_States_Senator_2020.csv",
       "sourceUrl": null
     }
   ]

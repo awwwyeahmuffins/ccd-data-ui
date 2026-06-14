@@ -1,0 +1,357 @@
+precinct,party,candidate,votes
+anderson,DEM,Luke Warford,2375
+anderson,GRN,Hunter Wayne Crow,96
+anderson,LIB,Jaime Andres Diez,246
+anderson,REP,Wayne Christian,11499
+andrews,DEM,Luke Warford,411
+andrews,GRN,Hunter Wayne Crow,29
+andrews,LIB,Jaime Andres Diez,112
+andrews,REP,Wayne Christian,3206
+angelina,DEM,Luke Warford,4804
+angelina,GRN,Hunter Wayne Crow,173
+angelina,LIB,Jaime Andres Diez,433
+angelina,REP,Wayne Christian,18938
+aransas,DEM,Luke Warford,1772
+aransas,GRN,Hunter Wayne Crow,90
+aransas,LIB,Jaime Andres Diez,190
+aransas,REP,Wayne Christian,7478
+armstrong,DEM,Luke Warford,50
+armstrong,GRN,Hunter Wayne Crow,6
+armstrong,LIB,Jaime Andres Diez,14
+armstrong,REP,Wayne Christian,814
+atascosa,DEM,Luke Warford,3342
+atascosa,GRN,Hunter Wayne Crow,136
+atascosa,LIB,Jaime Andres Diez,446
+atascosa,REP,Wayne Christian,8490
+austin,DEM,Luke Warford,1652
+austin,GRN,Hunter Wayne Crow,70
+austin,LIB,Jaime Andres Diez,186
+austin,REP,Wayne Christian,9120
+bandera,DEM,Luke Warford,1663
+bandera,GRN,Hunter Wayne Crow,105
+bandera,LIB,Jaime Andres Diez,201
+bandera,REP,Wayne Christian,8425
+bastrop,DEM,Luke Warford,10878
+bastrop,GRN,Hunter Wayne Crow,489
+bastrop,LIB,Jaime Andres Diez,1031
+bastrop,REP,Wayne Christian,16242
+baylor,,Hunter Wayne Crow,14
+baylor,DEM,Luke Warford,95
+baylor,LIB,Jaime Andres Diez,30
+baylor,REP,Wayne Christian,1136
+bee,DEM,Luke Warford,1879
+bee,GRN,Hunter Wayne Crow,44
+bee,LIB,Jaime Andres Diez,211
+bee,REP,Wayne Christian,4127
+bell,DEM,Luke Warford,31812
+bell,GRN,Hunter Wayne Crow,833
+bell,LIB,Jaime Andres Diez,2770
+bell,REP,Wayne Christian,50895
+bowie,DEM,Luke Warford,5821
+bowie,GRN,Hunter Wayne Crow,176
+bowie,LIB,Jaime Andres Diez,434
+bowie,REP,Wayne Christian,19748
+brazoria,,Hunter Wayne Crow,1012
+brazoria,DEM,Luke Warford,39644
+brazoria,LIB,Jaime Andres Diez,2834
+brazoria,REP,Wayne Christian,65345
+brewster,,Hunter Wayne Crow,79
+brewster,,Jaime Andres Diez,170
+brewster,DEM,Luke Warford,1550
+brewster,REP,Wayne Christian,1851
+briscoe,DEM,Luke Warford,46
+briscoe,GRN,Hunter Wayne Crow,2
+briscoe,LIB,Jaime Andres Diez,6
+briscoe,REP,Wayne Christian,527
+brooks,,Hunter Wayne Crow,24
+brooks,,Jaime Andres Diez,131
+brooks,DEM,Luke Warford,1088
+brooks,REP,Wayne Christian,584
+burnet,DEM,Luke Warford,3974
+burnet,GRN,Hunter Wayne Crow,151
+burnet,LIB,Jaime Andres Diez,478
+burnet,REP,Wayne Christian,16322
+caldwell,DEM,Luke Warford,4336
+caldwell,GRN,Hunter Wayne Crow,167
+caldwell,LIB,Jaime Andres Diez,469
+caldwell,REP,Wayne Christian,6140
+calhoun,DEM,Luke Warford,1208
+calhoun,GRN,Hunter Wayne Crow,42
+calhoun,LIB,Jaime Andres Diez,140
+calhoun,REP,Wayne Christian,4109
+cameron,DEM,Luke Warford,35896
+cameron,GRN,Hunter Wayne Crow,995
+cameron,LIB,Jaime Andres Diez,6757
+cameron,REP,Wayne Christian,31124
+childress,DEM,Luke Warford,140
+childress,GRN,Hunter Wayne Crow,8
+childress,LIB,Jaime Andres Diez,34
+childress,REP,Wayne Christian,1533
+cochran,DEM,Luke Warford,79
+cochran,GRN,Hunter Wayne Crow,4
+cochran,LIB,Jaime Andres Diez,23
+cochran,REP,Wayne Christian,495
+coleman,DEM,Luke Warford,256
+coleman,GRN,Hunter Wayne Crow,16
+coleman,LIB,Jaime Andres Diez,41
+coleman,REP,Wayne Christian,2872
+collin,DEM,Luke Warford,145288
+collin,GRN,Hunter Wayne Crow,3366
+collin,LIB,Jaime Andres Diez,9101
+collin,REP,Wayne Christian,198607
+colorado,DEM,Luke Warford,1302
+colorado,GRN,Hunter Wayne Crow,46
+colorado,LIB,Jaime Andres Diez,133
+colorado,REP,Wayne Christian,5963
+cooke,DEM,Luke Warford,2015
+cooke,GRN,Hunter Wayne Crow,120
+cooke,LIB,Jaime Andres Diez,282
+cooke,REP,Wayne Christian,12649
+coryell,DEM,Luke Warford,4062
+coryell,GRN,Hunter Wayne Crow,184
+coryell,LIB,Jaime Andres Diez,444
+coryell,REP,Wayne Christian,11429
+crane,DEM,Luke Warford,129
+crane,GRN,Hunter Wayne Crow,9
+crane,LIB,Jaime Andres Diez,36
+crane,REP,Wayne Christian,909
+crockett,,Hunter Wayne Crow,10
+crockett,,Jaime Andres Diez,63
+crockett,,Luke Warford,230
+crockett,,Wayne Christian,840
+dallam,DEM,Luke Warford,73
+dallam,GRN,Hunter Wayne Crow,7
+dallam,LIB,Jaime Andres Diez,20
+dallam,REP,Wayne Christian,932
+dallas,DEM,Luke Warford,365174
+dallas,GRN,Hunter Wayne Crow,6835
+dallas,LIB,Jaime Andres Diez,21402
+dallas,REP,Wayne Christian,226473
+eastland,DEM,Luke Warford,629
+eastland,GRN,Hunter Wayne Crow,28
+eastland,LIB,Jaime Andres Diez,66
+eastland,REP,Wayne Christian,5388
+ector,DEM,Luke Warford,5371
+ector,GRN,Hunter Wayne Crow,209
+ector,LIB,Jaime Andres Diez,783
+ector,REP,Wayne Christian,18680
+el-paso,DEM,Luke Warford,93255
+el-paso,GRN,Hunter Wayne Crow,3481
+el-paso,LIB,Jaime Andres Diez,8214
+el-paso,REP,Wayne Christian,54913
+ellis,DEM,Luke Warford,18858
+ellis,GRN,Hunter Wayne Crow,539
+ellis,LIB,Jaime Andres Diez,1865
+ellis,REP,Wayne Christian,44852
+falls,,Hunter Wayne Crow,33
+falls,,Jaime Andres Diez,92
+falls,,Luke Warford,1103
+falls,,Wayne Christian,3420
+floyd,DEM,Luke Warford,189
+floyd,GRN,Hunter Wayne Crow,6
+floyd,LIB,Jaime Andres Diez,28
+floyd,REP,Wayne Christian,1223
+gaines,DEM,Luke Warford,284
+gaines,GRN,Hunter Wayne Crow,15
+gaines,LIB,Jaime Andres Diez,59
+gaines,REP,Wayne Christian,3683
+goliad,DEM,Luke Warford,638
+goliad,GRN,Hunter Wayne Crow,27
+goliad,LIB,Jaime Andres Diez,66
+goliad,REP,Wayne Christian,2501
+gray,DEM,Luke Warford,439
+gray,GRN,Hunter Wayne Crow,45
+gray,LIB,Jaime Andres Diez,94
+gray,REP,Wayne Christian,4925
+guadalupe,,Hunter Wayne Crow,565
+guadalupe,DEM,Luke Warford,17324
+guadalupe,LIB,Jaime Andres Diez,1888
+guadalupe,REP,Wayne Christian,36533
+hale,DEM,Luke Warford,1023
+hale,GRN,Hunter Wayne Crow,49
+hale,LIB,Jaime Andres Diez,176
+hale,REP,Wayne Christian,4979
+hansford,,Hunter Wayne Crow,7
+hansford,,Jaime Andres Diez,19
+hansford,,Luke Warford,63
+hansford,,Wayne Christian,1396
+hartley,DEM,Luke Warford,96
+hartley,GRN,Hunter Wayne Crow,10
+hartley,LIB,Jaime Andres Diez,11
+hartley,REP,Wayne Christian,1427
+hemphill,DEM,Luke Warford,122
+hemphill,GRN,Hunter Wayne Crow,6
+hemphill,LIB,Jaime Andres Diez,18
+hemphill,REP,Wayne Christian,1160
+henderson,DEM,Luke Warford,4345
+henderson,GRN,Hunter Wayne Crow,195
+henderson,LIB,Jaime Andres Diez,455
+henderson,REP,Wayne Christian,22556
+howard,DEM,Luke Warford,1018
+howard,GRN,Hunter Wayne Crow,55
+howard,LIB,Jaime Andres Diez,167
+howard,REP,Wayne Christian,5182
+hutchinson,DEM,Luke Warford,505
+hutchinson,GRN,Hunter Wayne Crow,36
+hutchinson,LIB,Jaime Andres Diez,117
+hutchinson,REP,Wayne Christian,5343
+jeff-davis,DEM,Luke Warford,369
+jeff-davis,GRN,Hunter Wayne Crow,14
+jeff-davis,LIB,Jaime Andres Diez,46
+jeff-davis,REP,Wayne Christian,590
+jones,DEM,Luke Warford,570
+jones,GRN,Hunter Wayne Crow,34
+jones,LIB,Jaime Andres Diez,100
+jones,REP,Wayne Christian,4220
+kaufman,DEM,Luke Warford,12589
+kaufman,GRN,Hunter Wayne Crow,427
+kaufman,LIB,Jaime Andres Diez,1114
+kaufman,REP,Wayne Christian,27880
+kenedy,DEM,Luke Warford,29
+kenedy,GRN,Hunter Wayne Crow,1
+kenedy,LIB,Jaime Andres Diez,9
+kenedy,REP,Wayne Christian,85
+lamb,DEM,Luke Warford,396
+lamb,GRN,Hunter Wayne Crow,23
+lamb,LIB,Jaime Andres Diez,61
+lamb,REP,Wayne Christian,2546
+lampasas,DEM,Luke Warford,1335
+lampasas,GRN,Hunter Wayne Crow,89
+lampasas,LIB,Jaime Andres Diez,199
+lampasas,REP,Wayne Christian,6498
+leon,DEM,Luke Warford,652
+leon,GRN,Hunter Wayne Crow,31
+leon,LIB,Jaime Andres Diez,84
+leon,REP,Wayne Christian,6022
+limestone,DEM,Luke Warford,1311
+limestone,GRN,Hunter Wayne Crow,50
+limestone,LIB,Jaime Andres Diez,102
+limestone,REP,Wayne Christian,5297
+llano,DEM,Luke Warford,1791
+llano,GRN,Hunter Wayne Crow,64
+llano,LIB,Jaime Andres Diez,158
+llano,REP,Wayne Christian,8908
+lubbock,,Hunter Wayne Crow,875
+lubbock,,Jaime Andres Diez,2496
+lubbock,,Luke Warford,21506
+lubbock,,Wayne Christian,57452
+mclennan,DEM,Luke Warford,21748
+mclennan,GRN,Hunter Wayne Crow,618
+mclennan,LIB,Jaime Andres Diez,1755
+mclennan,REP,Wayne Christian,47515
+midland,DEM,Luke Warford,6190
+midland,GRN,Hunter Wayne Crow,262
+midland,LIB,Jaime Andres Diez,1211
+midland,REP,Wayne Christian,31481
+montague,DEM,Luke Warford,713
+montague,GRN,Hunter Wayne Crow,61
+montague,LIB,Jaime Andres Diez,109
+montague,REP,Wayne Christian,6839
+moore,DEM,Luke Warford,434
+moore,GRN,Hunter Wayne Crow,17
+moore,LIB,Jaime Andres Diez,98
+moore,REP,Wayne Christian,2982
+nolan,DEM,Luke Warford,603
+nolan,GRN,Hunter Wayne Crow,31
+nolan,LIB,Jaime Andres Diez,99
+nolan,REP,Wayne Christian,2986
+oldham,DEM,Luke Warford,45
+oldham,GRN,Hunter Wayne Crow,6
+oldham,LIB,Jaime Andres Diez,9
+oldham,REP,Wayne Christian,700
+orange,DEM,Luke Warford,3587
+orange,GRN,Hunter Wayne Crow,146
+orange,LIB,Jaime Andres Diez,356
+orange,REP,Wayne Christian,20756
+parmer,DEM,Luke Warford,182
+parmer,GRN,Hunter Wayne Crow,8
+parmer,LIB,Jaime Andres Diez,52
+parmer,REP,Wayne Christian,1509
+pecos,DEM,Luke Warford,1003
+pecos,GRN,Hunter Wayne Crow,37
+pecos,LIB,Jaime Andres Diez,209
+pecos,REP,Wayne Christian,2200
+potter,DEM,Luke Warford,4906
+potter,GRN,Hunter Wayne Crow,206
+potter,LIB,Jaime Andres Diez,612
+potter,REP,Wayne Christian,15811
+randall,DEM,Luke Warford,7449
+randall,GRN,Hunter Wayne Crow,320
+randall,LIB,Jaime Andres Diez,1063
+randall,REP,Wayne Christian,38723
+reagan,DEM,Luke Warford,76
+reagan,GRN,Hunter Wayne Crow,10
+reagan,LIB,Jaime Andres Diez,19
+reagan,REP,Wayne Christian,587
+reeves,DEM,Luke Warford,741
+reeves,GRN,Hunter Wayne Crow,12
+reeves,LIB,Jaime Andres Diez,112
+reeves,REP,Wayne Christian,1116
+refugio,DEM,Luke Warford,603
+refugio,GRN,Hunter Wayne Crow,25
+refugio,LIB,Jaime Andres Diez,43
+refugio,REP,Wayne Christian,1578
+robertson,DEM,Luke Warford,1234
+robertson,GRN,Hunter Wayne Crow,30
+robertson,LIB,Jaime Andres Diez,117
+robertson,REP,Wayne Christian,4553
+rockwall,DEM,Luke Warford,10997
+rockwall,GRN,Hunter Wayne Crow,370
+rockwall,LIB,Jaime Andres Diez,1060
+rockwall,REP,Wayne Christian,30287
+sabine,DEM,Luke Warford,380
+sabine,GRN,Hunter Wayne Crow,14
+sabine,LIB,Jaime Andres Diez,41
+sabine,REP,Wayne Christian,3721
+san-jacinto,DEM,Luke Warford,1453
+san-jacinto,GRN,Hunter Wayne Crow,59
+san-jacinto,LIB,Jaime Andres Diez,132
+san-jacinto,REP,Wayne Christian,7823
+san-patricio,DEM,Luke Warford,5277
+san-patricio,GRN,Hunter Wayne Crow,173
+san-patricio,LIB,Jaime Andres Diez,506
+san-patricio,REP,Wayne Christian,11601
+scurry,DEM,Luke Warford,436
+scurry,GRN,Hunter Wayne Crow,23
+scurry,LIB,Jaime Andres Diez,77
+scurry,REP,Wayne Christian,3528
+smith,DEM,Luke Warford,17532
+smith,GRN,Hunter Wayne Crow,452
+smith,LIB,Jaime Andres Diez,1553
+smith,REP,Wayne Christian,55543
+stonewall,,Hunter Wayne Crow,0
+stonewall,,Jaime Andres Diez,6
+stonewall,,Luke Warford,82
+stonewall,,Wayne Christian,466
+swisher,DEM,Luke Warford,236
+swisher,GRN,Hunter Wayne Crow,10
+swisher,LIB,Jaime Andres Diez,41
+swisher,REP,Wayne Christian,1354
+tarrant,DEM,Luke Warford,255804
+tarrant,GRN,Hunter Wayne Crow,6540
+tarrant,LIB,Jaime Andres Diez,16429
+tarrant,REP,Wayne Christian,304709
+upton,DEM,Luke Warford,102
+upton,GRN,Hunter Wayne Crow,15
+upton,LIB,Jaime Andres Diez,50
+upton,REP,Wayne Christian,832
+uvalde,DEM,Luke Warford,2697
+uvalde,GRN,Hunter Wayne Crow,83
+uvalde,LIB,Jaime Andres Diez,354
+uvalde,REP,Wayne Christian,4591
+ward,,Hunter Wayne Crow,20
+ward,,Jaime Andres Diez,90
+ward,,Luke Warford,391
+ward,,Wayne Christian,1987
+washington,DEM,Luke Warford,2544
+washington,GRN,Hunter Wayne Crow,107
+washington,LIB,Jaime Andres Diez,290
+washington,REP,Wayne Christian,10829
+williamson,DEM,Luke Warford,99431
+williamson,GRN,Hunter Wayne Crow,2672
+williamson,LIB,Jaime Andres Diez,7154
+williamson,REP,Wayne Christian,110117
+wilson,DEM,Luke Warford,3944
+wilson,GRN,Hunter Wayne Crow,149
+wilson,LIB,Jaime Andres Diez,461
+wilson,REP,Wayne Christian,14724

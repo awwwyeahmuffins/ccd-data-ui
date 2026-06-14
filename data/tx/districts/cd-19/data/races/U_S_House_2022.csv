@@ -1,0 +1,501 @@
+precinct,party,candidate,votes
+andrews:1,IND,IND Nathan Lewis,86
+andrews:1,REP,Jodey C. Arrington,751
+andrews:2,IND,IND Nathan Lewis,123
+andrews:2,REP,Jodey C. Arrington,1131
+andrews:3,IND,IND Nathan Lewis,111
+andrews:3,REP,Jodey C. Arrington,807
+andrews:4,IND,IND Nathan Lewis,96
+andrews:4,REP,Jodey C. Arrington,588
+cochran:101,DEM,NATHAN LEWIS,13
+cochran:101,REP,JODEY C. ARRINGTON,144
+cochran:202,DEM,NATHAN LEWIS,22
+cochran:202,REP,JODEY C. ARRINGTON,176
+cochran:303,DEM,NATHAN LEWIS,1
+cochran:303,REP,JODEY C. ARRINGTON,39
+cochran:306,DEM,NATHAN LEWIS,17
+cochran:306,REP,JODEY C. ARRINGTON,111
+cochran:404,DEM,NATHAN LEWIS,25
+cochran:404,REP,JODEY C. ARRINGTON,48
+floyd:1,IND,Nathan Lewis,55
+floyd:1,REP,Jodey C. Arrington,464
+floyd:2,IND,Nathan Lewis,40
+floyd:2,REP,Jodey C. Arrington,397
+floyd:3,IND,Nathan Lewis,37
+floyd:3,REP,Jodey C. Arrington,177
+floyd:4,IND,Nathan Lewis,46
+floyd:4,REP,Jodey C. Arrington,227
+gaines:2,IND,Nathan Lewis,52
+gaines:2,REP,Jodey C. Arrington,775
+gaines:3,IND,Nathan Lewis,70
+gaines:3,REP,Jodey C. Arrington,1331
+gaines:4,IND,Nathan Lewis,47
+gaines:4,REP,Jodey C. Arrington,654
+gaines:5,IND,Nathan Lewis,6
+gaines:5,REP,Jodey C. Arrington,116
+gaines:6,IND,Nathan Lewis,14
+gaines:6,REP,Jodey C. Arrington,89
+gaines:8,IND,Nathan Lewis,65
+gaines:8,REP,Jodey C. Arrington,497
+gaines:9,IND,Nathan Lewis,31
+gaines:9,REP,Jodey C. Arrington,305
+hale:101,IND,Nathan Lewis,12
+hale:101,REP,Jodey C. Arrington,130
+hale:102,IND,Nathan Lewis,4
+hale:102,REP,Jodey C. Arrington,32
+hale:103,IND,Nathan Lewis,40
+hale:103,REP,Jodey C. Arrington,73
+hale:104,IND,Nathan Lewis,49
+hale:104,REP,Jodey C. Arrington,113
+hale:105,IND,Nathan Lewis,22
+hale:105,REP,Jodey C. Arrington,50
+hale:108,IND,Nathan Lewis,3
+hale:108,REP,Jodey C. Arrington,16
+hale:110,IND,Nathan Lewis,16
+hale:110,REP,Jodey C. Arrington,203
+hale:111,IND,Nathan Lewis,33
+hale:111,REP,Jodey C. Arrington,215
+hale:112,IND,Nathan Lewis,17
+hale:112,REP,Jodey C. Arrington,309
+hale:202,IND,Nathan Lewis,28
+hale:202,REP,Jodey C. Arrington,36
+hale:203,IND,Nathan Lewis,47
+hale:203,REP,Jodey C. Arrington,69
+hale:204,IND,Nathan Lewis,35
+hale:204,REP,Jodey C. Arrington,130
+hale:205,IND,Nathan Lewis,18
+hale:205,REP,Jodey C. Arrington,42
+hale:206,IND,Nathan Lewis,2
+hale:206,REP,Jodey C. Arrington,8
+hale:213,IND,Nathan Lewis,9
+hale:213,REP,Jodey C. Arrington,98
+hale:214,IND,Nathan Lewis,41
+hale:214,REP,Jodey C. Arrington,246
+hale:215,IND,Nathan Lewis,23
+hale:215,REP,Jodey C. Arrington,118
+hale:304,IND,Nathan Lewis,78
+hale:304,REP,Jodey C. Arrington,322
+hale:305,IND,Nathan Lewis,58
+hale:305,REP,Jodey C. Arrington,515
+hale:306,IND,Nathan Lewis,14
+hale:306,REP,Jodey C. Arrington,16
+hale:307,IND,Nathan Lewis,21
+hale:307,REP,Jodey C. Arrington,94
+hale:316,IND,Nathan Lewis,66
+hale:316,REP,Jodey C. Arrington,388
+hale:317,IND,Nathan Lewis,6
+hale:317,REP,Jodey C. Arrington,61
+hale:318,IND,Nathan Lewis,59
+hale:318,REP,Jodey C. Arrington,486
+hale:406,IND,Nathan Lewis,44
+hale:406,REP,Jodey C. Arrington,123
+hale:407,IND,Nathan Lewis,116
+hale:407,REP,Jodey C. Arrington,534
+hale:408,IND,Nathan Lewis,45
+hale:408,REP,Jodey C. Arrington,293
+hale:409,IND,Nathan Lewis,59
+hale:409,REP,Jodey C. Arrington,207
+hale:419,IND,Nathan Lewis,6
+hale:419,REP,Jodey C. Arrington,90
+hale:420,IND,Nathan Lewis,8
+hale:420,REP,Jodey C. Arrington,208
+howard:103,IND,Ind Nathan Lewis,10
+howard:103,REP,Jodey C. Arrington,60
+howard:104,IND,Ind Nathan Lewis,4
+howard:104,REP,Jodey C. Arrington,60
+howard:11,IND,Ind Nathan Lewis,82
+howard:11,REP,Jodey C. Arrington,162
+howard:12,IND,Ind Nathan Lewis,53
+howard:12,REP,Jodey C. Arrington,109
+howard:13,IND,Ind Nathan Lewis,24
+howard:13,REP,Jodey C. Arrington,82
+howard:14,IND,Ind Nathan Lewis,4
+howard:14,REP,Jodey C. Arrington,31
+howard:16,IND,Ind Nathan Lewis,15
+howard:16,REP,Jodey C. Arrington,29
+howard:205,IND,Ind Nathan Lewis,42
+howard:205,REP,Jodey C. Arrington,641
+howard:207,IND,Ind Nathan Lewis,64
+howard:207,REP,Jodey C. Arrington,753
+howard:208,IND,Ind Nathan Lewis,6
+howard:208,REP,Jodey C. Arrington,82
+howard:24,IND,Ind Nathan Lewis,34
+howard:24,REP,Jodey C. Arrington,221
+howard:25,IND,Ind Nathan Lewis,107
+howard:25,REP,Jodey C. Arrington,458
+howard:26,IND,Ind Nathan Lewis,11
+howard:26,REP,Jodey C. Arrington,91
+howard:304,IND,Ind Nathan Lewis,21
+howard:304,REP,Jodey C. Arrington,267
+howard:31,IND,Ind Nathan Lewis,19
+howard:31,REP,Jodey C. Arrington,46
+howard:32,IND,Ind Nathan Lewis,9
+howard:32,REP,Jodey C. Arrington,35
+howard:33,IND,Ind Nathan Lewis,94
+howard:33,REP,Jodey C. Arrington,446
+howard:34,IND,Ind Nathan Lewis,102
+howard:34,REP,Jodey C. Arrington,461
+howard:35,IND,Ind Nathan Lewis,19
+howard:35,REP,Jodey C. Arrington,86
+howard:404,IND,Ind Nathan Lewis,25
+howard:404,REP,Jodey C. Arrington,237
+howard:405,IND,Ind Nathan Lewis,10
+howard:405,REP,Jodey C. Arrington,127
+howard:408,IND,Ind Nathan Lewis,0
+howard:408,REP,Jodey C. Arrington,34
+howard:409,IND,Ind Nathan Lewis,15
+howard:409,REP,Jodey C. Arrington,224
+howard:41,IND,Ind Nathan Lewis,3
+howard:41,REP,Jodey C. Arrington,5
+howard:42,IND,Ind Nathan Lewis,41
+howard:42,REP,Jodey C. Arrington,161
+howard:45,IND,Ind Nathan Lewis,44
+howard:45,REP,Jodey C. Arrington,179
+howard:46,IND,Ind Nathan Lewis,61
+howard:46,REP,Jodey C. Arrington,295
+jones:1,,Over Votes,0
+jones:1,,Under Votes,37
+jones:1,IND,Nathan Lewis,127
+jones:1,REP,Jodey C. Arrington,716
+jones:2,,Over Votes,0
+jones:2,,Under Votes,35
+jones:2,IND,Nathan Lewis,133
+jones:2,REP,Jodey C. Arrington,1048
+jones:3,,Over Votes,0
+jones:3,,Under Votes,27
+jones:3,IND,Nathan Lewis,136
+jones:3,REP,Jodey C. Arrington,1309
+jones:4,,Over Votes,0
+jones:4,,Under Votes,21
+jones:4,IND,Nathan Lewis,152
+jones:4,REP,Jodey C. Arrington,1266
+lamb:1,IND,IND Nathan Lewis,30
+lamb:1,REP,Jodey C. Arrington,290
+lamb:10,IND,IND Nathan Lewis,19
+lamb:10,REP,Jodey C. Arrington,162
+lamb:11,IND,IND Nathan Lewis,24
+lamb:11,REP,Jodey C. Arrington,327
+lamb:12,IND,IND Nathan Lewis,1
+lamb:12,REP,Jodey C. Arrington,80
+lamb:2,IND,IND Nathan Lewis,45
+lamb:2,REP,Jodey C. Arrington,136
+lamb:3,IND,IND Nathan Lewis,22
+lamb:3,REP,Jodey C. Arrington,261
+lamb:4,IND,IND Nathan Lewis,1
+lamb:4,REP,Jodey C. Arrington,44
+lamb:5,IND,IND Nathan Lewis,13
+lamb:5,REP,Jodey C. Arrington,160
+lamb:6,IND,IND Nathan Lewis,16
+lamb:6,REP,Jodey C. Arrington,110
+lamb:8,IND,IND Nathan Lewis,95
+lamb:8,REP,Jodey C. Arrington,772
+lamb:9,IND,IND Nathan Lewis,73
+lamb:9,REP,Jodey C. Arrington,311
+lubbock:1,,Jodey C. Arrington,479
+lubbock:1,,Nathan Lewis,421
+lubbock:2,,Jodey C. Arrington,439
+lubbock:2,,Nathan Lewis,229
+lubbock:3,,Jodey C. Arrington,195
+lubbock:3,,Nathan Lewis,362
+lubbock:4,,Jodey C. Arrington,79
+lubbock:4,,Nathan Lewis,146
+lubbock:5,,Jodey C. Arrington,117
+lubbock:5,,Nathan Lewis,143
+lubbock:6,,Jodey C. Arrington,53
+lubbock:6,,Nathan Lewis,179
+lubbock:7,,Jodey C. Arrington,1073
+lubbock:7,,Nathan Lewis,402
+lubbock:8,,Jodey C. Arrington,242
+lubbock:8,,Nathan Lewis,447
+lubbock:9,,Jodey C. Arrington,889
+lubbock:9,,Nathan Lewis,417
+lubbock:10,,Jodey C. Arrington,97
+lubbock:10,,Nathan Lewis,157
+lubbock:11,,Jodey C. Arrington,26
+lubbock:11,,Nathan Lewis,32
+lubbock:12,,Jodey C. Arrington,710
+lubbock:12,,Nathan Lewis,312
+lubbock:13,,Jodey C. Arrington,184
+lubbock:13,,Nathan Lewis,87
+lubbock:14,,Jodey C. Arrington,292
+lubbock:14,,Nathan Lewis,215
+lubbock:15,,Jodey C. Arrington,595
+lubbock:15,,Nathan Lewis,659
+lubbock:17,,Jodey C. Arrington,410
+lubbock:17,,Nathan Lewis,465
+lubbock:19,,Jodey C. Arrington,94
+lubbock:19,,Nathan Lewis,82
+lubbock:20,,Jodey C. Arrington,57
+lubbock:20,,Nathan Lewis,174
+lubbock:21,,Jodey C. Arrington,432
+lubbock:21,,Nathan Lewis,237
+lubbock:22,,Jodey C. Arrington,783
+lubbock:22,,Nathan Lewis,353
+lubbock:23,,Jodey C. Arrington,424
+lubbock:23,,Nathan Lewis,237
+lubbock:24,,Jodey C. Arrington,309
+lubbock:24,,Nathan Lewis,278
+lubbock:25,,Jodey C. Arrington,120
+lubbock:25,,Nathan Lewis,136
+lubbock:26,,Jodey C. Arrington,327
+lubbock:26,,Nathan Lewis,242
+lubbock:27,,Jodey C. Arrington,636
+lubbock:27,,Nathan Lewis,409
+lubbock:28,,Jodey C. Arrington,698
+lubbock:28,,Nathan Lewis,248
+lubbock:29,,Jodey C. Arrington,468
+lubbock:29,,Nathan Lewis,330
+lubbock:30,,Jodey C. Arrington,664
+lubbock:30,,Nathan Lewis,302
+lubbock:31,,Jodey C. Arrington,687
+lubbock:31,,Nathan Lewis,106
+lubbock:32,,Jodey C. Arrington,649
+lubbock:32,,Nathan Lewis,185
+lubbock:34,,Jodey C. Arrington,226
+lubbock:34,,Nathan Lewis,31
+lubbock:36,,Jodey C. Arrington,728
+lubbock:36,,Nathan Lewis,157
+lubbock:37,,Jodey C. Arrington,473
+lubbock:37,,Nathan Lewis,97
+lubbock:38,,Jodey C. Arrington,308
+lubbock:38,,Nathan Lewis,144
+lubbock:40,,Jodey C. Arrington,41
+lubbock:40,,Nathan Lewis,105
+lubbock:47,,Jodey C. Arrington,720
+lubbock:47,,Nathan Lewis,367
+lubbock:49,,Jodey C. Arrington,104
+lubbock:49,,Nathan Lewis,173
+lubbock:50,,Jodey C. Arrington,116
+lubbock:50,,Nathan Lewis,181
+lubbock:52,,Jodey C. Arrington,1022
+lubbock:52,,Nathan Lewis,317
+lubbock:53,,Jodey C. Arrington,601
+lubbock:53,,Nathan Lewis,360
+lubbock:54,,Jodey C. Arrington,1524
+lubbock:54,,Nathan Lewis,377
+lubbock:57,,Jodey C. Arrington,833
+lubbock:57,,Nathan Lewis,375
+lubbock:58,,Jodey C. Arrington,498
+lubbock:58,,Nathan Lewis,165
+lubbock:59,,Jodey C. Arrington,640
+lubbock:59,,Nathan Lewis,370
+lubbock:60,,Jodey C. Arrington,555
+lubbock:60,,Nathan Lewis,152
+lubbock:62,,Jodey C. Arrington,841
+lubbock:62,,Nathan Lewis,282
+lubbock:63,,Jodey C. Arrington,39
+lubbock:63,,Nathan Lewis,12
+lubbock:66,,Jodey C. Arrington,1269
+lubbock:66,,Nathan Lewis,280
+lubbock:67,,Jodey C. Arrington,601
+lubbock:67,,Nathan Lewis,250
+lubbock:72,,Jodey C. Arrington,804
+lubbock:72,,Nathan Lewis,320
+lubbock:75,,Jodey C. Arrington,598
+lubbock:75,,Nathan Lewis,120
+lubbock:76,,Jodey C. Arrington,683
+lubbock:76,,Nathan Lewis,247
+lubbock:78,,Jodey C. Arrington,1668
+lubbock:78,,Nathan Lewis,374
+lubbock:92,,Jodey C. Arrington,125
+lubbock:92,,Nathan Lewis,23
+lubbock:102,,Jodey C. Arrington,280
+lubbock:102,,Nathan Lewis,18
+lubbock:103,,Jodey C. Arrington,240
+lubbock:103,,Nathan Lewis,36
+lubbock:104,,Jodey C. Arrington,501
+lubbock:104,,Nathan Lewis,108
+lubbock:108,,Jodey C. Arrington,292
+lubbock:108,,Nathan Lewis,149
+lubbock:109,,Jodey C. Arrington,1784
+lubbock:109,,Nathan Lewis,341
+lubbock:110,,Jodey C. Arrington,2115
+lubbock:110,,Nathan Lewis,406
+lubbock:111,,Jodey C. Arrington,1073
+lubbock:111,,Nathan Lewis,239
+lubbock:112,,Jodey C. Arrington,544
+lubbock:112,,Nathan Lewis,168
+lubbock:113,,Jodey C. Arrington,561
+lubbock:113,,Nathan Lewis,393
+lubbock:114,,Jodey C. Arrington,116
+lubbock:114,,Nathan Lewis,125
+lubbock:118,,Jodey C. Arrington,473
+lubbock:118,,Nathan Lewis,219
+lubbock:119,,Jodey C. Arrington,716
+lubbock:119,,Nathan Lewis,402
+lubbock:120,,Jodey C. Arrington,1462
+lubbock:120,,Nathan Lewis,241
+lubbock:121,,Jodey C. Arrington,1616
+lubbock:121,,Nathan Lewis,272
+lubbock:122,,Jodey C. Arrington,528
+lubbock:122,,Nathan Lewis,280
+lubbock:123,,Jodey C. Arrington,722
+lubbock:123,,Nathan Lewis,276
+lubbock:124,,Jodey C. Arrington,814
+lubbock:124,,Nathan Lewis,207
+lubbock:125,,Jodey C. Arrington,863
+lubbock:125,,Nathan Lewis,253
+lubbock:126,,Jodey C. Arrington,448
+lubbock:126,,Nathan Lewis,160
+lubbock:127,,Jodey C. Arrington,1051
+lubbock:127,,Nathan Lewis,341
+lubbock:128,,Jodey C. Arrington,917
+lubbock:128,,Nathan Lewis,195
+lubbock:129,,Jodey C. Arrington,1244
+lubbock:129,,Nathan Lewis,362
+lubbock:135,,Jodey C. Arrington,248
+lubbock:135,,Nathan Lewis,44
+lubbock:138,,Jodey C. Arrington,237
+lubbock:138,,Nathan Lewis,21
+lubbock:139,,Jodey C. Arrington,911
+lubbock:139,,Nathan Lewis,190
+lubbock:140,,Jodey C. Arrington,1130
+lubbock:140,,Nathan Lewis,262
+lubbock:141,,Jodey C. Arrington,875
+lubbock:141,,Nathan Lewis,355
+lubbock:142,,Jodey C. Arrington,38
+lubbock:142,,Nathan Lewis,11
+lubbock:151,,Jodey C. Arrington,423
+lubbock:151,,Nathan Lewis,62
+lubbock:152,,Jodey C. Arrington,320
+lubbock:152,,Nathan Lewis,215
+lubbock:153,,Jodey C. Arrington,68
+lubbock:153,,Nathan Lewis,159
+lubbock:154,,Jodey C. Arrington,1367
+lubbock:154,,Nathan Lewis,376
+lubbock:155,,Jodey C. Arrington,1236
+lubbock:155,,Nathan Lewis,133
+lubbock:178,,Jodey C. Arrington,144
+lubbock:178,,Nathan Lewis,15
+lubbock:33,,Jodey C. Arrington,1700
+lubbock:33,,Nathan Lewis,211
+lubbock:35,,Jodey C. Arrington,416
+lubbock:35,,Nathan Lewis,77
+lubbock:39,,Jodey C. Arrington,873
+lubbock:39,,Nathan Lewis,139
+lubbock:41,,Jodey C. Arrington,1148
+lubbock:41,,Nathan Lewis,141
+lubbock:43,,Jodey C. Arrington,303
+lubbock:43,,Nathan Lewis,40
+lubbock:44,,Jodey C. Arrington,518
+lubbock:44,,Nathan Lewis,94
+lubbock:45,,Jodey C. Arrington,190
+lubbock:45,,Nathan Lewis,33
+lubbock:46,,Jodey C. Arrington,1437
+lubbock:46,,Nathan Lewis,176
+lubbock:51,,Jodey C. Arrington,46
+lubbock:51,,Nathan Lewis,14
+lubbock:56,,Jodey C. Arrington,326
+lubbock:56,,Nathan Lewis,74
+lubbock:65,,Jodey C. Arrington,305
+lubbock:65,,Nathan Lewis,63
+nolan:1,,Over Votes,0
+nolan:1,,Under Votes,16
+nolan:1,IND,IND Nathan Lewis,80
+nolan:1,REP,Jodey C. Arrington,283
+nolan:2,,Over Votes,0
+nolan:2,,Under Votes,14
+nolan:2,IND,IND Nathan Lewis,63
+nolan:2,REP,Jodey C. Arrington,504
+nolan:3,,Over Votes,0
+nolan:3,,Under Votes,24
+nolan:3,IND,IND Nathan Lewis,112
+nolan:3,REP,Jodey C. Arrington,512
+nolan:4,,Over Votes,0
+nolan:4,,Under Votes,39
+nolan:4,IND,IND Nathan Lewis,106
+nolan:4,REP,Jodey C. Arrington,408
+nolan:5,,Over Votes,0
+nolan:5,,Under Votes,2
+nolan:5,IND,IND Nathan Lewis,16
+nolan:5,REP,Jodey C. Arrington,87
+nolan:6,,Over Votes,0
+nolan:6,,Under Votes,18
+nolan:6,IND,IND Nathan Lewis,43
+nolan:6,REP,Jodey C. Arrington,418
+nolan:7,,Over Votes,0
+nolan:7,,Under Votes,3
+nolan:7,IND,IND Nathan Lewis,13
+nolan:7,REP,Jodey C. Arrington,174
+nolan:8,,Over Votes,0
+nolan:8,,Under Votes,3
+nolan:8,IND,IND Nathan Lewis,9
+nolan:8,REP,Jodey C. Arrington,103
+nolan:9,,Over Votes,0
+nolan:9,,Under Votes,18
+nolan:9,IND,IND Nathan Lewis,78
+nolan:9,REP,Jodey C. Arrington,674
+parmer:101,,Over Votes,0
+parmer:101,,Under Votes,14
+parmer:101,IND,IND Nathan Lewis,44
+parmer:101,REP,Jodey C. Arrington,430
+parmer:201,,Over Votes,0
+parmer:201,,Under Votes,11
+parmer:201,IND,IND Nathan Lewis,27
+parmer:201,REP,Jodey C. Arrington,188
+parmer:202,,Over Votes,0
+parmer:202,,Under Votes,0
+parmer:202,IND,IND Nathan Lewis,5
+parmer:202,REP,Jodey C. Arrington,157
+parmer:301,,Over Votes,0
+parmer:301,,Under Votes,10
+parmer:301,IND,IND Nathan Lewis,44
+parmer:301,REP,Jodey C. Arrington,573
+parmer:303,,Over Votes,0
+parmer:303,,Under Votes,0
+parmer:303,IND,IND Nathan Lewis,0
+parmer:303,REP,Jodey C. Arrington,18
+parmer:401,,Over Votes,0
+parmer:401,,Under Votes,1
+parmer:401,IND,IND Nathan Lewis,5
+parmer:401,REP,Jodey C. Arrington,143
+parmer:402,,Over Votes,0
+parmer:402,,Under Votes,3
+parmer:402,IND,IND Nathan Lewis,27
+parmer:402,REP,Jodey C. Arrington,73
+scurry:10,IND,IND Nathan Lewis,28
+scurry:10,REP,Jodey C. Arrington,427
+scurry:11,IND,IND Nathan Lewis,4
+scurry:11,REP,Jodey C. Arrington,69
+scurry:12,IND,IND Nathan Lewis,78
+scurry:12,REP,Jodey C. Arrington,598
+scurry:13,IND,IND Nathan Lewis,33
+scurry:13,REP,Jodey C. Arrington,252
+scurry:14,IND,IND Nathan Lewis,9
+scurry:14,REP,Jodey C. Arrington,58
+scurry:15,IND,IND Nathan Lewis,65
+scurry:15,REP,Jodey C. Arrington,402
+scurry:5,IND,IND Nathan Lewis,8
+scurry:5,REP,Jodey C. Arrington,62
+scurry:6,IND,IND Nathan Lewis,12
+scurry:6,REP,Jodey C. Arrington,189
+scurry:7,IND,IND Nathan Lewis,95
+scurry:7,REP,Jodey C. Arrington,949
+scurry:8,IND,IND Nathan Lewis,49
+scurry:8,REP,Jodey C. Arrington,362
+scurry:9,IND,IND Nathan Lewis,18
+scurry:9,REP,Jodey C. Arrington,277
+stonewall:1,,Jodey C. Arrington,129
+stonewall:1,,Nathan Lewis,4
+stonewall:2,,Jodey C. Arrington,131
+stonewall:2,,Nathan Lewis,18
+stonewall:3,,Jodey C. Arrington,121
+stonewall:3,,Nathan Lewis,11
+stonewall:4,,Jodey C. Arrington,106
+stonewall:4,,Nathan Lewis,28
+swisher:1,IND,IND Nathan Lewis,26
+swisher:1,REP,Jodey C. Arrington,205
+swisher:11,IND,IND Nathan Lewis,17
+swisher:11,REP,Jodey C. Arrington,122
+swisher:2,IND,IND Nathan Lewis,58
+swisher:2,REP,Jodey C. Arrington,311
+swisher:3,IND,IND Nathan Lewis,41
+swisher:3,REP,Jodey C. Arrington,311
+swisher:4,IND,IND Nathan Lewis,22
+swisher:4,REP,Jodey C. Arrington,91
+swisher:6,IND,IND Nathan Lewis,18
+swisher:6,REP,Jodey C. Arrington,118
+swisher:7,IND,IND Nathan Lewis,23
+swisher:7,REP,Jodey C. Arrington,221
+swisher:9,IND,IND Nathan Lewis,3
+swisher:9,REP,Jodey C. Arrington,15

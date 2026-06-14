@@ -1,4 +1,28 @@
 precinct,party,candidate,votes
+coke:1,DEM,Elizabeth Davis Frizell,38
+coke:1,REP,Bert Richardson,391
+coke:2,DEM,Elizabeth Davis Frizell,39
+coke:2,REP,Bert Richardson,431
+coke:3,DEM,Elizabeth Davis Frizell,47
+coke:3,REP,Bert Richardson,392
+coke:4,DEM,Elizabeth Davis Frizell,37
+coke:4,REP,Bert Richardson,327
+glasscock:1,DEM,Elizabeth Davis Frizell,5
+glasscock:1,REP,Bert Richardson,171
+glasscock:2,DEM,Elizabeth Davis Frizell,9
+glasscock:2,REP,Bert Richardson,119
+glasscock:3,DEM,Elizabeth Davis Frizell,6
+glasscock:3,REP,Bert Richardson,145
+glasscock:4,DEM,Elizabeth Davis Frizell,14
+glasscock:4,REP,Bert Richardson,158
+irion:100,DEM,Elizabeth Davis Frizell,35
+irion:100,REP,Bert Richardson,176
+irion:200,DEM,Elizabeth Davis Frizell,29
+irion:200,REP,Bert Richardson,177
+irion:300,DEM,Elizabeth Davis Frizell,23
+irion:300,REP,Bert Richardson,149
+irion:400,DEM,Elizabeth Davis Frizell,32
+irion:400,REP,Bert Richardson,249
 sterling:1,,Bert Richardson,150
 sterling:1,,Elizabeth Davis Frizell,16
 sterling:2,,Bert Richardson,114
@@ -7,3 +31,71 @@ sterling:3,,Bert Richardson,159
 sterling:3,,Elizabeth Davis Frizell,5
 sterling:4,,Bert Richardson,140
 sterling:4,,Elizabeth Davis Frizell,13
+tom-green:106,DEM,Elizabeth Davis Frizell,309
+tom-green:106,REP,Bert Richardson,458
+tom-green:107,DEM,Elizabeth Davis Frizell,82
+tom-green:107,REP,Bert Richardson,208
+tom-green:108,DEM,Elizabeth Davis Frizell,64
+tom-green:108,REP,Bert Richardson,549
+tom-green:112,DEM,Elizabeth Davis Frizell,76
+tom-green:112,REP,Bert Richardson,645
+tom-green:114,DEM,Elizabeth Davis Frizell,251
+tom-green:114,REP,Bert Richardson,141
+tom-green:124,DEM,Elizabeth Davis Frizell,376
+tom-green:124,REP,Bert Richardson,284
+tom-green:137,DEM,Elizabeth Davis Frizell,617
+tom-green:137,REP,Bert Richardson,804
+tom-green:144,DEM,Elizabeth Davis Frizell,388
+tom-green:144,REP,Bert Richardson,509
+tom-green:146,DEM,Elizabeth Davis Frizell,659
+tom-green:146,REP,Bert Richardson,834
+tom-green:213,DEM,Elizabeth Davis Frizell,197
+tom-green:213,REP,Bert Richardson,1994
+tom-green:215,DEM,Elizabeth Davis Frizell,382
+tom-green:215,REP,Bert Richardson,1369
+tom-green:225,DEM,Elizabeth Davis Frizell,3
+tom-green:225,REP,Bert Richardson,65
+tom-green:228,DEM,Elizabeth Davis Frizell,483
+tom-green:228,REP,Bert Richardson,1219
+tom-green:230,DEM,Elizabeth Davis Frizell,1037
+tom-green:230,REP,Bert Richardson,2677
+tom-green:241,DEM,Elizabeth Davis Frizell,803
+tom-green:241,REP,Bert Richardson,2980
+tom-green:304,DEM,Elizabeth Davis Frizell,548
+tom-green:304,REP,Bert Richardson,1480
+tom-green:305,DEM,Elizabeth Davis Frizell,13
+tom-green:305,REP,Bert Richardson,18
+tom-green:306,DEM,Elizabeth Davis Frizell,314
+tom-green:306,REP,Bert Richardson,767
+tom-green:308,DEM,Elizabeth Davis Frizell,68
+tom-green:308,REP,Bert Richardson,124
+tom-green:319,DEM,Elizabeth Davis Frizell,639
+tom-green:319,REP,Bert Richardson,1811
+tom-green:327,DEM,Elizabeth Davis Frizell,572
+tom-green:327,REP,Bert Richardson,977
+tom-green:348,DEM,Elizabeth Davis Frizell,100
+tom-green:348,REP,Bert Richardson,391
+tom-green:351,DEM,Elizabeth Davis Frizell,56
+tom-green:351,REP,Bert Richardson,233
+tom-green:358,DEM,Elizabeth Davis Frizell,481
+tom-green:358,REP,Bert Richardson,2892
+tom-green:401,DEM,Elizabeth Davis Frizell,28
+tom-green:401,REP,Bert Richardson,75
+tom-green:402,DEM,Elizabeth Davis Frizell,647
+tom-green:402,REP,Bert Richardson,1213
+tom-green:420,DEM,Elizabeth Davis Frizell,108
+tom-green:420,REP,Bert Richardson,340
+tom-green:421,DEM,Elizabeth Davis Frizell,606
+tom-green:421,REP,Bert Richardson,1887
+tom-green:422,DEM,Elizabeth Davis Frizell,116
+tom-green:422,REP,Bert Richardson,925
+tom-green:423,DEM,Elizabeth Davis Frizell,83
+tom-green:423,REP,Bert Richardson,724
+tom-green:424,DEM,Elizabeth Davis Frizell,429
+tom-green:424,REP,Bert Richardson,1078
+tom-green:434,DEM,Elizabeth Davis Frizell,272
+tom-green:434,REP,Bert Richardson,419
+tom-green:435,DEM,Elizabeth Davis Frizell,213
+tom-green:435,REP,Bert Richardson,440
+tom-green:436,DEM,Elizabeth Davis Frizell,781
+tom-green:436,REP,Bert Richardson,1768

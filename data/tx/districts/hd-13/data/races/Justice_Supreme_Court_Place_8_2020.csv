@@ -1,4 +1,37 @@
 precinct,party,candidate,votes
+bosque:1,DEM,Gisela D. Triana,59
+bosque:1,LIB,Tom Oxford,9
+bosque:1,REP,Brett Busby,484
+bosque:10,DEM,Gisela D. Triana,181
+bosque:10,LIB,Tom Oxford,19
+bosque:10,REP,Brett Busby,846
+bosque:11,DEM,Gisela D. Triana,85
+bosque:11,LIB,Tom Oxford,8
+bosque:11,REP,Brett Busby,555
+bosque:2,DEM,Gisela D. Triana,98
+bosque:2,LIB,Tom Oxford,12
+bosque:2,REP,Brett Busby,490
+bosque:3,DEM,Gisela D. Triana,111
+bosque:3,LIB,Tom Oxford,13
+bosque:3,REP,Brett Busby,660
+bosque:4,DEM,Gisela D. Triana,43
+bosque:4,LIB,Tom Oxford,11
+bosque:4,REP,Brett Busby,342
+bosque:5,DEM,Gisela D. Triana,204
+bosque:5,LIB,Tom Oxford,25
+bosque:5,REP,Brett Busby,979
+bosque:6,DEM,Gisela D. Triana,149
+bosque:6,LIB,Tom Oxford,23
+bosque:6,REP,Brett Busby,764
+bosque:7,DEM,Gisela D. Triana,77
+bosque:7,LIB,Tom Oxford,12
+bosque:7,REP,Brett Busby,435
+bosque:8,DEM,Gisela D. Triana,273
+bosque:8,LIB,Tom Oxford,31
+bosque:8,REP,Brett Busby,1306
+bosque:9,DEM,Gisela D. Triana,98
+bosque:9,LIB,Tom Oxford,10
+bosque:9,REP,Brett Busby,526
 hill:10,,Over Votes,0
 hill:10,,Under Votes,32
 hill:10,DEM,Gisela D. Triana,284

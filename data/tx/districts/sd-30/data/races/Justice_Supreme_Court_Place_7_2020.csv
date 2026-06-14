@@ -1,4 +1,85 @@
 precinct,party,candidate,votes
+archer:1,DEM,Staci Williams,81
+archer:1,LIB,William Bryan Strange III,17
+archer:1,REP,Jeff Boyd,827
+archer:10,DEM,Staci Williams,80
+archer:10,LIB,William Bryan Strange III,9
+archer:10,REP,Jeff Boyd,516
+archer:11,DEM,Staci Williams,6
+archer:11,LIB,William Bryan Strange III,1
+archer:11,REP,Jeff Boyd,67
+archer:2,DEM,Staci Williams,65
+archer:2,LIB,William Bryan Strange III,5
+archer:2,REP,Jeff Boyd,712
+archer:3,DEM,Staci Williams,27
+archer:3,LIB,William Bryan Strange III,5
+archer:3,REP,Jeff Boyd,243
+archer:4,DEM,Staci Williams,30
+archer:4,LIB,William Bryan Strange III,3
+archer:4,REP,Jeff Boyd,476
+archer:5,DEM,Staci Williams,9
+archer:5,LIB,William Bryan Strange III,2
+archer:5,REP,Jeff Boyd,118
+archer:6,DEM,Staci Williams,86
+archer:6,LIB,William Bryan Strange III,13
+archer:6,REP,Jeff Boyd,708
+archer:7,DEM,Staci Williams,12
+archer:7,LIB,William Bryan Strange III,2
+archer:7,REP,Jeff Boyd,131
+archer:8,DEM,Staci Williams,37
+archer:8,LIB,William Bryan Strange III,6
+archer:8,REP,Jeff Boyd,211
+archer:9,DEM,Staci Williams,14
+archer:9,LIB,William Bryan Strange III,2
+archer:9,REP,Jeff Boyd,121
+clay:1,DEM,Staci Williams,97
+clay:1,LIB,William Bryan Strange III,2
+clay:1,REP,Jeff Boyd,552
+clay:10,DEM,Staci Williams,21
+clay:10,LIB,William Bryan Strange III,10
+clay:10,REP,Jeff Boyd,197
+clay:11,DEM,Staci Williams,58
+clay:11,LIB,William Bryan Strange III,9
+clay:11,REP,Jeff Boyd,605
+clay:12,DEM,Staci Williams,29
+clay:12,LIB,William Bryan Strange III,3
+clay:12,REP,Jeff Boyd,227
+clay:13,DEM,Staci Williams,19
+clay:13,LIB,William Bryan Strange III,1
+clay:13,REP,Jeff Boyd,96
+clay:14,DEM,Staci Williams,12
+clay:14,LIB,William Bryan Strange III,0
+clay:14,REP,Jeff Boyd,121
+clay:15,DEM,Staci Williams,41
+clay:15,LIB,William Bryan Strange III,3
+clay:15,REP,Jeff Boyd,244
+clay:17,DEM,Staci Williams,87
+clay:17,LIB,William Bryan Strange III,8
+clay:17,REP,Jeff Boyd,662
+clay:20,DEM,Staci Williams,14
+clay:20,LIB,William Bryan Strange III,8
+clay:20,REP,Jeff Boyd,354
+clay:24,DEM,Staci Williams,24
+clay:24,LIB,William Bryan Strange III,1
+clay:24,REP,Jeff Boyd,233
+clay:26,DEM,Staci Williams,10
+clay:26,LIB,William Bryan Strange III,2
+clay:26,REP,Jeff Boyd,132
+clay:27,DEM,Staci Williams,29
+clay:27,LIB,William Bryan Strange III,6
+clay:27,REP,Jeff Boyd,282
+clay:32,DEM,Staci Williams,14
+clay:32,LIB,William Bryan Strange III,1
+clay:32,REP,Jeff Boyd,176
+clay:6,DEM,Staci Williams,43
+clay:6,LIB,William Bryan Strange III,6
+clay:6,REP,Jeff Boyd,250
+clay:8,DEM,Staci Williams,74
+clay:8,LIB,William Bryan Strange III,11
+clay:8,REP,Jeff Boyd,509
+clay:9,DEM,Staci Williams,45
+clay:9,LIB,William Bryan Strange III,3
+clay:9,REP,Jeff Boyd,313
 denton:1002,,Jeff Boyd,973
 denton:1002,,Staci Williams,234
 denton:1002,,William Bryan Strange III,26
@@ -281,6 +362,78 @@ denton:4041,,William Bryan Strange III,54
 denton:4045,,Jeff Boyd,370
 denton:4045,,Staci Williams,1874
 denton:4045,,William Bryan Strange III,118
+grayson:101,DEM,Staci Williams,1002
+grayson:101,REP,Jeff Boyd,1296
+grayson:102,DEM,Staci Williams,748
+grayson:102,REP,Jeff Boyd,496
+grayson:103,DEM,Staci Williams,68
+grayson:103,REP,Jeff Boyd,356
+grayson:104,DEM,Staci Williams,103
+grayson:104,REP,Jeff Boyd,628
+grayson:105,DEM,Staci Williams,850
+grayson:105,REP,Jeff Boyd,3841
+grayson:106,DEM,Staci Williams,365
+grayson:106,REP,Jeff Boyd,1675
+grayson:107,DEM,Staci Williams,182
+grayson:107,REP,Jeff Boyd,1215
+grayson:108,DEM,Staci Williams,164
+grayson:108,REP,Jeff Boyd,1172
+grayson:201,DEM,Staci Williams,676
+grayson:201,REP,Jeff Boyd,1510
+grayson:202,DEM,Staci Williams,601
+grayson:202,REP,Jeff Boyd,1515
+grayson:203,DEM,Staci Williams,266
+grayson:203,REP,Jeff Boyd,364
+grayson:204,DEM,Staci Williams,165
+grayson:204,REP,Jeff Boyd,604
+grayson:205,DEM,Staci Williams,519
+grayson:205,REP,Jeff Boyd,2291
+grayson:206,DEM,Staci Williams,260
+grayson:206,REP,Jeff Boyd,779
+grayson:207,DEM,Staci Williams,130
+grayson:207,REP,Jeff Boyd,692
+grayson:208,DEM,Staci Williams,230
+grayson:208,REP,Jeff Boyd,834
+grayson:209,DEM,Staci Williams,141
+grayson:209,REP,Jeff Boyd,730
+grayson:210,DEM,Staci Williams,196
+grayson:210,REP,Jeff Boyd,1329
+grayson:301,DEM,Staci Williams,464
+grayson:301,REP,Jeff Boyd,898
+grayson:302,DEM,Staci Williams,1260
+grayson:302,REP,Jeff Boyd,2686
+grayson:303,DEM,Staci Williams,114
+grayson:303,REP,Jeff Boyd,590
+grayson:304,DEM,Staci Williams,615
+grayson:304,REP,Jeff Boyd,1318
+grayson:305,DEM,Staci Williams,169
+grayson:305,REP,Jeff Boyd,939
+grayson:306,DEM,Staci Williams,370
+grayson:306,REP,Jeff Boyd,2415
+grayson:307,DEM,Staci Williams,188
+grayson:307,REP,Jeff Boyd,1361
+grayson:308,DEM,Staci Williams,128
+grayson:308,REP,Jeff Boyd,785
+grayson:309,DEM,Staci Williams,105
+grayson:309,REP,Jeff Boyd,496
+grayson:401,DEM,Staci Williams,479
+grayson:401,REP,Jeff Boyd,495
+grayson:402,DEM,Staci Williams,502
+grayson:402,REP,Jeff Boyd,1175
+grayson:403,DEM,Staci Williams,402
+grayson:403,REP,Jeff Boyd,1866
+grayson:404,DEM,Staci Williams,486
+grayson:404,REP,Jeff Boyd,2207
+grayson:405,DEM,Staci Williams,126
+grayson:405,REP,Jeff Boyd,220
+grayson:406,DEM,Staci Williams,295
+grayson:406,REP,Jeff Boyd,1842
+grayson:407,DEM,Staci Williams,43
+grayson:407,REP,Jeff Boyd,47
+grayson:408,DEM,Staci Williams,356
+grayson:408,REP,Jeff Boyd,981
+grayson:409,DEM,Staci Williams,866
+grayson:409,REP,Jeff Boyd,2218
 parker:100,,Over Votes,0
 parker:100,,Under Votes,114
 parker:100,DEM,Staci Williams,551
@@ -411,3 +564,81 @@ parker:435,,Under Votes,47
 parker:435,DEM,Staci Williams,408
 parker:435,LIB,William Bryan Strange III,62
 parker:435,REP,Jeff Boyd,1879
+wichita:102,DEM,Staci Williams,163
+wichita:102,REP,Jeff Boyd,464
+wichita:104,DEM,Staci Williams,210
+wichita:104,REP,Jeff Boyd,593
+wichita:105,DEM,Staci Williams,635
+wichita:105,REP,Jeff Boyd,1440
+wichita:107,DEM,Staci Williams,9
+wichita:107,REP,Jeff Boyd,28
+wichita:108,DEM,Staci Williams,542
+wichita:108,REP,Jeff Boyd,1897
+wichita:109,DEM,Staci Williams,693
+wichita:109,REP,Jeff Boyd,1975
+wichita:110,DEM,Staci Williams,138
+wichita:110,REP,Jeff Boyd,274
+wichita:112,DEM,Staci Williams,10
+wichita:112,REP,Jeff Boyd,7
+wichita:113,DEM,Staci Williams,140
+wichita:113,REP,Jeff Boyd,249
+wichita:114,DEM,Staci Williams,4
+wichita:114,REP,Jeff Boyd,31
+wichita:115,DEM,Staci Williams,5
+wichita:115,REP,Jeff Boyd,0
+wichita:116,DEM,Staci Williams,3
+wichita:116,REP,Jeff Boyd,29
+wichita:117,DEM,Staci Williams,3
+wichita:117,REP,Jeff Boyd,32
+wichita:201,DEM,Staci Williams,604
+wichita:201,REP,Jeff Boyd,969
+wichita:203,DEM,Staci Williams,379
+wichita:203,REP,Jeff Boyd,554
+wichita:204,DEM,Staci Williams,52
+wichita:204,REP,Jeff Boyd,403
+wichita:207,DEM,Staci Williams,142
+wichita:207,REP,Jeff Boyd,255
+wichita:209,DEM,Staci Williams,0
+wichita:209,REP,Jeff Boyd,0
+wichita:210,DEM,Staci Williams,0
+wichita:210,REP,Jeff Boyd,0
+wichita:211,DEM,Staci Williams,49
+wichita:211,REP,Jeff Boyd,96
+wichita:301,DEM,Staci Williams,8
+wichita:301,REP,Jeff Boyd,9
+wichita:302,DEM,Staci Williams,356
+wichita:302,REP,Jeff Boyd,471
+wichita:303,DEM,Staci Williams,570
+wichita:303,REP,Jeff Boyd,360
+wichita:304,DEM,Staci Williams,65
+wichita:304,REP,Jeff Boyd,72
+wichita:305,DEM,Staci Williams,79
+wichita:305,REP,Jeff Boyd,137
+wichita:311,DEM,Staci Williams,537
+wichita:311,REP,Jeff Boyd,248
+wichita:312,DEM,Staci Williams,10
+wichita:312,REP,Jeff Boyd,11
+wichita:316,DEM,Staci Williams,11
+wichita:316,REP,Jeff Boyd,12
+wichita:318,DEM,Staci Williams,62
+wichita:318,REP,Jeff Boyd,195
+wichita:319,DEM,Staci Williams,7
+wichita:319,REP,Jeff Boyd,25
+young:10,DEM,Staci Williams,22
+young:10,REP,Jeff Boyd,275
+young:16,DEM,Staci Williams,5
+young:16,REP,Jeff Boyd,184
+young:20,DEM,Staci Williams,18
+young:20,REP,Jeff Boyd,156
+young:22,DEM,Staci Williams,219
+young:22,REP,Jeff Boyd,2072
+young:23,DEM,Staci Williams,191
+young:23,REP,Jeff Boyd,1182
+young:24,DEM,Staci Williams,188
+young:24,REP,Jeff Boyd,1027
+young:5,DEM,Staci Williams,255
+young:5,REP,Jeff Boyd,1780
+young:6,DEM,Staci Williams,16
+young:6,REP,Jeff Boyd,149
+young:7,DEM,Staci Williams,8
+young:7,REP,Jeff Boyd,127

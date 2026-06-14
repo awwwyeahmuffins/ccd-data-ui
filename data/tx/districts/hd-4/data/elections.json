@@ -4,39 +4,15 @@
   "boundarySet": "members",
   "elections": [
     {
-      "id": "attorney-general-2022",
-      "displayName": "Attorney General (2022)",
-      "office": "Attorney General",
-      "district": null,
+      "id": "state-house-2022",
+      "displayName": "State House District 4 (2022)",
+      "office": "State House",
+      "district": "4",
       "year": 2022,
       "date": "2022-11-08",
       "category": "State",
-      "raceFile": "races/Attorney_General_2022.csv",
-      "turnoutFile": "turnout/Attorney_General_2022.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "attorney-general-1-2022",
-      "displayName": "Attorney General 1 (2022)",
-      "office": "Attorney General ( 1)",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Attorney_General_1_2022.csv",
-      "turnoutFile": null,
-      "sourceUrl": null
-    },
-    {
-      "id": "comm-general-land-office-2022",
-      "displayName": "Comm General Land Office (2022)",
-      "office": "Comm. General Land Office",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "County",
-      "raceFile": "races/Comm_General_Land_Office_2022.csv",
-      "turnoutFile": "turnout/Comm_General_Land_Office_2022.csv",
+      "raceFile": "races/State_House_2022.csv",
+      "turnoutFile": "turnout/State_House_2022.csv",
       "sourceUrl": null
     },
     {
@@ -52,27 +28,15 @@
       "sourceUrl": null
     },
     {
-      "id": "commissioner-of-agriculture-1-2022",
-      "displayName": "Commissioner of Agriculture 1 (2022)",
-      "office": "Commissioner of Agriculture ( 1)",
+      "id": "attorney-general-2022",
+      "displayName": "Attorney General (2022)",
+      "office": "Attorney General",
       "district": null,
       "year": 2022,
       "date": "2022-11-08",
       "category": "State",
-      "raceFile": "races/Commissioner_of_Agriculture_1_2022.csv",
-      "turnoutFile": null,
-      "sourceUrl": null
-    },
-    {
-      "id": "commissioner-of-the-general-land-office-1-2022",
-      "displayName": "Commissioner of the General Land Office 1 (2022)",
-      "office": "Commissioner of the General Land Office ( 1)",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Commissioner_of_the_General_Land_Office_1_2022.csv",
-      "turnoutFile": null,
+      "raceFile": "races/Attorney_General_2022.csv",
+      "turnoutFile": "turnout/Attorney_General_2022.csv",
       "sourceUrl": null
     },
     {
@@ -88,18 +52,6 @@
       "sourceUrl": null
     },
     {
-      "id": "comptroller-of-public-accounts-1-2022",
-      "displayName": "Comptroller of Public Accounts 1 (2022)",
-      "office": "Comptroller of Public Accounts ( 1)",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Comptroller_of_Public_Accounts_1_2022.csv",
-      "turnoutFile": null,
-      "sourceUrl": null
-    },
-    {
       "id": "governor-2022",
       "displayName": "Governor (2022)",
       "office": "Governor",
@@ -112,15 +64,15 @@
       "sourceUrl": null
     },
     {
-      "id": "governor-1-2022",
-      "displayName": "Governor 1 (2022)",
-      "office": "Governor ( 1)",
+      "id": "commissioner-of-the-general-land-office-2022",
+      "displayName": "Commissioner of the General Land Office (2022)",
+      "office": "Commissioner of the General Land Office",
       "district": null,
       "year": 2022,
       "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Governor_1_2022.csv",
-      "turnoutFile": null,
+      "category": "County",
+      "raceFile": "races/Commissioner_of_the_General_Land_Office_2022.csv",
+      "turnoutFile": "turnout/Commissioner_of_the_General_Land_Office_2022.csv",
       "sourceUrl": null
     },
     {
@@ -136,18 +88,6 @@
       "sourceUrl": null
     },
     {
-      "id": "lieutenant-governor-1-2022",
-      "displayName": "Lieutenant Governor 1 (2022)",
-      "office": "Lieutenant Governor ( 1)",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Lieutenant_Governor_1_2022.csv",
-      "turnoutFile": null,
-      "sourceUrl": null
-    },
-    {
       "id": "railroad-commissioner-2022",
       "displayName": "Railroad Commissioner (2022)",
       "office": "Railroad Commissioner",
@@ -157,18 +97,6 @@
       "category": "State",
       "raceFile": "races/Railroad_Commissioner_2022.csv",
       "turnoutFile": "turnout/Railroad_Commissioner_2022.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "railroad-commissioner-1-2022",
-      "displayName": "Railroad Commissioner 1 (2022)",
-      "office": "Railroad Commissioner ( 1)",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Railroad_Commissioner_1_2022.csv",
-      "turnoutFile": null,
       "sourceUrl": null
     }
   ]

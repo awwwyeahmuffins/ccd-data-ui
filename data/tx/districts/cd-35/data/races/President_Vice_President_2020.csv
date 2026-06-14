@@ -1,4 +1,909 @@
 precinct,party,candidate,votes
+bexar:1001,,Write-in,0
+bexar:1001,DEM,Joseph R Biden,422
+bexar:1001,GRN,Howie Hawkins,2
+bexar:1001,LIB,Jo Jorgensen,9
+bexar:1001,REP,Donald J Trump,107
+bexar:1003,,Write-in,5
+bexar:1003,DEM,Joseph R Biden,1107
+bexar:1003,GRN,Howie Hawkins,0
+bexar:1003,LIB,Jo Jorgensen,11
+bexar:1003,REP,Donald J Trump,269
+bexar:1008,,Write-in,1
+bexar:1008,DEM,Joseph R Biden,1079
+bexar:1008,GRN,Howie Hawkins,5
+bexar:1008,LIB,Jo Jorgensen,9
+bexar:1008,REP,Donald J Trump,208
+bexar:1098,,Write-in,0
+bexar:1098,DEM,Joseph R Biden,389
+bexar:1098,GRN,Howie Hawkins,2
+bexar:1098,LIB,Jo Jorgensen,0
+bexar:1098,REP,Donald J Trump,84
+bexar:2001,,Write-in,0
+bexar:2001,DEM,Joseph R Biden,284
+bexar:2001,GRN,Howie Hawkins,0
+bexar:2001,LIB,Jo Jorgensen,3
+bexar:2001,REP,Donald J Trump,76
+bexar:2002,,Write-in,0
+bexar:2002,DEM,Joseph R Biden,482
+bexar:2002,GRN,Howie Hawkins,1
+bexar:2002,LIB,Jo Jorgensen,1
+bexar:2002,REP,Donald J Trump,145
+bexar:2003,,Write-in,0
+bexar:2003,DEM,Joseph R Biden,734
+bexar:2003,GRN,Howie Hawkins,2
+bexar:2003,LIB,Jo Jorgensen,4
+bexar:2003,REP,Donald J Trump,199
+bexar:2004,,Write-in,3
+bexar:2004,DEM,Joseph R Biden,1077
+bexar:2004,GRN,Howie Hawkins,7
+bexar:2004,LIB,Jo Jorgensen,14
+bexar:2004,REP,Donald J Trump,297
+bexar:2005,,Write-in,1
+bexar:2005,DEM,Joseph R Biden,473
+bexar:2005,GRN,Howie Hawkins,7
+bexar:2005,LIB,Jo Jorgensen,6
+bexar:2005,REP,Donald J Trump,127
+bexar:2007,,Write-in,1
+bexar:2007,DEM,Joseph R Biden,620
+bexar:2007,GRN,Howie Hawkins,2
+bexar:2007,LIB,Jo Jorgensen,6
+bexar:2007,REP,Donald J Trump,189
+bexar:2008,,Write-in,2
+bexar:2008,DEM,Joseph R Biden,414
+bexar:2008,GRN,Howie Hawkins,3
+bexar:2008,LIB,Jo Jorgensen,9
+bexar:2008,REP,Donald J Trump,132
+bexar:2018,,Write-in,0
+bexar:2018,DEM,Joseph R Biden,561
+bexar:2018,GRN,Howie Hawkins,1
+bexar:2018,LIB,Jo Jorgensen,4
+bexar:2018,REP,Donald J Trump,169
+bexar:2029,,Write-in,0
+bexar:2029,DEM,Joseph R Biden,420
+bexar:2029,GRN,Howie Hawkins,4
+bexar:2029,LIB,Jo Jorgensen,1
+bexar:2029,REP,Donald J Trump,123
+bexar:2031,,Write-in,0
+bexar:2031,DEM,Joseph R Biden,565
+bexar:2031,GRN,Howie Hawkins,5
+bexar:2031,LIB,Jo Jorgensen,6
+bexar:2031,REP,Donald J Trump,144
+bexar:2032,,Write-in,0
+bexar:2032,DEM,Joseph R Biden,228
+bexar:2032,GRN,Howie Hawkins,4
+bexar:2032,LIB,Jo Jorgensen,0
+bexar:2032,REP,Donald J Trump,66
+bexar:2033,,Write-in,1
+bexar:2033,DEM,Joseph R Biden,276
+bexar:2033,GRN,Howie Hawkins,4
+bexar:2033,LIB,Jo Jorgensen,3
+bexar:2033,REP,Donald J Trump,78
+bexar:2034,,Write-in,0
+bexar:2034,DEM,Joseph R Biden,283
+bexar:2034,GRN,Howie Hawkins,3
+bexar:2034,LIB,Jo Jorgensen,7
+bexar:2034,REP,Donald J Trump,92
+bexar:2035,,Write-in,0
+bexar:2035,DEM,Joseph R Biden,776
+bexar:2035,GRN,Howie Hawkins,2
+bexar:2035,LIB,Jo Jorgensen,6
+bexar:2035,REP,Donald J Trump,221
+bexar:2036,,Write-in,0
+bexar:2036,DEM,Joseph R Biden,898
+bexar:2036,GRN,Howie Hawkins,3
+bexar:2036,LIB,Jo Jorgensen,16
+bexar:2036,REP,Donald J Trump,358
+bexar:2039,,Write-in,2
+bexar:2039,DEM,Joseph R Biden,730
+bexar:2039,GRN,Howie Hawkins,8
+bexar:2039,LIB,Jo Jorgensen,5
+bexar:2039,REP,Donald J Trump,174
+bexar:2051,,Write-in,0
+bexar:2051,DEM,Joseph R Biden,303
+bexar:2051,GRN,Howie Hawkins,1
+bexar:2051,LIB,Jo Jorgensen,6
+bexar:2051,REP,Donald J Trump,106
+bexar:2052,,Write-in,1
+bexar:2052,DEM,Joseph R Biden,373
+bexar:2052,GRN,Howie Hawkins,3
+bexar:2052,LIB,Jo Jorgensen,5
+bexar:2052,REP,Donald J Trump,153
+bexar:2053,,Write-in,0
+bexar:2053,DEM,Joseph R Biden,547
+bexar:2053,GRN,Howie Hawkins,1
+bexar:2053,LIB,Jo Jorgensen,11
+bexar:2053,REP,Donald J Trump,156
+bexar:2054,,Write-in,2
+bexar:2054,DEM,Joseph R Biden,1042
+bexar:2054,GRN,Howie Hawkins,8
+bexar:2054,LIB,Jo Jorgensen,10
+bexar:2054,REP,Donald J Trump,262
+bexar:2055,,Write-in,1
+bexar:2055,DEM,Joseph R Biden,881
+bexar:2055,GRN,Howie Hawkins,8
+bexar:2055,LIB,Jo Jorgensen,16
+bexar:2055,REP,Donald J Trump,244
+bexar:2067,,Write-in,0
+bexar:2067,DEM,Joseph R Biden,145
+bexar:2067,GRN,Howie Hawkins,0
+bexar:2067,LIB,Jo Jorgensen,1
+bexar:2067,REP,Donald J Trump,35
+bexar:2070,,Write-in,0
+bexar:2070,DEM,Joseph R Biden,774
+bexar:2070,GRN,Howie Hawkins,5
+bexar:2070,LIB,Jo Jorgensen,9
+bexar:2070,REP,Donald J Trump,178
+bexar:2071,,Write-in,1
+bexar:2071,DEM,Joseph R Biden,263
+bexar:2071,GRN,Howie Hawkins,2
+bexar:2071,LIB,Jo Jorgensen,4
+bexar:2071,REP,Donald J Trump,93
+bexar:2075,,Write-in,0
+bexar:2075,DEM,Joseph R Biden,414
+bexar:2075,GRN,Howie Hawkins,3
+bexar:2075,LIB,Jo Jorgensen,2
+bexar:2075,REP,Donald J Trump,89
+bexar:2079,,Write-in,0
+bexar:2079,DEM,Joseph R Biden,252
+bexar:2079,GRN,Howie Hawkins,1
+bexar:2079,LIB,Jo Jorgensen,4
+bexar:2079,REP,Donald J Trump,41
+bexar:2104,,Write-in,1
+bexar:2104,DEM,Joseph R Biden,133
+bexar:2104,GRN,Howie Hawkins,0
+bexar:2104,LIB,Jo Jorgensen,0
+bexar:2104,REP,Donald J Trump,38
+bexar:2105,,Write-in,0
+bexar:2105,DEM,Joseph R Biden,236
+bexar:2105,GRN,Howie Hawkins,2
+bexar:2105,LIB,Jo Jorgensen,1
+bexar:2105,REP,Donald J Trump,73
+bexar:2117,,Write-in,0
+bexar:2117,DEM,Joseph R Biden,290
+bexar:2117,GRN,Howie Hawkins,3
+bexar:2117,LIB,Jo Jorgensen,4
+bexar:2117,REP,Donald J Trump,70
+bexar:2152,,Write-in,0
+bexar:2152,DEM,Joseph R Biden,235
+bexar:2152,GRN,Howie Hawkins,2
+bexar:2152,LIB,Jo Jorgensen,3
+bexar:2152,REP,Donald J Trump,76
+bexar:3159,,Write-in,2
+bexar:3159,DEM,Joseph R Biden,930
+bexar:3159,GRN,Howie Hawkins,7
+bexar:3159,LIB,Jo Jorgensen,14
+bexar:3159,REP,Donald J Trump,563
+bexar:3204,,Write-in,0
+bexar:3204,DEM,Joseph R Biden,0
+bexar:3204,GRN,Howie Hawkins,0
+bexar:3204,LIB,Jo Jorgensen,0
+bexar:3204,REP,Donald J Trump,0
+bexar:3205,,Write-in,0
+bexar:3205,DEM,Joseph R Biden,0
+bexar:3205,GRN,Howie Hawkins,0
+bexar:3205,LIB,Jo Jorgensen,0
+bexar:3205,REP,Donald J Trump,0
+bexar:3206,,Write-in,0
+bexar:3206,DEM,Joseph R Biden,83
+bexar:3206,GRN,Howie Hawkins,2
+bexar:3206,LIB,Jo Jorgensen,0
+bexar:3206,REP,Donald J Trump,20
+bexar:3207,,Write-in,0
+bexar:3207,DEM,Joseph R Biden,3
+bexar:3207,GRN,Howie Hawkins,0
+bexar:3207,LIB,Jo Jorgensen,0
+bexar:3207,REP,Donald J Trump,0
+bexar:3208,,Write-in,0
+bexar:3208,DEM,Joseph R Biden,48
+bexar:3208,GRN,Howie Hawkins,0
+bexar:3208,LIB,Jo Jorgensen,0
+bexar:3208,REP,Donald J Trump,16
+bexar:4001,,Write-in,2
+bexar:4001,DEM,Joseph R Biden,1473
+bexar:4001,GRN,Howie Hawkins,6
+bexar:4001,LIB,Jo Jorgensen,33
+bexar:4001,REP,Donald J Trump,608
+bexar:4005,,Write-in,0
+bexar:4005,DEM,Joseph R Biden,828
+bexar:4005,GRN,Howie Hawkins,8
+bexar:4005,LIB,Jo Jorgensen,15
+bexar:4005,REP,Donald J Trump,193
+bexar:4006,,Write-in,0
+bexar:4006,DEM,Joseph R Biden,328
+bexar:4006,GRN,Howie Hawkins,2
+bexar:4006,LIB,Jo Jorgensen,5
+bexar:4006,REP,Donald J Trump,89
+bexar:4009,,Write-in,0
+bexar:4009,DEM,Joseph R Biden,375
+bexar:4009,GRN,Howie Hawkins,1
+bexar:4009,LIB,Jo Jorgensen,2
+bexar:4009,REP,Donald J Trump,93
+bexar:4010,,Write-in,0
+bexar:4010,DEM,Joseph R Biden,586
+bexar:4010,GRN,Howie Hawkins,2
+bexar:4010,LIB,Jo Jorgensen,4
+bexar:4010,REP,Donald J Trump,92
+bexar:4015,,Write-in,0
+bexar:4015,DEM,Joseph R Biden,797
+bexar:4015,GRN,Howie Hawkins,10
+bexar:4015,LIB,Jo Jorgensen,11
+bexar:4015,REP,Donald J Trump,218
+bexar:4017,,Write-in,2
+bexar:4017,DEM,Joseph R Biden,1087
+bexar:4017,GRN,Howie Hawkins,8
+bexar:4017,LIB,Jo Jorgensen,30
+bexar:4017,REP,Donald J Trump,266
+bexar:4018,,Write-in,0
+bexar:4018,DEM,Joseph R Biden,646
+bexar:4018,GRN,Howie Hawkins,4
+bexar:4018,LIB,Jo Jorgensen,6
+bexar:4018,REP,Donald J Trump,172
+bexar:4021,,Write-in,1
+bexar:4021,DEM,Joseph R Biden,414
+bexar:4021,GRN,Howie Hawkins,3
+bexar:4021,LIB,Jo Jorgensen,3
+bexar:4021,REP,Donald J Trump,270
+bexar:4035,,Write-in,0
+bexar:4035,DEM,Joseph R Biden,13
+bexar:4035,GRN,Howie Hawkins,1
+bexar:4035,LIB,Jo Jorgensen,1
+bexar:4035,REP,Donald J Trump,10
+bexar:4040,,Write-in,0
+bexar:4040,DEM,Joseph R Biden,552
+bexar:4040,GRN,Howie Hawkins,2
+bexar:4040,LIB,Jo Jorgensen,4
+bexar:4040,REP,Donald J Trump,116
+bexar:4042,,Write-in,0
+bexar:4042,DEM,Joseph R Biden,97
+bexar:4042,GRN,Howie Hawkins,3
+bexar:4042,LIB,Jo Jorgensen,2
+bexar:4042,REP,Donald J Trump,57
+bexar:4043,,Write-in,2
+bexar:4043,DEM,Joseph R Biden,1219
+bexar:4043,GRN,Howie Hawkins,9
+bexar:4043,LIB,Jo Jorgensen,30
+bexar:4043,REP,Donald J Trump,714
+bexar:4044,,Write-in,2
+bexar:4044,DEM,Joseph R Biden,539
+bexar:4044,GRN,Howie Hawkins,5
+bexar:4044,LIB,Jo Jorgensen,7
+bexar:4044,REP,Donald J Trump,298
+bexar:4045,,Write-in,1
+bexar:4045,DEM,Joseph R Biden,938
+bexar:4045,GRN,Howie Hawkins,6
+bexar:4045,LIB,Jo Jorgensen,17
+bexar:4045,REP,Donald J Trump,585
+bexar:4047,,Write-in,2
+bexar:4047,DEM,Joseph R Biden,1000
+bexar:4047,GRN,Howie Hawkins,8
+bexar:4047,LIB,Jo Jorgensen,16
+bexar:4047,REP,Donald J Trump,548
+bexar:4049,,Write-in,0
+bexar:4049,DEM,Joseph R Biden,950
+bexar:4049,GRN,Howie Hawkins,3
+bexar:4049,LIB,Jo Jorgensen,25
+bexar:4049,REP,Donald J Trump,474
+bexar:4053,,Write-in,0
+bexar:4053,DEM,Joseph R Biden,852
+bexar:4053,GRN,Howie Hawkins,3
+bexar:4053,LIB,Jo Jorgensen,20
+bexar:4053,REP,Donald J Trump,573
+bexar:4054,,Write-in,1
+bexar:4054,DEM,Joseph R Biden,1434
+bexar:4054,GRN,Howie Hawkins,9
+bexar:4054,LIB,Jo Jorgensen,41
+bexar:4054,REP,Donald J Trump,1180
+bexar:4060,,Write-in,2
+bexar:4060,DEM,Joseph R Biden,690
+bexar:4060,GRN,Howie Hawkins,6
+bexar:4060,LIB,Jo Jorgensen,11
+bexar:4060,REP,Donald J Trump,469
+bexar:4061,,Write-in,1
+bexar:4061,DEM,Joseph R Biden,929
+bexar:4061,GRN,Howie Hawkins,8
+bexar:4061,LIB,Jo Jorgensen,17
+bexar:4061,REP,Donald J Trump,399
+bexar:4063,,Write-in,0
+bexar:4063,DEM,Joseph R Biden,314
+bexar:4063,GRN,Howie Hawkins,1
+bexar:4063,LIB,Jo Jorgensen,11
+bexar:4063,REP,Donald J Trump,208
+bexar:4064,,Write-in,2
+bexar:4064,DEM,Joseph R Biden,806
+bexar:4064,GRN,Howie Hawkins,4
+bexar:4064,LIB,Jo Jorgensen,17
+bexar:4064,REP,Donald J Trump,665
+bexar:4065,,Write-in,3
+bexar:4065,DEM,Joseph R Biden,1655
+bexar:4065,GRN,Howie Hawkins,7
+bexar:4065,LIB,Jo Jorgensen,22
+bexar:4065,REP,Donald J Trump,666
+bexar:4066,,Write-in,1
+bexar:4066,DEM,Joseph R Biden,1413
+bexar:4066,GRN,Howie Hawkins,5
+bexar:4066,LIB,Jo Jorgensen,25
+bexar:4066,REP,Donald J Trump,700
+bexar:4067,,Write-in,1
+bexar:4067,DEM,Joseph R Biden,591
+bexar:4067,GRN,Howie Hawkins,5
+bexar:4067,LIB,Jo Jorgensen,14
+bexar:4067,REP,Donald J Trump,449
+bexar:4068,,Write-in,1
+bexar:4068,DEM,Joseph R Biden,310
+bexar:4068,GRN,Howie Hawkins,1
+bexar:4068,LIB,Jo Jorgensen,5
+bexar:4068,REP,Donald J Trump,163
+bexar:4076,,Write-in,1
+bexar:4076,DEM,Joseph R Biden,1308
+bexar:4076,GRN,Howie Hawkins,8
+bexar:4076,LIB,Jo Jorgensen,26
+bexar:4076,REP,Donald J Trump,709
+bexar:4080,,Write-in,1
+bexar:4080,DEM,Joseph R Biden,872
+bexar:4080,GRN,Howie Hawkins,5
+bexar:4080,LIB,Jo Jorgensen,12
+bexar:4080,REP,Donald J Trump,474
+bexar:4082,,Write-in,1
+bexar:4082,DEM,Joseph R Biden,765
+bexar:4082,GRN,Howie Hawkins,9
+bexar:4082,LIB,Jo Jorgensen,9
+bexar:4082,REP,Donald J Trump,183
+bexar:4083,,Write-in,0
+bexar:4083,DEM,Joseph R Biden,326
+bexar:4083,GRN,Howie Hawkins,3
+bexar:4083,LIB,Jo Jorgensen,21
+bexar:4083,REP,Donald J Trump,222
+bexar:4087,,Write-in,1
+bexar:4087,DEM,Joseph R Biden,1160
+bexar:4087,GRN,Howie Hawkins,6
+bexar:4087,LIB,Jo Jorgensen,15
+bexar:4087,REP,Donald J Trump,605
+bexar:4088,,Write-in,1
+bexar:4088,DEM,Joseph R Biden,1667
+bexar:4088,GRN,Howie Hawkins,13
+bexar:4088,LIB,Jo Jorgensen,29
+bexar:4088,REP,Donald J Trump,776
+bexar:4091,,Write-in,0
+bexar:4091,DEM,Joseph R Biden,446
+bexar:4091,GRN,Howie Hawkins,7
+bexar:4091,LIB,Jo Jorgensen,6
+bexar:4091,REP,Donald J Trump,233
+bexar:4093,,Write-in,2
+bexar:4093,DEM,Joseph R Biden,990
+bexar:4093,GRN,Howie Hawkins,7
+bexar:4093,LIB,Jo Jorgensen,25
+bexar:4093,REP,Donald J Trump,790
+bexar:4096,,Write-in,1
+bexar:4096,DEM,Joseph R Biden,946
+bexar:4096,GRN,Howie Hawkins,8
+bexar:4096,LIB,Jo Jorgensen,19
+bexar:4096,REP,Donald J Trump,571
+bexar:4097,,Write-in,1
+bexar:4097,DEM,Joseph R Biden,762
+bexar:4097,GRN,Howie Hawkins,4
+bexar:4097,LIB,Jo Jorgensen,23
+bexar:4097,REP,Donald J Trump,690
+bexar:4099,,Write-in,0
+bexar:4099,DEM,Joseph R Biden,472
+bexar:4099,GRN,Howie Hawkins,4
+bexar:4099,LIB,Jo Jorgensen,16
+bexar:4099,REP,Donald J Trump,282
+bexar:4100,,Write-in,0
+bexar:4100,DEM,Joseph R Biden,392
+bexar:4100,GRN,Howie Hawkins,2
+bexar:4100,LIB,Jo Jorgensen,9
+bexar:4100,REP,Donald J Trump,293
+bexar:4102,,Write-in,0
+bexar:4102,DEM,Joseph R Biden,309
+bexar:4102,GRN,Howie Hawkins,2
+bexar:4102,LIB,Jo Jorgensen,3
+bexar:4102,REP,Donald J Trump,160
+bexar:4105,,Write-in,1
+bexar:4105,DEM,Joseph R Biden,634
+bexar:4105,GRN,Howie Hawkins,7
+bexar:4105,LIB,Jo Jorgensen,24
+bexar:4105,REP,Donald J Trump,789
+bexar:4106,,Write-in,0
+bexar:4106,DEM,Joseph R Biden,181
+bexar:4106,GRN,Howie Hawkins,2
+bexar:4106,LIB,Jo Jorgensen,3
+bexar:4106,REP,Donald J Trump,74
+bexar:4107,,Write-in,1
+bexar:4107,DEM,Joseph R Biden,484
+bexar:4107,GRN,Howie Hawkins,1
+bexar:4107,LIB,Jo Jorgensen,11
+bexar:4107,REP,Donald J Trump,424
+bexar:4109,,Write-in,0
+bexar:4109,DEM,Joseph R Biden,556
+bexar:4109,GRN,Howie Hawkins,4
+bexar:4109,LIB,Jo Jorgensen,14
+bexar:4109,REP,Donald J Trump,335
+bexar:4110,,Write-in,0
+bexar:4110,DEM,Joseph R Biden,617
+bexar:4110,GRN,Howie Hawkins,10
+bexar:4110,LIB,Jo Jorgensen,13
+bexar:4110,REP,Donald J Trump,181
+bexar:4111,,Write-in,1
+bexar:4111,DEM,Joseph R Biden,172
+bexar:4111,GRN,Howie Hawkins,1
+bexar:4111,LIB,Jo Jorgensen,6
+bexar:4111,REP,Donald J Trump,22
+bexar:4114,,Write-in,0
+bexar:4114,DEM,Joseph R Biden,31
+bexar:4114,GRN,Howie Hawkins,0
+bexar:4114,LIB,Jo Jorgensen,0
+bexar:4114,REP,Donald J Trump,16
+bexar:4119,,Write-in,1
+bexar:4119,DEM,Joseph R Biden,324
+bexar:4119,GRN,Howie Hawkins,2
+bexar:4119,LIB,Jo Jorgensen,5
+bexar:4119,REP,Donald J Trump,97
+bexar:4120,,Write-in,0
+bexar:4120,DEM,Joseph R Biden,73
+bexar:4120,GRN,Howie Hawkins,0
+bexar:4120,LIB,Jo Jorgensen,3
+bexar:4120,REP,Donald J Trump,36
+bexar:4122,,Write-in,0
+bexar:4122,DEM,Joseph R Biden,40
+bexar:4122,GRN,Howie Hawkins,0
+bexar:4122,LIB,Jo Jorgensen,1
+bexar:4122,REP,Donald J Trump,14
+bexar:4123,,Write-in,0
+bexar:4123,DEM,Joseph R Biden,70
+bexar:4123,GRN,Howie Hawkins,0
+bexar:4123,LIB,Jo Jorgensen,0
+bexar:4123,REP,Donald J Trump,23
+bexar:4125,,Write-in,0
+bexar:4125,DEM,Joseph R Biden,23
+bexar:4125,GRN,Howie Hawkins,3
+bexar:4125,LIB,Jo Jorgensen,1
+bexar:4125,REP,Donald J Trump,14
+bexar:4128,,Write-in,0
+bexar:4128,DEM,Joseph R Biden,81
+bexar:4128,GRN,Howie Hawkins,0
+bexar:4128,LIB,Jo Jorgensen,2
+bexar:4128,REP,Donald J Trump,39
+bexar:4131,,Write-in,0
+bexar:4131,DEM,Joseph R Biden,165
+bexar:4131,GRN,Howie Hawkins,0
+bexar:4131,LIB,Jo Jorgensen,3
+bexar:4131,REP,Donald J Trump,76
+bexar:4132,,Write-in,2
+bexar:4132,DEM,Joseph R Biden,1078
+bexar:4132,GRN,Howie Hawkins,10
+bexar:4132,LIB,Jo Jorgensen,27
+bexar:4132,REP,Donald J Trump,568
+bexar:4134,,Write-in,0
+bexar:4134,DEM,Joseph R Biden,3
+bexar:4134,GRN,Howie Hawkins,0
+bexar:4134,LIB,Jo Jorgensen,0
+bexar:4134,REP,Donald J Trump,1
+bexar:4135,,Write-in,0
+bexar:4135,DEM,Joseph R Biden,0
+bexar:4135,GRN,Howie Hawkins,0
+bexar:4135,LIB,Jo Jorgensen,0
+bexar:4135,REP,Donald J Trump,0
+bexar:4138,,Write-in,0
+bexar:4138,DEM,Joseph R Biden,0
+bexar:4138,GRN,Howie Hawkins,0
+bexar:4138,LIB,Jo Jorgensen,0
+bexar:4138,REP,Donald J Trump,0
+bexar:4139,,Write-in,0
+bexar:4139,DEM,Joseph R Biden,0
+bexar:4139,GRN,Howie Hawkins,1
+bexar:4139,LIB,Jo Jorgensen,0
+bexar:4139,REP,Donald J Trump,0
+bexar:4140,,Write-in,0
+bexar:4140,DEM,Joseph R Biden,0
+bexar:4140,GRN,Howie Hawkins,0
+bexar:4140,LIB,Jo Jorgensen,0
+bexar:4140,REP,Donald J Trump,0
+bexar:4142,,Write-in,0
+bexar:4142,DEM,Joseph R Biden,296
+bexar:4142,GRN,Howie Hawkins,3
+bexar:4142,LIB,Jo Jorgensen,3
+bexar:4142,REP,Donald J Trump,57
+bexar:4143,,Write-in,5
+bexar:4143,DEM,Joseph R Biden,2014
+bexar:4143,GRN,Howie Hawkins,15
+bexar:4143,LIB,Jo Jorgensen,41
+bexar:4143,REP,Donald J Trump,793
+bexar:4145,,Write-in,0
+bexar:4145,DEM,Joseph R Biden,3
+bexar:4145,GRN,Howie Hawkins,0
+bexar:4145,LIB,Jo Jorgensen,0
+bexar:4145,REP,Donald J Trump,2
+bexar:4146,,Write-in,0
+bexar:4146,DEM,Joseph R Biden,11
+bexar:4146,GRN,Howie Hawkins,0
+bexar:4146,LIB,Jo Jorgensen,0
+bexar:4146,REP,Donald J Trump,7
+bexar:4148,,Write-in,0
+bexar:4148,DEM,Joseph R Biden,49
+bexar:4148,GRN,Howie Hawkins,0
+bexar:4148,LIB,Jo Jorgensen,0
+bexar:4148,REP,Donald J Trump,49
+bexar:4149,,Write-in,0
+bexar:4149,DEM,Joseph R Biden,170
+bexar:4149,GRN,Howie Hawkins,1
+bexar:4149,LIB,Jo Jorgensen,6
+bexar:4149,REP,Donald J Trump,101
+bexar:4150,,Write-in,1
+bexar:4150,DEM,Joseph R Biden,814
+bexar:4150,GRN,Howie Hawkins,5
+bexar:4150,LIB,Jo Jorgensen,16
+bexar:4150,REP,Donald J Trump,377
+bexar:4152,,Write-in,2
+bexar:4152,DEM,Joseph R Biden,785
+bexar:4152,GRN,Howie Hawkins,7
+bexar:4152,LIB,Jo Jorgensen,19
+bexar:4152,REP,Donald J Trump,475
+bexar:4154,,Write-in,0
+bexar:4154,DEM,Joseph R Biden,263
+bexar:4154,GRN,Howie Hawkins,0
+bexar:4154,LIB,Jo Jorgensen,4
+bexar:4154,REP,Donald J Trump,197
+bexar:4155,,Write-in,0
+bexar:4155,DEM,Joseph R Biden,1247
+bexar:4155,GRN,Howie Hawkins,8
+bexar:4155,LIB,Jo Jorgensen,24
+bexar:4155,REP,Donald J Trump,366
+bexar:4156,,Write-in,1
+bexar:4156,DEM,Joseph R Biden,497
+bexar:4156,GRN,Howie Hawkins,3
+bexar:4156,LIB,Jo Jorgensen,10
+bexar:4156,REP,Donald J Trump,209
+bexar:4157,,Write-in,0
+bexar:4157,DEM,Joseph R Biden,853
+bexar:4157,GRN,Howie Hawkins,6
+bexar:4157,LIB,Jo Jorgensen,9
+bexar:4157,REP,Donald J Trump,193
+bexar:4158,,Write-in,0
+bexar:4158,DEM,Joseph R Biden,199
+bexar:4158,GRN,Howie Hawkins,3
+bexar:4158,LIB,Jo Jorgensen,5
+bexar:4158,REP,Donald J Trump,115
+bexar:4160,,Write-in,1
+bexar:4160,DEM,Joseph R Biden,860
+bexar:4160,GRN,Howie Hawkins,5
+bexar:4160,LIB,Jo Jorgensen,12
+bexar:4160,REP,Donald J Trump,375
+bexar:4161,,Write-in,0
+bexar:4161,DEM,Joseph R Biden,361
+bexar:4161,GRN,Howie Hawkins,3
+bexar:4161,LIB,Jo Jorgensen,3
+bexar:4161,REP,Donald J Trump,64
+bexar:4163,,Write-in,0
+bexar:4163,DEM,Joseph R Biden,926
+bexar:4163,GRN,Howie Hawkins,8
+bexar:4163,LIB,Jo Jorgensen,17
+bexar:4163,REP,Donald J Trump,455
+bexar:4166,,Write-in,0
+bexar:4166,DEM,Joseph R Biden,159
+bexar:4166,GRN,Howie Hawkins,0
+bexar:4166,LIB,Jo Jorgensen,1
+bexar:4166,REP,Donald J Trump,69
+bexar:4168,,Write-in,0
+bexar:4168,DEM,Joseph R Biden,978
+bexar:4168,GRN,Howie Hawkins,4
+bexar:4168,LIB,Jo Jorgensen,21
+bexar:4168,REP,Donald J Trump,452
+bexar:4175,,Write-in,0
+bexar:4175,DEM,Joseph R Biden,0
+bexar:4175,GRN,Howie Hawkins,0
+bexar:4175,LIB,Jo Jorgensen,0
+bexar:4175,REP,Donald J Trump,0
+bexar:4178,,Write-in,0
+bexar:4178,DEM,Joseph R Biden,2
+bexar:4178,GRN,Howie Hawkins,0
+bexar:4178,LIB,Jo Jorgensen,0
+bexar:4178,REP,Donald J Trump,0
+bexar:4181,,Write-in,0
+bexar:4181,DEM,Joseph R Biden,0
+bexar:4181,GRN,Howie Hawkins,0
+bexar:4181,LIB,Jo Jorgensen,0
+bexar:4181,REP,Donald J Trump,1
+bexar:4182,,Write-in,0
+bexar:4182,DEM,Joseph R Biden,0
+bexar:4182,GRN,Howie Hawkins,0
+bexar:4182,LIB,Jo Jorgensen,0
+bexar:4182,REP,Donald J Trump,0
+bexar:4183,,Write-in,0
+bexar:4183,DEM,Joseph R Biden,53
+bexar:4183,GRN,Howie Hawkins,0
+bexar:4183,LIB,Jo Jorgensen,1
+bexar:4183,REP,Donald J Trump,13
+bexar:4184,,Write-in,0
+bexar:4184,DEM,Joseph R Biden,10
+bexar:4184,GRN,Howie Hawkins,0
+bexar:4184,LIB,Jo Jorgensen,0
+bexar:4184,REP,Donald J Trump,1
+bexar:4185,,Write-in,0
+bexar:4185,DEM,Joseph R Biden,0
+bexar:4185,GRN,Howie Hawkins,0
+bexar:4185,LIB,Jo Jorgensen,0
+bexar:4185,REP,Donald J Trump,1
+bexar:4186,,Write-in,0
+bexar:4186,DEM,Joseph R Biden,62
+bexar:4186,GRN,Howie Hawkins,1
+bexar:4186,LIB,Jo Jorgensen,1
+bexar:4186,REP,Donald J Trump,13
+bexar:4189,,Write-in,0
+bexar:4189,DEM,Joseph R Biden,396
+bexar:4189,GRN,Howie Hawkins,1
+bexar:4189,LIB,Jo Jorgensen,4
+bexar:4189,REP,Donald J Trump,189
+bexar:4190,,Write-in,0
+bexar:4190,DEM,Joseph R Biden,0
+bexar:4190,GRN,Howie Hawkins,0
+bexar:4190,LIB,Jo Jorgensen,1
+bexar:4190,REP,Donald J Trump,1
+bexar:4191,,Write-in,0
+bexar:4191,DEM,Joseph R Biden,1
+bexar:4191,GRN,Howie Hawkins,0
+bexar:4191,LIB,Jo Jorgensen,0
+bexar:4191,REP,Donald J Trump,0
+bexar:4192,,Write-in,0
+bexar:4192,DEM,Joseph R Biden,0
+bexar:4192,GRN,Howie Hawkins,0
+bexar:4192,LIB,Jo Jorgensen,0
+bexar:4192,REP,Donald J Trump,0
+bexar:4193,,Write-in,0
+bexar:4193,DEM,Joseph R Biden,26
+bexar:4193,GRN,Howie Hawkins,0
+bexar:4193,LIB,Jo Jorgensen,0
+bexar:4193,REP,Donald J Trump,13
+bexar:4195,,Write-in,0
+bexar:4195,DEM,Joseph R Biden,0
+bexar:4195,GRN,Howie Hawkins,0
+bexar:4195,LIB,Jo Jorgensen,0
+bexar:4195,REP,Donald J Trump,0
+bexar:4196,,Write-in,0
+bexar:4196,DEM,Joseph R Biden,0
+bexar:4196,GRN,Howie Hawkins,0
+bexar:4196,LIB,Jo Jorgensen,0
+bexar:4196,REP,Donald J Trump,0
+bexar:4197,,Write-in,0
+bexar:4197,DEM,Joseph R Biden,2
+bexar:4197,GRN,Howie Hawkins,0
+bexar:4197,LIB,Jo Jorgensen,0
+bexar:4197,REP,Donald J Trump,1
+bexar:4198,,Write-in,1
+bexar:4198,DEM,Joseph R Biden,726
+bexar:4198,GRN,Howie Hawkins,4
+bexar:4198,LIB,Jo Jorgensen,11
+bexar:4198,REP,Donald J Trump,268
+bexar:4199,,Write-in,0
+bexar:4199,DEM,Joseph R Biden,521
+bexar:4199,GRN,Howie Hawkins,5
+bexar:4199,LIB,Jo Jorgensen,17
+bexar:4199,REP,Donald J Trump,307
+bexar:4203,,Write-in,0
+bexar:4203,DEM,Joseph R Biden,215
+bexar:4203,GRN,Howie Hawkins,1
+bexar:4203,LIB,Jo Jorgensen,3
+bexar:4203,REP,Donald J Trump,43
+bexar:4205,,Write-in,0
+bexar:4205,DEM,Joseph R Biden,45
+bexar:4205,GRN,Howie Hawkins,0
+bexar:4205,LIB,Jo Jorgensen,0
+bexar:4205,REP,Donald J Trump,39
+bexar:4211,,Write-in,0
+bexar:4211,DEM,Joseph R Biden,18
+bexar:4211,GRN,Howie Hawkins,1
+bexar:4211,LIB,Jo Jorgensen,0
+bexar:4211,REP,Donald J Trump,2
+bexar:4213,,Write-in,0
+bexar:4213,DEM,Joseph R Biden,17
+bexar:4213,GRN,Howie Hawkins,0
+bexar:4213,LIB,Jo Jorgensen,0
+bexar:4213,REP,Donald J Trump,10
+comal:201,,Write-in,4
+comal:201,DEM,Joseph R Biden,1313
+comal:201,GRN,Howie Hawkins,8
+comal:201,LIB,Jo Jorgensen,51
+comal:201,REP,Donald J Trump,2525
+comal:302,,Write-in,4
+comal:302,DEM,Joseph R Biden,1399
+comal:302,GRN,Howie Hawkins,10
+comal:302,LIB,Jo Jorgensen,59
+comal:302,REP,Donald J Trump,2185
+comal:304,,Write-in,0
+comal:304,DEM,Joseph R Biden,1248
+comal:304,GRN,Howie Hawkins,15
+comal:304,LIB,Jo Jorgensen,64
+comal:304,REP,Donald J Trump,1903
+comal:306,,Write-in,0
+comal:306,DEM,Joseph R Biden,666
+comal:306,GRN,Howie Hawkins,4
+comal:306,LIB,Jo Jorgensen,36
+comal:306,REP,Donald J Trump,1086
+hays:110,,Write-in,2
+hays:110,DEM,Joseph R Biden,899
+hays:110,GRN,Howie Hawkins,4
+hays:110,LIB,Jo Jorgensen,24
+hays:110,REP,Donald J Trump,655
+hays:111,,Write-in,0
+hays:111,DEM,Joseph R Biden,165
+hays:111,GRN,Howie Hawkins,1
+hays:111,LIB,Jo Jorgensen,3
+hays:111,REP,Donald J Trump,58
+hays:112,,Write-in,1
+hays:112,DEM,Joseph R Biden,1080
+hays:112,GRN,Howie Hawkins,18
+hays:112,LIB,Jo Jorgensen,21
+hays:112,REP,Donald J Trump,368
+hays:113,,Write-in,0
+hays:113,DEM,Joseph R Biden,573
+hays:113,GRN,Howie Hawkins,4
+hays:113,LIB,Jo Jorgensen,6
+hays:113,REP,Donald J Trump,200
+hays:114,,Write-in,1
+hays:114,DEM,Joseph R Biden,780
+hays:114,GRN,Howie Hawkins,2
+hays:114,LIB,Jo Jorgensen,18
+hays:114,REP,Donald J Trump,323
+hays:115,,Write-in,0
+hays:115,DEM,Joseph R Biden,978
+hays:115,GRN,Howie Hawkins,9
+hays:115,LIB,Jo Jorgensen,26
+hays:115,REP,Donald J Trump,362
+hays:120,,Write-in,0
+hays:120,DEM,Joseph R Biden,546
+hays:120,GRN,Howie Hawkins,2
+hays:120,LIB,Jo Jorgensen,21
+hays:120,REP,Donald J Trump,341
+hays:121,,Write-in,0
+hays:121,DEM,Joseph R Biden,1127
+hays:121,GRN,Howie Hawkins,9
+hays:121,LIB,Jo Jorgensen,20
+hays:121,REP,Donald J Trump,190
+hays:122,,Write-in,2
+hays:122,DEM,Joseph R Biden,542
+hays:122,GRN,Howie Hawkins,4
+hays:122,LIB,Jo Jorgensen,18
+hays:122,REP,Donald J Trump,118
+hays:123,,Write-in,0
+hays:123,DEM,Joseph R Biden,550
+hays:123,GRN,Howie Hawkins,7
+hays:123,LIB,Jo Jorgensen,13
+hays:123,REP,Donald J Trump,163
+hays:125,,Write-in,1
+hays:125,DEM,Joseph R Biden,1400
+hays:125,GRN,Howie Hawkins,14
+hays:125,LIB,Jo Jorgensen,36
+hays:125,REP,Donald J Trump,811
+hays:126,,Write-in,2
+hays:126,DEM,Joseph R Biden,1271
+hays:126,GRN,Howie Hawkins,2
+hays:126,LIB,Jo Jorgensen,48
+hays:126,REP,Donald J Trump,921
+hays:127,,Write-in,0
+hays:127,DEM,Joseph R Biden,418
+hays:127,GRN,Howie Hawkins,4
+hays:127,LIB,Jo Jorgensen,5
+hays:127,REP,Donald J Trump,315
+hays:128,,Write-in,0
+hays:128,DEM,Joseph R Biden,1153
+hays:128,GRN,Howie Hawkins,11
+hays:128,LIB,Jo Jorgensen,33
+hays:128,REP,Donald J Trump,783
+hays:129,,Write-in,0
+hays:129,DEM,Joseph R Biden,1095
+hays:129,GRN,Howie Hawkins,8
+hays:129,LIB,Jo Jorgensen,32
+hays:129,REP,Donald J Trump,613
+hays:130,,Write-in,1
+hays:130,DEM,Joseph R Biden,1341
+hays:130,GRN,Howie Hawkins,14
+hays:130,LIB,Jo Jorgensen,42
+hays:130,REP,Donald J Trump,730
+hays:220,,Write-in,1
+hays:220,DEM,Joseph R Biden,1210
+hays:220,GRN,Howie Hawkins,14
+hays:220,LIB,Jo Jorgensen,61
+hays:220,REP,Donald J Trump,987
+hays:221,,Write-in,0
+hays:221,DEM,Joseph R Biden,1123
+hays:221,GRN,Howie Hawkins,5
+hays:221,LIB,Jo Jorgensen,28
+hays:221,REP,Donald J Trump,695
+hays:223,,Write-in,0
+hays:223,DEM,Joseph R Biden,1080
+hays:223,GRN,Howie Hawkins,11
+hays:223,LIB,Jo Jorgensen,38
+hays:223,REP,Donald J Trump,684
+hays:227,,Write-in,0
+hays:227,DEM,Joseph R Biden,1345
+hays:227,GRN,Howie Hawkins,7
+hays:227,LIB,Jo Jorgensen,28
+hays:227,REP,Donald J Trump,838
+hays:228,,Write-in,0
+hays:228,DEM,Joseph R Biden,1838
+hays:228,GRN,Howie Hawkins,4
+hays:228,LIB,Jo Jorgensen,39
+hays:228,REP,Donald J Trump,1091
+hays:229,,Write-in,0
+hays:229,DEM,Joseph R Biden,811
+hays:229,GRN,Howie Hawkins,10
+hays:229,LIB,Jo Jorgensen,17
+hays:229,REP,Donald J Trump,448
+hays:231,,Write-in,0
+hays:231,DEM,Joseph R Biden,1516
+hays:231,GRN,Howie Hawkins,11
+hays:231,LIB,Jo Jorgensen,47
+hays:231,REP,Donald J Trump,781
+hays:233,,Write-in,0
+hays:233,DEM,Joseph R Biden,539
+hays:233,GRN,Howie Hawkins,7
+hays:233,LIB,Jo Jorgensen,15
+hays:233,REP,Donald J Trump,347
+hays:234,,Write-in,0
+hays:234,DEM,Joseph R Biden,456
+hays:234,GRN,Howie Hawkins,4
+hays:234,LIB,Jo Jorgensen,13
+hays:234,REP,Donald J Trump,314
+hays:301,,Write-in,0
+hays:301,DEM,Joseph R Biden,0
+hays:301,GRN,Howie Hawkins,0
+hays:301,LIB,Jo Jorgensen,0
+hays:301,REP,Donald J Trump,0
+hays:316,,Write-in,0
+hays:316,DEM,Joseph R Biden,738
+hays:316,GRN,Howie Hawkins,8
+hays:316,LIB,Jo Jorgensen,18
+hays:316,REP,Donald J Trump,519
+hays:317,,Write-in,0
+hays:317,DEM,Joseph R Biden,238
+hays:317,GRN,Howie Hawkins,6
+hays:317,LIB,Jo Jorgensen,6
+hays:317,REP,Donald J Trump,62
+hays:318,,Write-in,0
+hays:318,DEM,Joseph R Biden,66
+hays:318,GRN,Howie Hawkins,0
+hays:318,LIB,Jo Jorgensen,1
+hays:318,REP,Donald J Trump,20
+hays:330,,Write-in,1
+hays:330,DEM,Joseph R Biden,939
+hays:330,GRN,Howie Hawkins,10
+hays:330,LIB,Jo Jorgensen,32
+hays:330,REP,Donald J Trump,338
+hays:334,,Write-in,0
+hays:334,DEM,Joseph R Biden,1301
+hays:334,GRN,Howie Hawkins,11
+hays:334,LIB,Jo Jorgensen,21
+hays:334,REP,Donald J Trump,371
+hays:340,,Write-in,1
+hays:340,DEM,Joseph R Biden,889
+hays:340,GRN,Howie Hawkins,10
+hays:340,LIB,Jo Jorgensen,24
+hays:340,REP,Donald J Trump,446
+hays:413,,Write-in,0
+hays:413,DEM,Joseph R Biden,588
+hays:413,GRN,Howie Hawkins,6
+hays:413,LIB,Jo Jorgensen,7
+hays:413,REP,Donald J Trump,122
+hays:414,,Write-in,1
+hays:414,DEM,Joseph R Biden,758
+hays:414,GRN,Howie Hawkins,3
+hays:414,LIB,Jo Jorgensen,17
+hays:414,REP,Donald J Trump,228
+hays:415,,Write-in,0
+hays:415,DEM,Joseph R Biden,1234
+hays:415,GRN,Howie Hawkins,16
+hays:415,LIB,Jo Jorgensen,18
+hays:415,REP,Donald J Trump,334
+hays:416,,Write-in,0
+hays:416,DEM,Joseph R Biden,65
+hays:416,GRN,Howie Hawkins,0
+hays:416,LIB,Jo Jorgensen,1
+hays:416,REP,Donald J Trump,36
+hays:418,,Write-in,0
+hays:418,DEM,Joseph R Biden,1
+hays:418,GRN,Howie Hawkins,0
+hays:418,LIB,Jo Jorgensen,0
+hays:418,REP,Donald J Trump,2
 travis:101,GRN,Howie Hawkins,25
 travis:101,,Write-in,20
 travis:101,DEM,Joseph R. Biden,4512

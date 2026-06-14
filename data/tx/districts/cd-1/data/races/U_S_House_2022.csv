@@ -1,0 +1,305 @@
+precinct,party,candidate,votes
+sabine:1,DEM,Jrmar (JJ) Jefferson,64
+sabine:1,REP,Nathaniel Moran,965
+sabine:2,DEM,Jrmar (JJ) Jefferson,65
+sabine:2,REP,Nathaniel Moran,876
+sabine:3,DEM,Jrmar (JJ) Jefferson,59
+sabine:3,REP,Nathaniel Moran,167
+sabine:4,DEM,Jrmar (JJ) Jefferson,5
+sabine:4,REP,Nathaniel Moran,154
+sabine:5,DEM,Jrmar (JJ) Jefferson,42
+sabine:5,REP,Nathaniel Moran,536
+sabine:6,DEM,Jrmar (JJ) Jefferson,93
+sabine:6,REP,Nathaniel Moran,850
+sabine:7,DEM,Jrmar (JJ) Jefferson,37
+sabine:7,REP,Nathaniel Moran,34
+sabine:8,DEM,Jrmar (JJ) Jefferson,20
+sabine:8,REP,Nathaniel Moran,148
+smith:1,,Over Votes,0
+smith:1,,Under Votes,2
+smith:1,DEM,Jrmar (JJ) Jefferson,69
+smith:1,REP,Nathaniel Moran,54
+smith:10,,Over Votes,0
+smith:10,,Under Votes,15
+smith:10,DEM,Jrmar (JJ) Jefferson,608
+smith:10,REP,Nathaniel Moran,673
+smith:11,,Over Votes,0
+smith:11,,Under Votes,14
+smith:11,DEM,Jrmar (JJ) Jefferson,413
+smith:11,REP,Nathaniel Moran,139
+smith:12,,Over Votes,0
+smith:12,,Under Votes,6
+smith:12,DEM,Jrmar (JJ) Jefferson,454
+smith:12,REP,Nathaniel Moran,88
+smith:13,,Over Votes,0
+smith:13,,Under Votes,6
+smith:13,DEM,Jrmar (JJ) Jefferson,509
+smith:13,REP,Nathaniel Moran,28
+smith:14,,Over Votes,0
+smith:14,,Under Votes,9
+smith:14,DEM,Jrmar (JJ) Jefferson,236
+smith:14,REP,Nathaniel Moran,652
+smith:15,,Over Votes,0
+smith:15,,Under Votes,22
+smith:15,DEM,Jrmar (JJ) Jefferson,288
+smith:15,REP,Nathaniel Moran,2163
+smith:16,,Over Votes,0
+smith:16,,Under Votes,8
+smith:16,DEM,Jrmar (JJ) Jefferson,384
+smith:16,REP,Nathaniel Moran,71
+smith:17,,Over Votes,0
+smith:17,,Under Votes,9
+smith:17,DEM,Jrmar (JJ) Jefferson,74
+smith:17,REP,Nathaniel Moran,721
+smith:18,,Over Votes,0
+smith:18,,Under Votes,12
+smith:18,DEM,Jrmar (JJ) Jefferson,371
+smith:18,REP,Nathaniel Moran,57
+smith:19,,Over Votes,0
+smith:19,,Under Votes,21
+smith:19,DEM,Jrmar (JJ) Jefferson,348
+smith:19,REP,Nathaniel Moran,1782
+smith:2,,Over Votes,0
+smith:2,,Under Votes,7
+smith:2,DEM,Jrmar (JJ) Jefferson,141
+smith:2,REP,Nathaniel Moran,48
+smith:20,,Over Votes,0
+smith:20,,Under Votes,3
+smith:20,DEM,Jrmar (JJ) Jefferson,114
+smith:20,REP,Nathaniel Moran,64
+smith:21,,Over Votes,0
+smith:21,,Under Votes,9
+smith:21,DEM,Jrmar (JJ) Jefferson,196
+smith:21,REP,Nathaniel Moran,740
+smith:22,,Over Votes,0
+smith:22,,Under Votes,0
+smith:22,DEM,Jrmar (JJ) Jefferson,64
+smith:22,REP,Nathaniel Moran,42
+smith:23,,Over Votes,0
+smith:23,,Under Votes,16
+smith:23,DEM,Jrmar (JJ) Jefferson,324
+smith:23,REP,Nathaniel Moran,788
+smith:24,,Over Votes,0
+smith:24,,Under Votes,8
+smith:24,DEM,Jrmar (JJ) Jefferson,160
+smith:24,REP,Nathaniel Moran,1067
+smith:25,,Over Votes,0
+smith:25,,Under Votes,15
+smith:25,DEM,Jrmar (JJ) Jefferson,272
+smith:25,REP,Nathaniel Moran,957
+smith:26,,Over Votes,0
+smith:26,,Under Votes,17
+smith:26,DEM,Jrmar (JJ) Jefferson,215
+smith:26,REP,Nathaniel Moran,1345
+smith:27,,Over Votes,0
+smith:27,,Under Votes,12
+smith:27,DEM,Jrmar (JJ) Jefferson,268
+smith:27,REP,Nathaniel Moran,577
+smith:28,,Over Votes,0
+smith:28,,Under Votes,16
+smith:28,DEM,Jrmar (JJ) Jefferson,293
+smith:28,REP,Nathaniel Moran,1781
+smith:29,,Over Votes,0
+smith:29,,Under Votes,8
+smith:29,DEM,Jrmar (JJ) Jefferson,171
+smith:29,REP,Nathaniel Moran,736
+smith:3,,Over Votes,0
+smith:3,,Under Votes,20
+smith:3,DEM,Jrmar (JJ) Jefferson,372
+smith:3,REP,Nathaniel Moran,1012
+smith:30,,Over Votes,0
+smith:30,,Under Votes,12
+smith:30,DEM,Jrmar (JJ) Jefferson,345
+smith:30,REP,Nathaniel Moran,1998
+smith:31,,Over Votes,0
+smith:31,,Under Votes,23
+smith:31,DEM,Jrmar (JJ) Jefferson,225
+smith:31,REP,Nathaniel Moran,1688
+smith:32,,Over Votes,0
+smith:32,,Under Votes,3
+smith:32,DEM,Jrmar (JJ) Jefferson,104
+smith:32,REP,Nathaniel Moran,214
+smith:33,,Over Votes,0
+smith:33,,Under Votes,10
+smith:33,DEM,Jrmar (JJ) Jefferson,97
+smith:33,REP,Nathaniel Moran,501
+smith:34,,Over Votes,0
+smith:34,,Under Votes,7
+smith:34,DEM,Jrmar (JJ) Jefferson,400
+smith:34,REP,Nathaniel Moran,130
+smith:35,,Over Votes,0
+smith:35,,Under Votes,17
+smith:35,DEM,Jrmar (JJ) Jefferson,591
+smith:35,REP,Nathaniel Moran,598
+smith:36,,Over Votes,0
+smith:36,,Under Votes,12
+smith:36,DEM,Jrmar (JJ) Jefferson,730
+smith:36,REP,Nathaniel Moran,264
+smith:37,,Over Votes,0
+smith:37,,Under Votes,9
+smith:37,DEM,Jrmar (JJ) Jefferson,165
+smith:37,REP,Nathaniel Moran,970
+smith:38,,Over Votes,0
+smith:38,,Under Votes,19
+smith:38,DEM,Jrmar (JJ) Jefferson,341
+smith:38,REP,Nathaniel Moran,896
+smith:39,,Over Votes,0
+smith:39,,Under Votes,3
+smith:39,DEM,Jrmar (JJ) Jefferson,101
+smith:39,REP,Nathaniel Moran,66
+smith:4,,Over Votes,0
+smith:4,,Under Votes,14
+smith:4,DEM,Jrmar (JJ) Jefferson,254
+smith:4,REP,Nathaniel Moran,359
+smith:40,,Over Votes,0
+smith:40,,Under Votes,38
+smith:40,DEM,Jrmar (JJ) Jefferson,370
+smith:40,REP,Nathaniel Moran,2067
+smith:41,,Over Votes,0
+smith:41,,Under Votes,19
+smith:41,DEM,Jrmar (JJ) Jefferson,328
+smith:41,REP,Nathaniel Moran,2255
+smith:42,,Over Votes,0
+smith:42,,Under Votes,29
+smith:42,DEM,Jrmar (JJ) Jefferson,398
+smith:42,REP,Nathaniel Moran,2121
+smith:43,,Over Votes,0
+smith:43,,Under Votes,5
+smith:43,DEM,Jrmar (JJ) Jefferson,224
+smith:43,REP,Nathaniel Moran,549
+smith:44,,Over Votes,0
+smith:44,,Under Votes,22
+smith:44,DEM,Jrmar (JJ) Jefferson,627
+smith:44,REP,Nathaniel Moran,1257
+smith:45,,Over Votes,0
+smith:45,,Under Votes,8
+smith:45,DEM,Jrmar (JJ) Jefferson,133
+smith:45,REP,Nathaniel Moran,1184
+smith:46,,Over Votes,0
+smith:46,,Under Votes,11
+smith:46,DEM,Jrmar (JJ) Jefferson,138
+smith:46,REP,Nathaniel Moran,425
+smith:47,,Over Votes,0
+smith:47,,Under Votes,6
+smith:47,DEM,Jrmar (JJ) Jefferson,73
+smith:47,REP,Nathaniel Moran,153
+smith:48,,Over Votes,0
+smith:48,,Under Votes,9
+smith:48,DEM,Jrmar (JJ) Jefferson,139
+smith:48,REP,Nathaniel Moran,196
+smith:49,,Over Votes,0
+smith:49,,Under Votes,6
+smith:49,DEM,Jrmar (JJ) Jefferson,76
+smith:49,REP,Nathaniel Moran,721
+smith:5,,Over Votes,0
+smith:5,,Under Votes,23
+smith:5,DEM,Jrmar (JJ) Jefferson,247
+smith:5,REP,Nathaniel Moran,2193
+smith:50,,Over Votes,0
+smith:50,,Under Votes,18
+smith:50,DEM,Jrmar (JJ) Jefferson,276
+smith:50,REP,Nathaniel Moran,1085
+smith:51,,Over Votes,0
+smith:51,,Under Votes,15
+smith:51,DEM,Jrmar (JJ) Jefferson,407
+smith:51,REP,Nathaniel Moran,1246
+smith:52,,Over Votes,0
+smith:52,,Under Votes,9
+smith:52,DEM,Jrmar (JJ) Jefferson,176
+smith:52,REP,Nathaniel Moran,1343
+smith:53,,Over Votes,0
+smith:53,,Under Votes,3
+smith:53,DEM,Jrmar (JJ) Jefferson,27
+smith:53,REP,Nathaniel Moran,165
+smith:54,,Over Votes,0
+smith:54,,Under Votes,18
+smith:54,DEM,Jrmar (JJ) Jefferson,420
+smith:54,REP,Nathaniel Moran,1263
+smith:55,,Over Votes,0
+smith:55,,Under Votes,10
+smith:55,DEM,Jrmar (JJ) Jefferson,336
+smith:55,REP,Nathaniel Moran,432
+smith:56,,Over Votes,0
+smith:56,,Under Votes,17
+smith:56,DEM,Jrmar (JJ) Jefferson,422
+smith:56,REP,Nathaniel Moran,1463
+smith:57,,Over Votes,0
+smith:57,,Under Votes,10
+smith:57,DEM,Jrmar (JJ) Jefferson,91
+smith:57,REP,Nathaniel Moran,381
+smith:58,,Over Votes,0
+smith:58,,Under Votes,26
+smith:58,DEM,Jrmar (JJ) Jefferson,489
+smith:58,REP,Nathaniel Moran,1854
+smith:59,,Over Votes,0
+smith:59,,Under Votes,18
+smith:59,DEM,Jrmar (JJ) Jefferson,421
+smith:59,REP,Nathaniel Moran,1656
+smith:6,,Over Votes,0
+smith:6,,Under Votes,5
+smith:6,DEM,Jrmar (JJ) Jefferson,68
+smith:6,REP,Nathaniel Moran,481
+smith:60,,Over Votes,0
+smith:60,,Under Votes,3
+smith:60,DEM,Jrmar (JJ) Jefferson,73
+smith:60,REP,Nathaniel Moran,101
+smith:61,,Over Votes,0
+smith:61,,Under Votes,20
+smith:61,DEM,Jrmar (JJ) Jefferson,430
+smith:61,REP,Nathaniel Moran,584
+smith:66,,Over Votes,0
+smith:66,,Under Votes,12
+smith:66,DEM,Jrmar (JJ) Jefferson,131
+smith:66,REP,Nathaniel Moran,209
+smith:7,,Over Votes,0
+smith:7,,Under Votes,9
+smith:7,DEM,Jrmar (JJ) Jefferson,202
+smith:7,REP,Nathaniel Moran,765
+smith:71,,Over Votes,0
+smith:71,,Under Votes,15
+smith:71,DEM,Jrmar (JJ) Jefferson,396
+smith:71,REP,Nathaniel Moran,2277
+smith:73,,Over Votes,0
+smith:73,,Under Votes,5
+smith:73,DEM,Jrmar (JJ) Jefferson,104
+smith:73,REP,Nathaniel Moran,188
+smith:74,,Over Votes,0
+smith:74,,Under Votes,3
+smith:74,DEM,Jrmar (JJ) Jefferson,71
+smith:74,REP,Nathaniel Moran,356
+smith:75,,Over Votes,0
+smith:75,,Under Votes,9
+smith:75,DEM,Jrmar (JJ) Jefferson,199
+smith:75,REP,Nathaniel Moran,1852
+smith:76,,Over Votes,0
+smith:76,,Under Votes,6
+smith:76,DEM,Jrmar (JJ) Jefferson,134
+smith:76,REP,Nathaniel Moran,72
+smith:77,,Over Votes,0
+smith:77,,Under Votes,2
+smith:77,DEM,Jrmar (JJ) Jefferson,112
+smith:77,REP,Nathaniel Moran,206
+smith:79,,Over Votes,0
+smith:79,,Under Votes,14
+smith:79,DEM,Jrmar (JJ) Jefferson,401
+smith:79,REP,Nathaniel Moran,1767
+smith:8,,Over Votes,0
+smith:8,,Under Votes,5
+smith:8,DEM,Jrmar (JJ) Jefferson,130
+smith:8,REP,Nathaniel Moran,654
+smith:81,,Over Votes,0
+smith:81,,Under Votes,0
+smith:81,DEM,Jrmar (JJ) Jefferson,65
+smith:81,REP,Nathaniel Moran,44
+smith:82,,Over Votes,0
+smith:82,,Under Votes,1
+smith:82,DEM,Jrmar (JJ) Jefferson,6
+smith:82,REP,Nathaniel Moran,6
+smith:85,,Over Votes,0
+smith:85,,Under Votes,8
+smith:85,DEM,Jrmar (JJ) Jefferson,72
+smith:85,REP,Nathaniel Moran,632
+smith:9,,Over Votes,0
+smith:9,,Under Votes,1
+smith:9,DEM,Jrmar (JJ) Jefferson,75
+smith:9,REP,Nathaniel Moran,29

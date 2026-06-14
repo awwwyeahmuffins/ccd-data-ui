@@ -4,18 +4,6 @@
   "boundarySet": "members",
   "elections": [
     {
-      "id": "attorney-general-2022",
-      "displayName": "Attorney General (2022)",
-      "office": "Attorney General",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Attorney_General_2022.csv",
-      "turnoutFile": "turnout/Attorney_General_2022.csv",
-      "sourceUrl": null
-    },
-    {
       "id": "commissioner-of-agriculture-2022",
       "displayName": "Commissioner of Agriculture (2022)",
       "office": "Commissioner of Agriculture",
@@ -28,15 +16,39 @@
       "sourceUrl": null
     },
     {
-      "id": "commissioner-of-the-general-land-office-2022",
-      "displayName": "Commissioner of the General Land Office (2022)",
-      "office": "Commissioner of the General Land Office",
+      "id": "attorney-general-2022",
+      "displayName": "Attorney General (2022)",
+      "office": "Attorney General",
       "district": null,
       "year": 2022,
       "date": "2022-11-08",
       "category": "State",
-      "raceFile": "races/Commissioner_of_the_General_Land_Office_2022.csv",
-      "turnoutFile": "turnout/Commissioner_of_the_General_Land_Office_2022.csv",
+      "raceFile": "races/Attorney_General_2022.csv",
+      "turnoutFile": "turnout/Attorney_General_2022.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "judge-court-of-criminal-appeals-place-5-2022",
+      "displayName": "Judge, Court of Criminal Appeals, Place 5 (2022)",
+      "office": "Judge, Court of Criminal Appeals, Place 5",
+      "district": null,
+      "year": 2022,
+      "date": "2022-11-08",
+      "category": "State",
+      "raceFile": "races/Judge_Court_of_Criminal_Appeals_Place_5_2022.csv",
+      "turnoutFile": "turnout/Judge_Court_of_Criminal_Appeals_Place_5_2022.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "judge-court-of-criminal-appeals-place-6-2022",
+      "displayName": "Judge, Court of Criminal Appeals, Place 6 (2022)",
+      "office": "Judge, Court of Criminal Appeals, Place 6",
+      "district": null,
+      "year": 2022,
+      "date": "2022-11-08",
+      "category": "State",
+      "raceFile": "races/Judge_Court_of_Criminal_Appeals_Place_6_2022.csv",
+      "turnoutFile": "turnout/Judge_Court_of_Criminal_Appeals_Place_6_2022.csv",
       "sourceUrl": null
     },
     {
@@ -64,63 +76,15 @@
       "sourceUrl": null
     },
     {
-      "id": "judge-court-of-criminal-appeals-place-5-2022",
-      "displayName": "Judge Court of Criminal Appeals Place 5 (2022)",
-      "office": "Judge, Court of Criminal Appeals, Place 5",
+      "id": "commissioner-of-the-general-land-office-2022",
+      "displayName": "Commissioner of the General Land Office (2022)",
+      "office": "Commissioner of the General Land Office",
       "district": null,
       "year": 2022,
       "date": "2022-11-08",
       "category": "State",
-      "raceFile": "races/Judge_Court_of_Criminal_Appeals_Place_5_2022.csv",
-      "turnoutFile": "turnout/Judge_Court_of_Criminal_Appeals_Place_5_2022.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "judge-court-of-criminal-appeals-place-6-2022",
-      "displayName": "Judge Court of Criminal Appeals Place 6 (2022)",
-      "office": "Judge, Court of Criminal Appeals, Place 6",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Judge_Court_of_Criminal_Appeals_Place_6_2022.csv",
-      "turnoutFile": "turnout/Judge_Court_of_Criminal_Appeals_Place_6_2022.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "justice-supreme-court-place-3-2022",
-      "displayName": "Justice Supreme Court Place 3 (2022)",
-      "office": "Justice, Supreme Court, Place 3",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Justice_Supreme_Court_Place_3_2022.csv",
-      "turnoutFile": "turnout/Justice_Supreme_Court_Place_3_2022.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "justice-supreme-court-place-5-2022",
-      "displayName": "Justice Supreme Court Place 5 (2022)",
-      "office": "Justice, Supreme Court, Place 5",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Justice_Supreme_Court_Place_5_2022.csv",
-      "turnoutFile": "turnout/Justice_Supreme_Court_Place_5_2022.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "justice-supreme-court-place-9-2022",
-      "displayName": "Justice Supreme Court Place 9 (2022)",
-      "office": "Justice, Supreme Court, Place 9",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "State",
-      "raceFile": "races/Justice_Supreme_Court_Place_9_2022.csv",
-      "turnoutFile": "turnout/Justice_Supreme_Court_Place_9_2022.csv",
+      "raceFile": "races/Commissioner_of_the_General_Land_Office_2022.csv",
+      "turnoutFile": "turnout/Commissioner_of_the_General_Land_Office_2022.csv",
       "sourceUrl": null
     },
     {
@@ -145,6 +109,42 @@
       "category": "State",
       "raceFile": "races/Railroad_Commissioner_2022.csv",
       "turnoutFile": "turnout/Railroad_Commissioner_2022.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "justice-supreme-court-place-3-2022",
+      "displayName": "Justice, Supreme Court, Place 3 (2022)",
+      "office": "Justice, Supreme Court, Place 3",
+      "district": null,
+      "year": 2022,
+      "date": "2022-11-08",
+      "category": "State",
+      "raceFile": "races/Justice_Supreme_Court_Place_3_2022.csv",
+      "turnoutFile": "turnout/Justice_Supreme_Court_Place_3_2022.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "justice-supreme-court-place-5-2022",
+      "displayName": "Justice, Supreme Court, Place 5 (2022)",
+      "office": "Justice, Supreme Court, Place 5",
+      "district": null,
+      "year": 2022,
+      "date": "2022-11-08",
+      "category": "State",
+      "raceFile": "races/Justice_Supreme_Court_Place_5_2022.csv",
+      "turnoutFile": "turnout/Justice_Supreme_Court_Place_5_2022.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "justice-supreme-court-place-9-2022",
+      "displayName": "Justice, Supreme Court, Place 9 (2022)",
+      "office": "Justice, Supreme Court, Place 9",
+      "district": null,
+      "year": 2022,
+      "date": "2022-11-08",
+      "category": "State",
+      "raceFile": "races/Justice_Supreme_Court_Place_9_2022.csv",
+      "turnoutFile": "turnout/Justice_Supreme_Court_Place_9_2022.csv",
       "sourceUrl": null
     }
   ]

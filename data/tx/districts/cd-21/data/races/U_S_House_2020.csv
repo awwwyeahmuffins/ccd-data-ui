@@ -1,0 +1,215 @@
+precinct,party,candidate,votes
+blanco:102,,Over Votes,0
+blanco:102,,Under Votes,19
+blanco:102,DEM,Wendy R. Davis,431
+blanco:102,GRN,Tommy Wakely,21
+blanco:102,LIB,Arthur Dibianca,25
+blanco:102,REP,Chip Roy,1353
+blanco:201,,Over Votes,0
+blanco:201,,Under Votes,31
+blanco:201,DEM,Wendy R. Davis,447
+blanco:201,GRN,Tommy Wakely,16
+blanco:201,LIB,Arthur Dibianca,22
+blanco:201,REP,Chip Roy,1321
+blanco:302,,Over Votes,0
+blanco:302,,Under Votes,18
+blanco:302,DEM,Wendy R. Davis,293
+blanco:302,GRN,Tommy Wakely,5
+blanco:302,LIB,Arthur Dibianca,18
+blanco:302,REP,Chip Roy,668
+blanco:303,,Over Votes,0
+blanco:303,,Under Votes,8
+blanco:303,DEM,Wendy R. Davis,95
+blanco:303,GRN,Tommy Wakely,3
+blanco:303,LIB,Arthur Dibianca,4
+blanco:303,REP,Chip Roy,387
+blanco:304,,Over Votes,0
+blanco:304,,Under Votes,0
+blanco:304,DEM,Wendy R. Davis,70
+blanco:304,GRN,Tommy Wakely,1
+blanco:304,LIB,Arthur Dibianca,1
+blanco:304,REP,Chip Roy,166
+blanco:401,,Over Votes,0
+blanco:401,,Under Votes,30
+blanco:401,DEM,Wendy R. Davis,493
+blanco:401,GRN,Tommy Wakely,28
+blanco:401,LIB,Arthur Dibianca,31
+blanco:401,REP,Chip Roy,1472
+kendall:1010,,Over Votes,0
+kendall:1010,,Under Votes,22
+kendall:1010,DEM,DEM Wendy R. Davis,573
+kendall:1010,GRN,GRN Tommy Wakely,17
+kendall:1010,LIB,LIB Arthur Dibianca,37
+kendall:1010,REP,REP Chip Roy,1437
+kendall:1110,,Over Votes,0
+kendall:1110,,Under Votes,44
+kendall:1110,DEM,DEM Wendy R. Davis,792
+kendall:1110,GRN,GRN Tommy Wakely,25
+kendall:1110,LIB,LIB Arthur Dibianca,50
+kendall:1110,REP,REP Chip Roy,2983
+kendall:2020,,Over Votes,0
+kendall:2020,,Under Votes,11
+kendall:2020,DEM,DEM Wendy R. Davis,303
+kendall:2020,GRN,GRN Tommy Wakely,3
+kendall:2020,LIB,LIB Arthur Dibianca,14
+kendall:2020,REP,REP Chip Roy,1658
+kendall:2080,,Over Votes,0
+kendall:2080,,Under Votes,24
+kendall:2080,DEM,DEM Wendy R. Davis,760
+kendall:2080,GRN,GRN Tommy Wakely,24
+kendall:2080,LIB,LIB Arthur Dibianca,44
+kendall:2080,REP,REP Chip Roy,2720
+kendall:2120,,Over Votes,0
+kendall:2120,,Under Votes,35
+kendall:2120,DEM,DEM Wendy R. Davis,860
+kendall:2120,GRN,GRN Tommy Wakely,21
+kendall:2120,LIB,LIB Arthur Dibianca,69
+kendall:2120,REP,REP Chip Roy,3035
+kendall:3030,,Over Votes,0
+kendall:3030,,Under Votes,11
+kendall:3030,DEM,DEM Wendy R. Davis,385
+kendall:3030,GRN,GRN Tommy Wakely,6
+kendall:3030,LIB,LIB Arthur Dibianca,28
+kendall:3030,REP,REP Chip Roy,1713
+kendall:3040,,Over Votes,0
+kendall:3040,,Under Votes,25
+kendall:3040,DEM,DEM Wendy R. Davis,650
+kendall:3040,GRN,GRN Tommy Wakely,19
+kendall:3040,LIB,LIB Arthur Dibianca,37
+kendall:3040,REP,REP Chip Roy,2287
+kendall:3060,,Over Votes,0
+kendall:3060,,Under Votes,2
+kendall:3060,DEM,DEM Wendy R. Davis,85
+kendall:3060,GRN,GRN Tommy Wakely,1
+kendall:3060,LIB,LIB Arthur Dibianca,4
+kendall:3060,REP,REP Chip Roy,419
+kendall:4050,,Over Votes,0
+kendall:4050,,Under Votes,20
+kendall:4050,DEM,DEM Wendy R. Davis,530
+kendall:4050,GRN,GRN Tommy Wakely,12
+kendall:4050,LIB,LIB Arthur Dibianca,35
+kendall:4050,REP,REP Chip Roy,1632
+kendall:4070,,Over Votes,0
+kendall:4070,,Under Votes,2
+kendall:4070,DEM,DEM Wendy R. Davis,43
+kendall:4070,GRN,GRN Tommy Wakely,2
+kendall:4070,LIB,LIB Arthur Dibianca,4
+kendall:4070,REP,REP Chip Roy,250
+kendall:4100,,Over Votes,0
+kendall:4100,,Under Votes,36
+kendall:4100,DEM,DEM Wendy R. Davis,557
+kendall:4100,GRN,GRN Tommy Wakely,9
+kendall:4100,LIB,LIB Arthur Dibianca,43
+kendall:4100,REP,REP Chip Roy,2168
+kerr:101,DEM,Wendy R. Davis,426
+kerr:101,GRN,Tommy Wakely,21
+kerr:101,LIB,Arthur Dibianca,35
+kerr:101,REP,Chip Roy,1750
+kerr:107,DEM,Wendy R. Davis,129
+kerr:107,GRN,Tommy Wakely,9
+kerr:107,LIB,Arthur Dibianca,12
+kerr:107,REP,Chip Roy,611
+kerr:109,DEM,Wendy R. Davis,216
+kerr:109,GRN,Tommy Wakely,6
+kerr:109,LIB,Arthur Dibianca,14
+kerr:109,REP,Chip Roy,928
+kerr:113,DEM,Wendy R. Davis,320
+kerr:113,GRN,Tommy Wakely,9
+kerr:113,LIB,Arthur Dibianca,12
+kerr:113,REP,Chip Roy,932
+kerr:118,DEM,Wendy R. Davis,115
+kerr:118,GRN,Tommy Wakely,3
+kerr:118,LIB,Arthur Dibianca,8
+kerr:118,REP,Chip Roy,217
+kerr:119,DEM,Wendy R. Davis,466
+kerr:119,GRN,Tommy Wakely,22
+kerr:119,LIB,Arthur Dibianca,26
+kerr:119,REP,Chip Roy,1085
+kerr:202,DEM,Wendy R. Davis,296
+kerr:202,GRN,Tommy Wakely,10
+kerr:202,LIB,Arthur Dibianca,24
+kerr:202,REP,Chip Roy,1488
+kerr:211,DEM,Wendy R. Davis,279
+kerr:211,GRN,Tommy Wakely,7
+kerr:211,LIB,Arthur Dibianca,25
+kerr:211,REP,Chip Roy,629
+kerr:215,DEM,Wendy R. Davis,459
+kerr:215,GRN,Tommy Wakely,19
+kerr:215,LIB,Arthur Dibianca,33
+kerr:215,REP,Chip Roy,1808
+kerr:220,DEM,Wendy R. Davis,428
+kerr:220,GRN,Tommy Wakely,10
+kerr:220,LIB,Arthur Dibianca,19
+kerr:220,REP,Chip Roy,1675
+kerr:303,DEM,Wendy R. Davis,142
+kerr:303,GRN,Tommy Wakely,3
+kerr:303,LIB,Arthur Dibianca,9
+kerr:303,REP,Chip Roy,630
+kerr:308,DEM,Wendy R. Davis,118
+kerr:308,GRN,Tommy Wakely,7
+kerr:308,LIB,Arthur Dibianca,5
+kerr:308,REP,Chip Roy,322
+kerr:312,DEM,Wendy R. Davis,789
+kerr:312,GRN,Tommy Wakely,25
+kerr:312,LIB,Arthur Dibianca,54
+kerr:312,REP,Chip Roy,1914
+kerr:314,DEM,Wendy R. Davis,490
+kerr:314,GRN,Tommy Wakely,22
+kerr:314,LIB,Arthur Dibianca,36
+kerr:314,REP,Chip Roy,808
+kerr:404,DEM,Wendy R. Davis,101
+kerr:404,GRN,Tommy Wakely,3
+kerr:404,LIB,Arthur Dibianca,12
+kerr:404,REP,Chip Roy,707
+kerr:405,DEM,Wendy R. Davis,320
+kerr:405,GRN,Tommy Wakely,6
+kerr:405,LIB,Arthur Dibianca,13
+kerr:405,REP,Chip Roy,1041
+kerr:406,DEM,Wendy R. Davis,467
+kerr:406,GRN,Tommy Wakely,21
+kerr:406,LIB,Arthur Dibianca,29
+kerr:406,REP,Chip Roy,1893
+kerr:410,DEM,Wendy R. Davis,19
+kerr:410,GRN,Tommy Wakely,1
+kerr:410,LIB,Arthur Dibianca,2
+kerr:410,REP,Chip Roy,228
+kerr:416,DEM,Wendy R. Davis,243
+kerr:416,GRN,Tommy Wakely,7
+kerr:416,LIB,Arthur Dibianca,16
+kerr:416,REP,Chip Roy,1043
+kerr:417,DEM,Wendy R. Davis,274
+kerr:417,GRN,Tommy Wakely,4
+kerr:417,LIB,Arthur Dibianca,22
+kerr:417,REP,Chip Roy,984
+real:1,DEM,Wendy R. Davis,80
+real:1,GRN,Tommy Wakely,5
+real:1,LIB,Arthur Dibianca,7
+real:1,REP,Chip Roy,438
+real:2,DEM,Wendy R. Davis,77
+real:2,GRN,Tommy Wakely,6
+real:2,LIB,Arthur Dibianca,7
+real:2,REP,Chip Roy,511
+real:3,DEM,Wendy R. Davis,64
+real:3,GRN,Tommy Wakely,3
+real:3,LIB,Arthur Dibianca,5
+real:3,REP,Chip Roy,255
+real:4,DEM,Wendy R. Davis,22
+real:4,GRN,Tommy Wakely,0
+real:4,LIB,Arthur Dibianca,0
+real:4,REP,Chip Roy,223
+real:6,DEM,Wendy R. Davis,43
+real:6,GRN,Tommy Wakely,2
+real:6,LIB,Arthur Dibianca,2
+real:6,REP,Chip Roy,199
+travis:314,DEM,Wendy R. Davis,2880
+travis:314,GRN,Tommy Wakely,21
+travis:314,LIB,Arthur DiBianca,88
+travis:314,REP,Chip Roy,2701
+travis:354,DEM,Wendy R. Davis,2430
+travis:354,GRN,Tommy Wakely,21
+travis:354,LIB,Arthur DiBianca,72
+travis:354,REP,Chip Roy,1472
+travis:365,DEM,Wendy R. Davis,1305
+travis:365,GRN,Tommy Wakely,21
+travis:365,LIB,Arthur DiBianca,54
+travis:365,REP,Chip Roy,909

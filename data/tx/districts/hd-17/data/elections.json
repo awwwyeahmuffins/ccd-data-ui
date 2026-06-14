@@ -4,27 +4,15 @@
   "boundarySet": "members",
   "elections": [
     {
-      "id": "attorney-general-2022",
-      "displayName": "Attorney General (2022)",
-      "office": "Attorney General",
-      "district": null,
+      "id": "state-house-2022",
+      "displayName": "State House District 17 (2022)",
+      "office": "State House",
+      "district": "17",
       "year": 2022,
       "date": "2022-11-08",
       "category": "State",
-      "raceFile": "races/Attorney_General_2022.csv",
-      "turnoutFile": "turnout/Attorney_General_2022.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "comm-general-land-office-2022",
-      "displayName": "Comm General Land Office (2022)",
-      "office": "Comm. General Land Office",
-      "district": null,
-      "year": 2022,
-      "date": "2022-11-08",
-      "category": "County",
-      "raceFile": "races/Comm_General_Land_Office_2022.csv",
-      "turnoutFile": "turnout/Comm_General_Land_Office_2022.csv",
+      "raceFile": "races/State_House_2022.csv",
+      "turnoutFile": "turnout/State_House_2022.csv",
       "sourceUrl": null
     },
     {
@@ -37,6 +25,18 @@
       "category": "State",
       "raceFile": "races/Commissioner_of_Agriculture_2022.csv",
       "turnoutFile": "turnout/Commissioner_of_Agriculture_2022.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "attorney-general-2022",
+      "displayName": "Attorney General (2022)",
+      "office": "Attorney General",
+      "district": null,
+      "year": 2022,
+      "date": "2022-11-08",
+      "category": "State",
+      "raceFile": "races/Attorney_General_2022.csv",
+      "turnoutFile": "turnout/Attorney_General_2022.csv",
       "sourceUrl": null
     },
     {
@@ -64,6 +64,18 @@
       "sourceUrl": null
     },
     {
+      "id": "commissioner-of-the-general-land-office-2022",
+      "displayName": "Commissioner of the General Land Office (2022)",
+      "office": "Commissioner of the General Land Office",
+      "district": null,
+      "year": 2022,
+      "date": "2022-11-08",
+      "category": "County",
+      "raceFile": "races/Commissioner_of_the_General_Land_Office_2022.csv",
+      "turnoutFile": "turnout/Commissioner_of_the_General_Land_Office_2022.csv",
+      "sourceUrl": null
+    },
+    {
       "id": "lieutenant-governor-2022",
       "displayName": "Lieutenant Governor (2022)",
       "office": "Lieutenant Governor",
@@ -88,15 +100,51 @@
       "sourceUrl": null
     },
     {
-      "id": "chief-justice-3rd-ct-of-app-dist-2020",
-      "displayName": "Chief Justice 3rd Ct of App Dist (2020)",
-      "office": "Chief Justice, 3rd Ct of App Dist",
+      "id": "state-representative-2020",
+      "displayName": "State Representative District 17 (2020)",
+      "office": "State Representative",
+      "district": "17",
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/State_Representative_2020.csv",
+      "turnoutFile": "turnout/State_Representative_2020.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "judge-court-of-criminal-appeals-place-3-2020",
+      "displayName": "Judge, Court of Criminal Appeals, Place 3 (2020)",
+      "office": "Judge, Court of Criminal Appeals, Place 3",
       "district": null,
       "year": 2020,
       "date": "2020-11-03",
-      "category": "County",
-      "raceFile": "races/Chief_Justice_3rd_Ct_of_App_Dist_2020.csv",
-      "turnoutFile": "turnout/Chief_Justice_3rd_Ct_of_App_Dist_2020.csv",
+      "category": "State",
+      "raceFile": "races/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv",
+      "turnoutFile": "turnout/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "judge-court-of-criminal-appeals-place-4-2020",
+      "displayName": "Judge, Court of Criminal Appeals, Place 4 (2020)",
+      "office": "Judge, Court of Criminal Appeals, Place 4",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv",
+      "turnoutFile": "turnout/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "judge-court-of-criminal-appeals-place-9-2020",
+      "displayName": "Judge, Court of Criminal Appeals, Place 9 (2020)",
+      "office": "Judge, Court of Criminal Appeals, Place 9",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv",
+      "turnoutFile": "turnout/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv",
       "sourceUrl": null
     },
     {
@@ -112,123 +160,15 @@
       "sourceUrl": null
     },
     {
-      "id": "judge-court-of-criminal-appeals-place-no-3-2020",
-      "displayName": "Judge, Court of Criminal Appeals, Place No. 3 (2020)",
-      "office": "Judge, Court of Criminal Appeals, Place No. 3",
-      "district": null,
-      "year": 2020,
-      "date": "2020-11-03",
-      "category": "State",
-      "raceFile": "races/Judge_Court_of_Criminal_Appeals_Place_No_3_2020.csv",
-      "turnoutFile": "turnout/Judge_Court_of_Criminal_Appeals_Place_No_3_2020.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "judge-court-of-criminal-appeals-place-no-4-2020",
-      "displayName": "Judge, Court of Criminal Appeals, Place No. 4 (2020)",
-      "office": "Judge, Court of Criminal Appeals, Place No. 4",
-      "district": null,
-      "year": 2020,
-      "date": "2020-11-03",
-      "category": "State",
-      "raceFile": "races/Judge_Court_of_Criminal_Appeals_Place_No_4_2020.csv",
-      "turnoutFile": "turnout/Judge_Court_of_Criminal_Appeals_Place_No_4_2020.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "judge-court-of-criminal-appeals-place-no-9-2020",
-      "displayName": "Judge, Court of Criminal Appeals, Place No. 9 (2020)",
-      "office": "Judge, Court of Criminal Appeals, Place No. 9",
-      "district": null,
-      "year": 2020,
-      "date": "2020-11-03",
-      "category": "State",
-      "raceFile": "races/Judge_Court_of_Criminal_Appeals_Place_No_9_2020.csv",
-      "turnoutFile": "turnout/Judge_Court_of_Criminal_Appeals_Place_No_9_2020.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "justice-supreme-court-pl-6-2020",
-      "displayName": "Justice Supreme Court Pl 6 (2020)",
-      "office": "Justice, Supreme Court, Pl 6",
-      "district": null,
-      "year": 2020,
-      "date": "2020-11-03",
-      "category": "State",
-      "raceFile": "races/Justice_Supreme_Court_Pl_6_2020.csv",
-      "turnoutFile": "turnout/Justice_Supreme_Court_Pl_6_2020.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "justice-supreme-court-pl-7-2020",
-      "displayName": "Justice Supreme Court Pl 7 (2020)",
-      "office": "Justice, Supreme Court, Pl 7",
-      "district": null,
-      "year": 2020,
-      "date": "2020-11-03",
-      "category": "State",
-      "raceFile": "races/Justice_Supreme_Court_Pl_7_2020.csv",
-      "turnoutFile": "turnout/Justice_Supreme_Court_Pl_7_2020.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "justice-supreme-court-pl-8-2020",
-      "displayName": "Justice Supreme Court Pl 8 (2020)",
-      "office": "Justice, Supreme Court, Pl 8",
-      "district": null,
-      "year": 2020,
-      "date": "2020-11-03",
-      "category": "State",
-      "raceFile": "races/Justice_Supreme_Court_Pl_8_2020.csv",
-      "turnoutFile": "turnout/Justice_Supreme_Court_Pl_8_2020.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "justice-supreme-court-place-no-6-unexpired-term-2020",
-      "displayName": "Justice, Supreme Court, Place No. 6 Unexpired Term (2020)",
-      "office": "Justice, Supreme Court, Place No. 6 Unexpired Term",
-      "district": null,
-      "year": 2020,
-      "date": "2020-11-03",
-      "category": "State",
-      "raceFile": "races/Justice_Supreme_Court_Place_No_6_Unexpired_Term_2020.csv",
-      "turnoutFile": "turnout/Justice_Supreme_Court_Place_No_6_Unexpired_Term_2020.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "justice-supreme-court-place-no-7-2020",
-      "displayName": "Justice, Supreme Court, Place No. 7 (2020)",
-      "office": "Justice, Supreme Court, Place No. 7",
-      "district": null,
-      "year": 2020,
-      "date": "2020-11-03",
-      "category": "State",
-      "raceFile": "races/Justice_Supreme_Court_Place_No_7_2020.csv",
-      "turnoutFile": "turnout/Justice_Supreme_Court_Place_No_7_2020.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "justice-supreme-court-place-no-8-2020",
-      "displayName": "Justice, Supreme Court, Place No. 8 (2020)",
-      "office": "Justice, Supreme Court, Place No. 8",
-      "district": null,
-      "year": 2020,
-      "date": "2020-11-03",
-      "category": "State",
-      "raceFile": "races/Justice_Supreme_Court_Place_No_8_2020.csv",
-      "turnoutFile": "turnout/Justice_Supreme_Court_Place_No_8_2020.csv",
-      "sourceUrl": null
-    },
-    {
-      "id": "president-2020",
-      "displayName": "President (2020)",
-      "office": "President",
+      "id": "president-vice-president-2020",
+      "displayName": "President & Vice President (2020)",
+      "office": "President & Vice President",
       "district": null,
       "year": 2020,
       "date": "2020-11-03",
       "category": "Federal",
-      "raceFile": "races/President_2020.csv",
-      "turnoutFile": "turnout/President_2020.csv",
+      "raceFile": "races/President_Vice_President_2020.csv",
+      "turnoutFile": "turnout/President_Vice_President_2020.csv",
       "sourceUrl": null
     },
     {
@@ -244,15 +184,51 @@
       "sourceUrl": null
     },
     {
-      "id": "u-s-senate-2020",
-      "displayName": "U.S. Senate (2020)",
-      "office": "U.S. Senate",
+      "id": "justice-supreme-court-place-6-2020",
+      "displayName": "Justice, Supreme Court, Place 6 (2020)",
+      "office": "Justice, Supreme Court, Place 6",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/Justice_Supreme_Court_Place_6_2020.csv",
+      "turnoutFile": "turnout/Justice_Supreme_Court_Place_6_2020.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "justice-supreme-court-place-7-2020",
+      "displayName": "Justice, Supreme Court, Place 7 (2020)",
+      "office": "Justice, Supreme Court, Place 7",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/Justice_Supreme_Court_Place_7_2020.csv",
+      "turnoutFile": "turnout/Justice_Supreme_Court_Place_7_2020.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "justice-supreme-court-place-8-2020",
+      "displayName": "Justice, Supreme Court, Place 8 (2020)",
+      "office": "Justice, Supreme Court, Place 8",
+      "district": null,
+      "year": 2020,
+      "date": "2020-11-03",
+      "category": "State",
+      "raceFile": "races/Justice_Supreme_Court_Place_8_2020.csv",
+      "turnoutFile": "turnout/Justice_Supreme_Court_Place_8_2020.csv",
+      "sourceUrl": null
+    },
+    {
+      "id": "united-states-senator-2020",
+      "displayName": "United States Senator (2020)",
+      "office": "United States Senator",
       "district": null,
       "year": 2020,
       "date": "2020-11-03",
       "category": "County",
-      "raceFile": "races/U_S_Senate_2020.csv",
-      "turnoutFile": "turnout/U_S_Senate_2020.csv",
+      "raceFile": "races/United_States_Senator_2020.csv",
+      "turnoutFile": "turnout/United_States_Senator_2020.csv",
       "sourceUrl": null
     }
   ]
