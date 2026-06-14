@@ -15,12 +15,30 @@ import { escapeHtml } from "./utils.js";
 // ---- module state (this page's own; no shared singleton) --------------------
 const cc = {
   map: null,
+  tiles: null,
   layer: null,
   geojson: null,
   mode: "lean",          // lean | margin | diversity
   selectedCode: null,
   countyName: "Collin",
+  theme: "light",        // light "Paper Command" | dark "War Room"
 };
+
+// Subtle CartoDB basemaps for geographic grounding (precinct chairs orienting
+// to their turf). Kept low-opacity in CSS so the choropleth dominates.
+const BASEMAPS = {
+  light: "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+  dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+};
+const BASEMAP_ATTR =
+  '&copy; <a href="https://carto.com/">CARTO</a> · &copy; OpenStreetMap';
+
+// Per-theme map cosmetics that can't come from CSS variables (canvas fills).
+const THEME_MAP = {
+  light: { noData: "#DAD3C6", stroke: "#FFFDF9", hover: "#C68A0C", sel: "#9A6F08" },
+  dark: { noData: "#1b2330", stroke: "#0a0e14", hover: "#F5B312", sel: "#F5B312" },
+};
+const tm = () => THEME_MAP[cc.theme];
 
 // ---- tiny DOM helpers -------------------------------------------------------
 const $ = (id) => document.getElementById(id);
@@ -31,31 +49,41 @@ const fmtNum = (v) => (v == null || isNaN(v) ? "N/A" : Number(v).toLocaleString(
 // COLOR ENGINES — one per mode. Each takes a feature's merged properties and
 // returns a fill color (or a muted "no data" gray).
 // =============================================================================
-const NO_DATA = "#1b2330";
+// Heat ramps are theme-aware: cool→gold on the dark "war room", warm paper→gold
+// on the light "paper command" surface (so pale precincts read on cream).
+const RAMPS = {
+  margin: {
+    light: ["#EDE6D6", "#E9C97A", "#E6A92F", "#D98C12", "#B8740C"],
+    dark: ["#15233a", "#3a3a2a", "#7a5d12", "#b8870f", "#F5B312"],
+  },
+  diversity: {
+    light: ["#E4EAEA", "#A9CBC8", "#6FB0A0", "#C9B560", "#C68A0C"],
+    dark: ["#13314a", "#1f5a6e", "#2f8f7a", "#9aa838", "#F5B312"],
+  },
+};
 
 function leanColor(p) {
   const party = p.winningParty;
   const strength = p.partyStrength;
-  if (!party || !PARTY_STRENGTH_COLORS[party]) return NO_DATA;
+  if (!party || !PARTY_STRENGTH_COLORS[party]) return tm().noData;
   const ramp = PARTY_STRENGTH_COLORS[party];
   return ramp[strength] || ramp.default;
 }
 
-// Margin = how lopsided, gold heat. |demShare - repShare| → 0 (pale) … 1 (hot gold).
+// Margin = how lopsided. |demShare - repShare| → pale … hot gold.
 function marginColor(p) {
-  if (p.demShare == null || p.repShare == null || isNaN(p.demShare)) return NO_DATA;
+  if (p.demShare == null || p.repShare == null || isNaN(p.demShare)) return tm().noData;
   const margin = Math.abs(p.demShare - p.repShare); // 0..1
-  // dark-to-gold ramp
-  const stops = ["#15233a", "#3a3a2a", "#7a5d12", "#b8870f", "#F5B312"];
+  const stops = RAMPS.margin[cc.theme];
   const idx = Math.min(stops.length - 1, Math.floor(margin * stops.length));
   return stops[idx];
 }
 
-// Diversity = non-white share, teal→gold heat.
+// Diversity = non-white share heat.
 function diversityColor(p) {
-  if (p.pct_white == null || isNaN(p.pct_white)) return NO_DATA;
+  if (p.pct_white == null || isNaN(p.pct_white)) return tm().noData;
   const nonWhite = 1 - p.pct_white; // 0..1
-  const stops = ["#13314a", "#1f5a6e", "#2f8f7a", "#9aa838", "#F5B312"];
+  const stops = RAMPS.diversity[cc.theme];
   const idx = Math.min(stops.length - 1, Math.floor(nonWhite * stops.length));
   return stops[idx];
 }
@@ -73,9 +101,9 @@ function baseStyle(feature) {
   const isSel = cc.selectedCode != null && String(feature.properties.PRECINCT) === cc.selectedCode;
   return {
     fillColor: colorFor(feature.properties),
-    fillOpacity: 0.78,
-    color: isSel ? "#F5B312" : "#0a0e14",
-    weight: isSel ? 2.5 : 0.6,
+    fillOpacity: cc.theme === "dark" ? 0.78 : 0.74,
+    color: isSel ? tm().sel : tm().stroke,
+    weight: isSel ? 2.8 : 0.7,
     opacity: 1,
   };
 }
@@ -88,31 +116,35 @@ function restyle() {
 function buildMap(geojson) {
   cc.map = L.map("cc-map", {
     zoomControl: true,
-    attributionControl: false,
+    attributionControl: true,
     preferCanvas: true,
     zoomSnap: 0,
     minZoom: 6,
     maxZoom: 16,
   });
 
-  cc.layer = L.geoJSON(geojson, {
-    style: baseStyle,
-    onEachFeature: (feature, layer) => {
-      const code = String(feature.properties.PRECINCT);
-      layer.bindTooltip(tooltipFor(feature.properties), {
-        sticky: true,
-        direction: "top",
-        className: "cc-tip-map",
-      });
-      layer.on({
-        mouseover: () => layer.setStyle({ weight: 2, color: "#F5B312" }),
-        mouseout: () => layer.setStyle(baseStyle(feature)),
-        click: () => selectPrecinct(code),
-      });
-    },
+  // Subtle basemap underlay (geographic grounding) — swaps with theme.
+  cc.tiles = L.tileLayer(BASEMAPS[cc.theme], {
+    attribution: BASEMAP_ATTR,
+    subdomains: "abcd",
+    maxZoom: 19,
   }).addTo(cc.map);
 
+  cc.layer = L.geoJSON(geojson, { style: baseStyle, onEachFeature: attachFeature }).addTo(cc.map);
+
   fitMap();
+}
+
+// Wire tooltip + hover + click for one precinct polygon (shared by build &
+// county-switch so the two render paths never drift).
+function attachFeature(feature, layer) {
+  const code = String(feature.properties.PRECINCT);
+  layer.bindTooltip(tooltipFor(feature.properties), { sticky: true, direction: "top", className: "cc-tip-map" });
+  layer.on({
+    mouseover: () => layer.setStyle({ weight: 2.2, color: tm().hover }),
+    mouseout: () => layer.setStyle(baseStyle(feature)),
+    click: () => selectPrecinct(code),
+  });
 }
 
 function fitMap() {
@@ -167,14 +199,12 @@ function renderCountyBriefing() {
   }
   const avgR = n ? sumR / n : null;
   const avgD = n ? sumD / n : null;
-  const avgM = n ? Math.max(0, 1 - avgR - avgD) : null;
   const avgNonWhite = racialN ? sumNonWhite / racialN : null;
 
   $("cc-dock-eyebrow").textContent = "County Briefing";
   $("cc-dock-title").textContent = `${cc.countyName} County`;
   $("cc-dock-sub").textContent = `${features.length} precincts · ${scored} with party data`;
 
-  const pct = (k, tot) => (tot ? Math.round((k / tot) * 100) : 0);
 
   let leanBar = "";
   if (avgR != null) {
@@ -349,7 +379,7 @@ function selectPrecinct(code) {
     // pan to the precinct
     const layer = findLayerByCode(code);
     if (layer) {
-      try { cc.map.fitBounds(layer.getBounds(), { padding: [80, 80], maxZoom: 13 }); } catch (_) {}
+      try { cc.map.fitBounds(layer.getBounds(), { padding: [80, 80], maxZoom: 13 }); } catch (_) { /* ignore */ }
     }
   }
 }
@@ -383,18 +413,47 @@ function renderLegend() {
       <div class="cc-legend-row"><span class="cc-legend-sw" style="background:#fc9a9a"></span>Lean Rep</div>
       <div class="cc-legend-row"><span class="cc-legend-sw" style="background:#D6EAF8"></span>Lean Dem</div>
       <div class="cc-legend-row"><span class="cc-legend-sw" style="background:#27408B"></span>Strong Dem</div>
-      <div class="cc-legend-row"><span class="cc-legend-sw" style="background:${NO_DATA}"></span>No data</div>`;
+      <div class="cc-legend-row"><span class="cc-legend-sw" style="background:${tm().noData}"></span>No data</div>`;
   } else if (cc.mode === "margin") {
     el.innerHTML = `
       <div class="cc-legend-title">Victory Margin</div>
-      <div class="cc-legend-ramp" style="background:linear-gradient(90deg,#15233a,#3a3a2a,#7a5d12,#b8870f,#F5B312)"></div>
+      <div class="cc-legend-ramp" style="background:linear-gradient(90deg,${RAMPS.margin[cc.theme].join(",")})"></div>
       <div class="cc-legend-scale"><span>Tossup</span><span>Landslide</span></div>`;
   } else {
     el.innerHTML = `
       <div class="cc-legend-title">Non-White Share</div>
-      <div class="cc-legend-ramp" style="background:linear-gradient(90deg,#13314a,#1f5a6e,#2f8f7a,#9aa838,#F5B312)"></div>
+      <div class="cc-legend-ramp" style="background:linear-gradient(90deg,${RAMPS.diversity[cc.theme].join(",")})"></div>
       <div class="cc-legend-scale"><span>0%</span><span>100%</span></div>`;
   }
+}
+
+// =============================================================================
+// THEME — "Paper Command" (light) ⇄ "War Room" (dark)
+// =============================================================================
+const THEME_KEY = "cc_theme";
+
+function applyTheme(theme) {
+  cc.theme = theme === "dark" ? "dark" : "light";
+  if (cc.theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+  else document.documentElement.removeAttribute("data-theme");
+  try { localStorage.setItem(THEME_KEY, cc.theme); } catch (_) { /* ignore */ }
+
+  // swap basemap + recolor canvas (which can't read CSS vars)
+  if (cc.tiles) cc.tiles.setUrl(BASEMAPS[cc.theme]);
+  if (cc.layer) {
+    restyle();
+    renderLegend();
+  }
+}
+
+function toggleTheme() {
+  applyTheme(cc.theme === "dark" ? "light" : "dark");
+}
+
+function initTheme() {
+  let saved = "light";
+  try { saved = localStorage.getItem(THEME_KEY) || "light"; } catch (_) { /* ignore */ }
+  applyTheme(saved);
 }
 
 // =============================================================================
@@ -438,18 +497,7 @@ async function switchCounty(slug, name) {
     $("cc-county-name").textContent = `${name} County`;
     // rebuild map layer
     if (cc.layer) { cc.layer.remove(); }
-    cc.layer = L.geoJSON(geojson, {
-      style: baseStyle,
-      onEachFeature: (feature, layer) => {
-        const code = String(feature.properties.PRECINCT);
-        layer.bindTooltip(tooltipFor(feature.properties), { sticky: true, direction: "top", className: "cc-tip-map" });
-        layer.on({
-          mouseover: () => layer.setStyle({ weight: 2, color: "#F5B312" }),
-          mouseout: () => layer.setStyle(baseStyle(feature)),
-          click: () => selectPrecinct(code),
-        });
-      },
-    }).addTo(cc.map);
+    cc.layer = L.geoJSON(geojson, { style: baseStyle, onEachFeature: attachFeature }).addTo(cc.map);
     fitMap();
     renderCountyBriefing();
   } catch (err) {
@@ -482,6 +530,9 @@ function wireUI() {
     const btn = e.target.closest(".cc-mode-btn");
     if (btn) setMode(btn.dataset.mode);
   });
+
+  // theme toggle
+  $("cc-theme-btn").addEventListener("click", toggleTheme);
 
   // rail active state (map button is local; others are real links)
   document.querySelectorAll(".cc-rail-btn[data-rail]").forEach((b) => {
@@ -527,6 +578,7 @@ function wireUI() {
 // BOOT
 // =============================================================================
 async function init() {
+  initTheme();
   wireUI();
   renderLegend();
   showLoading(true);
