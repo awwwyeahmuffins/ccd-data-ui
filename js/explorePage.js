@@ -208,7 +208,7 @@ function render() {
       // tiny-electorate flag: real registered voters (fallback to modeled) < 10
       const elect = r.registered != null ? r.registered : r.votes;
       const tiny = elect != null && elect < TINY_ELECTORATE;
-      const flag = tiny ? ` <span class="tiny-flag" title="Only ${elect} voter${elect === 1 ? "" : "s"} on file — the percentages here are not statistically meaningful">⚠</span>` : "";
+      const flag = tiny ? ` <span class="tiny-flag" title="Only ${elect} registered voter${elect === 1 ? "" : "s"} on file — likely a commercial / near-empty precinct. Its census figures (population, homes, income) are area-weighted estimates bled in from neighbouring blocks, not people who live here; the voter counts are the real signal.">⚠</span>` : "";
       return `<tr class="${tiny ? "tiny-row" : ""}"><td class="pcell-precinct"><a href="precinct.html#county=${cParam}&precinct=${encodeURIComponent(r.precinct)}">${escapeHtml(r.precinct)}</a>${flag}</td>${cells}</tr>`;
     }).join("");
   }
