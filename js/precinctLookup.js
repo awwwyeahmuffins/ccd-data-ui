@@ -569,7 +569,7 @@ async function selectPrecinct(code) {
   renderPartySection(partyData);
   renderRacialSection(racialData);
   renderOfficialsSection(officials);
-  renderCensusSection(census, code, props._meta || null);
+  renderCensusSection(census, code, props._meta || null, partyData, racialData);
 
   // Update URL hash
   let boundary = getActiveBoundary();
@@ -694,10 +694,17 @@ function renderHeroSection(code, census, partyData, racialData, meta) {
   html += `<div class="hero-badges">${badges}<span class="pvi-badge-container"></span><span class="strategy-badge-container"></span><span class="trend-arrow-container"></span><button class="compare-btn" id="compare-btn">Compare</button></div>`;
   html += '</div>';
 
+  // Non-residential artifact: census says people live here, but there's no
+  // party data AND no voter-file data at all — a commercial strip or an
+  // uninhabited sliver precinct. The census "population" is an area-weighted
+  // apportionment artifact (see precinct 201), so suppress it rather than show
+  // a fake neighbourhood.
+  let isArtifact = census && census.population > 0 && !partyData && !racialData;
+
   // Row 2: stat cards
   let stats = [];
 
-  if (census?.population != null) {
+  if (census?.population != null && !isArtifact) {
     stats.push(heroStatCard(formatNum(census.population), "Population", census.population, "population", countyAverages?.population, true, code));
   }
 
@@ -709,19 +716,19 @@ function renderHeroSection(code, census, partyData, racialData, meta) {
     stats.push(heroStatCard(formatNum(total), "Scored Voters", null, null, null, false, code));
   }
 
-  if (census?.income?.medianHousehold != null) {
+  if (census?.income?.medianHousehold != null && !isArtifact) {
     stats.push(heroStatCard(formatCurrency(census.income.medianHousehold), "Median Income", census.income.medianHousehold, "income", countyAverages?.income, true, code));
   }
 
-  if (census?.housing?.medianHomeValue != null) {
+  if (census?.housing?.medianHomeValue != null && !isArtifact) {
     stats.push(heroStatCard(formatCurrency(census.housing.medianHomeValue), "Home Value", census.housing.medianHomeValue, "homeValue", countyAverages?.homeValue, true, code));
   }
 
-  if (census?.age?.medianAge != null) {
+  if (census?.age?.medianAge != null && !isArtifact) {
     stats.push(heroStatCard(String(census.age.medianAge), "Median Age", census.age.medianAge, "age", countyAverages?.age, false, code));
   }
 
-  if (census?.education) {
+  if (census?.education && !isArtifact) {
     let collegePct = (census.education.bachelors || 0) + (census.education.graduateProfessional || 0);
     stats.push(heroStatCard(formatPct(collegePct), "College %", collegePct, "college", countyAverages?.college, true, code));
   }
@@ -744,10 +751,12 @@ function renderHeroSection(code, census, partyData, racialData, meta) {
   let scoredTotal = partyData ? (partyData.rep || 0) + (partyData.mod || 0) + (partyData.dem || 0) : null;
   let isNewOrLowConfidence = meta &&
     (meta.dataQuality === 'low_confidence' || meta.interpolationType === 'new_boundary' || meta.interpolationType === 'sliver');
-  if (isNewOrLowConfidence) {
+  if (isArtifact) {
+    html += '<div class="new-precinct-notice">⚠️ Non-residential precinct — no party data and no voters on file (a commercial strip or an uninhabited boundary sliver, like a thin strip along a road). The county’s area-weighted census estimate assigns a “population” here from neighbouring blocks, but no one actually lives or votes in it, so those figures are suppressed. The real signal is on the map below.</div>';
+  } else if (isNewOrLowConfidence) {
     html += '<div class="new-precinct-notice">⚠️ This precinct was newly created in the 2026 redistricting and has little or no voting history yet. Numbers below are estimates or may be blank.</div>';
   } else if (scoredTotal != null && scoredTotal < 10) {
-    html += '<div class="new-precinct-notice">⚠️ Very few scored voters in this precinct — percentage figures below may be misleading.</div>';
+    html += '<div class="new-precinct-notice">⚠️ Very few scored voters in this precinct — its percentage figures and area-weighted census estimates may be misleading; trust the raw voter counts.</div>';
   }
 
   html += '</div>';
@@ -915,10 +924,15 @@ function renderOfficialsSection(officials) {
   el.innerHTML = renderOfficials(officials);
 }
 
-function renderCensusSection(census, code, boundaryMeta) {
+function renderCensusSection(census, code, boundaryMeta, partyData, racialData) {
   let el = document.getElementById("section-census");
-  if (!census) {
-    el.innerHTML = `<div class="census-unavailable">No census profile is available for precinct ${escapeHtml(code)}. Party, racial, officials, and election data are still shown above.</div>`;
+  // Non-residential artifact (census but no voter data at all): its profile is
+  // an area-weighted apportionment artifact, not real residents — suppress it.
+  let isArtifact = census && census.population > 0 && !partyData && !racialData;
+  if (!census || isArtifact) {
+    el.innerHTML = `<div class="census-unavailable">${isArtifact
+      ? `This is a non-residential precinct (a commercial strip or uninhabited boundary sliver) with no voters on file. The county’s census figures here are an area-weighted estimate apportioned from neighbouring blocks — not actual residents — so the demographic profile is suppressed.`
+      : `No census profile is available for precinct ${escapeHtml(code)}. Party, racial, officials, and election data are still shown above.`}</div>`;
     return;
   }
   let extraData = {};

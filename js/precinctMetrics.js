@@ -22,8 +22,19 @@ export function buildRecords(features, census, turnout) {
     const t = turnout ? turnout[code] : null;
     const rec = { precinct: code };
 
+    const reg = t && t.registered != null && !isNaN(t.registered) ? +t.registered : null;
+    const hasParty = p.repShare != null && !isNaN(p.repShare) && !!p.winningParty;
+    const hasRacial = p.pct_white != null && !isNaN(p.pct_white);
+    // Non-residential artifact: census claims a population but there's no
+    // voter-file data at all (no party lean, no racial breakdown) — an
+    // uninhabited sliver or commercial strip. That population is an area-weighted
+    // apportionment artifact (a thin sliver can't hold thousands of people), so
+    // its whole census profile is suppressed — only the real voter counts stay.
+    const isArtifact = c != null && c.population > 0 && !hasParty && !hasRacial;
+    rec.artifact = isArtifact;
+
     // politics (dnc_scores merged onto the feature)
-    if (p.repShare != null && !isNaN(p.repShare) && p.winningParty) {
+    if (hasParty) {
       rec.repShare = +p.repShare;
       rec.demShare = +p.demShare;
       rec.modShare = +(p.modShare || 0);
@@ -34,7 +45,7 @@ export function buildRecords(features, census, turnout) {
     }
 
     // racial composition
-    if (p.pct_white != null && !isNaN(p.pct_white)) {
+    if (hasRacial) {
       rec.pctWhite = +p.pct_white;
       rec.pctHispanic = +p.pct_hispanic;
       rec.pctBlack = +p.pct_black;
@@ -42,8 +53,9 @@ export function buildRecords(features, census, turnout) {
       rec.nonWhite = 1 - +p.pct_white;
     }
 
-    // census profile (Collin only; districts/other views carry none)
-    if (c) {
+    // census profile (Collin only; districts/other views carry none). Skipped
+    // entirely for non-residential artifacts — its numbers aren't real.
+    if (c && !isArtifact) {
       rec.population = num(c.population);
       rec.density = num(c.populationDensity);
       if (c.age) {
@@ -131,12 +143,12 @@ export function buildRecords(features, census, turnout) {
       }
     }
 
-    // turnout (marquee election)
-    if (t && t.registered != null && !isNaN(t.registered)) {
-      rec.registered = num(t.registered);
-      rec.ballots = num(t.ballots);
-      if (t.registered > 0 && t.ballots != null) rec.turnoutRate = t.ballots / t.registered;
-      if (t.ballots != null) rec.nonVoters = Math.max(0, t.registered - t.ballots);
+    // turnout (marquee election) — always real, kept even for artifacts
+    if (reg != null) {
+      rec.registered = reg;
+      rec.ballots = t.ballots != null && !isNaN(t.ballots) ? +t.ballots : null;
+      if (reg > 0 && rec.ballots != null) rec.turnoutRate = rec.ballots / reg;
+      if (rec.ballots != null) rec.nonVoters = Math.max(0, reg - rec.ballots);
     }
 
     out.push(rec);

@@ -85,6 +85,20 @@ describe("buildRecords", () => {
     expect(noCensus.demShare).toBe(0.4); // politics still present
     expect(noCensus.turnoutRate).toBeUndefined();
   });
+  test("suppresses census for non-residential artifacts (no voter-file data)", () => {
+    // census present but NO party lean and NO racial data = uninhabited sliver
+    const artFeat = { properties: { PRECINCT: "1" } };
+    const art = buildRecords([artFeat], census, { "1": { registered: 0, ballots: 0 } })[0];
+    expect(art.artifact).toBe(true);
+    expect(art.population).toBeUndefined();   // bogus census suppressed
+    expect(art.medianIncome).toBeUndefined();
+    expect(art.registered).toBe(0);           // real voter count kept
+    // a normal precinct (has party + racial) is NOT an artifact
+    const normal = buildRecords([feature()], census, { "1": { registered: 2000, ballots: 1200 } })[0];
+    expect(normal.artifact).toBe(false);
+    expect(normal.population).toBe(5000);      // normal precinct keeps census
+    expect(normal.medianIncome).toBe(95000);
+  });
 });
 
 describe("availableMetricIds", () => {

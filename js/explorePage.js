@@ -207,11 +207,16 @@ function render() {
         }
         return `<td class="num">${escapeHtml(formatValue(v, m ? m.fmt : "num"))}</td>`;
       }).join("");
-      // tiny-electorate flag: real registered voters (fallback to modeled) < 10
+      // flag near-empty precincts; artifacts (census suppressed) get a sharper note
       const elect = r.registered != null ? r.registered : r.votes;
       const tiny = elect != null && elect < TINY_ELECTORATE;
-      const flag = tiny ? ` <span class="tiny-flag" title="Only ${elect} registered voter${elect === 1 ? "" : "s"} on file — a near-empty, commercial, or brand-new precinct. Its census figures (population, homes, income) are area-weighted estimates bled in from neighbouring blocks, not people who actually live or vote here; the voter counts are the real signal.">⚠</span>` : "";
-      return `<tr class="${tiny ? "tiny-row" : ""}"><td class="pcell-precinct"><a href="precinct.html#county=${cParam}&precinct=${encodeURIComponent(r.precinct)}">${escapeHtml(r.precinct)}</a>${flag}</td>${cells}</tr>`;
+      let flag = "";
+      if (r.artifact) {
+        flag = ` <span class="tiny-flag" title="Non-residential sliver — ${elect} registered voters. Its census &quot;population&quot; was an area-weighted apportionment artifact (a thin sliver can't hold thousands of residents) and is suppressed here; the voter counts are the only real data.">⚠</span>`;
+      } else if (tiny) {
+        flag = ` <span class="tiny-flag" title="Only ${elect} registered voter${elect === 1 ? "" : "s"} — a small, low-turnout precinct, so the percentages are noisy; its census figures are area-weighted estimates.">⚠</span>`;
+      }
+      return `<tr class="${tiny || r.artifact ? "tiny-row" : ""}"><td class="pcell-precinct"><a href="precinct.html#county=${cParam}&precinct=${encodeURIComponent(r.precinct)}">${escapeHtml(r.precinct)}</a>${flag}</td>${cells}</tr>`;
     }).join("");
   }
   $("ex-count").textContent = `Showing ${sorted.length} of ${pg.records.length} precincts`;
