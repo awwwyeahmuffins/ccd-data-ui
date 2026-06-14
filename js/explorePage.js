@@ -29,8 +29,10 @@ import { escapeHtml } from "./utils.js";
 const DEFAULT_COLUMNS = ["winner", "demShare", "registered", "population", "medianIncome", "medianHomeValue", "medianAge", "pctFamily", "nonWhite", "turnoutRate"];
 
 // Electorates this small make every percentage noise (e.g. "100% Dem" off 2
-// voters) — flag the row so the real counts, not the %s, carry the meaning.
-const TINY_ELECTORATE = 10;
+// voters) and mean the area-weighted census figures wildly overstate who really
+// lives there (commercial strips, new developments) — flag the row so the real
+// counts, not the %s or census pop, carry the meaning. ~5 of Collin's precincts.
+const TINY_ELECTORATE = 50;
 
 const pg = {
   county: "collin",
@@ -208,7 +210,7 @@ function render() {
       // tiny-electorate flag: real registered voters (fallback to modeled) < 10
       const elect = r.registered != null ? r.registered : r.votes;
       const tiny = elect != null && elect < TINY_ELECTORATE;
-      const flag = tiny ? ` <span class="tiny-flag" title="Only ${elect} registered voter${elect === 1 ? "" : "s"} on file — likely a commercial / near-empty precinct. Its census figures (population, homes, income) are area-weighted estimates bled in from neighbouring blocks, not people who live here; the voter counts are the real signal.">⚠</span>` : "";
+      const flag = tiny ? ` <span class="tiny-flag" title="Only ${elect} registered voter${elect === 1 ? "" : "s"} on file — a near-empty, commercial, or brand-new precinct. Its census figures (population, homes, income) are area-weighted estimates bled in from neighbouring blocks, not people who actually live or vote here; the voter counts are the real signal.">⚠</span>` : "";
       return `<tr class="${tiny ? "tiny-row" : ""}"><td class="pcell-precinct"><a href="precinct.html#county=${cParam}&precinct=${encodeURIComponent(r.precinct)}">${escapeHtml(r.precinct)}</a>${flag}</td>${cells}</tr>`;
     }).join("");
   }
