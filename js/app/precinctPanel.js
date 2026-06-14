@@ -5,8 +5,9 @@
 
 import { state } from "./state.js";
 import { closeAllPanels, updateBreadcrumbs, showNotification } from "./uiChrome.js";
-import { PRECINCT_STYLE } from "../constants.js";
-import { buildRacialChartData, buildPartyChartData, formatPct, escapeHtml, getRowPrecinctCode } from "../utils.js";
+import { PRECINCT_STYLE, PARTY_COLORS } from "../constants.js";
+import { extractParty } from "../turnoutSimulator.js";
+import { buildRacialChartData, buildPartyChartData, formatPct, escapeHtml, getRowPrecinctCode, formatPrecinctLabel } from "../utils.js";
 import { formatElectionName } from "../electionFilters.js";
 import { renderPrecinctProfile } from "../precinctProfile.js";
 import { loadElectionData } from "../dataLoader.js";
@@ -31,14 +32,28 @@ function computePrecinctCandidates(row, cols) {
   return { candidates, totalVotes, winner, runnerUp, margin };
 }
 
-export function handlePrecinctClick(feature, layer) {
-  // Deselect previous
+export async function handlePrecinctClick(feature, layer) {
+  const props = feature.properties;
+  const precinctCode = String(props?.PRECINCT ?? '');
+
+  // In the Texas statewide view each polygon IS a county (PRECINCT = slug,
+  // COUNTY = name, no ':' separator, non-numeric). Clicking drills into that
+  // county's full precinct view instead of showing county-level aggregate stats.
+  if (props?.COUNTY && !precinctCode.includes(':') && !/^\d+$/.test(precinctCode)) {
+    const { switchToCountyView } = await import('./county.js');
+    await switchToCountyView(precinctCode);
+    return;
+  }
+
+  // Deselect previous — restore its full base style (the selected style
+  // overrides border color/weight, not just weight)
   if (state.selectedLayer) {
-    state.selectedLayer.setStyle({ weight: PRECINCT_STYLE.default.weight });
+    state.selectedLayer.setStyle(
+      state.selectedLayer._baseStyle || { weight: PRECINCT_STYLE.default.weight });
   }
 
   // Select new
-  state.selectedPrecinct = feature.properties;
+  state.selectedPrecinct = props;
   state.selectedLayer = layer;
   layer.setStyle(PRECINCT_STYLE.selected);
   layer.bringToFront();
@@ -47,7 +62,33 @@ export function handlePrecinctClick(feature, layer) {
   closeAllPanels();
 
   // G9: Only show info card on click, don't auto-open profile panel
-  updateInfoCard(feature.properties);
+  updateInfoCard(props);
+}
+
+// Keep the user's place when the underlying map re-renders (switching races,
+// boundary sets, etc.): re-find the selected precinct's layer, restore its
+// highlight, and refresh its card for the new data — instead of silently
+// dropping the selection back to the county view.
+export function reapplyPrecinctSelection() {
+  if (!state.selectedPrecinct || !state.geojsonLayer) return false;
+  const code = String(state.selectedPrecinct.PRECINCT);
+  let found = null;
+  state.geojsonLayer.eachLayer(layer => {
+    if (String(layer.feature?.properties?.PRECINCT) === code) found = layer;
+  });
+  if (!found) {
+    // The precinct doesn't exist in this view (e.g. boundary set changed) —
+    // drop the stale selection rather than pointing at nothing.
+    state.selectedPrecinct = null;
+    state.selectedLayer = null;
+    return false;
+  }
+  state.selectedPrecinct = found.feature.properties;
+  state.selectedLayer = found;
+  found.setStyle(PRECINCT_STYLE.selected);
+  found.bringToFront();
+  updateInfoCard(found.feature.properties);
+  return true;
 }
 
 export async function openProfilePanel(precinctCode) {
@@ -136,17 +177,18 @@ async function loadPrecinctElectionHistory(precinctCode, body) {
   body.appendChild(historySection);
 
   try {
-    // Load a sample of elections (up to 10 most recent) to build history
-    const electionsToLoad = state.elections.slice(0, 10);
-    const allElectionData = {};
-    for (const entry of electionsToLoad) {
-      try {
-        const data = await loadElectionData(entry);
-        allElectionData[entry.filename] = data;
-      } catch {
-        // Skip failed loads silently
-      }
-    }
+    // Load a sample of elections (up to 10 most recent) to build history.
+    // Prefer Federal/State contests: the manifest's first entries are often
+    // hyperlocal city races (one town's alderman) that most precincts don't
+    // vote in, which produced empty histories. Concurrent, not sequential —
+    // 10 awaited fetches in series made the panel feel stuck for seconds.
+    const major = state.elections.filter(e =>
+      e.category === 'Federal' || e.category === 'State');
+    const electionsToLoad = (major.length ? major : state.elections).slice(0, 10);
+    const loaded = await Promise.all(electionsToLoad.map(entry =>
+      loadElectionData(entry).then(data => [entry.filename, data]).catch(() => null)
+    ));
+    const allElectionData = Object.fromEntries(loaded.filter(Boolean));
 
     const history = buildVotingHistory(precinctCode, allElectionData);
 
@@ -259,7 +301,7 @@ const infoCard = document.getElementById('info-card');
 export function updateInfoCard(precinctProps) {
   if (!precinctProps) return;
 
-  const title = `Precinct ${precinctProps.PRECINCT}`;
+  const title = formatPrecinctLabel(precinctProps);
   const party = precinctProps.winningParty || 'N/A';
   const strength = precinctProps.partyStrength || 'N/A';
 
@@ -368,35 +410,106 @@ export function updateInfoCardForElection(entry, electionData) {
   // G7: Compute race summary
   const summary = computeRaceSummary(electionData, state.simulationCandidates || []);
 
-  let statsHtml = '';
-  if (summary.winner) {
-    const winnerShort = summary.winner.length > 20 ? summary.winner.substring(0, 20) + '...' : summary.winner;
-    statsHtml += `
-      <div class="stat-item">
-        <div class="stat-label">Winner</div>
-        <div class="stat-value" style="font-size:14px;">${winnerShort}</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-label">Margin</div>
-        <div class="stat-value">+${summary.margin.toLocaleString()} (${summary.marginPct})</div>
-      </div>
-    `;
-  }
-  statsHtml += `
-    <div class="stat-item">
-      <div class="stat-label">Turnout</div>
-      <div class="stat-value">${summary.turnout}</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-label">Precincts</div>
-      <div class="stat-value">${summary.activePrecincts}</div>
-    </div>
-  `;
+  // Coverage honesty: in district/texas views (and partial races anywhere),
+  // results may cover only part of the map — say so instead of presenting a
+  // partial aggregate as the full result. Units = counties in the texas view.
+  const mapUnits = state.geojsonData?.features?.length || 0;
+  const first = state.geojsonData?.features?.[0]?.properties;
+  const countyUnits = !!first?.COUNTY &&
+    !String(first.PRECINCT).includes(':') && !/^\d+$/.test(String(first.PRECINCT));
+  const unitLabel = countyUnits ? 'Counties' : 'Precincts';
+  const coverage = mapUnits > 0 && summary.activePrecincts < mapUnits
+    ? `${summary.activePrecincts} of ${mapUnits}`
+    : `${summary.activePrecincts}`;
+
+  // The topline owns the headline (winner, margin %, turnout). The card
+  // complements it with the full candidate breakdown — vote bars, ranked.
+  const totals = summary.candidateTotals || {};
+  const ranked = Object.entries(totals).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
+  const totalCand = ranked.reduce((s, [, v]) => s + v, 0) || 1;
+  let statsHtml = ranked.slice(0, 5).map(([name, votes]) => {
+    const party = extractParty(name);
+    const color = (party && PARTY_COLORS[party]) || 'var(--text-muted)';
+    // Drop the party prefix and the running mate ("Trump/Vance" → "Trump").
+    const disp = (party ? name.replace(/^\S+\s+/, '') : name).split('/')[0].trim();
+    const dispShort = disp.length > 24 ? disp.slice(0, 24) + '…' : disp;
+    const pct = (votes / totalCand) * 100;
+    return `
+      <div class="ic-cand">
+        <div class="ic-cand-head">
+          <span class="ic-cand-name">${escapeHtml(dispShort)}</span>
+          <span class="ic-cand-figs">${votes.toLocaleString()}<span class="ic-cand-pct">${pct.toFixed(1)}%</span></span>
+        </div>
+        <div class="ic-cand-track"><div class="ic-cand-fill" style="width:${pct.toFixed(1)}%;background:${color}"></div></div>
+      </div>`;
+  }).join('');
+  const turnoutNote = (summary.turnout && summary.turnout !== 'N/A') ? ` · ${escapeHtml(summary.turnout)} turnout` : '';
+  statsHtml += `<div class="ic-coverage">${escapeHtml(coverage)} ${escapeHtml(unitLabel.toLowerCase())} reporting${turnoutNote}</div>`;
 
   document.querySelector('.info-card-stats').innerHTML = statsHtml;
   document.querySelector('.info-card-demographics').innerHTML = '';
 
   infoCard.classList.add('visible');
+
+  updateResultTopline(entry, summary, unitLabel, coverage, mapUnits);
+}
+
+// The prominent, always-visible "so what" headline over the map: where, what
+// race, who won, by how much, and turnout. Reuses the same race summary as the
+// info card so the two never disagree.
+export function updateResultTopline(entry, summary, unitLabel, coverage, mapUnits) {
+  const el = document.getElementById('result-topline');
+  if (!el) return;
+
+  // County / district name straight from the selector (synchronous + correct
+  // for every view: "Collin County", a district name, or "Texas").
+  const countySel = document.getElementById('county-select');
+  const place = countySel?.selectedOptions?.[0]?.textContent?.trim() || '';
+  const race = entry.displayName || formatElectionName(entry.filename);
+
+  // Stat-header layout: hairline-divided cells, quiet eyebrow + hero value.
+  const cells = [];
+  cells.push(`
+    <div class="tl-cell tl-context-cell">
+      <span class="tl-eyebrow">${escapeHtml(place || 'Result')}</span>
+      <span class="tl-value tl-race">${escapeHtml(race)}</span>
+    </div>`);
+
+  if (summary.winner) {
+    const party = extractParty(summary.winner);
+    const color = (party && PARTY_COLORS[party]) || 'var(--text-primary)';
+    // Candidate columns read "<Party> <Name>"; show just the principal's name
+    // (drop the party prefix and the running mate after "/").
+    const name = (party ? summary.winner.replace(/^\S+\s+/, '') : summary.winner).split('/')[0].trim();
+    const display = name.length > 28 ? name.slice(0, 28) + '…' : name;
+    const margin = (summary.marginPct && summary.marginPct !== 'N/A')
+      ? `<span class="tl-margin">+${escapeHtml(summary.marginPct)}</span>` : '';
+    cells.push(`
+      <div class="tl-cell">
+        <span class="tl-eyebrow">Winner</span>
+        <span class="tl-value tl-winner" style="color:${color}">${escapeHtml(display)}${margin}</span>
+      </div>`);
+  }
+  if (summary.turnout && summary.turnout !== 'N/A') {
+    cells.push(`
+      <div class="tl-cell">
+        <span class="tl-eyebrow">Turnout</span>
+        <span class="tl-value">${escapeHtml(summary.turnout)}</span>
+      </div>`);
+  }
+
+  el.innerHTML = cells.join('');
+  el.hidden = false;
+}
+
+export function hideResultTopline() {
+  const el = document.getElementById('result-topline');
+  if (el) el.hidden = true;
+}
+
+export function showResultTopline() {
+  const el = document.getElementById('result-topline');
+  if (el && el.innerHTML.trim()) el.hidden = false;
 }
 
 export function hideInfoCard() {

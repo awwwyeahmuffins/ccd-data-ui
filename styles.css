@@ -467,23 +467,11 @@ body.dem-view #mod-to-dem-val {
   background: rgba(39, 174, 96, 0.9);
 }
 
-/* Enhance marker and polygon hover states */
-.leaflet-interactive:hover {
-  filter: brightness(1.1);
-  cursor: pointer;
-}
-
-/* Transition for smoother hover effect */
+/* Polygon hover feedback is done in JS via setStyle (weight bump). No CSS
+   filter here: brightness/drop-shadow forced a full composite per hover on
+   SVG paths, and under the canvas renderer would tint the entire map. */
 .leaflet-interactive {
-  transition: filter 0.15s ease;
-}
-
-/* Flipped precinct border styling */
-.leaflet-interactive.flipped-precinct {
-  stroke-dasharray: 8, 4;
-  stroke: #FFD700 !important;
-  stroke-width: 3px !important;
-  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.6));
+  cursor: pointer;
 }
 
 /* High contrast mode for tooltips */
@@ -5798,8 +5786,35 @@ kbd {
 
   /* Shrink the search trigger so it doesn't hog space */
   #cmd-k-trigger {
-    min-width: 100px !important;
+    min-width: auto !important;
     padding: 8px 12px !important;
+  }
+
+  #cmd-k-trigger kbd {
+    display: none !important;
+  }
+
+  /* The collapse-header chevron is the least-used control — drop it first */
+  #toggle-header {
+    display: none !important;
+  }
+
+  /* Collin shows county select + boundary select + View Changes at once —
+     cap the selects so Browse/Forecast never render past the viewport edge */
+  .boundary-selector {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  .boundary-selector select {
+    max-width: 165px !important;
+    text-overflow: ellipsis;
+  }
+
+  .boundary-changes-trigger {
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    white-space: nowrap;
   }
 
   .header-btn {

@@ -27,7 +27,7 @@
 
 import { initMap, addHomeControl, addBasemapControl, addLocateControl } from "../mapInitializer.js";
 import { findPrecinctForPoint } from "../geoLookup.js";
-import { loadAllData } from "../dataLoader.js";
+import { loadAllData, getActiveCounty } from "../dataLoader.js";
 import { MAP_CONFIG } from "../constants.js";
 import { initTheme, toggleTheme, getCurrentTheme, DARK_TILE_URL, LIGHT_TILE_URL } from "../themeManager.js";
 import { setupPrecinctLabels } from "../mapEnhancements.js";
@@ -42,7 +42,7 @@ import { setViewMode, updateMapViewControls, initViewModeButtons } from "./viewM
 import { initProfilePanelControls, initInfoCardControls } from "./precinctPanel.js";
 import { selectPrecinctByCode, initPrecinctSearch } from "./search.js";
 import { togglePanel, updateForecastButton, initMobileTabBar, initRankerPanelControls } from "./panels.js";
-import { loadElections, restoreFromURL } from "./electionWorkflow.js";
+import { loadElections, restoreFromURL, selectDefaultElection } from "./electionWorkflow.js";
 import { initBoundarySwitching } from "./boundary.js";
 import { initCountySwitching } from "./county.js";
 import { loadRecentlyViewed } from "./electionPanel.js";
@@ -78,11 +78,18 @@ async function initializeMap() {
     renderDemographicsMap();
 
     // Fit the county to the viewport on first load — the static center/zoom
-    // wastes half the screen (and centers on Dallas on tall phone screens)
-    state.map.fitBounds(state.geojsonLayer.getBounds(), { padding: [24, 24] });
+    // wastes half the screen (and centers on Dallas on tall phone screens).
+    // Skip when a deep link targets ANOTHER county: initCountySwitching will
+    // switch and fit there, and this animated fit would race it and win
+    // (landing the texas/district view stuck at Collin's zoom).
+    const deepLinkCounty = new URLSearchParams(window.location.hash.replace(/^#/, '')).get('county');
+    if (!deepLinkCounty || deepLinkCounty === getActiveCounty()) {
+      state.map.fitBounds(state.geojsonLayer.getBounds(), { padding: [24, 24] });
+    }
 
-    // Gap 1: Home button - reset to full county extent
-    addHomeControl(state.map, state.geojsonLayer.getBounds());
+    // Gap 1: Home button — reset to the CURRENT county/view extent (getter, so
+    // it follows county switches)
+    addHomeControl(state.map, () => state.geojsonLayer?.getBounds());
 
     // "Find my precinct" — geolocate, match against loaded precincts
     addLocateControl(state.map, () => {
@@ -147,6 +154,12 @@ async function initializeMap() {
 // ==========================================================================
 async function init() {
   console.log('🚀 Initializing Collin County Elections...');
+
+  // Capture the arrival hash NOW: initCountySwitching's deep-link switch
+  // rewrites the hash via updateURLState() while no race is selected yet,
+  // which would strip race= before restoreFromURL() ever reads it (breaking
+  // every #county=X&race=Y share link).
+  const arrivalHash = window.location.hash;
 
   // Initialize theme before anything else
   initTheme();
@@ -222,7 +235,14 @@ async function init() {
   if (welcomeBrowseBtn) {
     welcomeBrowseBtn.addEventListener('click', () => {
       dismissWelcome();
-      setViewMode('election');
+      // "Find my county" — open the searchable county picker so a visitor can
+      // jump straight to their own area.
+      const countyInput = document.getElementById('county-search-input');
+      if (countyInput) {
+        countyInput.focus();
+      } else {
+        setViewMode('election');
+      }
     });
   }
 
@@ -250,8 +270,17 @@ async function init() {
     }, 250);
   });
 
-  // Restore state from URL
-  restoreFromURL();
+  // Restore state from the ARRIVAL URL (the live hash may already have been
+  // rewritten without race= by the county deep-link switch above)
+  restoreFromURL(arrivalHash);
+
+  // No race deep-linked? Load a sensible default so the map answers something
+  // (a real result + topline) instead of a bare lean choropleth. Gated to
+  // return visitors: first-timers get the welcome's guided "find your area"
+  // flow over a clean map; once they've seen it, landings show a result.
+  const arrivalRace = new URLSearchParams(arrivalHash.replace(/^#/, '')).get('race');
+  if (!arrivalRace && localStorage.getItem(WELCOME_SEEN_KEY)) selectDefaultElection();
+
   updateForecastButton();
 
   console.log('✅ App initialized');

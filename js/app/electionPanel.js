@@ -76,6 +76,7 @@ export function renderElectionPanel() {
             <div class="forecast-election">
               <span class="forecast-label">Forecasting:</span>
               <strong>${state.currentElection.displayName || formatElectionName(state.currentElection.filename)}</strong>
+              <a class="forecast-fullpage-link" href="forecast.html" title="Open the full-screen forecast page">Open full forecast →</a>
             </div>
             <div style="display:flex;gap:6px;align-items:center;">
               <button id="export-race-csv" class="export-csv-btn" title="Export race results to CSV">
@@ -85,10 +86,13 @@ export function renderElectionPanel() {
               <button id="clear-election-btn" class="clear-election-btn" title="Clear selection">✕</button>
             </div>
           </div>
-          <div id="universe-builder-container"></div>
           <div id="turnout-simulator-container"></div>
           <div id="simulation-summary"></div>
           <div id="reverse-calculator-container"></div>
+          <details class="power-tools-details">
+            <summary>Power tools — build a precinct list</summary>
+            <div id="universe-builder-container"></div>
+          </details>
         </div>
       ` : `
         <div class="empty-state">
@@ -237,7 +241,7 @@ function attachPanelEventListeners() {
       debounceTimer = setTimeout(() => {
         state.filters.search = e.target.value;
         renderElectionPanel();
-      }, 300);
+      }, 150);
     });
   }
 

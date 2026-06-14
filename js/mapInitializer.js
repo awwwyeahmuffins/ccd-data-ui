@@ -9,11 +9,20 @@
 
 export function initMap({ center = [0, 0], zoom = 2, containerId = "map" } = {}) {
   const map = L.map(containerId, {
+    preferCanvas: true,        // Canvas renderer: SVG chokes on 250+ precinct
+                               // polygons with thousands of vertices each —
+                               // pan/zoom repaints are far cheaper on canvas
     zoomControl: false,        // Default top-left control off; we add one top-right below
-    zoomDelta: 1.25,           // Bigger steps per scroll tick
-    zoomSnap: 0,               // Allow any zoom level (smooth zooming)
-    wheelPxPerZoomLevel: 12,  // Much less scroll needed per zoom (default 60)
-    wheelDebounceTime: 0      // No debounce - immediate response
+    // Zoom feel: the old config (zoomSnap 0, wheelPx 12, debounce 0) fired a
+    // fresh fractional-zoom animation on EVERY wheel tick — each one
+    // interrupting the last, re-scaling tiles to non-integer zooms and
+    // forcing overlay redraws mid-animation. That read as "gross and laggy".
+    // Half-step snap + a short debounce coalesce a wheel gesture into one
+    // smooth animated zoom, with tiles and the canvas redrawn once at rest.
+    zoomDelta: 0.5,            // One half-step per +/- press
+    zoomSnap: 0.5,             // Snap to half-levels: tiles stay near-crisp
+    wheelPxPerZoomLevel: 40,   // Brisker than default 60, far calmer than 12
+    wheelDebounceTime: 30      // Coalesce wheel ticks into one animation
   }).setView(center, zoom);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -28,7 +37,9 @@ export function initMap({ center = [0, 0], zoom = 2, containerId = "map" } = {})
 /**
  * Add a Home button that resets the map to the given bounds.
  * @param {L.Map} map - Leaflet map instance
- * @param {L.LatLngBounds} bounds - Bounds to fit when clicked
+ * @param {L.LatLngBounds|function} bounds - Bounds to fit when clicked, or a
+ *   getter returning them — pass a getter so the control follows county
+ *   switches instead of snapping back to stale first-load bounds
  */
 export function addHomeControl(map, bounds) {
   const HomeControl = L.Control.extend({
@@ -44,7 +55,8 @@ export function addHomeControl(map, bounds) {
       L.DomEvent.disableClickPropagation(container);
       L.DomEvent.on(btn, 'click', (e) => {
         L.DomEvent.preventDefault(e);
-        map.fitBounds(bounds, { padding: [20, 20] });
+        const b = typeof bounds === 'function' ? bounds() : bounds;
+        if (b) map.fitBounds(b, { padding: [20, 20] });
       });
       return container;
     }

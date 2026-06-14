@@ -36,6 +36,71 @@ export let CATEGORY_ORDER = [
 ];
 
 // ============================================================================
+// CROSS-COUNTY DISTRICT VIEWS
+// ============================================================================
+
+// A race that IS a district's own contest, mapped to its cross-county district
+// view slug (data/tx/districts.json). Office spellings vary by county and year
+// ("U S Representative District 3", "United States Representative District 3",
+// "U.S. House District 4"), so match normalized office text.
+const DISTRICT_VIEW_PATTERNS = [
+  { prefix: 'cd', rx: /\b(u s|united states)\b.*\b(representative|rep|house|congress\w*)\b/ },
+  { prefix: 'sd', rx: /\bstate sen(ator|ate)?\b/ },
+  { prefix: 'hd', rx: /\bstate (rep(resentative)?|house)\b/ },
+];
+
+/**
+ * Returns the cross-county district view slug ("cd-3", "sd-8", "hd-66") for a
+ * race entry that is a federal/state district's own contest, or null.
+ * @param {object} entry - normalized election entry ({ office, district })
+ */
+export function districtViewSlugForRace(entry) {
+  if (!entry) return null;
+  const office = String(entry.office || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+  const match = DISTRICT_VIEW_PATTERNS.find(({ rx }) => rx.test(office));
+  if (!match) return null;
+  let n = parseInt(String(entry.district ?? '').trim(), 10);
+  if (!Number.isFinite(n) || n <= 0) {
+    // number embedded in office text instead of the district field, e.g.
+    // "State Senator, District No. 24", "State House 74 Dist 74", and the
+    // source typo "Disttrict 88" (dist\w* absorbs it)
+    const m = office.match(/\bdist\w*\s+(?:no\s+)?(\d+)\b/);
+    n = m ? parseInt(m[1], 10) : NaN;
+    if (!Number.isFinite(n) || n <= 0) return null;
+  }
+  return `${match.prefix}-${n}`;
+}
+
+/**
+ * Office-based category for a normalized election entry, or null when the
+ * office isn't conclusive. County manifests outside Collin often miscategorize
+ * federal/state races as "County" (filename-based categorization only knows
+ * Collin's naming) — this override keys off the office text instead.
+ * @param {object} entry - normalized election entry ({ office, district })
+ */
+export function categorizeByOffice(entry) {
+  const slug = districtViewSlugForRace(entry);
+  if (slug) {
+    return slug.startsWith('cd-') ? ELECTION_CATEGORIES.FEDERAL : ELECTION_CATEGORIES.STATE;
+  }
+  const o = String(entry?.office || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+  if (!o) return null;
+  if (/\bpresident\b/.test(o)) return ELECTION_CATEGORIES.FEDERAL;
+  if (/\bsenat/.test(o) && /\b(u s|united states|us)\b/.test(o)) return ELECTION_CATEGORIES.FEDERAL;
+  if (/court of appeals|ct of app|justice of the peace/.test(o)) return null; // regional/local courts
+  if (/^governor\b|\blieutenant governor\b|\battorney general\b|\bcomptroller\b|land office|land commissioner|\bagriculture\b|\brailroad\b|supreme court|criminal appeals/.test(o)) {
+    return ELECTION_CATEGORIES.STATE;
+  }
+  return null;
+}
+
+// ============================================================================
 // CATEGORIZATION FUNCTIONS
 // ============================================================================
 

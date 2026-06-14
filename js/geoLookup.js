@@ -5,18 +5,21 @@
 // loaded precinct GeoJSON. Used by precinct.html's address search and the map
 // page's "find my precinct" control.
 
-// Collin County bounding box (lon/lat), with a small buffer.
-// Nominatim viewbox format: left,top,right,bottom.
+// Bounding boxes (lon/lat). Nominatim viewbox format: left,top,right,bottom.
+// Collin is the default for the Collin-only precinct.html lookup; the statewide
+// map passes TEXAS_VIEWBOX so address search works in any county.
 const COLLIN_VIEWBOX = "-96.95,33.45,-96.25,32.95";
+export const TEXAS_VIEWBOX = "-106.65,36.5,-93.51,25.84";
 const NOMINATIM_URL = "https://nominatim.openstreetmap.org/search";
 
 /**
- * Geocode a free-text address, biased and bounded to Collin County.
+ * Geocode a free-text address, biased and bounded to a viewbox.
  * @param {string} query - e.g. "2300 Bloomdale Rd, McKinney"
  * @param {typeof fetch} [fetchImpl] - injectable for tests
+ * @param {string} [viewbox] - Nominatim viewbox (defaults to Collin County)
  * @returns {Promise<{lat: number, lng: number, label: string} | null>}
  */
-export async function geocodeAddress(query, fetchImpl = fetch) {
+export async function geocodeAddress(query, fetchImpl = fetch, viewbox = COLLIN_VIEWBOX) {
   const q = String(query || "").trim();
   if (!q) return null;
 
@@ -24,7 +27,7 @@ export async function geocodeAddress(query, fetchImpl = fetch) {
     format: "jsonv2",
     limit: "1",
     countrycodes: "us",
-    viewbox: COLLIN_VIEWBOX,
+    viewbox,
     bounded: "1",
     q,
   });
@@ -139,8 +142,8 @@ export function findPrecinctForPoint(lat, lng, features) {
  *   null when the address can't be geocoded; a result with code === null when
  *   the address geocodes but falls outside every precinct (outside the county).
  */
-export async function findPrecinctForAddress(query, features, fetchImpl = fetch) {
-  const located = await geocodeAddress(query, fetchImpl);
+export async function findPrecinctForAddress(query, features, fetchImpl = fetch, viewbox = COLLIN_VIEWBOX) {
+  const located = await geocodeAddress(query, fetchImpl, viewbox);
   if (!located) return null;
   const feature = findPrecinctForPoint(located.lat, located.lng, features);
   return {

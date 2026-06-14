@@ -91,11 +91,15 @@ export let PRECINCT_STYLE = {
     weight: 1,
     fillOpacity: 0.7
   },
+  // No data for the selected race: must read as deliberate "no data" gray,
+  // not an invisible hole (district views mix counties on different data
+  // vintages, so whole counties can legitimately lack a race). Mid-gray on
+  // purpose — anything lighter blends into the pale OSM basemap at low zoom.
   notInRace: {
-    color: "#ccc",
-    weight: 0.5,
-    fillColor: "#f5f5f5",
-    fillOpacity: 0.05
+    color: "#8a8a8a",
+    weight: 1,
+    fillColor: "#b0b0b0",
+    fillOpacity: 0.65
   },
   selected: {
     weight: 4,

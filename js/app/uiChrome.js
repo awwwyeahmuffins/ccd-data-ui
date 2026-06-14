@@ -159,16 +159,25 @@ export function updateBoundaryDisclaimer(boundary) {
 // ==========================================================================
 // MAP LOADING OVERLAY (D12)
 // ==========================================================================
+// Delay the spinner so fast, local operations (switching races) don't flash an
+// overlay — it only appears if the work actually takes a moment (a real fetch,
+// the boundary swap). Prevents the "sloppy" blink on quick switches.
+let mapLoadingTimer = null;
 export function showMapLoading(message = 'Loading election data...') {
   const container = document.getElementById('map-container');
-  if (!container || document.getElementById('map-loading-overlay')) return;
-  const overlay = document.createElement('div');
-  overlay.id = 'map-loading-overlay';
-  overlay.innerHTML = `<div class="loading-spinner"></div><div class="loading-text">${message}</div>`;
-  container.appendChild(overlay);
+  if (!container || document.getElementById('map-loading-overlay') || mapLoadingTimer) return;
+  mapLoadingTimer = setTimeout(() => {
+    mapLoadingTimer = null;
+    if (!container || document.getElementById('map-loading-overlay')) return;
+    const overlay = document.createElement('div');
+    overlay.id = 'map-loading-overlay';
+    overlay.innerHTML = `<div class="loading-spinner"></div><div class="loading-text">${message}</div>`;
+    container.appendChild(overlay);
+  }, 180);
 }
 
 export function hideMapLoading() {
+  if (mapLoadingTimer) { clearTimeout(mapLoadingTimer); mapLoadingTimer = null; }
   const overlay = document.getElementById('map-loading-overlay');
   if (overlay) overlay.remove();
 }

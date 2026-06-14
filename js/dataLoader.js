@@ -9,7 +9,7 @@
 //     .then(({ geojson, dncLookup, racialLookup }) => { ... });
 
 // Import categorizeElection for normalizing legacy manifest entries
-import { categorizeElection } from "./electionFilters.js";
+import { categorizeElection, categorizeByOffice } from "./electionFilters.js";
 // Import schema definitions and utilities
 import {
   ELECTION_MANIFEST_SCHEMA,
@@ -42,9 +42,9 @@ export function getActiveCounty() {
   return activeCounty;
 }
 
-/** Load (and cache) the statewide registry: 254 counties plus the
- * cross-county district views (congressional / state senate / state house),
- * which behave exactly like counties. */
+/** Load (and cache) the statewide registry: 254 counties, the full-Texas
+ * statewide view (each unit = a county), plus the cross-county district views
+ * (congressional / state senate / state house) — all behave like counties. */
 export function loadCountyRegistry() {
   if (!countyRegistryPromise) {
     countyRegistryPromise = Promise.all([
@@ -52,8 +52,9 @@ export function loadCountyRegistry() {
         if (!r.ok) throw new Error("Failed to fetch county registry");
         return r.json();
       }),
+      fetch("data/tx/texas.json").then(r => r.ok ? r.json() : []).catch(() => []),
       fetch("data/tx/districts.json").then(r => r.ok ? r.json() : []).catch(() => []),
-    ]).then(([counties, districts]) => [...counties, ...districts]);
+    ]).then(([counties, texas, districts]) => [...counties, ...texas, ...districts]);
   }
   return countyRegistryPromise;
 }
@@ -461,7 +462,15 @@ export async function listElectionCSVs() {
   let normalized = isV3Manifest(rawManifest)
     ? rawManifest.elections.map(e => normalizeV3Entry(e, categorizeElection)).filter(Boolean)
     : normalizeElectionManifest(rawManifest);
-  
+
+  // Office-based category override: non-Collin manifests often mislabel
+  // federal/state races as "County" (their categories were derived from
+  // filenames only Collin uses) — fix conclusively-identifiable offices
+  normalized = normalized.map(e => {
+    const byOffice = categorizeByOffice(e);
+    return byOffice && byOffice !== e.category ? { ...e, category: byOffice } : e;
+  });
+
   // Cache and return
   dataCache.electionsList = normalized;
   

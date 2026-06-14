@@ -58,10 +58,32 @@ export async function loadCensusProfiles() {
 // ---------------------------------------------------------------------------
 
 export async function renderPrecinctProfile(precinctCode, container, extraData = {}) {
-  let profiles = await loadCensusProfiles();
+  let profiles;
+  try {
+    profiles = await loadCensusProfiles();
+  } catch {
+    // census_profiles.json absent (district/county views other than Collin) — degrade gracefully
+    profiles = {};
+  }
   let profile = profiles[String(precinctCode)];
   if (!profile) {
-    container.innerHTML = `<div class="precinct-profile"><p>No census data for precinct ${escapeHtml(precinctCode)}.</p></div>`;
+    // No census record. Render whatever contextual data was passed in (party
+    // lean, racial demographics, election results) so the panel is still useful.
+    const hasExtra = extraData.partyData || extraData.racialData || extraData.electionData;
+    if (hasExtra) {
+      const code = escapeHtml(String(precinctCode));
+      let html = `<div class="precinct-profile">`;
+      html += `<div class="profile-header"><h3>Precinct ${code}</h3></div>`;
+      html += `<div class="profile-disclaimer">Census data not available for this precinct.</div>`;
+      html += renderPartyRegistration(extraData.partyData);
+      html += renderRacialDemographics(extraData.racialData);
+      html += renderElectionResults(extraData.electionData);
+      html += renderOfficials(extraData.officials);
+      html += `</div>`;
+      container.innerHTML = html;
+    } else {
+      container.innerHTML = `<div class="precinct-profile"><p>No data available for precinct ${escapeHtml(String(precinctCode))}.</p></div>`;
+    }
     return;
   }
   container.innerHTML = generateProfileHTML(profile, String(precinctCode), extraData);

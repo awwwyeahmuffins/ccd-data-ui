@@ -5,70 +5,86 @@
 
 import { state } from "./state.js";
 import { handlePrecinctClick } from "./precinctPanel.js";
+import { showNotification } from "./uiChrome.js";
 import { PARTY_COLORS, PRECINCT_STYLE, PARTY_STRENGTH_COLORS } from "../constants.js";
 import { getRowPrecinctCode } from "../utils.js";
 import { getHeatmapStyle, getHeatmapLegendHTML } from "../demographicHeatmap.js";
 import { getMarginStyle, getMarginLegendHTML } from "../marginView.js";
 
-// Render neutral map (gray outlines, no coloring) — used when election view has no data
-export function renderNeutralMap() {
+// --------------------------------------------------------------------------------
+// Single GeoJSON layer, restyled in place. Rebuilding the Leaflet layer on
+// every view switch re-parses up to 3 MB of precinct geometry and re-creates
+// every interactive shape — the main source of view-switch lag. Instead the
+// layer is built ONCE per dataset (county/boundary switches null it, so it
+// rebuilds then) and each render path only calls setStyle on existing layers.
+// Each layer's current base style lives on `layer._baseStyle` so hover/select
+// can restore it without knowing which view applied it.
+
+function ensureGeojsonLayer() {
+  if (state.geojsonLayer && state.geojsonLayerData === state.geojsonData) {
+    return state.geojsonLayer;
+  }
   if (state.geojsonLayer) {
     state.map.removeLayer(state.geojsonLayer);
   }
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  const neutralFill = isDark ? '#888' : '#d0d0d0';
-  const neutralOpacity = isDark ? 0.45 : 0.3;
-  const neutralBorder = isDark ? '#aaa' : '#999';
   state.geojsonLayer = L.geoJSON(state.geojsonData, {
-    style: () => ({
-      ...PRECINCT_STYLE.default,
-      fillColor: neutralFill,
-      fillOpacity: neutralOpacity,
-      weight: 1,
-      color: neutralBorder
-    }),
+    style: () => ({ ...PRECINCT_STYLE.default }),
+    // Render-time point thinning (display only — source geometry untouched).
+    // Precinct boundaries carry survey-grade vertex counts; at map zoom the
+    // extra points are invisible but every canvas redraw pays for them.
+    smoothFactor: 1.5,
     onEachFeature: (feature, layer) => {
       layer.on('mouseover', () => {
-        layer.setStyle({ weight: 2, fillOpacity: neutralOpacity + 0.2 });
+        const base = layer._baseStyle || PRECINCT_STYLE.default;
+        layer.setStyle({ weight: (base.weight ?? 1) + 1.5 });
         layer.bringToFront();
       });
       layer.on('mouseout', () => {
-        if (state.selectedLayer !== layer) {
-          layer.setStyle({ weight: 1, fillOpacity: neutralOpacity });
+        if (state.selectedLayer !== layer && layer._baseStyle) {
+          layer.setStyle(layer._baseStyle);
         }
       });
       layer.on('click', () => handlePrecinctClick(feature, layer));
     }
   }).addTo(state.map);
+  state.geojsonLayerData = state.geojsonData;
+  // Test/debug hook: observable feature count (canvas renderer has no DOM paths)
+  document.getElementById('map')?.setAttribute(
+    'data-feature-count', String(state.geojsonData?.features?.length ?? 0));
+  return state.geojsonLayer;
+}
+
+// Apply a per-feature style to every layer and record it as the base style.
+function applyLayerStyles(styleForFeature) {
+  ensureGeojsonLayer().eachLayer(layer => {
+    const s = styleForFeature(layer.feature);
+    layer._baseStyle = s;
+    layer.setStyle(s);
+  });
+}
+
+// Render neutral map (gray outlines, no coloring) — used when election view has no data
+export function renderNeutralMap() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const neutral = {
+    ...PRECINCT_STYLE.default,
+    fillColor: isDark ? '#888' : '#d0d0d0',
+    fillOpacity: isDark ? 0.45 : 0.3,
+    weight: 1,
+    color: isDark ? '#aaa' : '#999'
+  };
+  applyLayerStyles(() => neutral);
   updateMapLegend();
 }
 
 // Render demographics map (party lean coloring)
 export function renderDemographicsMap() {
-  if (state.geojsonLayer) {
-    state.map.removeLayer(state.geojsonLayer);
-  }
-
   const useHeatmap = state.heatmapMetric && state.censusProfiles;
   const allFeatures = state.geojsonData?.features || [];
 
-  state.geojsonLayer = L.geoJSON(state.geojsonData, {
-    style: (feature) => useHeatmap
-      ? getHeatmapStyle(feature, state.heatmapMetric, state.censusProfiles, allFeatures)
-      : getPartyLeanStyle(feature),
-    onEachFeature: (feature, layer) => {
-      layer.on('mouseover', () => {
-        layer.setStyle({ weight: PRECINCT_STYLE.default.weight + 1 });
-        layer.bringToFront();
-      });
-      layer.on('mouseout', () => {
-        if (state.selectedLayer !== layer) {
-          layer.setStyle({ weight: PRECINCT_STYLE.default.weight });
-        }
-      });
-      layer.on('click', () => handlePrecinctClick(feature, layer));
-    }
-  }).addTo(state.map);
+  applyLayerStyles(feature => useHeatmap
+    ? getHeatmapStyle(feature, state.heatmapMetric, state.censusProfiles, allFeatures)
+    : getPartyLeanStyle(feature));
 
   // Update legend
   updateMapLegend();
@@ -98,8 +114,6 @@ function getPartyLeanStyle(feature) {
 
 // Render turnout map (voter turnout by precinct)
 export function renderTurnoutMap() {
-  if (!state.geojsonLayer) return;
-
   // If we have election data, use its turnout; otherwise use DNC data
   const electionData = state.currentElectionData;
   const electionByPrecinct = {};
@@ -113,8 +127,8 @@ export function renderTurnoutMap() {
     });
   }
 
-  state.geojsonLayer.eachLayer(layer => {
-    const props = layer.feature.properties;
+  applyLayerStyles(feature => {
+    const props = feature.properties;
     const precinctCode = String(props.PRECINCT);
     const electionRow = electionByPrecinct[precinctCode];
 
@@ -140,12 +154,12 @@ export function renderTurnoutMap() {
       else fillColor = '#e8f5e9';
     }
 
-    layer.setStyle({
+    return {
       fillColor,
       fillOpacity: 0.7,
       weight: 1,
       color: '#444'
-    });
+    };
   });
 }
 
@@ -161,14 +175,10 @@ export function precinctHasCandidateVotes(record) {
 }
 
 export function renderElectionMap(electionData) {
-  if (!state.geojsonLayer) return;
-
   // If margin mode, use margin coloring
   if (state.electionColorMode === 'margin' && state.simulationCandidates) {
-    state.geojsonLayer.eachLayer(layer => {
-      const style = getMarginStyle(layer.feature, electionData, state.simulationCandidates);
-      layer.setStyle(style);
-    });
+    applyLayerStyles(feature =>
+      getMarginStyle(feature, electionData, state.simulationCandidates));
     updateMapLegend();
     return;
   }
@@ -182,8 +192,8 @@ export function renderElectionMap(electionData) {
     }
   });
 
-  state.geojsonLayer.eachLayer(layer => {
-    const props = layer.feature.properties;
+  applyLayerStyles(feature => {
+    const props = feature.properties;
     const precinctCode = String(props.PRECINCT);
     const electionRow = electionByPrecinct[precinctCode];
 
@@ -191,17 +201,52 @@ export function renderElectionMap(electionData) {
       const winningParty = electionRow['Winning Party'] || electionRow.winningParty;
       const color = PARTY_COLORS[winningParty] || PARTY_COLORS.default;
 
-      layer.setStyle({
+      return {
         fillColor: color,
         fillOpacity: 0.7,
         weight: 1,
         color: '#444'
-      });
-    } else {
-      layer.setStyle(PRECINCT_STYLE.notInRace);
+      };
     }
+    return PRECINCT_STYLE.notInRace;
   });
+  notifyCountyCoverageGaps(electionByPrecinct);
   updateMapLegend();
+}
+
+// District views mix counties on different data vintages (2020 vs 2022), so a
+// race can legitimately have zero rows for whole member counties — honest
+// no-data, never fabricated. Without an explanation those counties render as
+// gray blocks that look like a bug, so name them once per race selection.
+function notifyCountyCoverageGaps(electionByPrecinct) {
+  const features = state.geojsonData?.features || [];
+  // Only applies to cross-county views (prefixed "county:precinct" codes)
+  const allCounties = new Set();
+  const coveredCounties = new Set();
+  for (const f of features) {
+    const code = String(f.properties?.PRECINCT ?? '');
+    if (!code.includes(':')) return;
+    allCounties.add(code.split(':')[0]);
+  }
+  for (const code of Object.keys(electionByPrecinct)) {
+    if (code.includes(':')) coveredCounties.add(code.split(':')[0]);
+  }
+  const missing = [...allCounties].filter(c => !coveredCounties.has(c)).sort();
+  if (missing.length === 0 || coveredCounties.size === 0) return;
+
+  // One toast per (race, gap) — re-renders (view toggles, simulator) stay quiet
+  const key = `${state.currentElection?.filename ?? ''}|${missing.join(',')}`;
+  if (state._coverageNoticeKey === key) return;
+  state._coverageNoticeKey = key;
+
+  const pretty = missing.map(s =>
+    s.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '));
+  const names = pretty.length > 3
+    ? `${pretty.slice(0, 3).join(', ')} +${pretty.length - 3} more`
+    : pretty.join(', ');
+  showNotification(
+    `No data for this race in ${names} ${missing.length === 1 ? 'County' : 'Counties'} — shown in gray (county data covers a different election year)`
+  );
 }
 
 // ==========================================================================
@@ -292,6 +337,26 @@ export function updateMapLegend() {
   } else if (state.viewMode === 'election' && !state.currentElectionData) {
     // Neutral map — no legend needed, show hint
     content = `<div style="font-size: 14px; color: var(--text-secondary);">Select an election to see results</div>`;
+  } else if (state.viewMode === 'election' && state.currentElectionData) {
+    // Election winner legend — includes the no-data gray so cross-county
+    // district views with vintage gaps are self-explanatory
+    content = `
+      <div style="font-weight: 600; margin-bottom: 8px; font-size: 15px;">Race Winner</div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PARTY_COLORS.Rep};"></span>
+          <span style="font-size: 14px;">Republican</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PARTY_COLORS.Dem};"></span>
+          <span style="font-size: 14px;">Democrat</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 16px; height: 16px; border-radius: 4px; background: ${PRECINCT_STYLE.notInRace.fillColor}; border: 1px solid ${PRECINCT_STYLE.notInRace.color};"></span>
+          <span style="font-size: 14px;">No data for this race</span>
+        </div>
+      </div>
+    `;
   } else {
     // Default party lean legend
     content = `

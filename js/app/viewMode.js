@@ -5,7 +5,7 @@
 
 import { state } from "./state.js";
 import { closeAllPanels, updateBreadcrumbs, showNotification } from "./uiChrome.js";
-import { hideInfoCard } from "./precinctPanel.js";
+import { hideInfoCard, hideResultTopline, showResultTopline } from "./precinctPanel.js";
 import {
   renderNeutralMap, renderDemographicsMap, renderTurnoutMap,
   renderElectionMap, updateMapLegend
@@ -44,14 +44,17 @@ export function setViewMode(mode) {
     case 'demographics':
       renderDemographicsMap();
       hideInfoCard();
+      hideResultTopline();
       break;
     case 'election':
       if (state.currentElectionData) {
         renderElectionMap(state.currentElectionData);
+        showResultTopline();
         if (state.simulationResult) updateMapForSimulation();
       } else {
         // Show neutral gray map while waiting for election selection
         renderNeutralMap();
+        hideResultTopline();
         // Auto-open browse panel so user can pick an election
         if (!electionPanelEl.classList.contains('active')) {
           togglePanel();
@@ -59,6 +62,7 @@ export function setViewMode(mode) {
       }
       break;
     case 'turnout':
+      hideResultTopline();
       if (!state.currentElectionData && state.elections.length > 0) {
         // Auto-load the most recent election for turnout
         const firstElection = state.elections[0];

@@ -1018,7 +1018,7 @@ export function generateSimulatorControlsHTML(currentValues = { Rep: 1.0, Dem: 1
       <details>
         <summary>Assumptions</summary>
         <ul>
-          <li><strong>Non-voter party mix:</strong> Non-voters distributed by DNC registration shares.</li>
+          <li><strong>Non-voter party mix:</strong> People who didn't vote are split between the parties in the same proportions as each precinct's registered voters.</li>
           <li><strong>Same-race:</strong> "More turnout" adds votes only in this race.</li>
           <li><strong>Persuasion:</strong> Flip % applied uniformly across precincts.</li>
           <li><strong>Order:</strong> Turnout adjustment first, then persuasion.</li>

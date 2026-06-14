@@ -207,19 +207,22 @@ export function computeRaceSummary(electionData, candidateNames = []) {
   }
 
   for (const row of electionData) {
-    const ballots = Number(row['BALLOTS CAST TOTAL']) || 0;
-    const registered = Number(row['REGISTERED VOTERS TOTAL']) || 0;
-
-    if (ballots > 0 || registered > 0) {
-      activePrecincts++;
-      totalVotes += ballots;
-      totalRegistered += registered;
-
-      // Sum candidate votes
-      for (const name of candidateNames) {
-        candidateTotals[name] += Number(row[name]) || 0;
-      }
+    // Candidate votes count unconditionally: district/texas packages often
+    // have NO turnout data, and gating on ballots/registered silently dropped
+    // those rows' votes (wrong winner/margin, "Precincts 0").
+    let candVotes = 0;
+    for (const name of candidateNames) {
+      const v = Number(row[name]) || 0;
+      candidateTotals[name] += v;
+      candVotes += v;
     }
+    // Participation = actual candidate votes, not county-wide ballots (CSVs
+    // carry ALL precincts with ballots > 0 regardless of race scope)
+    if (candVotes > 0) {
+      activePrecincts++;
+    }
+    totalVotes += Number(row['BALLOTS CAST TOTAL']) || 0;
+    totalRegistered += Number(row['REGISTERED VOTERS TOTAL']) || 0;
   }
 
   // Find winner and margin
@@ -238,7 +241,12 @@ export function computeRaceSummary(electionData, candidateNames = []) {
   }
 
   const margin = topVotes - secondVotes;
-  const marginPct = totalVotes > 0 ? ((margin / totalVotes) * 100).toFixed(1) + '%' : 'N/A';
+  // Margin % over candidate votes, not ballots cast — ballots are absent in
+  // district/texas packages and include blanks/other-race ballots elsewhere
+  const totalCandidateVotes = Object.values(candidateTotals).reduce((a, b) => a + b, 0);
+  const marginPct = totalCandidateVotes > 0
+    ? ((margin / totalCandidateVotes) * 100).toFixed(1) + '%'
+    : 'N/A';
 
   return {
     totalPrecincts: electionData.length,

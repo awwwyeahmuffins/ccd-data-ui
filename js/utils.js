@@ -109,3 +109,20 @@ export function csvEscape(value) {
 export function getRowPrecinctCode(row) {
   return String(row['PRECINCT CODE'] || row.Precinct || row.precinct || row.PRECINCT || '');
 }
+
+// 11) Human label for a map unit. Plain counties use bare precinct codes
+// ("Precinct 42"); cross-county district views prefix codes with the county
+// slug ("collin:42" → "Collin · Precinct 42"); the full-Texas view's units ARE
+// counties (PRECINCT = county slug, COUNTY = county name → "Collin County").
+export function formatPrecinctLabel(props) {
+  const code = String(props?.PRECINCT ?? '');
+  if (props?.COUNTY) {
+    if (code.includes(':')) {
+      return `${props.COUNTY} · Precinct ${code.split(':')[1]}`;
+    }
+    if (!/^\d+$/.test(code)) {
+      return `${props.COUNTY} County`;
+    }
+  }
+  return `Precinct ${code}`;
+}

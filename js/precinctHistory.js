@@ -59,6 +59,7 @@ export function formatRaceName(filename) {
     return 'Unknown Race';
   }
   return filename
+    .split('/').pop()           // v3 filenames carry a path ("races/Governor_2022.csv")
     .replace(/\.csv$/i, '')
     .replace(/_/g, ' ')
     .replace(/,/g, ', ');

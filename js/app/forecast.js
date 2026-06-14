@@ -80,12 +80,15 @@ export function renderForecastSection() {
     });
   }
 
-  // H13: Add simulator presets
+  // H13: Add simulator presets. Keep the partisan presets symmetric (a "Dem
+  // surge" must have a matching "Rep surge") so the tool never looks like it
+  // favours one side.
   const presetsHtml = `
     <div class="simulator-presets">
-      <button class="preset-btn" data-preset="low-turnout" title="Rep: 0.8, Dem: 0.7, Mod: 0.7">Low Turnout</button>
-      <button class="preset-btn" data-preset="high-dem" title="Rep: 1.0, Dem: 1.3, Mod: 1.0">High Dem</button>
-      <button class="preset-btn" data-preset="baseline" title="All 1.0">Baseline</button>
+      <button class="preset-btn" data-preset="baseline" title="All groups at the turnout that actually happened">What happened</button>
+      <button class="preset-btn" data-preset="dem-surge" title="Dem-leaning voters turn out 30% stronger">Democratic surge</button>
+      <button class="preset-btn" data-preset="rep-surge" title="Rep-leaning voters turn out 30% stronger">Republican surge</button>
+      <button class="preset-btn" data-preset="low-turnout" title="Every group turns out lower">Low turnout</button>
     </div>
   `;
   container.insertAdjacentHTML('afterend', presetsHtml);
@@ -96,7 +99,8 @@ export function renderForecastSection() {
       const preset = btn.dataset.preset;
       const presets = {
         'low-turnout': { Rep: 0.8, Dem: 0.7, Mod: 0.7 },
-        'high-dem': { Rep: 1.0, Dem: 1.3, Mod: 1.0 },
+        'dem-surge': { Rep: 1.0, Dem: 1.3, Mod: 1.0 },
+        'rep-surge': { Rep: 1.3, Dem: 1.0, Mod: 1.0 },
         'baseline': { Rep: 1.0, Dem: 1.0, Mod: 1.0 }
       };
       const values = presets[preset];
@@ -376,20 +380,25 @@ export function updateMapForSimulation() {
   state.geojsonLayer.eachLayer(layer => {
     const code = String(layer.feature.properties.PRECINCT);
     const result = results[code];
+    let style;
     if (!result || !result.winner) {
-      layer.setStyle(PRECINCT_STYLE.notInRace);
-      return;
+      style = PRECINCT_STYLE.notInRace;
+    } else {
+      const rawParty = result.winner.party || (result.winner.name && result.winner.name.split(' ')[0]);
+      const partyKey = rawParty ? (rawParty.charAt(0).toUpperCase() + rawParty.slice(1).toLowerCase()) : null;
+      const color = (partyKey && PARTY_COLORS[partyKey]) || PARTY_COLORS.default;
+      const isFlipped = flippedSet.has(code);
+      style = {
+        fillColor: color,
+        fillOpacity: 0.7,
+        weight: isFlipped ? 3 : 1,
+        color: isFlipped ? '#000' : '#444',
+        dashArray: isFlipped ? '8 4' : null
+      };
     }
-    const rawParty = result.winner.party || (result.winner.name && result.winner.name.split(' ')[0]);
-    const partyKey = rawParty ? (rawParty.charAt(0).toUpperCase() + rawParty.slice(1).toLowerCase()) : null;
-    const color = (partyKey && PARTY_COLORS[partyKey]) || PARTY_COLORS.default;
-    const isFlipped = flippedSet.has(code);
-    layer.setStyle({
-      fillColor: color,
-      fillOpacity: 0.7,
-      weight: isFlipped ? 3 : 1,
-      color: isFlipped ? '#000' : '#444',
-      dashArray: isFlipped ? '8 4' : null
-    });
+    // Record as base style so the shared hover-out handler restores the
+    // simulation color, not the pre-simulation view
+    layer._baseStyle = style;
+    layer.setStyle(style);
   });
 }

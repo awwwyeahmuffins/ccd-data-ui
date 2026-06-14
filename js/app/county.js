@@ -5,6 +5,7 @@
 // PLACEHOLDER precinct with an explicit banner — no fabricated data.
 
 import { state } from "./state.js";
+import { escapeHtml } from "../utils.js";
 import { showNotification, showMapLoading, hideMapLoading, updateBoundaryDisclaimer } from "./uiChrome.js";
 import { setViewMode } from "./viewMode.js";
 import { loadElections, updateURLState } from "./electionWorkflow.js";
@@ -18,7 +19,7 @@ function updatePlaceholderBanner(entry) {
   const banner = document.getElementById(PLACEHOLDER_BANNER_ID);
   if (!banner) return;
   if (entry && entry.status !== 'live') {
-    banner.querySelector('strong').textContent = `${entry.name} County — PLACEHOLDER`;
+    banner.querySelector('strong').textContent = `${entry.name} County — coming soon`;
     banner.style.display = 'flex';
   } else {
     banner.style.display = 'none';
@@ -98,13 +99,161 @@ async function switchCounty(slug) {
       const label = entry.kind === 'district' ? entry.name : `${entry.name} County`;
       showNotification(`Switched to ${label} (${geojson.features.length} precincts)`);
     } else {
-      showNotification(`${entry.name} County is a PLACEHOLDER — no precinct data loaded yet`);
+      showNotification(`${entry.name} County — precinct results coming soon`);
     }
   } catch (error) {
     console.error('[County] Switch failed:', error);
     hideMapLoading();
     showNotification('Failed to switch county. Please try again.');
   }
+}
+
+// Programmatic switch (e.g. jumping to a cross-county district view when a
+// district race is selected) — keeps the header dropdown in sync.
+export async function switchToCountyView(slug) {
+  const select = document.getElementById('county-select');
+  if (select) select.value = slug;
+  syncCountyComboboxInput();
+  await switchCounty(slug);
+}
+
+// ==========================================================================
+// SEARCHABLE COUNTY PICKER (type-to-filter combobox over the native select)
+// ==========================================================================
+// The native <select id="county-select"> stays the source of truth; this layers
+// a searchable input on top so finding one of 254 counties means typing "tar"
+// instead of scrolling a giant menu.
+
+let comboModel = [];      // [{ value, label, group }]
+let comboItems = [];      // currently rendered (filtered) subset
+let comboHighlight = -1;
+
+function syncCountyComboboxInput() {
+  const input = document.getElementById('county-search-input');
+  const select = document.getElementById('county-select');
+  if (!input || !select) return;
+  const opt = select.options[select.selectedIndex];
+  input.value = opt ? opt.text : '';
+}
+
+function buildCountyComboModel(select) {
+  const model = [];
+  for (const opt of select.options) {
+    const parent = opt.parentElement;
+    const group = parent && parent.tagName === 'OPTGROUP' ? parent.label : 'Counties';
+    model.push({ value: opt.value, label: opt.text, group });
+  }
+  return model;
+}
+
+function renderCountyComboList(query) {
+  const list = document.getElementById('county-combobox-list');
+  const select = document.getElementById('county-select');
+  if (!list || !select) return;
+  const q = (query || '').trim().toLowerCase();
+  comboItems = comboModel.filter(o => !q || o.label.toLowerCase().includes(q));
+
+  if (!comboItems.length) {
+    list.innerHTML = '<div class="county-combobox-empty">No match</div>';
+    return;
+  }
+  const current = select.value;
+  let html = '';
+  let lastGroup = null;
+  comboItems.forEach((o, i) => {
+    if (o.group !== lastGroup) {
+      html += `<div class="county-combobox-group">${escapeHtml(o.group)}</div>`;
+      lastGroup = o.group;
+    }
+    const cls = ['county-combobox-option'];
+    if (o.value === current) cls.push('is-current');
+    if (i === comboHighlight) cls.push('highlighted');
+    html += `<div class="${cls.join(' ')}" role="option" data-value="${escapeHtml(o.value)}">${escapeHtml(o.label)}</div>`;
+  });
+  list.innerHTML = html;
+  // mousedown (not click) so selection fires before the input's blur closes it
+  list.querySelectorAll('.county-combobox-option').forEach(el => {
+    el.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      chooseCountyFromCombo(el.dataset.value);
+    });
+  });
+  const hi = list.querySelector('.county-combobox-option.highlighted');
+  if (hi) hi.scrollIntoView({ block: 'nearest' });
+}
+
+function chooseCountyFromCombo(value) {
+  const select = document.getElementById('county-select');
+  if (!select) return;
+  if (value && value !== select.value) {
+    select.value = value;
+    select.dispatchEvent(new Event('change'));
+  }
+  syncCountyComboboxInput();
+  closeCountyComboList();
+}
+
+function openCountyComboList() {
+  const list = document.getElementById('county-combobox-list');
+  const input = document.getElementById('county-search-input');
+  if (!list || !input) return;
+  comboHighlight = -1;
+  list.classList.add('active');
+  input.setAttribute('aria-expanded', 'true');
+  renderCountyComboList('');
+  input.select();
+}
+
+function closeCountyComboList() {
+  const list = document.getElementById('county-combobox-list');
+  const input = document.getElementById('county-search-input');
+  if (list) list.classList.remove('active');
+  if (input) input.setAttribute('aria-expanded', 'false');
+}
+
+function initCountyCombobox() {
+  const input = document.getElementById('county-search-input');
+  const select = document.getElementById('county-select');
+  if (!input || !select || input.dataset.comboReady === '1') {
+    comboModel = buildCountyComboModel(select);  // refresh model on re-init
+    syncCountyComboboxInput();
+    return;
+  }
+  input.dataset.comboReady = '1';
+  comboModel = buildCountyComboModel(select);
+  syncCountyComboboxInput();
+
+  input.addEventListener('focus', openCountyComboList);
+  input.addEventListener('input', () => {
+    comboHighlight = -1;
+    document.getElementById('county-combobox-list')?.classList.add('active');
+    renderCountyComboList(input.value);
+  });
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      comboHighlight = Math.min(comboHighlight + 1, comboItems.length - 1);
+      renderCountyComboList(input.value);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      comboHighlight = Math.max(comboHighlight - 1, 0);
+      renderCountyComboList(input.value);
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (comboHighlight >= 0 && comboItems[comboHighlight]) chooseCountyFromCombo(comboItems[comboHighlight].value);
+      else if (comboItems.length === 1) chooseCountyFromCombo(comboItems[0].value);
+    } else if (e.key === 'Escape') {
+      closeCountyComboList();
+      syncCountyComboboxInput();
+      input.blur();
+    }
+  });
+  // Delay close so an option's mousedown can register first
+  input.addEventListener('blur', () => {
+    setTimeout(() => { closeCountyComboList(); syncCountyComboboxInput(); }, 150);
+  });
+  // Keep the input label in sync when the county changes by any path
+  select.addEventListener('change', syncCountyComboboxInput);
 }
 
 export async function initCountySwitching() {
@@ -147,6 +296,9 @@ export async function initCountySwitching() {
 
   select.addEventListener('change', () => switchCounty(select.value));
 
+  // Build the searchable combobox over the now-populated select
+  initCountyCombobox();
+
   // Deep link: #county=<slug> (only honored for counties in the registry)
   const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
   const urlCounty = params.get('county');
@@ -154,6 +306,7 @@ export async function initCountySwitching() {
     select.value = urlCounty;
     await switchCounty(urlCounty);
   }
+  syncCountyComboboxInput();
 
   // Keep the boundary-set helpers consistent on first paint
   updateCollinOnlyControls(getActiveCounty());

@@ -8,7 +8,7 @@
 import { state } from "./state.js";
 import { showNotification, showMapLoading, hideMapLoading, updateBoundaryDisclaimer } from "./uiChrome.js";
 import { setViewMode } from "./viewMode.js";
-import { loadElections } from "./electionWorkflow.js";
+import { loadElections, selectElection } from "./electionWorkflow.js";
 import { loadAllData, setActiveBoundary, getActiveBoundary } from "../dataLoader.js";
 import { setupPrecinctLabels } from "../mapEnhancements.js";
 import { clearMinMaxCache } from "../demographicHeatmap.js";
@@ -80,6 +80,12 @@ export function initBoundarySwitching() {
       const newBoundary = boundarySelect.value;
       console.log(`[Boundary] Switching to: ${newBoundary}`);
 
+      // Remember the race so we can stay on it after the swap — the same
+      // contest exists in both boundary sets, so don't dump the user back to
+      // the demographics map. (The selected precinct can't carry: codes differ.)
+      const prevRaceKey = state.currentElection?.raceKey;
+      const prevFilename = state.currentElection?.filename;
+
       showMapLoading('Switching boundaries...');
 
       try {
@@ -114,8 +120,18 @@ export function initBoundarySwitching() {
         // 5) Reload elections manifest for the new boundary
         await loadElections();
 
-        // 6) Re-render: force demographics view since election data was cleared
-        setViewMode('demographics');
+        // 6) Re-select the same race in the new boundary set if it exists, so
+        // the user stays put; otherwise fall back to the demographics view.
+        const match = (prevRaceKey || prevFilename)
+          ? state.elections?.find(e =>
+              (prevRaceKey && e.raceKey === prevRaceKey) ||
+              (prevFilename && e.filename === prevFilename))
+          : null;
+        if (match) {
+          await selectElection(match, { skipDistrictJump: true, skipRecent: true });
+        } else {
+          setViewMode('demographics');
+        }
 
         // 7) Rebuild precinct labels (guard against null layer)
         if (state.geojsonLayer) {
