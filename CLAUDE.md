@@ -37,9 +37,9 @@ node --experimental-vm-modules node_modules/jest/bin/jest.js tests/dataLoader.te
 npx playwright test e2e/core-functionality.spec.js
 ```
 
-**Dev server URL:** `http://localhost:3000/index.html` (Command Center front door), `http://localhost:3000/classic.html` (full map viewer), and `http://localhost:3000/precinct.html` (precinct lookup)
+**Dev server URL:** `http://localhost:3000/index.html` (Command Center front door) and `http://localhost:3000/precinct.html` (precinct lookup)
 
-On localhost the Cognito sign-in gate is bypassed; the deployed site requires sign-in. The auth bootstrap lives at the bottom of `js/app/main.js` (classic.html) and `js/commandCenter.js` (index.html) — both reuse `auth.js`/`authUI.js` and need the `amazon-cognito-identity-js` importmap in their HTML.
+On localhost the Cognito sign-in gate is bypassed; the deployed site requires sign-in. The auth bootstrap lives at the bottom of `js/commandCenter.js` (index.html) — it uses `auth.js`/`authUI.js` and needs the `amazon-cognito-identity-js` importmap in the HTML.
 
 ## Deployment
 
@@ -51,7 +51,7 @@ make cdk-deploy     # Deploy CDK stack
 make deploy-site    # Sync site content to S3 + invalidate CloudFront
 ```
 
-`deploy-site` is allowlist-only (`js/`, `data/` minus cache, `index.html`, `classic.html`, `precinct.html`, `elections.html`, `forecast.html`, `targets.html`, `styles.css`). NEVER run a bare `aws s3 sync .` — the repo root contains voter PII (`VoterRegistrationFile.txt`) and internal files that must not reach the public bucket.
+`deploy-site` is allowlist-only (`js/`, `data/` minus cache, `index.html`, `precinct.html`, `elections.html`, `forecast.html`, `targets.html`, `styles.css`). NEVER run a bare `aws s3 sync .` — the repo root contains voter PII (`VoterRegistrationFile.txt`) and internal files that must not reach the public bucket.
 
 ## Architecture
 
@@ -65,15 +65,11 @@ make deploy-site    # Sync site content to S3 + invalidate CloudFront
 
 **Adding a feature? Start with `docs/ADDING_FEATURES.md`** — step-by-step recipes for new map views, panels, data sources, command-palette commands, and precinct-report sections, plus the verify checklist.
 
-- **`index.html`** (the front door since June 2026) loads `js/commandCenter.js` — the **Command Center** dashboard (left command rail · context strip · framed low-basemap precinct map with Lean/Margin/Diversity modes · live data dock · warm "Paper Command" ⇄ dark "War Room" theme toggle). It reuses the shared data layer (`loadAllData`, county registry, locked party colors) and sits behind the same Cognito gate as the classic page (bypassed on localhost/e2e). Smoke tests: `e2e/command-center.spec.js`.
-- **`classic.html`** (the former `index.html` map viewer) loads `js/app/main.js`, the page orchestrator. The full map app is split across `js/app/` modules (extracted from a former 3,000-line inline script in June 2026). The whole `e2e/` suite targets `/classic.html`:
-  - `state.js` — THE shared mutable state object; every app module imports it
-  - `main.js` — entry: initializeMap, init(), auth-gated startup
-  - `viewMode.js` — `setViewMode` (the ONLY view-flip path) + map toolbar
-  - `mapRendering.js` — 5 render paths + legend · `precinctPanel.js` — click/info card/profile · `search.js` — precinct search · `panels.js` — panel toggle/FAB/mobile tabs/ranker · `electionPanel.js` — Browse/Forecast/Saved rendering · `electionWorkflow.js` — loadElections/selectElection/URL sync · `boundary.js` — 2024↔2026 switching (Collin-only) · `county.js` — statewide county selector + placeholder handling · `uiChrome.js` — toasts/breadcrumbs/welcome/header · `commandPalette.js` — ⌘K + global shortcuts (side-effect import)
-  - **Rule:** a `js/app/` module must never CALL an imported binding at module top level (declare, grab DOM, register listeners with local handlers only) — the function-level import cycles depend on it. Also preserve which listeners register at module top level (once) vs inside `init()` (re-registered on the deployed auth path where init can run twice).
-- **`precinct.html`** (lookup/report) loads `js/precinctLookup.js`, which orchestrates that entire page.
-- Root-level `js/*.js` modules are **libraries** consumed by both orchestrators; they hold no page state.
+Each HTML page is self-contained: it loads ONE orchestrator module from `js/` and shares only the library modules. No page imports another page's orchestrator. (The old `js/app/` monolith + `classic.html` were deleted June 2026 — recover from git history if ever needed.)
+
+- **`index.html`** (the front door) loads `js/commandCenter.js` — the **Command Center** dashboard (left command rail · context strip · framed low-basemap precinct map with Lean/Margin/Diversity modes · live data dock · warm "Paper Command" ⇄ dark "War Room" theme toggle). Sits behind the Cognito gate (bypassed on localhost/e2e) — needs the `amazon-cognito-identity-js` importmap in its HTML. Smoke: `e2e/command-center.spec.js`.
+- **`elections.html`** → `js/electionsPage.js` (race catalog), **`forecast.html`** → `js/forecastPage.js` (turnout scenarios), **`targets.html`** → `js/targetsPage.js` (precinct targeting), **`precinct.html`** → `js/precinctLookup.js` (lookup/report). Smoke: `e2e/new-pages.spec.js`, `e2e/targets.spec.js`.
+- **Standalone-page rule:** orchestrators must NOT import deleted-monolith modules; include the d3 script; override styles.css's html/body flex lock; add new pages to the deploy allowlist.
 
 **Data Layer:**
 - `dataLoader.js` — fetches GeoJSON, CSV, demographic data; in-memory caching; boundary switching (`setActiveBoundary` for 2024 vs 2026 precincts)
@@ -81,21 +77,18 @@ make deploy-site    # Sync site content to S3 + invalidate CloudFront
 - `constants.js` — centralized config (party colors — data encodings, do not change — category maps, map settings)
 - `utils.js` — shared formatters, `escapeHtml`/`csvEscape` (use for any innerHTML/CSV output)
 
-**Library Modules (root js/, consumed by js/app/ unless noted):**
-- `turnoutSimulator.js` — turnout prediction/simulation engine
-- `universeBuilder.js` / `reverseCalculator.js` — forecast-tab tools
-- `competitiveRanker.js` — swing-precinct ranking panel
+**Library Modules (root js/, consumed by the page orchestrators):**
+- `turnoutSimulator.js` — turnout prediction/simulation (forecast page)
+- `targeting.js` — precinct-targeting strategy engine (targets page, pure/tested)
+- `talkingPointsBuilder.js` — precinct-chair talking points (precinct page, pure/tested)
 - `electionFilters.js` — categorizes elections (Federal, State, County, City, ISD, MUD)
 - `precinctHistory.js` (+ `electionTrends.js`) — per-precinct voting history
 - `raceGrouping.js` — group elections by race family
-- `exportManager.js` / `exportCSV.js` — CSV export
-- `marginView.js`, `demographicHeatmap.js`, `mapEnhancements.js`, `mapInitializer.js`, `boundaryChangesTable.js` — map rendering helpers
-- `precinctProfile.js`, `precinctLookup.js`, `precinctExport.js`, `fieldOnePager.js` — precinct.html report features
-- `precinctChat.js` / `chatUI.js` — AI chat (code kept, but **intentionally disabled**: the `initPrecinctChat` call is commented out in `js/app/precinctPanel.js`; the Lambda backend stays deployed)
-- `urlStateManager.js` — URL hash deep linking
-- `themeManager.js`, `bookmarkManager.js`, `auth.js`/`authUI.js`/`authConfig.js`
+- `precinctProfile.js`, `precinctExport.js`, `fieldOnePager.js` — precinct.html report features
+- `geoLookup.js` — address→precinct (Nominatim) + point-in-polygon
+- `themeManager.js`, `auth.js`/`authUI.js`/`authConfig.js`
 
-History note: an earlier app.js-based architecture (electionView.js, demographicsView.js, sidebarController.js, etc.) was abandoned mid-refactor and its 22 unreachable modules were deleted in June 2026 — recover from git history if ever needed.
+History note: an earlier app.js-based architecture (22 modules) was deleted June 2026, and the `js/app/` Command-Center-era monolith + many map-only libs (competitiveRanker, marginView, demographicHeatmap, mapEnhancements, mapInitializer, boundaryChangesTable, universeBuilder, reverseCalculator, exportManager/exportCSV, urlStateManager, bookmarkManager, precinctChat/chatUI) were deleted with `classic.html` — recover from git history if ever needed.
 
 ### Data Contract (v3, normalized)
 

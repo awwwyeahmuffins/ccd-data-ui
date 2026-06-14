@@ -59,9 +59,9 @@ test.describe('Command Center', () => {
 
   test('rail and dock link out to the standalone tools', async ({ page }) => {
     await waitForLoaded(page);
-    await expect(page.locator('.cc-rail a[href="classic.html"]')).toHaveCount(1);
     await expect(page.locator('.cc-rail a[href="elections.html"]')).toHaveCount(1);
     await expect(page.locator('.cc-rail a[href="forecast.html"]')).toHaveCount(1);
+    await expect(page.locator('.cc-rail a[href="targets.html"]')).toHaveCount(1);
     await expect(page.locator('.cc-rail a[href="precinct.html"]')).toHaveCount(1);
   });
 });
