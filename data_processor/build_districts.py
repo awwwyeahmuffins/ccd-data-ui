@@ -11,10 +11,15 @@ EXTRAPOLATION (documented, same spirit as the rest of the pipeline):
   representative point. Precincts genuinely split by a district line are not
   apportioned — the whole precinct goes to one side (recorded in provenance).
 - District packages carry the STATEWIDE races of their member counties
-  (same offices the party-lean derivation uses). Member counties on
-  different data vintages (2022 vs 2020) contribute different races; member
-  precincts whose county lacks a given race render as no-data — never
-  fabricated.
+  (merged by canonical contest identity — statewide_canon.py — so county
+  spelling variants land in one race) PLUS the district's OWN race
+  (U.S. Representative / State Senator / State Representative for that
+  district number), merged across member counties and spelling variants.
+  Member counties on different data vintages (2022 vs 2020) contribute
+  different races; member precincts whose county lacks a given race render
+  as no-data — never fabricated. Own-race results from years before the
+  2021-enacted plans were contested under the PRIOR plan's boundaries;
+  precincts that did not vote in that race simply carry no rows.
 - Precinct codes are prefixed "<county-slug>:<code>" for uniqueness; profile
   data (party lean, racial) merges the same way. Collin's data is read,
   never modified.
@@ -26,6 +31,7 @@ import argparse
 import csv
 import json
 import re
+import shutil
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -37,7 +43,7 @@ from pyproj import CRS, Transformer
 
 sys.path.insert(0, str(Path(__file__).parent))
 from v3_writer import write_race_csv, write_turnout_csv, write_manifest  # noqa: E402
-from derive_profiles import is_statewide_office  # noqa: E402
+from statewide_canon import canonical_statewide_race  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
 OUT_ROOT = ROOT / "data/tx/districts"
@@ -76,6 +82,33 @@ def round_coords(c):
 
 def office_key(office):
     return re.sub(r"[^a-z0-9]+", " ", (office or "").lower()).strip()
+
+
+# A district's OWN race, by plan layer. Office spellings vary by county/year
+# ("U S Representative District 3", "United States Representative District 3",
+# "U.S. House District 4") so match normalized office text, not exact ids.
+PLAN_RACE_RX = {
+    "cd": re.compile(r"\b(u s|united states)\b.*\b(representative|rep|house|congress\w*)\b"),
+    "sd": re.compile(r"\bstate sen(ator|ate)?\b"),
+    "hd": re.compile(r"\bstate (rep(resentative)?|house)\b"),
+}
+
+
+def race_plan(office, district):
+    """(plan, district number) when a race is a district's own race, else None."""
+    o = office_key(office)
+    plan = next((k for k, rx in PLAN_RACE_RX.items() if rx.search(o)), None)
+    if not plan:
+        return None
+    try:
+        n = int(str(district).strip())
+    except (TypeError, ValueError):
+        # number embedded in office text instead of the district field, e.g.
+        # "State Senator, District No. 24", "State House 74 Dist 74", and the
+        # source typo "Disttrict 88" (dist\w* absorbs it)
+        m = re.search(r"\bdist\w*\s+(?:no\s+)?(\d+)\b", o)
+        n = int(m.group(1)) if m else None
+    return (plan, n) if n else None
 
 
 def main():
@@ -131,6 +164,13 @@ def main():
             slug = f"{k}-{dist}"
             out = OUT_ROOT / slug
             data_dir = out / "data"
+            # Fully-generated dirs: clear before writing so renamed races leave
+            # no stale files behind AND case-only renames take effect (macOS's
+            # case-insensitive FS keeps the OLD directory-entry casing when a
+            # file is rewritten under a new case — S3 then 404s the manifest's
+            # reference).
+            for sub in ("races", "turnout", "profile"):
+                shutil.rmtree(data_dir / sub, ignore_errors=True)
             n_precincts = sum(len(v) for v in members.values())
 
             # boundaries: member precinct features, prefixed codes
@@ -153,22 +193,37 @@ def main():
             # races: statewide offices across member counties, merged by office+year
             merged = defaultdict(lambda: {"rows": [], "turnout": [], "members": [],
                                           "displayName": None, "office": None, "year": None,
-                                          "date": None, "category": None})
+                                          "date": None, "category": None, "own": False})
             for cslug, codes in members.items():
                 c = by_slug[cslug]
                 set_cfg = c["boundarySets"][c["defaultBoundarySet"]]
                 set_path = ROOT / c["dataRoot"] / set_cfg["dataDir"]
                 manifest = json.load((set_path / "elections.json").open())
                 for e in manifest["elections"]:
-                    if e.get("district") or not is_statewide_office(e.get("office")):
-                        continue
-                    key = (office_key(e.get("office")), e.get("year"))
+                    is_own_race = race_plan(e.get("office"), e.get("district")) == (k, dist)
+                    canon = None
+                    if not is_own_race:
+                        if e.get("district"):
+                            continue
+                        canon = canonical_statewide_race(e.get("office"))
+                        if canon is None:
+                            continue
+                    # Own races merge by plan+district+year, statewide races by
+                    # canonical contest identity (spellings vary by county);
+                    # "_" sorts before letters so own races lead their year.
+                    key = ((f"_own {k} {dist}", e.get("year")) if is_own_race
+                           else (canon[0], e.get("year")))
                     m = merged[key]
-                    m["displayName"] = m["displayName"] or e.get("displayName")
-                    m["office"] = m["office"] or e.get("office")
+                    if canon:
+                        m["displayName"] = f"{canon[1]} ({e.get('year')})"
+                        m["office"] = canon[1]
+                    else:
+                        m["displayName"] = m["displayName"] or e.get("displayName")
+                        m["office"] = m["office"] or e.get("office")
                     m["year"] = e.get("year")
                     m["date"] = m["date"] or e.get("date")
                     m["category"] = m["category"] or e.get("category")
+                    m["own"] = m["own"] or is_own_race
                     m["members"].append(cslug)
                     for r in csv.DictReader((set_path / e["raceFile"]).open()):
                         code = r["precinct"].strip()
@@ -198,8 +253,11 @@ def main():
                 elections.append({
                     "id": re.sub(r"[^a-z0-9]+", "-", f"{base}-{year}".lower()).strip("-"),
                     "displayName": m["displayName"] or f"{m['office']} ({year})",
-                    "office": m["office"], "district": None,
-                    "year": year, "date": m["date"], "category": m["category"],
+                    "office": m["office"],
+                    "district": str(dist) if m["own"] else None,
+                    "year": year, "date": m["date"],
+                    "category": ("Federal" if k == "cd" else "State") if m["own"]
+                                else m["category"],
                     "raceFile": race_rel, "turnoutFile": turnout_rel,
                     "sourceUrl": None,
                 })
@@ -240,8 +298,10 @@ def main():
                     "description": ("Cross-county district view. Precincts assigned wholly "
                                     "to the district containing their representative point "
                                     "(split precincts are not apportioned). Statewide races "
-                                    "merged from member counties; counties on different data "
-                                    "vintages contribute different races."),
+                                    "and the district's own race merged from member counties; "
+                                    "counties on different data vintages contribute different "
+                                    "races. Own-race results from years before the 2021 plans "
+                                    "were contested under the prior plan's boundaries."),
                     "members": {cs: len(cd) for cs, cd in sorted(members.items())},
                     "generated": "2026-06-12",
                 }
