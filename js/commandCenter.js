@@ -1,16 +1,21 @@
 // commandCenter.js
 // --------------------------------------------------------------------------------
-// Orchestrator for command.html — the "PRECINCT COMMAND" war-room view.
-// A deliberately different surface from index.html: a no-basemap tactical map of
-// precinct polygons, three analytic color modes (Lean / Margin / Diversity), and
-// a live data dock that briefs the whole county or a single clicked precinct.
+// Orchestrator for index.html — the "PRECINCT COMMAND" command-center view, the
+// app's front door. A "peanut butter & chocolate" dashboard: a low-basemap
+// tactical map of precinct polygons, three analytic color modes (Lean / Margin /
+// Diversity), a live data dock that briefs the whole county or one clicked
+// precinct, and a warm "Paper Command" ⇄ dark "War Room" theme toggle.
 //
-// Reuses the SAME data layer as the main app — loadAllData(), the locked party
+// Reuses the SAME data layer as the classic app — loadAllData(), the locked party
 // colors, and the county registry — so it never invents data and stays in sync.
+// Sits behind the same Cognito sign-in gate as the classic page on deployment
+// (bypassed on localhost / e2e).
 
 import { loadAllData, setActiveCounty, loadCountyRegistry, getActiveCounty } from "./dataLoader.js";
 import { PARTY_STRENGTH_COLORS, MAP_CONFIG } from "./constants.js";
 import { escapeHtml } from "./utils.js";
+import { initAuth, isAuthenticated, signOut, onAuthStateChange } from "./auth.js";
+import { showAuthOverlay, hideAuthOverlay } from "./authUI.js";
 
 // ---- module state (this page's own; no shared singleton) --------------------
 const cc = {
@@ -438,6 +443,10 @@ function applyTheme(theme) {
   else document.documentElement.removeAttribute("data-theme");
   try { localStorage.setItem(THEME_KEY, cc.theme); } catch (_) { /* ignore */ }
 
+  // keep the browser chrome (mobile address bar) in sync with the surface
+  const themeColor = document.getElementById("cc-theme-color");
+  if (themeColor) themeColor.setAttribute("content", cc.theme === "dark" ? "#0a0e14" : "#EFEBE2");
+
   // swap basemap + recolor canvas (which can't read CSS vars)
   if (cc.tiles) cc.tiles.setUrl(BASEMAPS[cc.theme]);
   if (cc.layer) {
@@ -557,6 +566,14 @@ function wireUI() {
     menu.classList.contains("open") ? closeCountyMenu() : openCountyMenu();
   });
   $("cc-county-search").addEventListener("input", (e) => renderCountyList(e.target.value));
+  // Keyboard path: Enter selects the first matching county (no mouse needed).
+  $("cc-county-search").addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+    const first = $("cc-county-list").querySelector(".cc-county-opt[data-slug]");
+    if (!first) return;
+    const entry = registryCache.find((c) => c.slug === first.dataset.slug);
+    switchCounty(first.dataset.slug, entry ? entry.name : first.dataset.slug);
+  });
   $("cc-county-list").addEventListener("click", (e) => {
     const opt = e.target.closest(".cc-county-opt");
     if (!opt || !opt.dataset.slug) return;
@@ -590,6 +607,7 @@ function wireUI() {
 // BOOT
 // =============================================================================
 async function init() {
+  if (cc.map) return; // guard: the auth path can fire boot twice
   initTheme();
   wireUI();
   renderLegend();
@@ -612,8 +630,41 @@ async function init() {
   }
 }
 
+// Reveal + wire the rail's Sign Out button once we're authenticated.
+let logoutWired = false;
+function setupLogout() {
+  if (logoutWired) return;
+  const btn = $("cc-logout");
+  if (!btn) return;
+  logoutWired = true;
+  btn.style.display = "";
+  btn.addEventListener("click", () => { signOut(); location.reload(); });
+}
+
+// Auth gate — identical posture to the classic page: the public deployment sits
+// behind Cognito sign-in; localhost and e2e bypass it. init() is idempotent, so
+// running it on both the initial check and the auth-state change is safe.
+async function boot() {
+  initAuth();
+  const isLocalDev = ["localhost", "127.0.0.1"].includes(location.hostname);
+  if (isLocalDev || (await isAuthenticated())) {
+    hideAuthOverlay();
+    init();
+    setupLogout();
+  } else {
+    showAuthOverlay();
+  }
+  onAuthStateChange((authenticated) => {
+    if (authenticated) { hideAuthOverlay(); init(); setupLogout(); }
+    else { location.reload(); }
+  });
+}
+
+// auth-expired events (e.g. from an API 401) force a clean re-auth.
+window.addEventListener("auth-expired", () => { signOut(); location.reload(); });
+
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init);
+  document.addEventListener("DOMContentLoaded", boot);
 } else {
-  init();
+  boot();
 }
