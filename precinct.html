@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Precinct Lookup — Collin County Elections</title>
+  <title>Precinct Lookup — Texas Elections</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -110,16 +110,17 @@
       flex-shrink: 0;
     }
     .header-brand-icon {
-      width: 32px;
-      height: 32px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(150deg, #F5B312, #C68A0C);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 18px;
+      color: #2A1D02;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: -.5px;
     }
     .header-title {
       font-family: var(--font-display);
@@ -129,6 +130,9 @@
     }
     .header-title span {
       color: var(--primary);
+    }
+    .header-title #header-county-name {
+      color: var(--text-primary); /* county name stays ink; only "Precinct Lookup" is primary */
     }
 
     .header-spacer { flex: 1; }
@@ -142,11 +146,12 @@
       min-height: 44px;
       display: inline-flex;
       align-items: center;
-      gap: 4px; /* the label is split across a span + text node; flex eats the space */
+      gap: 7px; /* the label is split across a span + text node; flex eats the space */
       border-radius: var(--radius-full);
       transition: var(--transition-fast);
       white-space: nowrap;
     }
+    .header-link svg { width: 16px; height: 16px; stroke-width: 1.8; }
     .header-link:hover {
       background: var(--bg-secondary);
       color: var(--text-primary);
@@ -1821,13 +1826,13 @@
        ======================================================================== -->
   <header class="page-header">
     <div class="header-brand">
-      <div class="header-brand-icon">CC</div>
-      <span class="header-title">Collin County <span>Precinct Lookup</span></span>
+      <div class="header-brand-icon">TX</div>
+      <span class="header-title"><span id="header-county-name">Collin County</span> <span>Precinct Lookup</span></span>
     </div>
     <div class="header-spacer"></div>
-    <a href="index.html" class="header-link">Map</a>
-    <a href="elections.html" class="header-link">Elections</a>
-    <a href="forecast.html" class="header-link">Forecast</a>
+    <a href="index.html" class="header-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="3 7 9 4 15 7 21 4 21 17 15 20 9 17 3 20 3 7"/><line x1="9" y1="4" x2="9" y2="17"/><line x1="15" y1="7" x2="15" y2="20"/></svg>Map</a>
+    <a href="elections.html" class="header-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>Elections</a>
+    <a href="forecast.html" class="header-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 17l6-6 4 4 8-8"/><polyline points="14 7 21 7 21 14"/></svg>Forecast</a>
     <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode"></button>
   </header>
 

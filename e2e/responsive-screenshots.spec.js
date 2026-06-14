@@ -18,7 +18,7 @@ for (const size of SCREEN_SIZES) {
     const page = await context.newPage();
 
     // Go to index.html (not index-new.html)
-    await page.goto('/index.html', { waitUntil: 'networkidle', timeout: 30000 });
+    await page.goto('/classic.html', { waitUntil: 'networkidle', timeout: 30000 });
 
     // Wait a moment for any JS rendering
     await page.waitForTimeout(3000);

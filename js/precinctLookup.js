@@ -9,6 +9,8 @@ import {
   getActiveBoundary,
   getBoundaryConfigs,
   listElectionCSVs,
+  getActiveCounty,
+  loadCountyRegistry,
 } from "./dataLoader.js";
 import { findPrecinctForAddress, findPrecinctForPoint } from "./geoLookup.js";
 import {
@@ -100,8 +102,28 @@ let comparePrecinct = null;
 // Entry point
 // ---------------------------------------------------------------------------
 
+// Brand the header + tab title to the active county instead of hardcoding
+// "Collin County". Resolves the slug → display name via the registry; falls
+// back to a clean "Texas" until that resolves (or if it can't).
+async function applyCountyBranding() {
+  const slug = getActiveCounty();
+  const label = document.getElementById("header-county-name");
+  const setName = (name) => {
+    if (label) label.textContent = `${name} County`;
+    document.title = `${name} County Precinct Lookup`;
+  };
+  // Slug like "collin" → "Collin" as an immediate, sensible default.
+  setName(slug.charAt(0).toUpperCase() + slug.slice(1));
+  try {
+    const registry = await loadCountyRegistry();
+    const entry = registry.find((c) => c.slug === slug);
+    if (entry && entry.name) setName(entry.name);
+  } catch (_) { /* keep the slug-derived name */ }
+}
+
 export async function initPrecinctLookup() {
   initTheme();
+  applyCountyBranding();
 
   // Theme toggle
   let themeBtn = document.getElementById("theme-toggle");

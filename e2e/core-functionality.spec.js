@@ -7,7 +7,7 @@ test.setTimeout(60000);
 
 test.describe('Core Functionality', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/index.html');
+    await page.goto('/classic.html');
     // Wait for map legend which appears after initializeMap() completes
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
@@ -71,7 +71,7 @@ test.describe('Core Functionality', () => {
 
 test.describe('Welcome Overlay', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/index.html');
+    await page.goto('/classic.html');
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 
@@ -99,7 +99,7 @@ test.describe('Welcome Overlay', () => {
 
 test.describe('Election Selection', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/index.html');
+    await page.goto('/classic.html');
     // Wait for map legend which appears after initializeMap() completes
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
@@ -137,7 +137,7 @@ test.describe('Election Selection', () => {
 
   test('deep linking to election works', async ({ page }) => {
     // Navigate directly with election in URL
-    await page.goto('/index.html#race=Governor_2022.csv');
+    await page.goto('/classic.html#race=Governor_2022.csv');
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
     
     // Check info card shows Governor election
@@ -148,7 +148,7 @@ test.describe('Election Selection', () => {
 
 test.describe('Search & Filter', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/index.html');
+    await page.goto('/classic.html');
     // Wait for map legend which appears after initializeMap() completes
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
     await page.locator('#fab').click();

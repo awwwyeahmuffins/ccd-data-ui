@@ -8,7 +8,7 @@ test.use({ ...devices['iPhone 12'] });
 
 test.describe('Mobile Experience', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/index.html');
+    await page.goto('/classic.html');
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 

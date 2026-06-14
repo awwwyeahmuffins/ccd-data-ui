@@ -1,0 +1,3995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Texas Elections — Precinct Data (Collin County live)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="js/authStyles.css" />
+  <style>
+    /* =============================================================================
+       RADICAL NEW DESIGN SYSTEM - Democrat Blue Theme
+       ============================================================================= */
+    
+    :root {
+      /* Large-Print Civic Palette — warm paper + ink */
+      --primary: #0B4DA2;
+      --primary-hover: #093E83;
+      --primary-light: #E8F0FB;
+      --primary-dark: #08305F;
+      --secondary: #00AEF3;
+      --accent: #1976D2;
+
+      /* Party Colors for Map (data encodings — do not change) */
+      --dem-color: #00AEF3;
+      --rep-color: #E81B23;
+      --mod-color: #800080;
+      --text-primary: #1C2733;
+      --text-secondary: #44505C;
+      --text-muted: #5F6B76;
+      --bg-primary: #FFFDF9;
+      --bg-secondary: #F4F1EA;
+      --bg-overlay: rgba(28, 39, 51, 0.4);
+      --border: #D8D2C6;
+      --shadow-sm: 0 1px 2px rgba(28, 39, 51, 0.08);
+      --shadow-md: 0 2px 16px rgba(28, 39, 51, 0.12);
+      --shadow-lg: 0 8px 28px rgba(28, 39, 51, 0.16);
+      --shadow-xl: 0 16px 48px rgba(28, 39, 51, 0.2);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 20px;
+      --radius-full: 9999px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+      /* Spacing scale (8px grid) + layout primitives */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 12px;
+      --space-lg: 16px;
+      --space-xl: 24px;
+      --space-2xl: 32px;
+      --inset: 16px;            /* margin between floating map controls and edges */
+      --header-h: 64px;
+      --tabbar-h: 64px;
+      --panel-w: clamp(340px, 30vw, 460px);
+      --glass: rgba(255, 253, 249, 0.88);
+      --glass-blur: blur(14px) saturate(160%);
+    }
+
+    @media (max-width: 640px) {
+      :root { --inset: 12px; }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: var(--font-body);
+      font-size: 17px;
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+    }
+
+    /* =============================================================================
+       MINIMALIST HEADER - Collapsible, Floating
+       ============================================================================= */
+    
+    #app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10000;
+      background: rgba(255, 253, 249, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+      transform: translateY(0);
+    }
+
+    #app-header.collapsed {
+      transform: translateY(-100%);
+    }
+
+    .header-content {
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 8px;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      white-space: nowrap;
+      min-width: 0;
+      flex-shrink: 1;
+      overflow: hidden;
+    }
+
+    .header-brand-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    /* Above the icon-only breakpoint the wordmark must never ellipsize —
+       everything else in the row compresses first */
+    @media (min-width: 1281px) {
+      .header-brand { flex-shrink: 0; }
+    }
+
+    .header-brand-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .header-btn {
+      padding: 10px 16px;
+      min-height: 44px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .header-btn:hover {
+      background: var(--bg-secondary);
+    }
+
+    .header-btn.primary {
+      background: var(--primary);
+      color: white;
+    }
+    .header-btn.forecast-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+    .header-btn.forecast-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .forecast-btn-icon { margin-right: 0; }
+    /* The forecast power-tool is icon-only: the "Forecast" nav link beside it
+       already labels the feature, and the duplicate word was the item that
+       overflowed/clipped the header on common laptop widths. */
+    .forecast-btn-text { display: none; }
+
+    .header-btn.primary:hover {
+      background: var(--primary-hover);
+    }
+
+    /* App menu — single hub for every page/feature, available at all widths */
+    .app-menu { position: relative; flex-shrink: 0; }
+    .app-menu > summary {
+      list-style: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+    .app-menu > summary::-webkit-details-marker { display: none; }
+    .app-menu > summary::marker { content: ""; }
+    .app-menu > summary:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+    .app-menu[open] > summary {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+    }
+    .app-menu-panel {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 232px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+      padding: 6px;
+      z-index: 10050; /* above header content (10000) */
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .app-menu-heading {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      padding: 8px 12px 4px;
+    }
+    .app-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 10px 12px;
+      min-height: 44px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+    }
+    .app-menu-item:hover,
+    .app-menu-item:focus-visible {
+      background: var(--bg-secondary);
+      outline: none;
+    }
+    .app-menu-item[aria-current="page"] {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .app-menu-ico { width: 20px; text-align: center; flex-shrink: 0; }
+
+    /* Boundary Selector */
+    .boundary-selector select {
+      padding: 10px 32px 10px 14px;
+      min-height: 44px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23717171' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      transition: var(--transition-fast);
+    }
+
+    .boundary-selector select:hover {
+      border-color: var(--primary);
+    }
+
+    .boundary-selector select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 87, 183, 0.15);
+    }
+
+    /* Searchable county picker (type-to-filter combobox over 254 counties +
+       districts). The native <select> sits underneath, invisible but present. */
+    .county-combobox { position: relative; display: inline-block; min-width: 200px; }
+    .county-search-input {
+      width: 100%;
+      padding: 10px 32px 10px 14px;
+      min-height: 44px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: text;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23717171' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      transition: var(--transition-fast);
+    }
+    .county-search-input:hover { border-color: var(--primary); }
+    .county-search-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 87, 183, 0.15);
+    }
+    .county-select-native {
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .county-combobox-list {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      min-width: 260px;
+      max-width: 340px;
+      max-height: 320px;
+      overflow-y: auto;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md, 12px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+      z-index: 11000;
+      padding: 4px;
+    }
+    .county-combobox-list.active { display: block; }
+    .county-combobox-group {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      padding: 8px 10px 4px;
+    }
+    .county-combobox-option {
+      padding: 9px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .county-combobox-option.highlighted,
+    .county-combobox-option:hover { background: var(--bg-secondary); }
+    .county-combobox-option.is-current { font-weight: 700; }
+    .county-combobox-empty { padding: 12px 10px; color: var(--text-muted); font-size: 13px; }
+    @media (max-width: 640px) {
+      .county-combobox { flex: 1 1 auto; min-width: 0; }
+    }
+
+    .boundary-selector {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* =========================================================================
+       BOUNDARY DISCLAIMER BANNER
+       ========================================================================= */
+    .boundary-disclaimer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #FFF3CD;
+      color: #664D03;
+      font-size: 14px;
+      line-height: 1.4;
+      border-bottom: 1px solid #FFECB5;
+      z-index: 9999;
+    }
+    .boundary-disclaimer strong {
+      font-weight: 600;
+    }
+
+    /* =========================================================================
+       TOOLTIP QUALITY BADGES
+       ========================================================================= */
+    .quality-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+    .quality-estimated {
+      background: #FFF3CD;
+      color: #664D03;
+    }
+    .quality-low {
+      background: #F8D7DA;
+      color: #842029;
+    }
+
+    /* =========================================================================
+       CENSUS PROFILE DISCLAIMER
+       ========================================================================= */
+    .profile-disclaimer {
+      background: #FFF3CD;
+      color: #664D03;
+      border: 1px solid #FFECB5;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 12px;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .profile-disclaimer strong {
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .boundary-selector select {
+        font-size: 11px;
+        padding: 6px 28px 6px 8px;
+      }
+    }
+
+    /* View Mode Buttons */
+    .view-mode-buttons {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-secondary);
+      padding: 4px;
+      border-radius: var(--radius-full);
+    }
+
+    .view-mode-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      min-height: 44px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .view-mode-btn:hover {
+      color: var(--text-primary);
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .view-mode-btn.active {
+      background: var(--bg-primary);
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .view-icon {
+      font-size: 14px;
+    }
+
+    @media (max-width: 1200px) {
+      #toggle-header { display: none; }
+      #cmd-k-trigger { min-width: auto !important; }
+      #cmd-k-trigger kbd { display: none !important; }
+      #cmd-k-trigger span { gap: 0 !important; }
+      #cmd-k-trigger span::after { content: none; }
+    }
+
+    @media (max-width: 900px) {
+      .header-brand-text { display: none; }
+      #cmd-k-trigger { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .view-mode-buttons {
+        display: none;
+      }
+      .header-content {
+        flex-wrap: nowrap;
+      }
+      .header-actions .header-btn-lookup,
+      .header-actions #open-panel-btn,
+      .header-actions #forecast-btn,
+      .header-actions #toggle-header,
+      .header-actions #cmd-k-trigger {
+        display: none;
+      }
+    }
+
+    /* =============================================================================
+       COMMAND PALETTE - Cmd+K Interface (Spotlight-style)
+       ============================================================================= */
+    
+    #command-palette {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 20000;
+      background: var(--bg-overlay);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 10vh;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    #command-palette.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .command-palette-container {
+      width: 100%;
+      max-width: 640px;
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      transform: translateY(-20px) scale(0.95);
+      transition: transform 0.2s ease;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #command-palette.active .command-palette-container {
+      transform: translateY(0) scale(1);
+    }
+
+    .command-palette-input {
+      width: 100%;
+      padding: 20px 24px;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      font-size: 19px;
+      font-weight: 500;
+      background: transparent;
+      color: var(--text-primary);
+      outline: none;
+    }
+
+    .command-palette-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .command-palette-results {
+      flex: 1;
+      overflow-y: auto;
+      max-height: calc(80vh - 80px);
+      padding: 8px;
+    }
+
+    .command-item {
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .command-item:hover,
+    .command-item.selected {
+      background: var(--bg-secondary);
+    }
+
+    .command-item-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .command-item-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .command-item-title {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .command-item-subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .command-item-shortcut {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--bg-secondary);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      font-family: 'Monaco', 'Menlo', monospace;
+    }
+
+    /* =============================================================================
+       FULL-SCREEN MAP CONTAINER
+       ============================================================================= */
+    
+    #map-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      background: var(--primary-light);
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Topline result — a Stripe-style stat header over the map: hairline-divided
+       cells, quiet uppercase eyebrows, confident values, tabular figures. */
+    #result-topline {
+      position: absolute;
+      top: calc(var(--header-h) + var(--space-md, 12px));
+      left: var(--inset, 16px);
+      z-index: 600;
+      /* Left-anchored with a cap that always leaves room for the top-right
+         info card (340px) so the two never collide at any width. */
+      max-width: calc(100vw - 388px);
+      display: flex;
+      align-items: stretch;
+      background: var(--bg-primary, #fff);
+      border: 1px solid var(--border, rgba(0,0,0,0.10));
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+      font-variant-numeric: tabular-nums;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    #result-topline[hidden] { display: none; }
+    #result-topline .tl-cell {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      padding: 9px 18px;
+      min-width: 0;
+    }
+    #result-topline .tl-cell + .tl-cell { border-left: 1px solid var(--border, rgba(0,0,0,0.08)); }
+    #result-topline .tl-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted, #8a8a8a);
+      white-space: nowrap;
+    }
+    #result-topline .tl-value {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text-primary, #1a1a1a);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #result-topline .tl-context-cell { max-width: 320px; }
+    #result-topline .tl-margin { margin-left: 5px; font-weight: 700; }
+
+    /* When the centered stat header is showing, drop the left-hand map controls
+       and breadcrumb below it so nothing collides in the top band. */
+    body:has(#result-topline:not([hidden])) .map-view-controls {
+      top: calc(var(--header-h) + 78px);
+    }
+    /* The stat header already names where you are, so the breadcrumb is just
+       noise while a result is shown — hide it for a calmer top band. */
+    body:has(#result-topline:not([hidden])) .breadcrumb-bar {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+      #result-topline {
+        top: calc(var(--header-h) + 6px);
+        border-radius: 12px;
+      }
+      #result-topline .tl-cell { padding: 7px 12px; }
+      #result-topline .tl-value { font-size: 13px; }
+      #result-topline .tl-eyebrow { font-size: 10px; }
+      #result-topline .tl-context-cell { max-width: 150px; }
+      /* Phone: 3 divided cells won't fit cleanly — drop turnout from the header
+         (it lives in the card's coverage line) so the headline stays intact. */
+      #result-topline .tl-cell:last-child { display: none; }
+    }
+
+    /* At phone width the info card is a bottom sheet, so the header has the full
+       top to itself again. */
+    @media (max-width: 640px) {
+      #result-topline { max-width: calc(100vw - 24px); }
+    }
+
+    /* The fixed header overlays the full-screen map, so push Leaflet's
+       top-anchored controls (zoom, home, basemap) below it. */
+    .leaflet-top {
+      top: 80px;
+      transition: top 0.3s ease;
+    }
+
+    @media (max-width: 600px) {
+      .leaflet-top {
+        top: 60px;
+      }
+    }
+
+    body:has(#app-header.collapsed) .leaflet-top {
+      top: 0;
+    }
+
+    /* =============================================================================
+       FLOATING ACTION BUTTON - Main Entry Point
+       ============================================================================= */
+    
+    #fab {
+      position: fixed;
+      bottom: calc(var(--inset) + 160px); /* clear of the bottom-right minimap */
+      right: var(--inset);
+      z-index: 1000;
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-full);
+      background: var(--primary);
+      color: white;
+      border: none;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      transition: var(--transition);
+      transform: scale(1);
+    }
+
+    #fab:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-xl);
+    }
+
+    #fab:active {
+      transform: scale(0.95);
+    }
+
+    #fab.active {
+      transform: scale(1.1);
+      background: var(--secondary);
+    }
+
+    /* =============================================================================
+       ELECTION BROWSER PANEL - Slides in from right
+       ============================================================================= */
+    
+    /* Sidebar content panel (demographics/turnout right panel) */
+    #sidebar-content {
+      position: fixed;
+      top: 80px;
+      right: 12px;
+      bottom: 12px;
+      width: 340px;
+      max-width: calc(100vw - 24px);
+      z-index: 400;
+      background: var(--bg-primary);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow-y: auto;
+      padding: 20px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    #sidebar-content:empty {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      #sidebar-content {
+        display: none;
+      }
+    }
+
+    #election-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: var(--panel-w);
+      max-width: 100vw;
+      z-index: 10001; /* above #app-header (10000) so the panel header isn't clipped */
+      background: var(--bg-primary);
+      box-shadow: -4px 0 24px rgba(28, 39, 51, 0.12);
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #election-panel.active {
+      transform: translateX(0);
+    }
+
+    .panel-header {
+      padding: var(--space-lg) var(--space-xl);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .panel-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .panel-close {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+    }
+
+    .panel-close:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    .panel-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: var(--space-lg) var(--space-xl) var(--space-xl);
+    }
+
+    /* Search in Panel */
+    .panel-search {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 17px;
+      margin-bottom: 16px;
+      transition: var(--transition-fast);
+      background: var(--bg-primary);
+    }
+
+    .panel-search:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+
+    /* Filter Chips */
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .filter-chip {
+      padding: var(--space-sm) var(--space-lg);
+      min-height: 40px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      color: var(--text-primary);
+    }
+
+    .filter-chip:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .filter-chip.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Recently Viewed Section */
+    .recent-section {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .recent-item {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: var(--bg-secondary);
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      border: 2px solid transparent;
+    }
+
+    .recent-item:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .recent-item-title {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .recent-item-meta {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Election Groups */
+    .election-group {
+      margin-bottom: var(--space-md);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-primary);
+      padding: 0 var(--space-lg);
+      transition: var(--transition-fast);
+    }
+    .election-group:hover { border-color: var(--primary); }
+    .election-group.expanded { padding-bottom: var(--space-sm); }
+
+    .group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-md) 0;
+      min-height: 48px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .group-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .group-count {
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-secondary);
+      background: var(--bg-secondary);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .group-toggle {
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: var(--bg-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+    }
+
+    .group-toggle:hover {
+      background: var(--border);
+    }
+
+    .election-list {
+      display: none;
+      padding-left: 16px;
+    }
+
+    .election-group.expanded .election-list {
+      display: block;
+    }
+
+    .election-item {
+      padding: 14px 16px;
+      min-height: 48px;
+      border-radius: var(--radius-md);
+      margin-bottom: 4px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .election-item:hover {
+      background: var(--bg-secondary);
+    }
+    .election-item.selected,
+    .recent-item.selected {
+      background: rgba(0, 112, 210, 0.12);
+      border-left: 3px solid var(--primary);
+    }
+
+    .forecast-section {
+      background: var(--bg-elevated, #f8f9fa);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      border: 1px solid var(--border);
+    }
+    .forecast-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color, #eee);
+    }
+    .forecast-election {
+      font-size: 13px;
+    }
+    .forecast-label {
+      color: var(--text-secondary);
+      margin-right: 4px;
+    }
+    .clear-election-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 16px;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .clear-election-btn:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+    .forecast-section .slider-group { margin-bottom: 12px; }
+    .forecast-section .slider-group label { display: flex; justify-content: space-between; font-size: 15px; }
+    .forecast-section .turnout-slider { width: 100%; }
+    .forecast-section #simulation-summary { margin-top: 12px; font-size: 15px; }
+    .forecast-section #reset-turnout { margin-top: 8px; padding: 6px 12px; font-size: 12px; cursor: pointer; }
+
+    .election-item-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .election-item-year {
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-secondary);
+      background: var(--bg-secondary);
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 64px 24px;
+      color: var(--text-secondary);
+    }
+
+    .empty-state-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+      opacity: 0.3;
+    }
+
+    .empty-state-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .empty-state-text {
+      font-size: 16px;
+      color: var(--text-secondary);
+    }
+
+    /* =============================================================================
+       FLOATING INFO CARD - Shows selected race info
+       ============================================================================= */
+    
+    #info-card {
+      position: fixed;
+      top: calc(var(--header-h) + var(--inset));
+      right: var(--inset);
+      bottom: auto;
+      left: auto;
+      z-index: 2000;
+      width: 340px;
+      max-width: calc(100vw - var(--inset) * 2);
+      max-height: calc(100vh - var(--header-h) - var(--inset) * 2);
+      overflow-y: auto;
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      padding: var(--space-xl);
+      transform: translateY(12px);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    #info-card.visible {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .info-card-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-full);
+      font-size: 18px;
+      line-height: 1;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .info-card-close:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    #info-card .info-card-title {
+      padding-right: 28px;
+    }
+    
+    /* Slide the info card left of the open election panel (Zillow keeps the
+       detail card visible beside its list panel, never under it) */
+    #election-panel.active ~ #info-card,
+    body:has(#election-panel.active) #info-card {
+      right: calc(var(--panel-w) + var(--inset));
+      left: auto;
+      width: 300px;
+      max-height: calc(100vh - var(--header-h) - var(--inset) * 2);
+      padding: var(--space-lg);
+      font-size: 12px;
+    }
+    
+    #election-panel.active ~ #info-card .info-card-title,
+    body:has(#election-panel.active) #info-card .info-card-title {
+      font-size: 16px;
+    }
+    
+    #election-panel.active ~ #info-card .info-card-meta,
+    body:has(#election-panel.active) #info-card .info-card-meta {
+      font-size: 13px;
+    }
+    
+    #election-panel.active ~ #info-card .stat-item,
+    body:has(#election-panel.active) #info-card .stat-item {
+      padding: 8px;
+    }
+    
+    #election-panel.active ~ #info-card .stat-label,
+    body:has(#election-panel.active) #info-card .stat-label {
+      font-size: 11px;
+    }
+    
+    #election-panel.active ~ #info-card .stat-value,
+    body:has(#election-panel.active) #info-card .stat-value {
+      font-size: 16px;
+    }
+    
+    #election-panel.active ~ #info-card .info-card-demographics,
+    body:has(#election-panel.active) #info-card .info-card-demographics {
+      font-size: 13px;
+    }
+
+    .info-card-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .info-card-meta {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .info-card-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    /* Candidate breakdown (county-result card) — ranked vote bars that
+       complement the topline rather than echoing its headline stats. */
+    .info-card-stats:has(.ic-cand) { display: flex; flex-direction: column; gap: 11px; }
+    .ic-cand { display: flex; flex-direction: column; gap: 5px; }
+    .ic-cand-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+    .ic-cand-name { font-size: 14px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ic-cand-figs { font-size: 13px; font-weight: 600; color: var(--text-primary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .ic-cand-pct { color: var(--text-muted); margin-left: 6px; }
+    .ic-cand-track { height: 6px; border-radius: 999px; background: var(--bg-secondary); overflow: hidden; }
+    .ic-cand-fill { height: 100%; border-radius: 999px; }
+    .ic-coverage { margin-top: 2px; font-size: 12px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+    .stat-item {
+      padding: 12px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+    }
+
+    .info-card-demographics {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 15px;
+    }
+    .info-card-demographics:empty {
+      display: none;
+    }
+    .info-card-demographics .demo-section-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+    }
+    .info-card-demographics .demo-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+    }
+    .info-card-demographics .demo-row span:first-child { margin-right: 8px; }
+    .info-card-demographics .demo-row span:last-child { font-weight: 500; }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-primary);
+    }
+
+    /* =============================================================================
+       MOBILE RESPONSIVE
+       ============================================================================= */
+    
+    @media (max-width: 700px) {
+      #election-panel {
+        width: 100vw;
+        max-width: 100vw;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      }
+
+      .election-group {
+        margin-bottom: 12px;
+      }
+
+      .election-group.expanded .election-list {
+        max-height: 180px;
+        overflow-y: auto;
+      }
+
+      .panel-search {
+        padding: 12px 14px;
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+
+      #fab {
+        bottom: 24px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+      }
+
+      #info-card {
+        right: 16px;
+        left: 16px;
+        width: auto;
+        bottom: 96px;
+        max-height: calc(100vh - 160px);
+        padding: 16px;
+      }
+
+      .header-content {
+        padding: 12px 16px;
+      }
+
+      .header-brand {
+        font-size: 16px;
+      }
+
+      .header-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      /* B8: Fix zoom controls appearing behind header */
+      .leaflet-control-zoom {
+        z-index: 10001 !important;
+      }
+    }
+
+    /* =============================================================================
+       ANIMATIONS
+       ============================================================================= */
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .slide-in-right {
+      animation: slideInRight 0.3s ease forwards;
+    }
+
+    /* =============================================================================
+       DARK MODE THEME
+       ============================================================================= */
+
+    [data-theme="dark"] {
+      --primary: #7FB1F0;
+      --primary-hover: #9CC4F5;
+      --primary-light: #1E2A3D;
+      --primary-dark: #B7D4F8;
+      --secondary: #00AEF3;
+      --accent: #5BA3E6;
+
+      --text-primary: #F2EEE6;
+      --text-secondary: #C2BCB0;
+      --text-muted: #948E82;
+      --bg-primary: #161B22;
+      --bg-secondary: #1F2630;
+      --bg-overlay: rgba(0, 0, 0, 0.6);
+      --border: #353D47;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 2px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.5);
+      --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+    }
+
+    [data-theme="dark"] #app-header {
+      background: rgba(22, 27, 34, 0.95);
+    }
+
+    [data-theme="dark"] .view-mode-btn.active {
+      background: var(--bg-secondary);
+    }
+
+    [data-theme="dark"] .leaflet-control-zoom a {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      border-color: var(--border);
+    }
+
+    /* Reduce choropleth polygon opacity in dark mode for better contrast */
+    [data-theme="dark"] .leaflet-overlay-pane svg path {
+      opacity: 0.82;
+    }
+
+    [data-theme="dark"] .map-legend-leaflet .legend-container {
+      background: var(--bg-primary) !important;
+      color: var(--text-primary) !important;
+    }
+
+    .legend-container {
+      background: var(--bg-primary);
+      padding: 0;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .legend-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 10px 16px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .legend-toggle:hover {
+      background: var(--bg-secondary);
+    }
+
+    .legend-body {
+      padding: 0 14px 12px;
+      transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+      max-height: 300px;
+      opacity: 1;
+      overflow: hidden;
+    }
+
+    .legend-body.collapsed {
+      max-height: 0;
+      padding: 0 14px;
+      opacity: 0;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      padding: 8px 12px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-full);
+      font-size: 16px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      color: var(--text-primary);
+    }
+    .theme-toggle:hover {
+      background: var(--bg-secondary);
+    }
+
+    /* =============================================================================
+       BOOKMARK STAR
+       ============================================================================= */
+
+    .bookmark-star {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      color: var(--text-muted);
+      padding: 12px;
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .bookmark-star:hover {
+      color: #f5a623;
+      transform: scale(1.2);
+    }
+    .bookmark-star.active {
+      color: #f5a623;
+    }
+    .election-item {
+      position: relative;
+    }
+
+    /* =============================================================================
+       PRECINCT PROFILE PANEL
+       ============================================================================= */
+
+    #precinct-profile-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 420px;
+      max-width: 90vw;
+      z-index: 10002;
+      background: var(--bg-primary);
+      box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
+      transform: translateX(-100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #precinct-profile-panel.active {
+      transform: translateX(0);
+    }
+    .profile-panel-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .profile-panel-header h2 {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .profile-panel-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+    }
+
+    /* Profile content styles */
+    .precinct-profile { }
+    .profile-header { margin-bottom: 20px; }
+    .profile-header h3 {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .profile-pop {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .profile-section {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .profile-section:last-child {
+      border-bottom: none;
+    }
+    .profile-section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+    .profile-stats-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .profile-stat {
+      flex: 1;
+      min-width: 80px;
+      padding: 10px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .profile-stat-value {
+      display: block;
+      font-size: 20px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-primary);
+    }
+    .profile-stat-label {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* Stacked bar */
+    .profile-bar {
+      display: flex;
+      height: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .profile-bar-segment {
+      min-width: 2px;
+      transition: width 0.3s;
+    }
+    .profile-bar-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+    .legend-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    /* Horizontal bar list */
+    .profile-bars-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .profile-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+    }
+    .bar-label {
+      width: 120px;
+      flex-shrink: 0;
+      color: var(--text-secondary);
+      text-align: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .bar-track {
+      flex: 1;
+      height: 14px;
+      background: var(--bg-secondary);
+      border-radius: 7px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 7px;
+      transition: width 0.3s;
+    }
+    .bar-value {
+      width: 40px;
+      flex-shrink: 0;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* =============================================================================
+       PRECINCT CHAT
+       ============================================================================= */
+
+    .precinct-chat {
+      border-top: 1px solid var(--border);
+      margin-top: 16px;
+    }
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      cursor: pointer;
+      user-select: none;
+    }
+    .chat-header-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+    }
+    .chat-header-chevron {
+      font-size: 10px;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+    .chat-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 12px;
+    }
+    .chat-status {
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      line-height: 1.4;
+    }
+    .chat-status.error {
+      background: #FFF0F0;
+      color: #C62828;
+      border: 1px solid #FFCDD2;
+    }
+    .chat-status.ok {
+      background: #F0FFF0;
+      color: #2E7D32;
+      border: 1px solid #C8E6C9;
+    }
+    .chat-messages {
+      max-height: 400px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      scroll-behavior: smooth;
+    }
+    .chat-welcome {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 8px 0;
+      line-height: 1.5;
+    }
+    .chat-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .chat-suggestion-btn {
+      font-size: 14px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .chat-suggestion-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+    .chat-message-user {
+      align-self: flex-end;
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 16px 16px 4px 16px;
+      font-size: 15px;
+      max-width: 85%;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+    .chat-message-assistant {
+      align-self: flex-start;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: 16px 16px 16px 4px;
+      font-size: 15px;
+      max-width: 85%;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+    .chat-message-assistant ul {
+      margin: 4px 0;
+      padding-left: 18px;
+    }
+    .chat-message-assistant li {
+      margin-bottom: 2px;
+    }
+    .typing-cursor {
+      display: inline-block;
+      width: 6px;
+      height: 14px;
+      background: var(--text-muted);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: cursor-blink 0.8s steps(2) infinite;
+    }
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .chat-input-area {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+    }
+    .chat-input {
+      flex: 1;
+      resize: none;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 16px;
+      font-family: inherit;
+      color: var(--text-primary);
+      background: var(--bg-primary);
+      outline: none;
+      transition: var(--transition-fast);
+      line-height: 1.4;
+    }
+    .chat-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+    .chat-input::placeholder {
+      color: var(--text-muted);
+    }
+    .chat-send-btn,
+    .chat-stop-btn {
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition-fast);
+    }
+    .chat-send-btn {
+      background: var(--primary);
+      color: #fff;
+    }
+    .chat-send-btn:hover {
+      background: var(--primary-hover);
+    }
+    .chat-stop-btn {
+      background: #C62828;
+      color: #fff;
+    }
+    .chat-stop-btn:hover {
+      background: #B71C1C;
+    }
+
+    /* Dark mode overrides */
+    [data-theme="dark"] .chat-status.error {
+      background: #3E1A1A;
+      color: #EF9A9A;
+      border-color: #5E2A2A;
+    }
+    [data-theme="dark"] .chat-status.ok {
+      background: #1A3E1A;
+      color: #A5D6A7;
+      border-color: #2A5E2A;
+    }
+    [data-theme="dark"] .chat-suggestion-btn {
+      background: var(--bg-secondary);
+      border-color: var(--border);
+      color: var(--text-secondary);
+    }
+    [data-theme="dark"] .chat-suggestion-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    [data-theme="dark"] .chat-input {
+      background: var(--bg-secondary);
+      border-color: var(--border);
+      color: var(--text-primary);
+    }
+
+    /* Precinct Search Widget */
+    #precinct-search-widget {
+      position: fixed;
+      bottom: 80px;
+      left: 16px;
+      z-index: 2000;
+      width: 240px;
+      display: none; /* B7: Hidden - use Cmd+K command palette instead */
+    }
+    #precinct-search-input-map {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 14px;
+      color: var(--text-primary);
+      box-shadow: var(--shadow-md);
+      outline: none;
+      transition: var(--transition-fast);
+    }
+    #precinct-search-input-map:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+    #precinct-search-input-map::placeholder { color: var(--text-muted); }
+    .precinct-search-results {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg-primary);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 4px;
+      max-height: 200px;
+      overflow-y: auto;
+      display: none;
+    }
+    .precinct-search-results.active { display: block; }
+    .precinct-search-result {
+      padding: 10px 16px;
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--text-primary);
+      display: flex;
+      justify-content: space-between;
+      transition: var(--transition-fast);
+    }
+    .precinct-search-result:hover,
+    .precinct-search-result.selected { background: var(--bg-secondary); }
+    .precinct-search-result-meta {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    /* Officials grid in profile */
+    .profile-officials-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .official-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+    }
+    .official-label { color: var(--text-secondary); font-weight: 500; }
+    .official-value { color: var(--text-primary); text-align: right; }
+
+    /* Profile takeaways */
+    .profile-takeaways {
+      background: var(--primary-light);
+      border-radius: var(--radius-md);
+      padding: 16px !important;
+      margin-bottom: 20px;
+    }
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .takeaway-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-primary);
+    }
+    .takeaway-icon { font-size: 16px; flex-shrink: 0; }
+
+    /* Party colored stat borders */
+    .profile-stat.party-rep { border-left: 3px solid #E81B23; }
+    .profile-stat.party-mod { border-left: 3px solid #800080; }
+    .profile-stat.party-dem { border-left: 3px solid #00AEF3; }
+
+    /* Winner badge */
+    .winner-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    .winner-badge.rep { background: rgba(232,27,35,0.15); color: #E81B23; }
+    .winner-badge.dem { background: rgba(0,174,243,0.15); color: #0088CC; }
+    .winner-badge.mod { background: rgba(128,0,128,0.15); color: #800080; }
+
+    /* Party badge in profile */
+    .profile-party-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 8px;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    /* Election result line in profile */
+    .profile-election-result {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* Margin / Heatmap toggle controls */
+    .map-view-controls {
+      position: fixed;
+      top: calc(var(--header-h) + var(--inset));
+      left: var(--inset);
+      z-index: 1500;
+      display: flex;
+      gap: var(--space-sm);
+      align-items: center;
+      max-width: calc(100vw - var(--inset) * 2);
+    }
+    .map-controls-toolbar {
+      display: flex;
+      gap: var(--space-xs);
+      align-items: center;
+      padding: var(--space-xs);
+      background: var(--glass);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-md);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .map-controls-toolbar::-webkit-scrollbar { display: none; }
+    .map-toggle-btn {
+      padding: 8px var(--space-lg);
+      min-height: 40px;
+      border: none;
+      border-radius: var(--radius-full);
+      background: transparent;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition-fast);
+    }
+    .map-toggle-btn:hover { background: var(--primary-light); color: var(--primary); }
+    .map-toggle-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+    #heatmap-metric-select {
+      padding: 10px 14px;
+      min-height: 44px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 14px;
+      color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+    }
+
+    /* Competitive ranker panel */
+    #competitive-ranker-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 420px;
+      max-width: 90vw;
+      height: 100vh;
+      background: var(--bg-primary);
+      box-shadow: var(--shadow-xl);
+      z-index: 10003;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #competitive-ranker-panel.active { transform: translateX(0); }
+    .ranker-panel-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .ranker-panel-header h2 { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
+    .ranker-panel-actions { display: flex; gap: 8px; align-items: center; }
+    .ranker-export-btn {
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-primary);
+      font-size: 12px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .ranker-export-btn:hover { border-color: var(--primary); color: var(--primary); }
+    #ranker-panel-body { flex: 1; overflow-y: auto; padding: 16px; }
+
+    /* Ranker card styles */
+    .ranker-container { display: flex; flex-direction: column; gap: 12px; }
+    .ranker-header { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--text-secondary); }
+    .ranker-card {
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-primary);
+    }
+    .ranker-card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .ranker-rank { font-weight: 700; font-size: 14px; color: var(--primary); min-width: 28px; }
+    .ranker-precinct { font-weight: 600; font-size: 14px; }
+    .ranker-margin { font-size: 13px; margin-bottom: 4px; color: var(--text-secondary); }
+    .ranker-candidates { font-size: 12px; margin-bottom: 6px; }
+    .ranker-demographics { display: flex; gap: 12px; font-size: 11px; color: var(--text-muted); flex-wrap: wrap; }
+    .ranker-empty { padding: 20px; text-align: center; color: var(--text-muted); font-size: 14px; }
+
+    /* Legend styles for margin/heatmap */
+    .legend-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+    .legend-items { display: flex; flex-direction: column; gap: 4px; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .legend-swatch { width: 18px; height: 18px; border-radius: 3px; flex-shrink: 0; }
+    .legend-label { color: var(--text-secondary); }
+    .legend-gradient-container { margin-bottom: 8px; }
+    .legend-gradient-labels { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+
+    /* The header's ⌘K search button hides at ≤900px, so give touch/tablet users
+       a visible on-map search box (address + precinct). Hidden on desktop where
+       the header search and ⌘K cover it. */
+    @media (max-width: 900px) {
+      #precinct-search-widget { display: block; }
+    }
+
+    @media (max-width: 768px) {
+      #precinct-profile-panel {
+        width: 100vw;
+        max-width: 100vw;
+      }
+      .bar-label { width: 90px; }
+      #precinct-search-widget { width: calc(100vw - 32px); bottom: 90px; }
+      .takeaway-grid { grid-template-columns: 1fr; }
+      .map-view-controls { top: 72px; left: 8px; flex-wrap: wrap; gap: 4px; }
+      .map-view-controls .map-toggle-btn { padding: 8px 14px; font-size: 14px; min-height: 40px; }
+      .map-view-controls #heatmap-metric-select { padding: 8px 12px; font-size: 14px; max-width: 180px; min-height: 40px; }
+      .map-view-controls #label-toggle-btn { padding: 4px 10px; font-size: 11px; }
+      #competitive-ranker-panel { width: 100vw; max-width: 100vw; }
+      /* When the browse panel is open it covers the map full-screen, so hide the
+         floating map controls — otherwise they overlap the panel's tabs and
+         steal taps (e.g. the Swing Precincts button over the Saved tab). */
+      body:has(#election-panel.active) .map-view-controls,
+      #election-panel.active ~ .map-view-controls { display: none !important; }
+    }
+
+    /* BOUNDARY TABLE */
+    #boundary-changes-panel {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: 600px; max-width: 90vw;
+      background: var(--bg-primary); z-index: 15000;
+      box-shadow: var(--shadow-xl);
+      transform: translateX(100%); transition: transform 0.3s ease;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    #boundary-changes-panel.open { transform: translateX(0); }
+    .boundary-panel-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+    }
+    .boundary-panel-header h3 { font-size: 18px; font-weight: 600; }
+    .boundary-panel-close {
+      background: none; border: none; font-size: 24px;
+      cursor: pointer; color: var(--text-secondary);
+      padding: 4px 8px;
+    }
+    .boundary-panel-content { flex: 1; overflow-y: auto; padding: 16px 20px; }
+    .boundary-stats-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 8px; margin-bottom: 16px;
+    }
+    .boundary-stat-card {
+      text-align: center; padding: 12px 8px;
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+    }
+    .boundary-stat-card .stat-count { font-size: 24px; font-weight: 700; }
+    .boundary-stat-card .stat-label { font-size: 11px; color: var(--text-secondary); }
+    .boundary-table-filter {
+      margin-bottom: 12px; display: flex; gap: 8px; align-items: center;
+    }
+    .boundary-table-filter select {
+      padding: 6px 10px; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-size: 13px;
+    }
+    .boundary-table {
+      width: 100%; border-collapse: collapse; font-size: 13px;
+    }
+    .boundary-table th {
+      position: sticky; top: 0; background: var(--bg-secondary);
+      padding: 8px 12px; text-align: left; font-weight: 600;
+      border-bottom: 2px solid var(--border); cursor: pointer;
+    }
+    .boundary-table th:hover { background: var(--primary-light); }
+    .boundary-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
+    .boundary-table tr:nth-child(even) { background: var(--bg-secondary); }
+    .change-badge {
+      display: inline-block; padding: 2px 8px;
+      border-radius: var(--radius-full); font-size: 11px;
+      font-weight: 600; color: white;
+    }
+    .change-badge.unchanged { background: #4CAF50; }
+    .change-badge.split { background: #FF9800; }
+    .change-badge.merged { background: #2196F3; }
+    .change-badge.new_boundary { background: #FFC107; color: #333; }
+    .change-badge.sliver { background: #9E9E9E; }
+    .boundary-export-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 8px 16px; background: var(--primary); color: white;
+      border: none; border-radius: var(--radius-sm);
+      font-size: 13px; cursor: pointer; margin-top: 12px;
+    }
+    .boundary-export-btn:hover { background: var(--primary-hover); }
+    .boundary-changes-trigger {
+      display: none; margin-top: 8px; padding: 6px 12px;
+      background: var(--bg-secondary); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-size: 12px; cursor: pointer;
+    }
+    .boundary-changes-trigger.visible { display: inline-flex; align-items: center; gap: 4px; }
+    .boundary-changes-trigger:hover { background: var(--primary-light); }
+
+    /* UNIVERSE BUILDER */
+    .universe-builder {
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      margin: 12px 0; overflow: hidden;
+    }
+    .universe-builder-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 16px; background: var(--bg-secondary);
+      cursor: pointer; user-select: none;
+    }
+    .universe-builder-header h4 { font-size: 14px; font-weight: 600; }
+    .universe-builder-toggle { background: none; border: none; font-size: 18px; cursor: pointer; }
+    .universe-builder-body { padding: 16px; }
+    .universe-builder-body.collapsed { display: none; }
+    .filter-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .filter-pill {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 10px; border-radius: var(--radius-full);
+      background: var(--primary-light); color: var(--primary-dark);
+      font-size: 12px;
+    }
+    .filter-pill-remove {
+      background: none; border: none; cursor: pointer;
+      font-size: 14px; color: var(--primary); padding: 0 2px;
+      line-height: 1;
+    }
+    .filter-pill-remove:hover { color: var(--rep-color); }
+    .filter-add-row {
+      display: flex; gap: 6px; align-items: center; margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .filter-add-row select, .filter-add-row input {
+      padding: 5px 8px; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-size: 12px;
+    }
+    .filter-add-row input { width: 80px; }
+    .filter-add-btn {
+      padding: 5px 12px; background: var(--primary); color: white;
+      border: none; border-radius: var(--radius-sm);
+      font-size: 12px; cursor: pointer;
+    }
+    .filter-add-btn:hover { background: var(--primary-hover); }
+    .universe-match-count {
+      font-size: 14px; font-weight: 600; margin: 12px 0;
+    }
+    .universe-match-count .count { color: var(--primary); }
+    .universe-highlight-toggle {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; margin: 8px 0; cursor: pointer;
+    }
+    .universe-export-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 6px 12px; background: var(--bg-secondary);
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      font-size: 12px; cursor: pointer; margin-top: 8px;
+    }
+    .universe-export-btn:hover { background: var(--primary-light); }
+
+    @media (max-width: 768px) {
+      #boundary-changes-panel { width: 100vw; max-width: 100vw; }
+      .boundary-stats-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* =============================================================================
+       PRINT STYLES
+       ============================================================================= */
+
+    @media print {
+      #app-header,
+      #fab,
+      #election-panel,
+      #command-palette,
+      .theme-toggle,
+      .leaflet-control-zoom,
+      .header-actions {
+        display: none !important;
+      }
+
+      #map-container {
+        position: static !important;
+        width: 100% !important;
+        height: 80vh !important;
+      }
+
+      #info-card {
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        pointer-events: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        margin-top: 16px !important;
+        page-break-inside: avoid;
+      }
+
+      .map-legend-leaflet {
+        page-break-inside: avoid;
+      }
+
+      body::before {
+        content: "Collin County Election Data Viewer";
+        display: block;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        padding: 16px 0;
+      }
+    }
+
+    /* =============================================================================
+       MOBILE TAB BAR (A1) - Fixed bottom navigation for mobile
+       ============================================================================= */
+
+    #mobile-tab-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10001; /* ties #election-panel, wins by DOM order; stays below profile/ranker panels */
+      background: rgba(255, 253, 249, 0.97);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-top: 1px solid var(--border);
+      padding: 4px 0;
+      padding-bottom: env(safe-area-inset-bottom, 4px);
+    }
+
+    #mobile-tab-bar .tab-bar-inner {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    #mobile-tab-bar .tab-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 56px;
+      min-height: 56px;
+      padding: 6px 8px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+      border-radius: var(--radius-sm);
+      gap: 2px;
+    }
+
+    #mobile-tab-bar .tab-btn:hover,
+    #mobile-tab-bar .tab-btn.active {
+      color: var(--primary);
+    }
+
+    #mobile-tab-bar .tab-btn.active {
+      background: var(--primary-light);
+    }
+
+    #mobile-tab-bar .tab-btn svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    #mobile-tab-bar .tab-label {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    /* The labeled bottom tab bar serves phones AND tablets (iPads are the
+       primary device for this audience) — the FAB and icon-only header view
+       tabs hide with it. */
+    @media (max-width: 1024px) {
+      #mobile-tab-bar {
+        display: block;
+      }
+      #fab {
+        display: none;
+      }
+      .view-mode-buttons {
+        display: none;
+      }
+      /* Keep bottom-anchored map UI clear of the tab bar */
+      .leaflet-bottom {
+        bottom: 64px;
+      }
+      #toast-container {
+        bottom: 96px;
+      }
+    }
+
+    /* Tablet: panel as a wide drawer instead of full-screen */
+    @media (min-width: 701px) and (max-width: 1024px) {
+      #election-panel {
+        width: 560px;
+        max-width: 80vw;
+      }
+      #info-card {
+        width: 380px;
+        right: var(--inset);
+        top: calc(var(--header-h) + var(--inset));
+      }
+    }
+
+    /* Phones: the info card becomes a bottom sheet above the tab bar —
+       Google Maps' place-details pattern, with a drag-handle affordance */
+    @media (max-width: 640px) {
+      #info-card,
+      #election-panel.active ~ #info-card,
+      body:has(#election-panel.active) #info-card {
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 100%;
+        max-height: 55vh;
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        padding: var(--space-xl) var(--space-lg) calc(var(--tabbar-h) + env(safe-area-inset-bottom, 0px) + var(--space-lg));
+        transform: translateY(24px);
+        box-shadow: 0 -8px 32px rgba(28, 39, 51, 0.18);
+      }
+      #info-card.visible { transform: translateY(0); }
+      #info-card::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 36px;
+        height: 4px;
+        border-radius: var(--radius-full);
+        background: var(--border);
+      }
+    }
+
+    [data-theme="dark"] #mobile-tab-bar {
+      background: rgba(22, 27, 34, 0.97);
+    }
+
+    /* =============================================================================
+       HEADER RESTORE TAB (A3) - Shows when header is collapsed
+       ============================================================================= */
+
+    .header-restore-tab {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 20px;
+      background: rgba(255, 253, 249, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+    }
+
+    .header-restore-tab:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    #app-header.collapsed ~ .header-restore-tab {
+      display: flex;
+    }
+
+    [data-theme="dark"] .header-restore-tab {
+      background: rgba(22, 27, 34, 0.95);
+    }
+
+    /* =============================================================================
+       TOAST NOTIFICATION SYSTEM (A4)
+       ============================================================================= */
+
+    #toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      #toast-container {
+        bottom: auto;
+        top: 64px; /* Below mobile header */
+        pointer-events: none;
+      }
+    }
+
+    .toast {
+      pointer-events: auto;
+      padding: 14px 26px;
+      background: #1C2733;
+      color: #fff;
+      border-radius: var(--radius-full);
+      font-size: 16px;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      max-width: 400px;
+      text-align: center;
+      animation: toastIn 0.3s ease forwards;
+    }
+
+    .toast.fade-out {
+      animation: toastOut 0.3s ease forwards;
+    }
+
+    @keyframes toastIn {
+      from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes toastOut {
+      from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.95);
+      }
+    }
+
+    [data-theme="dark"] .toast {
+      background: #F2EEE6;
+      color: #161B22;
+    }
+
+    /* =============================================================================
+       WELCOME OVERLAY (D11) - First-use empty state
+       ============================================================================= */
+
+    #welcome-overlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 500;
+      text-align: center;
+      background: rgba(255, 253, 249, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 40px 48px;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl);
+      max-width: 420px;
+    }
+
+    #welcome-overlay .welcome-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-full);
+      font-size: 22px;
+      line-height: 1;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    #welcome-overlay .welcome-close:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    #welcome-overlay h2 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    #welcome-overlay p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    #welcome-overlay .welcome-btn {
+      padding: 14px 32px;
+      min-height: 48px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-full);
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    #welcome-overlay .welcome-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    #welcome-overlay .welcome-shortcut {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    #welcome-overlay .welcome-shortcut kbd {
+      padding: 2px 6px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 11px;
+    }
+
+    [data-theme="dark"] #welcome-overlay {
+      background: rgba(22, 27, 34, 0.95);
+    }
+
+    @media (max-width: 600px) {
+      #welcome-overlay {
+        max-width: calc(100vw - 32px);
+        padding: 20px 20px;
+        max-height: calc(100vh - 140px);
+        overflow-y: auto;
+      }
+      #welcome-overlay h2 {
+        font-size: 18px;
+        margin-bottom: 4px;
+      }
+      #welcome-overlay p {
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
+      #welcome-overlay .welcome-features {
+        display: none;
+      }
+    }
+
+    /* =============================================================================
+       ELECTION GROUP CHEVRON (B5) - Collapse indicator
+       ============================================================================= */
+
+    .group-header .group-chevron {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.2s ease;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .election-group.expanded .group-header .group-chevron {
+      transform: rotate(90deg);
+    }
+
+    /* =============================================================================
+       MAP LOADING OVERLAY (D12)
+       ============================================================================= */
+
+    #map-loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 400;
+      gap: 12px;
+    }
+
+    #map-loading-overlay .loading-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    [data-theme="dark"] #map-loading-overlay {
+      background: rgba(22, 27, 34, 0.7);
+    }
+
+    /* =============================================================================
+       MOBILE INFO CARD FIX (C9) - Hide info card when browse panel is open
+       ============================================================================= */
+
+    @media (max-width: 768px) {
+      #election-panel.active ~ #info-card,
+      body:has(#election-panel.active) #info-card {
+        display: none !important;
+      }
+    }
+
+    /* Laptop band (≤1860px): the full-size header — wordmark + view labels +
+       search pill + chevron + Collin's boundary extras — needs ~1860px to fit,
+       so anything narrower clipped the right-side actions (Search/Browse) off
+       screen. Compress to icons here; the full labelled header returns ≥1861px.
+       Keep the high-value text: county selector and the nav action labels. */
+    @media (max-width: 1860px) {
+      .header-brand-text { display: none !important; }
+      #cmd-k-trigger { min-width: 0 !important; }
+      #cmd-k-trigger kbd { display: none !important; }
+      .view-mode-btn .view-label { display: none !important; } /* icons carry the row */
+      .view-mode-btn { padding: 10px 12px !important; }
+      #toggle-header { display: none !important; }       /* niche collapse control */
+      .boundary-changes-trigger { display: none !important; } /* Collin-only extra */
+    }
+
+    /* Tablet band: tab bar handles views; collapse header extras so the
+       actions cluster never overflows */
+    @media (max-width: 1024px) {
+      #cmd-k-trigger { display: none !important; }
+      .forecast-btn-text { display: none !important; }
+      .header-btn { padding: 8px 12px !important; font-size: 13px !important; }
+      .header-brand-text { display: none !important; }
+      .view-mode-buttons { display: none !important; } /* tab bar owns views <=1024 */
+    }
+
+    /* Phone header: brand mark + county select + actions on one uncramped row */
+    @media (max-width: 640px) {
+      .header-content {
+        gap: var(--space-sm) !important;
+        padding: var(--space-sm) var(--space-md) !important;
+      }
+      .boundary-selector {
+        flex: 1 1 auto;
+        min-width: 0;
+        display: flex;
+        gap: var(--space-sm);
+      }
+      #county-select {
+        flex: 1 1 auto;
+        min-width: 0;
+        text-overflow: ellipsis;
+      }
+      #boundary-select {
+        display: none !important; /* Collin-only control; phone header keeps one select */
+      }
+      .boundary-changes-trigger { display: none !important; }
+      .map-view-controls {
+        right: var(--inset);
+        flex-wrap: wrap;
+      }
+      .map-controls-toolbar { max-width: 100%; }
+      #heatmap-metric-select { max-width: 46vw; }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* =============================================================================
+       ACCESSIBILITY - Skip Link
+       ============================================================================= */
+    
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--primary);
+      color: white;
+      padding: 8px 16px;
+      z-index: 99999;
+      text-decoration: none;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      font-weight: 500;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Focus visible for better keyboard navigation */
+    :focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    /* Inputs override outline with borders elsewhere — restore a strong ring */
+    .panel-search:focus-visible,
+    .chat-input:focus-visible,
+    .boundary-selector select:focus-visible,
+    .command-palette-input:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 1px;
+    }
+
+    /* =============================================================================
+       LOADING STATES
+       ============================================================================= */
+    
+    .loading-spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    /* Error State */
+    .error-state {
+      text-align: center;
+      padding: 32px;
+      color: var(--text-secondary);
+    }
+
+    .error-state-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .error-state-message {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .error-state-retry {
+      padding: 8px 16px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .error-state-retry:hover {
+      background: var(--primary-hover);
+    }
+
+    /* =============================================================================
+       EXPORT & ACTION BUTTONS
+       ============================================================================= */
+
+    .export-csv-btn, .export-sim-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .export-csv-btn:hover, .export-sim-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+    .export-csv-btn svg, .export-sim-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* =============================================================================
+       RACE SUMMARY CARD (G7)
+       ============================================================================= */
+
+    .race-summary-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--primary-light);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--primary);
+      margin-bottom: 16px;
+      font-size: 13px;
+      align-items: center;
+    }
+    .race-summary-card .summary-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .race-summary-card .summary-label {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .race-summary-card .summary-value {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .race-summary-card .summary-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--border);
+    }
+
+    /* =============================================================================
+       VIEW FULL PROFILE LINK (G9)
+       ============================================================================= */
+
+    .view-profile-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 12px;
+      padding: 6px 12px;
+      border: 1px solid var(--primary);
+      border-radius: var(--radius-full);
+      background: transparent;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .view-profile-link:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* =============================================================================
+       MAP VIEW CONTROLS TOOLBAR (I14)
+       ============================================================================= */
+
+    .map-controls-toolbar {
+      background: var(--bg-primary);
+      padding: 8px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      gap: 4px;
+    }
+
+    /* =============================================================================
+       LABELS TOGGLE (F4)
+       ============================================================================= */
+
+    .labels-toggle-btn {
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background: var(--bg-primary);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-fast);
+    }
+    .labels-toggle-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .labels-toggle-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* =============================================================================
+       SIMULATOR PRESETS (H13)
+       ============================================================================= */
+
+    .simulator-presets {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    .preset-btn {
+      flex: 1;
+      padding: 6px 8px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-primary);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      text-align: center;
+    }
+    .preset-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    /* =============================================================================
+       ELECTION HISTORY TABLE (E3)
+       ============================================================================= */
+
+    .election-history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .election-history-table th {
+      text-align: left;
+      padding: 6px 8px;
+      border-bottom: 2px solid var(--border);
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .election-history-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+    .election-history-table tr:hover td {
+      background: var(--bg-secondary);
+    }
+    .election-history-table .party-rep { color: #E81B23; }
+    .election-history-table .party-dem { color: #00AEF3; }
+
+    /* =============================================================================
+       DISTRICT INFO IN INFO CARD (G8)
+       ============================================================================= */
+
+    .info-card-districts {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+    .district-tag {
+      display: inline-flex;
+      padding: 3px 8px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* =============================================================================
+       HOME BUTTON (Gap 1 - Ch.7)
+       ============================================================================= */
+    .leaflet-control-home a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      color: var(--text-primary, #333);
+      background: var(--bg-primary, #fff);
+    }
+    .leaflet-control-home a:hover {
+      background: var(--bg-secondary, #f5f5f5);
+    }
+    [data-theme="dark"] .leaflet-control-home a {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      border-color: var(--border);
+    }
+
+    /* =============================================================================
+       TOOLTIP VIEWPORT AWARENESS (Gap 2 - Ch.5)
+       ============================================================================= */
+    .big-tooltip {
+      max-width: 280px;
+      word-wrap: break-word;
+    }
+    @media (max-width: 600px) {
+      .big-tooltip {
+        max-width: 200px;
+        font-size: 11px;
+      }
+    }
+
+    /* =============================================================================
+       FILTER CHIPS HORIZONTAL SCROLL (Gap 3 - Ch.4/Ch.5)
+       ============================================================================= */
+    @media (max-width: 768px) {
+      .filter-chips {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        mask-image: linear-gradient(to right, black 85%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+      }
+      .filter-chips::-webkit-scrollbar { display: none; }
+      .filter-chip { flex-shrink: 0; }
+      .category-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .category-tabs::-webkit-scrollbar { display: none; }
+    }
+
+    /* =============================================================================
+       PANEL TABS (Gap 5 - Ch.7)
+       ============================================================================= */
+    .panel-tabs {
+      display: flex;
+      gap: var(--space-xs);
+      border-bottom: 1px solid var(--border);
+      padding: 0 var(--space-xl);
+      flex-shrink: 0;
+    }
+    .panel-tab {
+      padding: 14px 18px;
+      border: none;
+      background: transparent;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: var(--transition-fast);
+    }
+    .panel-tab:hover {
+      color: var(--text-primary);
+    }
+    .panel-tab.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    /* Forecast is a power tool — keep it available but visually quieter */
+    .panel-tab[data-panel-tab="forecast"]:not(.active) {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .panel-tab-content {
+      display: none;
+    }
+    .panel-tab-content.active {
+      display: block;
+    }
+
+    /* =============================================================================
+       BREADCRUMB NAVIGATION (Gap 6 - Ch.7)
+       ============================================================================= */
+    .breadcrumb-bar {
+      position: fixed;
+      top: calc(var(--header-h) + var(--inset) + 48px + var(--space-sm));
+      left: var(--inset);
+      z-index: 1500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 14px;
+      background: rgba(255, 253, 249, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: var(--transition-fast);
+    }
+    .breadcrumb-item {
+      color: var(--text-secondary);
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+    }
+    .breadcrumb-item:hover {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+    .breadcrumb-item.active {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .breadcrumb-sep {
+      color: var(--text-muted);
+      font-size: 10px;
+      user-select: none;
+    }
+    [data-theme="dark"] .breadcrumb-bar {
+      background: rgba(22, 27, 34, 0.92);
+    }
+    #app-header.collapsed ~ .breadcrumb-bar,
+    #app-header.collapsed + * + .breadcrumb-bar {
+      top: 8px;
+    }
+    @media (max-width: 600px) {
+      .breadcrumb-bar {
+        display: none;
+      }
+    }
+
+    /* =============================================================================
+       WELCOME OVERLAY FEATURE CARDS (Gap 7 - Ch.1)
+       ============================================================================= */
+    .welcome-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .welcome-feature {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      background: var(--bg-secondary);
+    }
+    .welcome-feature:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .welcome-feature-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+    }
+    .welcome-feature-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .welcome-feature-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.3;
+    }
+    @media (max-width: 480px) {
+      .welcome-features {
+        grid-template-columns: 1fr;
+      }
+      #welcome-overlay {
+        max-width: calc(100vw - 32px);
+        padding: 28px 20px;
+      }
+    }
+
+    /* =============================================================================
+       MINIMAP OVERRIDE (Gap 8 - Ch.7)
+       ============================================================================= */
+    .leaflet-control-minimap {
+      border: 2px solid var(--border, #ddd) !important;
+      border-radius: var(--radius-sm, 4px) !important;
+      box-shadow: var(--shadow-md) !important;
+    }
+    [data-theme="dark"] .leaflet-control-minimap {
+      border-color: var(--border) !important;
+    }
+    @media (max-width: 480px) {
+      .leaflet-control-minimap { display: none !important; }
+    }
+
+    /* =============================================================================
+       BASEMAP TOGGLE (Gap 9 - Ch.3)
+       ============================================================================= */
+    .leaflet-control-basemap {
+      position: relative;
+    }
+    .basemap-toggle-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      color: var(--text-primary, #333);
+      background: var(--bg-primary, #fff);
+    }
+    .basemap-toggle-btn:hover {
+      background: var(--bg-secondary, #f5f5f5);
+    }
+    .basemap-popover {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 4px;
+      background: var(--bg-primary, #fff);
+      border: 1px solid var(--border, #ddd);
+      border-radius: var(--radius-sm, 4px);
+      box-shadow: var(--shadow-md);
+      min-width: 120px;
+      z-index: 1000;
+      overflow: hidden;
+    }
+    .basemap-option {
+      display: block;
+      width: 100%;
+      padding: 8px 14px;
+      border: none;
+      background: transparent;
+      text-align: left;
+      font-size: 13px;
+      color: var(--text-primary, #333);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .basemap-option:hover {
+      background: var(--bg-secondary, #f5f5f5);
+    }
+    .basemap-option.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    [data-theme="dark"] .basemap-toggle-btn {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .basemap-popover {
+      background: var(--bg-primary);
+      border-color: var(--border);
+    }
+    [data-theme="dark"] .basemap-option {
+      color: var(--text-primary);
+    }
+
+    /* ONBOARDING */
+    .onboarding-backdrop {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 20000; background: var(--bg-overlay);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .onboarding-backdrop.visible { opacity: 1; }
+    .onboarding-modal {
+      background: var(--bg-primary); border-radius: var(--radius-lg);
+      max-width: 520px; width: 90%; padding: 32px;
+      box-shadow: var(--shadow-xl);
+      transform: translateY(20px); transition: transform 0.3s ease;
+    }
+    .onboarding-backdrop.visible .onboarding-modal { transform: translateY(0); }
+    .onboarding-title { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .onboarding-subtitle { color: var(--text-secondary); margin-bottom: 24px; font-size: 14px; }
+    .onboarding-cards { display: flex; flex-direction: column; gap: 12px; }
+    .onboarding-card {
+      display: flex; align-items: center; gap: 16px; padding: 16px;
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      cursor: pointer; transition: var(--transition-fast);
+    }
+    .onboarding-card:hover { background: var(--primary-light); border-color: var(--primary); }
+    .onboarding-card-icon { flex-shrink: 0; width: 40px; height: 40px; color: var(--primary); }
+    .onboarding-card-icon svg { width: 100%; height: 100%; }
+    .onboarding-card-text h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .onboarding-card-text p { font-size: 13px; color: var(--text-secondary); }
+    .onboarding-dismiss {
+      display: block; text-align: center; margin-top: 20px;
+      color: var(--text-muted); font-size: 13px; cursor: pointer;
+      background: none; border: none; text-decoration: underline;
+    }
+    .onboarding-dismiss:hover { color: var(--text-secondary); }
+
+    /* TREND ARROWS */
+    .trend-arrow-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px; border-radius: var(--radius-full);
+      font-size: 13px; font-weight: 500;
+    }
+    .trend-arrow-badge.dem { background: #E3F2FD; color: #1565C0; }
+    .trend-arrow-badge.rep { background: #FFEBEE; color: #C62828; }
+    .trend-arrow-badge.stable { background: #F5F5F5; color: #757575; }
+    .trend-arrow-icon { font-size: 16px; font-weight: 700; }
+
+    /* SIMULATOR ENHANCEMENTS */
+    .simulator-presets {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .preset-btn {
+      padding: 5px 12px; border-radius: var(--radius-full);
+      border: 1px solid var(--border); background: var(--bg-primary);
+      font-size: 13px; cursor: pointer; transition: var(--transition-fast);
+      white-space: nowrap;
+    }
+    .preset-btn:hover { background: var(--primary-light); border-color: var(--primary); }
+    .preset-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+    .flipped-list {
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      max-height: 300px; overflow-y: auto; margin-top: 8px;
+    }
+    .flipped-list-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .flipped-list-item:last-child { border-bottom: none; }
+    .flipped-list-item.hidden { display: none; }
+    .flipped-precinct-code { font-weight: 600; min-width: 50px; }
+    .flipped-arrow { color: var(--text-muted); }
+    .flipped-list-toggle {
+      display: block; padding: 8px; text-align: center;
+      color: var(--primary); font-size: 13px; cursor: pointer;
+      border: none; background: none; width: 100%;
+    }
+    .flipped-list-toggle:hover { text-decoration: underline; }
+    .reverse-calculator {
+      margin-top: 16px; padding: 16px;
+      border: 2px dashed var(--border); border-radius: var(--radius-md);
+    }
+    .reverse-calculator h4 { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+    .reverse-calc-row {
+      display: flex; gap: 8px; align-items: center; margin-bottom: 12px;
+    }
+    .reverse-party-select {
+      padding: 6px 10px; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-size: 13px;
+    }
+    .reverse-calculate-btn {
+      padding: 8px 16px; background: var(--primary); color: white;
+      border: none; border-radius: var(--radius-sm);
+      font-size: 13px; font-weight: 500; cursor: pointer;
+    }
+    .reverse-calculate-btn:hover { background: var(--primary-hover); }
+    .reverse-result {
+      margin-top: 12px; padding: 16px; border-radius: var(--radius-sm);
+      text-align: center;
+    }
+    .reverse-result .result-number { font-size: 28px; font-weight: 700; }
+    .reverse-result .result-text { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+    .reverse-result .result-details { font-size: 12px; color: var(--text-muted); margin-top: 8px; display: flex; gap: 16px; justify-content: center; }
+    .reverse-result.achievable { background: #E8F5E9; }
+    .reverse-result.achievable .result-number { color: #2E7D32; }
+    .reverse-result.not-achievable { background: #FFEBEE; }
+    .reverse-result.not-achievable .result-number { color: #C62828; }
+
+    /* VOTE SHIFT */
+    .vote-shift-panel {
+      background: var(--bg-primary); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 16px; margin: 12px 0;
+    }
+    .vote-shift-panel h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+    .shift-filter-row {
+      display: flex; gap: 12px; align-items: center; margin: 12px 0;
+      flex-wrap: wrap;
+    }
+    .shift-filter-row label { font-size: 13px; color: var(--text-secondary); white-space: nowrap; }
+    .shift-magnitude-slider { flex: 1; min-width: 100px; accent-color: var(--primary); }
+    .shift-magnitude-value { font-size: 13px; font-weight: 600; min-width: 40px; }
+    .shift-direction-select {
+      padding: 4px 8px; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-size: 13px;
+    }
+    .shift-summary-bar {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 8px; margin: 12px 0; padding: 12px;
+      background: var(--bg-secondary); border-radius: var(--radius-sm);
+    }
+    .shift-summary-stat { text-align: center; }
+    .shift-summary-stat .value { font-size: 18px; font-weight: 700; }
+    .shift-summary-stat .label { font-size: 11px; color: var(--text-secondary); }
+    .shift-leaderboard { max-height: 400px; overflow-y: auto; margin-top: 12px; }
+    .shift-leaderboard-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 8px; border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .shift-leaderboard-item:last-child { border-bottom: none; }
+    .shift-precinct-code { font-weight: 600; min-width: 50px; }
+    .shift-bar-container { flex: 1; height: 16px; background: #f0f0f0; border-radius: 8px; overflow: hidden; position: relative; }
+    .shift-bar {
+      height: 100%; border-radius: 8px; min-width: 2px;
+      transition: width 0.3s ease;
+    }
+    .shift-bar.dem { background: var(--dem-color); }
+    .shift-bar.rep { background: var(--rep-color); }
+    .shift-delta-value { min-width: 60px; text-align: right; font-weight: 500; font-size: 12px; }
+    .shift-direction-badge {
+      display: inline-block; padding: 2px 6px;
+      border-radius: var(--radius-full); font-size: 11px; font-weight: 600;
+    }
+    .shift-direction-badge.dem { background: #E3F2FD; color: #1565C0; }
+    .shift-direction-badge.rep { background: #FFEBEE; color: #C62828; }
+    .shift-export-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 6px 12px; background: var(--bg-secondary);
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      font-size: 12px; cursor: pointer; margin-top: 8px;
+    }
+    .shift-export-btn:hover { background: var(--primary-light); }
+    .shift-no-data { font-size: 13px; color: var(--text-secondary); font-style: italic; }
+  </style>
+</head>
+
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#map" class="skip-link">Skip to map</a>
+
+  <!-- Minimalist Collapsible Header -->
+  <header id="app-header" role="banner">
+    <div class="header-content">
+      <div class="header-brand">
+        <div class="header-brand-icon">TX</div>
+        <span class="header-brand-text">Texas Elections</span>
+      </div>
+
+      <!-- County + Boundary Selectors -->
+      <div class="boundary-selector">
+        <div id="county-combobox" class="county-combobox">
+          <input type="text" id="county-search-input" class="county-search-input" placeholder="Find your county…"
+                 autocomplete="off" role="combobox" aria-expanded="false" aria-controls="county-combobox-list"
+                 aria-label="Find your county or district" />
+          <div id="county-combobox-list" class="county-combobox-list" role="listbox" aria-label="Counties and districts"></div>
+          <!-- Native select kept as the source of truth (programmatic switches,
+               deep links, and tests drive it); the combobox above is the visible UI. -->
+          <select id="county-select" class="county-select-native" aria-hidden="true" tabindex="-1">
+            <option value="collin">Collin County</option>
+          </select>
+        </div>
+        <select id="boundary-select" aria-label="Precinct boundary set">
+          <option value="original">2024 Boundaries (252)</option>
+          <option value="2026">2026 Boundaries (273)</option>
+        </select>
+        <button class="boundary-changes-trigger" id="boundary-changes-trigger" title="View all boundary changes">View Changes</button>
+      </div>
+
+      <!-- View Mode Buttons -->
+      <nav class="view-mode-buttons" role="tablist" aria-label="View selection">
+        <button class="view-mode-btn active" data-view="demographics" role="tab" aria-selected="true" aria-label="Demographics view">
+          <span class="view-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></span>
+          <span class="view-label">Demographics</span>
+        </button>
+        <button class="view-mode-btn" data-view="election" role="tab" aria-selected="false" aria-label="Results view">
+          <span class="view-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+          <span class="view-label">Results</span>
+        </button>
+        <button class="view-mode-btn" data-view="turnout" role="tab" aria-selected="false" aria-label="Turnout view">
+          <span class="view-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+          <span class="view-label">Turnout</span>
+        </button>
+      </nav>
+      
+      <div class="header-actions">
+        <!-- Single, always-visible hub to reach every page/feature at any width.
+             Native <details> = built-in open/close + keyboard access, no JS to
+             toggle. Replaces the three separate header links that were cramped on
+             laptops and easy to miss on phones. -->
+        <details id="app-menu" class="app-menu">
+          <summary class="header-btn app-menu-trigger" aria-haspopup="true" aria-label="Open menu of all pages and features">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <span class="app-menu-label">Menu</span>
+          </summary>
+          <div class="app-menu-panel" role="menu" aria-label="All pages and features">
+            <div class="app-menu-heading">Go to</div>
+            <a href="index.html" class="app-menu-item" role="menuitem" aria-current="page"><span class="app-menu-ico" aria-hidden="true">🗺️</span><span>Map</span></a>
+            <a href="elections.html" class="app-menu-item" role="menuitem"><span class="app-menu-ico" aria-hidden="true">🗳️</span><span>Elections catalog</span></a>
+            <a href="forecast.html" class="app-menu-item" role="menuitem"><span class="app-menu-ico" aria-hidden="true">📊</span><span>Forecast tool</span></a>
+            <a href="precinct.html" class="app-menu-item" role="menuitem"><span class="app-menu-ico" aria-hidden="true">🔎</span><span>Precinct Lookup</span></a>
+            <div class="app-menu-heading">On this map</div>
+            <button type="button" class="app-menu-item" role="menuitem" data-app-menu-action="browse"><span class="app-menu-ico" aria-hidden="true">🗳️</span><span>Browse elections</span></button>
+            <button type="button" class="app-menu-item" role="menuitem" data-app-menu-action="search"><span class="app-menu-ico" aria-hidden="true">⌘</span><span>Search (⌘K)</span></button>
+          </div>
+        </details>
+        <button class="header-btn" id="logout-btn" style="display:none;">Sign Out</button>
+        <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+        <button class="header-btn" id="toggle-header" title="Hide header" aria-label="Hide header"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+        <button class="header-btn" id="cmd-k-trigger" style="display:flex;align-items:center;gap:6px;min-width:110px;justify-content:space-between;"><span style="display:flex;align-items:center;gap:6px;color:var(--text-muted);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search...</span><kbd style="font-size:11px;padding:2px 6px;background:var(--bg-secondary);border-radius:4px;border:1px solid var(--border);color:var(--text-muted);">⌘K</kbd></button>
+        <button class="header-btn primary" id="open-panel-btn">Browse</button>
+        <button class="header-btn forecast-btn" id="forecast-btn" style="opacity: 0.4; pointer-events: none;" title="Select an election first to enable forecasting">
+          <span class="forecast-btn-icon">📊</span>
+          <span class="forecast-btn-text">Forecast</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Header Restore Tab (A3) - Shows when header is collapsed -->
+  <button id="show-header-tab" class="header-restore-tab" aria-label="Show header">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+
+  <!-- 2026 Boundary Disclaimer Banner -->
+  <div id="boundary-disclaimer" class="boundary-disclaimer" style="display:none;" role="status">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0">
+      <circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+    <span>
+      <strong>2026 boundaries</strong> &mdash; Election data remapped using voter registration file. Dashed borders indicate precincts with boundary changes.
+    </span>
+    <button id="dismiss-boundary-disclaimer" aria-label="Dismiss" style="margin-left:auto;background:none;border:none;cursor:pointer;color:inherit;font-size:18px;padding:0 4px;">&times;</button>
+  </div>
+
+  <!-- Placeholder-county banner: shown for the 253 counties with no data yet -->
+  <div id="county-placeholder-banner" class="boundary-disclaimer" style="display:none;" role="status">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0">
+      <circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+    <span>
+      <strong>Coming soon</strong> &mdash; precinct results for this county aren't available
+      yet. The shape below is the county border, not its precincts. Try another county from
+      the menu above.
+    </span>
+  </div>
+
+  <!-- Breadcrumb Bar (Gap 6 - Ch.7) -->
+  <nav id="breadcrumb-bar" class="breadcrumb-bar" aria-label="Current context" style="display:none;">
+    <span class="breadcrumb-item active" data-crumb="view">Demographics</span>
+  </nav>
+
+  <!-- Command Palette (Cmd+K) -->
+  <div id="command-palette" role="dialog" aria-label="Command palette" aria-hidden="true">
+    <div class="command-palette-container">
+      <input
+        type="text"
+        class="command-palette-input"
+        placeholder="Search addresses, elections, precincts, views, or commands..."
+        id="command-input"
+        autocomplete="off"
+      />
+      <div class="command-palette-results" id="command-results">
+        <!-- Populated dynamically -->
+        <div class="command-item selected">
+          <div class="command-item-icon">🔍</div>
+          <div class="command-item-content">
+            <div class="command-item-title">Search Elections</div>
+            <div class="command-item-subtitle">Find any race by name</div>
+          </div>
+          <div class="command-item-shortcut">⌘K</div>
+        </div>
+        <div class="command-item">
+          <div class="command-item-icon">📊</div>
+          <div class="command-item-content">
+            <div class="command-item-title">Demographics View</div>
+            <div class="command-item-subtitle">View demographic data</div>
+          </div>
+        </div>
+        <div class="command-item">
+          <div class="command-item-icon">🗳️</div>
+          <div class="command-item-content">
+            <div class="command-item-title">Election Forecast</div>
+            <div class="command-item-subtitle">Browse election results</div>
+          </div>
+        </div>
+        <div class="command-item">
+          <div class="command-item-icon">📈</div>
+          <div class="command-item-content">
+            <div class="command-item-title">Turnout Analysis</div>
+            <div class="command-item-subtitle">Analyze voter turnout</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar content panel (used by demographics, turnout, election views) -->
+  <div id="sidebar-content" role="complementary" aria-label="View details"></div>
+
+  <!-- Full-Screen Map -->
+  <div id="map-container">
+    <div id="map" role="application" aria-label="Interactive precinct map"></div>
+    <!-- Topline result headline: the "so what" for the selected race, always
+         visible over the map. Hidden until an election is selected. -->
+    <div id="result-topline" role="status" aria-live="polite" hidden></div>
+  </div>
+
+  <!-- Floating Action Button (A2: menu icon, swaps to X when active) -->
+  <button id="fab" aria-label="Browse elections" title="Browse Elections">
+    <svg id="fab-icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="4" y1="7" x2="20" y2="7"></line>
+      <line x1="4" y1="12" x2="20" y2="12"></line>
+      <line x1="4" y1="17" x2="20" y2="17"></line>
+    </svg>
+    <svg id="fab-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+
+  <!-- Election Browser Panel (Slides from Right) -->
+  <aside id="election-panel" role="complementary" aria-label="Election browser" aria-hidden="true">
+    <div class="panel-header">
+      <h2 class="panel-title">Browse Elections</h2>
+      <button class="panel-close" id="close-panel" aria-label="Close panel">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <!-- Gap 5: Panel Tabs -->
+    <div class="panel-tabs" role="tablist" id="election-panel-tabs">
+      <button class="panel-tab active" data-panel-tab="browse" role="tab" aria-selected="true">Browse</button>
+      <button class="panel-tab" data-panel-tab="forecast" role="tab" aria-selected="false">Forecast</button>
+      <button class="panel-tab" data-panel-tab="saved" role="tab" aria-selected="false">Saved</button>
+    </div>
+    <div class="panel-content" id="panel-content-area">
+      <!-- Populated dynamically by renderElectionPanel -->
+    </div>
+  </aside>
+
+  <!-- Map View Controls (Margin toggle, Heatmap selector) -->
+  <div class="map-view-controls" id="map-view-controls" style="display:none;"></div>
+
+  <!-- Competitive Ranker Panel -->
+  <aside id="competitive-ranker-panel" role="complementary" aria-label="Competitive precinct ranking">
+    <div class="ranker-panel-header">
+      <h2>Swing Precincts</h2>
+      <div class="ranker-panel-actions">
+        <button class="ranker-export-btn" id="export-ranker-csv" title="Export to CSV">Export CSV</button>
+        <button class="panel-close" id="close-ranker-panel" aria-label="Close ranking">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="ranker-panel-body"></div>
+  </aside>
+
+  <!-- Boundary Changes Panel -->
+  <aside id="boundary-changes-panel" role="complementary" aria-label="Boundary changes summary">
+    <div class="boundary-panel-header">
+      <h3>Boundary Changes</h3>
+      <button class="boundary-panel-close" id="close-boundary-panel" aria-label="Close boundary changes">&times;</button>
+    </div>
+    <div class="boundary-panel-content" id="boundary-panel-content"></div>
+  </aside>
+
+  <!-- Precinct Search Widget -->
+  <div id="precinct-search-widget">
+    <input type="text" id="precinct-search-input-map" placeholder="Search address or precinct #..." autocomplete="off" aria-label="Search by address, place, or precinct number" />
+    <div class="precinct-search-results" id="precinct-search-results"></div>
+  </div>
+
+  <!-- Precinct Profile Panel (Slides from Left) -->
+  <aside id="precinct-profile-panel" role="complementary" aria-label="Precinct census profile" aria-hidden="true">
+    <div class="profile-panel-header">
+      <h2>Precinct Profile</h2>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button class="export-csv-btn" id="export-precinct-csv" title="Export precinct data">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export
+        </button>
+        <button class="panel-close" id="close-profile-panel" aria-label="Close profile">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="profile-panel-body" id="profile-panel-body">
+      <!-- Populated dynamically by precinctProfile.js -->
+    </div>
+  </aside>
+
+  <!-- Floating Info Card -->
+  <div id="info-card" role="region" aria-label="Selected precinct information">
+    <button class="info-card-close" id="info-card-close" title="Close" aria-label="Close info card">&times;</button>
+    <div class="info-card-title"></div>
+    <div class="info-card-meta"></div>
+    <div class="info-card-stats"></div>
+    <div class="info-card-demographics" aria-label="Precinct demographics"></div>
+  </div>
+
+  <!-- Mobile Tab Bar (A1) -->
+  <nav id="mobile-tab-bar" role="tablist" aria-label="Mobile navigation">
+    <div class="tab-bar-inner">
+      <button class="tab-btn active" data-view="demographics" role="tab" aria-selected="true" aria-label="Demographics">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+        <span class="tab-label">Voters</span>
+      </button>
+      <button class="tab-btn" data-view="election" role="tab" aria-selected="false" aria-label="Results">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        <span class="tab-label">Results</span>
+      </button>
+      <button class="tab-btn" data-view="turnout" role="tab" aria-selected="false" aria-label="Turnout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <span class="tab-label">Turnout</span>
+      </button>
+      <a class="tab-btn" href="precinct.html" role="tab" aria-label="Precinct Lookup" style="text-decoration:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span class="tab-label">Lookup</span>
+      </a>
+      <button class="tab-btn" data-action="browse" role="tab" aria-selected="false" aria-label="Browse elections">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        <span class="tab-label">Browse</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Welcome Overlay (D11 + Gap 7) - Enhanced onboarding -->
+  <div id="welcome-overlay" role="dialog" aria-modal="false" aria-labelledby="welcome-title">
+    <button class="welcome-close" id="welcome-close-btn" title="Dismiss" aria-label="Dismiss welcome message">&times;</button>
+    <h2 id="welcome-title">Welcome to Texas Elections</h2>
+    <p>See how every precinct voted — all 254 Texas counties. Start by finding your county, or explore results, turnout, and demographics below.</p>
+    <div class="welcome-features">
+      <div class="welcome-feature" data-view="demographics">
+        <div class="welcome-feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+        </div>
+        <div class="welcome-feature-title">Demographics</div>
+        <div class="welcome-feature-desc">Who lives and votes in each precinct</div>
+      </div>
+      <div class="welcome-feature" data-view="election">
+        <div class="welcome-feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <div class="welcome-feature-title">Results</div>
+        <div class="welcome-feature-desc">Results for past races, precinct by precinct</div>
+      </div>
+      <div class="welcome-feature" data-view="turnout">
+        <div class="welcome-feature-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="welcome-feature-title">Turnout</div>
+        <div class="welcome-feature-desc">How many people voted, and where</div>
+      </div>
+    </div>
+    <button class="welcome-btn" id="welcome-browse-btn">Find my county</button>
+    <div class="welcome-shortcut" style="display: none;">or press <kbd>Cmd</kbd>+<kbd>K</kbd> to search</div>
+  </div>
+
+  <!-- Toast Container (A4) -->
+  <div id="toast-container"></div>
+
+  <!-- External Libraries -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Gap 8: Minimap for spatial context -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-minimap@3.6.1/dist/Control.MiniMap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-minimap@3.6.1/dist/Control.MiniMap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
+  <!-- Import Map for Cognito SDK -->
+  <script type="importmap">
+  {
+    "imports": {
+      "amazon-cognito-identity-js": "https://esm.sh/amazon-cognito-identity-js@6.3.12"
+    }
+  }
+  </script>
+
+  <!-- App Logic -->
+  <!-- App logic lives in js/app/ (entry: main.js). See docs/ADDING_FEATURES.md. -->
+  <link rel="modulepreload" href="./js/app/state.js" />
+  <link rel="modulepreload" href="./js/app/uiChrome.js" />
+  <link rel="modulepreload" href="./js/app/mapRendering.js" />
+  <link rel="modulepreload" href="./js/app/precinctPanel.js" />
+  <link rel="modulepreload" href="./js/app/electionPanel.js" />
+  <link rel="modulepreload" href="./js/app/forecast.js" />
+  <script type="module" src="./js/app/main.js"></script>
+</body>
+</html>

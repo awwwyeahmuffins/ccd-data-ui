@@ -485,6 +485,15 @@ function renderCountyList(filter) {
   list.innerHTML = items || `<div class="cc-county-opt" style="cursor:default;color:var(--ink-faint)">No match</div>`;
 }
 
+// One source of truth for "what county am I looking at" — drives the topbar
+// label AND the browser tab title, so branding follows the active county
+// instead of being hardcoded to Collin.
+function applyCountyBranding(name) {
+  cc.countyName = name;
+  $("cc-county-name").textContent = `${name} County`;
+  document.title = `${name} County — Precinct Command`;
+}
+
 async function switchCounty(slug, name) {
   showLoading(true);
   closeCountyMenu();
@@ -492,9 +501,8 @@ async function switchCounty(slug, name) {
     await setActiveCounty(slug);
     const { geojson } = await loadAllData();
     cc.geojson = geojson;
-    cc.countyName = name;
     cc.selectedCode = null;
-    $("cc-county-name").textContent = `${name} County`;
+    applyCountyBranding(name);
     // rebuild map layer
     if (cc.layer) { cc.layer.remove(); }
     cc.layer = L.geoJSON(geojson, { style: baseStyle, onEachFeature: attachFeature }).addTo(cc.map);
@@ -551,7 +559,11 @@ function wireUI() {
   $("cc-county-search").addEventListener("input", (e) => renderCountyList(e.target.value));
   $("cc-county-list").addEventListener("click", (e) => {
     const opt = e.target.closest(".cc-county-opt");
-    if (opt && opt.dataset.slug) switchCounty(opt.dataset.slug, opt.textContent.trim().replace(/\s+\d+$/, "").trim());
+    if (!opt || !opt.dataset.slug) return;
+    // Resolve the display name from the registry — never scrape it off the
+    // option text (which concatenates the FIPS code badge).
+    const entry = registryCache.find((c) => c.slug === opt.dataset.slug);
+    switchCounty(opt.dataset.slug, entry ? entry.name : opt.dataset.slug);
   });
   document.addEventListener("click", (e) => {
     const sel = document.querySelector(".cc-county-select");
@@ -584,6 +596,10 @@ async function init() {
   showLoading(true);
   try {
     await populateCountyMenu();
+    // Brand to whatever county is actually active (defaults to Collin, but
+    // honours a deep-linked / remembered county) instead of hardcoding it.
+    const activeEntry = registryCache.find((c) => c.slug === getActiveCounty());
+    applyCountyBranding(activeEntry ? activeEntry.name : "Collin");
     const { geojson } = await loadAllData();
     cc.geojson = geojson;
     buildMap(geojson);

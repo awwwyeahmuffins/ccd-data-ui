@@ -58,7 +58,7 @@ test.describe('Map page locate control', () => {
   test('locate button selects the precinct on the map', async ({ page, context }) => {
     await context.grantPermissions(['geolocation']);
     await context.setGeolocation({ latitude: 33.1972, longitude: -96.6398 });
-    await page.goto('/index.html');
+    await page.goto('/classic.html');
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
     await page.keyboard.press('Escape'); // dismiss welcome
 

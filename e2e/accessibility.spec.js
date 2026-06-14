@@ -5,7 +5,7 @@ test.setTimeout(60000);
 
 test.describe('Accessibility', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/index.html');
+    await page.goto('/classic.html');
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 
@@ -115,7 +115,7 @@ test.describe('Accessibility', () => {
 
 test.describe('Color Contrast', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/index.html');
+    await page.goto('/classic.html');
     await page.waitForSelector('#map');
   });
 

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forecast — Texas Elections</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* styles.css pins html/body to a flex full-viewport layout for the map
+       app (overflow hidden, no document scroll) — restore normal page flow */
+    html, body {
+      display: block;
+      height: auto;
+      width: auto;
+      overflow: auto;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: var(--color-bg-secondary);
+      color: var(--color-text-primary);
+      font-size: 17px;
+    }
+    .page-header {
+      background: var(--color-bg-primary);
+      border-bottom: 1px solid var(--color-border);
+      padding: 14px 24px;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+    .brand-icon {
+      background: linear-gradient(150deg, #F5B312, #C68A0C); color: #2A1D02; font-weight: 800;
+      border-radius: 10px; width: 34px; height: 34px; display: grid; place-items: center; font-size: 15px;
+      font-family: var(--font-body); letter-spacing: -.5px;
+    }
+    .brand-text { font-family: var(--font-display); font-weight: 700; font-size: 20px; }
+    .site-nav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
+    .site-nav a {
+      display: inline-flex; align-items: center; gap: 7px;
+      text-decoration: none; color: var(--color-text-secondary);
+      padding: 8px 14px; border-radius: 8px; font-weight: 600; font-size: 15px;
+    }
+    .site-nav a svg { width: 16px; height: 16px; stroke-width: 1.8; }
+    .site-nav a:hover { background: var(--color-bg-tertiary); }
+    .site-nav a.active { background: var(--color-primary); color: #fff; }
+
+    .page-main { max-width: 1060px; margin: 0 auto; padding: 28px 20px 80px; }
+    .page-title { font-family: var(--font-display); font-size: 32px; margin: 0 0 6px; }
+    .page-sub { color: var(--color-text-secondary); margin: 0 0 28px; font-size: 17px; max-width: 720px; }
+
+    .step-card {
+      background: var(--color-bg-primary); border: 1px solid var(--color-border);
+      border-radius: 14px; padding: 22px 24px; margin-bottom: 22px;
+    }
+    .step-title { font-family: var(--font-display); font-size: 21px; margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
+    .step-num {
+      background: var(--color-primary); color: #fff; border-radius: 50%;
+      width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;
+      font-size: 15px; font-family: var(--font-body); font-weight: 700; flex-shrink: 0;
+    }
+    .picker-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .picker-row label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; color: var(--color-text-secondary); }
+    .picker-row select {
+      font-size: 16px; padding: 10px 12px; border-radius: 8px; min-height: 44px;
+      border: 1px solid var(--color-border); background: #fff; min-width: 260px; max-width: 100%;
+    }
+    .picker-col { flex: 1 1 280px; min-width: 0; }
+
+    .preset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; margin-bottom: 18px; }
+    .preset-btn {
+      border: 1.5px solid var(--color-border); background: #fff; border-radius: 10px;
+      padding: 12px 14px; text-align: left; cursor: pointer; font-family: var(--font-body);
+      font-size: 15px; min-height: 44px; transition: border-color .12s, background .12s;
+    }
+    .preset-btn:hover { border-color: var(--color-primary); }
+    .preset-btn.active { border-color: var(--color-primary); background: #eef4fc; }
+    .preset-name { font-weight: 700; display: block; margin-bottom: 2px; }
+    .preset-desc { color: var(--color-text-muted); font-size: 13px; line-height: 1.35; display: block; }
+
+    .slider-block { margin-bottom: 14px; }
+    .slider-label { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 4px; }
+    .slider-label .who { font-weight: 600; }
+    .slider-label .meaning { color: var(--color-text-muted); }
+    .slider-block input[type=range] { width: 100%; accent-color: var(--color-primary); height: 28px; }
+
+    .outcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 760px) { .outcome-grid { grid-template-columns: 1fr; } }
+    .outcome-col {
+      border: 1px solid var(--color-border); border-radius: 12px; padding: 16px 18px; background: #fff;
+    }
+    .outcome-col h3 { margin: 0 0 4px; font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--color-text-muted); font-family: var(--font-body); }
+    .outcome-winner { font-family: var(--font-display); font-size: 22px; margin: 0 0 12px; }
+    .cand-row { margin-bottom: 9px; }
+    .cand-row .cand-name { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 3px; }
+    .cand-bar { background: var(--color-bg-tertiary); border-radius: 5px; height: 12px; overflow: hidden; }
+    .cand-bar > div { height: 100%; border-radius: 5px; }
+    .flip-callout {
+      margin-top: 18px; padding: 14px 16px; border-radius: 10px; font-size: 16px;
+      background: #fff8e1; border: 1px solid #e8c84a;
+    }
+    .flip-callout.no-change { background: var(--color-bg-tertiary); border-color: var(--color-border); color: var(--color-text-secondary); }
+    .flip-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .flip-chip { background: #fff; border: 1px solid var(--color-border); border-radius: 999px; padding: 3px 10px; font-size: 13px; }
+    .map-link { display: inline-block; margin-top: 16px; font-weight: 600; color: var(--color-primary); }
+    .muted-note { color: var(--color-text-muted); font-size: 14px; margin-top: 10px; }
+    .loading { color: var(--color-text-muted); padding: 12px 0; }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">TX</span>
+      <span class="brand-text">Texas Elections</span>
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="3 7 9 4 15 7 21 4 21 17 15 20 9 17 3 20 3 7"/><line x1="9" y1="4" x2="9" y2="17"/><line x1="15" y1="7" x2="15" y2="20"/></svg>Map</a>
+      <a href="elections.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>Elections</a>
+      <a href="forecast.html" class="active" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 17l6-6 4 4 8-8"/><polyline points="14 7 21 7 21 14"/></svg>Forecast</a>
+      <a href="precinct.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>Lookup</a>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <h1 class="page-title">Forecast a scenario</h1>
+    <p class="page-sub">
+      Ask "what if?" Pick a real race, change <strong>who shows up to vote</strong>,
+      and see how the outcome shifts — computed precinct by precinct from the
+      actual results and each precinct's partisan makeup.
+    </p>
+
+    <section class="step-card">
+      <h2 class="step-title"><span class="step-num">1</span> Choose a race</h2>
+      <div class="picker-row">
+        <div class="picker-col">
+          <label for="fc-county">County or district</label>
+          <select id="fc-county" aria-label="County or district"></select>
+        </div>
+        <div class="picker-col">
+          <label for="fc-race">Race</label>
+          <select id="fc-race" aria-label="Race"></select>
+        </div>
+      </div>
+      <div id="fc-load-status" class="muted-note" role="status"></div>
+    </section>
+
+    <section class="step-card">
+      <h2 class="step-title"><span class="step-num">2</span> Set the scenario</h2>
+      <div class="preset-grid" id="fc-presets"></div>
+      <div id="fc-sliders"></div>
+      <div class="muted-note">100% = the turnout that actually happened. 120% means that group turns out 20% stronger; 80% means a fifth of them stay home.</div>
+    </section>
+
+    <section class="step-card">
+      <h2 class="step-title"><span class="step-num">3</span> Outcome</h2>
+      <div id="fc-outcome"><div class="loading">Pick a race above to see results.</div></div>
+    </section>
+  </main>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script type="module" src="js/forecastPage.js"></script>
+</body>
+</html>
