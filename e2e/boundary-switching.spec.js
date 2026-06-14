@@ -16,7 +16,7 @@ async function setupPage(browser) {
   });
 
   // Navigate to the app
-  await page.goto('/index.html', { waitUntil: 'networkidle', timeout: 30000 });
+  await page.goto('/classic.html', { waitUntil: 'networkidle', timeout: 30000 });
   await page.waitForTimeout(2000);
 
   // Force-bypass auth: hide overlay and call init()
@@ -58,22 +58,24 @@ test.describe('Boundary Switching', () => {
   test('switching to 2026 changes map data', async ({ browser }) => {
     const { page, context } = await setupPage(browser);
 
-    // Check if SVG paths exist (map rendered)
-    const hasPaths = await page.locator('.leaflet-overlay-pane svg path').count();
+    // Canvas renderer has no per-feature DOM nodes; the app exposes the
+    // rendered feature count on #map[data-feature-count]
+    const featureCount = async () =>
+      parseInt(await page.locator('#map').getAttribute('data-feature-count') || '0', 10);
+    const initialCount = await featureCount();
 
-    if (hasPaths > 0) {
-      const initialPaths = hasPaths;
-      console.log(`Initial paths: ${initialPaths}`);
+    if (initialCount > 0) {
+      console.log(`Initial features: ${initialCount}`);
 
       // Switch to 2026
       await page.selectOption('#boundary-select', '2026');
       await page.waitForTimeout(6000);
 
-      const newPaths = await page.locator('.leaflet-overlay-pane svg path').count();
-      console.log(`After switch paths: ${newPaths}`);
+      const newCount = await featureCount();
+      console.log(`After switch features: ${newCount}`);
 
       // 2026 should have more precincts
-      expect(newPaths).toBeGreaterThan(initialPaths);
+      expect(newCount).toBeGreaterThan(initialCount);
     } else {
       // If auth blocks init, just verify the selector is present and functional
       console.log('Map not initialized (auth gated) - verifying dropdown only');

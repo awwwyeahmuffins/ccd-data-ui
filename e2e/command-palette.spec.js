@@ -5,7 +5,7 @@ test.setTimeout(60000);
 
 test.describe('Command Palette', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/index.html');
+    await page.goto('/classic.html');
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 
@@ -99,15 +99,27 @@ test.describe('Command Palette', () => {
 test.describe('Recently Viewed', () => {
   test.beforeEach(async ({ page }) => {
     // Clear localStorage
-    await page.goto('/index.html');
+    await page.goto('/classic.html');
     await page.evaluate(() => localStorage.clear());
     await page.reload();
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
   });
 
+  // Open the browse panel if it isn't already open. The FAB is hidden ≤1024px
+  // (mobile/tablet use the tab bar's browse button), and on mobile selecting an
+  // election auto-closes the panel — so callers reopen before reaching a tab.
+  async function ensureBrowsePanelOpen(page) {
+    const panel = page.locator('#election-panel');
+    if (((await panel.getAttribute('class')) || '').includes('active')) return;
+    const fab = page.locator('#fab');
+    if (await fab.isVisible()) await fab.click();
+    else await page.locator('[data-action="browse"]').first().click();
+    await expect(panel).toHaveClass(/active/);
+  }
+
   test('recently viewed starts empty', async ({ page }) => {
-    await page.locator('#fab').click();
-    
+    await ensureBrowsePanelOpen(page);
+
     // Recently viewed section should show empty state or not exist
     const recentSection = page.locator('.recently-viewed-section');
     const hasRecent = await recentSection.isVisible();
@@ -118,15 +130,20 @@ test.describe('Recently Viewed', () => {
     }
   });
 
-  test('selecting election adds to recently viewed', async ({ page }) => {
-    await page.locator('#fab').click();
+  test('selecting election adds to recently viewed', async ({ page }, testInfo) => {
+    // Desktop panel-tab flow: on mobile, selecting a race auto-closes the panel
+    // by design, so this select→Saved-tab sequence is desktop-only.
+    test.skip(testInfo.project.name.includes('Mobile'), 'mobile auto-closes the panel on selection');
+    await ensureBrowsePanelOpen(page);
     // Groups are collapsed by default (B5); expand the first one
     await page.locator('.group-header').first().click();
 
-    // Select an election (panel auto-switches to the Forecast tab)
+    // Select an election (panel stays on Browse so results show on the map)
     await page.locator('.election-item').first().click();
 
-    // Recently viewed lives in the Saved tab
+    // On mobile the panel auto-closed when the election was selected; reopen
+    // it to reach the Saved tab. No-op on desktop (panel still open).
+    await ensureBrowsePanelOpen(page);
     await page.locator('.panel-tab[data-panel-tab="saved"]').click();
     await page.waitForSelector('.recent-item', { timeout: 5000 });
 
@@ -135,14 +152,17 @@ test.describe('Recently Viewed', () => {
     expect(await recentItems.count()).toBeGreaterThan(0);
   });
 
-  test('clear button clears recently viewed', async ({ page }) => {
+  test('clear button clears recently viewed', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name.includes('Mobile'), 'mobile auto-closes the panel on selection');
     // Add an election to recently viewed
-    await page.locator('#fab').click();
+    await ensureBrowsePanelOpen(page);
     // Groups are collapsed by default (B5); expand the first one
     await page.locator('.group-header').first().click();
     await page.locator('.election-item').first().click();
 
-    // Recently viewed lives in the Saved tab
+    // On mobile the panel auto-closed when the election was selected; reopen
+    // it to reach the Saved tab. No-op on desktop (panel still open).
+    await ensureBrowsePanelOpen(page);
     await page.locator('.panel-tab[data-panel-tab="saved"]').click();
     await page.waitForSelector('.recent-item', { timeout: 5000 });
 
@@ -156,9 +176,10 @@ test.describe('Recently Viewed', () => {
     expect(await recentItems.count()).toBe(0);
   });
 
-  test('clicking recent item loads election', async ({ page }) => {
+  test('clicking recent item loads election', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name.includes('Mobile'), 'mobile auto-closes the panel on selection');
     // Add election to recently viewed
-    await page.locator('#fab').click();
+    await ensureBrowsePanelOpen(page);
     // Groups are collapsed by default (B5); expand the first one
     await page.locator('.group-header').first().click();
 
@@ -166,7 +187,9 @@ test.describe('Recently Viewed', () => {
     const electionName = await firstElection.locator('.election-item-name').textContent();
     await firstElection.click();
 
-    // Recently viewed lives in the Saved tab
+    // On mobile the panel auto-closed when the election was selected; reopen
+    // it to reach the Saved tab. No-op on desktop (panel still open).
+    await ensureBrowsePanelOpen(page);
     await page.locator('.panel-tab[data-panel-tab="saved"]').click();
     await page.waitForSelector('.recent-item', { timeout: 5000 });
 

@@ -8,7 +8,7 @@ test.setTimeout(60000);
 
 test.describe('County Switching', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/index.html');
+    await page.goto('/classic.html');
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
     await page.locator('#welcome-close-btn').click({ timeout: 3000 }).catch(() => {});
   });
@@ -32,8 +32,9 @@ test.describe('County Switching', () => {
     await page.waitForTimeout(600);
     await expect(page.locator('.election-item:visible').first()).toContainText('Governor');
 
-    // selecting one renders results (forecast simulator appears)
+    // selecting one renders results; the forecast simulator lives in the Forecast tab
     await page.locator('.election-item:visible').first().click();
+    await page.locator('.panel-tab[data-panel-tab="forecast"]').click();
     await expect(page.locator('.turnout-slider').first()).toBeVisible({ timeout: 20000 });
   });
 
@@ -58,7 +59,7 @@ test.describe('County Switching', () => {
   test('deep link #county= works on fresh load', async ({ page }) => {
     // query param forces a real navigation (hash-only goto would not reload
     // the page beforeEach already opened)
-    await page.goto('/index.html?deeplink#county=bastrop');
+    await page.goto('/classic.html?deeplink#county=bastrop');
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
     await expect(page.locator('#county-select')).toHaveValue('bastrop', { timeout: 20000 });
     await expect(page.locator('#county-placeholder-banner')).toBeHidden();
@@ -69,8 +70,47 @@ test.describe('County Switching', () => {
       .toHaveCount(0, { timeout: 15000 });
   });
 
+  test('selecting a federal district race jumps to the full cross-county district view', async ({ page }) => {
+    // From the default Collin view, pick the CD-3 race: the app must switch to
+    // the cd-3 district view (all member counties' precincts), not stay in
+    // Collin with part of the district missing.
+    await page.locator('[data-action="browse"], #open-panel-btn').first().click();
+    await page.locator('#panel-search-input').fill('United States Representative District 3');
+    await page.waitForTimeout(600);
+    // the search also surfaces District 32 — click exactly District 3
+    await page.locator('.election-item:visible', { hasText: /District 3 \(2024\)/ }).first().click();
+    await expect(page.locator('#county-select')).toHaveValue('cd-3', { timeout: 30000 });
+    // the contest itself is selected in the district view — the result topline
+    // renders (panel-state-independent, unlike the Forecast tab's simulator)
+    await expect(page.locator('#result-topline')).toBeVisible({ timeout: 20000 });
+  });
+
+  test('full Texas statewide view loads all 254 counties with statewide races', async ({ page }) => {
+    await page.goto('/classic.html?tx#county=texas');
+    await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
+    await expect(page.locator('#county-select')).toHaveValue('texas', { timeout: 20000 });
+    await expect(page.locator('#county-placeholder-banner')).toBeHidden();
+    // statewide races are browsable
+    await page.locator('[data-action="browse"], #open-panel-btn').first().click();
+    await page.locator('#panel-search-input').fill('governor');
+    await page.waitForTimeout(600);
+    await expect(page.locator('.election-item:visible').first()).toContainText('Governor');
+    // clicking a county polygon drills into that county's precinct view — the
+    // canvas renderer has no path elements, so click into the map. Texas's
+    // bounding-box centre can fall in the west-Texas gap between polygons, so
+    // try a few interior points until the statewide selection flips.
+    await page.keyboard.press('Escape'); // close panel
+    const box = await page.locator('#map').boundingBox();
+    for (const [fx, fy] of [[0.45, 0.55], [0.5, 0.5], [0.55, 0.45], [0.4, 0.6], [0.6, 0.5]]) {
+      await page.mouse.click(box.x + box.width * fx, box.y + box.height * fy);
+      await page.waitForTimeout(1000);
+      if ((await page.locator('#county-select').inputValue()) !== 'texas') break;
+    }
+    await expect(page.locator('#county-select')).not.toHaveValue('texas', { timeout: 20000 });
+  });
+
   test('cross-county district view loads (CD-3 spans multiple counties)', async ({ page }) => {
-    await page.goto('/index.html?dl#county=cd-3');
+    await page.goto('/classic.html?dl#county=cd-3');
     await page.waitForSelector('.map-legend-leaflet', { timeout: 60000 });
     await expect(page.locator('#county-select')).toHaveValue('cd-3', { timeout: 20000 });
     await expect(page.locator('#county-placeholder-banner')).toBeHidden();
