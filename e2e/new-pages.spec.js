@@ -33,7 +33,7 @@ test.describe('Elections catalog page', () => {
   });
 
   test('county switch reloads the catalog', async ({ page }) => {
-    await page.selectOption('#el-county', 'bastrop');
+    await page.selectOption('#el-county', 'cd-3');
     await page.waitForSelector('.family-group', { timeout: 30000 });
     const count = await page.locator('#el-count').textContent();
     expect(count).toMatch(/^\d+ races?/);
@@ -66,10 +66,10 @@ test.describe('Forecast scenario page', () => {
   });
 
   test('deep link selects county and race', async ({ page }) => {
-    await page.goto('/forecast.html?dl#county=bastrop&race=governor-2022');
+    await page.goto('/forecast.html?dl#county=cd-3&race=governor-2022');
     await page.waitForFunction(
       () => document.querySelector('#fc-outcome .outcome-grid'), null, { timeout: 30000 });
-    await expect(page.locator('#fc-county')).toHaveValue('bastrop');
+    await expect(page.locator('#fc-county')).toHaveValue('cd-3');
     await expect(page.locator('#fc-race')).toHaveValue(/[Gg]overnor/);
   });
 });

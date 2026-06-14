@@ -21,13 +21,13 @@ test.describe('Command Center', () => {
     await expect(page).toHaveTitle(/County — Precinct Command/);
   });
 
-  test('county switch updates label, title, and briefing', async ({ page }) => {
+  test('is focused on Collin County only', async ({ page }) => {
     await waitForLoaded(page);
+    await expect(page.locator('#cc-county-name')).toHaveText('Collin County');
     await page.click('#cc-county-btn');
-    await page.fill('#cc-county-search', 'Dallas');
-    await page.click('.cc-county-opt[data-slug="dallas"]');
-    await expect(page.locator('#cc-county-name')).toHaveText('Dallas County', { timeout: 30000 });
-    await expect(page).toHaveTitle(/Dallas County/);
+    // Collin-focus: the county menu offers only Collin.
+    await expect(page.locator('.cc-county-opt[data-slug]')).toHaveCount(1);
+    await expect(page.locator('.cc-county-opt[data-slug="collin"]')).toHaveCount(1);
   });
 
   test('the three analytic modes switch', async ({ page }) => {

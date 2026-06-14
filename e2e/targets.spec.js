@@ -43,9 +43,9 @@ test.describe('Targets view', () => {
 
   test('switching county reloads the ranking', async ({ page }) => {
     await load(page);
-    await page.selectOption('#tg-county', 'dallas');
+    await page.selectOption('#tg-county', 'cd-32');
     await expect(page.locator('.tg-precinct').first()).toBeVisible({ timeout: 30000 });
     // report links now point at the new county
-    await expect(page.locator('.tg-link-report').first()).toHaveAttribute('href', /county=dallas/);
+    await expect(page.locator('.tg-link-report').first()).toHaveAttribute('href', /county=cd-32/);
   });
 });
