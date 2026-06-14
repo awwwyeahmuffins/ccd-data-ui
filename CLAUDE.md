@@ -37,9 +37,9 @@ node --experimental-vm-modules node_modules/jest/bin/jest.js tests/dataLoader.te
 npx playwright test e2e/core-functionality.spec.js
 ```
 
-**Dev server URL:** `http://localhost:3000/index.html` (map viewer) and `http://localhost:3000/precinct.html` (precinct lookup)
+**Dev server URL:** `http://localhost:3000/index.html` (Command Center front door), `http://localhost:3000/classic.html` (full map viewer), and `http://localhost:3000/precinct.html` (precinct lookup)
 
-On localhost the Cognito sign-in gate is bypassed (see the auth bootstrap at the bottom of `js/app/main.js`); the deployed site requires sign-in.
+On localhost the Cognito sign-in gate is bypassed; the deployed site requires sign-in. The auth bootstrap lives at the bottom of `js/app/main.js` (classic.html) and `js/commandCenter.js` (index.html) — both reuse `auth.js`/`authUI.js` and need the `amazon-cognito-identity-js` importmap in their HTML.
 
 ## Deployment
 
@@ -51,7 +51,7 @@ make cdk-deploy     # Deploy CDK stack
 make deploy-site    # Sync site content to S3 + invalidate CloudFront
 ```
 
-`deploy-site` is allowlist-only (`js/`, `data/` minus cache, `index.html`, `precinct.html`, `styles.css`). NEVER run a bare `aws s3 sync .` — the repo root contains voter PII (`VoterRegistrationFile.txt`) and internal files that must not reach the public bucket.
+`deploy-site` is allowlist-only (`js/`, `data/` minus cache, `index.html`, `classic.html`, `precinct.html`, `elections.html`, `forecast.html`, `styles.css`). NEVER run a bare `aws s3 sync .` — the repo root contains voter PII (`VoterRegistrationFile.txt`) and internal files that must not reach the public bucket.
 
 ## Architecture
 
@@ -61,11 +61,12 @@ make deploy-site    # Sync site content to S3 + invalidate CloudFront
 - **Data pipeline:** Python 3 scripts in `data_processor/` (pandas, beautifulsoup4)
 - **Tests:** Jest 29 + jsdom (unit), Playwright 1.40 (e2e)
 
-### Architecture: two self-contained pages
+### Architecture: self-contained pages
 
 **Adding a feature? Start with `docs/ADDING_FEATURES.md`** — step-by-step recipes for new map views, panels, data sources, command-palette commands, and precinct-report sections, plus the verify checklist.
 
-- **`index.html`** (map viewer) loads `js/app/main.js`, the page orchestrator. The map app is split across `js/app/` modules (extracted from a former 3,000-line inline script in June 2026):
+- **`index.html`** (the front door since June 2026) loads `js/commandCenter.js` — the **Command Center** dashboard (left command rail · context strip · framed low-basemap precinct map with Lean/Margin/Diversity modes · live data dock · warm "Paper Command" ⇄ dark "War Room" theme toggle). It reuses the shared data layer (`loadAllData`, county registry, locked party colors) and sits behind the same Cognito gate as the classic page (bypassed on localhost/e2e). Smoke tests: `e2e/command-center.spec.js`.
+- **`classic.html`** (the former `index.html` map viewer) loads `js/app/main.js`, the page orchestrator. The full map app is split across `js/app/` modules (extracted from a former 3,000-line inline script in June 2026). The whole `e2e/` suite targets `/classic.html`:
   - `state.js` — THE shared mutable state object; every app module imports it
   - `main.js` — entry: initializeMap, init(), auth-gated startup
   - `viewMode.js` — `setViewMode` (the ONLY view-flip path) + map toolbar
