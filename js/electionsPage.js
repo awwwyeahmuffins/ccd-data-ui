@@ -4,12 +4,13 @@
 // every race for a county or district; each race links to the map view and to
 // the forecast page. Must not import js/app/* modules (index.html-coupled).
 
-import { loadCountyRegistry, setActiveCounty, listElectionCSVs } from "./dataLoader.js";
+import { loadCountyRegistry, setActiveCounty, setActiveBoundary, getBoundaryConfigs, getActiveBoundary, listElectionCSVs } from "./dataLoader.js";
 import { CATEGORY_ORDER, searchElections, filterByCategory } from "./electionFilters.js";
 import { escapeHtml } from "./utils.js";
 
 const pg = {
   county: 'collin',
+  boundary: 'original',
   elections: [],
   search: '',
   category: 'All',
@@ -39,12 +40,34 @@ async function initCountySelect() {
     updateURL();
     loadCounty();
   });
+  const bsel = $('el-boundary');
+  if (bsel) bsel.addEventListener('change', () => { pg.boundary = bsel.value; updateURL(); loadCounty(); });
+}
+
+// Show the 2024⇄2026 boundary toggle only when the county offers >1 set —
+// this is how the real March-2026 primary races become browsable.
+function renderBoundaryToggle() {
+  const configs = getBoundaryConfigs();
+  const ids = Object.keys(configs);
+  const wrap = $('el-boundary-wrap');
+  const sel = $('el-boundary');
+  if (!wrap || !sel) return;
+  if (ids.length < 2) { wrap.style.display = 'none'; return; }
+  wrap.style.display = '';
+  sel.innerHTML = ids.map(id => `<option value="${id}">${escapeHtml(configs[id].label || id)}</option>`).join('');
+  sel.value = pg.boundary;
 }
 
 async function loadCounty() {
   $('el-list').innerHTML = '<div class="empty-note">Loading…</div>';
   try {
     await setActiveCounty(pg.county);
+    const ids = Object.keys(getBoundaryConfigs());
+    if (!ids.includes(pg.boundary)) pg.boundary = getActiveBoundary();
+    setActiveBoundary(pg.boundary);
+    renderBoundaryToggle();
+    const note = $('el-boundary-note');
+    if (note) note.style.display = pg.boundary === '2026' ? '' : 'none';
     pg.elections = await listElectionCSVs();
     renderChips();
     renderList();
@@ -153,11 +176,13 @@ function raceRow(e) {
 function parseURL() {
   const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
   if (params.get('county')) pg.county = params.get('county');
+  if (params.get('boundary')) pg.boundary = params.get('boundary');
 }
 
 function updateURL() {
   const params = new URLSearchParams();
   if (pg.county !== 'collin') params.set('county', pg.county);
+  if (pg.boundary !== 'original') params.set('boundary', pg.boundary);
   const hash = params.toString();
   history.replaceState(null, '', hash ? `#${hash}` : window.location.pathname);
 }

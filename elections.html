@@ -134,6 +134,10 @@
         <label for="el-county">County or district</label>
         <select id="el-county" aria-label="County or district"></select>
       </div>
+      <div id="el-boundary-wrap" style="display:none">
+        <label for="el-boundary">Precinct boundaries</label>
+        <select id="el-boundary" aria-label="Precinct boundaries"></select>
+      </div>
       <div class="grow">
         <label for="el-search">Search races</label>
         <input type="search" id="el-search" placeholder="governor, president, school board…" aria-label="Search races" />
@@ -141,6 +145,7 @@
     </div>
 
     <div class="chips" id="el-chips" role="group" aria-label="Filter by category"></div>
+    <p id="el-boundary-note" role="status" style="display:none; background:#fff8e1; border:1px solid #e8c84a; border-radius:10px; padding:12px 16px; font-size:14px; color:#715c10; margin:0 0 14px;">On the 2026 precincts, the <strong>March 2026 primary</strong> races are actual results; pre-2026 races are interpolated onto the new boundaries.</p>
     <div class="result-count" id="el-count" role="status"></div>
     <div id="el-list"><div class="empty-note">Loading…</div></div>
   </main>

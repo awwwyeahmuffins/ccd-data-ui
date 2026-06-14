@@ -8,6 +8,7 @@
 import {
   loadCountyRegistry,
   setActiveCounty,
+  setActiveBoundary,
   loadAllData,
   getBoundaryConfigs,
   getActiveBoundary,
@@ -25,10 +26,15 @@ import {
 } from "./precinctMetrics.js";
 import { escapeHtml } from "./utils.js";
 
-const DEFAULT_COLUMNS = ["winner", "demShare", "population", "medianIncome", "medianHomeValue", "medianAge", "pctFamily", "pctBachelorsPlus", "nonWhite", "turnoutRate"];
+const DEFAULT_COLUMNS = ["winner", "demShare", "registered", "population", "medianIncome", "medianHomeValue", "medianAge", "pctFamily", "nonWhite", "turnoutRate"];
+
+// Electorates this small make every percentage noise (e.g. "100% Dem" off 2
+// voters) — flag the row so the real counts, not the %s, carry the meaning.
+const TINY_ELECTORATE = 10;
 
 const pg = {
   county: "collin",
+  boundary: "original",   // "original" (2024) ⇄ "2026" where available
   sortKey: "medianIncome",
   sortDir: "desc",
   party: "all",
@@ -57,6 +63,17 @@ async function initCountySelect() {
   sel.value = pg.county;
   if (sel.value !== pg.county) pg.county = sel.value;
   sel.addEventListener("change", () => { pg.county = sel.value; updateURL(); loadCounty(); });
+}
+
+// Show the 2024⇄2026 boundary toggle only when the county offers >1 set.
+function renderBoundaryToggle(configs) {
+  const wrap = $("ex-boundary-wrap");
+  const sel = $("ex-boundary");
+  const ids = Object.keys(configs);
+  if (ids.length < 2) { wrap.style.display = "none"; return; }
+  wrap.style.display = "";
+  sel.innerHTML = ids.map((id) => `<option value="${id}">${escapeHtml(configs[id].label || id)}</option>`).join("");
+  sel.value = pg.boundary;
 }
 
 // ---- marquee turnout: highest-turnout election on file ----------------------
@@ -90,6 +107,14 @@ async function loadCounty() {
   $("ex-body").innerHTML = '<tr><td class="empty-note">Loading…</td></tr>';
   try {
     await setActiveCounty(pg.county);
+    // Boundary set (e.g. Collin's 2024 vs 2026 precincts). setActiveCounty reset
+    // it to the county default; keep the user's pick if this county offers it.
+    const configs = getBoundaryConfigs();
+    const bids = Object.keys(configs);
+    if (!bids.includes(pg.boundary)) pg.boundary = getActiveBoundary();
+    setActiveBoundary(pg.boundary);
+    renderBoundaryToggle(configs);
+    $("ex-boundary-note").style.display = pg.boundary === "2026" ? "" : "none";
     let census = null;
     const [{ geojson }, turnout] = await Promise.all([loadAllData(), loadMarqueeTurnout()]);
     try { census = await loadCensusProfiles(); } catch (_) { census = null; }
@@ -180,7 +205,11 @@ function render() {
         }
         return `<td class="num">${escapeHtml(formatValue(v, m ? m.fmt : "num"))}</td>`;
       }).join("");
-      return `<tr><td class="pcell-precinct"><a href="precinct.html#county=${cParam}&precinct=${encodeURIComponent(r.precinct)}">${escapeHtml(r.precinct)}</a></td>${cells}</tr>`;
+      // tiny-electorate flag: real registered voters (fallback to modeled) < 10
+      const elect = r.registered != null ? r.registered : r.votes;
+      const tiny = elect != null && elect < TINY_ELECTORATE;
+      const flag = tiny ? ` <span class="tiny-flag" title="Only ${elect} voter${elect === 1 ? "" : "s"} on file — the percentages here are not statistically meaningful">⚠</span>` : "";
+      return `<tr class="${tiny ? "tiny-row" : ""}"><td class="pcell-precinct"><a href="precinct.html#county=${cParam}&precinct=${encodeURIComponent(r.precinct)}">${escapeHtml(r.precinct)}</a>${flag}</td>${cells}</tr>`;
     }).join("");
   }
   $("ex-count").textContent = `Showing ${sorted.length} of ${pg.records.length} precincts`;
@@ -215,7 +244,7 @@ function renderChips() {
 
 // ---- URL sync ---------------------------------------------------------------
 function updateURL() {
-  history.replaceState(null, "", `#county=${encodeURIComponent(pg.county)}&sort=${encodeURIComponent(pg.sortKey)}&dir=${pg.sortDir}`);
+  history.replaceState(null, "", `#county=${encodeURIComponent(pg.county)}&boundary=${encodeURIComponent(pg.boundary)}&sort=${encodeURIComponent(pg.sortKey)}&dir=${pg.sortDir}`);
 }
 function readURL() {
   const params = {};
@@ -224,6 +253,7 @@ function readURL() {
     if (k && v) params[k] = decodeURIComponent(v);
   }
   if (params.county) pg.county = params.county;
+  if (params.boundary) pg.boundary = params.boundary;
   if (params.sort && getMetric(params.sort)) pg.sortKey = params.sort;
   if (params.dir === "asc" || params.dir === "desc") pg.sortDir = params.dir;
 }
@@ -234,6 +264,7 @@ async function init() {
   $("ex-sort").addEventListener("change", (e) => { pg.sortKey = e.target.value; if (!pg.columns.includes(pg.sortKey)) pg.columns.push(pg.sortKey); renderColumnsPicker(); updateURL(); render(); });
   $("ex-dir").addEventListener("click", () => { pg.sortDir = pg.sortDir === "desc" ? "asc" : "desc"; $("ex-dir").textContent = pg.sortDir === "desc" ? "↓" : "↑"; updateURL(); render(); });
   $("ex-party").addEventListener("change", (e) => { pg.party = e.target.value; renderChips(); render(); });
+  $("ex-boundary").addEventListener("change", (e) => { pg.boundary = e.target.value; updateURL(); loadCounty(); });
   $("ex-addfilter").addEventListener("click", () => {
     const key = $("ex-fmetric").value;
     const op = $("ex-fop").value;

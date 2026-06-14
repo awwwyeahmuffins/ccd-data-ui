@@ -109,6 +109,10 @@
     .lean-Dem { background: #e2f4fd; color: #0671a0; }
     .lean-Mod { background: #f1e9f7; color: #6b2f86; }
     td.num { font-variant-numeric: tabular-nums; }
+    /* tiny-electorate rows: real counts matter, the %s don't */
+    table.ptable tbody tr.tiny-row td { color: var(--color-text-muted); font-style: italic; }
+    table.ptable tbody tr.tiny-row td:first-child { font-style: normal; }
+    .tiny-flag { cursor: help; font-style: normal; }
     .empty-note { color: var(--color-text-muted); padding: 28px 4px; }
 
     @media (max-width: 640px) {
@@ -140,6 +144,10 @@
       <div class="ctrl">
         <label for="ex-county">County or district</label>
         <select id="ex-county" aria-label="County or district"></select>
+      </div>
+      <div class="ctrl" id="ex-boundary-wrap" style="display:none">
+        <label for="ex-boundary">Precinct boundaries</label>
+        <select id="ex-boundary" aria-label="Precinct boundaries"></select>
       </div>
       <div class="ctrl">
         <label for="ex-sort">Sort by</label>
@@ -181,6 +189,7 @@
     </div>
     <div class="chips" id="ex-chips"></div>
 
+    <p class="na-banner" id="ex-boundary-note" style="display:none">On the 2026 precincts, the March 2026 primary is actual results; party lean, demographics, and pre-2026 turnout are interpolated onto the new boundaries (per-precinct quality is in each precinct's report).</p>
     <div class="result-count" id="ex-count"></div>
     <div class="table-wrap">
       <table class="ptable">
