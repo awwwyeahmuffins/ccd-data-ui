@@ -297,25 +297,48 @@ function renderCountyBriefing() {
 // that were actually on that ballot, plus a way back to demographics.
 function renderRaceBriefing() {
   const features = cc.geojson.features;
-  let inRace = 0, totalVotes = 0, rep = 0, dem = 0;
+  // Collin's contribution (precinct level)
+  let inRace = 0, cRep = 0, cDem = 0, cTotal = 0;
   for (const f of features) {
     const r = cc.race.byPrecinct[String(f.properties.PRECINCT)];
     if (!r || r.total === 0 || !r.winner) continue;
-    inRace++; totalVotes += r.total; rep += r.rep; dem += r.dem;
+    inRace++; cTotal += r.total; cRep += r.rep; cDem += r.dem;
   }
-  const repPct = totalVotes ? Math.round((rep / totalVotes) * 100) : 0;
-  const demPct = totalVotes ? Math.round((dem / totalVotes) * 100) : 0;
+  const others = cc.race.otherCounties || [];
+  const multi = others.length > 0;
+
+  // Full district = Collin + every other county we kept as an aggregate.
+  let rep = cRep, dem = cDem, total = cTotal;
+  for (const o of others) { rep += o.rep; dem += o.dem; total += o.total; }
+  const repPct = total ? Math.round((rep / total) * 100) : 0;
+  const demPct = total ? Math.round((dem / total) * 100) : 0;
   const other = Math.max(0, 100 - repPct - demPct);
   const winner = rep === dem ? "Tie" : rep > dem ? "Rep" : "Dem";
 
-  $("cc-dock-eyebrow").textContent = `${cc.countyName} County · Race Results`;
+  $("cc-dock-eyebrow").textContent = multi ? `Full District · ${others.length + 1} counties` : `${cc.countyName} County · Race Results`;
   $("cc-dock-title").textContent = cc.race.label;
-  $("cc-dock-sub").textContent = `${inRace} of ${features.length} precincts were on this ballot`;
+  $("cc-dock-sub").textContent = multi
+    ? `Collin: ${inRace} precincts + ${others.map((o) => titleCase(o.county)).join(", ")} (county totals)`
+    : `${inRace} of ${features.length} precincts were on this ballot`;
+
+  // per-county breakdown rows (full-district races only)
+  const countyRows = !multi ? "" : [
+    { name: "Collin", rep: cRep, dem: cDem, total: cTotal, lvl: "precinct-level" },
+    ...others.map((o) => ({ name: titleCase(o.county), rep: o.rep, dem: o.dem, total: o.total, lvl: "county total" })),
+  ].map((c) => {
+    const win = c.rep === c.dem ? "—" : c.rep > c.dem ? "Rep" : "Dem";
+    const col = win === "Rep" ? "#ff8d92" : win === "Dem" ? "#79d4ff" : "var(--ink-dim)";
+    return `<div class="cc-demo-row">
+      <div class="cc-demo-top"><span class="name">${escapeHtml(c.name)} <span style="color:var(--ink-faint);font-size:11px">· ${c.lvl}</span></span>
+        <span class="val" style="color:${col}">${win} · ${fmtNum(c.total)}</span></div>
+      <div class="cc-demo-track"><div class="cc-demo-fill" style="width:${c.total ? Math.round((c.rep) / c.total * 100) : 0}%;background:var(--rep)"></div></div>
+    </div>`;
+  }).join("");
 
   $("cc-dock-body").innerHTML = `
     <div class="cc-stat-grid">
       <div class="cc-stat wide">
-        <div class="cc-stat-label">County result (precincts on this ballot)</div>
+        <div class="cc-stat-label">${multi ? "Full district result" : "County result (precincts on this ballot)"}</div>
         <div class="cc-leanbar">
           ${repPct > 6 ? `<span class="seg-rep" style="flex:${repPct}">${repPct}%</span>` : `<span class="seg-rep" style="flex:${repPct}"></span>`}
           ${other > 6 ? `<span class="seg-mod" style="flex:${other}">${other}%</span>` : `<span class="seg-mod" style="flex:${other}"></span>`}
@@ -323,16 +346,18 @@ function renderRaceBriefing() {
         </div>
       </div>
       <div class="cc-stat">
-        <div class="cc-stat-label">Leads</div>
+        <div class="cc-stat-label">${multi ? "District winner" : "Leads"}</div>
         <div class="cc-stat-value" style="color:${winner === "Rep" ? "#ff8d92" : winner === "Dem" ? "#79d4ff" : "var(--ink)"}">${winner}</div>
       </div>
       <div class="cc-stat">
         <div class="cc-stat-label">Total Votes</div>
-        <div class="cc-stat-value" style="font-size:21px">${fmtNum(totalVotes)}</div>
+        <div class="cc-stat-value" style="font-size:21px">${fmtNum(total)}</div>
       </div>
     </div>
 
-    <button class="cc-deeplink" id="cc-clear-race" style="margin-top:6px">
+    ${multi ? `<div class="cc-section-label">By county</div>${countyRows}` : ""}
+
+    <button class="cc-deeplink" id="cc-clear-race" style="margin-top:14px">
       <span class="dl-l"><span class="dl-ic">${ICON.back}</span><span><span class="dl-t">Back to Demographics</span><span class="dl-s">Clear this race</span></span></span>
       <span class="dl-arrow">↺</span>
     </button>
@@ -341,7 +366,7 @@ function renderRaceBriefing() {
     ${deeplink("elections.html", "search", "Elections Catalog", "Browse & open another race")}
 
     <p style="font-size:13px;color:var(--ink-dim);line-height:1.55;margin-top:12px">
-      Faded precincts weren’t on this ballot. Click any lit precinct for its result here.
+      ${multi ? "Collin precincts are shown on the map; other counties are folded in as county totals (their precinct detail isn’t carried). " : ""}Faded precincts weren’t on this ballot.
     </p>
   `;
   const back = $("cc-clear-race");
@@ -685,6 +710,53 @@ async function populateRaceMenu() {
   renderRaceList("");
 }
 
+// The 12 Collin-touching districts we keep data for.
+const KEPT_DISTRICTS = new Set(["cd-3", "cd-32", "cd-4", "hd-33", "hd-61", "hd-66", "hd-67", "hd-70", "hd-89", "sd-2", "sd-30", "sd-8"]);
+
+// Federal / state DISTRICT races span multiple counties. Map a Collin race to
+// its district slug so we can pull in the non-Collin counties' results.
+function districtSlugFor(entry) {
+  const office = (entry.office || "").toLowerCase();
+  const d = entry.district;
+  if (d == null || d === "") return null;
+  let slug = null;
+  if (office.includes("representative") && (office.includes("united states") || office.includes("u.s") || office.includes("u s") || office.includes("congress"))) slug = `cd-${d}`;
+  else if (office.includes("senator") || office.includes("senate")) slug = `sd-${d}`;
+  else if (office.includes("representative")) slug = `hd-${d}`; // state house (after US handled)
+  return slug && KEPT_DISTRICTS.has(slug) ? slug : null;
+}
+
+const titleCase = (s) => String(s).charAt(0).toUpperCase() + String(s).slice(1);
+
+// Load the non-Collin counties' aggregate results for a district race. The
+// district data keeps Collin at precinct level and every other county collapsed
+// to "<county>:ALL" rows — exactly the multi-county info to fold back in.
+async function loadDistrictAggregates(slug, raceFile) {
+  try {
+    const txt = await fetch(`data/tx/districts/${slug}/data/${raceFile}`).then((r) => (r.ok ? r.text() : null));
+    if (!txt) return [];
+    const lines = txt.trim().split("\n");
+    const agg = {};
+    for (let i = 1; i < lines.length; i++) {
+      const c = lines[i].split(",");
+      const pc = c[0];
+      if (!pc || !pc.endsWith(":ALL")) continue; // only the collapsed non-Collin counties
+      const county = pc.split(":")[0];
+      if (county === "collin") continue;
+      const party = (c[1] || "").toUpperCase();
+      if (!party) continue; // skip Over/Under/Write-in
+      const votes = +c[3] || 0;
+      const a = agg[county] || (agg[county] = { county, rep: 0, dem: 0, total: 0 });
+      a.total += votes;
+      if (party === "REP") a.rep += votes;
+      else if (party === "DEM") a.dem += votes;
+    }
+    return Object.values(agg).filter((a) => a.total > 0).map((a) => ({ ...a, winner: a.rep >= a.dem ? "Rep" : "Dem" }));
+  } catch (_) {
+    return [];
+  }
+}
+
 function renderRaceList(filter) {
   const list = $("cc-race-list");
   if (!list) return;
@@ -723,7 +795,12 @@ async function loadRace(raceIdOrEntry) {
     const byPrecinct = {};
     for (const row of rows) byPrecinct[String(row["PRECINCT CODE"])] = precinctRaceResult(row);
     cc.raceId = entry.raceKey || entry.filename;
-    cc.race = { id: cc.raceId, label: entry.displayName || entry.office || cc.raceId, byPrecinct };
+    cc.race = { id: cc.raceId, label: entry.displayName || entry.office || cc.raceId, byPrecinct, otherCounties: [] };
+    // For multi-county federal/state DISTRICT races, fold in the other counties'
+    // results (kept as county-level aggregates) so the dock shows the FULL
+    // district, not just Collin's slice.
+    const slug = districtSlugFor(entry);
+    if (slug && entry.raceFile) cc.race.otherCounties = await loadDistrictAggregates(slug, entry.raceFile);
     applyRaceLabel();
     updateHash();
     restyle();

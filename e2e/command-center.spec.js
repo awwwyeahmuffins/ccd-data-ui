@@ -84,6 +84,15 @@ test.describe('Command Center', () => {
     await expect(page.locator('#cc-race-name')).toHaveText('Demographics');
   });
 
+  test('folds non-Collin counties into a multi-county district race', async ({ page }) => {
+    // CD-32 is mostly Dallas — the full-district result must include it.
+    await page.goto('/index.html#county=collin&race=u-s-representative-district-32-2022');
+    await expect(page.locator('#cc-dock-eyebrow')).toContainText('Full District', { timeout: 30000 });
+    await expect(page.locator('#cc-dock-sub')).toContainText('Dallas');
+    await expect(page.locator('.cc-demo-row .name').filter({ hasText: 'Dallas' })).toBeVisible();
+    await expect(page.locator('.cc-demo-row .name').filter({ hasText: 'Collin' })).toBeVisible();
+  });
+
   test('the race picker switches the map to a county-wide race', async ({ page }) => {
     await waitForLoaded(page);
     await page.click('#cc-race-btn');
