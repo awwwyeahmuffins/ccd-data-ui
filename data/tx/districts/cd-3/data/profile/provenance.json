@@ -1,12 +1,30 @@
 {
-  "package": {
-    "method": "district-partition-v1",
-    "plan": "PLANC2193",
-    "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races and the district's own race merged from member counties; counties on different data vintages contribute different races. Own-race results from years before the 2021 plans were contested under the prior plan's boundaries.",
-    "members": {
-      "collin": 173,
-      "hunt": 30
+    "package": {
+        "method": "district-partition-v1",
+        "plan": "PLANC2193",
+        "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races and the district's own race merged from member counties; counties on different data vintages contribute different races. Own-race results from years before the 2021 plans were contested under the prior plan's boundaries.",
+        "members": {
+            "collin": 173,
+            "hunt": 30
+        },
+        "generated": "2026-06-12"
     },
-    "generated": "2026-06-12"
-  }
+    "amendments": [
+        {
+            "date": "2026-06-14",
+            "what": "Added Hunt County's CD-3 U.S. Representative results (2022, 2024) as county-level hunt:ALL aggregates.",
+            "method": "Hunt = official full-district total (Texas SOS via Wikipedia/Ballotpedia) minus our Collin portion. Verified: derived Hunt 2024 = 78.3% Self / 21.7% Srivastava, matching the reported Hunt County 2024 result.",
+            "values": {
+                "2022": {
+                    "Keith Self (R)": 20617,
+                    "Sandeep Srivastava (D)": 5396,
+                    "Christopher Claytor (L)": 495
+                },
+                "2024": {
+                    "Keith Self (R)": 31473,
+                    "Sandeep Srivastava (D)": 8731
+                }
+            }
+        }
+    ]
 }
