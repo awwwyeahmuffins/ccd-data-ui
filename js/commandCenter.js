@@ -11,8 +11,8 @@
 // Sits behind the same Cognito sign-in gate as the classic page on deployment
 // (bypassed on localhost / e2e).
 
-import { loadAllData, setActiveCounty, loadCountyRegistry, getActiveCounty } from "./dataLoader.js";
-import { PARTY_STRENGTH_COLORS, MAP_CONFIG } from "./constants.js";
+import { loadAllData, setActiveCounty, loadCountyRegistry, getActiveCounty, listElectionCSVs, loadElectionData } from "./dataLoader.js";
+import { PARTY_STRENGTH_COLORS, PARTY_COLORS, ELECTION_META_KEYS, MAP_CONFIG } from "./constants.js";
 import { escapeHtml } from "./utils.js";
 import { initAuth, isAuthenticated, signOut, onAuthStateChange } from "./auth.js";
 import { showAuthOverlay, hideAuthOverlay } from "./authUI.js";
@@ -23,10 +23,13 @@ const cc = {
   tiles: null,
   layer: null,
   geojson: null,
-  mode: "lean",          // lean | margin | diversity
+  mode: "lean",          // lean | margin | diversity (demographic modes)
   selectedCode: null,
   countyName: "Collin",
   theme: "light",        // light "Paper Command" | dark "War Room"
+  races: [],             // this county's race manifest (for the picker)
+  raceId: null,          // active race id, or null for demographics
+  race: null,            // { id, label, byPrecinct: { code: {winner,total,margin,...} } }
 };
 
 // Subtle CartoDB basemaps for geographic grounding (precinct chairs orienting
@@ -93,20 +96,45 @@ function diversityColor(p) {
   return stops[idx];
 }
 
+// Race results: color by the winning party — but ONLY for precincts that
+// actually participated (candidate votes > 0). computeWinners() assigns a
+// "winner" to every precinct via an alphabetical-first-max rule even when a
+// precinct had 0 votes (it wasn't on that ballot), so a sub-county race like
+// CD-3 would otherwise light up the whole county. Non-participants → no-data.
+function raceColor(p) {
+  if (!cc.race) return tm().noData;
+  const r = cc.race.byPrecinct[String(p.PRECINCT)];
+  if (!r || r.total === 0 || !r.winner) return tm().noData;
+  return PARTY_COLORS[r.winner] || PARTY_COLORS.default;
+}
+
 function colorFor(p) {
+  if (cc.raceId) return raceColor(p);
   if (cc.mode === "margin") return marginColor(p);
   if (cc.mode === "diversity") return diversityColor(p);
   return leanColor(p);
+}
+
+// A precinct is "in" the active race only if it cast candidate votes.
+function inActiveRace(code) {
+  if (!cc.race) return true;
+  const r = cc.race.byPrecinct[String(code)];
+  return !!(r && r.total > 0 && r.winner);
 }
 
 // =============================================================================
 // MAP RENDERING
 // =============================================================================
 function baseStyle(feature) {
-  const isSel = cc.selectedCode != null && String(feature.properties.PRECINCT) === cc.selectedCode;
+  const code = String(feature.properties.PRECINCT);
+  const isSel = cc.selectedCode != null && code === cc.selectedCode;
+  let fillOpacity = cc.theme === "dark" ? 0.78 : 0.74;
+  // In a race view, fade precincts that weren't on that ballot so the race's
+  // real footprint (e.g. CD-3 inside Collin) stands out.
+  if (cc.raceId && !inActiveRace(code)) fillOpacity = 0.06;
   return {
     fillColor: colorFor(feature.properties),
-    fillOpacity: cc.theme === "dark" ? 0.78 : 0.74,
+    fillOpacity,
     color: isSel ? tm().sel : tm().stroke,
     weight: isSel ? 2.8 : 0.7,
     opacity: 1,
@@ -162,6 +190,11 @@ function fitMap() {
 
 function tooltipFor(p) {
   const code = escapeHtml(String(p.PRECINCT));
+  if (cc.raceId && cc.race) {
+    const r = cc.race.byPrecinct[String(p.PRECINCT)];
+    if (!r || r.total === 0 || !r.winner) return `<b>PCT ${code}</b> · not on this ballot`;
+    return `<b>PCT ${code}</b> · ${escapeHtml(r.winner)} +${fmtPct(r.margin)} · ${fmtNum(r.total)} votes`;
+  }
   if (cc.mode === "diversity") {
     const nw = p.pct_white == null ? "N/A" : fmtPct(1 - p.pct_white);
     return `<b>PCT ${code}</b> · ${nw} non-white`;
@@ -190,6 +223,7 @@ function leanCounts(features) {
 }
 
 function renderCountyBriefing() {
+  if (cc.raceId && cc.race) return renderRaceBriefing();
   const features = cc.geojson.features;
   const c = leanCounts(features);
   const scored = c.rep + c.dem + c.mod;
@@ -259,6 +293,61 @@ function renderCountyBriefing() {
   `;
 }
 
+// Dock briefing when a race is showing: county-wide totals across the precincts
+// that were actually on that ballot, plus a way back to demographics.
+function renderRaceBriefing() {
+  const features = cc.geojson.features;
+  let inRace = 0, totalVotes = 0, rep = 0, dem = 0;
+  for (const f of features) {
+    const r = cc.race.byPrecinct[String(f.properties.PRECINCT)];
+    if (!r || r.total === 0 || !r.winner) continue;
+    inRace++; totalVotes += r.total; rep += r.rep; dem += r.dem;
+  }
+  const repPct = totalVotes ? Math.round((rep / totalVotes) * 100) : 0;
+  const demPct = totalVotes ? Math.round((dem / totalVotes) * 100) : 0;
+  const other = Math.max(0, 100 - repPct - demPct);
+  const winner = rep === dem ? "Tie" : rep > dem ? "Rep" : "Dem";
+
+  $("cc-dock-eyebrow").textContent = `${cc.countyName} County · Race Results`;
+  $("cc-dock-title").textContent = cc.race.label;
+  $("cc-dock-sub").textContent = `${inRace} of ${features.length} precincts were on this ballot`;
+
+  $("cc-dock-body").innerHTML = `
+    <div class="cc-stat-grid">
+      <div class="cc-stat wide">
+        <div class="cc-stat-label">County result (precincts on this ballot)</div>
+        <div class="cc-leanbar">
+          ${repPct > 6 ? `<span class="seg-rep" style="flex:${repPct}">${repPct}%</span>` : `<span class="seg-rep" style="flex:${repPct}"></span>`}
+          ${other > 6 ? `<span class="seg-mod" style="flex:${other}">${other}%</span>` : `<span class="seg-mod" style="flex:${other}"></span>`}
+          ${demPct > 6 ? `<span class="seg-dem" style="flex:${demPct}">${demPct}%</span>` : `<span class="seg-dem" style="flex:${demPct}"></span>`}
+        </div>
+      </div>
+      <div class="cc-stat">
+        <div class="cc-stat-label">Leads</div>
+        <div class="cc-stat-value" style="color:${winner === "Rep" ? "#ff8d92" : winner === "Dem" ? "#79d4ff" : "var(--ink)"}">${winner}</div>
+      </div>
+      <div class="cc-stat">
+        <div class="cc-stat-label">Total Votes</div>
+        <div class="cc-stat-value" style="font-size:21px">${fmtNum(totalVotes)}</div>
+      </div>
+    </div>
+
+    <button class="cc-deeplink" id="cc-clear-race" style="margin-top:6px">
+      <span class="dl-l"><span class="dl-ic">${ICON.back}</span><span><span class="dl-t">Back to Demographics</span><span class="dl-s">Clear this race</span></span></span>
+      <span class="dl-arrow">↺</span>
+    </button>
+
+    <div class="cc-section-label">Go deeper</div>
+    ${deeplink("elections.html", "search", "Elections Catalog", "Browse & open another race")}
+
+    <p style="font-size:13px;color:var(--ink-dim);line-height:1.55;margin-top:12px">
+      Faded precincts weren’t on this ballot. Click any lit precinct for its result here.
+    </p>
+  `;
+  const back = $("cc-clear-race");
+  if (back) back.addEventListener("click", clearRace);
+}
+
 function competitiveCount(features) {
   let n = 0;
   for (const f of features) {
@@ -321,7 +410,28 @@ function renderPrecinctDetail(code) {
   const margin = hasParty ? Math.abs(p.demShare - p.repShare) : null;
   const totalPop = p.total;
 
+  // When a race is showing, lead the detail with this precinct's actual result.
+  let raceBlock = "";
+  if (cc.raceId && cc.race) {
+    const rr = cc.race.byPrecinct[code];
+    if (rr && rr.total > 0 && rr.winner) {
+      const rp = Math.round((rr.rep / rr.total) * 100);
+      const dp = Math.round((rr.dem / rr.total) * 100);
+      const op = Math.max(0, 100 - rp - dp);
+      const sg = (cls, v) => `<span class="seg-${cls}" style="flex:${v}">${v > 6 ? v + "%" : ""}</span>`;
+      raceBlock = `<div class="cc-section-label">${escapeHtml(cc.race.label)}</div>
+        <div class="cc-stat wide" style="margin-bottom:14px">
+          <div class="cc-stat-label">${escapeHtml(rr.winnerName || rr.winner)} won · ${fmtNum(rr.total)} votes</div>
+          <div class="cc-leanbar">${sg("rep", rp)}${sg("mod", op)}${sg("dem", dp)}</div>
+        </div>`;
+    } else {
+      raceBlock = `<div class="cc-section-label">${escapeHtml(cc.race.label)}</div>
+        <p style="font-size:13px;color:var(--ink-faint);margin-bottom:14px">This precinct wasn’t on this ballot.</p>`;
+    }
+  }
+
   $("cc-dock-body").innerHTML = `
+    ${raceBlock}
     <div class="cc-pill-row" style="margin-bottom:16px">
       ${hasParty ? `<span class="cc-pill ${p.winningParty === "Rep" ? "rep" : p.winningParty === "Dem" ? "dem" : ""}">${escapeHtml(p.winningParty)} LEAN</span>` : ""}
       ${margin != null ? `<span class="cc-pill ${margin < 0.1 ? "gold" : ""}">${margin < 0.1 ? "COMPETITIVE" : "SAFE"} · ${fmtPct(margin)}</span>` : ""}
@@ -401,16 +511,28 @@ function findLayerByCode(code) {
 // MODE SWITCHING + LEGEND
 // =============================================================================
 function setMode(mode) {
+  const wasRace = !!cc.raceId;
   cc.mode = mode;
+  if (wasRace) { cc.raceId = null; cc.race = null; applyRaceLabel(); } // picking a demo mode exits the race
   document.querySelectorAll(".cc-mode-btn").forEach((b) => b.classList.toggle("active", b.dataset.mode === mode));
   restyle();
   // refresh tooltips for the new mode
   cc.layer.eachLayer((l) => l.setTooltipContent(tooltipFor(l.feature.properties)));
   renderLegend();
+  if (wasRace) { cc.selectedCode ? renderPrecinctDetail(cc.selectedCode) : renderCountyBriefing(); }
 }
 
 function renderLegend() {
   const el = $("cc-legend");
+  if (cc.raceId && cc.race) {
+    el.innerHTML = `
+      <div class="cc-legend-title">${escapeHtml(cc.race.label)}</div>
+      <div class="cc-legend-row"><span class="cc-legend-sw" style="background:${PARTY_COLORS.Rep}"></span>Rep win</div>
+      <div class="cc-legend-row"><span class="cc-legend-sw" style="background:${PARTY_COLORS.Dem}"></span>Dem win</div>
+      <div class="cc-legend-row"><span class="cc-legend-sw" style="background:${PARTY_COLORS.Mod || "#800080"}"></span>Other / Mod</div>
+      <div class="cc-legend-row"><span class="cc-legend-sw" style="background:${tm().noData};opacity:.45"></span>Not on this ballot</div>`;
+    return;
+  }
   if (cc.mode === "lean") {
     el.innerHTML = `
       <div class="cc-legend-title">Partisan Lean</div>
@@ -511,11 +633,15 @@ async function switchCounty(slug, name) {
     const { geojson } = await loadAllData();
     cc.geojson = geojson;
     cc.selectedCode = null;
+    cc.raceId = null; cc.race = null; // races are county-specific
     applyCountyBranding(name);
+    applyRaceLabel();
     // rebuild map layer
     if (cc.layer) { cc.layer.remove(); }
     cc.layer = L.geoJSON(geojson, { style: baseStyle, onEachFeature: attachFeature }).addTo(cc.map);
     fitMap();
+    renderLegend();
+    await populateRaceMenu();
     renderCountyBriefing();
   } catch (err) {
     console.error("[Command] county switch failed:", err);
@@ -527,6 +653,105 @@ async function switchCounty(slug, name) {
 
 function openCountyMenu() { $("cc-county-menu").classList.add("open"); $("cc-county-search").focus(); }
 function closeCountyMenu() { $("cc-county-menu").classList.remove("open"); }
+
+// =============================================================================
+// RACE OVERLAY — show a specific election's results on the map
+// =============================================================================
+
+// Reduce one pivoted race row to the bits we render. Candidate columns are any
+// column NOT in the metadata set; summing them gives true participation.
+function precinctRaceResult(row) {
+  let total = 0, rep = 0, dem = 0, topV = -1, secondV = -1;
+  for (const k in row) {
+    if (ELECTION_META_KEYS.has(k) || k === "Write-in") continue;
+    const v = +row[k] || 0;
+    total += v;
+    // party prefix case varies between race files (Rep/REP, Dem/DEM)
+    const party = k.split(" ")[0].toUpperCase();
+    if (party === "REP") rep += v;
+    else if (party === "DEM") dem += v;
+    if (v > topV) { secondV = topV; topV = v; }
+    else if (v > secondV) secondV = v;
+  }
+  const winner = total > 0 ? row["Winning Party"] || null : null;
+  const margin = total > 0 ? (topV - Math.max(0, secondV)) / total : 0;
+  return { total, rep, dem, winner, winnerName: total > 0 ? row["Winning Candidate"] : null, margin };
+}
+
+async function populateRaceMenu() {
+  try {
+    cc.races = await listElectionCSVs();
+  } catch (_) { cc.races = []; }
+  renderRaceList("");
+}
+
+function renderRaceList(filter) {
+  const list = $("cc-race-list");
+  if (!list) return;
+  const f = filter.toLowerCase();
+  let html = `<div class="cc-county-opt ${cc.raceId ? "" : "active"}" data-race="">
+      <span>Demographics (lean / margin / diversity)</span></div>`;
+  html += cc.races
+    .filter((e) => (e.displayName || e.office || e.filename || "").toLowerCase().includes(f))
+    .slice(0, 80)
+    .map((e) => {
+      const id = e.raceKey || e.filename;
+      const label = e.displayName || e.office || id;
+      return `<div class="cc-county-opt ${id === cc.raceId ? "active" : ""}" data-race="${escapeHtml(id)}">
+        <span>${escapeHtml(label)}</span><small>${escapeHtml(String(e.year || e.category || ""))}</small></div>`;
+    })
+    .join("");
+  list.innerHTML = html;
+}
+
+function applyRaceLabel() {
+  const el = $("cc-race-name");
+  if (el) el.textContent = cc.race ? cc.race.label : "Demographics";
+  // visually mute the demographic mode switch while a race is showing
+  const modes = $("cc-modes");
+  if (modes) modes.style.opacity = cc.raceId ? "0.45" : "1";
+}
+
+async function loadRace(raceIdOrEntry) {
+  const entry = typeof raceIdOrEntry === "object"
+    ? raceIdOrEntry
+    : cc.races.find((e) => (e.raceKey || e.filename) === raceIdOrEntry);
+  if (!entry) return;
+  showLoading(true);
+  try {
+    const rows = await loadElectionData(entry);
+    const byPrecinct = {};
+    for (const row of rows) byPrecinct[String(row["PRECINCT CODE"])] = precinctRaceResult(row);
+    cc.raceId = entry.raceKey || entry.filename;
+    cc.race = { id: cc.raceId, label: entry.displayName || entry.office || cc.raceId, byPrecinct };
+    applyRaceLabel();
+    updateHash();
+    restyle();
+    cc.layer.eachLayer((l) => l.setTooltipContent(tooltipFor(l.feature.properties)));
+    renderLegend();
+    if (cc.selectedCode) renderPrecinctDetail(cc.selectedCode);
+    else renderCountyBriefing();
+  } catch (err) {
+    console.error("[Command] race load failed:", err);
+  } finally {
+    showLoading(false);
+  }
+}
+
+function clearRace() {
+  if (!cc.raceId) return;
+  cc.raceId = null; cc.race = null;
+  applyRaceLabel();
+  updateHash();
+  restyle();
+  cc.layer.eachLayer((l) => l.setTooltipContent(tooltipFor(l.feature.properties)));
+  renderLegend();
+  if (cc.selectedCode) renderPrecinctDetail(cc.selectedCode);
+  else renderCountyBriefing();
+}
+
+function openRaceMenu() { $("cc-race-menu").classList.add("open"); $("cc-race-search").focus(); }
+function closeRaceMenu() { $("cc-race-menu").classList.remove("open"); }
 
 // =============================================================================
 // MOBILE DOCK
@@ -587,6 +812,24 @@ function wireUI() {
     if (sel && !sel.contains(e.target)) closeCountyMenu();
   });
 
+  // race menu
+  $("cc-race-btn").addEventListener("click", (e) => {
+    e.stopPropagation();
+    $("cc-race-menu").classList.contains("open") ? closeRaceMenu() : openRaceMenu();
+  });
+  $("cc-race-search").addEventListener("input", (e) => renderRaceList(e.target.value));
+  $("cc-race-list").addEventListener("click", (e) => {
+    const opt = e.target.closest(".cc-county-opt[data-race]");
+    if (!opt) return;
+    closeRaceMenu();
+    const id = opt.dataset.race;
+    id ? loadRace(id) : clearRace();
+  });
+  document.addEventListener("click", (e) => {
+    const sel = $("cc-race-select");
+    if (sel && !sel.contains(e.target)) closeRaceMenu();
+  });
+
   // precinct quick-search
   $("cc-precinct-search").addEventListener("keydown", (e) => {
     if (e.key !== "Enter") return;
@@ -597,10 +840,24 @@ function wireUI() {
     else { $("cc-dock-sub").textContent = `No precinct "${code}" in ${cc.countyName}.`; }
   });
 
-  // Escape closes county menu / mobile dock
+  // Escape closes menus / mobile dock
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { closeCountyMenu(); $("cc-dock").classList.remove("open"); }
+    if (e.key === "Escape") { closeCountyMenu(); closeRaceMenu(); $("cc-dock").classList.remove("open"); }
   });
+}
+
+// hash params (county / race) for deep links + shareable state
+function readHashParams() {
+  const params = {};
+  for (const part of window.location.hash.slice(1).split("&")) {
+    const [k, v] = part.split("=");
+    if (k && v) params[k] = decodeURIComponent(v);
+  }
+  return params;
+}
+function updateHash() {
+  const county = getActiveCounty();
+  history.replaceState(null, "", `#county=${encodeURIComponent(county)}${cc.raceId ? `&race=${encodeURIComponent(cc.raceId)}` : ""}`);
 }
 
 // =============================================================================
@@ -613,15 +870,21 @@ async function init() {
   renderLegend();
   showLoading(true);
   try {
+    const params = readHashParams();
     await populateCountyMenu();
-    // Brand to whatever county is actually active (defaults to Collin, but
-    // honours a deep-linked / remembered county) instead of hardcoding it.
+    // Honour a #county= deep link (defaults to Collin otherwise).
+    if (params.county && registryCache.find((c) => c.slug === params.county)) {
+      try { await setActiveCounty(params.county); } catch (_) { /* keep default */ }
+    }
     const activeEntry = registryCache.find((c) => c.slug === getActiveCounty());
     applyCountyBranding(activeEntry ? activeEntry.name : "Collin");
     const { geojson } = await loadAllData();
     cc.geojson = geojson;
     buildMap(geojson);
-    renderCountyBriefing();
+    await populateRaceMenu();
+    // A #race= deep link (e.g. from the Elections catalog) shows that race.
+    if (params.race) await loadRace(params.race);
+    else renderCountyBriefing();
   } catch (err) {
     console.error("[Command] boot failed:", err);
     $("cc-dock-sub").textContent = "Failed to load data.";

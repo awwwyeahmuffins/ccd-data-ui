@@ -65,4 +65,32 @@ test.describe('Command Center', () => {
     await expect(page.locator('.cc-rail a[href="explore.html"]')).toHaveCount(1);
     await expect(page.locator('.cc-rail a[href="precinct.html"]')).toHaveCount(1);
   });
+
+  test('renders a race deep-link and isolates only its participating precincts', async ({ page }) => {
+    // a sub-county race (CD-3) must NOT light up all of Collin
+    await page.goto('/index.html#county=collin&race=u-s-representative-district-3-2022');
+    await expect(page.locator('.cc-app')).toBeVisible();
+    await expect(page.locator('#cc-dock-eyebrow')).toContainText('Race Results', { timeout: 30000 });
+    await expect(page.locator('#cc-race-name')).toContainText('District 3');
+    // participation filter: fewer than all precincts are on this ballot
+    const sub = await page.locator('#cc-dock-sub').textContent();
+    const m = sub.match(/(\d+) of (\d+) precincts/);
+    expect(m).not.toBeNull();
+    expect(Number(m[1])).toBeLessThan(Number(m[2]));
+    expect(Number(m[1])).toBeGreaterThan(0);
+    // clear race returns to demographics
+    await page.click('#cc-clear-race');
+    await expect(page.locator('#cc-dock-eyebrow')).toContainText('County Briefing');
+    await expect(page.locator('#cc-race-name')).toHaveText('Demographics');
+  });
+
+  test('the race picker switches the map to a county-wide race', async ({ page }) => {
+    await waitForLoaded(page);
+    await page.click('#cc-race-btn');
+    await page.fill('#cc-race-search', 'president');
+    await page.click('.cc-race-list, #cc-race-list >> text=President', { timeout: 5000 }).catch(async () => {
+      await page.locator('#cc-race-list .cc-county-opt[data-race]').first().click();
+    });
+    await expect(page.locator('#cc-dock-eyebrow')).toContainText('Race Results', { timeout: 30000 });
+  });
 });
