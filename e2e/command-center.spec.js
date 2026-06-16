@@ -80,6 +80,9 @@ test.describe('Command Center', () => {
     expect(m).not.toBeNull();
     expect(Number(m[1])).toBeGreaterThan(0);
     expect(Number(m[1])).toBeLessThan(252);
+    // Hunt is now drawn precinct-by-precinct (official Clarity data joined to TLC
+    // VTD geometry) — the legend gains the precinct-level key for other counties.
+    await expect(page.locator('#cc-legend')).toContainText('precinct-level', { timeout: 10000 });
     // clear race returns to demographics
     await page.click('#cc-clear-race');
     await expect(page.locator('#cc-dock-eyebrow')).toContainText('County Briefing');

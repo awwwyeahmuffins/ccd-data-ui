@@ -6,7 +6,7 @@
   <title>Precinct Command — Texas Elections</title>
   <meta name="description" content="Precinct Command — an interactive command center for Texas precinct-level election data: party lean, victory margins, and demographics across all 254 counties." />
   <meta name="theme-color" content="#EFEBE2" id="cc-theme-color" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23F5B312'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%232A1D02'>TX</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
   <meta property="og:title" content="Precinct Command — Texas Elections" />
   <meta property="og:description" content="An interactive command center for Texas precinct-level election data across all 254 counties." />
   <meta property="og:type" content="website" />
@@ -51,9 +51,9 @@
       --ink:         #1C2733;   /* primary text */
       --ink-dim:     #44505C;   /* secondary text */
       --ink-faint:   #5F6B76;   /* labels (still ≥ AA on paper) */
-      --accent:      #9A6F08;   /* deep gold — readable on paper */
-      --accent-fill: #F5B312;   /* bright gold — button fills */
-      --accent-on:   #2A1D02;   /* text on gold */
+      --accent:      #0B4DA2;   /* civic blue — readable on paper */
+      --accent-fill: #1560C4;   /* bright blue — button fills */
+      --accent-on:   #FFFFFF;   /* text on blue */
       --primary:     #0B4DA2;   /* civic blue — focus/links */
       --rep:         #E81B23;
       --dem:         #00AEF3;
@@ -85,9 +85,9 @@
       --ink:         #e8edf4;
       --ink-dim:     #97a4b5;
       --ink-faint:   #6a7889;
-      --accent:      #F5B312;
-      --accent-fill: #F5B312;
-      --accent-on:   #1a1205;
+      --accent:      #7FB1F0;
+      --accent-fill: #3B82F6;
+      --accent-on:   #FFFFFF;
       --primary:     #7FB1F0;
       --no-data:     #1b2330;
       --stroke:      #0a0e14;
@@ -112,7 +112,7 @@
       -webkit-font-smoothing: antialiased;
       transition: background .3s ease, color .3s ease;
     }
-    ::selection { background: rgba(245,179,18,.3); }
+    ::selection { background: rgba(11,77,162,.22); }
 
     /* ---- App shell grid ---- */
     .cc-app {
@@ -143,11 +143,11 @@
     .cc-brand {
       width: 46px; height: 46px;
       border-radius: 13px;
-      background: linear-gradient(150deg, #F5B312, #C68A0C);
+      background: linear-gradient(150deg, #1560C4, #0B4DA2);
       display: grid; place-items: center;
       font-family: var(--display);
       font-weight: 700; font-size: 19px;
-      color: #2A1D02;
+      color: #FFFFFF;
       box-shadow: var(--shadow);
       margin-bottom: 14px;
       letter-spacing: -.5px;
@@ -269,7 +269,7 @@
       width: 240px;
       transition: border-color .15s, box-shadow .15s;
     }
-    .cc-search-pill:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245,179,18,.15); }
+    .cc-search-pill:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(11,77,162,.18); }
     .cc-search-pill svg { width: 17px; height: 17px; color: var(--ink-faint); flex: none; }
     .cc-search-pill input {
       background: none; border: none; color: var(--ink);

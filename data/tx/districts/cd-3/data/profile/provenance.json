@@ -25,6 +25,12 @@
                     "Sandeep Srivastava (D)": 8731
                 }
             }
+        },
+        {
+            "date": "2026-06-14",
+            "what": "Replaced Hunt County's DERIVED CD-3 U.S. Representative totals (2022, 2024) with Hunt County's OFFICIAL precinct-level results from its Clarity Elections portal.",
+            "method": "fetch_clarity_results.py \u2192 results.enr.clarityelections.com/TX/Hunt (2022 election 115635, 2024 election 122429); split ballot-style precincts summed to base voting precinct. Official Hunt totals: 2024 Self 31,457 / Srivastava 8,721; 2022 Self 20,617 / Srivastava 5,396 / Claytor 495.",
+            "note": "Supersedes the earlier subtraction-derived estimate (2024 had been 31,473 / 8,731). Precinct codes are Hunt's voting precincts; map still shows Hunt as a county outline (VTD geometry unaligned)."
         }
     ]
 }

@@ -10,6 +10,8 @@ import {
   loadAllData,
   getBoundaryConfigs,
   getActiveBoundary,
+  listElectionCSVs,
+  loadElectionData,
 } from "./dataLoader.js";
 import {
   STRATEGIES,
@@ -18,13 +20,17 @@ import {
   strategyAvailable,
   rankPrecincts,
 } from "./targeting.js";
+import { ELECTION_META_KEYS } from "./constants.js";
 import { escapeHtml } from "./utils.js";
 
 const pg = {
   county: "collin",
   strategy: "tossups",
   limit: 25,
-  features: [],
+  electionId: "",        // "" = overall partisan lean; else a specific race
+  features: [],          // county features (aggregate lean)
+  electionFeatures: [],  // features re-scored on the selected election (subset on that ballot)
+  elections: [],         // race manifest for the active county/district
   turnout: null,
   ctx: { hasTurnout: false, hasRacial: false },
 };
@@ -107,6 +113,94 @@ async function loadMarqueeTurnout() {
   }
 }
 
+// ---- election scoring -------------------------------------------------------
+// Populate the "Score on" dropdown with the active county/district's races, so a
+// strategy can rank on ONE election's real per-precinct result instead of the
+// precinct's overall partisan lean.
+async function populateElectionSelect() {
+  const sel = $("tg-election");
+  try {
+    pg.elections = await listElectionCSVs();
+  } catch (_) { pg.elections = []; }
+  let html = `<option value="">Overall partisan lean</option>`;
+  html += pg.elections
+    .map((e) => {
+      const id = e.raceKey || e.filename;
+      const label = e.displayName || e.office || id;
+      return `<option value="${escapeHtml(id)}">${escapeHtml(label)}</option>`;
+    })
+    .join("");
+  sel.innerHTML = html;
+  // keep the selection if the chosen race still exists here, else fall back
+  if (pg.electionId && !pg.elections.some((e) => (e.raceKey || e.filename) === pg.electionId)) pg.electionId = "";
+  sel.value = pg.electionId;
+}
+
+// Aggregate one race CSV to per-precinct {rep, dem, total}. Candidate columns are
+// every column not in the metadata set; party is the column's first token.
+async function loadElectionResults(entry) {
+  const rows = await loadElectionData(entry);
+  const byCode = {};
+  for (const row of rows) {
+    let total = 0, rep = 0, dem = 0;
+    for (const k in row) {
+      if (ELECTION_META_KEYS.has(k) || k === "Write-in") continue;
+      const v = +row[k] || 0;
+      if (!v) continue;
+      total += v;
+      const party = k.split(" ")[0].toUpperCase();
+      if (party === "REP") rep += v;
+      else if (party === "DEM") dem += v;
+    }
+    if (total > 0) byCode[String(row["PRECINCT CODE"])] = { rep, dem, total };
+  }
+  return byCode;
+}
+
+// Re-cast the county features with one election's partisanship so targeting.js
+// scores flips/defends/persuasion on THAT race. Demographics + population are
+// kept from the base feature; only precincts that were on this ballot survive.
+function buildElectionFeatures(results) {
+  const out = [];
+  for (const f of pg.features) {
+    const p = f.properties || {};
+    const er = results[String(p.PRECINCT)];
+    if (!er || er.total <= 0) continue;
+    const rep = er.rep, dem = er.dem, mod = Math.max(0, er.total - rep - dem);
+    out.push({
+      ...f,
+      properties: {
+        ...p,
+        repShare: rep / er.total,
+        demShare: dem / er.total,
+        modShare: mod / er.total,
+        rep, dem, mod,
+        winningParty: rep === dem ? (p.winningParty || "Rep") : rep > dem ? "Rep" : "Dem",
+      },
+    });
+  }
+  return out;
+}
+
+async function applyElection() {
+  if (!pg.electionId) { pg.electionFeatures = []; return; }
+  const entry = pg.elections.find((e) => (e.raceKey || e.filename) === pg.electionId);
+  if (!entry) { pg.electionId = ""; pg.electionFeatures = []; return; }
+  try {
+    const results = await loadElectionResults(entry);
+    pg.electionFeatures = buildElectionFeatures(results);
+  } catch (err) {
+    console.error("[Targets] election scoring failed:", err);
+    pg.electionId = ""; pg.electionFeatures = [];
+  }
+}
+
+function activeElectionLabel() {
+  if (!pg.electionId) return null;
+  const e = pg.elections.find((x) => (x.raceKey || x.filename) === pg.electionId);
+  return e ? (e.displayName || e.office || pg.electionId) : null;
+}
+
 // ---- load a county + recompute everything -----------------------------------
 async function loadCounty() {
   $("tg-list").innerHTML = '<div class="empty-note">Loading…</div>';
@@ -123,6 +217,8 @@ async function loadCounty() {
     };
     // if the chosen strategy isn't supported here, fall back to a universal one
     if (!strategyAvailable(getStrategy(pg.strategy), pg.ctx)) pg.strategy = "tossups";
+    await populateElectionSelect();
+    await applyElection();
     renderCatalog();
     renderResults();
   } catch (err) {
@@ -171,7 +267,8 @@ function renderResults() {
   const strat = getStrategy(pg.strategy);
   if (!strat) return;
   $("tg-results-title").textContent = strat.label;
-  $("tg-results-sub").textContent = strat.blurb;
+  const elLabel = activeElectionLabel();
+  $("tg-results-sub").textContent = elLabel ? `${strat.blurb} · Scored on ${elLabel}` : strat.blurb;
 
   if (!strategyAvailable(strat, pg.ctx)) {
     $("tg-results-count").textContent = "";
@@ -181,10 +278,13 @@ function renderResults() {
   }
   $("tg-na").innerHTML = "";
 
-  const ranked = rankPrecincts(pg.features, pg.strategy, { turnoutLookup: pg.turnout, limit: pg.limit });
+  const feats = pg.electionId ? pg.electionFeatures : pg.features;
+  const ranked = rankPrecincts(feats, pg.strategy, { turnoutLookup: pg.turnout, limit: pg.limit });
   $("tg-results-count").textContent = ranked.length ? `Top ${ranked.length}` : "";
   if (!ranked.length) {
-    $("tg-list").innerHTML = '<div class="empty-note">No precincts match this strategy here.</div>';
+    $("tg-list").innerHTML = pg.electionId
+      ? '<div class="empty-note">No precincts on this ballot match this strategy.</div>'
+      : '<div class="empty-note">No precincts match this strategy here.</div>';
     return;
   }
   $("tg-list").innerHTML = ranked.map((row, i) => precinctCard(i + 1, row, strat)).join("");
@@ -237,7 +337,7 @@ function precinctCard(rank, row, strat) {
       <div><div class="tg-metric-val">${escapeHtml(head.val)}</div><div class="tg-metric-label">${escapeHtml(head.label)}</div></div>
       <div class="tg-links">
         <a class="tg-link-report" href="precinct.html#county=${cParam}&precinct=${pParam}">Report</a>
-        <a class="tg-link-map" href="classic.html?dl#county=${cParam}">Map</a>
+        <a class="tg-link-map" href="index.html#county=${cParam}${pg.electionId ? `&race=${encodeURIComponent(pg.electionId)}` : ""}&precinct=${pParam}">Map</a>
       </div>
     </div>
   </div>`;
@@ -245,7 +345,8 @@ function precinctCard(rank, row, strat) {
 
 // ---- URL sync (deep-linkable) -----------------------------------------------
 function updateURL() {
-  const h = `county=${encodeURIComponent(pg.county)}&strategy=${encodeURIComponent(pg.strategy)}&top=${pg.limit}`;
+  let h = `county=${encodeURIComponent(pg.county)}&strategy=${encodeURIComponent(pg.strategy)}&top=${pg.limit}`;
+  if (pg.electionId) h += `&race=${encodeURIComponent(pg.electionId)}`;
   history.replaceState(null, "", `#${h}`);
 }
 function readURL() {
@@ -257,6 +358,7 @@ function readURL() {
   if (params.county) pg.county = params.county;
   if (params.strategy && getStrategy(params.strategy)) pg.strategy = params.strategy;
   if (params.top && [15, 25, 50, 100].includes(+params.top)) pg.limit = +params.top;
+  if (params.race) pg.electionId = params.race; // validated against the manifest after load
 }
 
 // ---- boot -------------------------------------------------------------------
@@ -268,10 +370,17 @@ async function init() {
     updateURL();
     renderResults();
   });
+  $("tg-election").addEventListener("change", async (e) => {
+    pg.electionId = e.target.value;
+    updateURL();
+    await applyElection();
+    renderResults();
+  });
   await initCountySelect();
   $("tg-county").value = pg.county;
   if ($("tg-county").value !== pg.county) pg.county = $("tg-county").value; // unknown slug → first option
   await loadCounty();
+  $("tg-election").value = pg.electionId; // reflect a deep-linked race once the manifest is in
 }
 
 if (document.readyState === "loading") {

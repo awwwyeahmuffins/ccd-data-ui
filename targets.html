@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Targets — Texas Elections</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23F5B312'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%232A1D02'>TX</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
   <meta name="description" content="Targetable precincts ranked by campaign strategy — flips, turnout opportunity, persuasion, registration, and leverage — for any Texas county." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +21,7 @@
     }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
     .brand-icon {
-      background: linear-gradient(150deg, #F5B312, #C68A0C); color: #2A1D02; font-weight: 800;
+      background: linear-gradient(150deg, #1560C4, #0B4DA2); color: #FFFFFF; font-weight: 800;
       border-radius: 10px; width: 34px; height: 34px; display: grid; place-items: center; font-size: 15px; letter-spacing: -.5px;
     }
     .brand-text { font-family: var(--font-display); font-weight: 700; font-size: 20px; }
@@ -145,6 +145,12 @@
       <div>
         <label for="tg-county">County or district</label>
         <select id="tg-county" aria-label="County or district"></select>
+      </div>
+      <div>
+        <label for="tg-election">Score on</label>
+        <select id="tg-election" aria-label="Election to score precincts on">
+          <option value="">Overall partisan lean</option>
+        </select>
       </div>
       <div>
         <label for="tg-limit">Show top</label>

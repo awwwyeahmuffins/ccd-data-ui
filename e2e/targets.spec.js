@@ -48,4 +48,20 @@ test.describe('Targets view', () => {
     // report links now point at the new county
     await expect(page.locator('.tg-link-report').first()).toHaveAttribute('href', /county=cd-32/);
   });
+
+  test('scoring on a specific election filters to that ballot and re-ranks', async ({ page }) => {
+    // deep-link straight to a sub-county race (HD-89) — only its precincts should rank
+    await page.goto('/targets.html#county=collin&race=state-representative-district-89-2024&strategy=tossups&top=100');
+    await expect(page.locator('.tg-precinct').first()).toBeVisible({ timeout: 30000 });
+    await expect(page.locator('#tg-election')).toHaveValue('state-representative-district-89-2024');
+    await expect(page.locator('#tg-results-sub')).toContainText('Scored on State Representative District 89');
+    const onBallot = await page.locator('.tg-precinct').count();
+    // sub-county race: far fewer than the full county's ~250 scored precincts
+    expect(onBallot).toBeGreaterThan(0);
+    expect(onBallot).toBeLessThan(120);
+    // clearing the election restores the full-county ranking
+    await page.selectOption('#tg-election', '');
+    await expect(page.locator('.tg-precinct').first()).toBeVisible();
+    expect(await page.locator('.tg-precinct').count()).toBeGreaterThan(onBallot);
+  });
 });
