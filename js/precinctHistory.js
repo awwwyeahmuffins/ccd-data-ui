@@ -4,7 +4,10 @@
 // Feature 4A: Precinct Voting History
 // Feature 4B: Precinct Comparison
 
-import { loadElectionData, listElectionCSVs, loadPrecinctRaces } from "./dataLoader.js";
+import { boundary } from "./data/dataService.js";
+
+// The one boundary handle (the app is pinned to the 2026 set).
+const svc = boundary();
 import { getRaceFamilyKey } from "./electionTrends.js";
 // The one taxonomy home (Phase 2): the history-policy categorizer + full
 // category order live in domain/races.js. Re-exported because precinctLookup
@@ -157,7 +160,7 @@ export function getPrecinctCandidateData(electionData, precinctCode) {
  * @returns {Promise<Object|null>} - Candidate data or null
  */
 export async function getPrecinctRaceDetail(precinctCode, filenameOrEntry) {
-  let data = await loadElectionData(filenameOrEntry);
+  let data = await svc.loadRace(filenameOrEntry);
   if (!data) return null;
   return getPrecinctCandidateData(data, precinctCode);
 }
@@ -346,7 +349,7 @@ export const generateVotingHistoryHTML = (history) => buildVotingHistoryHTML(his
  * @returns {Promise<Object>} - Map of raceFile -> [row]
  */
 export async function loadPrecinctHistoryData(precinctCode) {
-  return loadPrecinctRaces(precinctCode);
+  return svc.loadPrecinctRaces(precinctCode);
 }
 
 /**
@@ -355,7 +358,7 @@ export async function loadPrecinctHistoryData(precinctCode) {
  * @returns {Promise<Object>} - Voting history
  */
 export async function getPrecinctVotingHistory(precinctCode) {
-  let allData = await loadPrecinctRaces(precinctCode);
+  let allData = await svc.loadPrecinctRaces(precinctCode);
   return buildVotingHistory(precinctCode, allData);
 }
 
@@ -372,8 +375,8 @@ export async function getPrecinctVotingHistory(precinctCode) {
 export async function computePrecinctTrend(precinctCode) {
   if (!precinctCode) return null;
 
-  let allData = await loadPrecinctRaces(precinctCode);
-  let manifest = await listElectionCSVs();
+  let allData = await svc.loadPrecinctRaces(precinctCode);
+  let manifest = await svc.listRaces();
 
   // Build a lookup from filename to manifest entry for year/category info
   let manifestByFile = {};

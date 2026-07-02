@@ -13,7 +13,7 @@ import {
   strategyAvailable,
   rankPrecincts,
 } from "./targeting.js";
-import { ELECTION_META_KEYS } from "./constants.js";
+import { ELECTION_META_KEYS } from "./electionSchema.js";
 import { escapeHtml } from "./lib/dom.js";
 import { readParams, writeParams } from "./lib/urlState.js";
 import { initGlossary, termButton } from "./glossary.js";

@@ -13,7 +13,7 @@
 // The orchestrator (precinctLookup.js) is responsible for escaping any returned
 // text before it reaches innerHTML — these functions emit plain strings.
 
-import { formatNumber, formatPct } from "./utils.js";
+import { formatNumber, formatPct } from "./lib/format.js";
 
 // ---------------------------------------------------------------------------
 // Audiences — the three things a precinct chair is usually trying to do.

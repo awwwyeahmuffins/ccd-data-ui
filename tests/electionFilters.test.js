@@ -16,7 +16,7 @@ import {
   CATEGORY_ORDER,
   districtViewSlugForRace,
   categorizeByOffice
-} from '../js/electionFilters.js';
+} from '../js/domain/races.js';
 
 // ============================================================================
 // CATEGORY CONSTANTS
@@ -35,9 +35,9 @@ describe('ELECTION_CATEGORIES and CATEGORY_ORDER', () => {
     });
   });
 
-  it('should order tabs All-first, MUD-last', () => {
+  it('orders the full taxonomy Federal-first (display order)', () => {
     expect(CATEGORY_ORDER).toEqual([
-      'All', 'Federal', 'State', 'County', 'City', 'ISD', 'MUD'
+      'Federal', 'State', 'County', 'City', 'ISD', 'MUD', 'Propositions', 'Other'
     ]);
   });
 });

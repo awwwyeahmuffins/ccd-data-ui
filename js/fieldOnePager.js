@@ -2,10 +2,10 @@
 // --------------------------------------------------------------------------------
 // Printable one-page field brief for a precinct — compact layout for canvassers.
 
-import { loadAllData } from "./dataLoader.js";
+import { boundary } from "./data/dataService.js";
 import { loadCensusProfiles } from "./precinctProfile.js";
 import { getPrecinctVotingHistory, computePrecinctTrend, calculateTurnout } from "./precinctHistory.js";
-import { populationOf } from "./utils.js";
+import { populationOf } from "./lib/format.js";
 
 // ---------------------------------------------------------------------------
 // Data loading
@@ -27,7 +27,7 @@ export async function loadOnePagerData(precinctCode) {
   // Load base data (DNC + racial lookups)
   let baseData;
   try {
-    baseData = await loadAllData();
+    baseData = await boundary().loadAll();
   } catch {
     baseData = { dncLookup: {}, racialLookup: {}, geojson: { features: [] } };
   }

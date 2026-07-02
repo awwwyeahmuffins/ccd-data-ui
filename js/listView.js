@@ -10,8 +10,8 @@
 // disagree. Pure row-model builders here are unit-tested; commandCenter.js
 // owns the wiring (selection sync, view toggle, hash).
 
-import { describePrecinct } from "./mapBins.js";
-import { escapeHtml } from "./utils.js";
+import { describePrecinct } from "./map/mapBins.js";
+import { escapeHtml } from "./lib/dom.js";
 
 // ---------------------------------------------------------------------------
 // Pure row model

@@ -29,7 +29,8 @@ import {
   wirePrecinctKeyboard,
   updatePrecinctLabels as refreshLabelChips,
 } from "../map/mapView.js";
-import { PARTY_COLORS, ELECTION_META_KEYS } from "../constants.js";
+import { PARTY_COLORS } from "../lib/constants.js";
+import { ELECTION_META_KEYS } from "../electionSchema.js";
 import { escapeHtml } from "../lib/dom.js";
 import { formatPctWhole, formatNumberOrNA } from "../lib/format.js";
 import { readParams, writeParams } from "../lib/urlState.js";

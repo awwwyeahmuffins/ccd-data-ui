@@ -3,21 +3,10 @@
 // Precinct Lookup page orchestration — search, report rendering, mini map,
 // Chart.js charts, county comparisons, section navigation.
 
-import {
-  loadAllData,
-  setActiveBoundary,
-  getActiveBoundary,
-  getBoundaryConfigs,
-  listElectionCSVs,
-  getActiveCounty,
-  setActiveCounty,
-  loadCountyRegistry,
-  loadCountyBaselines,
-  loadPrimaryTurnout,
-} from "./dataLoader.js";
+import { boundary } from "./data/dataService.js";
 import { findPrecinctForAddress, findPrecinctForPoint, TEXAS_VIEWBOX } from "./geoLookup.js";
 import { createPrecinctFinder, isAddressQuery } from "./ui/precinctFinder.js";
-import { populationOf } from "./utils.js";
+import { populationOf } from "./lib/format.js";
 import {
   loadCensusProfiles,
   escapeHtml,
@@ -96,22 +85,9 @@ let compareMode = false;
 // Entry point
 // ---------------------------------------------------------------------------
 
-// Brand the tab title to the active county instead of hardcoding "Collin
-// County". Resolves the slug → display name via the registry. (The page header
-// itself is the shared civic header from js/siteNav.js.)
-async function applyCountyBranding() {
-  const slug = getActiveCounty();
-  const setName = (name) => {
-    document.title = `Find a Precinct — ${name} County`;
-  };
-  // Slug like "collin" → "Collin" as an immediate, sensible default.
-  setName(slug.charAt(0).toUpperCase() + slug.slice(1));
-  try {
-    const registry = await loadCountyRegistry();
-    const entry = registry.find((c) => c.slug === slug);
-    if (entry && entry.name) setName(entry.name);
-  } catch (_) { /* keep the slug-derived name */ }
-}
+// The one boundary handle — Collin on the current (2026) precincts. Legacy
+// #county= / #boundary= params in old links are read-tolerated and ignored.
+const svc = boundary();
 
 export async function initPrecinctLookup() {
   // Single-source the report structure (Phase 5): precinct.html ships the
@@ -121,7 +97,6 @@ export async function initPrecinctLookup() {
   // Light-only since June 2026 — clear any stale dark-theme preference
   document.documentElement.removeAttribute("data-theme");
   try { localStorage.removeItem("ccd_theme"); } catch (_) { /* ignore */ }
-  applyCountyBranding();
 
   // Search input
   let searchInput = document.getElementById("precinct-search");
@@ -154,25 +129,7 @@ export async function initPrecinctLookup() {
   }
   bindOnePagerButton();
 
-  // A #county= deep link (e.g. from the Targets view) must be applied BEFORE we
-  // load any data — loadAllData() otherwise defaults to Collin.
-  const preHash = parseHash();
-  if (preHash.county && preHash.county !== getActiveCounty()) {
-    try {
-      await setActiveCounty(preHash.county);
-      applyCountyBranding();
-    } catch (_) { /* unknown slug — fall back to the default county */ }
-  } else {
-    // Cache the registry entry and apply the county's default boundary set —
-    // without this, the module-level "original" default sticks on direct visits.
-    try { await setActiveCounty(getActiveCounty()); } catch (_) { /* offline — keep defaults */ }
-  }
-
-  // Always the current (2026) precincts where the county has them; stale
-  // #boundary= params in old links are ignored.
-  if (getBoundaryConfigs()["2026"] && getActiveBoundary() !== "2026") {
-    setActiveBoundary("2026");
-  }
+  document.title = "My Precinct — Collin County";
 
   // Load data
   await loadBaseData();
@@ -190,7 +147,7 @@ export async function initPrecinctLookup() {
 // ---------------------------------------------------------------------------
 
 async function loadBaseData() {
-  let result = await loadAllData();
+  let result = await svc.loadAll();
   geojsonData = result.geojson;
   dncLookup = result.dncLookup;
   racialLookup = result.racialLookup;
@@ -202,15 +159,13 @@ async function loadBaseData() {
   }
 
   try {
-    let boundary = getActiveBoundary();
-    let config = getBoundaryConfigs()[boundary];
-    let resp = await fetch(`${config.profileDir}/strategic_intelligence.json`);
+    let resp = await fetch(`${svc.config.profileDir}/strategic_intelligence.json`);
     if (resp.ok) strategicIntel = await resp.json();
   } catch {
     strategicIntel = null;
   }
 
-  primaryTurnout = await loadPrimaryTurnout(); // optional — null when not on file
+  primaryTurnout = await svc.loadPrimaryTurnout(); // optional — null when not on file
 
   // Build precinct list from GeoJSON features
   precinctList = geojsonData.features.map(function extractPrecinct(f) {
@@ -465,8 +420,7 @@ function bindLocationButton() {
 async function selectPrecinct(code) {
   let entry = precinctList.find((p) => p.code === String(code));
   if (!entry) {
-    let configs = getBoundaryConfigs();
-    let label = configs[getActiveBoundary()].label;
+    let label = svc.label;
     // Banner only — if a report is already on screen, leave it alone.
     showNotice(`Precinct ${code} not found in ${label}. Please search for a different precinct.`);
     return;
@@ -533,7 +487,7 @@ async function selectPrecinct(code) {
   try {
     allElectionData = await loadPrecinctHistoryData(code);
     votingHistory = await getPrecinctVotingHistory(code);
-    countyBaselines = await loadCountyBaselines();
+    countyBaselines = await svc.loadCountyBaselines();
   } catch {
     votingHistory = { races: [], byCategory: {}, partyRecord: { Rep: 0, Dem: 0, Other: 0 } };
     allElectionData = {};
@@ -542,7 +496,7 @@ async function selectPrecinct(code) {
 
   // Compute PVI, strategy, margin trend, turnout gap, talking points, similar precincts async
   let manifest = [];
-  try { manifest = await listElectionCSVs(); } catch { /* optional */ }
+  try { manifest = await svc.listRaces(); } catch { /* optional */ }
 
   // True registered-voter count comes from election results, not the DNC file
   updateHeroRegisteredVoters(votingHistory, manifest);
@@ -580,10 +534,9 @@ async function selectPrecinct(code) {
   }).catch(function onErr() { /* trend is optional */ });
 
   // Store for export
-  let configs = getBoundaryConfigs();
   currentReportData = {
     code,
-    boundaryLabel: configs[getActiveBoundary()].label,
+    boundaryLabel: svc.label,
     partyData,
     racialData,
     officials,
@@ -624,8 +577,7 @@ function isCensusUnreliable(census, partyData, isArtifact) {
 
 function renderHeroSection(code, census, partyData, racialData, meta) {
   let el = document.getElementById("hero-section");
-  let configs = getBoundaryConfigs();
-  let boundaryLabel = configs[getActiveBoundary()].label;
+  let boundaryLabel = svc.label;
 
   // Row 1: precinct code + badges
   let badges = '';
@@ -941,7 +893,7 @@ function renderCensusSection(census, code, boundaryMeta, partyData, racialData) 
   let unreliableNote = isCensusUnreliable(census, partyData, isArtifact)
     ? `<div class="new-precinct-notice">⚠️ This precinct has more scored voters than its area-weighted census population estimate, so the figures below were likely mis-apportioned from neighbouring blocks. Treat them as rough estimates.</div>`
     : "";
-  el.innerHTML = unreliableNote + generateProfileHTML(census, code, extraData, getActiveBoundary());
+  el.innerHTML = unreliableNote + generateProfileHTML(census, code, extraData, svc.id);
 }
 
 // ---------------------------------------------------------------------------
@@ -1468,7 +1420,7 @@ function renderStrategyDetail(strategy) {
 
   const names = STRATEGY_NAMES[strategy.classification];
   const targetsHref = names
-    ? `targets.html#county=${encodeURIComponent(getActiveCounty())}&strategy=${names.targetsId}`
+    ? `targets.html#strategy=${names.targetsId}`
     : null;
   el.innerHTML = `<div class="strategy-detail">
     <div class="strategy-detail-title"><span class="strategy-badge ${strategy.classification}">${escapeHtml(names?.title || strategy.classification)}</span></div>

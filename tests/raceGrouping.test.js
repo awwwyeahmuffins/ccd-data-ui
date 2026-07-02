@@ -8,7 +8,7 @@ import {
   groupElectionsByFamily,
   sortFamilies,
   getRaceFamilyDisplayName
-} from '../js/raceGrouping.js';
+} from '../js/domain/races.js';
 
 describe('Race Grouping Logic', () => {
   describe('getRaceFamily', () => {

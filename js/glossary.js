@@ -9,7 +9,7 @@
 // — precinctLookup.js does the latter — so the click handling is one
 // document-level delegated listener installed by initGlossary().
 
-import { escapeHtml } from "./utils.js";
+import { escapeHtml } from "./lib/dom.js";
 
 // Plain language, short sentences, no nested jargon. Unknown keys no-op.
 export const TERMS = {

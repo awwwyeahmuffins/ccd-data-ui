@@ -1,0 +1,18 @@
+# deploy-manifest.txt — the ONE allowlist of root files that ship to the
+# public bucket (REDESIGN.md Phase 6). One path per line; `make deploy-site`
+# loops over it, so adding a page is a one-line diff here.
+#
+# js/ and data/ (minus cache) sync as whole trees in the Makefile — shared
+# assets that must deploy live under js/ so they ride that sync.
+#
+# NEVER deploy the repo root wholesale: it contains voter PII
+# (VoterRegistrationFile.txt) and internal files that must not reach the
+# public bucket.
+index.html
+precinct.html
+elections.html
+forecast.html
+targets.html
+explore.html
+methodology.html
+styles.css

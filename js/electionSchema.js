@@ -353,3 +353,8 @@ export function normalizeV3Entry(entry, categorizeFn) {
     _v3: true,
   };
 }
+
+// Metadata columns to exclude when identifying candidate columns — the frozen
+// Set every consumer shares (moved here from the deleted constants.js shim;
+// this module is its single source anyway).
+export const ELECTION_META_KEYS = getMetadataColumnsSet();

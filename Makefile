@@ -191,19 +191,26 @@ cdk-destroy:
 # Deploy site content. ALLOWLIST ONLY — never sync the repo root wholesale:
 # the repo contains voter PII (VoterRegistrationFile.txt) and internal files
 # that must not reach the public bucket.
+# Root files ship from deploy-manifest.txt (one path per line — adding a page
+# is a one-line diff there). NEVER run a bare `aws s3 sync .` — the repo root
+# contains voter PII that must not reach the public bucket.
 deploy-site:
 	aws s3 sync js/ s3://$(SITE_BUCKET)/js/ --delete --profile $(DEPLOY_PROFILE)
 	aws s3 sync data/ s3://$(SITE_BUCKET)/data/ --exclude "cache/*" --exclude "*.geojson" --delete --profile $(DEPLOY_PROFILE)
 	# .geojson is unmapped by aws s3 sync -> application/octet-stream, which CloudFront
 	# does NOT compress. Re-upload it as application/json so gzip actually applies.
 	aws s3 sync data/ s3://$(SITE_BUCKET)/data/ --exclude "*" --include "*.geojson" --content-type application/json --profile $(DEPLOY_PROFILE)
-	aws s3 cp index.html s3://$(SITE_BUCKET)/index.html --profile $(DEPLOY_PROFILE)
-	aws s3 cp precinct.html s3://$(SITE_BUCKET)/precinct.html --profile $(DEPLOY_PROFILE)
-	aws s3 cp elections.html s3://$(SITE_BUCKET)/elections.html --profile $(DEPLOY_PROFILE)
-	aws s3 cp forecast.html s3://$(SITE_BUCKET)/forecast.html --profile $(DEPLOY_PROFILE)
-	aws s3 cp targets.html s3://$(SITE_BUCKET)/targets.html --profile $(DEPLOY_PROFILE)
-	aws s3 cp explore.html s3://$(SITE_BUCKET)/explore.html --profile $(DEPLOY_PROFILE)
-	aws s3 cp methodology.html s3://$(SITE_BUCKET)/methodology.html --profile $(DEPLOY_PROFILE)
-	aws s3 cp styles.css s3://$(SITE_BUCKET)/styles.css --profile $(DEPLOY_PROFILE)
+	@grep -v '^\#' deploy-manifest.txt | grep -v '^$$' | while read -r f; do \
+		test -f "$$f" || { echo "deploy-manifest.txt lists missing file: $$f" >&2; exit 1; }; \
+		echo "cp $$f"; \
+		aws s3 cp "$$f" "s3://$(SITE_BUCKET)/$$f" --profile $(DEPLOY_PROFILE) || exit 1; \
+	done
 	aws cloudfront create-invalidation --distribution-id $(DISTRIBUTION_ID) --paths "/*" --profile $(DEPLOY_PROFILE)
 	@echo "Site deployed and CloudFront invalidated."
+
+# Dry run: list exactly what deploy-site would ship from the manifest.
+deploy-dry-run:
+	@echo "js/ (tree sync)"; echo "data/ (tree sync, minus cache)"
+	@grep -v '^\#' deploy-manifest.txt | grep -v '^$$' | while read -r f; do \
+		test -f "$$f" && echo "$$f" || echo "MISSING: $$f"; \
+	done

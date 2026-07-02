@@ -1,7 +1,34 @@
 # REDESIGN.md — Collin County Elections Viewer: Simplification Redesign
 
 **Last Updated**: July 2, 2026
-**Status**: In implementation. Phases 0–5 are done; Phase 6 is pending.
+**Status**: COMPLETE — all phases (0–6) executed, July 2, 2026.
+
+- **Phase 6** (deletions + deploy): done, with three documented judgment calls:
+  1. **Deleted outright**: `dataLoader.js`, `utils.js`, `constants.js`,
+     `electionFilters.js`, `raceGrouping.js`, root `mapBins.js`/`mapPatterns.js`
+     shims, `electionsPage.js`, and the obsolete `dataLoader`/`districtViewSlug`
+     test suites. Every remaining importer now hits the final homes directly
+     (`git grep` shows zero import references to any deleted module); the last
+     five dataLoader consumers (precinctLookup, precinctHistory,
+     precinctProfile, fieldOnePager, precinctExport) migrated onto
+     `boundary()`. `ELECTION_META_KEYS` moved into electionSchema.js (its
+     single source).
+  2. **elections.html stub KEPT for one release** — the plan's own §3.2 grace
+     period. Deleting it in the same release that created it would 404 every
+     old bookmark. Remove it (and its deploy-manifest line) next cycle.
+  3. **Four "superseded originals" survive as pure modules** —
+     `electionTrends.js`, `precinctHistory.js`, `precinctProfile.js`,
+     `turnoutSimulator.js`. Their HTML halves are gone (Phase 2 moved them to
+     ui/), but their pure/data halves were never rehomed to `domain/` because
+     no phase actually built domain/trends|history|profile|simulator. They are
+     single-consumer, tested, and layer-clean in practice; moving them is
+     mechanical follow-up work, not a blocker. `tests/countyRegistry.test.js`
+     also stays — it validates the on-disk registry JSON the Python pipeline
+     still owns, which is data integrity, not dead code.
+  4. **Deploy**: `deploy-manifest.txt` is the one root-file allowlist;
+     `make deploy-site` loops over it (fails on a missing file) and
+     `make deploy-dry-run` lists exactly what ships. Bare `aws s3 sync .`
+     remains forbidden (voter PII in the repo root).
 
 - **Phase 5** (IA changes): done. The five-tab nav shipped (Map · My Precinct ·
   Priority Precincts · Data Table · How It Works); forecast.html left the nav

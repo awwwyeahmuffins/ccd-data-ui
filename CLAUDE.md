@@ -8,7 +8,7 @@ Collin County (TX) Elections Data Viewer — a vanilla JavaScript (ES Modules) w
 
 **Geo scope: Collin County only.** The registry (`data/tx/counties.json`) contains exactly one entry (Collin, 2024 + 2026 boundary sets). `data/tx/districts.json` + `data/tx/districts/` hold 12 overlapping CD/SD/HD districts whose race data includes out-of-county precinct rows found nowhere else — today they masquerade as extra "counties" in the registry; the approved redesign (`docs/REDESIGN.md`) turns them into district *scoping* instead. The Python pipeline in `data_processor/` is county-agnostic and can bring other counties live, but no other county's data ships in this repo. NEVER fabricate data — unknown values stay empty and render N/A.
 
-**A full simplification redesign is approved and documented in `docs/REDESIGN.md`** (target IA, module boundaries, migration phases 0–6). Phase 0 (doc truth) is done; consult REDESIGN.md before adding features or refactoring so new work lands on the target architecture, not the legacy one.
+**The simplification redesign in `docs/REDESIGN.md` is fully executed (phases 0–6, July 2026).** Consult its Status block for the small set of documented deviations and the one-release elections.html stub. New work follows the layered architecture: `pages → (ui | map | reporting…) → domain → data → lib`, ESLint-enforced.
 
 ## Common Commands
 
@@ -86,9 +86,8 @@ Each HTML page is self-contained: it loads ONE orchestrator module from `js/` an
 - `data/catalog.js` — frozen Collin config (BOUNDARY_SETS with full paths, DEFAULT_BOUNDARY "2026"); replaces the counties.json fetch on the frontend
 - `data/dataService.js` — `boundary(id)` → memoized per-boundary handle (`loadAll/listRaces/loadRace/loadPrecinctRaces/loadCountyBaselines/loadPrimaryTurnout`); switching boundaries is repointing, nothing is wiped; no cached rejections; RFC-4180 CSV parsing
 - `data/districts.js` — DISTRICT_LIST (12 districts), `precinctsInDistrict` (geojson CONG/SEN/SHR props), district tree race loading + out-of-county aggregates. Districts are a SCOPE (`district=` param on Map + Targets), never a pseudo-county; legacy `#county=` deep links are read-tolerated, never written
-- `dataLoader.js` — legacy compat shim over dataService (deleted in Phase 6; still imported by precinctLookup/precinctHistory/precinctProfile/fieldOnePager/precinctExport)
-- `electionSchema.js` — data schema definitions, validation, path building; the one `getRaceKey` (trends' cross-year normalizer is `getRaceFamilyKey`)
-- `constants.js`, `utils.js` — legacy re-export shims over `js/lib/` (deleted in Phase 6; new code imports lib directly)
+- `electionSchema.js` — data schema definitions, validation, path building; the one `getRaceKey` (trends' cross-year normalizer is `getRaceFamilyKey`) and the one `ELECTION_META_KEYS`
+- (the `constants.js`/`utils.js`/`dataLoader.js`/`electionFilters.js`/`raceGrouping.js` shims and root `mapBins.js`/`mapPatterns.js` are DELETED — import the final homes)
 
 **Domain layer (`js/domain/` — pure computation, no fetch/DOM; imports lib only, ESLint-enforced):**
 - `domain/races.js` — the taxonomy home: BOTH categorization policies (`categorizeElection` catalog policy, `categorizeRace` history policy — different outputs on purpose, see REDESIGN.md status), filter/search/count/format helpers, race-family grouping
@@ -104,7 +103,6 @@ Each HTML page is self-contained: it loads ONE orchestrator module from `js/` an
 - `turnoutSimulator.js` — turnout prediction/simulation engine (forecast page; pure since Phase 2 — its HTML generators live in `ui/simulatorControls.js`)
 - `targeting.js` — precinct-targeting strategy engine (targets page, pure/tested)
 - `talkingPointsBuilder.js` — precinct-chair talking points (precinct page, pure/tested)
-- `electionFilters.js`, `raceGrouping.js` — legacy re-export shims over `domain/races.js` (deleted in Phase 6)
 - `precinctHistory.js` (+ `electionTrends.js`) — per-precinct voting history (pure half; HTML renderers moved to `ui/reportSections.js`)
 - `precinctProfile.js`, `precinctExport.js`, `fieldOnePager.js` — precinct.html report features (profile's HTML half lives in `ui/reportSections.js`)
 - `geoLookup.js` — address→precinct (Nominatim) + point-in-polygon

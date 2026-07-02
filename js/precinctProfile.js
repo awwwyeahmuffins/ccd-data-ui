@@ -6,7 +6,10 @@
 // re-export shims for the moved generators until Phase 6 deletes them. The pure
 // remainder's future home is domain/profile.js (Phase 3).
 
-import { getActiveBoundary, getBoundaryConfigs } from "./dataLoader.js";
+import { boundary } from "./data/dataService.js";
+
+// The one boundary handle (the app is pinned to the 2026 set).
+const svc = boundary();
 import {
   generateProfileHTML as buildProfileHTML,
   renderPartyRegistration,
@@ -16,7 +19,6 @@ import {
 } from "./ui/reportSections.js";
 
 let cachedProfiles = null;
-let cachedBoundary = null;
 
 // ---------------------------------------------------------------------------
 // Formatting helpers — now aliases of js/lib (Phase 1); re-exported because
@@ -51,21 +53,18 @@ export {
 // Legacy signature: reads the active boundary itself. New code should call
 // ui/reportSections.js generateProfileHTML(profile, code, extraData, boundary).
 export const generateProfileHTML = (profile, precinctCode, extraData = {}) =>
-  buildProfileHTML(profile, precinctCode, extraData, getActiveBoundary());
+  buildProfileHTML(profile, precinctCode, extraData, svc.id);
 
 // ---------------------------------------------------------------------------
 // Data loading
 // ---------------------------------------------------------------------------
 
 export async function loadCensusProfiles() {
-  const boundary = getActiveBoundary();
-  if (cachedProfiles && cachedBoundary === boundary) return cachedProfiles;
-  const config = getBoundaryConfigs()[boundary];
-  let resp = await fetch(`${config.profileDir}/census_profiles.json`);
+  if (cachedProfiles) return cachedProfiles;
+  let resp = await fetch(`${svc.config.profileDir}/census_profiles.json`);
   if (!resp.ok) throw new Error(`Failed to load census profiles: ${resp.status}`);
   cachedProfiles = await resp.json();
-  cachedBoundary = boundary;
-  return cachedProfiles;
+    return cachedProfiles;
 }
 
 // ---------------------------------------------------------------------------
@@ -101,5 +100,5 @@ export async function renderPrecinctProfile(precinctCode, container, extraData =
     }
     return;
   }
-  container.innerHTML = buildProfileHTML(profile, String(precinctCode), extraData, getActiveBoundary());
+  container.innerHTML = buildProfileHTML(profile, String(precinctCode), extraData, svc.id);
 }
