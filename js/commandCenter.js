@@ -1699,10 +1699,21 @@ async function init() {
 // Sign-out lives in the shared header (js/siteNav.js) — it detects the Cognito
 // session in localStorage and clears it; no page-specific button needed here.
 
-// Auth gate — the public deployment sits behind Cognito sign-in; localhost and
-// e2e bypass it. init() is idempotent, so running it on both the initial check
-// and the auth-state change is safe.
+// Auth gate — when REQUIRE_SIGN_IN is true, the public deployment sits behind
+// Cognito sign-in (localhost and e2e always bypass it). init() is idempotent,
+// so running it on both the initial check and the auth-state change is safe.
+//
+// PUBLIC-ACCESS MODE (July 2026): the gate is switched OFF so anyone can view
+// the site. Flip this back to true to restore the sign-in requirement — the
+// overlay, Cognito wiring, and header Sign out all still work.
+const REQUIRE_SIGN_IN = false;
+
 async function boot() {
+  if (!REQUIRE_SIGN_IN) {
+    hideAuthOverlay();
+    init();
+    return;
+  }
   initAuth();
   const isLocalDev = ["localhost", "127.0.0.1"].includes(location.hostname);
   if (isLocalDev || (await isAuthenticated())) {
