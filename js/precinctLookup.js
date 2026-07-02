@@ -40,10 +40,8 @@ import {
   loadPrecinctHistoryData,
   categorizeRace,
 } from "./precinctHistory.js";
-import {
-  initTheme,
-  LIGHT_TILE_URL,
-} from "./themeManager.js";
+import { LIGHT_TILE_URL } from "./lib/constants.js";
+import { readParams, writeParams } from "./lib/urlState.js";
 import { exportAsPDF, exportAsMarkdown } from "./precinctExport.js";
 import {
   loadOnePagerData,
@@ -114,7 +112,9 @@ async function applyCountyBranding() {
 }
 
 export async function initPrecinctLookup() {
-  initTheme(); // clears any stale dark-theme preference (light-only since June 2026)
+  // Light-only since June 2026 — clear any stale dark-theme preference
+  document.documentElement.removeAttribute("data-theme");
+  try { localStorage.removeItem("ccd_theme"); } catch (_) { /* ignore */ }
   applyCountyBranding();
 
   // Search input
@@ -510,9 +510,10 @@ async function selectPrecinct(code) {
   renderOfficialsSection(officials);
   renderCensusSection(census, code, props._meta || null, partyData, racialData);
 
-  // Update URL hash (keep the active report tab if one was chosen)
-  let tabPart = parseHash().tab ? `&tab=${encodeURIComponent(parseHash().tab)}` : "";
-  window.location.hash = `precinct=${code}${tabPart}`;
+  // Update URL hash (keep the active report tab if one was chosen).
+  // Push semantics on purpose — moving between precinct reports is real
+  // navigation, so Back returns to the previous report.
+  writeParams({ precinct: code, tab: parseHash().tab || null }, { replace: false });
 
   // Setup section nav observer
   setupSectionNav();
@@ -835,10 +836,7 @@ function setReportTab(tabId, { updateHash = true } = {}) {
     });
   }
   if (updateHash) {
-    const params = parseHash();
-    params.tab = tabId;
-    const h = Object.entries(params).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
-    history.replaceState(null, "", `#${h}`);
+    writeParams({ ...parseHash(), tab: tabId });
   }
 }
 
@@ -1096,13 +1094,7 @@ function renderMiniMap(feature, partyData) {
 // ---------------------------------------------------------------------------
 
 function parseHash() {
-  let hash = window.location.hash.slice(1);
-  let params = {};
-  for (let part of hash.split("&")) {
-    let [k, v] = part.split("=");
-    if (k && v) params[k] = decodeURIComponent(v);
-  }
-  return params;
+  return readParams();
 }
 
 // MUST mirror the static structure in precinct.html (same data-tab mapping) —

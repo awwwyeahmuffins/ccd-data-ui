@@ -22,7 +22,8 @@ import {
   rankPrecincts,
 } from "./targeting.js";
 import { ELECTION_META_KEYS } from "./constants.js";
-import { escapeHtml } from "./utils.js";
+import { escapeHtml } from "./lib/dom.js";
+import { readParams, writeParams } from "./lib/urlState.js";
 import { initGlossary, termButton } from "./glossary.js";
 
 // Metric labels that have a plain-language glossary entry render as tappable
@@ -382,18 +383,17 @@ function precinctCard(rank, row, strat) {
   </div>`;
 }
 
-// ---- URL sync (deep-linkable) -----------------------------------------------
+// ---- URL sync (deep-linkable) — via the one urlState vocabulary (§5.3) ------
 function updateURL() {
-  let h = `county=${encodeURIComponent(pg.county)}&strategy=${encodeURIComponent(pg.strategy)}&top=${pg.limit}`;
-  if (pg.electionId) h += `&race=${encodeURIComponent(pg.electionId)}`;
-  history.replaceState(null, "", `#${h}`);
+  writeParams({
+    county: pg.county,
+    strategy: pg.strategy,
+    top: pg.limit,
+    race: pg.electionId || null,
+  });
 }
 function readURL() {
-  const params = {};
-  for (const part of window.location.hash.slice(1).split("&")) {
-    const [k, v] = part.split("=");
-    if (k && v) params[k] = decodeURIComponent(v);
-  }
+  const params = readParams();
   if (params.county) pg.county = params.county;
   if (params.strategy && getStrategy(params.strategy)) pg.strategy = params.strategy;
   if (params.top && [15, 25, 50, 100].includes(+params.top)) pg.limit = +params.top;

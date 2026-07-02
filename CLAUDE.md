@@ -76,11 +76,16 @@ Each HTML page is self-contained: it loads ONE orchestrator module from `js/` an
 - **`elections.html`** → `js/electionsPage.js` ("Election Results"), **`forecast.html`** → `js/forecastPage.js` ("Forecast"), **`targets.html`** → `js/targetsPage.js` ("Priority Precincts"), **`explore.html`** ("Browse All Data"), **`precinct.html`** → `js/precinctLookup.js` ("Find a Precinct" — the report is 5 flat tabs, Field Guide first; printing always prints the whole report; `#tab=` deep links), **`methodology.html`** ("How It Works", static). Targets leads with the ranked list (catalogue behind one "Change strategy" disclosure); Explore opens on a Summary view (flat topic tabs; "All columns" is the explicit spreadsheet). Smoke: `e2e/new-pages.spec.js`, `e2e/targets.spec.js`, `e2e/explore.spec.js`, `e2e/precinct-tabs.spec.js`.
 - **Standalone-page rule:** orchestrators must NOT import deleted-monolith modules; include the d3 script; override styles.css's html/body flex lock; add new pages to the deploy allowlist AND give them the `#site-header` placeholder + `js/siteNav.js` + `js/civic.css`.
 
+**Foundation (`js/lib/` — Phase 1 of REDESIGN.md; the bottom layer, imports nothing, ESLint-enforced):**
+- `lib/format.js` — the one home for formatters (`formatPct`/`formatPctCompact`/`formatPctWhole`, `formatNumber`/`formatNumberOrNA`, `formatCurrency`, `safeNumber`, `populationOf`, `formatPrecinctLabel`)
+- `lib/dom.js` — `escapeHtml`/`csvEscape` (use for any innerHTML/CSV output) + `debounce`
+- `lib/urlState.js` — the one hash-state module (`readParams`/`writeParams`/`onChange`); all six pages use it. Params: `race, precinct, view, tab, strategy, boundary, district` (+ legacy `county`)
+- `lib/constants.js` — frozen literals (`PARTY_COLORS` — data encodings, do not change — `PARTY_STRENGTH_COLORS`, `MAP_CONFIG`, `LIGHT_TILE_URL`)
+
 **Data Layer:**
 - `dataLoader.js` — fetches GeoJSON, CSV, demographic data; in-memory caching; boundary switching (`setActiveBoundary` for 2024 vs 2026 precincts)
-- `electionSchema.js` — data schema definitions, validation, path building
-- `constants.js` — centralized config (party colors — data encodings, do not change — category maps, map settings)
-- `utils.js` — shared formatters, `escapeHtml`/`csvEscape` (use for any innerHTML/CSV output)
+- `electionSchema.js` — data schema definitions, validation, path building; the one `getRaceKey` (trends' cross-year normalizer is `getRaceFamilyKey`)
+- `constants.js`, `utils.js` — legacy re-export shims over `js/lib/` (deleted in Phase 6; new code imports lib directly)
 
 **Library Modules (root js/, consumed by the page orchestrators):**
 - `turnoutSimulator.js` — turnout prediction/simulation (forecast page)
@@ -93,7 +98,7 @@ Each HTML page is self-contained: it loads ONE orchestrator module from `js/` an
 - `geoLookup.js` — address→precinct (Nominatim) + point-in-polygon
 - `mapBins.js` (named numeric bins + the one plain-language precinct formatter) + `mapPatterns.js` (SVG pattern fills) + `countyBriefing.js` (the dock's pure "so what" model) + `listView.js` (linear precinct list; pure row model + chunked renderer)
 - `siteNav.js` (shared header + text-size toggle + welcome) + `civic.css` (shared tokens/a11y layer) + `glossary.js` (plain-language term popovers)
-- `themeManager.js` (light-only; clears stale dark prefs), `auth.js`/`authUI.js`/`authConfig.js`
+- `auth.js`/`authUI.js`/`authConfig.js` (Cognito; dormant — `themeManager.js` was deleted in Phase 1, the app is light-only)
 
 History note: an earlier app.js-based architecture (22 modules) was deleted June 2026, and the `js/app/` Command-Center-era monolith + many map-only libs (competitiveRanker, marginView, demographicHeatmap, mapEnhancements, mapInitializer, boundaryChangesTable, universeBuilder, reverseCalculator, exportManager/exportCSV, urlStateManager, bookmarkManager, precinctChat/chatUI) were deleted with `classic.html` — recover from git history if ever needed.
 
@@ -112,7 +117,7 @@ Python scripts for sourcing and converting election data:
 
 ### Testing
 
-- **Unit tests** (`tests/*.test.js`): Jest with jsdom environment. Uses `--experimental-vm-modules` for ES module support. Note: several test files test inline COPIES of source functions rather than importing the module — when changing a module, search tests for duplicated logic.
+- **Unit tests** (`tests/*.test.js`): Jest with jsdom environment. Uses `--experimental-vm-modules` for ES module support. Every suite imports the REAL modules (jest.config.js's moduleNameMapper resolves `./x.js` to `js/x.js`); the last three copy-based suites (utils, electionFilters, dataLoader) were rewritten in Phase 1 — do not reintroduce inline copies of source functions.
 - **E2E tests** (`e2e/*.spec.js`): 9 files — `command-center` (map, dock, pickers, deep links), `list-view`, `new-pages` (elections/forecast/methodology), `targets`, `explore`, `precinct-tabs`, `precinct-lookup`, `onboarding` (welcome/help), and `a11y` (axe on all 7 pages + stateful views). Known gaps: boundary switching and inbound deep-link consumption have no dedicated specs yet (planned in REDESIGN.md Phase 1). Playwright reuses the local server on port 3000. Run locally with `--workers=2` (the Python server is slow under parallel load).
 - **Lint**: `make lint` runs ESLint (flat config in `eslint.config.js`) over js/, e2e/, tests/ and fails on errors.
 

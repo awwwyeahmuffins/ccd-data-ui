@@ -3,6 +3,8 @@
 // Turnout simulation engine for election forecasting.
 // Allows users to model how different turnout scenarios affect race outcomes.
 
+import { formatPctWhole, formatNumber } from "./lib/format.js";
+
 // ============================================================================
 // VALID PARTY CODES
 // ============================================================================
@@ -893,8 +895,8 @@ export function runFullSimulation(electionData, dncDataByPrecinct, candidates, t
 export function generateSimulatorControlsHTML(currentValues = { Rep: 1.0, Dem: 1.0, Mod: 1.0 }, flipRates = {}, options = {}) {
   let { showVoterFlip = true, minPct = 50, maxPct = 150 } = options;
 
-  function formatPct(val) { return Math.round(val * 100) + '%'; }
-  function formatFlipPct(val) { return (val * 100).toFixed(0) + '%'; }
+  const formatPct = formatPctWhole;
+  const formatFlipPct = formatPctWhole;
 
   // Generate turnout slider HTML
   let turnoutSlidersHTML = `
@@ -1093,7 +1095,7 @@ export function generateSimulationResultsHTML(originalSummary, simulatedSummary,
     return '<p class="no-data">Select an election to begin simulation.</p>';
   }
   
-  function formatNum(val) { return val.toLocaleString(); }
+  const formatNum = formatNumber;
 
   // Build candidate comparison rows
   let candidateRows = '';

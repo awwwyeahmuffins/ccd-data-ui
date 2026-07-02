@@ -1,7 +1,7 @@
 # REDESIGN.md — Collin County Elections Viewer: Simplification Redesign
 
 **Last Updated**: July 2, 2026
-**Status**: Approved design, pre-implementation. Phase 0 (this document + doc truth-fixes) is done; Phases 1–6 are pending.
+**Status**: In implementation. Phase 0 (this document + doc truth-fixes) and Phase 1 (js/lib/ extraction, urlState adoption, real-module tests, deep-links + boundary-switching specs, themeManager/chatEndpoint deletion) are done; Phases 2–6 are pending. Phase 1 note: the two category taxonomies (electionFilters vs precinctHistory) turned out to be behaviorally different (case-sensitivity, Propositions/Other), so their merge moved to Phase 2's `domain/races.js` where it can be designed rather than aliased.
 
 This is a first-principles redesign of the application's information architecture,
 module boundaries, and navigation. The goal is **simplification, not features**:

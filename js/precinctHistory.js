@@ -5,7 +5,7 @@
 // Feature 4B: Precinct Comparison
 
 import { loadElectionData, listElectionCSVs, loadPrecinctRaces } from "./dataLoader.js";
-import { getRaceKey } from "./electionTrends.js";
+import { getRaceFamilyKey } from "./electionTrends.js";
 
 // ============================================================================
 // RACE CATEGORY CLASSIFICATION
@@ -542,7 +542,7 @@ export async function computePrecinctTrend(precinctCode) {
 
     let demShare = demVotes / totalVotes;
     let year = entry.year || 0;
-    let raceKey = getRaceKey(entry);
+    let raceKey = getRaceFamilyKey(entry);
     let raceName = formatRaceName(filename);
 
     federalRaces.push({ filename, raceKey, raceName, year, demShare });

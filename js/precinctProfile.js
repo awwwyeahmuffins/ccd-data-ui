@@ -9,35 +9,17 @@ let cachedProfiles = null;
 let cachedBoundary = null;
 
 // ---------------------------------------------------------------------------
-// Formatting helpers
+// Formatting helpers — now aliases of js/lib (Phase 1); re-exported because
+// precinctLookup and friends import them from here until Phase 2's view split.
 // ---------------------------------------------------------------------------
 
-export function escapeHtml(str) {
-  let div = document.createElement("div");
-  div.textContent = String(str);
-  return div.innerHTML;
-}
-
-export function formatCurrency(n) {
-  if (n == null || isNaN(n)) return "N/A";
-  if (n >= 1000000) {
-    return "$" + (n / 1000000).toFixed(1) + "M";
-  }
-  if (n >= 10000) {
-    return "$" + (n / 1000).toFixed(1).replace(/\.0$/, "") + "K";
-  }
-  return "$" + n.toLocaleString("en-US");
-}
-
-export function formatPct(n) {
-  if (n == null || isNaN(n)) return "N/A";
-  return (n * 100).toFixed(1).replace(/\.0$/, "") + "%";
-}
-
-export function formatNum(n) {
-  if (n == null || isNaN(n)) return "N/A";
-  return Number(n).toLocaleString("en-US");
-}
+import { escapeHtml } from "./lib/dom.js";
+import {
+  formatCurrency,
+  formatPctCompact as formatPct,
+  formatNumberOrNA as formatNum
+} from "./lib/format.js";
+export { escapeHtml, formatCurrency, formatPct, formatNum };
 
 // ---------------------------------------------------------------------------
 // Data loading

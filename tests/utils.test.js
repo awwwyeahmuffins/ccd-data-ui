@@ -1,263 +1,33 @@
 // utils.test.js
-// Unit tests for utility functions
-// Run with: node --experimental-vm-modules node_modules/jest/bin/jest.js
-// Or configure Jest for ES modules
+// Unit tests for the shared utility libraries in js/lib/ (REDESIGN.md Phase 1).
+// These import the REAL modules — no inline copies — so regressions in the
+// production code fail here.
+// Run with: node --experimental-vm-modules node_modules/jest/bin/jest.js tests/utils.test.js
 
-import { describe, it, expect, jest } from '@jest/globals';
+import { describe, it, expect, jest, beforeEach, afterEach } from '@jest/globals';
 
-// Mock implementations for testing (since we can't import ES modules directly in some environments)
-// These mirror the actual implementations in utils.js
-
-function buildRacialChartData(props) {
-  if (!props || typeof props !== 'object') {
-    return [];
-  }
-  const categories = [
-    { label: "Asian", value: Number(props.asian) || 0 },
-    { label: "Black", value: Number(props.black) || 0 },
-    { label: "Hispanic", value: Number(props.hispanic) || 0 },
-    { label: "Others", value: Number(props.others) || 0 },
-    { label: "White", value: Number(props.white) || 0 }
-  ];
-  return categories.filter(d => d.value > 0);
-}
-
-function buildPartyChartData(props) {
-  if (!props || typeof props !== 'object') {
-    return [];
-  }
-  const categories = [
-    { label: "Rep", value: Number(props.rep) || 0 },
-    { label: "Mod", value: Number(props.mod) || 0 },
-    { label: "Dem", value: Number(props.dem) || 0 }
-  ];
-  return categories.filter(d => d.value > 0);
-}
-
-// UPDATED: formatPct now returns "N/A" for invalid inputs
-function formatPct(fraction) {
-  if (fraction == null || isNaN(fraction)) {
-    return "N/A";
-  }
-  return (fraction * 100).toFixed(1) + "%";
-}
-
-// NEW: Safe number parser
-function safeNumber(value, defaultValue = 0) {
-  const num = Number(value);
-  return isNaN(num) ? defaultValue : num;
-}
-
-// NEW: Format number with locale
-function formatNumber(value) {
-  const num = safeNumber(value);
-  return num.toLocaleString();
-}
-
-// NEW: Debounce utility
-function debounce(fn, delay = 100) {
-  let timeoutId;
-  return function (...args) {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => fn.apply(this, args), delay);
-  };
-}
+import {
+  safeNumber,
+  formatNumber,
+  formatNumberOrNA,
+  formatPct,
+  formatPctCompact,
+  formatPctWhole,
+  formatCurrency,
+  populationOf,
+  formatPrecinctLabel
+} from '../js/lib/format.js';
+import { escapeHtml, csvEscape, debounce } from '../js/lib/dom.js';
+import { readParams, writeParams, onChange } from '../js/lib/urlState.js';
+import {
+  PARTY_COLORS,
+  PARTY_STRENGTH_COLORS,
+  MAP_CONFIG,
+  LIGHT_TILE_URL
+} from '../js/lib/constants.js';
 
 // ============================================================================
-// TESTS FOR buildRacialChartData
-// ============================================================================
-
-describe('buildRacialChartData', () => {
-  it('should return all categories when all have positive values', () => {
-    const props = { asian: 100, black: 200, hispanic: 150, others: 50, white: 500 };
-    const result = buildRacialChartData(props);
-    
-    expect(result).toHaveLength(5);
-    expect(result.map(d => d.label)).toEqual(['Asian', 'Black', 'Hispanic', 'Others', 'White']);
-  });
-
-  it('should filter out zero values', () => {
-    const props = { asian: 100, black: 0, hispanic: 150, others: 0, white: 500 };
-    const result = buildRacialChartData(props);
-    
-    expect(result).toHaveLength(3);
-    expect(result.map(d => d.label)).toEqual(['Asian', 'Hispanic', 'White']);
-  });
-
-  it('should return empty array when all values are zero', () => {
-    const props = { asian: 0, black: 0, hispanic: 0, others: 0, white: 0 };
-    const result = buildRacialChartData(props);
-    
-    expect(result).toHaveLength(0);
-  });
-
-  it('should handle missing properties as zero', () => {
-    const props = { asian: 100 }; // missing black, hispanic, others, white
-    const result = buildRacialChartData(props);
-    
-    expect(result).toHaveLength(1);
-    expect(result[0]).toEqual({ label: 'Asian', value: 100 });
-  });
-
-  it('should handle string numeric values', () => {
-    const props = { asian: "100", black: "200", hispanic: "0", others: "50", white: "500" };
-    const result = buildRacialChartData(props);
-    
-    expect(result).toHaveLength(4); // hispanic is 0, filtered out
-    expect(result[0].value).toBe(100);
-  });
-
-  it('should handle negative values (edge case - may be bug)', () => {
-    // NOTE: Negative values pass through - this might be a bug in production
-    const props = { asian: -100, black: 200, hispanic: 0, others: 0, white: 0 };
-    const result = buildRacialChartData(props);
-    
-    // Current behavior: negative values are included (filter is > 0)
-    expect(result).toHaveLength(1); // Only black > 0
-  });
-
-  it('should handle NaN values', () => {
-    const props = { asian: NaN, black: 200, hispanic: "not a number", others: undefined, white: null };
-    const result = buildRacialChartData(props);
-    
-    expect(result).toHaveLength(1);
-    expect(result[0]).toEqual({ label: 'Black', value: 200 });
-  });
-
-  it('should handle empty object', () => {
-    const result = buildRacialChartData({});
-    expect(result).toHaveLength(0);
-  });
-
-  // NEW: Test for null/undefined props
-  it('should return empty array for null props', () => {
-    const result = buildRacialChartData(null);
-    expect(result).toHaveLength(0);
-  });
-
-  it('should return empty array for undefined props', () => {
-    const result = buildRacialChartData(undefined);
-    expect(result).toHaveLength(0);
-  });
-
-  it('should return empty array for non-object props', () => {
-    expect(buildRacialChartData("string")).toHaveLength(0);
-    expect(buildRacialChartData(123)).toHaveLength(0);
-  });
-});
-
-// ============================================================================
-// TESTS FOR buildPartyChartData
-// ============================================================================
-
-describe('buildPartyChartData', () => {
-  it('should return all parties when all have positive values', () => {
-    const props = { rep: 1000, mod: 500, dem: 800 };
-    const result = buildPartyChartData(props);
-    
-    expect(result).toHaveLength(3);
-    expect(result.map(d => d.label)).toEqual(['Rep', 'Mod', 'Dem']);
-  });
-
-  it('should filter out zero values', () => {
-    const props = { rep: 1000, mod: 0, dem: 800 };
-    const result = buildPartyChartData(props);
-    
-    expect(result).toHaveLength(2);
-    expect(result.map(d => d.label)).toEqual(['Rep', 'Dem']);
-  });
-
-  it('should handle single party dominance', () => {
-    const props = { rep: 5000, mod: 0, dem: 0 };
-    const result = buildPartyChartData(props);
-    
-    expect(result).toHaveLength(1);
-    expect(result[0]).toEqual({ label: 'Rep', value: 5000 });
-  });
-
-  it('should handle string values from CSV data', () => {
-    const props = { rep: "1500", mod: "300", dem: "1200" };
-    const result = buildPartyChartData(props);
-    
-    expect(result).toHaveLength(3);
-    expect(result[0].value).toBe(1500);
-  });
-
-  it('should handle missing properties', () => {
-    const props = { dem: 500 }; // missing rep and mod
-    const result = buildPartyChartData(props);
-    
-    expect(result).toHaveLength(1);
-    expect(result[0]).toEqual({ label: 'Dem', value: 500 });
-  });
-
-  // NEW: Test for null/undefined props
-  it('should return empty array for null props', () => {
-    const result = buildPartyChartData(null);
-    expect(result).toHaveLength(0);
-  });
-
-  it('should return empty array for undefined props', () => {
-    const result = buildPartyChartData(undefined);
-    expect(result).toHaveLength(0);
-  });
-});
-
-// ============================================================================
-// TESTS FOR formatPct (UPDATED for new behavior)
-// ============================================================================
-
-describe('formatPct', () => {
-  it('should format 0.5 as 50.0%', () => {
-    expect(formatPct(0.5)).toBe('50.0%');
-  });
-
-  it('should format 1 as 100.0%', () => {
-    expect(formatPct(1)).toBe('100.0%');
-  });
-
-  it('should format 0 as 0.0%', () => {
-    expect(formatPct(0)).toBe('0.0%');
-  });
-
-  it('should handle decimal precision', () => {
-    expect(formatPct(0.333)).toBe('33.3%');
-    expect(formatPct(0.3333)).toBe('33.3%');
-    expect(formatPct(0.3335)).toBe('33.4%'); // rounds up
-  });
-
-  it('should handle values > 1 (over 100%)', () => {
-    expect(formatPct(1.5)).toBe('150.0%');
-  });
-
-  it('should handle negative values', () => {
-    expect(formatPct(-0.25)).toBe('-25.0%');
-  });
-
-  // UPDATED: These tests now reflect the fixed behavior
-  it('should return N/A for null', () => {
-    expect(formatPct(null)).toBe('N/A');
-  });
-
-  it('should return N/A for undefined', () => {
-    expect(formatPct(undefined)).toBe('N/A');
-  });
-
-  it('should handle numeric string input (coercion works)', () => {
-    expect(formatPct("0.5")).toBe('50.0%');
-  });
-
-  it('should return N/A for non-numeric strings', () => {
-    expect(formatPct("abc")).toBe('N/A');
-  });
-
-  it('should return N/A for NaN', () => {
-    expect(formatPct(NaN)).toBe('N/A');
-  });
-});
-
-// ============================================================================
-// TESTS FOR safeNumber (NEW)
+// lib/format.js
 // ============================================================================
 
 describe('safeNumber', () => {
@@ -302,10 +72,6 @@ describe('safeNumber', () => {
   });
 });
 
-// ============================================================================
-// TESTS FOR formatNumber (NEW)
-// ============================================================================
-
 describe('formatNumber', () => {
   it('should format numbers with thousands separator', () => {
     // Note: toLocaleString() output depends on locale
@@ -332,9 +98,259 @@ describe('formatNumber', () => {
   });
 });
 
+describe('formatNumberOrNA', () => {
+  it('should format valid numbers with en-US thousands separators', () => {
+    expect(formatNumberOrNA(1234)).toBe('1,234');
+    expect(formatNumberOrNA(1234567)).toBe('1,234,567');
+    expect(formatNumberOrNA(0)).toBe('0');
+  });
+
+  it('should return N/A for null and undefined', () => {
+    expect(formatNumberOrNA(null)).toBe('N/A');
+    expect(formatNumberOrNA(undefined)).toBe('N/A');
+  });
+
+  it('should return N/A for NaN and non-numeric strings', () => {
+    expect(formatNumberOrNA(NaN)).toBe('N/A');
+    expect(formatNumberOrNA('abc')).toBe('N/A');
+  });
+
+  it('should coerce numeric strings', () => {
+    expect(formatNumberOrNA('5678')).toBe('5,678');
+  });
+});
+
+describe('formatPct', () => {
+  it('should format 0.5 as 50.0%', () => {
+    expect(formatPct(0.5)).toBe('50.0%');
+  });
+
+  it('should format 1 as 100.0%', () => {
+    expect(formatPct(1)).toBe('100.0%');
+  });
+
+  it('should format 0 as 0.0%', () => {
+    expect(formatPct(0)).toBe('0.0%');
+  });
+
+  it('should handle decimal precision', () => {
+    expect(formatPct(0.333)).toBe('33.3%');
+    expect(formatPct(0.3333)).toBe('33.3%');
+    expect(formatPct(0.3335)).toBe('33.4%'); // rounds up
+  });
+
+  it('should handle values > 1 (over 100%)', () => {
+    expect(formatPct(1.5)).toBe('150.0%');
+  });
+
+  it('should handle negative values', () => {
+    expect(formatPct(-0.25)).toBe('-25.0%');
+  });
+
+  it('should return N/A for null', () => {
+    expect(formatPct(null)).toBe('N/A');
+  });
+
+  it('should return N/A for undefined', () => {
+    expect(formatPct(undefined)).toBe('N/A');
+  });
+
+  it('should handle numeric string input (coercion works)', () => {
+    expect(formatPct("0.5")).toBe('50.0%');
+  });
+
+  it('should return N/A for non-numeric strings', () => {
+    expect(formatPct("abc")).toBe('N/A');
+  });
+
+  it('should return N/A for NaN', () => {
+    expect(formatPct(NaN)).toBe('N/A');
+  });
+});
+
+describe('formatPctCompact', () => {
+  it('should drop the trailing .0 on whole percentages', () => {
+    expect(formatPctCompact(0.52)).toBe('52%');
+    expect(formatPctCompact(1)).toBe('100%');
+    expect(formatPctCompact(0)).toBe('0%');
+  });
+
+  it('should keep one decimal when non-zero', () => {
+    expect(formatPctCompact(0.523)).toBe('52.3%');
+    expect(formatPctCompact(0.333)).toBe('33.3%');
+  });
+
+  it('should return N/A for invalid input', () => {
+    expect(formatPctCompact(null)).toBe('N/A');
+    expect(formatPctCompact(undefined)).toBe('N/A');
+    expect(formatPctCompact(NaN)).toBe('N/A');
+  });
+});
+
+describe('formatPctWhole', () => {
+  it('should round to the nearest whole percent', () => {
+    expect(formatPctWhole(0.523)).toBe('52%');
+    expect(formatPctWhole(0.525)).toBe('53%'); // Math.round on 52.5
+    expect(formatPctWhole(0.5)).toBe('50%');
+    expect(formatPctWhole(0)).toBe('0%');
+  });
+
+  it('should return N/A for invalid input', () => {
+    expect(formatPctWhole(null)).toBe('N/A');
+    expect(formatPctWhole(undefined)).toBe('N/A');
+    expect(formatPctWhole(NaN)).toBe('N/A');
+  });
+});
+
+describe('formatCurrency', () => {
+  it('should format millions as $X.XM', () => {
+    expect(formatCurrency(1200000)).toBe('$1.2M');
+    expect(formatCurrency(1000000)).toBe('$1.0M');
+  });
+
+  it('should format >= $10K as $XK, dropping a trailing .0', () => {
+    expect(formatCurrency(45000)).toBe('$45K');
+    expect(formatCurrency(45300)).toBe('$45.3K');
+    expect(formatCurrency(10000)).toBe('$10K');
+  });
+
+  it('should format small amounts with en-US separators', () => {
+    expect(formatCurrency(1234)).toBe('$1,234');
+    expect(formatCurrency(9999)).toBe('$9,999');
+    expect(formatCurrency(0)).toBe('$0');
+  });
+
+  it('should return N/A for invalid input', () => {
+    expect(formatCurrency(null)).toBe('N/A');
+    expect(formatCurrency(undefined)).toBe('N/A');
+    expect(formatCurrency(NaN)).toBe('N/A');
+  });
+});
+
+describe('populationOf', () => {
+  it('should prefer the racial-data total when positive', () => {
+    expect(populationOf({ total: 4200 }, { population: 5000 })).toBe(4200);
+  });
+
+  it('should coerce string totals', () => {
+    expect(populationOf({ total: '4200' }, { population: 5000 })).toBe(4200);
+  });
+
+  it('should fall back to census.population when the racial total is missing or zero', () => {
+    expect(populationOf(null, { population: 5000 })).toBe(5000);
+    expect(populationOf({ total: 0 }, { population: 5000 })).toBe(5000);
+    expect(populationOf({}, { population: 5000 })).toBe(5000);
+  });
+
+  it('should return null when neither source is available', () => {
+    expect(populationOf(null, null)).toBeNull();
+    expect(populationOf({ total: 0 }, { population: 0 })).toBeNull();
+    expect(populationOf(null, undefined)).toBeNull();
+  });
+
+  it('should allow omitting the census argument (the map path)', () => {
+    expect(populationOf({ total: 4200 })).toBe(4200);
+    expect(populationOf({ total: 0 })).toBeNull();
+    expect(populationOf(null)).toBeNull();
+  });
+});
+
+describe('formatPrecinctLabel', () => {
+  it('should label plain-county precincts with the bare code', () => {
+    expect(formatPrecinctLabel({ PRECINCT: '42' })).toBe('Precinct 42');
+    expect(formatPrecinctLabel({ PRECINCT: 42 })).toBe('Precinct 42');
+  });
+
+  it('should prefix cross-county district codes with the county name', () => {
+    expect(formatPrecinctLabel({ PRECINCT: 'collin:42', COUNTY: 'Collin' }))
+      .toBe('Collin · Precinct 42');
+  });
+
+  it('should label county-level aggregate units as counties', () => {
+    // PRECINCT = county slug (non-numeric), COUNTY = county name
+    expect(formatPrecinctLabel({ PRECINCT: 'hunt', COUNTY: 'Hunt' }))
+      .toBe('Hunt County');
+  });
+
+  it('should use the bare code when COUNTY is present but the code is numeric', () => {
+    expect(formatPrecinctLabel({ PRECINCT: '42', COUNTY: 'Collin' }))
+      .toBe('Precinct 42');
+  });
+
+  it('should tolerate missing props', () => {
+    expect(formatPrecinctLabel(null)).toBe('Precinct ');
+    expect(formatPrecinctLabel({})).toBe('Precinct ');
+  });
+});
+
 // ============================================================================
-// TESTS FOR debounce (NEW)
+// lib/dom.js
 // ============================================================================
+
+describe('escapeHtml', () => {
+  it('should escape all five HTML special characters', () => {
+    expect(escapeHtml('<script>alert("x&y\'s")</script>'))
+      .toBe('&lt;script&gt;alert(&quot;x&amp;y&#39;s&quot;)&lt;/script&gt;');
+  });
+
+  it('should pass plain text through unchanged', () => {
+    expect(escapeHtml('Precinct 42')).toBe('Precinct 42');
+  });
+
+  it('should stringify non-string input', () => {
+    expect(escapeHtml(42)).toBe('42');
+  });
+
+  it('should render null and undefined as empty string', () => {
+    expect(escapeHtml(null)).toBe('');
+    expect(escapeHtml(undefined)).toBe('');
+  });
+
+  it('should escape ampersands first (no double-escaping)', () => {
+    expect(escapeHtml('&lt;')).toBe('&amp;lt;');
+  });
+});
+
+describe('csvEscape', () => {
+  it('should return simple values unchanged', () => {
+    expect(csvEscape('hello')).toBe('hello');
+    expect(csvEscape(42)).toBe('42');
+  });
+
+  it('should return empty string for null and undefined', () => {
+    expect(csvEscape(null)).toBe('');
+    expect(csvEscape(undefined)).toBe('');
+  });
+
+  it('should quote values containing commas', () => {
+    expect(csvEscape('a,b')).toBe('"a,b"');
+  });
+
+  it('should quote and double embedded quotes', () => {
+    expect(csvEscape('say "hi"')).toBe('"say ""hi"""');
+  });
+
+  it('should quote values containing newlines', () => {
+    expect(csvEscape('line1\nline2')).toBe('"line1\nline2"');
+  });
+
+  it('should prefix formula-injection characters with an apostrophe', () => {
+    expect(csvEscape('=SUM(A1)')).toBe("'=SUM(A1)");
+    expect(csvEscape('+1234')).toBe("'+1234");
+    expect(csvEscape('-cmd')).toBe("'-cmd");
+    expect(csvEscape('@import')).toBe("'@import");
+    expect(csvEscape('\tx')).toBe("'\tx");
+    expect(csvEscape('\rx')).toBe("'\rx");
+  });
+
+  it('should NOT prefix negative numbers (only strings get the guard)', () => {
+    expect(csvEscape(-42)).toBe('-42');
+  });
+
+  it('should both prefix and quote a formula containing a comma', () => {
+    expect(csvEscape('=SUM(A1,B1)')).toBe('"\'=SUM(A1,B1)"');
+  });
+});
 
 describe('debounce', () => {
   beforeEach(() => {
@@ -406,63 +422,108 @@ describe('debounce', () => {
 });
 
 // ============================================================================
-// TESTS FOR clearLayers (would need map mock)
+// lib/urlState.js
 // ============================================================================
 
-describe('clearLayers', () => {
-  it('should remove layer and set to null when layer exists', () => {
-    const mockLayer = { remove: jest.fn() };
-    const mockMap = {
-      currentLayer: mockLayer,
-      removeLayer: jest.fn()
-    };
-    
-    // Inline implementation for testing
-    function clearLayers(map) {
-      if (!map) return;
-      if (map.currentLayer) {
-        map.removeLayer(map.currentLayer);
-        map.currentLayer = null;
-      }
-    }
-    
-    clearLayers(mockMap);
-    
-    expect(mockMap.removeLayer).toHaveBeenCalledWith(mockLayer);
-    expect(mockMap.currentLayer).toBeNull();
+describe('urlState', () => {
+  beforeEach(() => {
+    // Reset to a clean URL with no hash before each test
+    history.replaceState(null, '', window.location.pathname);
   });
 
-  it('should do nothing when no layer exists', () => {
-    const mockMap = {
-      currentLayer: null,
-      removeLayer: jest.fn()
-    };
-    
-    function clearLayers(map) {
-      if (!map) return;
-      if (map.currentLayer) {
-        map.removeLayer(map.currentLayer);
-        map.currentLayer = null;
-      }
-    }
-    
-    clearLayers(mockMap);
-    
-    expect(mockMap.removeLayer).not.toHaveBeenCalled();
+  describe('readParams', () => {
+    it('should parse hash params and decode values', () => {
+      window.location.hash = '#a=1&b=two%20words';
+      expect(readParams()).toEqual({ a: '1', b: 'two words' });
+    });
+
+    it('should return {} for an empty hash', () => {
+      expect(readParams()).toEqual({});
+    });
+
+    it('should skip keys with empty values', () => {
+      window.location.hash = '#a=1&b=';
+      expect(readParams()).toEqual({ a: '1' });
+    });
   });
 
-  // NEW: Test for null map
-  it('should handle null map gracefully', () => {
-    function clearLayers(map) {
-      if (!map) return;
-      if (map.currentLayer) {
-        map.removeLayer(map.currentLayer);
-        map.currentLayer = null;
-      }
-    }
-    
-    // Should not throw
-    expect(() => clearLayers(null)).not.toThrow();
-    expect(() => clearLayers(undefined)).not.toThrow();
+  describe('writeParams', () => {
+    it('should omit null and empty values (replace default)', () => {
+      writeParams({ a: 1, b: null, c: '' });
+      expect(window.location.hash).toBe('#a=1');
+    });
+
+    it('should write via replaceState by default (no history entry)', () => {
+      const before = history.length;
+      writeParams({ a: 1 });
+      expect(window.location.hash).toBe('#a=1');
+      expect(history.length).toBe(before);
+    });
+
+    it('should set location.hash (push semantics) with replace:false', () => {
+      writeParams({ a: 'x' }, { replace: false });
+      expect(window.location.hash).toBe('#a=x');
+    });
+
+    it('should round-trip values through readParams', () => {
+      const input = { race: 'Governor 2026', precinct: '42', view: 'list' };
+      writeParams(input);
+      expect(readParams()).toEqual(input);
+    });
+
+    it('should clear the hash back to the pathname for {}', () => {
+      writeParams({ a: 1 });
+      expect(window.location.hash).toBe('#a=1');
+      writeParams({});
+      expect(window.location.hash).toBe('');
+      expect(window.location.pathname).toBe('/');
+    });
+
+    it('should URL-encode values on write', () => {
+      writeParams({ b: 'two words' });
+      expect(window.location.hash).toBe('#b=two%20words');
+    });
+  });
+
+  describe('onChange', () => {
+    it('should invoke the handler with parsed params on hashchange and stop after unsubscribe', () => {
+      const fn = jest.fn();
+      const off = onChange(fn);
+
+      window.location.hash = '#a=1';
+      window.dispatchEvent(new window.HashChangeEvent('hashchange'));
+      expect(fn).toHaveBeenCalledWith({ a: '1' });
+
+      off();
+      window.dispatchEvent(new window.HashChangeEvent('hashchange'));
+      expect(fn).toHaveBeenCalledTimes(1);
+    });
+  });
+});
+
+// ============================================================================
+// lib/constants.js
+// ============================================================================
+
+describe('constants', () => {
+  it('should deep-freeze PARTY_COLORS', () => {
+    expect(Object.isFrozen(PARTY_COLORS)).toBe(true);
+    // ESM is strict mode, so assignment to a frozen object throws
+    expect(() => { PARTY_COLORS.Rep = '#000000'; }).toThrow(TypeError);
+    expect(PARTY_COLORS.Rep).toBe('#E81B23');
+  });
+
+  it('should deep-freeze nested strength-color objects', () => {
+    expect(Object.isFrozen(PARTY_STRENGTH_COLORS)).toBe(true);
+    expect(Object.isFrozen(PARTY_STRENGTH_COLORS.Rep)).toBe(true);
+    expect(Object.isFrozen(PARTY_STRENGTH_COLORS.Dem)).toBe(true);
+    expect(() => { PARTY_STRENGTH_COLORS.Rep[1] = '#000000'; }).toThrow(TypeError);
+  });
+
+  it('should freeze MAP_CONFIG and export the light tile URL', () => {
+    expect(Object.isFrozen(MAP_CONFIG)).toBe(true);
+    expect(MAP_CONFIG.center).toEqual([33.1, -96.6]);
+    expect(typeof LIGHT_TILE_URL).toBe('string');
+    expect(LIGHT_TILE_URL).toContain('{z}/{x}/{y}');
   });
 });

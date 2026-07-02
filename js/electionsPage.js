@@ -6,7 +6,8 @@
 
 import { loadCountyRegistry, setActiveCounty, setActiveBoundary, getBoundaryConfigs, getActiveBoundary, listElectionCSVs } from "./dataLoader.js";
 import { CATEGORY_ORDER, searchElections, filterByCategory } from "./electionFilters.js";
-import { escapeHtml } from "./utils.js";
+import { escapeHtml } from "./lib/dom.js";
+import { readParams, writeParams } from "./lib/urlState.js";
 
 const pg = {
   county: 'collin',
@@ -164,17 +165,14 @@ function raceRow(e) {
     </div>`;
 }
 
-// URL state: #county=X (race links carry their own state)
+// URL state: #county=X (race links carry their own state) — via urlState (§5.3)
 function parseURL() {
-  const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
-  if (params.get('county')) pg.county = params.get('county');
+  const params = readParams();
+  if (params.county) pg.county = params.county;
 }
 
 function updateURL() {
-  const params = new URLSearchParams();
-  if (pg.county !== 'collin') params.set('county', pg.county);
-  const hash = params.toString();
-  history.replaceState(null, '', hash ? `#${hash}` : window.location.pathname);
+  writeParams({ county: pg.county !== 'collin' ? pg.county : null });
 }
 
 let searchTimer = null;

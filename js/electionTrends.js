@@ -8,11 +8,14 @@
 // ============================================================================
 
 /**
- * Normalizes a race name to a consistent race key for comparison
+ * Normalizes a race name to a consistent race FAMILY key for cross-year
+ * comparison (strips years, maps aliases). Renamed from getRaceKey in Phase 1:
+ * the one `getRaceKey` (manifest identity, no normalization) lives in
+ * electionSchema.js — this does a different job and now says so.
  * @param {Object|string} entry - Manifest entry (object with filename) or filename string
  * @returns {string} Normalized race key (e.g. "governor", "president", "county_commissioner_precinct_4")
  */
-export function getRaceKey(entry) {
+export function getRaceFamilyKey(entry) {
   let filename;
   if (typeof entry === 'string') {
     filename = entry;
@@ -102,7 +105,7 @@ export function getElectionsByRaceKey(manifest) {
   let grouped = {};
 
   for (let entry of manifest) {
-    let raceKey = getRaceKey(entry);
+    let raceKey = getRaceFamilyKey(entry);
     if (!grouped[raceKey]) {
       grouped[raceKey] = [];
     }

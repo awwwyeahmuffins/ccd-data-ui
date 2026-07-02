@@ -11,7 +11,9 @@
 
 import { loadAllData, setActiveCounty, loadCountyRegistry, getActiveCounty, listElectionCSVs, loadElectionData, setActiveBoundary, getActiveBoundary, getBoundaryConfigs, loadPrimaryTurnout } from "./dataLoader.js";
 import { PARTY_STRENGTH_COLORS, PARTY_COLORS, ELECTION_META_KEYS, MAP_CONFIG } from "./constants.js";
-import { escapeHtml } from "./utils.js";
+import { escapeHtml } from "./lib/dom.js";
+import { formatPctWhole, formatNumberOrNA } from "./lib/format.js";
+import { readParams, writeParams } from "./lib/urlState.js";
 import { initAuth, isAuthenticated, signOut, onAuthStateChange } from "./auth.js";
 import { showAuthOverlay, hideAuthOverlay } from "./authUI.js";
 import { findPrecinctForAddress, findPrecinctForPoint, TEXAS_VIEWBOX } from "./geoLookup.js";
@@ -65,8 +67,8 @@ function svgRoot() {
 
 // ---- tiny DOM helpers -------------------------------------------------------
 const $ = (id) => document.getElementById(id);
-const fmtPct = (v) => (v == null || isNaN(v) ? "N/A" : `${Math.round(v * 100)}%`);
-const fmtNum = (v) => (v == null || isNaN(v) ? "N/A" : Number(v).toLocaleString());
+const fmtPct = formatPctWhole;
+const fmtNum = formatNumberOrNA;
 
 // =============================================================================
 // FILL ENGINES — one per mode. Each takes a feature's merged properties and
@@ -1698,21 +1700,18 @@ function findByLocation() {
   );
 }
 
-// hash params (county / race) for deep links + shareable state
+// hash params (county / race) for deep links + shareable state — via the one
+// urlState vocabulary (REDESIGN.md §5.3)
 function readHashParams() {
-  const params = {};
-  for (const part of window.location.hash.slice(1).split("&")) {
-    const [k, v] = part.split("=");
-    if (k && v) params[k] = decodeURIComponent(v);
-  }
-  return params;
+  return readParams();
 }
 function updateHash() {
-  const county = getActiveCounty();
-  const race = cc.raceId ? `&race=${encodeURIComponent(cc.raceId)}` : "";
-  const pct = cc.selectedCode ? `&precinct=${encodeURIComponent(cc.selectedCode)}` : "";
-  const view = cc.view === "list" ? "&view=list" : "";
-  history.replaceState(null, "", `#county=${encodeURIComponent(county)}${race}${pct}${view}`);
+  writeParams({
+    county: getActiveCounty(),
+    race: cc.raceId || null,
+    precinct: cc.selectedCode || null,
+    view: cc.view === "list" ? "list" : null,
+  });
 }
 
 // =============================================================================

@@ -1,237 +1,47 @@
-// js/electionFilters.test.js
-// Unit tests for election filtering and categorization
-// Run with: npm test
+// tests/electionFilters.test.js
+// Unit tests for election filtering and categorization.
+// Tests the REAL module (js/electionFilters.js) — no inline copies.
+// Run with: node --experimental-vm-modules node_modules/jest/bin/jest.js tests/electionFilters.test.js
 
-import { describe, it, expect, beforeEach } from '@jest/globals';
+import { describe, it, expect, jest } from '@jest/globals';
+import {
+  categorizeElection,
+  filterByCategory,
+  filterByYear,
+  searchElections,
+  getCategoryCounts,
+  formatElectionName,
+  highlightMatches,
+  ELECTION_CATEGORIES,
+  CATEGORY_ORDER,
+  ElectionFilterManager,
+  districtViewSlugForRace,
+  categorizeByOffice
+} from '../js/electionFilters.js';
 
 // ============================================================================
-// CATEGORY DEFINITIONS (mirrors the implementation)
+// CATEGORY CONSTANTS
 // ============================================================================
 
-const ELECTION_CATEGORIES = {
-  FEDERAL: 'Federal',
-  STATE: 'State', 
-  COUNTY: 'County',
-  CITY: 'City',
-  ISD: 'ISD',
-  MUD: 'MUD',
-  ALL: 'All'
-};
-
-// ============================================================================
-// IMPLEMENTATION FUNCTIONS (to be moved to electionFilters.js)
-// These are defined inline for TDD - tests written first
-// ============================================================================
-
-/**
- * Determines the category of an election based on its filename
- * @param {string} filename - The election CSV filename
- * @returns {string} The category (Federal, State, County, City, ISD, MUD)
- */
-function categorizeElection(filename) {
-  if (!filename || typeof filename !== 'string') {
-    return ELECTION_CATEGORIES.COUNTY; // Default fallback
-  }
-
-  const normalized = filename.toLowerCase();
-
-  // Federal races - President, US Senator, US Representatives
-  if (
-    normalized.includes('president') ||
-    normalized.includes('united_states_senator') ||
-    normalized.includes('u._s._representative') ||
-    normalized.includes('united_states_representative')
-  ) {
-    return ELECTION_CATEGORIES.FEDERAL;
-  }
-
-  // MUD races (check before City to avoid false positives from city names)
-  if (normalized.includes('_mud_') || normalized.includes('mud_no')) {
-    return ELECTION_CATEGORIES.MUD;
-  }
-
-  // ISD races (check before City)
-  if (normalized.includes('_isd_') || normalized.includes('_isd-') || normalized.includes('for_school_trustee')) {
-    return ELECTION_CATEGORIES.ISD;
-  }
-
-  // City races - City_of_, Mayor, City_Council, Seat_No_ (council seats), Alderman
-  if (
-    normalized.includes('_city_of_') ||
-    normalized.includes(',_city_of_') ||
-    normalized.includes('mayor_') ||
-    normalized.includes('city_council') ||
-    normalized.includes('seat_no_') ||
-    normalized.includes('alderman')
-  ) {
-    return ELECTION_CATEGORIES.CITY;
-  }
-
-  // State races - Governor, Lt Gov, AG, Comptroller, Commissioners, State Rep/Senator, State Courts
-  if (
-    normalized.includes('governor') ||
-    normalized.includes('lieutenant_governor') ||
-    normalized.includes('attorney_general') ||
-    normalized.includes('comptroller') ||
-    normalized.includes('commissioner_of_') ||
-    normalized.includes('railroad_commissioner') ||
-    normalized.includes('state_representative') ||
-    normalized.includes('state_senator') ||
-    normalized.includes('state_board_of_education') ||
-    normalized.includes('court_of_criminal_appeals') ||
-    normalized.includes('supreme_court') ||
-    normalized.includes('court_of_appeals_district')
-  ) {
-    return ELECTION_CATEGORIES.STATE;
-  }
-
-  // County races - County_, District_, Sheriff, Constable, Justice_of_the_Peace
-  if (
-    normalized.includes('county_') ||
-    normalized.includes('district_') ||
-    normalized.includes('sheriff') ||
-    normalized.includes('constable') ||
-    normalized.includes('justice_of_the_peace')
-  ) {
-    return ELECTION_CATEGORIES.COUNTY;
-  }
-
-  // Default to County for unmatched races
-  return ELECTION_CATEGORIES.COUNTY;
-}
-
-/**
- * Filters elections by category
- * @param {string[]} elections - Array of election filenames
- * @param {string} category - Category to filter by (or 'All')
- * @returns {string[]} Filtered array of filenames
- */
-function filterByCategory(elections, category) {
-  if (!elections || !Array.isArray(elections)) {
-    return [];
-  }
-
-  if (!category || category === ELECTION_CATEGORIES.ALL) {
-    return elections;
-  }
-
-  return elections.filter(filename => categorizeElection(filename) === category);
-}
-
-/**
- * Searches elections by query string (fuzzy matching)
- * @param {string[]} elections - Array of election filenames
- * @param {string} query - Search query
- * @returns {string[]} Matching filenames
- */
-function searchElections(elections, query) {
-  if (!elections || !Array.isArray(elections)) {
-    return [];
-  }
-
-  if (!query || typeof query !== 'string' || query.trim() === '') {
-    return elections;
-  }
-
-  const normalizedQuery = query.toLowerCase().trim();
-  const queryWords = normalizedQuery.split(/\s+/);
-
-  return elections.filter(filename => {
-    // Replace underscores with spaces for better matching
-    const normalizedFilename = filename
-      .toLowerCase()
-      .replace(/\.csv$/, '')
-      .replace(/_/g, ' ');
-    
-    // All query words must be found in the filename (AND logic)
-    return queryWords.every(word => normalizedFilename.includes(word));
-  });
-}
-
-/**
- * Gets counts for each category
- * @param {string[]} elections - Array of election filenames
- * @returns {Object} Object with category counts
- */
-function getCategoryCounts(elections) {
-  if (!elections || !Array.isArray(elections)) {
-    return {
-      [ELECTION_CATEGORIES.ALL]: 0,
-      [ELECTION_CATEGORIES.FEDERAL]: 0,
-      [ELECTION_CATEGORIES.STATE]: 0,
-      [ELECTION_CATEGORIES.COUNTY]: 0,
-      [ELECTION_CATEGORIES.CITY]: 0,
-      [ELECTION_CATEGORIES.ISD]: 0,
-      [ELECTION_CATEGORIES.MUD]: 0
-    };
-  }
-
-  const counts = {
-    [ELECTION_CATEGORIES.ALL]: elections.length,
-    [ELECTION_CATEGORIES.FEDERAL]: 0,
-    [ELECTION_CATEGORIES.STATE]: 0,
-    [ELECTION_CATEGORIES.COUNTY]: 0,
-    [ELECTION_CATEGORIES.CITY]: 0,
-    [ELECTION_CATEGORIES.ISD]: 0,
-    [ELECTION_CATEGORIES.MUD]: 0
-  };
-
-  elections.forEach(filename => {
-    const category = categorizeElection(filename);
-    if (Object.prototype.hasOwnProperty.call(counts, category)) {
-      counts[category]++;
-    }
+describe('ELECTION_CATEGORIES and CATEGORY_ORDER', () => {
+  it('should expose the six categories plus All', () => {
+    expect(ELECTION_CATEGORIES).toEqual({
+      FEDERAL: 'Federal',
+      STATE: 'State',
+      COUNTY: 'County',
+      CITY: 'City',
+      ISD: 'ISD',
+      MUD: 'MUD',
+      ALL: 'All'
+    });
   });
 
-  return counts;
-}
-
-/**
- * Formats election filename for display
- * @param {string} filename - The election CSV filename
- * @returns {string} Human-readable election name
- */
-function formatElectionName(filename) {
-  if (!filename || typeof filename !== 'string') {
-    return '';
-  }
-
-  return filename
-    .replace(/\.csv$/, '')
-    .replace(/_/g, ' ')
-    .replace(/\s+-\s+/g, ' - ') // Ensure proper spacing around hyphens
-    .replace(/\s+/g, ' ') // Collapse multiple spaces
-    .trim();
-}
-
-/**
- * Highlights search matches in text
- * @param {string} text - Text to highlight
- * @param {string} query - Search query
- * @returns {string} HTML with highlighted matches
- */
-function highlightMatches(text, query) {
-  if (!text || !query || typeof text !== 'string' || typeof query !== 'string') {
-    return text || '';
-  }
-
-  const trimmedQuery = query.trim();
-  if (trimmedQuery === '') {
-    return text;
-  }
-
-  const words = trimmedQuery.split(/\s+/);
-  let result = text;
-
-  words.forEach(word => {
-    if (word) {
-      const regex = new RegExp(`(${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-      result = result.replace(regex, '<mark>$1</mark>');
-    }
+  it('should order tabs All-first, MUD-last', () => {
+    expect(CATEGORY_ORDER).toEqual([
+      'All', 'Federal', 'State', 'County', 'City', 'ISD', 'MUD'
+    ]);
   });
-
-  return result;
-}
+});
 
 // ============================================================================
 // TESTS FOR categorizeElection
@@ -387,6 +197,11 @@ describe('categorizeElection', () => {
       expect(categorizeElection('For_School_Trustee_-_Bland_ISD.csv')).toBe('ISD');
       expect(categorizeElection('For_School_Trustee_-_Princeton_ISD.csv')).toBe('ISD');
     });
+
+    it('should check ISD before City (trustee seat with a City-looking token)', () => {
+      // Contains 'seat_no_' (a City pattern) but the ISD marker wins
+      expect(categorizeElection('Celina_ISD_-_Trustee,_Seat_No._3.csv')).toBe('ISD');
+    });
   });
 
   describe('MUD races', () => {
@@ -406,10 +221,15 @@ describe('categorizeElection', () => {
       expect(categorizeElection('North_Collin_County_MUD_No._1_-_Directors.csv')).toBe('MUD');
     });
 
-    // MMD is a Municipal Management District (different from MUD) - but we'll include in MUD for simplicity
-    it('should categorize MMD as MUD for simplicity', () => {
-      // Note: This test documents current behavior - MMD would fall to County default
-      // If we want to include MMD in MUD, we need to update the categorization logic
+    it('should check MUD before City and County', () => {
+      // Contains '_city_of_' (City pattern) and 'county_' (County pattern),
+      // but the MUD marker wins
+      expect(categorizeElection('Frisco,_City_of_-_MUD_No._2_-_Directors.csv')).toBe('MUD');
+      expect(categorizeElection('Collin_County_MUD_No._5_-_Directors.csv')).toBe('MUD');
+    });
+
+    // MMD is a Municipal Management District (different from MUD)
+    it('should let MMD fall through to the County default (documents current behavior)', () => {
       expect(categorizeElection('North_Parkway_MMD_No._1_-_Proposition_A.csv')).toBe('County');
     });
   });
@@ -516,6 +336,72 @@ describe('filterByCategory', () => {
     const noFederal = ['Governor.csv', 'Sheriff.csv'];
     expect(filterByCategory(noFederal, 'Federal')).toEqual([]);
   });
+
+  describe('object entries', () => {
+    it('should prefer an explicit category field over the filename', () => {
+      const entries = [
+        { filename: 'Governor.csv', category: 'City' }, // explicit wins
+        { filename: 'Governor.csv' }                    // falls back to filename → State
+      ];
+      expect(filterByCategory(entries, 'City')).toEqual([entries[0]]);
+      expect(filterByCategory(entries, 'State')).toEqual([entries[1]]);
+    });
+
+    it('should categorize objects without a category field by filename', () => {
+      const entries = [
+        { filename: 'Sheriff.csv', year: 2024 },
+        { filename: 'President_Vice_President.csv', year: 2024 }
+      ];
+      const result = filterByCategory(entries, 'County');
+      expect(result).toEqual([entries[0]]);
+    });
+  });
+});
+
+// ============================================================================
+// TESTS FOR filterByYear
+// ============================================================================
+
+describe('filterByYear', () => {
+  const objectEntries = [
+    { filename: 'Governor_2022.csv', year: 2022 },
+    { filename: 'Governor_2018.csv', year: 2018 },
+    { filename: 'President_Vice_President_2024.csv', year: 2024 },
+    { filename: 'Sheriff_2024.csv', year: 2024 }
+  ];
+
+  it('should return all entries for null year', () => {
+    expect(filterByYear(objectEntries, null)).toEqual(objectEntries);
+    expect(filterByYear(objectEntries, undefined)).toEqual(objectEntries);
+  });
+
+  it('should filter object entries by their year field', () => {
+    const result = filterByYear(objectEntries, 2024);
+    expect(result).toHaveLength(2);
+    expect(result.map(e => e.filename)).toEqual([
+      'President_Vice_President_2024.csv',
+      'Sheriff_2024.csv'
+    ]);
+  });
+
+  it('should return empty array when no entries match the year', () => {
+    expect(filterByYear(objectEntries, 1999)).toEqual([]);
+  });
+
+  it('should extract the year from _YYYY.csv suffixes on string entries', () => {
+    const strings = ['Governor_2022.csv', 'Governor_2018.csv'];
+    expect(filterByYear(strings, 2022)).toEqual(['Governor_2022.csv']);
+  });
+
+  it('should exclude string entries without a year suffix when filtering', () => {
+    const strings = ['Governor.csv', 'Governor_2022.csv'];
+    expect(filterByYear(strings, 2022)).toEqual(['Governor_2022.csv']);
+  });
+
+  it('should return empty array for null or non-array input', () => {
+    expect(filterByYear(null, 2022)).toEqual([]);
+    expect(filterByYear('not an array', 2022)).toEqual([]);
+  });
 });
 
 // ============================================================================
@@ -608,6 +494,25 @@ describe('searchElections', () => {
     expect(() => searchElections(sampleElections, 'a*b')).not.toThrow();
     expect(() => searchElections(sampleElections, 'a(b)')).not.toThrow();
   });
+
+  describe('object entries', () => {
+    it('should also match against displayName when present', () => {
+      const entries = [
+        { filename: 'race_001.csv', displayName: 'Governor (2022)' },
+        { filename: 'race_002.csv', displayName: 'Sheriff (2024)' }
+      ];
+      const result = searchElections(entries, 'governor');
+      expect(result).toEqual([entries[0]]);
+    });
+
+    it('should match a word from filename and a word from displayName together', () => {
+      const entries = [
+        { filename: 'Governor_2022.csv', displayName: 'Texas Governor' }
+      ];
+      // 'texas' only in displayName, '2022' only in filename
+      expect(searchElections(entries, 'texas 2022')).toEqual(entries);
+    });
+  });
 });
 
 // ============================================================================
@@ -629,7 +534,7 @@ describe('getCategoryCounts', () => {
 
   it('should count all categories correctly', () => {
     const counts = getCategoryCounts(sampleElections);
-    
+
     expect(counts['All']).toBe(9);
     expect(counts['Federal']).toBe(2);
     expect(counts['State']).toBe(2);
@@ -641,7 +546,7 @@ describe('getCategoryCounts', () => {
 
   it('should return zeros for empty array', () => {
     const counts = getCategoryCounts([]);
-    
+
     expect(counts['All']).toBe(0);
     expect(counts['Federal']).toBe(0);
     expect(counts['State']).toBe(0);
@@ -659,6 +564,24 @@ describe('getCategoryCounts', () => {
   it('should return zeros for non-array input', () => {
     const counts = getCategoryCounts('not an array');
     expect(counts['All']).toBe(0);
+  });
+
+  it('should honor an explicit category field on object entries', () => {
+    const entries = [
+      { filename: 'Governor.csv', category: 'City' }, // explicit wins over State
+      { filename: 'Sheriff.csv' }                     // filename → County
+    ];
+    const counts = getCategoryCounts(entries);
+    expect(counts['All']).toBe(2);
+    expect(counts['City']).toBe(1);
+    expect(counts['State']).toBe(0);
+    expect(counts['County']).toBe(1);
+  });
+
+  it('should ignore unknown category values (still counted in All)', () => {
+    const counts = getCategoryCounts([{ filename: 'x.csv', category: 'Bogus' }]);
+    expect(counts['All']).toBe(1);
+    expect(counts['County']).toBe(0);
   });
 });
 
@@ -741,9 +664,299 @@ describe('highlightMatches', () => {
     expect(highlightMatches(null, 'test')).toBe('');
   });
 
-  it('should handle special regex characters safely', () => {
+  it('should escape special regex characters in the query', () => {
     const result = highlightMatches('Test (parentheses)', '(parentheses)');
     expect(result).toBe('Test <mark>(parentheses)</mark>');
+  });
+
+  it('should not treat regex metacharacters in the query as patterns', () => {
+    // '.' must match a literal dot, not "any character"
+    expect(highlightMatches('No dot here', 'a.b')).toBe('No dot here');
+    expect(highlightMatches('literal a.b here', 'a.b')).toBe('literal <mark>a.b</mark> here');
+    expect(() => highlightMatches('text', 'a*b(')).not.toThrow();
+  });
+
+  it('should pass the input text through unescaped (caller must pre-escape untrusted text)', () => {
+    // Documents real behavior: highlightMatches does NOT HTML-escape the text;
+    // callers rendering untrusted text must escapeHtml() it first (js/utils.js).
+    expect(highlightMatches('A & B <b>bold</b>', 'bold')).toBe('A & B <b><mark>bold</mark></b>');
+  });
+});
+
+// ============================================================================
+// TESTS FOR districtViewSlugForRace
+// ============================================================================
+
+describe('districtViewSlugForRace', () => {
+  it('should map US Representative races to cd-N', () => {
+    expect(districtViewSlugForRace({ office: 'U S Representative District 3', district: '3' })).toBe('cd-3');
+    expect(districtViewSlugForRace({ office: 'United States Representative, District 4', district: 4 })).toBe('cd-4');
+    expect(districtViewSlugForRace({ office: 'U.S. House District 4' })).toBe('cd-4');
+  });
+
+  it('should map State Senator races to sd-N', () => {
+    expect(districtViewSlugForRace({ office: 'State Senator, District 8', district: '8' })).toBe('sd-8');
+    // number embedded in office text instead of the district field
+    expect(districtViewSlugForRace({ office: 'State Senator, District No. 24' })).toBe('sd-24');
+  });
+
+  it('should map State Representative/House races to hd-N', () => {
+    expect(districtViewSlugForRace({ office: 'State Representative District 66', district: '66' })).toBe('hd-66');
+    expect(districtViewSlugForRace({ office: 'State House 74 Dist 74' })).toBe('hd-74');
+    // source typo "Disttrict" is absorbed by dist\w*
+    expect(districtViewSlugForRace({ office: 'State Representative Disttrict 88' })).toBe('hd-88');
+  });
+
+  it('should prefer the district field over a number in the office text', () => {
+    expect(districtViewSlugForRace({ office: 'State Senator, District 99', district: '8' })).toBe('sd-8');
+  });
+
+  it('should return null for non-district races', () => {
+    expect(districtViewSlugForRace({ office: 'Governor', district: '' })).toBeNull();
+    expect(districtViewSlugForRace({ office: 'Sheriff' })).toBeNull();
+    expect(districtViewSlugForRace({ office: 'County Commissioner, Precinct 4', district: '4' })).toBeNull();
+  });
+
+  it('should return null when no valid district number can be found', () => {
+    expect(districtViewSlugForRace({ office: 'State Senator' })).toBeNull();
+    expect(districtViewSlugForRace({ office: 'State Senator, District 0' })).toBeNull();
+  });
+
+  it('should return null for null/empty entries', () => {
+    expect(districtViewSlugForRace(null)).toBeNull();
+    expect(districtViewSlugForRace(undefined)).toBeNull();
+    expect(districtViewSlugForRace({})).toBeNull();
+  });
+});
+
+// ============================================================================
+// TESTS FOR categorizeByOffice
+// ============================================================================
+
+describe('categorizeByOffice', () => {
+  it('should categorize congressional district races as Federal', () => {
+    expect(categorizeByOffice({ office: 'United States Representative, District 3', district: '3' })).toBe('Federal');
+  });
+
+  it('should categorize state legislative district races as State', () => {
+    expect(categorizeByOffice({ office: 'State Senator, District 8', district: '8' })).toBe('State');
+    expect(categorizeByOffice({ office: 'State Representative District 66', district: '66' })).toBe('State');
+  });
+
+  it('should categorize President and US Senator as Federal', () => {
+    expect(categorizeByOffice({ office: 'President/Vice President' })).toBe('Federal');
+    expect(categorizeByOffice({ office: 'U.S. Senator' })).toBe('Federal');
+    expect(categorizeByOffice({ office: 'United States Senator' })).toBe('Federal');
+  });
+
+  it('should categorize statewide executive and court offices as State', () => {
+    expect(categorizeByOffice({ office: 'Governor' })).toBe('State');
+    expect(categorizeByOffice({ office: 'Lieutenant Governor' })).toBe('State');
+    expect(categorizeByOffice({ office: 'Attorney General' })).toBe('State');
+    expect(categorizeByOffice({ office: 'Comptroller of Public Accounts' })).toBe('State');
+    expect(categorizeByOffice({ office: 'Railroad Commissioner' })).toBe('State');
+    expect(categorizeByOffice({ office: 'Justice, Supreme Court, Place 2' })).toBe('State');
+    expect(categorizeByOffice({ office: 'Judge, Court of Criminal Appeals, Place 5' })).toBe('State');
+  });
+
+  it('should return null for regional/local courts (not conclusive)', () => {
+    expect(categorizeByOffice({ office: 'Justice, 5th Court of Appeals District, Place 10' })).toBeNull();
+    expect(categorizeByOffice({ office: 'Justice of the Peace, Precinct 2' })).toBeNull();
+  });
+
+  it('should return null for inconclusive or missing offices', () => {
+    expect(categorizeByOffice({ office: 'Sheriff' })).toBeNull();
+    expect(categorizeByOffice({ office: 'County Clerk' })).toBeNull();
+    expect(categorizeByOffice({ office: '' })).toBeNull();
+    expect(categorizeByOffice({})).toBeNull();
+    expect(categorizeByOffice(null)).toBeNull();
+  });
+});
+
+// ============================================================================
+// TESTS FOR ElectionFilterManager (pure state methods)
+// ============================================================================
+
+describe('ElectionFilterManager', () => {
+  const entries = [
+    { filename: 'Governor_2022.csv', year: 2022 },
+    { filename: 'Governor_2018.csv', year: 2018 },
+    { filename: 'President_Vice_President_2024.csv', year: 2024 },
+    { filename: 'Sheriff_2024.csv', year: 2024 },
+    { filename: 'Murphy,_City_of_-_Proposition_A_2023.csv', year: 2023 }
+  ];
+
+  it('should default to All category, empty search, all years', () => {
+    const mgr = new ElectionFilterManager(entries);
+    expect(mgr.activeCategory).toBe('All');
+    expect(mgr.searchQuery).toBe('');
+    expect(mgr.getYear()).toBeNull();
+    expect(mgr.getFilteredElections()).toEqual(entries);
+  });
+
+  it('should default to an empty election list', () => {
+    const mgr = new ElectionFilterManager();
+    expect(mgr.getFilteredElections()).toEqual([]);
+    expect(mgr.getCategoryCounts()['All']).toBe(0);
+  });
+
+  it('should filter by category', () => {
+    const mgr = new ElectionFilterManager(entries);
+    mgr.setCategory('State');
+    expect(mgr.getFilteredElections().map(e => e.filename)).toEqual([
+      'Governor_2022.csv',
+      'Governor_2018.csv'
+    ]);
+  });
+
+  it('should filter by year', () => {
+    const mgr = new ElectionFilterManager(entries);
+    mgr.setYear(2024);
+    expect(mgr.getFilteredElections().map(e => e.filename)).toEqual([
+      'President_Vice_President_2024.csv',
+      'Sheriff_2024.csv'
+    ]);
+  });
+
+  it('should filter by search query', () => {
+    const mgr = new ElectionFilterManager(entries);
+    mgr.setSearchQuery('governor');
+    expect(mgr.getFilteredElections()).toHaveLength(2);
+  });
+
+  it('should combine year, category, and search filters', () => {
+    const mgr = new ElectionFilterManager(entries);
+    mgr.setYear(2024);
+    mgr.setCategory('Federal');
+    mgr.setSearchQuery('president');
+    const result = mgr.getFilteredElections();
+    expect(result).toHaveLength(1);
+    expect(result[0].filename).toBe('President_Vice_President_2024.csv');
+  });
+
+  it('should clear all filters', () => {
+    const mgr = new ElectionFilterManager(entries);
+    mgr.setCategory('Federal');
+    mgr.setSearchQuery('president');
+    mgr.setYear(2024);
+    mgr.clearFilters();
+    expect(mgr.activeCategory).toBe('All');
+    expect(mgr.searchQuery).toBe('');
+    expect(mgr.getYear()).toBeNull();
+    expect(mgr.getFilteredElections()).toEqual(entries);
+  });
+
+  it('should replace the election list via setElections', () => {
+    const mgr = new ElectionFilterManager(entries);
+    mgr.setElections([entries[0]]);
+    expect(mgr.getFilteredElections()).toEqual([entries[0]]);
+    mgr.setElections(null);
+    expect(mgr.getFilteredElections()).toEqual([]);
+  });
+
+  it('should report category counts for the full list', () => {
+    const mgr = new ElectionFilterManager(entries);
+    const counts = mgr.getCategoryCounts();
+    expect(counts['All']).toBe(5);
+    expect(counts['State']).toBe(2);
+    expect(counts['Federal']).toBe(1);
+    expect(counts['County']).toBe(1);
+    expect(counts['City']).toBe(1);
+  });
+
+  it('should report category counts scoped to the search results', () => {
+    const mgr = new ElectionFilterManager(entries);
+    mgr.setSearchQuery('governor');
+    const counts = mgr.getFilteredCategoryCounts();
+    expect(counts['All']).toBe(2);
+    expect(counts['State']).toBe(2);
+    expect(counts['Federal']).toBe(0);
+  });
+
+  it('should list available years in descending order', () => {
+    const mgr = new ElectionFilterManager(entries);
+    expect(mgr.getAvailableYears()).toEqual([2024, 2023, 2022, 2018]);
+  });
+
+  it('should report filter counts for chips', () => {
+    const mgr = new ElectionFilterManager(entries);
+    const counts = mgr.getFilterCounts();
+    expect(counts.total).toBe(5);
+    expect(counts.years[2024]).toBe(2);
+    expect(counts.years[2022]).toBe(1);
+    expect(counts.categories['State']).toBe(2);
+  });
+
+  describe('change notifications', () => {
+    it('should notify onChange callbacks with the new state', () => {
+      const mgr = new ElectionFilterManager(entries);
+      const cb = jest.fn();
+      mgr.onChange(cb);
+      mgr.setCategory('Federal');
+      expect(cb).toHaveBeenCalledTimes(1);
+      const state = cb.mock.calls[0][0];
+      expect(state.category).toBe('Federal');
+      expect(state.filteredElections).toHaveLength(1);
+      expect(state.counts['All']).toBe(5);
+      expect(state.availableYears).toEqual([2024, 2023, 2022, 2018]);
+    });
+
+    it('should not notify when the value is unchanged', () => {
+      const mgr = new ElectionFilterManager(entries);
+      const cb = jest.fn();
+      mgr.onChange(cb);
+      mgr.setCategory('All');      // already All
+      mgr.setSearchQuery('');      // already ''
+      mgr.setYear(null);           // already null
+      expect(cb).not.toHaveBeenCalled();
+    });
+
+    it('should stop notifying after offChange', () => {
+      const mgr = new ElectionFilterManager(entries);
+      const cb = jest.fn();
+      mgr.onChange(cb);
+      mgr.offChange(cb);
+      mgr.setCategory('Federal');
+      expect(cb).not.toHaveBeenCalled();
+    });
+
+    it('should ignore non-function onChange arguments', () => {
+      const mgr = new ElectionFilterManager(entries);
+      mgr.onChange('not a function');
+      expect(() => mgr.setCategory('Federal')).not.toThrow();
+    });
+  });
+
+  describe('getSearchHighlights', () => {
+    it('should return match positions for each query word', () => {
+      const mgr = new ElectionFilterManager();
+      expect(mgr.getSearchHighlights('gov', 'Governor of Texas')).toEqual([
+        { start: 0, end: 3 }
+      ]);
+    });
+
+    it('should be case insensitive and find repeated matches', () => {
+      const mgr = new ElectionFilterManager();
+      expect(mgr.getSearchHighlights('state', 'State state')).toEqual([
+        { start: 0, end: 5 },
+        { start: 6, end: 11 }
+      ]);
+    });
+
+    it('should merge overlapping matches from different query words', () => {
+      const mgr = new ElectionFilterManager();
+      expect(mgr.getSearchHighlights('state states', 'states')).toEqual([
+        { start: 0, end: 6 }
+      ]);
+    });
+
+    it('should return empty array for empty query or text', () => {
+      const mgr = new ElectionFilterManager();
+      expect(mgr.getSearchHighlights('', 'text')).toEqual([]);
+      expect(mgr.getSearchHighlights('query', '')).toEqual([]);
+      expect(mgr.getSearchHighlights(null, 'text')).toEqual([]);
+      expect(mgr.getSearchHighlights('   ', 'text')).toEqual([]);
+    });
   });
 });
 

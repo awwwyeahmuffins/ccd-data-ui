@@ -24,7 +24,8 @@ import {
   sortRecords,
   filterRecords,
 } from "./precinctMetrics.js";
-import { escapeHtml } from "./utils.js";
+import { escapeHtml } from "./lib/dom.js";
+import { readParams, writeParams } from "./lib/urlState.js";
 
 const DEFAULT_COLUMNS = ["winner", "demShare", "registered", "population", "medianIncome", "medianHomeValue", "medianAge", "pctFamily", "nonWhite", "turnoutRate"];
 
@@ -280,16 +281,12 @@ function renderChips() {
   if (pc) pc.addEventListener("click", () => { pg.party = "all"; $("ex-party").value = "all"; renderChips(); render(); });
 }
 
-// ---- URL sync ---------------------------------------------------------------
+// ---- URL sync — via the one urlState vocabulary (§5.3) -----------------------
 function updateURL() {
-  history.replaceState(null, "", `#county=${encodeURIComponent(pg.county)}&view=${encodeURIComponent(pg.view)}&sort=${encodeURIComponent(pg.sortKey)}&dir=${pg.sortDir}`);
+  writeParams({ county: pg.county, view: pg.view, sort: pg.sortKey, dir: pg.sortDir });
 }
 function readURL() {
-  const params = {};
-  for (const part of window.location.hash.slice(1).split("&")) {
-    const [k, v] = part.split("=");
-    if (k && v) params[k] = decodeURIComponent(v);
-  }
+  const params = readParams();
   if (params.county) pg.county = params.county;
   if (params.view) pg.view = params.view;
   if (params.sort && getMetric(params.sort)) pg.sortKey = params.sort;

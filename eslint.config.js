@@ -51,6 +51,17 @@ export default [
     },
   },
   {
+    // Layering rule (REDESIGN.md §4.2): js/lib/ is the bottom layer and may
+    // not import from any other app directory — lib imports nothing.
+    files: ['js/lib/**/*.js'],
+    rules: {
+      'no-restricted-imports': ['error', { patterns: [{
+        group: ['../*', './../*'],
+        message: 'js/lib/ is the bottom layer — it must not import app modules (REDESIGN.md §4.2).',
+      }] }],
+    },
+  },
+  {
     // page.evaluate() callbacks execute in the browser, so e2e specs
     // legitimately reference browser globals
     files: ['e2e/**/*.spec.js', 'playwright.config.js'],

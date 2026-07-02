@@ -12,7 +12,9 @@ import {
 import { getCandidateColumns } from "./electionSchema.js";
 import { runFullSimulation } from "./turnoutSimulator.js";
 import { PARTY_COLORS } from "./constants.js";
-import { escapeHtml, formatPrecinctLabel } from "./utils.js";
+import { escapeHtml } from "./lib/dom.js";
+import { formatPrecinctLabel } from "./lib/format.js";
+import { readParams, writeParams } from "./lib/urlState.js";
 
 // ---------------------------------------------------------------------------
 // Page state
@@ -292,17 +294,16 @@ function renderOutcome() {
 // URL state (#county=X&race=Y) — shareable, and accepts links from other pages
 // ---------------------------------------------------------------------------
 function parseURL() {
-  const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
-  if (params.get('county')) pg.county = params.get('county');
-  if (params.get('race')) pg.entry = { filename: params.get('race') };
+  const params = readParams();
+  if (params.county) pg.county = params.county;
+  if (params.race) pg.entry = { filename: params.race };
 }
 
 function updateURL() {
-  const params = new URLSearchParams();
-  if (pg.county !== 'collin') params.set('county', pg.county);
-  if (pg.entry) params.set('race', pg.entry.raceKey || pg.entry.filename);
-  const hash = params.toString();
-  history.replaceState(null, '', hash ? `#${hash}` : window.location.pathname);
+  writeParams({
+    county: pg.county !== 'collin' ? pg.county : null,
+    race: pg.entry ? pg.entry.raceKey || pg.entry.filename : null,
+  });
 }
 
 // ---------------------------------------------------------------------------
