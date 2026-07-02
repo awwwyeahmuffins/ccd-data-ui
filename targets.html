@@ -13,8 +13,6 @@
   <!-- civic.css loads AFTER styles.css so the a11y layer wins by source order -->
   <link rel="stylesheet" href="js/civic.css" />
   <style>
-    /* styles.css pins html/body to the full-viewport map layout; restore flow */
-    html, body { display: block; height: auto; width: auto; overflow: auto; }
     body { margin: 0; font-family: var(--font-body); background: var(--color-bg-secondary); color: var(--color-text-primary); font-size: 1rem; }
 
     /* Header: the shared civic header (js/siteNav.js + js/civic.css) */
@@ -166,6 +164,12 @@
     </div>
     <div id="tg-na"></div>
     <div id="tg-list"><div class="empty-note">Loading…</div></div>
+
+    <!-- Forecast lives outside the nav (REDESIGN §3.3) — this is its inbound door -->
+    <p class="page-links" style="margin-top:34px; padding-top:18px; border-top:1px solid var(--color-border);">
+      <a href="forecast.html">Model a turnout scenario for a race →</a> &nbsp;·&nbsp;
+      <a href="methodology.html">How these rankings work →</a>
+    </p>
   </main>
 
   <script src="js/vendor/d3.v7.min.js"></script>

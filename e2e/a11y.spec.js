@@ -18,7 +18,6 @@ test.beforeEach(async ({ page }) => {
 // Per-page ready conditions (scan only after real content has rendered).
 const PAGES = [
   { url: '/index.html', ready: (page) => expect(page.locator('#cc-dock-sub')).toContainText('precincts', { timeout: 30000 }) },
-  { url: '/elections.html', ready: (page) => page.waitForSelector('.family-group', { timeout: 30000 }) },
   { url: '/forecast.html', ready: (page) => page.waitForFunction(() => document.querySelector('#fc-outcome .outcome-grid'), null, { timeout: 30000 }) },
   { url: '/targets.html', ready: (page) => expect(page.locator('.tg-precinct').first()).toBeVisible({ timeout: 30000 }) },
   { url: '/explore.html', ready: (page) => expect(page.locator('#ex-body .pcell-precinct').first()).toBeVisible({ timeout: 30000 }) },

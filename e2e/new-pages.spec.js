@@ -6,30 +6,13 @@ import { test, expect } from '@playwright/test';
 
 test.setTimeout(60000);
 
-test.describe('Elections catalog page', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/elections.html');
-    await page.waitForSelector('.family-group', { timeout: 30000 });
-  });
-
-  test('lists races grouped by category', async ({ page }) => {
-    const headers = await page.locator('.family-header span:first-child').allTextContents();
-    expect(headers).toContain('Federal');
-    expect(headers).toContain('State');
-  });
-
-  test('search narrows the list', async ({ page }) => {
-    await page.locator('#el-search').fill('governor');
-    await page.waitForTimeout(500);
-    await expect(page.locator('#el-count')).toContainText('of');
-    await expect(page.locator('.race-row').first()).toContainText(/Governor/);
-  });
-
-  test('map link deep-links to the map page with the race', async ({ page }) => {
-    await page.locator('#el-search').fill('president');
-    await page.waitForTimeout(500);
-    const href = await page.locator('.race-row .act-map').first().getAttribute('href');
-    expect(href).toMatch(/^index\.html#race=/);
+test.describe('Elections redirect stub (Phase 5)', () => {
+  test('elections.html forwards to the Map, carrying a race deep link', async ({ page }) => {
+    // The race catalog folded into the shared race picker; old bookmarks land
+    // on the Map with their #race= intact (stub removed entirely in Phase 6).
+    await page.goto('/elections.html#race=governor-2022');
+    await expect(page).toHaveURL(/index\.html#race=governor-2022/, { timeout: 15000 });
+    await expect(page.locator('.cc-app')).toBeVisible();
   });
 });
 
@@ -81,14 +64,22 @@ test.describe('Methodology page', () => {
 
   test('nav links out to a sibling page', async ({ page }) => {
     await page.goto('/methodology.html');
-    await page.locator('.site-nav a[href="elections.html"]').click();
-    await page.waitForSelector('.family-group', { timeout: 30000 });
-    await expect(page).toHaveURL(/elections\.html/);
+    await page.locator('.site-nav a[href="explore.html"]').click();
+    await page.waitForSelector('#ex-body tr', { timeout: 30000 });
+    await expect(page).toHaveURL(/explore\.html/);
   });
 
   test('sibling pages expose the Methodology tab', async ({ page }) => {
-    await page.goto('/elections.html');
-    await page.waitForSelector('.family-group', { timeout: 30000 });
+    await page.goto('/targets.html');
     await expect(page.locator('.site-nav a[href="methodology.html"]')).toBeVisible();
+  });
+
+  test('the Forecast stays reachable in context (outside the nav)', async ({ page }) => {
+    // §3.5 rule 2 — no leaf pages, and no orphaned tools: Priority Precincts
+    // and How It Works are the Forecast's inbound doors.
+    await page.goto('/methodology.html');
+    await expect(page.locator('main a[href="forecast.html"]')).toBeVisible();
+    await page.goto('/targets.html');
+    await expect(page.locator('main a[href="forecast.html"]')).toBeVisible();
   });
 });

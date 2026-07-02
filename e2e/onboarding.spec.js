@@ -30,6 +30,30 @@ test.describe('First-visit welcome', () => {
     await expect(page.locator('.welcome-card')).toHaveCount(0);
   });
 
+  test('names all five tabs and leads with "Find your precinct"', async ({ page }) => {
+    await page.goto('/index.html');
+    const card = page.locator('.welcome-card');
+    await expect(card).toBeVisible();
+    for (const tab of ['Map', 'My Precinct', 'Priority Precincts', 'Data Table', 'How It Works']) {
+      await expect(card).toContainText(tab);
+    }
+    const primary = page.locator('.welcome-primary');
+    await expect(primary).toHaveAttribute('href', 'precinct.html');
+    await primary.click();
+    await expect(page).toHaveURL(/precinct\.html/);
+  });
+
+  test('remembers your precinct and offers it on the next visit', async ({ page }) => {
+    // View a report → the precinct is remembered (localStorage, max 3)…
+    await page.goto('/precinct.html#precinct=3');
+    await page.waitForSelector('#report-container:not(.hidden)', { timeout: 30000 });
+    const stored = await page.evaluate(() => localStorage.getItem('ccd_my_precincts'));
+    expect(JSON.parse(stored)[0]).toBe('3');
+    // …and the next first-visit welcome offers it back.
+    await page.goto('/index.html');
+    await expect(page.locator('.welcome-mine')).toContainText('Your precinct: 3');
+  });
+
   test('Escape also dismisses it', async ({ page }) => {
     await page.goto('/index.html');
     await expect(page.locator('.welcome-card')).toBeVisible();

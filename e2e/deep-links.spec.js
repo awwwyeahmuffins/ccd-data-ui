@@ -142,14 +142,15 @@ test.describe('Forecast (forecast.html) deep links', () => {
   });
 });
 
-test.describe('Election Results (elections.html) deep links', () => {
-  test('legacy #county= links do not break the catalog; the page writes no hash', async ({ page }) => {
-    // The county picker is gone (Collin-only) — old district bookmarks must
-    // still load the catalog rather than erroring.
+test.describe('Elections redirect stub deep links (Phase 5)', () => {
+  test('legacy elections links land on the Map with their state intact', async ({ page }) => {
+    // The catalog folded into the shared race picker; the stub forwards any
+    // hash. A legacy #county=cd-3 becomes the Map's district scope.
     await page.goto('/elections.html#county=cd-3');
-    await expect(page.locator('.family-group').first()).toBeVisible({ timeout: 30000 });
+    await expect(page).toHaveURL(/index\.html/, { timeout: 15000 });
+    await expect(page.locator('#cc-district')).toHaveValue('cd-3', { timeout: 30000 });
     await page.goto('/elections.html');
-    await expect(page.locator('.family-group').first()).toBeVisible({ timeout: 30000 });
-    expect(new URL(page.url()).hash).toBe('');
+    await expect(page).toHaveURL(/index\.html/, { timeout: 15000 });
+    await expect(page.locator('.cc-app')).toBeVisible();
   });
 });

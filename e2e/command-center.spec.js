@@ -63,13 +63,17 @@ test.describe('Command Center', () => {
 
   test('the shared header links out to every page with plain-language labels', async ({ page }) => {
     await waitForLoaded(page);
-    for (const dest of ['elections.html', 'forecast.html', 'targets.html', 'explore.html', 'precinct.html', 'methodology.html']) {
+    // The five-tab nav (REDESIGN §3.3) — Forecast lives outside it, linked in
+    // context; elections.html is a redirect stub.
+    for (const dest of ['precinct.html', 'targets.html', 'explore.html', 'methodology.html']) {
       await expect(page.locator(`.site-nav a[href="${dest}"]`)).toHaveCount(1);
     }
+    await expect(page.locator('.site-nav a')).toHaveCount(5);
     // the map is the current page
     await expect(page.locator('.site-nav a[href="index.html"]')).toHaveAttribute('aria-current', 'page');
-    // labels are visible text, not hover tooltips
-    await expect(page.locator('.site-nav a[href="precinct.html"]')).toContainText('Find a Precinct');
+    // labels are visible text, not hover tooltips — plain-language renames
+    await expect(page.locator('.site-nav a[href="precinct.html"]')).toContainText('My Precinct');
+    await expect(page.locator('.site-nav a[href="explore.html"]')).toContainText('Data Table');
   });
 
   test('the header text-size toggle enlarges the page and persists', async ({ page }) => {

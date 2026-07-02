@@ -1,7 +1,27 @@
 # REDESIGN.md — Collin County Elections Viewer: Simplification Redesign
 
 **Last Updated**: July 2, 2026
-**Status**: In implementation. Phases 0–4 are done; Phases 5–6 are pending.
+**Status**: In implementation. Phases 0–5 are done; Phase 6 is pending.
+
+- **Phase 5** (IA changes): done. The five-tab nav shipped (Map · My Precinct ·
+  Priority Precincts · Data Table · How It Works); forecast.html left the nav
+  (inbound doors: Priority Precincts footer + How It Works "Advanced tools";
+  outbound: flipped-precinct chips → My Precinct, map link → Map);
+  elections.html is a redirect stub carrying #race= through to the Map
+  (removed in Phase 6). The welcome panel names all five tabs with "Find your
+  precinct" as the primary action and offers the remembered precinct
+  (localStorage `ccd_my_precincts`, max 3 — written by the report page, read
+  by the welcome + the Map's county dock). Cross-links per §3.5: Map precinct
+  dock → Data Table with the row highlighted (`explore.html#precinct=`);
+  precinct report → back to the Map centered on the precinct; the report tab
+  structure is single-sourced in `getReportStructureHTML()` (the static copy
+  in precinct.html was deleted). One deviation: **Data Table's Summary view
+  was KEPT** — the plan's premise ("duplicates the Map's county briefing")
+  described an older dashboard-style Summary; today's Summary is a compact
+  COLUMN SET (the 8 key numbers, no horizontal scroll), which fits the
+  one-spreadsheet model and is the most senior-friendly default. The stale
+  full-viewport-lock cleanup was already done upstream; the three vestigial
+  per-page undo rules were deleted.
 
 - **Phase 4** (map extraction): done. `js/map/` owns the ONE Leaflet stack:
   `mapView.js` (map/renderer/basemap creation, keyboard layer, precinct-number

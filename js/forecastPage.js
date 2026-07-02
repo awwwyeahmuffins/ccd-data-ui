@@ -233,7 +233,7 @@ function renderOutcome() {
            flippedPrecincts.length ? `, but ${flippedPrecincts.length} precinct${flippedPrecincts.length === 1 ? '' : 's'} flip` : ''}.</div>`;
 
   const chips = flippedPrecincts.slice(0, 24).map(code =>
-    `<span class="flip-chip">${escapeHtml(formatPrecinctLabel({ PRECINCT: code }))}</span>`).join('')
+    `<a class="flip-chip" href="precinct.html#precinct=${encodeURIComponent(code)}">${escapeHtml(formatPrecinctLabel({ PRECINCT: code }))}</a>`).join('')
     + (flippedPrecincts.length > 24 ? `<span class="flip-chip">+${flippedPrecincts.length - 24} more</span>` : '');
 
   const raceParam = pg.entry.raceKey || pg.entry.filename;

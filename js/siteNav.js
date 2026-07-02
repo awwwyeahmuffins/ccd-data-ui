@@ -44,12 +44,13 @@ function clearCognitoSession() {
 // Nav order mirrors the volunteer's workflow: see the map, look up results,
 // plan, then reference material last.
 const PAGES = [
+  // The five-tab nav (REDESIGN §3.3). forecast.html lives OUTSIDE the nav —
+  // linked in context from Priority Precincts and How It Works; elections.html
+  // is a redirect stub (deleted in Phase 6).
   { href: "index.html", label: "Map" },
-  { href: "elections.html", label: "Election Results" },
-  { href: "forecast.html", label: "Forecast" },
+  { href: "precinct.html", label: "My Precinct" },
   { href: "targets.html", label: "Priority Precincts" },
-  { href: "explore.html", label: "Browse All Data" },
-  { href: "precinct.html", label: "Find a Precinct" },
+  { href: "explore.html", label: "Data Table" },
   { href: "methodology.html", label: "How It Works" },
 ];
 
@@ -112,6 +113,18 @@ function renderHeader(header) {
   }
 }
 
+// The precinct page remembers the last precincts viewed (max 3) — no accounts,
+// no server state. The welcome panel and the Map read it (REDESIGN §3.2).
+export function rememberedPrecincts() {
+  try {
+    const raw = localStorage.getItem("ccd_my_precincts");
+    const arr = raw ? JSON.parse(raw) : [];
+    return Array.isArray(arr) ? arr.map(String).slice(0, 3) : [];
+  } catch {
+    return [];
+  }
+}
+
 // First visit: one welcome card, plain language, one big dismiss button.
 // Front door (index.html) only — deep links to other pages are never
 // interrupted. Never shown again once dismissed.
@@ -124,16 +137,24 @@ function maybeShowWelcome() {
   }
   const wrap = document.createElement("div");
   wrap.className = "welcome-overlay";
+  const mine = rememberedPrecincts();
+  const mineCard = mine.length
+    ? `<p class="welcome-mine"><a href="precinct.html#precinct=${encodeURIComponent(mine[0])}">Your precinct: ${mine[0]} — open the report</a></p>`
+    : "";
   wrap.innerHTML =
     `<div class="welcome-card" role="dialog" aria-modal="true" aria-labelledby="welcome-title">` +
     `<h2 id="welcome-title">Welcome</h2>` +
-    `<p>This site shows real election results for every Texas precinct — no sign-ups, nothing to install.</p>` +
+    `<p>This site shows real election results for every Collin County precinct — no sign-ups, nothing to install.</p>` +
     `<ul>` +
     `<li><strong>Map</strong> shows which way each precinct votes.</li>` +
-    `<li><strong>Find a Precinct</strong> looks up any address.</li>` +
+    `<li><strong>My Precinct</strong> is the full report for any precinct or address.</li>` +
     `<li><strong>Priority Precincts</strong> suggests where to focus.</li>` +
+    `<li><strong>Data Table</strong> is every number, sortable.</li>` +
+    `<li><strong>How It Works</strong> explains the sources and the words.</li>` +
     `</ul>` +
+    mineCard +
     `<p>Use the <strong>Text size</strong> button in the header any time to make everything bigger.</p>` +
+    `<a class="welcome-primary" href="precinct.html">Find your precinct</a>` +
     `<button type="button" class="welcome-dismiss">Get started</button>` +
     `</div>`;
 

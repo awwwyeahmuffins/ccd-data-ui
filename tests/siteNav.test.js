@@ -3,13 +3,14 @@
 import { describe, it, expect, beforeEach } from '@jest/globals';
 import { initSiteNav } from './siteNav.js';
 
+// The five-tab nav (REDESIGN §3.3) — forecast.html lives outside the nav
+// (linked in context from Priority Precincts and How It Works) and
+// elections.html is a redirect stub.
 const ALL_PAGES = [
   'index.html',
-  'elections.html',
-  'forecast.html',
+  'precinct.html',
   'targets.html',
   'explore.html',
-  'precinct.html',
   'methodology.html',
 ];
 

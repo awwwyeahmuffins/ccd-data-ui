@@ -43,6 +43,7 @@ import { patternFill, partyKind } from "../map/mapPatterns.js";
 import { buildCountyBriefing } from "../countyBriefing.js";
 import { buildRows, sortRows, renderRows, countLine, SORTS } from "../listView.js";
 import { termButton } from "../glossary.js";
+import { rememberedPrecincts } from "../siteNav.js";
 
 // ---- module state (this page's own; no shared singleton) --------------------
 // The one data handle: Collin on the current (2026) precincts. Districts are
@@ -308,13 +309,19 @@ function renderCountyBriefing() {
 
     <p class="cc-tip">Tap any precinct on the map for its briefing — or use the map's List view to read precincts as a list.</p>
 
+    ${(() => {
+      const mine = rememberedPrecincts()[0];
+      return mine && cc.geojson.features.some((f) => String(f.properties.PRECINCT) === mine)
+        ? deeplink(`precinct.html#precinct=${encodeURIComponent(mine)}`, "pin", `Your precinct: ${escapeHtml(mine)}`, "Open the full report")
+        : "";
+    })()}
     ${disclosureHTML(
       "cc-more-county",
       "Show more county detail",
       `
-      ${deeplink("elections.html", "search", "Elections Catalog", "Browse every race")}
-      ${deeplink("forecast.html", "chart", "Forecast Tool", "Build turnout scenarios")}
-      ${deeplink("precinct.html", "pin", "Precinct Report", "Door-knock one-pagers")}
+      ${deeplink("targets.html", "target", "Priority Precincts", "Where to focus volunteer hours")}
+      ${deeplink("explore.html", "search", "Data Table", "Every number, sortable")}
+      ${deeplink("precinct.html", "pin", "My Precinct", "Door-knock one-pagers")}
       ${deeplink("methodology.html", "book", "How It Works", "Where this data comes from")}`
     )}
   `;
@@ -419,7 +426,7 @@ function renderRaceBriefing() {
 
     <div class="cc-section-label">Act on this race</div>
     ${deeplink(`targets.html#race=${encodeURIComponent(cc.raceId)}&strategy=tossups${cc.district ? `&district=${encodeURIComponent(cc.district)}` : ""}`, "target", "Find flip targets", "Rank these precincts by flip / defend — pre-filtered to this race")}
-    ${deeplink("elections.html", "search", "Elections Catalog", "Browse & open another race")}
+    ${deeplink(`forecast.html#race=${encodeURIComponent(cc.raceId)}`, "chart", "Forecast this race", "Model a turnout scenario")}
 
     <p style="font-size:13px;color:var(--ink-dim);line-height:1.55;margin-top:12px">
       ${multi ? "Counties with sourced precinct data show precinct-by-precinct; the rest are drawn as shaded county outlines (click either for its result). " : ""}Faded precincts weren’t on this ballot.
@@ -533,6 +540,7 @@ function renderPrecinctDetail(code) {
 
     <div class="cc-section-label">Go deeper</div>
     ${deeplink(`precinct.html#precinct=${encodeURIComponent(code)}`, "pin", "Full Precinct Report", "Talking points, history & export")}
+    ${deeplink(`explore.html#precinct=${encodeURIComponent(code)}`, "search", "See in the Data Table", "This precinct's row, next to every other")}
 
     <button class="cc-deeplink" id="cc-back-county" style="margin-top:14px">
       <span class="dl-l"><span class="dl-ic">${ICON.back}</span><span><span class="dl-t">Back to County</span><span class="dl-s">Clear selection</span></span></span>

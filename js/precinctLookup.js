@@ -114,6 +114,10 @@ async function applyCountyBranding() {
 }
 
 export async function initPrecinctLookup() {
+  // Single-source the report structure (Phase 5): precinct.html ships the
+  // container empty; this is the only builder.
+  const reportEl = document.getElementById("report-container");
+  if (reportEl && !reportEl.childElementCount) reportEl.innerHTML = getReportStructureHTML();
   // Light-only since June 2026 — clear any stale dark-theme preference
   document.documentElement.removeAttribute("data-theme");
   try { localStorage.removeItem("ccd_theme"); } catch (_) { /* ignore */ }
@@ -469,6 +473,14 @@ async function selectPrecinct(code) {
   }
 
   currentPrecinctCode = String(code);
+  // Remembered precincts (REDESIGN §3.2): the welcome panel and the Map show
+  // a "Your precinct" shortcut. No accounts, no server state.
+  try {
+    const key = "ccd_my_precincts";
+    const cur = JSON.parse(localStorage.getItem(key) || "[]").filter((c) => String(c) !== String(code));
+    cur.unshift(String(code));
+    localStorage.setItem(key, JSON.stringify(cur.slice(0, 3)));
+  } catch (_) { /* private mode — feature just stays off */ }
   let feature = entry.feature;
   let props = feature.properties;
 
@@ -1008,6 +1020,9 @@ function extractYear(raceName) {
 function renderMiniMap(feature, partyData) {
   let container = document.getElementById("mini-map");
   if (!container) return;
+  // Back-to-Map (closes the old dead end — REDESIGN §3.4): centered + selected.
+  const mapLink = document.getElementById("mini-map-maplink");
+  if (mapLink) mapLink.href = `index.html#precinct=${encodeURIComponent(String(feature.properties.PRECINCT))}`;
 
   let fillColor = "#888";
   if (partyData?.winningParty) {
@@ -1094,6 +1109,7 @@ function getReportStructureHTML() {
     <div id="strategy-section" data-tab="guide"></div>
     <div id="comparison-section" data-tab="overview"></div>
     <div id="mini-map" class="mini-map-container" data-tab="overview"></div>
+    <p class="mini-map-link" data-tab="overview"><a id="mini-map-maplink" href="index.html">See this precinct on the county map →</a></p>
     <div id="section-party" class="report-section" data-tab="overview" data-accent="party"></div>
     <div id="section-racial" class="report-section" data-tab="people" data-accent="demographics"></div>
     <div id="section-officials" class="report-section" data-tab="districts" data-accent="districts"></div>

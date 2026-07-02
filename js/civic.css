@@ -309,6 +309,35 @@ button.term {
   cursor: pointer;
 }
 
+/* Welcome primary action: "Find your precinct" — the first thing every new
+   chair does (REDESIGN §3.2). Same visual weight as the old dismiss button;
+   the dismiss becomes the quiet secondary. */
+.welcome-primary {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%;
+  min-height: var(--tap);
+  margin-top: 10px;
+  border-radius: 10px;
+  background: var(--accent-aaa);
+  color: #ffffff;
+  font-family: var(--civic-body);
+  font-size: var(--fs-big);
+  font-weight: 700;
+  text-decoration: none;
+}
+.welcome-overlay .welcome-dismiss {
+  background: transparent;
+  color: var(--accent-aaa);
+  border: 2px solid var(--accent-aaa);
+}
+.welcome-mine {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px solid #d8d2c6;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
 /* Help panel (js/helpPanel.js) reuses the welcome card; these are its extras */
 .help-card {
   max-height: 84vh;

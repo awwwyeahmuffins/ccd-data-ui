@@ -236,10 +236,20 @@ function render() {
     rows: sorted,
     sort: { key: pg.sortKey, dir: pg.sortDir },
     onSort: setSort,
-    rowAttrs: (r) => ({ class: isTiny(r) || r.artifact ? "tiny-row" : "" }),
+    rowAttrs: (r) => ({
+      class: [isTiny(r) || r.artifact ? "tiny-row" : "", pg.highlight && String(r.precinct) === pg.highlight ? "row-highlight" : ""].filter(Boolean).join(" "),
+    }),
     emptyMessage: "No precincts match these filters.",
   });
   $("ex-count").textContent = `Showing ${sorted.length} of ${pg.records.length} precincts`;
+  // A #precinct= deep link (from the Map readout) scrolls its row into view once.
+  if (pg.highlight && !pg.highlightShown) {
+    const row = $("ex-body").querySelector(".row-highlight");
+    if (row) {
+      row.scrollIntoView({ block: "center" });
+      pg.highlightShown = true;
+    }
+  }
 }
 
 function setSort(key) {
@@ -280,6 +290,7 @@ function updateURL() {
 function readURL() {
   const params = readParams();
   // Legacy `county=` is read-tolerated and ignored — old links must not crash.
+  if (params.precinct) pg.highlight = String(params.precinct); // row highlight (from the Map readout)
   if (params.view) pg.view = params.view;
   if (params.sort && getMetric(params.sort)) pg.sortKey = params.sort;
   if (params.dir === "asc" || params.dir === "desc") pg.sortDir = params.dir;

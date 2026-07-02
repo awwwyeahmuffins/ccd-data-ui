@@ -3,119 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Election Results — Collin County Elections</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <!-- civic.css loads AFTER styles.css so the a11y layer wins by source order -->
-  <link rel="stylesheet" href="js/civic.css" />
-  <style>
-    /* styles.css pins html/body to a flex full-viewport layout for the map
-       app (overflow hidden, no document scroll) — restore normal page flow */
-    html, body {
-      display: block;
-      height: auto;
-      width: auto;
-      overflow: auto;
-    }
-    body {
-      margin: 0;
-      font-family: var(--font-body);
-      background: var(--color-bg-secondary);
-      color: var(--color-text-primary);
-      font-size: 1rem;
-    }
-    /* Header: the shared civic header (js/siteNav.js + js/civic.css) */
-
-    .page-main { max-width: 920px; margin: 0 auto; padding: 28px 20px 80px; }
-    .page-title { font-family: var(--font-display); font-size: 32px; margin: 0 0 6px; }
-    .page-sub { color: var(--color-text-secondary); margin: 0 0 24px; }
-
-    .controls {
-      background: var(--color-bg-primary); border: 1px solid var(--color-border);
-      border-radius: 14px; padding: 18px 20px; margin-bottom: 20px;
-      display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-end;
-    }
-    .controls label { display: block; font-weight: 600; font-size: 0.889rem; margin-bottom: 6px; color: var(--color-text-secondary); }
-    .controls select, .controls input[type=search] {
-      font-size: 1rem; padding: 10px 12px; border-radius: 8px; min-height: 44px;
-      border: 1px solid var(--color-border); background: #fff;
-    }
-    .controls .grow { flex: 1 1 240px; min-width: 0; }
-    .controls .grow input { width: 100%; box-sizing: border-box; }
-
-    .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
-    .chip {
-      border: 1.5px solid var(--color-border); background: #fff; border-radius: 999px;
-      padding: 8px 16px; cursor: pointer; font-size: 1rem; font-weight: 600; min-height: 44px;
-      font-family: var(--font-body); color: var(--color-text-secondary);
-    }
-    .chip.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
-
-    .family-group {
-      background: var(--color-bg-primary); border: 1px solid var(--color-border);
-      border-radius: 12px; margin-bottom: 12px; overflow: hidden;
-    }
-    .family-header {
-      width: 100%; text-align: left; margin: 0;
-      font-family: var(--font-display); font-size: 1.222rem; padding: 16px 20px;
-      display: flex; justify-content: space-between; align-items: center; color: inherit;
-    }
-    .family-count { font-family: var(--font-body); font-size: 0.889rem; color: var(--color-text-secondary); font-weight: 600; }
-    summary.family-header { cursor: pointer; list-style: none; }
-    summary.family-header::-webkit-details-marker { display: none; }
-    summary.family-header::after { content: "▾"; margin-left: 10px; color: var(--color-text-secondary); }
-    details[open] > summary.family-header::after { content: "▴"; }
-    summary.family-header:hover { background: var(--color-bg-secondary, #f5f2ec); }
-    .family-body { border-top: 1px solid var(--color-border-light); }
-    .race-row {
-      display: flex; align-items: center; gap: 12px; padding: 12px 20px;
-      border-top: 1px solid var(--color-border-light); flex-wrap: wrap;
-    }
-    .race-row:first-child { border-top: none; }
-    .year-heading {
-      padding: 10px 20px 4px; font-weight: 700; font-size: 0.889rem;
-      color: var(--color-text-secondary);
-      border-top: 1px solid var(--color-border-light);
-    }
-    .race-name { flex: 1 1 320px; font-size: 1rem; }
-    .race-year { color: var(--color-text-secondary); font-size: 0.889rem; font-weight: 600; }
-    .race-actions { display: flex; gap: 8px; }
-    .race-actions a {
-      text-decoration: none; font-weight: 600; font-size: 1rem; padding: 8px 14px;
-      border-radius: 8px; min-height: 44px; display: inline-flex; align-items: center;
-    }
-    .act-map { background: var(--color-primary); color: #fff; }
-    .act-forecast { border: 1.5px solid var(--color-border); color: var(--color-text-secondary); background: #fff; }
-    .act-forecast:hover { border-color: var(--color-primary); color: var(--color-primary); }
-    .empty-note { color: var(--color-text-muted); padding: 24px 4px; }
-    .result-count { color: var(--color-text-secondary); font-size: 0.889rem; margin-bottom: 12px; }
-  </style>
+  <title>Moved — Collin County Elections</title>
+  <meta name="robots" content="noindex" />
+  <!-- REDESIGN Phase 5: the race catalog folded into the shared race picker on
+       the Map (and Forecast). This stub honors old bookmarks — #race= links
+       carry straight through — for one release, then the file is removed
+       (Phase 6). -->
+  <script>
+    location.replace("index.html" + (location.hash || ""));
+  </script>
 </head>
 <body>
-  <header id="site-header"></header>
-
-  <main class="page-main">
-    <h1 class="page-title">Browse elections</h1>
-    <p class="page-sub">Every Collin County race on file. Open any race on the map, or forecast a turnout scenario for it.</p>
-
-    <div class="controls">
-      <div class="grow">
-        <label for="el-search">Search races</label>
-        <input type="search" id="el-search" placeholder="governor, president, school board…" aria-label="Search races" />
-      </div>
-    </div>
-
-    <div class="chips" id="el-chips" role="group" aria-label="Filter by category"></div>
-    <p id="el-boundary-note" role="status" style="display:none; background:#fff8e1; border:1px solid #e8c84a; border-radius:10px; padding:12px 16px; font-size:1rem; color:#5c4a0d; margin:0 0 14px;">On the 2026 precincts, the <strong>March 2026 primary</strong> races are actual results; pre-2026 races are careful estimates re-drawn onto the new boundaries (see How It Works).</p>
-    <div class="result-count" id="el-count" role="status"></div>
-    <div id="el-list"><div class="empty-note">Loading…</div></div>
-  </main>
-
-  <script src="js/vendor/d3.v7.min.js"></script>
-  <script type="module" src="js/electionsPage.js"></script>
-  <script type="module" src="js/siteNav.js"></script>
+  <p>The race catalog moved to the <a href="index.html">Map</a> — pick any race there with the “Choose a race” button.</p>
 </body>
 </html>

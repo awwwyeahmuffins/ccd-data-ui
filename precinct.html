@@ -1868,56 +1868,10 @@
   <!-- ========================================================================
        REPORT CONTAINER (hidden until precinct selected)
        ======================================================================== -->
-  <main id="report-container" class="report-container hidden" data-tab="guide">
-
-    <!-- Hero Dashboard -->
-    <div id="hero-section" data-section="hero-section"></div>
-
-    <!-- Print / export — kept right under the summary where readers look for it -->
-    <div id="export-bar" class="export-bar hidden">
-      <button id="export-pdf" class="export-btn">Print / Save as PDF</button>
-      <button id="export-md" class="export-btn">Download as Text</button>
-      <button id="export-one-pager" class="export-btn">Print Field One-Pager</button>
-    </div>
-
-    <!-- Strategy Detail -->
-    <div id="strategy-section" data-tab="guide"></div>
-
-    <!-- Comparison Section -->
-    <div id="comparison-section" data-tab="overview"></div>
-
-    <!-- Mini Map -->
-    <div id="mini-map" class="mini-map-container" data-tab="overview"></div>
-
-    <!-- Party Registration -->
-    <div id="section-party" class="report-section" data-tab="overview" data-accent="party"></div>
-
-    <!-- Racial Demographics -->
-    <div id="section-racial" class="report-section" data-tab="people" data-accent="demographics"></div>
-
-    <!-- Districts & Officials -->
-    <div id="section-officials" class="report-section" data-tab="districts" data-accent="districts"></div>
-
-    <!-- Census Details -->
-    <div id="section-census" class="report-section" data-tab="people" data-accent="census"></div>
-
-    <!-- Primary Turnout -->
-    <div id="section-primary" class="report-section" data-tab="history" data-accent="party"></div>
-
-    <!-- Election History -->
-    <div id="section-elections" class="report-section" data-tab="history" data-accent="elections">
-      <div class="report-section-title">Election History</div>
-      <div id="section-election-history"></div>
-    </div>
-
-    <!-- Talking Points -->
-    <div id="section-talking-points" class="report-section" data-tab="guide" data-accent="census"></div>
-
-    <!-- Similar Precincts -->
-    <div id="section-strategic-intel" class="report-section" data-tab="guide" data-accent="intelligence"></div>
-    <div id="section-similar" class="report-section" data-tab="people" data-accent="demographics"></div>
-
-  </main>
+  <!-- The report structure is built by js/precinctLookup.js
+       getReportStructureHTML() — the ONE source (REDESIGN Phase 5); it was
+       previously duplicated here and drifted. -->
+  <main id="report-container" class="report-container hidden" data-tab="guide"></main>
 
   <!-- ========================================================================
        SCRIPTS

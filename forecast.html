@@ -12,14 +12,6 @@
   <!-- civic.css loads AFTER styles.css so the a11y layer wins by source order -->
   <link rel="stylesheet" href="js/civic.css" />
   <style>
-    /* styles.css pins html/body to a flex full-viewport layout for the map
-       app (overflow hidden, no document scroll) — restore normal page flow */
-    html, body {
-      display: block;
-      height: auto;
-      width: auto;
-      overflow: auto;
-    }
     body {
       margin: 0;
       font-family: var(--font-body);
@@ -85,7 +77,8 @@
     }
     .flip-callout.no-change { background: var(--color-bg-tertiary); border-color: var(--color-border); color: var(--color-text-secondary); }
     .flip-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-    .flip-chip { background: #fff; border: 1px solid var(--color-border); border-radius: 999px; padding: 3px 10px; font-size: 13px; }
+    .flip-chip { background: #fff; border: 1px solid var(--color-border); border-radius: 999px; padding: 3px 10px; font-size: 13px; color: inherit; text-decoration: none; }
+    a.flip-chip:hover { border-color: var(--color-primary); color: var(--color-primary); }
     .map-link { display: inline-block; margin-top: 16px; font-weight: 600; color: var(--color-primary); }
     .muted-note { color: var(--color-text-muted); font-size: 14px; margin-top: 10px; }
     .loading { color: var(--color-text-muted); padding: 12px 0; }

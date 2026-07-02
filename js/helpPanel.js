@@ -16,10 +16,6 @@ const PAGE_HELP = {
     title: "Find a Precinct",
     body: "Type your street address (or a precinct number) to get a full report on that precinct — who lives there, how it votes, and ready-to-use talking points. You can print the report or a one-page field brief.",
   },
-  "elections.html": {
-    title: "Election Results",
-    body: "Every election we have on file, grouped by race. Search for a race and open it on the map to see how each precinct voted.",
-  },
   "forecast.html": {
     title: "Forecast",
     body: "Ask “what if?” — pick a real race, change who shows up to vote, and see how the outcome shifts, precinct by precinct.",
