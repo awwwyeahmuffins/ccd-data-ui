@@ -1,158 +1,158 @@
 # Adding Features — The Playbook
 
-**Last Updated**: June 11, 2026
+**Last Updated**: July 2, 2026
 
-This is the repeatable recipe book for extending the app. Follow the recipe that
-matches your feature; each one lists every file you touch, in order. If your
-feature doesn't fit any recipe, read "Architecture in 90 seconds" and the
-"Conventions" section, then model your change on the closest existing feature.
+This is the recipe book for extending the app as it exists **today**. Before
+using it, read `docs/REDESIGN.md` — a simplification redesign is approved
+(target module layout, 5-page IA, migration phases 0–6). New work should land
+on the target architecture where a phase has shipped, and should at minimum
+avoid deepening the problems the redesign deletes (new county pickers, new
+hash schemes, new formatter copies, HTML generation inside domain logic).
+
+> Historical note: earlier versions of this playbook documented the `js/app/`
+> monolith (state.js, viewMode.js, commandPalette.js, …) and a ⌘K command
+> palette. All of that was deleted in June 2026 — recover from git history if
+> ever needed. There is no command palette in the current app.
 
 ---
 
 ## Architecture in 90 seconds
 
-Two self-contained pages, no build step, no framework:
+Seven self-contained pages, no build step, no framework. Each HTML page loads
+ONE orchestrator module from `js/`; pages never import each other's
+orchestrators; everything else in `js/` is a shared library module.
 
-| Page | Orchestrator | What it owns |
-|------|-------------|--------------|
-| `index.html` (map viewer) | `js/app/main.js` + the other `js/app/` modules | all map-app state, view switching, panels, map rendering |
-| `precinct.html` (lookup/report) | `js/precinctLookup.js` | search, report rendering, export |
+| Page | Orchestrator | Nav label |
+|------|-------------|-----------|
+| `index.html` | `js/commandCenter.js` | Map (front door; map, list view, dock, auth bootstrap) |
+| `precinct.html` | `js/precinctLookup.js` | Find a Precinct (tabbed report + exports) |
+| `elections.html` | `js/electionsPage.js` | Election Results (race catalog — slated to fold into a shared race picker, REDESIGN.md §3.2) |
+| `forecast.html` | `js/forecastPage.js` | Forecast (turnout simulator) |
+| `targets.html` | `js/targetsPage.js` | Priority Precincts (strategy ranking) |
+| `explore.html` | `js/explorePage.js` | Browse All Data (metric grid) |
+| `methodology.html` | (static) | How It Works |
 
-Root-level `js/` modules are **libraries** — pure-ish functions consumed by the
-two orchestrators. They never hold page state and never reach into each other's
-DOM. The map app itself lives in `js/app/`:
+**Data flow (all pages):** `data/tx/...` v3 files → `js/dataLoader.js`
+(fetch + in-memory cache; `js/v3Pivot.js` pivots race+turnout to the legacy
+row shape) → the page orchestrator's module-level state object → page-local
+renderers.
 
-| Module | Owns |
-|--------|------|
-| `state.js` | THE shared mutable state object — import it, never copy it |
-| `main.js` | entry point: initializeMap, init(), auth-gated startup |
-| `viewMode.js` | `setViewMode()` (the ONLY view-flip path) + map toolbar |
-| `mapRendering.js` | the 5 render paths + legend |
-| `precinctPanel.js` | precinct click, info card, profile panel, (disabled) chat |
-| `search.js` | precinct search widget |
-| `panels.js` | election panel toggle, FAB, forecast button, mobile tabs, ranker |
-| `electionPanel.js` | Browse/Forecast/Saved panel rendering, recently viewed |
-| `electionWorkflow.js` | loadElections, selectElection, URL deep-link sync |
-| `boundary.js` | 2024↔2026 boundary switching + changes panel |
-| `uiChrome.js` | toasts, breadcrumbs, welcome overlay, header collapse |
-| `commandPalette.js` | ⌘K palette + global shortcuts (side-effect import) |
+**State lives per page.** Each orchestrator keeps a module-level state object
+(`cc` in commandCenter.js, `state` in precinctLookup.js, …). The one shared
+mutable singleton is `dataLoader.js` (`activeCounty`/`activeBoundary` + cache;
+`setActiveBoundary` wipes the cache — re-fetch after switching). URL hash
+state is currently hand-rolled per page; don't invent a seventh scheme — reuse
+the page's existing read/write helpers (a shared `lib/urlState.js` arrives in
+REDESIGN.md Phase 1).
 
-**Two invariants** (both documented in main.js):
-1. A `js/app/` module must never CALL an imported binding at module top level —
-   top-level code may only declare, grab DOM elements, and register listeners
-   with locally defined handlers. The function-level import cycles
-   (viewMode↔panels, electionPanel↔electionWorkflow) are safe only under this rule.
-2. `init()` can run twice on the deployed auth path. Listeners registered at
-   module top level run once; listeners registered inside `init()`/`initX()`
-   helpers re-register. Don't move registrations between the two.
-
-**Data flow (map page):**
-`data/elections.json` (manifest) → `dataLoader.js` (fetch + cache) →
-`state.*` (js/app/state.js) → render functions in `mapRendering.js` → Leaflet layers.
-
-**State lives in exactly two places:**
-- `js/app/state.js`: the map app's single `state` object.
-- precinctLookup.js: a module-level `state` object at the top of the file.
-
-Everything else (URL hash, localStorage) is derived/synced, never authoritative.
+**Shared chrome on every page:** `<header id="site-header">` +
+`js/siteNav.js` (header, text-size toggle, welcome panel on index) +
+`js/civic.css` loaded LAST (the a11y layer must win by source order) +
+`js/glossary.js` / `js/helpPanel.js`.
 
 ---
 
-## Recipe A — Add a new map view mode
+## Recipe A — Add a new map color mode (index.html)
 
-Example existing modes: `demographics`, `election`, `turnout`.
+Existing modes: Lean / Margin / Diversity / Primary (`data-mode` buttons).
 
-1. **Button**: add a `<button class="view-mode-btn" data-view="yourmode">` to
-   the `.view-mode-buttons` nav in index.html's header markup.
-2. **Renderer**: write `renderYourModeMap()` in `js/app/mapRendering.js` next
-   to the other render functions. It should style `state.geojsonLayer`
-   features and call `updateMapLegend()`.
-3. **Switch**: add a case to `setViewMode()` in `js/app/viewMode.js`.
-   That function is the ONLY place that flips views — don't add side channels.
-4. **Legend**: extend `updateMapLegend()` (mapRendering.js) for your mode's legend HTML.
-5. **Toolbar** (optional): extend `updateMapViewControls(mode)` (viewMode.js)
-   if the mode needs its own sub-controls (see how demographics adds the
-   Party Lean / heatmap selector toolbar).
-6. **Command palette**: add an entry to `buildCommands()` in
-   `js/app/commandPalette.js` so the mode is reachable via ⌘K.
-7. **Breadcrumb label**: add your mode to `viewLabels` in
-   `updateBreadcrumbs()` (js/app/uiChrome.js).
-8. **Tests**: e2e — click `[data-view="yourmode"]`, assert
-   `.map-legend-leaflet` content changes. See `e2e/core-functionality.spec.js`.
+1. **Button**: add a `data-mode` button next to the others in index.html's
+   mode row.
+2. **Fill function**: add a `yourModeFill(feature)` in `js/commandCenter.js`
+   next to `leanFill`/`marginFill`/etc., and a case in `fillFor()`. Bin numeric
+   values through `js/mapBins.js` (named bins) — never invent ad-hoc ranges.
+3. **Pattern pairing**: every fill needs an SVG pattern from
+   `js/mapPatterns.js` — color-alone encodings are an a11y violation
+   (enforced by e2e/a11y.spec.js).
+4. **Legend**: extend the legend builder in commandCenter.js so the mode gets
+   labeled swatches (color + pattern) on the solid backplate.
+5. **Plain language**: if the mode surfaces a new value, wire it through
+   `describePrecinct()` in `js/mapBins.js` so the polygon aria-label, tap
+   readout card, and List view all say the same thing.
+6. **Tests**: e2e — click the mode button, assert the legend content changes
+   (`e2e/command-center.spec.js` has the pattern); a11y spec must stay green.
 
-## Recipe B — Add a new panel (slide-in like Browse / profile / ranker)
+## Recipe B — Add a section to the precinct report (precinct.html)
 
-1. **Markup**: add `<div id="your-panel" class="...">` near the other panels in
-   index.html. Give every interactive child an `id` or `data-action`.
-2. **Z-index**: pick per the layering map — header 10000, election panel 10001,
-   mobile tab bar 10001, profile 10002, ranker 10003. Slot yours deliberately;
-   document it in a comment next to the z-index.
-3. **Single-active-panel rule**: add your panel id to `PANEL_IDS` and use
-   `closeAllPanels()` (js/app/uiChrome.js) so opening yours closes the others.
-   Do not hand-roll visibility toggling. Put your open/close functions in
-   `js/app/panels.js` (or a new js/app module if it's substantial).
-4. **Open triggers**: header button and/or command-palette entry
-   (commandPalette.js) and/or mobile tab bar (panels.js).
-5. **Escape + click-outside**: add your panel to the Escape stack in the
-   global keydown handler in `js/app/commandPalette.js` rather than adding a
-   new listener.
-6. **Tests**: e2e — open, assert visible, press Escape, assert closed. On
-   mobile viewports remember the FAB is hidden ≤1024px; open via tab bar
-   `[data-action="..."]`.
+1. **Renderer**: add a `renderYourSection(precinct)` in `js/precinctLookup.js`
+   near the other `render*` functions; return an HTML string built with
+   `escapeHtml()` for ALL interpolated data.
+2. **Tab placement**: the report is 5 flat tabs (guide / overview / history /
+   people / districts). The tab structure is currently duplicated between the
+   static HTML in precinct.html and `getReportStructureHTML()` in
+   precinctLookup.js — **update both** (single-sourcing is REDESIGN.md
+   Phase 5).
+3. **Print/export**: printing always prints the whole report; check
+   `js/precinctExport.js` and `js/fieldOnePager.js` — if your section belongs
+   in the markdown export or the one-pager, extend those too.
+4. **Tests**: `e2e/precinct-tabs.spec.js` has the tab/deep-link patterns.
 
 ## Recipe C — Add a new data source (CSV / GeoJSON / lookup)
 
 1. **Spec first**: if it's election-shaped data, conform to
    `docs/DATA_LAYOUT_SPEC.md`. Pipeline scripts live in `data_processor/`.
 2. **Loader**: add a `loadYourData()` to `js/dataLoader.js`, following the
-   existing fetch + in-memory cache pattern. Respect `getActiveBoundary()` if
-   the data is per-boundary (2024 vs 2026 files live in `data/` vs `data/2026/`).
-3. **Schema/validation**: if rows need validation, extend `js/electionSchema.js`.
-4. **Consume**: stash on `state.yourData` during `initializeMap()`'s
-   `loadAllData()` block (js/app/main.js) or `loadData()` (precinctLookup.js).
+   existing fetch + in-memory cache pattern. Respect the active boundary set
+   (`getBoundaryConfigs()` / the entry's `dataDir`) if the data is
+   per-boundary.
+3. **Schema/validation**: if rows need validation, extend
+   `js/electionSchema.js`.
+4. **Consume**: load it in the page orchestrator's init/load block and stash
+   it on that page's state object.
 5. **Participation gotcha**: election CSVs contain ALL precincts regardless of
    race scope. Non-participating precincts still show county-wide
    `BALLOTS CAST TOTAL > 0` — check candidate votes, not ballots cast, to
-   decide participation (see `precinctHasCandidateVotes()` in js/app/mapRendering.js).
-6. **Manifest**: new elections must be added to `data/elections.json` via
-   `data_processor/manifest_generator.py`, never by hand.
+   decide participation.
+6. **Manifest**: new elections are added to the v3 manifest by the pipeline
+   (`data_processor/`), never by hand.
+7. **Honest gaps**: absent optional data (profile extras) must render N/A —
+   never fabricate.
 
-## Recipe D — Add a command-palette command
+## Recipe D — Add a page
 
-1. Find the commands array in `buildCommands()` in `js/app/commandPalette.js`.
-2. Add `{ label, hint, action }` — action is a closure over existing functions.
-   Keep actions one-liners that call named functions; don't inline logic.
-3. e2e: `e2e/command-palette.spec.js` has the pattern (⌘K, type, Enter, assert).
+Strongly reconsider first: the approved redesign *reduces* the page count to 5
+(REDESIGN.md §3). If the feature is real, it probably belongs on an existing
+page. If a new page is truly warranted:
 
-## Recipe E — Add a section to the precinct report (precinct.html)
-
-1. **Renderer**: add a `renderYourSection(precinct)` in `js/precinctLookup.js`
-   near the other `render*` functions; return an HTML string built with
-   `escapeHtml()` for ALL interpolated data.
-2. **Compose**: call it from the main report-render function in DOM order.
-3. **Print/export**: check `js/precinctExport.js` and `js/fieldOnePager.js` —
-   if your section belongs in the one-pager or CSV export, extend those too.
-4. **Styles**: precinct.html keeps its page-specific styles in its own
-   `<style>` block; shared tokens come from `styles.css` CSS variables.
+1. New `your-page.html` with the `#site-header` placeholder, `js/siteNav.js`,
+   `js/civic.css` loaded last, and the d3 vendor script.
+2. One new orchestrator `js/yourPage.js`; import only library modules, never
+   another page's orchestrator.
+3. If you load `styles.css`, add the inline override that restores normal
+   document flow (it pins html/body to a full-viewport flex map layout — see
+   the comment blocks in elections/forecast/targets.html).
+4. Add the page to `js/siteNav.js`'s nav list AND to the `deploy-site`
+   allowlist in the Makefile (a page missing from the allowlist silently never
+   deploys).
+5. Add an e2e smoke spec and include the page in `e2e/a11y.spec.js`'s page
+   list.
 
 ---
 
 ## Conventions (apply to every recipe)
 
 - **Escaping**: any string that reaches `innerHTML` goes through
-  `escapeHtml()`; anything written to CSV goes through `csvEscape()`. Both live
-  in `js/utils.js`. No exceptions — this codebase has been burned by XSS and
-  CSV formula injection before (see `docs/SECURITY_AUDIT.md`).
+  `escapeHtml()`; anything written to CSV goes through `csvEscape()`. Both
+  live in `js/utils.js`. No exceptions — this codebase has been burned by XSS
+  and CSV formula injection before (see `docs/SECURITY_AUDIT.md`).
+  (`precinctProfile.js` has a second `escapeHtml` copy; it dies in REDESIGN.md
+  Phase 1 — don't add a third.)
 - **Party colors are data encodings** — locked in `js/constants.js`
   (`PARTY_COLORS`). Never restyle them; `tests/cssVariables.test.js` pins the
   design-token hexes too.
-- **CSS**: use the existing CSS variables (`--primary`, `--bg-secondary`,
-  `--radius-md`, …). Page-wide styles go in `styles.css`; index-only styles in
-  index.html's `<style>`. Dark mode = `[data-theme="dark"]` overrides — add one
-  for any new surface you create.
-- **Mobile**: the tab bar shows ≤1024px. Hit targets ≥44px. Test at 390px wide.
-- **No new globals**: features hang off the page `state` object; helper logic
-  that is pure goes in a `js/` module so it's unit-testable.
+- **Civic-plain rules are hard requirements**: 18px minimum text, 44px hit
+  targets, no hover-only affordances, no color-alone encodings (pair fills
+  with `mapPatterns`), no translucent backplates behind map text, no
+  `maximum-scale` viewport locks. Light theme only — dark mode was retired.
+  `e2e/a11y.spec.js` fails the build on critical/serious axe violations.
+- **CSS**: use the existing CSS variables; `js/civic.css` always loads last.
+  Page-specific styles live in that page's `<style>` block.
+- **Mobile/iPad**: test at 390px wide and iPad sizes; the primary users are
+  60+ chairs on iPads.
+- **No new globals**: features hang off the page's state object; pure helper
+  logic goes in a `js/` library module so it's unit-testable — and unit tests
+  must IMPORT the module (several legacy tests assert inline copies; never add
+  another).
 - **Geocoding**: use `js/geoLookup.js` (Nominatim). The US Census geocoder is
   CORS-blocked in browsers — don't switch back.
 
@@ -165,13 +165,12 @@ npx playwright test --workers=2 --project=chromium             # e2e (server mus
 ```
 
 E2E gotchas that look like your bug but aren't:
-- Election groups in the browse panel are collapsed by default — click
-  `.group-header` or type in `#panel-search-input` before clicking `.election-item`.
-- Selecting an election auto-switches the panel to the Forecast tab.
-- Wait for `.map-legend-leaflet` to know the map finished initializing.
-- `test.setTimeout(60000)` — the Python dev server is slow under parallel load.
-- Welcome overlay shows once per browser profile (`ccd_welcome_seen` in
-  localStorage); dismiss with `#welcome-close-btn` or Escape.
+
+- The welcome panel shows once per browser profile (`ccd_welcome_seen` in
+  localStorage); dismiss via the `.welcome-dismiss` button or Escape.
+- Wait for the map/legend to render before interacting with precinct polygons.
+- `test.setTimeout(60000)` — the Python dev server is slow under parallel
+  load; run with `--workers=2`.
 
 ## Deploying
 
@@ -179,12 +178,18 @@ E2E gotchas that look like your bug but aren't:
 repo root contains voter PII). Infra changes: `make cdk-diff` then
 `make cdk-deploy`. AWS profile `ccd`, region us-east-1 — always.
 
-## Recipe F — Bring a Texas county live (statewide expansion)
+---
 
-The app lists all 254 Texas counties (`data/tx/counties.json`); counties
-without data are PLACEHOLDERS (county outline as one fake precinct, empty
-election list, explicit banner). **Never fabricate data to fill one.**
-Live counties so far: Collin, Bastrop (the pilot — copy its layout).
+## Appendix — Producing v3 data for another county (pipeline only)
+
+**The frontend is Collin-only by decision** (REDESIGN.md, July 2026): the
+registry contains one county, and the redesign removes county pickers rather
+than generalizing them. The Python pipeline, however, remains county-agnostic.
+If statewide ever returns, it re-enters through the data layer (a registry +
+county param in the data service), not by resurrecting per-page pickers.
+
+To produce v3 data for a county (output is not consumed by this frontend
+today):
 
 1. **Results** — run the ETL on an OpenElections precinct file
    (https://github.com/openelections/openelections-data-tx):
@@ -193,59 +198,17 @@ Live counties so far: Collin, Bastrop (the pilot — copy its layout).
      https://raw.githubusercontent.com/openelections/openelections-data-tx/master/2022/counties/20221108__tx__general__<county>__precinct.csv \
      --county <slug>
    ```
-   Writes v3 races/turnout/manifest to `data/tx/<slug>/<year>/`
-   (docs/DATA_LAYOUT_SPEC.md). Missing turnout = no turnout file = N/A.
+   Writes v3 races/turnout/manifest per `docs/DATA_LAYOUT_SPEC.md`. Missing
+   turnout = no turnout file = N/A.
 2. **Boundaries** — election-vintage TLC VTDs (NOT Census VTDs — counties
    redraw between censuses):
    ```bash
    python3 data_processor/fetch_vtd_geojson.py --county <slug> --set <year> --validate
    ```
-   Downloads the Capitol Data Portal statewide shapefile, extracts the
-   county, reprojects to WGS84, and validates the precinct-code join.
-   **Hard gate: 100% of vote-bearing precincts must match** or the county
-   stays a placeholder.
-3. **Registry flip** — in `data/tx/counties.json` set `status: "live"`,
-   `dataRoot: "data/tx/<slug>"`, `defaultBoundarySet`, and `boundarySets`
-   (single set: id `"original"`; the boundary selector auto-hides for
-   single-set counties).
-4. **Tests** — add the county to the live list in
-   `tests/countyRegistry.test.js`; extend `e2e/county-switching.spec.js`;
-   run the full verify checklist.
-5. **Optional extras** — per-set `profile/` files (dnc_scores.csv, racial.csv,
-   census_profiles.json…) light up the demographics panels; without them the
-   app shows N/A, which is correct.
-
-### Batch imports + the audit gates (statewide rollout, June 2026)
-
-`data_processor/batch_import.py` is the scaled version of Recipe F: it takes
-every county with published precinct data through three hard gates — no gate,
-no flip:
-
-1. **ETL** — OpenElections precinct results (transcribed from official county
-   canvasses; `sourceUrl` recorded per race).
-2. **Canvass audit** — county totals for the major statewide races must
-   reconcile against an independent officially-sourced dataset
-   (2022: MEDSL `2022-elections-official`; 2020: VEST precinct returns).
-   REP/DEM/LIB exact per office; all other candidates + write-ins as one
-   OTHER bucket; the only tolerance is write-in votes the official accounting
-   doesn't carry, and only when the gap equals our write-in tally exactly.
-   Party labels the source omitted are filled from the official dataset
-   (recorded as `parties_enriched_from_official`).
-3. **Boundary join** — TLC election-vintage VTDs; 100% of vote-bearing
-   precinct codes must join, via at most one deterministic normalization
-   rule from a fixed ladder (exact → strip-leading-zeros → first-integer →
-   first-integer-merge for sub-precinct splits). The rule used is recorded.
-
-Per-county outcomes (gates, cells compared, mismatch detail, join rule) live
-in `data/tx/AUDIT_REPORT.json`. Counties that fail any gate stay placeholders
-with the reason recorded — fix the data, never the gate.
-
-### Profile layer for non-Collin counties
-
-`data_processor/derive_profiles.py` fills `profile/` for every live county
-except Collin: racial.csv from OFFICIAL TLC Census-by-VTD population files,
-and dnc_scores.csv as a documented VOTE-DERIVED party-lean estimate (statewide
-races with both REP and DEM candidates, averaged per precinct). Method and
-race list land in profile/provenance.json. Collin's profile pipeline (voter
-file + ACS) is separate and never touched by this script. census_profiles.json
-(rich ACS panels) remains Collin-only for now — other counties show N/A there.
+   **Hard gate: 100% of vote-bearing precincts must match** the boundary join,
+   or the data doesn't ship. Never fabricate data; never weaken a gate.
+3. **Batch + audit gates** — `data_processor/batch_import.py` runs the scaled
+   three-gate version (ETL → canvass audit against MEDSL-2022/VEST-2020
+   official datasets → TLC boundary join); `data_processor/derive_profiles.py`
+   fills vote-derived profile estimates. Per-county outcomes are recorded in
+   an audit report by the pipeline. Fix the data, never the gate.

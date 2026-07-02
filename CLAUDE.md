@@ -4,9 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Texas Elections Data Viewer — a vanilla JavaScript (ES Modules) web app for visualizing Texas election data at the precinct level: interactive maps, demographic analysis, turnout visualization, and election forecasting. No build step; served via Python's `http.server`.
+Collin County (TX) Elections Data Viewer — a vanilla JavaScript (ES Modules) web app for visualizing election data at the precinct level: interactive maps, demographic analysis, turnout visualization, targeting, and election forecasting. No build step; served via Python's `http.server`.
 
-**Statewide status: ALL 254 Texas counties are LIVE** with officially-sourced precinct data (`data/tx/counties.json`). Two tiers: **175 counties** carry the full ballot via the three-gate pipeline (`data_processor/batch_import.py`: OpenElections ETL → exact canvass audit vs MEDSL-2022/VEST-2020 official datasets → TLC election-vintage boundary join); **79 counties** (where OpenElections failed verification or could not be mapped) carry the 10 statewide 2020 races ingested directly from VEST official precinct returns (`data_processor/vest_ingest.py` — results and boundaries from one official file, intrinsic join; registry `notes` flags them, prior failure reasons preserved in `data/tx/AUDIT_REPORT.json`). NEVER fabricate data and never weaken a gate — upgrade VEST-tier counties by fixing their OE data per Recipe F. Unknown values (e.g. ballots-cast in VEST counties) stay empty and render N/A.
+**Geo scope: Collin County only.** The registry (`data/tx/counties.json`) contains exactly one entry (Collin, 2024 + 2026 boundary sets). `data/tx/districts.json` + `data/tx/districts/` hold 12 overlapping CD/SD/HD districts whose race data includes out-of-county precinct rows found nowhere else — today they masquerade as extra "counties" in the registry; the approved redesign (`docs/REDESIGN.md`) turns them into district *scoping* instead. The Python pipeline in `data_processor/` is county-agnostic and can bring other counties live, but no other county's data ships in this repo. NEVER fabricate data — unknown values stay empty and render N/A.
+
+**A full simplification redesign is approved and documented in `docs/REDESIGN.md`** (target IA, module boundaries, migration phases 0–6). Phase 0 (doc truth) is done; consult REDESIGN.md before adding features or refactoring so new work lands on the target architecture, not the legacy one.
 
 ## Common Commands
 
@@ -34,7 +36,7 @@ node --experimental-vm-modules node_modules/jest/bin/jest.js tests/dataLoader.te
 
 **Running a single e2e test:**
 ```bash
-npx playwright test e2e/core-functionality.spec.js
+npx playwright test e2e/command-center.spec.js
 ```
 
 **Dev server URL:** `http://localhost:3000/index.html` (Command Center front door) and `http://localhost:3000/precinct.html` (precinct lookup)
@@ -64,7 +66,7 @@ make deploy-site    # Sync site content to S3 + invalidate CloudFront
 
 ### Architecture: self-contained pages
 
-**Adding a feature? Start with `docs/ADDING_FEATURES.md`** — step-by-step recipes for new map views, panels, data sources, command-palette commands, and precinct-report sections, plus the verify checklist.
+**Adding a feature? Read `docs/REDESIGN.md` first** (the approved target architecture), then `docs/ADDING_FEATURES.md` for the current per-page conventions and the verify checklist.
 
 Each HTML page is self-contained: it loads ONE orchestrator module from `js/` and shares only the library modules. No page imports another page's orchestrator. (The old `js/app/` monolith + `classic.html` were deleted June 2026 — recover from git history if ever needed.)
 
@@ -111,9 +113,9 @@ Python scripts for sourcing and converting election data:
 ### Testing
 
 - **Unit tests** (`tests/*.test.js`): Jest with jsdom environment. Uses `--experimental-vm-modules` for ES module support. Note: several test files test inline COPIES of source functions rather than importing the module — when changing a module, search tests for duplicated logic.
-- **E2E tests** (`e2e/*.spec.js`): 8 files covering core functionality, command palette, accessibility, mobile, boundary switching, county switching, address lookup, and responsive screenshots. Playwright reuses the local server on port 3000. Run locally with `--workers=2` (the Python server is slow under parallel load).
+- **E2E tests** (`e2e/*.spec.js`): 9 files — `command-center` (map, dock, pickers, deep links), `list-view`, `new-pages` (elections/forecast/methodology), `targets`, `explore`, `precinct-tabs`, `precinct-lookup`, `onboarding` (welcome/help), and `a11y` (axe on all 7 pages + stateful views). Known gaps: boundary switching and inbound deep-link consumption have no dedicated specs yet (planned in REDESIGN.md Phase 1). Playwright reuses the local server on port 3000. Run locally with `--workers=2` (the Python server is slow under parallel load).
 - **Lint**: `make lint` runs ESLint (flat config in `eslint.config.js`) over js/, e2e/, tests/ and fails on errors.
 
 ### State Management
 
-No framework state library. The map app's state object lives in `js/app/state.js` (a shared mutable singleton imported by every js/app module); precinctLookup.js holds the lookup page's state. URL hash syncs state for deep linking via `urlStateManager.js` (index) and a custom hash format (precinct.html). Data is cached after first load in `dataLoader.js`.
+No framework state library. Each page orchestrator holds its own module-level state object (e.g. the `cc` object in `commandCenter.js`, the `state` object in `precinctLookup.js`). The one shared mutable singleton is `dataLoader.js`: module-level `activeCounty`/`activeBoundary` plus an in-memory cache that `setActiveCounty`/`setActiveBoundary` wipe entirely (no change events — consumers must re-fetch and re-render by convention). URL hash state is hand-rolled per page (six different schemes, two parser styles); there is no shared URL-state module. Both of these are slated for replacement — a keyed per-boundary data service and a single `urlState` module — see `docs/REDESIGN.md` §5.

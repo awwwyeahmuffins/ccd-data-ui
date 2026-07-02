@@ -1,7 +1,7 @@
 # Election Data Layout Specification v3.0
 
-**Last Updated**: June 11, 2026
-**Status**: Current Production Layout (normalized, statewide)
+**Last Updated**: July 2, 2026
+**Status**: Current Production Layout (normalized; shipped data covers Collin County + its overlapping districts)
 
 This document specifies the data contract between the pipeline
 (`data_processor/`) and the frontend. v3 replaced the legacy wide-CSV layout
@@ -14,16 +14,20 @@ on June 11, 2026 (see the appendix). Principles:
 - **Honest gaps**: unknown values are EMPTY strings (the app shows N/A).
   Data is never fabricated; placeholder counties are explicitly labeled.
 
-## 1. Statewide county registry
+## 1. Registry
 
-`data/tx/counties.json` — all 254 Texas counties:
+`data/tx/counties.json` — the county registry. **It contains exactly one
+entry: Collin** (the frontend is Collin-only by decision — see
+`docs/REDESIGN.md`; the registry shape stays county-agnostic because the
+pipeline is):
 
 ```json
 {
   "fips": "48085", "name": "Collin", "slug": "collin",
-  "status": "live",                    // "live" | "placeholder"
-  "dataRoot": "data/tx/collin",        // null for placeholders
-  "defaultBoundarySet": "original",
+  "status": "live",
+  "dataRoot": "data/tx/collin",
+  "notes": null,
+  "defaultBoundarySet": "2026",
   "boundarySets": {
     "original": { "label": "2024 Boundaries (252)", "geojson": "boundaries/2024.geojson", "dataDir": "2024" },
     "2026":     { "label": "2026 Boundaries (273)", "geojson": "boundaries/2026.geojson", "dataDir": "2026" }
@@ -31,9 +35,14 @@ on June 11, 2026 (see the appendix). Principles:
 }
 ```
 
-Placeholder counties render their outline (from `data/tx/county-boundaries.geojson`)
-as a single `PRECINCT: "PLACEHOLDER"` feature with an explicit banner and an
-empty election list.
+`data/tx/districts.json` lists 12 overlapping CD/SD/HD districts in the same
+shape plus `kind: "district"` and `group`. Their `dataRoot` trees
+(`data/tx/districts/<slug>/`) merge races across member counties and contain
+out-of-county precinct rows (e.g. `hunt:…`, `denton:…`) that exist nowhere
+else in the repo — do not delete them. `js/dataLoader.js` currently
+concatenates both files into one registry so districts appear as extra
+"counties"; the approved redesign replaces that masquerade with district
+*scoping* (REDESIGN.md §5.2).
 
 ## 2. County data layout
 
@@ -132,10 +141,10 @@ detector — the legacy format was a bare array):
 - Precinct codes are **strings**, compared by exact equality after
   `String(x).trim()`. Never zero-pad, case-fold, or numerically coerce.
 - Every `precinct` in race/turnout/profile files must match a `PRECINCT`
-  property in that set's boundary GeoJSON. Bringing a county live requires
-  **100% of vote-bearing precincts** to match
-  (`data_processor/fetch_vtd_geojson.py --validate`); otherwise the county
-  stays a placeholder.
+  property in that set's boundary GeoJSON. The hard gate for any new dataset:
+  **100% of vote-bearing precincts** must match
+  (`data_processor/fetch_vtd_geojson.py --validate`); data that fails the join
+  does not ship.
 - Boundary sources: Texas Legislative Council VTD shapefiles
   (data.capitol.texas.gov, **election-vintage** — e.g. `VTDs_22G` for the
   2022 general). Census 2020 VTDs go stale as counties redraw (Bastrop:
@@ -171,8 +180,9 @@ profiles) was built on:
 
 - **New county results**: `data_processor/tx_etl.py` (OpenElections precinct
   CSVs → v3). Boundaries: `data_processor/fetch_vtd_geojson.py` (TLC VTDs →
-  WGS84 GeoJSON + join validation). Full recipe:
-  `docs/ADDING_FEATURES.md` Recipe F.
+  WGS84 GeoJSON + join validation). Full recipe: the pipeline appendix in
+  `docs/ADDING_FEATURES.md`. (The frontend consumes only Collin data today —
+  see `docs/REDESIGN.md`.)
 - **Shared emission helpers**: `data_processor/v3_writer.py`.
 - Manifests are generated, never hand-edited.
 
