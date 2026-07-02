@@ -111,21 +111,22 @@ test.describe('Browse All Data (explore.html) deep links', () => {
 test.describe('Forecast (forecast.html) deep links', () => {
   test('the chosen race round-trips through the hash', async ({ page }) => {
     await page.goto('/forecast.html');
-    await expect(page.locator('#fc-race option').nth(2)).toBeAttached({ timeout: 30000 });
     // The default race writes its own race= hash once its CSV loads — wait for
     // that first so the next wait can detect the CHANGED hash, not the old one.
     await expect(page).toHaveURL(/race=/, { timeout: 30000 });
     const before = new URL(page.url()).hash;
-    // Write: pick a different race than the default (selectRace loads the
-    // election's CSV before it writes the hash — slow under server load).
-    const value = await page.locator('#fc-race option').nth(2).getAttribute('value');
-    await page.selectOption('#fc-race', value);
+    // Write: pick a different race via the shared race picker (search narrows
+    // to a race the default never is — the picker's list uses [data-race]).
+    await page.click('#fc-race-btn');
+    await page.fill('#fc-race-search', 'attorney general');
+    await page.locator('#fc-race-list [data-race]').first().click();
     await page.waitForURL((u) => new URL(u).hash !== before && /race=/.test(new URL(u).hash), { timeout: 30000 });
+    const picked = await page.locator('#fc-race-name').textContent();
     const url = page.url();
     // Consume.
     await page.goto('about:blank');
     await page.goto(url);
-    await expect(page.locator('#fc-race')).toHaveValue(value, { timeout: 30000 });
+    await expect(page.locator('#fc-race-name')).toHaveText(picked, { timeout: 30000 });
   });
 });
 

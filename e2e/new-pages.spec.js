@@ -70,7 +70,7 @@ test.describe('Forecast scenario page', () => {
     await page.waitForFunction(
       () => document.querySelector('#fc-outcome .outcome-grid'), null, { timeout: 30000 });
     await expect(page.locator('#fc-county')).toHaveValue('cd-3');
-    await expect(page.locator('#fc-race')).toHaveValue(/[Gg]overnor/);
+    await expect(page.locator('#fc-race-name')).toContainText(/[Gg]overnor/);
   });
 });
 

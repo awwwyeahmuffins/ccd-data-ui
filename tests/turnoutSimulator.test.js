@@ -4,7 +4,7 @@
 
 import { describe, it, expect, jest, beforeEach, afterEach } from '@jest/globals';
 
-// Import actual implementations from turnoutSimulator.js
+// Import actual implementations from turnoutSimulator.js (pure engine)
 import {
   calculateAdjustedVotes,
   determineWinner,
@@ -15,8 +15,6 @@ import {
   createSliderState,
   createVoterFlipState,
   runFullSimulation,
-  generateSimulatorControlsHTML,
-  generateSimulationResultsHTML,
   // New enhanced functions
   estimatePartyVotersInPrecinct,
   calculateNonVotersByParty,
@@ -25,6 +23,12 @@ import {
   applyVoterFlip,
   simulatePrecinctCombined
 } from './turnoutSimulator.js';
+
+// HTML generators live in the UI layer (js/ui/simulatorControls.js)
+import {
+  generateSimulatorControlsHTML,
+  generateSimulationResultsHTML
+} from '../js/ui/simulatorControls.js';
 
 
 // ============================================================================

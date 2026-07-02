@@ -12,9 +12,14 @@ import {
   comparePrecincts,
   compareDemographics,
   calculateTurnout,
+} from './precinctHistory.js';
+// The HTML generators moved to ui/reportSections.js (REDESIGN Phase 2) —
+// test the real module, not the shim. generateVotingHistoryHTML receives the
+// turnout computation as an argument (it stays pure of precinctHistory).
+import {
   generateVotingHistoryHTML,
   generateComparisonHTML
-} from './precinctHistory.js';
+} from '../js/ui/reportSections.js';
 
 // ============================================================================
 // TESTS FOR categorizeRace
@@ -503,13 +508,13 @@ describe('calculateTurnout', () => {
 
 describe('generateVotingHistoryHTML', () => {
   it('should return empty state for no history', () => {
-    const html = generateVotingHistoryHTML(null);
+    const html = generateVotingHistoryHTML(null, calculateTurnout);
     expect(html).toContain('empty-state');
     expect(html).toContain('No voting history');
   });
   
   it('should return empty state for empty races array', () => {
-    const html = generateVotingHistoryHTML({ races: [], byCategory: {}, partyRecord: {} });
+    const html = generateVotingHistoryHTML({ races: [], byCategory: {}, partyRecord: {} }, calculateTurnout);
     expect(html).toContain('empty-state');
   });
   
@@ -520,7 +525,7 @@ describe('generateVotingHistoryHTML', () => {
       partyRecord: { Rep: 5, Dem: 3, Other: 1 }
     };
     
-    const html = generateVotingHistoryHTML(history);
+    const html = generateVotingHistoryHTML(history, calculateTurnout);
     expect(html).toContain('Rep: 5');
     expect(html).toContain('Dem: 3');
     expect(html).toContain('Other: 1');
@@ -536,7 +541,7 @@ describe('generateVotingHistoryHTML', () => {
       partyRecord: { Rep: 2, Dem: 0, Other: 0 }
     };
     
-    const html = generateVotingHistoryHTML(history);
+    const html = generateVotingHistoryHTML(history, calculateTurnout);
     // The implementation uses span for count: <span class="race-count">(1)</span>
     expect(html).toContain('Federal');
     expect(html).toContain('(1)');

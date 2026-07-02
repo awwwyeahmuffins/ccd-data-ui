@@ -1,7 +1,14 @@
 # REDESIGN.md — Collin County Elections Viewer: Simplification Redesign
 
 **Last Updated**: July 2, 2026
-**Status**: In implementation. Phase 0 (this document + doc truth-fixes) and Phase 1 (js/lib/ extraction, urlState adoption, real-module tests, deep-links + boundary-switching specs, themeManager/chatEndpoint deletion) are done; Phases 2–6 are pending. Phase 1 note: the two category taxonomies (electionFilters vs precinctHistory) turned out to be behaviorally different (case-sensitivity, Propositions/Other), so their merge moved to Phase 2's `domain/races.js` where it can be designed rather than aliased.
+**Status**: In implementation. Phases 0–2 are done; Phases 3–6 are pending.
+
+- **Phase 1** (js/lib/ extraction, urlState adoption, real-module tests, deep-links + boundary-switching specs, themeManager/chatEndpoint deletion): done.
+- **Phase 2** (shared components + domain/view splits): done, with three documented deviations from the letter of the plan:
+  1. **`ui/boundaryToggle.js` deferred.** The July 2026 primary-turnout refocus pinned the app to the 2026 boundary set; every boundary selector in the shipped UI is hidden. Building the toggle now would add UI the product deliberately removed. The `boundary` URL param stays in the vocabulary; the component gets built if/when a boundary choice returns (likely alongside Phase 3's per-boundary handles, which make switching instant).
+  2. **The two categorization policies were homed, not merged.** `domain/races.js` now owns both `categorizeElection` (catalog policy: 6 categories, County fallback) and `categorizeRace` (history policy: + Propositions, Other fallback). They give different answers for the same filename (e.g. Courts of Appeals) and both are load-bearing; a true merge needs a product decision about which grouping wins.
+  3. **`ElectionFilterManager` + `handleDropdownKeyboard` were deleted, not absorbed.** They had zero consumers outside their own tests (they served the deleted js/app monolith's dropdown); `ui/racePicker.js` was written fresh from the Map's proven menu instead.
+  4. **Targets kept its cards.** `targets.html` has no `<table>` — the ranked list is rich cards. `ui/dataTable.js`'s consumers are explore (done) and the precinct history section (when its renderer next changes).
 
 This is a first-principles redesign of the application's information architecture,
 module boundaries, and navigation. The goal is **simplification, not features**:

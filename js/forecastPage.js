@@ -15,6 +15,7 @@ import { PARTY_COLORS } from "./constants.js";
 import { escapeHtml } from "./lib/dom.js";
 import { formatPrecinctLabel } from "./lib/format.js";
 import { readParams, writeParams } from "./lib/urlState.js";
+import { createRacePicker } from "./ui/racePicker.js";
 
 // ---------------------------------------------------------------------------
 // Page state
@@ -99,18 +100,14 @@ async function loadCounty() {
     const [, elections] = await Promise.all([loadAllData(), listElectionCSVs()]);
     pg.elections = elections;
 
-    const { major, rest } = orderRaces(elections);
-    const opt = e => `<option value="${escapeHtml(e.filename)}">${escapeHtml(e.displayName || e.filename)}</option>`;
-    $('fc-race').innerHTML =
-      (major.length ? `<optgroup label="Federal & state races">${major.map(opt).join('')}</optgroup>` : '') +
-      (rest.length ? `<optgroup label="Other races">${rest.map(opt).join('')}</optgroup>` : '');
+    const { major } = orderRaces(elections);
+    pg.picker.refresh();
 
     status.textContent = elections.length ? '' : 'No election data for this county yet.';
     if (elections.length) {
       const requested = pg.entry?.filename;
       const first = elections.find(e => e.filename === requested || e.raceKey === requested)
         || major[0] || elections[0];
-      $('fc-race').value = first.filename;
       await selectRace(first.filename);
     } else {
       pg.electionData = null;
@@ -127,6 +124,9 @@ async function selectRace(filename) {
   const entry = pg.elections.find(e => e.filename === filename);
   if (!entry) return;
   pg.entry = entry;
+  pg.picker.setLabel(entry.displayName || entry.filename);
+  pg.picker.ensureGroupOpen(entry.category);
+  pg.picker.refresh();
   status.textContent = 'Loading results…';
   try {
     const data = await loadElectionData(entry);
@@ -312,7 +312,24 @@ async function init() {
   renderPresets();
   renderSliders();
   await initCountySelect();
-  $('fc-race').addEventListener('change', e => selectRace(e.target.value));
+  // The shared searchable race picker (ui/racePicker.js) — same component as
+  // the Map; no Overview row here because the forecast always needs a race.
+  pg.picker = createRacePicker({
+    root: $('fc-race-select'),
+    button: $('fc-race-btn'),
+    nameEl: $('fc-race-name'),
+    menuEl: $('fc-race-menu'),
+    searchInput: $('fc-race-search'),
+    listEl: $('fc-race-list'),
+    getRaces: () => pg.elections,
+    getSelectedId: () => (pg.entry ? pg.entry.raceKey || pg.entry.filename : null),
+    onPick: (id) => {
+      if (!id) return;
+      const e = pg.elections.find((x) => (x.raceKey || x.filename) === id);
+      if (e) selectRace(e.filename);
+    },
+    showOverview: false,
+  });
   await loadCounty();
 }
 

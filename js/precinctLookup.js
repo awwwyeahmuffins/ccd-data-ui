@@ -15,20 +15,23 @@ import {
   loadCountyBaselines,
   loadPrimaryTurnout,
 } from "./dataLoader.js";
-import { findPrecinctForAddress, findPrecinctForPoint } from "./geoLookup.js";
+import { findPrecinctForAddress, findPrecinctForPoint, TEXAS_VIEWBOX } from "./geoLookup.js";
+import { createPrecinctFinder, isAddressQuery } from "./ui/precinctFinder.js";
 import { populationOf } from "./utils.js";
 import {
   loadCensusProfiles,
-  generateProfileHTML,
-  renderPartyRegistration,
-  renderRacialDemographics,
-  renderOfficials,
-  renderTrendArrow,
   escapeHtml,
   formatNum,
   formatCurrency,
   formatPct,
 } from "./precinctProfile.js";
+import {
+  generateProfileHTML,
+  renderPartyRegistration,
+  renderRacialDemographics,
+  renderOfficials,
+  renderTrendArrow,
+} from "./ui/reportSections.js";
 import {
   getPrecinctVotingHistory,
   computePrecinctTrend,
@@ -301,9 +304,28 @@ function computeCountyAverages() {
 // Search / autocomplete
 // ---------------------------------------------------------------------------
 
+// The shared finder (ui/precinctFinder.js) owns the number-vs-address
+// heuristic, the geocode/geolocation flows, and the plain-language copy; this
+// page renders outcomes through its dropdown + notice banner.
+let finder = null;
+function getFinder() {
+  if (!finder) {
+    finder = createPrecinctFinder({
+      getFeatures: () => precinctList.map((p) => p.feature),
+      hasPrecinct: (code) => precinctList.some((p) => p.code === String(code)),
+      onFound: (code) => selectPrecinct(code),
+      onStatus: (msg) => showNotice(msg),
+      findPrecinctForAddress,
+      findPrecinctForPoint,
+      viewbox: TEXAS_VIEWBOX,
+    });
+  }
+  return finder;
+}
+
 // A query with letters (or longer than any precinct code) is an address
 function looksLikeAddress(query) {
-  return /[a-zA-Z]/.test(query) || query.trim().length > 4;
+  return isAddressQuery(String(query).trim());
 }
 
 function handleSearchInput(query, dropdown) {
@@ -402,65 +424,34 @@ async function searchByAddress(query, dropdown) {
   dropdown.innerHTML = '<div class="dropdown-item address-action">Searching for that address…</div>';
   dropdown.classList.add("open");
 
-  let result;
-  try {
-    let features = precinctList.map((p) => p.feature);
-    result = await findPrecinctForAddress(query, features);
-  } catch {
-    dropdown.classList.remove("open");
-    showNotice("The address search service is unavailable right now. Please try again in a moment.");
-    return;
-  }
+  const r = await getFinder().resolveAddress(query);
 
   dropdown.classList.remove("open");
   dropdown.innerHTML = "";
 
-  if (!result) {
-    showNotice(`Couldn't find “${query}”. Try adding the city, e.g. “123 Main St, McKinney”.`);
+  if (!r.ok) {
+    showNotice(r.message);
     return;
   }
-  if (!result.code) {
-    showNotice("That address appears to be outside Collin County's precincts.");
-    return;
-  }
-
-  document.getElementById("precinct-search").value = result.code;
-  await selectPrecinct(result.code);
+  document.getElementById("precinct-search").value = r.code;
+  await selectPrecinct(r.code);
 }
 
 function bindLocationButton() {
   let btn = document.getElementById("use-location-btn");
   if (!btn) return;
-  btn.addEventListener("click", function onLocate() {
-    if (!navigator.geolocation) {
-      showNotice("Your browser doesn't support location lookup. Type your address instead.");
-      return;
-    }
+  btn.addEventListener("click", async function onLocate() {
     btn.disabled = true;
     btn.textContent = "📍 Finding your precinct…";
-    let restore = () => {
-      btn.disabled = false;
-      btn.textContent = "📍 Use my location";
-    };
-    navigator.geolocation.getCurrentPosition(
-      function onPosition(pos) {
-        restore();
-        let features = precinctList.map((p) => p.feature);
-        let feature = findPrecinctForPoint(pos.coords.latitude, pos.coords.longitude, features);
-        if (!feature) {
-          showNotice("Your current location appears to be outside Collin County's precincts.");
-          return;
-        }
-        let code = String(feature.properties.PRECINCT);
-        document.getElementById("precinct-search").value = code;
-        selectPrecinct(code);
-      },
-      function onError() {
-        restore();
-        showNotice("Couldn't get your location. You can type your street address in the search box instead.");
-      },
-      { timeout: 10000, maximumAge: 300000 }
-    );
+    const r = await getFinder().resolveLocation({ timeout: 10000, maximumAge: 300000 });
+    btn.disabled = false;
+    btn.textContent = "📍 Use my location";
+    if (!r.ok) {
+      showNotice(r.message);
+      return;
+    }
+    document.getElementById("precinct-search").value = r.code;
+    selectPrecinct(r.code);
   });
 }
 
@@ -939,7 +930,7 @@ function renderCensusSection(census, code, boundaryMeta, partyData, racialData) 
   let unreliableNote = isCensusUnreliable(census, partyData, isArtifact)
     ? `<div class="new-precinct-notice">⚠️ This precinct has more scored voters than its area-weighted census population estimate, so the figures below were likely mis-apportioned from neighbouring blocks. Treat them as rough estimates.</div>`
     : "";
-  el.innerHTML = unreliableNote + generateProfileHTML(census, code, extraData);
+  el.innerHTML = unreliableNote + generateProfileHTML(census, code, extraData, getActiveBoundary());
 }
 
 // ---------------------------------------------------------------------------

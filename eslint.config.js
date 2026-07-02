@@ -62,6 +62,28 @@ export default [
     },
   },
   {
+    // Layering rule (REDESIGN.md §4.2): domain/ is pure computation — it may
+    // import lib/ only (never data, ui, map, or legacy root modules).
+    files: ['js/domain/**/*.js'],
+    rules: {
+      'no-restricted-imports': ['error', { patterns: [{
+        group: ['../*', '!../lib', '!../lib/*'],
+        message: 'js/domain/ imports js/lib/ only — no fetch, no DOM, no upward imports (REDESIGN.md §4.2).',
+      }] }],
+    },
+  },
+  {
+    // Layering rule (REDESIGN.md §4.2): ui/ renders what it is handed — it may
+    // import lib/ and domain/ but never fetch or reach into data/pages.
+    files: ['js/ui/**/*.js'],
+    rules: {
+      'no-restricted-imports': ['error', { patterns: [{
+        group: ['../*', '!../lib', '!../lib/*', '!../domain', '!../domain/*'],
+        message: 'js/ui/ imports js/lib/ and js/domain/ only — data comes in as arguments (REDESIGN.md §4.2).',
+      }] }],
+    },
+  },
+  {
     // page.evaluate() callbacks execute in the browser, so e2e specs
     // legitimately reference browser globals
     files: ['e2e/**/*.spec.js', 'playwright.config.js'],

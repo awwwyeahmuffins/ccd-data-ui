@@ -14,6 +14,8 @@ import { PARTY_STRENGTH_COLORS, PARTY_COLORS, ELECTION_META_KEYS, MAP_CONFIG } f
 import { escapeHtml } from "./lib/dom.js";
 import { formatPctWhole, formatNumberOrNA } from "./lib/format.js";
 import { readParams, writeParams } from "./lib/urlState.js";
+import { createRacePicker } from "./ui/racePicker.js";
+import { createPrecinctFinder } from "./ui/precinctFinder.js";
 import { initAuth, isAuthenticated, signOut, onAuthStateChange } from "./auth.js";
 import { showAuthOverlay, hideAuthOverlay } from "./authUI.js";
 import { findPrecinctForAddress, findPrecinctForPoint, TEXAS_VIEWBOX } from "./geoLookup.js";
@@ -1014,7 +1016,7 @@ async function populateRaceMenu() {
   try {
     cc.races = await listElectionCSVs();
   } catch (_) { cc.races = []; }
-  renderRaceList("");
+  if (cc.racePicker) cc.racePicker.refresh();
 }
 
 // The 12 Collin-touching districts we keep data for.
@@ -1106,65 +1108,8 @@ async function loadDistrictOutlines(slug) {
 // Race-picker groups, in display order. The marquee contests come first and
 // open by default; the hundreds of city/school/utility races stay behind
 // closed headers so the list starts at a readable size.
-const RACE_GROUP_DEFS = [
-  { key: "Federal", label: "Federal — President & Congress" },
-  { key: "State", label: "State — Governor & Legislature" },
-  { key: "County", label: "County offices" },
-  { key: "City", label: "City councils & mayors" },
-  { key: "ISD", label: "School districts (ISD)" },
-  { key: "MUD", label: "Utility districts (MUD)" },
-];
-const openRaceGroups = new Set(["Federal"]);
-
-function raceOptHTML(e) {
-  const id = e.raceKey || e.filename;
-  const label = String(e.displayName || e.office || id);
-  const year = String(e.year || "");
-  const badge = year && !label.includes(year) ? year : "";
-  return `<div class="cc-county-opt ${id === cc.raceId ? "active" : ""}" data-race="${escapeHtml(id)}">
-    <span>${escapeHtml(label)}</span>${badge ? `<small>${escapeHtml(badge)}</small>` : ""}</div>`;
-}
-
-function renderRaceList(filter) {
-  const list = $("cc-race-list");
-  if (!list) return;
-  const f = filter.toLowerCase().trim();
-  let html = `<div class="cc-county-opt ${cc.raceId ? "" : "active"}" data-race="">
-      <span>Overview — no race selected</span></div>`;
-  if (f) {
-    // Typing searches every race, flat.
-    html += cc.races
-      .filter((e) => (e.displayName || e.office || e.filename || "").toLowerCase().includes(f))
-      .slice(0, 80)
-      .map(raceOptHTML)
-      .join("");
-    list.innerHTML = html;
-    return;
-  }
-  const byYearDesc = (a, b) =>
-    (+b.year || 0) - (+a.year || 0) ||
-    String(a.displayName || a.office || "").localeCompare(String(b.displayName || b.office || ""));
-  const grouped = new Map(RACE_GROUP_DEFS.map((g) => [g.key, []]));
-  const other = [];
-  for (const e of cc.races) (grouped.get(e.category) || other).push(e);
-  const groups = other.length
-    ? [...RACE_GROUP_DEFS, { key: "Other", label: "Other races" }]
-    : RACE_GROUP_DEFS;
-  for (const g of groups) {
-    const entries = g.key === "Other" ? other : grouped.get(g.key);
-    if (!entries.length) continue;
-    entries.sort(byYearDesc);
-    const open = openRaceGroups.has(g.key);
-    html += `<button type="button" class="cc-race-group" data-group="${g.key}" aria-expanded="${open}">
-      <span>${escapeHtml(g.label)}</span><small>${entries.length} race${entries.length === 1 ? "" : "s"} ${open ? "▴" : "▾"}</small></button>`;
-    if (open) html += entries.map(raceOptHTML).join("");
-  }
-  list.innerHTML = html;
-}
-
 function applyRaceLabel() {
-  const el = $("cc-race-name");
-  if (el) el.textContent = cc.race ? cc.race.label : "Choose a race";
+  if (cc.racePicker) cc.racePicker.setLabel(cc.race ? cc.race.label : null);
   // While a race is showing the demographic modes are inactive: mute them
   // visually AND semantically (picking one still exits the race — allowed).
   const modes = $("cc-modes");
@@ -1191,7 +1136,7 @@ async function loadRace(raceIdOrEntry) {
     for (const row of rows) byPrecinct[String(row["PRECINCT CODE"])] = precinctRaceResult(row);
     cc.raceId = entry.raceKey || entry.filename;
     // Keep this race's group open so reopening the picker shows the selection.
-    openRaceGroups.add(RACE_GROUP_DEFS.some((g) => g.key === entry.category) ? entry.category : "Other");
+    if (cc.racePicker) cc.racePicker.ensureGroupOpen(entry.category);
     cc.race = { id: cc.raceId, label: entry.displayName || entry.office || cc.raceId, byPrecinct,
       partisan: isPartisanRace(rows),
       otherCounties: [], otherByCounty: {}, otherPrecincts: {}, otherGeojson: null, precinctGeo: null, precinctCounties: new Set() };
@@ -1480,8 +1425,7 @@ function renderOtherCountyDetail(slug) {
   if (back) back.addEventListener("click", () => selectPrecinct(null));
 }
 
-function openRaceMenu() { $("cc-race-menu").classList.add("open"); $("cc-race-search").focus(); }
-function closeRaceMenu() { $("cc-race-menu").classList.remove("open"); }
+function closeRaceMenu() { if (cc.racePicker) cc.racePicker.close(); }
 
 // =============================================================================
 // LIST VIEW — the linear alternative to the map (js/listView.js)
@@ -1585,46 +1529,35 @@ function wireUI() {
     if (sel && !sel.contains(e.target)) closeCountyMenu();
   });
 
-  // race menu
-  $("cc-race-btn").addEventListener("click", (e) => {
-    e.stopPropagation();
-    $("cc-race-menu").classList.contains("open") ? closeRaceMenu() : openRaceMenu();
-  });
-  $("cc-race-search").addEventListener("input", (e) => renderRaceList(e.target.value));
-  $("cc-race-list").addEventListener("click", (e) => {
-    const group = e.target.closest(".cc-race-group");
-    if (group) {
-      const key = group.dataset.group;
-      openRaceGroups.has(key) ? openRaceGroups.delete(key) : openRaceGroups.add(key);
-      renderRaceList($("cc-race-search").value || "");
-      return;
-    }
-    const opt = e.target.closest(".cc-county-opt[data-race]");
-    if (!opt) return;
-    closeRaceMenu();
-    const id = opt.dataset.race;
-    id ? loadRace(id) : clearRace();
-  });
-  document.addEventListener("click", (e) => {
-    const sel = $("cc-race-select");
-    if (sel && !sel.contains(e.target)) closeRaceMenu();
+  // race menu — the shared searchable picker (ui/racePicker.js)
+  cc.racePicker = createRacePicker({
+    root: $("cc-race-select"),
+    button: $("cc-race-btn"),
+    nameEl: $("cc-race-name"),
+    menuEl: $("cc-race-menu"),
+    searchInput: $("cc-race-search"),
+    listEl: $("cc-race-list"),
+    getRaces: () => cc.races,
+    getSelectedId: () => cc.raceId,
+    onPick: (id) => (id ? loadRace(id) : clearRace()),
   });
 
-  // precinct quick-search: a number jumps straight to that precinct; anything
-  // with letters is treated as a street address (same heuristic as the
-  // Find a Precinct page).
+  // precinct quick-search + "My location" — the shared finder
+  // (ui/precinctFinder.js) owns the number-vs-address heuristic, the geocode
+  // and geolocation flows, and the plain-language status copy.
+  cc.finder = createPrecinctFinder({
+    getFeatures: () => (cc.geojson && cc.geojson.features) || [],
+    hasPrecinct: (code) => !!findLayerByCode(code),
+    onFound: (code) => selectPrecinct(code),
+    onStatus: searchStatus,
+    findPrecinctForAddress,
+    findPrecinctForPoint,
+    viewbox: TEXAS_VIEWBOX,
+  });
   $("cc-precinct-search").addEventListener("keydown", (e) => {
-    if (e.key !== "Enter") return;
-    const q = e.target.value.trim();
-    if (!q) return;
-    if (/[a-zA-Z]/.test(q) || q.length > 4) { findByAddress(q); return; }
-    const layer = findLayerByCode(q);
-    if (layer) { selectPrecinct(q); }
-    else { searchStatus(`No precinct "${q}" here. You can also type a street address.`); }
+    if (e.key === "Enter") cc.finder.search(e.target.value);
   });
-
-  // "My location" — find the precinct the user is standing in.
-  $("cc-locate-btn").addEventListener("click", findByLocation);
+  $("cc-locate-btn").addEventListener("click", () => cc.finder.locate());
 
   // phones: the legend collapses behind a labelled toggle so it never
   // blankets the map (the [hidden] attr only gates the ≤700px display rule)
@@ -1656,48 +1589,12 @@ function wireUI() {
 }
 
 // =============================================================================
-// ADDRESS / LOCATION SEARCH — plain-language status goes to the dock subtitle
-// (same error copy as the Find a Precinct page).
+// ADDRESS / LOCATION SEARCH — logic + copy live in ui/precinctFinder.js;
+// plain-language status goes to the dock subtitle.
 // =============================================================================
 function searchStatus(msg) {
   $("cc-dock-sub").textContent = msg;
   openDockMobile();
-}
-
-async function findByAddress(query) {
-  searchStatus("Looking up that address…");
-  try {
-    const result = await findPrecinctForAddress(query, cc.geojson.features, fetch, TEXAS_VIEWBOX);
-    if (!result) {
-      searchStatus(`Couldn't find “${query}”. Try adding the city, e.g. “123 Main St, McKinney”.`);
-      return;
-    }
-    if (!result.code) {
-      searchStatus("That address appears to be outside this map's precincts.");
-      return;
-    }
-    selectPrecinct(result.code);
-  } catch (err) {
-    console.error("[Command] address lookup failed:", err);
-    searchStatus("The address search service is unavailable right now. Please try again in a moment.");
-  }
-}
-
-function findByLocation() {
-  if (!navigator.geolocation) {
-    searchStatus("Your browser doesn't support location lookup. Type your address instead.");
-    return;
-  }
-  searchStatus("Finding your location…");
-  navigator.geolocation.getCurrentPosition(
-    (pos) => {
-      const feature = findPrecinctForPoint(pos.coords.latitude, pos.coords.longitude, cc.geojson.features);
-      if (feature) selectPrecinct(String(feature.properties.PRECINCT));
-      else searchStatus("Your current location appears to be outside this map's precincts.");
-    },
-    () => searchStatus("Couldn't get your location. You can type your street address instead."),
-    { timeout: 12000 }
-  );
 }
 
 // hash params (county / race) for deep links + shareable state — via the one

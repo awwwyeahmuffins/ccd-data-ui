@@ -6,48 +6,11 @@
 
 import { loadElectionData, listElectionCSVs, loadPrecinctRaces } from "./dataLoader.js";
 import { getRaceFamilyKey } from "./electionTrends.js";
-
-// ============================================================================
-// RACE CATEGORY CLASSIFICATION
-// ============================================================================
-
-// Order matters: more specific patterns should be checked before general ones
-let RACE_CATEGORIES = {
-  Federal: ['President', 'U._S._Representative', 'United_States_Representative', 'United_States_Senator'],
-  State: ['Governor', 'Lieutenant_Governor', 'Attorney_General', 'Comptroller', 'Commissioner_of', 
-          'State_Representative', 'State_Senator', 'Railroad_Commissioner', 'Member,_State_Board',
-          'Justice,_Supreme_Court', 'Judge,_Court_of_Criminal_Appeals', 'Presiding_Judge'],
-  // MUD/ISD should be checked before County/City to avoid false matches
-  ISD: ['_ISD_', 'School_Trustee'],
-  MUD: ['_MUD_', 'MMD_'],
-  County: ['County_Judge', 'County_Commissioner', 'County_Tax', 'District_Judge', 'District_Clerk', 
-           'Sheriff', 'Constable', 'Justice_of_the_Peace', 'Justice,_5th_Court_of_Appeals', 'Chief_Justice'],
-  City: ['City_of', 'Mayor', 'City_Council', 'Alderman'],
-  Propositions: ['Proposition_', 'Local_Option', 'Home_Rule', 'Home-Rule']
-};
-
-// Category display order for UI
-export let CATEGORY_ORDER = ['Federal', 'State', 'County', 'City', 'ISD', 'MUD', 'Propositions', 'Other'];
-
-/**
- * Categorize a race filename into a type
- * @param {string} filename - Election CSV filename
- * @returns {string} - Category name
- */
-export function categorizeRace(filename) {
-  if (!filename || typeof filename !== 'string') {
-    return 'Other';
-  }
-  
-  for (const [category, patterns] of Object.entries(RACE_CATEGORIES)) {
-    for (const pattern of patterns) {
-      if (filename.includes(pattern)) {
-        return category;
-      }
-    }
-  }
-  return 'Other';
-}
+// The one taxonomy home (Phase 2): the history-policy categorizer + full
+// category order live in domain/races.js. Re-exported because precinctLookup
+// and precinctExport import them from here until Phase 6.
+import { categorizeRace, CATEGORY_ORDER } from "./domain/races.js";
+export { categorizeRace, CATEGORY_ORDER };
 
 /**
  * Format a filename for display
@@ -357,110 +320,16 @@ export function calculateTurnout(ballotsCast, registeredVoters) {
 }
 
 // ============================================================================
-// HTML GENERATION FOR UI
+// HTML GENERATION FOR UI — moved to js/ui/reportSections.js (REDESIGN Phase 2)
 // ============================================================================
+// One-line re-export shims until Phase 6 deletes them. New code should import
+// from ui/reportSections.js directly.
 
-/**
- * Generate HTML for voting history display
- * @param {Object} history - Voting history object from buildVotingHistory
- * @returns {string} - HTML string
- */
-export function generateVotingHistoryHTML(history) {
-  if (!history || !history.races || history.races.length === 0) {
-    return '<p class="empty-state">No voting history available for this precinct.</p>';
-  }
-  
-  let html = '<div class="voting-history">';
-  
-  // Party record summary
-  html += '<div class="party-record">';
-  html += `<span class="party-win rep" title="Republican wins">Rep: ${history.partyRecord.Rep}</span>`;
-  html += `<span class="party-win dem" title="Democrat wins">Dem: ${history.partyRecord.Dem}</span>`;
-  html += `<span class="party-win other" title="Other party wins">Other: ${history.partyRecord.Other}</span>`;
-  html += '</div>';
-  
-  // Grouped by category
-  for (const category of CATEGORY_ORDER) {
-    const races = history.byCategory[category];
-    if (!races || races.length === 0) continue;
-    
-    html += `<div class="history-category">`;
-    html += `<h5 class="category-header">${category} <span class="race-count">(${races.length})</span></h5>`;
-    html += '<ul class="race-list">';
-    
-    for (const race of races) {
-      const partyClass = (race.winningParty || '').toLowerCase();
-      const turnout = calculateTurnout(race.totalVotes, race.registeredVoters);
-      html += `<li class="race-item ${partyClass}">`;
-      html += `<span class="race-name">${race.raceName}</span>`;
-      html += `<span class="race-winner">${race.winner}</span>`;
-      html += `<span class="race-turnout">${turnout.toFixed(1)}% turnout</span>`;
-      html += '</li>';
-    }
-    
-    html += '</ul></div>';
-  }
-  
-  html += '</div>';
-  return html;
-}
+import { generateVotingHistoryHTML as buildVotingHistoryHTML } from "./ui/reportSections.js";
+export { generateComparisonHTML } from "./ui/reportSections.js";
 
-/**
- * Generate HTML for precinct comparison display
- * @param {Object} demographics - Demographics comparison from compareDemographics
- * @param {Object} electionComparison - Election comparison from comparePrecincts (optional)
- * @param {string} raceName - Name of the race being compared (optional)
- * @returns {string} - HTML string
- */
-export function generateComparisonHTML(demographics, electionComparison, raceName) {
-  if (!demographics) {
-    return '<p class="error-state">Unable to compare precincts.</p>';
-  }
-  
-  let html = '<div class="comparison-panel">';
-  html += `<h4 class="comparison-title">Comparing Precincts ${demographics.precinct1.code} vs ${demographics.precinct2.code}</h4>`;
-  
-  // Demographics comparison table
-  html += '<div class="comparison-section demographics">';
-  html += '<h5>Demographics</h5>';
-  html += '<table class="comparison-table">';
-  html += `<thead><tr><th>Metric</th><th>Pct ${demographics.precinct1.code}</th><th>Pct ${demographics.precinct2.code}</th><th>Diff</th></tr></thead>`;
-  html += '<tbody>';
-  html += `<tr class="rep"><td>Rep Share</td><td>${(demographics.precinct1.repShare * 100).toFixed(1)}%</td><td>${(demographics.precinct2.repShare * 100).toFixed(1)}%</td><td>${(demographics.differences.repShare * 100).toFixed(1)}%</td></tr>`;
-  html += `<tr class="mod"><td>Mod Share</td><td>${(demographics.precinct1.modShare * 100).toFixed(1)}%</td><td>${(demographics.precinct2.modShare * 100).toFixed(1)}%</td><td>${(demographics.differences.modShare * 100).toFixed(1)}%</td></tr>`;
-  html += `<tr class="dem"><td>Dem Share</td><td>${(demographics.precinct1.demShare * 100).toFixed(1)}%</td><td>${(demographics.precinct2.demShare * 100).toFixed(1)}%</td><td>${(demographics.differences.demShare * 100).toFixed(1)}%</td></tr>`;
-  html += `<tr><td>Party Lean</td><td>${demographics.precinct1.winningParty}</td><td>${demographics.precinct2.winningParty}</td><td>-</td></tr>`;
-  html += `<tr><td>Strength</td><td>${demographics.precinct1.partyStrength}/3</td><td>${demographics.precinct2.partyStrength}/3</td><td>-</td></tr>`;
-  html += '</tbody></table>';
-  html += '</div>';
-  
-  // Election comparison (if provided)
-  if (electionComparison && raceName) {
-    html += '<div class="comparison-section election">';
-    html += `<h5>Election: ${raceName}</h5>`;
-    
-    if (electionComparison.bothParticipated) {
-      const p1 = electionComparison.precinct1;
-      const p2 = electionComparison.precinct2;
-      html += '<table class="comparison-table">';
-      html += `<thead><tr><th>Precinct</th><th>Winner</th><th>Total Votes</th></tr></thead>`;
-      html += '<tbody>';
-      html += `<tr><td>${p1.code}</td><td>${p1.result.winner}</td><td>${p1.result.totalVotes.toLocaleString()}</td></tr>`;
-      html += `<tr><td>${p2.code}</td><td>${p2.result.winner}</td><td>${p2.result.totalVotes.toLocaleString()}</td></tr>`;
-      html += '</tbody></table>';
-      html += `<p class="same-winner-indicator ${electionComparison.sameWinner ? 'same' : 'different'}">`;
-      html += electionComparison.sameWinner ? '✓ Same winner in both precincts' : '✗ Different winners';
-      html += '</p>';
-    } else {
-      html += '<p class="no-participation">One or both precincts did not participate in this race.</p>';
-    }
-    
-    html += '</div>';
-  }
-  
-  html += '</div>';
-  return html;
-}
+// Legacy signature: binds this module's calculateTurnout (ui/ can't import it).
+export const generateVotingHistoryHTML = (history) => buildVotingHistoryHTML(history, calculateTurnout);
 
 // ============================================================================
 // DATA LOADING UTILITIES

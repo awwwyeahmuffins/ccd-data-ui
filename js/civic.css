@@ -385,3 +385,59 @@ button.term {
     flex-basis: 100%;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Shared race-picker component (js/ui/racePicker.js) — the searchable,
+   category-grouped race menu used by the Map and the Forecast. Class names
+   are the Map's originals (cc-*); index.html carries its own copies until
+   Phase 4 moves the map page onto this block. */
+.cc-county-select { position: relative; }
+.cc-county-btn {
+  display: flex; align-items: center; gap: 9px;
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--body); font-weight: 600;
+  font-size: 1rem;
+  padding: 9px 14px; min-height: 44px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color .15s, box-shadow .15s;
+}
+.cc-county-btn:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+.cc-county-menu {
+  position: absolute; top: calc(100% + 8px); left: 0;
+  width: 300px; max-height: 52vh; overflow-y: auto;
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px;
+  display: none;
+  z-index: 60;
+  box-shadow: var(--shadow-pop);
+}
+.cc-county-menu.open { display: block; }
+.cc-county-search {
+  width: 100%; background: var(--bg-inset);
+  border: 1px solid var(--line); color: var(--ink);
+  padding: 11px 12px; border-radius: 9px; font-family: var(--body);
+  font-size: 1rem; margin-bottom: 6px;
+}
+.cc-county-search:focus { border-color: var(--accent); }
+.cc-county-opt {
+  padding: 10px 12px; border-radius: 8px; cursor: pointer;
+  font-size: 1rem; color: var(--ink-dim);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.cc-county-opt:hover { background: var(--bg-raise); color: var(--ink); }
+.cc-county-opt.active { color: var(--accent); font-weight: 600; }
+.cc-county-opt small { font-family: var(--mono); font-size: 0.889rem; color: var(--ink-faint); }
+.cc-race-group {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  padding: 10px 12px; margin-top: 4px; min-height: 44px;
+  border: 0; border-radius: 8px;
+  background: var(--bg-inset); color: var(--ink);
+  font: inherit; font-weight: 700; text-align: left; cursor: pointer;
+}
+.cc-race-group:hover { background: var(--bg-raise); }
+.cc-race-group small { font-family: var(--mono); font-size: 0.889rem; color: var(--ink-faint); white-space: nowrap; }

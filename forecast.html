@@ -44,7 +44,7 @@
       font-size: 15px; font-family: var(--font-body); font-weight: 700; flex-shrink: 0;
     }
     .picker-row { display: flex; gap: 16px; flex-wrap: wrap; }
-    .picker-row label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; color: var(--color-text-secondary); }
+    .picker-row label, .picker-row .picker-label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; color: var(--color-text-secondary); }
     .picker-row select {
       font-size: 16px; padding: 10px 12px; border-radius: 8px; min-height: 44px;
       border: 1px solid var(--color-border); background: #fff; min-width: 260px; max-width: 100%;
@@ -110,8 +110,16 @@
           <select id="fc-county" aria-label="County or district"></select>
         </div>
         <div class="picker-col">
-          <label for="fc-race">Race</label>
-          <select id="fc-race" aria-label="Race"></select>
+          <span class="picker-label" id="fc-race-label">Race</span>
+          <div class="cc-county-select" id="fc-race-select">
+            <button class="cc-county-btn" id="fc-race-btn" type="button" aria-haspopup="listbox" aria-labelledby="fc-race-label fc-race-name">
+              <span id="fc-race-name">Choose a race</span>
+            </button>
+            <div class="cc-county-menu" id="fc-race-menu">
+              <input class="cc-county-search" id="fc-race-search" type="text" placeholder="Type to search races…" aria-label="Search races" />
+              <div id="fc-race-list"></div>
+            </div>
+          </div>
         </div>
       </div>
       <div id="fc-load-status" class="muted-note" role="status"></div>

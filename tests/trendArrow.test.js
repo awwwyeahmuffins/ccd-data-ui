@@ -2,7 +2,8 @@
 // Unit tests for trend arrow rendering (A2) and computePrecinctTrend logic
 
 import { describe, it, expect } from '@jest/globals';
-import { renderTrendArrow } from './precinctProfile.js';
+// renderTrendArrow moved to ui/reportSections.js (REDESIGN Phase 2) — test the real module.
+import { renderTrendArrow } from '../js/ui/reportSections.js';
 
 describe('renderTrendArrow', () => {
   it('returns empty string for null trendData', () => {

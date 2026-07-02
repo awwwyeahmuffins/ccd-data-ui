@@ -26,6 +26,7 @@ import {
 } from "./precinctMetrics.js";
 import { escapeHtml } from "./lib/dom.js";
 import { readParams, writeParams } from "./lib/urlState.js";
+import { renderDataTable } from "./ui/dataTable.js";
 
 const DEFAULT_COLUMNS = ["winner", "demShare", "registered", "population", "medianIncome", "medianHomeValue", "medianAge", "pctFamily", "nonWhite", "turnoutRate"];
 
@@ -199,54 +200,68 @@ function displayColumns() {
   return cols;
 }
 
-// ---- render table -----------------------------------------------------------
+// ---- render table (via ui/dataTable — the one column-model renderer) --------
+// flag near-empty precincts; artifacts (census suppressed) get a sharper note
+function electorateOf(r) {
+  return r.registered != null ? r.registered : r.votes;
+}
+function isTiny(r) {
+  const elect = electorateOf(r);
+  return elect != null && elect < TINY_ELECTORATE;
+}
+function tinyFlagHTML(r) {
+  const elect = electorateOf(r);
+  let msg = null;
+  if (r.artifact) {
+    msg = `Non-residential sliver — ${elect} registered voters. Its census population figure was unreliable and is hidden; the voter counts are the only real data.`;
+  } else if (isTiny(r)) {
+    msg = `Only ${elect} registered voter${elect === 1 ? "" : "s"} — a very small precinct, so the percentages are noisy.`;
+  }
+  return msg ? ` <span class="tiny-flag" role="img" tabindex="0" aria-label="${msg}" title="${msg}">⚠</span>` : "";
+}
+
+// dataTable column model for the current view: the sticky precinct-link column
+// plus one column per visible metric.
+function tableColumns(cols) {
+  const cParam = encodeURIComponent(pg.county);
+  const precinctCol = {
+    id: "precinct",
+    label: "Precinct",
+    headerClass: "pcell-precinct",
+    sortable: false,
+    cellHTML: (r) =>
+      `<td class="pcell-precinct"><a href="precinct.html#county=${cParam}&precinct=${encodeURIComponent(r.precinct)}">${escapeHtml(r.precinct)}</a>${tinyFlagHTML(r)}</td>`,
+  };
+  const metricCols = cols.map((id) => {
+    const m = getMetric(id);
+    const label = m ? m.label : id;
+    if (id === "winner") {
+      return {
+        id,
+        label,
+        cellHTML: (r) =>
+          r.winner ? `<td><span class="lean-tag lean-${escapeHtml(r.winner)}">${escapeHtml(r.winner)}</span></td>` : `<td>—</td>`,
+      };
+    }
+    return { id, label, cellClass: "num", format: (v) => formatValue(v, m ? m.fmt : "num") };
+  });
+  return [precinctCol, ...metricCols];
+}
+
 function render() {
   const filtered = filterRecords(pg.records, { party: pg.party, conditions: pg.conditions });
   const sorted = sortRecords(filtered, pg.sortKey, pg.sortDir);
 
-  const cols = displayColumns();
-  // header
-  const arrow = pg.sortDir === "desc" ? " ↓" : " ↑";
-  let head = `<th class="pcell-precinct" data-col="precinct">Precinct</th>`;
-  head += cols.map((id) => {
-    const m = getMetric(id);
-    const isSorted = id === pg.sortKey;
-    return `<th data-col="${id}" class="${isSorted ? "sorted" : ""}">${escapeHtml(m ? m.label : id)}${isSorted ? arrow : ""}</th>`;
-  }).join("");
-  $("ex-head").innerHTML = head;
-  $("ex-head").querySelectorAll("th[data-col]").forEach((th) => {
-    if (th.dataset.col === "precinct") return;
-    th.addEventListener("click", () => setSort(th.dataset.col));
+  renderDataTable({
+    head: $("ex-head"),
+    body: $("ex-body"),
+    columns: tableColumns(displayColumns()),
+    rows: sorted,
+    sort: { key: pg.sortKey, dir: pg.sortDir },
+    onSort: setSort,
+    rowAttrs: (r) => ({ class: isTiny(r) || r.artifact ? "tiny-row" : "" }),
+    emptyMessage: "No precincts match these filters.",
   });
-
-  // body
-  if (!sorted.length) {
-    $("ex-body").innerHTML = '<tr><td class="empty-note" colspan="' + (cols.length + 1) + '">No precincts match these filters.</td></tr>';
-  } else {
-    const cParam = encodeURIComponent(pg.county);
-    $("ex-body").innerHTML = sorted.map((r) => {
-      const cells = cols.map((id) => {
-        const m = getMetric(id);
-        const v = r[id];
-        if (id === "winner") {
-          return v ? `<td><span class="lean-tag lean-${escapeHtml(v)}">${escapeHtml(v)}</span></td>` : `<td>—</td>`;
-        }
-        return `<td class="num">${escapeHtml(formatValue(v, m ? m.fmt : "num"))}</td>`;
-      }).join("");
-      // flag near-empty precincts; artifacts (census suppressed) get a sharper note
-      const elect = r.registered != null ? r.registered : r.votes;
-      const tiny = elect != null && elect < TINY_ELECTORATE;
-      let flag = "";
-      if (r.artifact) {
-        const msg = `Non-residential sliver — ${elect} registered voters. Its census population figure was unreliable and is hidden; the voter counts are the only real data.`;
-        flag = ` <span class="tiny-flag" role="img" tabindex="0" aria-label="${msg}" title="${msg}">⚠</span>`;
-      } else if (tiny) {
-        const msg = `Only ${elect} registered voter${elect === 1 ? "" : "s"} — a very small precinct, so the percentages are noisy.`;
-        flag = ` <span class="tiny-flag" role="img" tabindex="0" aria-label="${msg}" title="${msg}">⚠</span>`;
-      }
-      return `<tr class="${tiny || r.artifact ? "tiny-row" : ""}"><td class="pcell-precinct"><a href="precinct.html#county=${cParam}&precinct=${encodeURIComponent(r.precinct)}">${escapeHtml(r.precinct)}</a>${flag}</td>${cells}</tr>`;
-    }).join("");
-  }
   $("ex-count").textContent = `Showing ${sorted.length} of ${pg.records.length} precincts`;
 }
 

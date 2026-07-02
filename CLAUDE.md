@@ -87,14 +87,23 @@ Each HTML page is self-contained: it loads ONE orchestrator module from `js/` an
 - `electionSchema.js` — data schema definitions, validation, path building; the one `getRaceKey` (trends' cross-year normalizer is `getRaceFamilyKey`)
 - `constants.js`, `utils.js` — legacy re-export shims over `js/lib/` (deleted in Phase 6; new code imports lib directly)
 
+**Domain layer (`js/domain/` — pure computation, no fetch/DOM; imports lib only, ESLint-enforced):**
+- `domain/races.js` — the taxonomy home: BOTH categorization policies (`categorizeElection` catalog policy, `categorizeRace` history policy — different outputs on purpose, see REDESIGN.md status), filter/search/count/format helpers, race-family grouping
+
+**Shared UI components (`js/ui/` — render what they're handed, never fetch; imports lib+domain only, ESLint-enforced):**
+- `ui/racePicker.js` — the ONE searchable race picker (category groups + search); used by Map and Forecast; styles in civic.css
+- `ui/precinctFinder.js` — the ONE number-vs-address heuristic + geocode/geolocate flows + plain-language status copy; used by Map and My Precinct
+- `ui/dataTable.js` — column-model table renderer (generalizes listView's row-model pattern); used by explore
+- `ui/reportSections.js` — the precinct report's HTML generators (from precinctProfile/precinctHistory)
+- `ui/simulatorControls.js` — the simulator's HTML generators (from turnoutSimulator)
+
 **Library Modules (root js/, consumed by the page orchestrators):**
-- `turnoutSimulator.js` — turnout prediction/simulation (forecast page)
+- `turnoutSimulator.js` — turnout prediction/simulation engine (forecast page; pure since Phase 2 — its HTML generators live in `ui/simulatorControls.js`)
 - `targeting.js` — precinct-targeting strategy engine (targets page, pure/tested)
 - `talkingPointsBuilder.js` — precinct-chair talking points (precinct page, pure/tested)
-- `electionFilters.js` — categorizes elections (Federal, State, County, City, ISD, MUD)
-- `precinctHistory.js` (+ `electionTrends.js`) — per-precinct voting history
-- `raceGrouping.js` — group elections by race family
-- `precinctProfile.js`, `precinctExport.js`, `fieldOnePager.js` — precinct.html report features
+- `electionFilters.js`, `raceGrouping.js` — legacy re-export shims over `domain/races.js` (deleted in Phase 6)
+- `precinctHistory.js` (+ `electionTrends.js`) — per-precinct voting history (pure half; HTML renderers moved to `ui/reportSections.js`)
+- `precinctProfile.js`, `precinctExport.js`, `fieldOnePager.js` — precinct.html report features (profile's HTML half lives in `ui/reportSections.js`)
 - `geoLookup.js` — address→precinct (Nominatim) + point-in-polygon
 - `mapBins.js` (named numeric bins + the one plain-language precinct formatter) + `mapPatterns.js` (SVG pattern fills) + `countyBriefing.js` (the dock's pure "so what" model) + `listView.js` (linear precinct list; pure row model + chunked renderer)
 - `siteNav.js` (shared header + text-size toggle + welcome) + `civic.css` (shared tokens/a11y layer) + `glossary.js` (plain-language term popovers)
