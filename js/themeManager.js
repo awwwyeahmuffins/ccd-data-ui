@@ -1,24 +1,17 @@
+// themeManager.js
+// The dark theme was retired in the June 2026 civic-plain redesign — the app is
+// light-only ("warm paper") for its 60+ audience. This module keeps the tile
+// URL and clears any stale saved dark preference from older sessions.
 export const LIGHT_TILE_URL =
   "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-export const DARK_TILE_URL =
-  "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
 
 const STORAGE_KEY = "ccd_theme";
-let currentTheme = "light";
 
 export function initTheme() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  currentTheme = saved === "dark" ? "dark" : "light";
-  document.documentElement.setAttribute("data-theme", currentTheme);
-}
-
-export function toggleTheme() {
-  currentTheme = currentTheme === "dark" ? "light" : "dark";
-  localStorage.setItem(STORAGE_KEY, currentTheme);
-  document.documentElement.setAttribute("data-theme", currentTheme);
-  return currentTheme;
+  document.documentElement.removeAttribute("data-theme");
+  try { localStorage.removeItem(STORAGE_KEY); } catch (_) { /* ignore */ }
 }
 
 export function getCurrentTheme() {
-  return currentTheme;
+  return "light";
 }

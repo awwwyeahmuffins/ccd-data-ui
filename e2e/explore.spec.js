@@ -30,8 +30,27 @@ test.describe('Explore view', () => {
 
   test('clicking a column header sorts by it', async ({ page }) => {
     await load(page);
-    await page.click('#ex-head th[data-col="medianAge"]');
-    await expect(page.locator('#ex-head th[data-col="medianAge"]')).toHaveClass(/sorted/);
+    await page.click('#ex-head th[data-col="population"]');
+    await expect(page.locator('#ex-head th[data-col="population"]')).toHaveClass(/sorted/);
+  });
+
+  test('opens on the Summary view with a scannable column set', async ({ page }) => {
+    await load(page);
+    await expect(page.locator('#ex-views button[data-view="summary"]')).toHaveAttribute('aria-pressed', 'true');
+    // summary: precinct + ~8 headline columns, no 60-column wall
+    const headers = await page.locator('#ex-head th').count();
+    expect(headers).toBeGreaterThan(5);
+    expect(headers).toBeLessThan(12);
+    // the spreadsheet's column picker is hidden until asked for
+    await expect(page.locator('details.cols')).toBeHidden();
+  });
+
+  test('topic tabs show just that topic\'s columns', async ({ page }) => {
+    await load(page);
+    await page.click('#ex-views button[data-view="housing"]');
+    await expect(page.locator('#ex-views button[data-view="housing"]')).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('#ex-head th[data-col="medianHomeValue"]')).toBeVisible();
+    expect(await page.locator('#ex-head th').count()).toBeLessThan(12);
   });
 
   test('numeric + party filters narrow the rows', async ({ page }) => {
@@ -47,8 +66,10 @@ test.describe('Explore view', () => {
     await expect(page.locator('#ex-count')).toContainText('of');
   });
 
-  test('column picker adds a column', async ({ page }) => {
+  test('the full spreadsheet is an explicit toggle, with the column picker', async ({ page }) => {
     await load(page);
+    await page.click('#ex-views button[data-view="all"]');
+    await expect(page.locator('details.cols')).toBeVisible();
     const before = await page.locator('#ex-head th').count();
     await page.click('details.cols summary');
     await page.check('input[data-col="pctVeterans"]'); // a non-default metric

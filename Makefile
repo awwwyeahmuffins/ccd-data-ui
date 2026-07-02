@@ -27,6 +27,7 @@ help:
 	@echo "  Code Quality:"
 	@echo "    make lint        - Run linter checks"
 	@echo "    make format      - Format code"
+	@echo "    make optimize-data - Shrink GeoJSON + build precinct history index"
 	@echo ""
 
 # ===================
@@ -50,19 +51,33 @@ stop:
 	@-lsof -ti:3000 | xargs kill -9 2>/dev/null || true
 	@echo "Port 3000 is free."
 
-# Start server without killing existing
+# Start server without killing existing (serve.py adds gzip — matches prod)
 serve:
 	@echo "Starting development server on http://localhost:3000..."
-	python3 -m http.server 3000
+	python3 serve.py 3000
 
 # Kill + start (safe restart)
 start: stop
 	@echo "Starting development server on http://localhost:3000..."
-	@python3 -m http.server 3000 &
+	@python3 serve.py 3000 &
 	@echo "Server started in background. Use 'make stop' to stop it."
 	@sleep 1
 	@echo "Opening http://localhost:3000/index.html in browser..."
 	@open http://localhost:3000/index.html 2>/dev/null || xdg-open http://localhost:3000/index.html 2>/dev/null || echo "Open http://localhost:3000/index.html in your browser"
+
+# ===================
+# DATA OPTIMIZATION
+# ===================
+
+# Post-process generated data for fast loading. Run after (re)importing county
+# data: shrinks boundary GeoJSON (coord precision + minify) and precomputes the
+# per-precinct voting-history index precinct.html loads on click. Idempotent.
+optimize-data:
+	@echo "Shrinking boundary GeoJSON..."
+	python3 data_processor/optimize_geojson.py
+	@echo "Building per-precinct history index..."
+	python3 data_processor/build_precinct_history.py
+	@echo "Data optimized."
 
 # ===================
 # TESTING
@@ -178,13 +193,17 @@ cdk-destroy:
 # that must not reach the public bucket.
 deploy-site:
 	aws s3 sync js/ s3://$(SITE_BUCKET)/js/ --delete --profile $(DEPLOY_PROFILE)
-	aws s3 sync data/ s3://$(SITE_BUCKET)/data/ --exclude "cache/*" --delete --profile $(DEPLOY_PROFILE)
+	aws s3 sync data/ s3://$(SITE_BUCKET)/data/ --exclude "cache/*" --exclude "*.geojson" --delete --profile $(DEPLOY_PROFILE)
+	# .geojson is unmapped by aws s3 sync -> application/octet-stream, which CloudFront
+	# does NOT compress. Re-upload it as application/json so gzip actually applies.
+	aws s3 sync data/ s3://$(SITE_BUCKET)/data/ --exclude "*" --include "*.geojson" --content-type application/json --profile $(DEPLOY_PROFILE)
 	aws s3 cp index.html s3://$(SITE_BUCKET)/index.html --profile $(DEPLOY_PROFILE)
 	aws s3 cp precinct.html s3://$(SITE_BUCKET)/precinct.html --profile $(DEPLOY_PROFILE)
 	aws s3 cp elections.html s3://$(SITE_BUCKET)/elections.html --profile $(DEPLOY_PROFILE)
 	aws s3 cp forecast.html s3://$(SITE_BUCKET)/forecast.html --profile $(DEPLOY_PROFILE)
 	aws s3 cp targets.html s3://$(SITE_BUCKET)/targets.html --profile $(DEPLOY_PROFILE)
 	aws s3 cp explore.html s3://$(SITE_BUCKET)/explore.html --profile $(DEPLOY_PROFILE)
+	aws s3 cp methodology.html s3://$(SITE_BUCKET)/methodology.html --profile $(DEPLOY_PROFILE)
 	aws s3 cp styles.css s3://$(SITE_BUCKET)/styles.css --profile $(DEPLOY_PROFILE)
 	aws cloudfront create-invalidation --distribution-id $(DISTRIBUTION_ID) --paths "/*" --profile $(DEPLOY_PROFILE)
 	@echo "Site deployed and CloudFront invalidated."

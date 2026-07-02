@@ -12,7 +12,6 @@
 import { categorizeElection, categorizeByOffice } from "./electionFilters.js";
 // Import schema definitions and utilities
 import {
-  ELECTION_MANIFEST_SCHEMA,
   normalizeManifestEntry,
   buildCSVPath,
   isV3Manifest,
@@ -110,7 +109,9 @@ let dataCache = {
   allData: null,
   elections: {},
   electionsList: null,
-  turnout: {}
+  turnout: {},
+  precinctHistory: {}, // per-precinct pivoted rows, keyed by "<dataDir>/<safe>"
+  baselines: {}        // county Dem-share baselines, keyed by dataDir
 };
 
 /**
@@ -142,6 +143,60 @@ export function clearDataCache() {
   dataCache.elections = {};
   dataCache.electionsList = null;
   dataCache.turnout = {};
+  dataCache.precinctHistory = {};
+  dataCache.baselines = {};
+}
+
+/**
+ * Filesystem/URL-safe precinct file stem. MUST mirror data_processor/
+ * build_precinct_history.py safe_name() so the client fetches the file the
+ * pipeline wrote (e.g. district code "collin:1" -> "collin_1.json").
+ */
+export function safePrecinctName(code) {
+  return String(code).replace(/[^A-Za-z0-9._-]/g, "_");
+}
+
+/**
+ * Load a single precinct's precomputed election history and return it in the
+ * legacy `allElectionData` shape — { raceFile: [oneRowForThisPrecinct] } — a
+ * drop-in for the old loadAllElectionDataForHistory() map, but one small fetch
+ * instead of ~587. Every precinct-page consumer only ever looks up this
+ * precinct's row, so a 1-element array per race is sufficient. Cached per
+ * (dataDir, precinct); missing file (e.g. non-participating precinct) -> {}.
+ */
+export async function loadPrecinctRaces(precinctCode) {
+  await ensureCountyEntry();
+  const dir = activeConfig().dataDir;
+  const key = `${dir}/${safePrecinctName(precinctCode)}`;
+  if (!dataCache.precinctHistory[key]) {
+    dataCache.precinctHistory[key] = fetch(`${dir}/history/${safePrecinctName(precinctCode)}.json`)
+      .then(r => (r.ok ? r.json() : null))
+      .then(doc => {
+        const map = {};
+        if (doc && doc.races) {
+          for (const [raceFile, row] of Object.entries(doc.races)) map[raceFile] = [row];
+        }
+        return map;
+      })
+      .catch(() => ({}));
+  }
+  return dataCache.precinctHistory[key];
+}
+
+/**
+ * Load the active boundary set's county-wide Dem-share baselines
+ * ({ raceFile: share }), used by computePVI (the one genuinely cross-precinct
+ * value). Cached per dataDir; missing file -> {}.
+ */
+export async function loadCountyBaselines() {
+  await ensureCountyEntry();
+  const dir = activeConfig().dataDir;
+  if (!dataCache.baselines[dir]) {
+    dataCache.baselines[dir] = fetch(`${dir}/history/county_baselines.json`)
+      .then(r => (r.ok ? r.json() : {}))
+      .catch(() => ({}));
+  }
+  return dataCache.baselines[dir];
 }
 
 /**

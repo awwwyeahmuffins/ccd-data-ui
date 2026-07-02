@@ -45,7 +45,8 @@ function createAuthOverlay() {
         </div>
         <div class="auth-field">
           <label for="signup-password">Password</label>
-          <input type="password" id="signup-password" required autocomplete="new-password" />
+          <input type="password" id="signup-password" required autocomplete="new-password" aria-describedby="password-rules" />
+          <p class="auth-hint" id="password-rules">At least 8 characters, with an uppercase letter, a lowercase letter, and a number.</p>
         </div>
         <div class="auth-field">
           <label for="signup-password-confirm">Confirm Password</label>
@@ -99,6 +100,37 @@ function bindEvents(overlay) {
     });
   });
 
+  // Translate raw Cognito error messages into plain sentences.
+  function friendlyError(err, fallback) {
+    const raw = err?.message || '';
+    const code = err?.code || err?.name || '';
+    if (code === 'NotAuthorizedException' || /incorrect username or password/i.test(raw)) {
+      return "That email and password don't match. Please check both and try again.";
+    }
+    if (code === 'UserNotFoundException') {
+      return "We couldn't find an account with that email. Check the spelling, or use Sign Up to create one.";
+    }
+    if (code === 'UsernameExistsException') {
+      return 'An account with that email already exists. Use the Sign In tab instead.';
+    }
+    if (code === 'InvalidPasswordException' || /password did not conform|password policy/i.test(raw)) {
+      return "That password doesn't meet the requirements: at least 8 characters, with an uppercase letter, a lowercase letter, and a number.";
+    }
+    if (code === 'LimitExceededException' || code === 'TooManyRequestsException') {
+      return 'Too many attempts — please wait a few minutes and try again.';
+    }
+    if (code === 'CodeMismatchException') {
+      return "That code doesn't match the one we emailed you. Please check and re-enter it.";
+    }
+    if (code === 'ExpiredCodeException') {
+      return 'That code has expired. Sign up again to get a fresh one.';
+    }
+    if (/network/i.test(raw)) {
+      return "We couldn't reach the sign-in service. Check your internet connection and try again.";
+    }
+    return raw || fallback;
+  }
+
   function showError(msg) {
     errorEl.textContent = msg;
     errorEl.style.display = 'block';
@@ -127,7 +159,7 @@ function bindEvents(overlay) {
     try {
       await signIn(email, password);
     } catch (err) {
-      showError(err.message || 'Sign in failed');
+      showError(friendlyError(err, 'Sign in failed. Please try again.'));
     } finally {
       setLoading(btn, false);
     }
@@ -149,14 +181,21 @@ function bindEvents(overlay) {
     const btn = overlay.querySelector('#signup-btn');
     setLoading(btn, true);
     try {
-      await signUp(email, password);
-      pendingEmail = email;
-      signinForm.style.display = 'none';
-      signupForm.style.display = 'none';
-      verifyForm.style.display = '';
-      tabs.forEach((t) => t.classList.remove('active'));
+      const result = await signUp(email, password);
+      if (result && result.userConfirmed) {
+        // Verification is disabled (Pre-Sign-up trigger auto-confirms): sign
+        // the new account straight in, no code step.
+        await signIn(email, password);
+      } else {
+        // Fallback: verification still required — show the code form.
+        pendingEmail = email;
+        signinForm.style.display = 'none';
+        signupForm.style.display = 'none';
+        verifyForm.style.display = '';
+        tabs.forEach((t) => t.classList.remove('active'));
+      }
     } catch (err) {
-      showError(err.message || 'Sign up failed');
+      showError(friendlyError(err, 'Sign up failed. Please try again.'));
     } finally {
       setLoading(btn, false);
     }
@@ -181,7 +220,7 @@ function bindEvents(overlay) {
       errorEl.style.color = 'var(--success, #22c55e)';
       errorEl.textContent = 'Account verified! Please sign in.';
     } catch (err) {
-      showError(err.message || 'Verification failed');
+      showError(friendlyError(err, 'Verification failed. Please try again.'));
     } finally {
       setLoading(btn, false);
     }

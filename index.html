@@ -2,45 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Precinct Command — Texas Elections</title>
-  <meta name="description" content="Precinct Command — an interactive command center for Texas precinct-level election data: party lean, victory margins, and demographics across all 254 counties." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map — Collin County Elections</title>
+  <meta name="description" content="Collin County Elections — an interactive map of precinct-level election data: party lean, victory margins, and demographics." />
   <meta name="theme-color" content="#EFEBE2" id="cc-theme-color" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
-  <meta property="og:title" content="Precinct Command — Texas Elections" />
-  <meta property="og:description" content="An interactive command center for Texas precinct-level election data across all 254 counties." />
+  <meta property="og:title" content="Map — Collin County Elections" />
+  <meta property="og:description" content="An interactive map of precinct-level election data for Collin County and its districts." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
 
+  <link rel="stylesheet" href="js/civic.css" />
   <link rel="stylesheet" href="js/authStyles.css" />
 
   <!-- Cognito SDK resolution for the auth gate (must precede the module script) -->
   <script type="importmap">
   {
     "imports": {
-      "amazon-cognito-identity-js": "https://esm.sh/amazon-cognito-identity-js@6.3.12"
+      "amazon-cognito-identity-js": "./js/vendor/amazon-cognito-identity.esm.js"
     }
   }
   </script>
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="js/vendor/leaflet.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
-       PRECINCT COMMAND — "peanut butter & chocolate."
-       CHOCOLATE: the war-room structure (command rail · context
-       strip · framed tactical map · live data dock · mono data).
-       PEANUT BUTTER: the civic large-print soul (warm paper, ink,
-       Fraunces + Public Sans, 17px floor / 44px targets, real
-       basemap grounding) for precinct chairs 65+ on iPads.
-       Default = warm "Paper Command"; dark = "War Room" toggle.
-       Self-contained (no styles.css).
+       MAP PAGE — the front door. Civic large-print design (warm
+       paper, ink, Fraunces + Public Sans, 17px floor / 44px
+       targets, real basemap grounding) for precinct chairs 60+ on
+       iPads. Shares js/civic.css (tokens, header, focus system);
+       page layout below is self-contained (no styles.css).
        ============================================================ */
-
-    /* ---- LIGHT "PAPER COMMAND" (default) ---- */
     :root {
       --bg:          #EFEBE2;   /* desk / backdrop */
       --bg-panel:    #FFFDF9;   /* paper panels (rail/topbar/dock) */
@@ -50,7 +46,7 @@
       --line-soft:   #E5E0D6;
       --ink:         #1C2733;   /* primary text */
       --ink-dim:     #44505C;   /* secondary text */
-      --ink-faint:   #5F6B76;   /* labels (still ≥ AA on paper) */
+      --ink-faint:   #44505C;   /* labels — same as --ink-dim; 8.1:1 (AAA) on paper */
       --accent:      #0B4DA2;   /* civic blue — readable on paper */
       --accent-fill: #1560C4;   /* bright blue — button fills */
       --accent-on:   #FFFFFF;   /* text on blue */
@@ -58,12 +54,13 @@
       --rep:         #E81B23;
       --dem:         #00AEF3;
       --mod:         #800080;
+      --rep-text:    #C0161D;  /* AA-safe rep for text on paper */
+      --dem-text:    #0077A8;  /* AA-safe dem for text / white-on-fill */
       --no-data:     #DAD3C6;   /* unscored precincts */
       --stroke:      #FFFDF9;   /* polygon hairline */
       --glass:       rgba(255,253,249,.94);
       --shadow:      0 1px 3px rgba(28,39,51,.10), 0 8px 24px rgba(28,39,51,.12);
       --shadow-pop:  0 18px 44px rgba(28,39,51,.20);
-      --grid-op:     0;         /* tactical grid only in dark */
       --vignette:    rgba(28,39,51,.10);
       --tiles-op:    0.62;
       --tiles-filter:saturate(.82) brightness(1.02);
@@ -74,122 +71,39 @@
       --mono:     'IBM Plex Mono', ui-monospace, monospace;
     }
 
-    /* ---- DARK "WAR ROOM" ---- */
-    [data-theme="dark"] {
-      --bg:          #0a0e14;
-      --bg-panel:    #0f141d;
-      --bg-raise:    #161d28;
-      --bg-inset:    #070a0f;
-      --line:        #1f2937;
-      --line-soft:   #161e2a;
-      --ink:         #e8edf4;
-      --ink-dim:     #97a4b5;
-      --ink-faint:   #6a7889;
-      --accent:      #7FB1F0;
-      --accent-fill: #3B82F6;
-      --accent-on:   #FFFFFF;
-      --primary:     #7FB1F0;
-      --no-data:     #1b2330;
-      --stroke:      #0a0e14;
-      --glass:       rgba(15,20,29,.88);
-      --shadow:      0 0 0 1px rgba(255,255,255,.02), 0 10px 30px rgba(0,0,0,.5);
-      --shadow-pop:  0 18px 44px rgba(0,0,0,.6);
-      --grid-op:     0.045;
-      --vignette:    rgba(0,0,0,.7);
-      --tiles-op:    0.55;
-      --tiles-filter:none;
-    }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
+
+    /* Visible keyboard focus everywhere (matches styles.css gold system) */
+    :focus-visible {
+      outline: 3px solid #FFC800;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
     body {
       background: var(--bg);
       color: var(--ink);
       font-family: var(--body);
-      font-size: 17px;                /* large-print floor */
+      font-size: 1rem;                /* 18px floor (js/civic.css); 20px with Text size */
       line-height: 1.5;
-      overflow: hidden;
       -webkit-font-smoothing: antialiased;
       transition: background .3s ease, color .3s ease;
     }
     ::selection { background: rgba(11,77,162,.22); }
 
-    /* ---- App shell grid ---- */
+    /* ---- App shell grid: shared civic header on top ---- */
     .cc-app {
       display: grid;
-      grid-template-columns: 80px 1fr 400px;
-      grid-template-rows: 64px 1fr;
+      grid-template-columns: 1fr 400px;
+      grid-template-rows: auto auto 1fr;
       grid-template-areas:
-        "rail topbar topbar"
-        "rail stage  dock";
+        "header header"
+        "topbar topbar"
+        "stage  dock";
       height: 100vh;
       width: 100vw;
     }
-
-    /* ===========================================================
-       LEFT COMMAND RAIL
-       =========================================================== */
-    .cc-rail {
-      grid-area: rail;
-      background: var(--bg-panel);
-      border-right: 1px solid var(--line);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 16px 0;
-      gap: 6px;
-      z-index: 30;
-    }
-    .cc-brand {
-      width: 46px; height: 46px;
-      border-radius: 13px;
-      background: linear-gradient(150deg, #1560C4, #0B4DA2);
-      display: grid; place-items: center;
-      font-family: var(--display);
-      font-weight: 700; font-size: 19px;
-      color: #FFFFFF;
-      box-shadow: var(--shadow);
-      margin-bottom: 14px;
-      letter-spacing: -.5px;
-    }
-    .cc-rail-spacer { flex: 1; }
-    .cc-rail-btn {
-      width: 52px; height: 52px;        /* ≥44px target */
-      border-radius: 14px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: var(--ink-faint);
-      display: grid; place-items: center;
-      cursor: pointer;
-      transition: all .15s ease;
-      position: relative;
-      text-decoration: none;
-    }
-    .cc-rail-btn svg { width: 23px; height: 23px; stroke-width: 1.8; }
-    .cc-rail-btn:hover { color: var(--ink); background: var(--bg-raise); box-shadow: var(--shadow); }
-    .cc-rail-btn.active {
-      color: var(--accent);
-      background: var(--bg-raise);
-      border-color: var(--line);
-      box-shadow: var(--shadow);
-    }
-    .cc-rail-btn.active::before {
-      content: ''; position: absolute; left: -16px; top: 50%;
-      transform: translateY(-50%);
-      width: 3px; height: 24px; border-radius: 0 3px 3px 0;
-      background: var(--accent-fill);
-      box-shadow: 0 0 10px var(--accent-fill);
-    }
-    .cc-rail-btn .cc-tip {
-      position: absolute; left: 62px; top: 50%; transform: translateY(-50%);
-      background: var(--ink); color: var(--bg-panel);
-      padding: 7px 11px; border-radius: 8px;
-      font-size: 13px; white-space: nowrap; font-weight: 600;
-      font-family: var(--body);
-      opacity: 0; pointer-events: none; transition: opacity .12s;
-      z-index: 50; box-shadow: var(--shadow-pop);
-    }
-    .cc-rail-btn:hover .cc-tip { opacity: 1; }
+    #site-header { grid-area: header; z-index: 30; min-width: 0; } /* grid items default min-width:auto — without this the nav's min-content widens the mobile layout viewport */
 
     /* ===========================================================
        TOP CONTEXT BAR
@@ -200,20 +114,12 @@
       border-bottom: 1px solid var(--line);
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 0 24px;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      min-height: 64px;
+      padding: 8px 24px;
       z-index: 20;
     }
-    .cc-title {
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 22px;
-      letter-spacing: -.3px;
-      color: var(--ink);
-      white-space: nowrap;
-    }
-    .cc-title b { color: var(--accent); font-weight: 700; }
-
     .cc-county-select { position: relative; }
     .cc-county-btn {
       display: flex; align-items: center; gap: 9px;
@@ -221,7 +127,7 @@
       border: 1px solid var(--line);
       color: var(--ink);
       font-family: var(--body); font-weight: 600;
-      font-size: 15px;
+      font-size: 1rem;
       padding: 9px 14px; min-height: 44px;
       border-radius: 10px;
       cursor: pointer;
@@ -245,17 +151,17 @@
       width: 100%; background: var(--bg-inset);
       border: 1px solid var(--line); color: var(--ink);
       padding: 11px 12px; border-radius: 9px; font-family: var(--body);
-      font-size: 16px; margin-bottom: 6px;
+      font-size: 1rem; margin-bottom: 6px;
     }
-    .cc-county-search:focus { outline: none; border-color: var(--accent); }
+    .cc-county-search:focus { border-color: var(--accent); }
     .cc-county-opt {
       padding: 10px 12px; border-radius: 8px; cursor: pointer;
-      font-size: 16px; color: var(--ink-dim);
+      font-size: 1rem; color: var(--ink-dim);
       display: flex; justify-content: space-between; align-items: center;
     }
     .cc-county-opt:hover { background: var(--bg-raise); color: var(--ink); }
     .cc-county-opt.active { color: var(--accent); font-weight: 600; }
-    .cc-county-opt small { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+    .cc-county-opt small { font-family: var(--mono); font-size: 0.889rem; color: var(--ink-faint); }
 
     .cc-topbar-spacer { flex: 1; }
 
@@ -273,40 +179,16 @@
     .cc-search-pill svg { width: 17px; height: 17px; color: var(--ink-faint); flex: none; }
     .cc-search-pill input {
       background: none; border: none; color: var(--ink);
-      font-family: var(--body); font-size: 16px; width: 100%;
+      font-family: var(--body); font-size: 1rem; width: 100%;
     }
-    .cc-search-pill input:focus { outline: none; }
     .cc-search-pill input::placeholder { color: var(--ink-faint); }
 
-    .cc-live {
-      display: flex; align-items: center; gap: 8px;
-      font-family: var(--mono); font-size: 11px;
-      letter-spacing: 1.4px; color: var(--ink-faint);
-      text-transform: uppercase;
+    /* Data-vintage note — honest about what the map shows (static, historical) */
+    .cc-data-note {
+      font-family: var(--mono); font-size: 0.889rem;
+      color: var(--ink-dim);
+      white-space: nowrap;
     }
-    .cc-live .pulse {
-      width: 9px; height: 9px; border-radius: 50%;
-      background: #28a745; box-shadow: 0 0 0 0 rgba(40,167,69,.7);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(40,167,69,.6); }
-      70% { box-shadow: 0 0 0 7px rgba(40,167,69,0); }
-      100% { box-shadow: 0 0 0 0 rgba(40,167,69,0); }
-    }
-
-    .cc-theme-btn {
-      width: 44px; height: 44px; border-radius: 11px;
-      border: 1px solid var(--line); background: var(--bg-raise);
-      color: var(--ink-dim); cursor: pointer; display: grid; place-items: center;
-      transition: all .15s;
-    }
-    .cc-theme-btn:hover { color: var(--accent); border-color: var(--accent); }
-    .cc-theme-btn svg { width: 19px; height: 19px; }
-    .cc-theme-btn .moon { display: block; }
-    .cc-theme-btn .sun { display: none; }
-    [data-theme="dark"] .cc-theme-btn .moon { display: none; }
-    [data-theme="dark"] .cc-theme-btn .sun { display: block; }
 
     /* ===========================================================
        MAP STAGE
@@ -317,47 +199,36 @@
       background: var(--bg-inset);
       overflow: hidden;
     }
-    /* tactical grid — visible in dark only */
-    .cc-stage::before {
-      content: ''; position: absolute; inset: 0; z-index: 4;
-      background-image:
-        linear-gradient(rgba(150,170,200,.5) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(150,170,200,.5) 1px, transparent 1px);
-      background-size: 48px 48px;
-      opacity: var(--grid-op);
-      pointer-events: none;
-    }
     /* vignette framing */
     .cc-stage::after {
       content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 5;
       box-shadow: inset 0 0 160px var(--vignette);
     }
     #cc-map { position: absolute; inset: 0; background: var(--bg-inset); z-index: 3; }
-    .leaflet-container { background: var(--bg-inset); outline: none; font-family: var(--mono); }
+    .leaflet-container { background: var(--bg-inset); font-family: var(--mono); }
     .leaflet-tile-pane { opacity: var(--tiles-op); filter: var(--tiles-filter); }
     .leaflet-control-zoom { border: none !important; margin: 18px !important; box-shadow: var(--shadow) !important; border-radius: 11px !important; overflow: hidden; }
     .leaflet-control-zoom a {
       background: var(--bg-raise) !important; color: var(--ink) !important;
-      border: 1px solid var(--line) !important; width: 38px !important; height: 38px !important;
-      line-height: 36px !important; font-size: 19px !important;
+      border: 1px solid var(--line) !important; width: 44px !important; height: 44px !important;
+      line-height: 42px !important; font-size: 20px !important;
     }
     .leaflet-control-zoom a:hover { background: var(--bg-panel) !important; color: var(--accent) !important; }
     .leaflet-control-attribution {
       background: var(--glass) !important; color: var(--ink-faint) !important;
-      font-family: var(--body) !important; font-size: 10px !important; border-radius: 6px 0 0 0 !important;
+      font-family: var(--body) !important; font-size: 0.889rem !important; border-radius: 6px 0 0 0 !important;
     }
     .leaflet-control-attribution a { color: var(--accent) !important; }
 
     /* mode switch — floating over the map, top-left */
     .cc-modes {
       position: absolute; top: 18px; left: 18px; z-index: 12;
-      display: flex; background: var(--glass);
-      backdrop-filter: blur(12px);
+      display: flex; background: var(--bg-panel); /* solid backplate over the map */
       border: 1px solid var(--line); border-radius: 12px;
       padding: 5px; gap: 4px; box-shadow: var(--shadow);
     }
     .cc-mode-btn {
-      font-family: var(--body); font-size: 14px; font-weight: 600;
+      font-family: var(--body); font-size: 1rem; font-weight: 600;
       letter-spacing: .2px;
       color: var(--ink-dim); background: none; border: none;
       padding: 10px 16px; min-height: 44px; border-radius: 9px; cursor: pointer;
@@ -369,25 +240,101 @@
     /* legend — floating bottom-left */
     .cc-legend {
       position: absolute; bottom: 18px; left: 18px; z-index: 12;
-      background: var(--glass); backdrop-filter: blur(12px);
+      background: var(--bg-panel); /* solid backplate over the map */
       border: 1px solid var(--line); border-radius: 12px;
-      padding: 14px 16px; min-width: 200px; box-shadow: var(--shadow);
+      padding: 14px 16px; min-width: 220px; max-width: 340px; box-shadow: var(--shadow);
+    }
+    /* On phones the legend would blanket the whole map stage — it collapses
+       behind one large labelled toggle instead (List view stays the fully
+       readable path). Desktop always shows it. */
+    .cc-legend-toggle {
+      position: absolute; bottom: 18px; left: 18px; z-index: 13;
+      display: none; align-items: center; gap: 8px;
+      background: var(--bg-panel); border: 1px solid var(--line);
+      border-radius: 11px; padding: 10px 16px; min-height: 44px;
+      font-family: var(--body); font-size: 1rem; font-weight: 600;
+      color: var(--ink); cursor: pointer; box-shadow: var(--shadow);
+    }
+    @media (max-width: 700px) {
+      .cc-legend-toggle[hidden] { display: flex; }
+      .cc-legend.collapsed { display: none; }
+      .cc-legend { bottom: 74px; max-height: 55vh; overflow-y: auto; }
+    }
+
+    .cc-legend-desc {
+      font-size: 0.889rem; color: var(--ink-dim); line-height: 1.45;
+      margin: 0 0 10px;
+    }
+    .cc-legend-row .cc-sw { flex: none; }
+    .cc-sw-dash {
+      width: 22px; height: 22px; border-radius: 4px; flex: none;
+      border: 2px dashed var(--accent); background: transparent;
     }
     .cc-legend-title {
-      font-family: var(--mono); font-size: 10px; letter-spacing: 1.3px;
+      font-family: var(--mono); font-size: 0.889rem; letter-spacing: 0.8px;
       text-transform: uppercase; color: var(--ink-faint); margin-bottom: 10px;
     }
-    .cc-legend-row { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-dim); padding: 3px 0; }
+    .cc-legend-row { display: flex; align-items: center; gap: 10px; font-size: 1rem; color: var(--ink-dim); padding: 3px 0; }
     .cc-legend-sw { width: 15px; height: 15px; border-radius: 4px; flex: none; border: 1px solid var(--line-soft); }
     .cc-legend-ramp { height: 11px; border-radius: 6px; margin: 5px 0 7px; }
-    .cc-legend-scale { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+    .cc-legend-scale { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.889rem; color: var(--ink-faint); }
+
+    /* view toggle — two large labelled buttons, pressed state not color-alone */
+    .cc-view-toggle {
+      display: flex; background: var(--bg-raise);
+      border: 1px solid var(--line); border-radius: 10px; padding: 4px; gap: 4px;
+    }
+    .cc-view-toggle button {
+      font-family: var(--body); font-size: 1rem; font-weight: 600;
+      color: var(--ink-dim); background: none; border: none;
+      padding: 8px 18px; min-height: 44px; border-radius: 8px; cursor: pointer;
+    }
+    .cc-view-toggle button[aria-pressed="true"] {
+      background: var(--accent-fill); color: var(--accent-on);
+    }
+
+    /* LIST VIEW — an opaque reading pane over the whole stage */
+    .cc-list {
+      position: absolute; inset: 0; z-index: 16;
+      overflow-y: auto; background: var(--bg);
+      padding: 24px clamp(16px, 5vw, 48px) 60px;
+    }
+    .cc-list[hidden] { display: none; }
+    .cc-list-head { max-width: 760px; margin: 0 auto 18px; }
+    .cc-list-head .cc-headline { margin-bottom: 14px; }
+    .cc-list-sortwrap {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 1rem; color: var(--ink-dim); font-weight: 600;
+    }
+    .cc-list-sortwrap select {
+      font-family: var(--body); font-size: 1rem; color: var(--ink);
+      background: var(--bg-raise); border: 1px solid var(--line);
+      border-radius: 9px; padding: 9px 12px; min-height: 44px;
+    }
+    #cc-list-body { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
+    .cc-card {
+      background: var(--bg-panel); border: 1px solid var(--line);
+      border-radius: 12px; padding: 16px 18px;
+    }
+    .cc-card.off-ballot { background: var(--bg-inset); }
+    .cc-card-text { font-size: 1rem; color: var(--ink); line-height: 1.5; margin: 0 0 10px; }
+    .cc-card .cc-leanbar-slim { height: 10px; margin-top: 0; }
+    .cc-card-actions { display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+    .cc-card-details, .cc-card-report {
+      display: inline-flex; align-items: center; min-height: 44px;
+      padding: 8px 16px; border-radius: 9px; font-family: var(--body);
+      font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none;
+    }
+    .cc-card-details { background: var(--bg-raise); border: 1px solid var(--line); color: var(--ink); }
+    .cc-card-details:hover, .cc-card-details:focus-visible { border-color: var(--accent); }
+    .cc-card-report { background: var(--accent); border: none; color: #fff; }
 
     /* stage loading state */
     .cc-stage-loading {
       position: absolute; inset: 0; z-index: 14;
       display: grid; place-items: center;
       background: var(--bg-inset);
-      font-family: var(--mono); color: var(--ink-dim); font-size: 13px;
+      font-family: var(--mono); color: var(--ink-dim); font-size: 1rem;
       letter-spacing: 1px;
     }
     .cc-stage-loading .spin {
@@ -422,14 +369,14 @@
       border-bottom: 1px solid var(--line);
     }
     .cc-dock-eyebrow {
-      font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px;
+      font-family: var(--mono); font-size: 0.889rem; letter-spacing: 1px;
       text-transform: uppercase; color: var(--accent); margin-bottom: 6px; font-weight: 600;
     }
     .cc-dock-title {
       font-family: var(--display); font-weight: 600; font-size: 27px;
       letter-spacing: -.4px; color: var(--ink); line-height: 1.1;
     }
-    .cc-dock-sub { font-family: var(--mono); font-size: 13px; color: var(--ink-faint); margin-top: 5px; }
+    .cc-dock-sub { font-family: var(--mono); font-size: 0.889rem; color: var(--ink-faint); margin-top: 5px; }
     .cc-dock-body { flex: 1; overflow-y: auto; padding: 18px 24px 32px; }
 
     .cc-dock-body::-webkit-scrollbar, .cc-county-menu::-webkit-scrollbar { width: 9px; }
@@ -442,19 +389,45 @@
       border-radius: var(--r); padding: 14px 16px;
     }
     .cc-stat.wide { grid-column: 1 / -1; }
-    .cc-stat-label { font-family: var(--mono); font-size: 10px; letter-spacing: 1.1px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 7px; font-weight: 500; }
+    .cc-stat-label { font-family: var(--mono); font-size: 0.889rem; letter-spacing: 0.6px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 7px; font-weight: 500; }
     .cc-stat-value { font-family: var(--display); font-weight: 600; font-size: 29px; letter-spacing: -.5px; color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; }
-    .cc-stat-value small { font-size: 15px; color: var(--ink-dim); font-weight: 500; }
+    .cc-stat-value small { font-size: 0.889rem; color: var(--ink-dim); font-weight: 500; }
 
-    /* lean bar */
-    .cc-leanbar { height: 34px; border-radius: 9px; overflow: hidden; display: flex; border: 1px solid var(--line); margin-top: 5px; }
-    .cc-leanbar span { display: grid; place-items: center; font-family: var(--mono); font-size: 12px; font-weight: 600; color: #fff; min-width: 0; }
+    /* lean bar — values live ABOVE the mark as ink text (party named in
+       words); the bar itself is a thin stacked mark with surface gaps. */
+    .cc-leanbar-vals {
+      display: flex; flex-wrap: wrap; gap: 4px 16px;
+      font-size: 0.889rem; color: var(--ink-dim); margin-top: 6px;
+    }
+    .cc-leanbar-vals b { color: var(--ink); font-variant-numeric: tabular-nums; }
+    .cc-leanbar { height: 16px; border-radius: 6px; display: flex; gap: 2px; margin-top: 7px; }
+    .cc-leanbar span { min-width: 0; border-radius: 3px; }
     .cc-leanbar .seg-rep { background: var(--rep); }
     .cc-leanbar .seg-mod { background: var(--mod); }
     .cc-leanbar .seg-dem { background: var(--dem); }
 
+    /* dock headline — the "so what" sentence read first */
+    .cc-headline {
+      font-size: 1.111rem; line-height: 1.5; color: var(--ink);
+      margin: 2px 0 18px;
+    }
+    .cc-tip { font-size: 0.889rem; color: var(--ink-dim); line-height: 1.5; margin: 14px 0 4px; }
+
+    /* single-level disclosure — one large labelled toggle, never nested */
+    .cc-disclose {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; min-height: 48px; margin-top: 16px;
+      background: var(--bg-raise); border: 1px solid var(--line);
+      border-radius: 11px; padding: 12px 16px;
+      font-family: var(--body); font-size: 1rem; font-weight: 600;
+      color: var(--ink); cursor: pointer;
+    }
+    .cc-disclose:hover, .cc-disclose:focus-visible { border-color: var(--accent); }
+    .cc-disclose-mark { color: var(--accent); font-size: 1rem; }
+    .cc-disclose-body { margin-top: 4px; }
+
     .cc-section-label {
-      font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px;
+      font-family: var(--mono); font-size: 0.889rem; letter-spacing: 1px;
       text-transform: uppercase; color: var(--ink-faint);
       margin: 24px 0 13px; display: flex; align-items: center; gap: 10px; font-weight: 500;
     }
@@ -462,7 +435,7 @@
 
     /* demographic rows */
     .cc-demo-row { margin-bottom: 13px; }
-    .cc-demo-top { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 6px; }
+    .cc-demo-top { display: flex; justify-content: space-between; font-size: 1rem; margin-bottom: 6px; }
     .cc-demo-top .name { color: var(--ink-dim); }
     .cc-demo-top .val { font-family: var(--mono); color: var(--ink); font-weight: 500; }
     .cc-demo-track { height: 9px; background: var(--bg-inset); border-radius: 5px; overflow: hidden; }
@@ -470,16 +443,14 @@
 
     .cc-pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
     .cc-pill {
-      font-family: var(--mono); font-size: 12px; letter-spacing: .4px; font-weight: 500;
+      font-family: var(--mono); font-size: 0.889rem; letter-spacing: .4px; font-weight: 500;
       padding: 7px 12px; border-radius: 22px;
       border: 1px solid var(--line); color: var(--ink-dim);
       background: var(--bg-raise);
     }
-    .cc-pill.rep { color: var(--rep); border-color: rgba(232,27,35,.4); }
-    .cc-pill.dem { color: #0089c0; border-color: rgba(0,174,243,.45); }
+    .cc-pill.rep { color: var(--rep-text); border-color: rgba(232,27,35,.4); }
+    .cc-pill.dem { color: var(--dem-text); border-color: rgba(0,174,243,.45); }
     .cc-pill.gold { color: var(--accent); border-color: var(--accent); }
-    [data-theme="dark"] .cc-pill.rep { color: #ff8d92; }
-    [data-theme="dark"] .cc-pill.dem { color: #79d4ff; }
 
     .cc-deeplink {
       display: flex; align-items: center; justify-content: space-between;
@@ -492,93 +463,75 @@
     .cc-deeplink .dl-l { display: flex; align-items: center; gap: 13px; text-align: left; }
     .cc-deeplink .dl-ic { color: var(--accent); display: grid; place-items: center; }
     .cc-deeplink .dl-ic svg { width: 20px; height: 20px; }
-    .cc-deeplink .dl-t { display: block; font-weight: 600; font-size: 16px; }
-    .cc-deeplink .dl-s { display: block; font-size: 13px; color: var(--ink-faint); }
+    .cc-deeplink .dl-t { display: block; font-weight: 600; font-size: 1rem; }
+    .cc-deeplink .dl-s { display: block; font-size: 0.889rem; color: var(--ink-faint); }
     .cc-deeplink .dl-arrow { color: var(--ink-faint); font-size: 18px; }
 
-    /* tactical map tooltip */
-    .cc-tip-map {
-      background: var(--glass) !important; backdrop-filter: blur(10px);
-      border: 1px solid var(--line) !important; border-radius: 9px !important;
-      color: var(--ink) !important; font-family: var(--mono) !important;
-      font-size: 13px !important; padding: 9px 12px !important;
-      box-shadow: var(--shadow-pop) !important;
+    /* tap readout card — solid backplate pinned bottom-center of the map.
+       The tap-first replacement for hover tooltips (primary device: iPad). */
+    .cc-readout {
+      position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+      z-index: 13; max-width: min(560px, calc(100% - 260px));
+      display: flex; align-items: center; gap: 14px;
+      background: var(--bg-panel); border: 1px solid var(--line);
+      border-radius: 12px; padding: 12px 16px; box-shadow: var(--shadow-pop);
     }
-    .cc-tip-map::before { display: none !important; }
-    .cc-tip-map b { color: var(--accent); }
+    .cc-readout[hidden] { display: none; }
+    .cc-readout-text { font-size: 1rem; color: var(--ink); line-height: 1.4; }
+    .cc-readout button {
+      flex: none; min-height: 44px; padding: 8px 16px;
+      background: var(--accent); color: #fff; border: none; border-radius: 9px;
+      font-family: var(--body); font-size: 1rem; font-weight: 600; cursor: pointer;
+    }
+    @media (max-width: 900px) {
+      .cc-readout { max-width: calc(100% - 36px); flex-wrap: wrap; }
+    }
+
+    /* precinct-number chips (close zoom) — solid backplates, never bare text */
+    .cc-plabel-wrap { background: none; border: none; }
+    .cc-plabel {
+      display: inline-block; transform: translate(-50%, -50%);
+      font-family: var(--mono); font-size: 0.889rem; font-weight: 600;
+      color: var(--ink); background: var(--bg-panel);
+      border: 1px solid var(--line); border-radius: 7px;
+      padding: 2px 8px; box-shadow: var(--shadow);
+      white-space: nowrap; pointer-events: none;
+    }
+
+    /* keyboard focus on a precinct polygon: gold stroke (CSS beats the
+       presentation attributes Leaflet sets) */
+    .leaflet-interactive:focus { outline: none; }
+    .leaflet-interactive:focus-visible { stroke: #FFC800; stroke-width: 3.5px; }
 
     /* ===========================================================
-       RESPONSIVE — collapse dock, then rail
+       RESPONSIVE — collapse the dock into a slide-over
        =========================================================== */
+    .cc-dock-toggle { display: none; }
     @media (max-width: 1180px) {
-      .cc-app { grid-template-columns: 80px 1fr; grid-template-areas: "rail topbar" "rail stage"; }
+      .cc-app { grid-template-columns: 1fr; grid-template-areas: "header" "topbar" "stage"; }
+      .cc-dock-toggle { display: flex; }
       .cc-dock {
-        position: fixed; top: 64px; right: 0; bottom: 0; width: min(400px, 90vw);
+        position: fixed; top: 0; right: 0; bottom: 0; width: min(400px, 90vw);
         transform: translateX(100%); transition: transform .25s ease; z-index: 40;
         box-shadow: var(--shadow-pop);
       }
       .cc-dock.open { transform: translateX(0); }
     }
     @media (max-width: 720px) {
-      .cc-app { grid-template-columns: 1fr; grid-template-rows: 64px 1fr; grid-template-areas: "topbar" "stage"; }
-      .cc-rail {
-        position: fixed; bottom: 0; left: 0; right: 0; top: auto;
-        flex-direction: row; width: 100%; height: 64px; padding: 0 10px;
-        border-right: none; border-top: 1px solid var(--line); z-index: 45;
-        justify-content: space-around;
-      }
-      .cc-brand, .cc-rail-spacer { display: none; }
-      .cc-rail-btn.active::before { display: none; }
-      .cc-title { font-size: 18px; }
       .cc-search-pill { width: 150px; }
       .cc-county-menu { width: 250px; }
-      .cc-live { display: none; }
+      .cc-data-note { display: none; }
+      .cc-topbar { gap: 10px; padding: 0 12px; }
     }
   </style>
 </head>
 <body>
   <div class="cc-app">
-    <!-- LEFT COMMAND RAIL -->
-    <nav class="cc-rail" aria-label="Command rail">
-      <div class="cc-brand">TX</div>
-
-      <button class="cc-rail-btn active" data-rail="map" aria-label="Tactical map">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="3 7 9 4 15 7 21 4 21 17 15 20 9 17 3 20 3 7"/><line x1="9" y1="4" x2="9" y2="17"/><line x1="15" y1="7" x2="15" y2="20"/></svg>
-        <span class="cc-tip">Tactical Map</span>
-      </button>
-      <a class="cc-rail-btn" href="elections.html" aria-label="Elections catalog">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>
-        <span class="cc-tip">Elections Catalog</span>
-      </a>
-      <a class="cc-rail-btn" href="forecast.html" aria-label="Forecast tool">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 17l6-6 4 4 8-8"/><polyline points="14 7 21 7 21 14"/></svg>
-        <span class="cc-tip">Forecast Tool</span>
-      </a>
-      <a class="cc-rail-btn" href="targets.html" aria-label="Target precincts">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/></svg>
-        <span class="cc-tip">Target Precincts</span>
-      </a>
-      <a class="cc-rail-btn" href="explore.html" aria-label="Explore precincts">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/><circle cx="8" cy="6" r="1.6" fill="currentColor"/><circle cx="16" cy="12" r="1.6" fill="currentColor"/><circle cx="11" cy="18" r="1.6" fill="currentColor"/></svg>
-        <span class="cc-tip">Explore Precincts</span>
-      </a>
-      <a class="cc-rail-btn" href="precinct.html" aria-label="Precinct lookup">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
-        <span class="cc-tip">Precinct Lookup &amp; Report</span>
-      </a>
-
-      <div class="cc-rail-spacer"></div>
-
-      <button class="cc-rail-btn" id="cc-logout" aria-label="Sign out" style="display:none;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        <span class="cc-tip">Sign Out</span>
-      </button>
-    </nav>
+    <!-- SHARED CIVIC HEADER (rendered by js/siteNav.js) -->
+    <header id="site-header"></header>
 
     <!-- TOP CONTEXT BAR -->
-    <header class="cc-topbar">
-      <div class="cc-title">Precinct <b>Command</b></div>
-
+    <div class="cc-topbar">
       <div class="cc-county-select">
         <button class="cc-county-btn" id="cc-county-btn">
           <span class="dot"></span>
@@ -586,40 +539,48 @@
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="cc-county-menu" id="cc-county-menu">
-          <input type="text" class="cc-county-search" id="cc-county-search" placeholder="Search 254 counties…" />
+          <input type="text" class="cc-county-search" id="cc-county-search" aria-label="Search for a county or district" placeholder="Search Collin or a district…" />
           <div id="cc-county-list"></div>
         </div>
       </div>
 
       <div class="cc-county-select" id="cc-race-select">
-        <button class="cc-county-btn" id="cc-race-btn" title="Show a specific election on the map">
+        <button class="cc-county-btn" id="cc-race-btn">
+          <span class="visually-hidden">Election shown on the map: </span>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 4h16v16H4z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>
           <span id="cc-race-name">Demographics</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="cc-county-menu" id="cc-race-menu">
-          <input type="text" class="cc-county-search" id="cc-race-search" placeholder="Search races…" />
+          <input type="text" class="cc-county-search" id="cc-race-search" aria-label="Search for a race" placeholder="Search races…" />
           <div id="cc-race-list"></div>
         </div>
+      </div>
+
+      <div class="cc-view-toggle" role="group" aria-label="Choose map or list view">
+        <button type="button" id="cc-view-map" aria-pressed="true">Map</button>
+        <button type="button" id="cc-view-list" aria-pressed="false">List</button>
       </div>
 
       <div class="cc-topbar-spacer"></div>
 
       <label class="cc-search-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
-        <input type="text" id="cc-precinct-search" placeholder="Jump to precinct #" inputmode="numeric" />
+        <input type="text" id="cc-precinct-search" aria-label="Find a precinct by number or street address" placeholder="Precinct # or address" />
       </label>
 
-      <div class="cc-live"><span class="pulse"></span> Live Data</div>
-
-      <button class="cc-theme-btn" id="cc-theme-btn" aria-label="Toggle theme" title="Toggle light / dark">
-        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+      <button class="cc-county-btn" id="cc-locate-btn" type="button">
+        <span aria-hidden="true">📍</span> My location
       </button>
-    </header>
+
+      <div class="cc-data-note" id="cc-data-note">Official election data</div>
+
+      <button class="cc-county-btn cc-dock-toggle" id="cc-dock-toggle" type="button" aria-label="Show or hide the details panel">Details</button>
+    </div>
 
     <!-- MAP STAGE -->
     <main class="cc-stage">
+      <a class="skip-link" href="#cc-list" id="cc-skip-map">Skip map — browse precincts as a list</a>
       <div class="cc-modes" id="cc-modes">
         <button class="cc-mode-btn active" data-mode="lean">Lean</button>
         <button class="cc-mode-btn" data-mode="margin">Margin</button>
@@ -628,7 +589,27 @@
 
       <div id="cc-map"></div>
 
+      <button type="button" class="cc-legend-toggle" id="cc-legend-toggle" aria-expanded="true" aria-controls="cc-legend" hidden>
+        Legend <span aria-hidden="true">▸</span>
+      </button>
       <div class="cc-legend" id="cc-legend"></div>
+
+      <div class="cc-readout" id="cc-readout" aria-live="polite" hidden>
+        <span class="cc-readout-text" id="cc-readout-text"></span>
+        <button type="button" id="cc-readout-more">Full details</button>
+      </div>
+
+      <!-- LIST VIEW — the linear, no-pointer alternative to the map -->
+      <section class="cc-list" id="cc-list" hidden aria-label="Precinct list">
+        <div class="cc-list-head">
+          <p class="cc-headline" id="cc-list-headline"></p>
+          <label class="cc-list-sortwrap">Sort by
+            <select id="cc-list-sort"></select>
+          </label>
+          <p class="cc-tip" id="cc-list-count" aria-live="polite"></p>
+        </div>
+        <div id="cc-list-body"></div>
+      </section>
 
       <div class="cc-stage-loading" id="cc-loading">
         <div style="text-align:center">
@@ -649,8 +630,9 @@
     </aside>
   </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/vendor/leaflet.js"></script>
+  <script src="js/vendor/d3.v7.min.js"></script>
+  <script type="module" src="js/siteNav.js"></script>
   <script type="module" src="js/commandCenter.js"></script>
 </body>
 </html>

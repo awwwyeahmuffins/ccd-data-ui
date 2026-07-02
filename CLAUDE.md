@@ -51,12 +51,13 @@ make cdk-deploy     # Deploy CDK stack
 make deploy-site    # Sync site content to S3 + invalidate CloudFront
 ```
 
-`deploy-site` is allowlist-only (`js/`, `data/` minus cache, `index.html`, `precinct.html`, `elections.html`, `forecast.html`, `targets.html`, `styles.css`). NEVER run a bare `aws s3 sync .` — the repo root contains voter PII (`VoterRegistrationFile.txt`) and internal files that must not reach the public bucket.
+`deploy-site` is allowlist-only (`js/`, `data/` minus cache, `index.html`, `precinct.html`, `elections.html`, `forecast.html`, `targets.html`, `explore.html`, `methodology.html`, `styles.css`). Shared assets that must deploy (e.g. `js/civic.css`, `js/siteNav.js`) live in `js/` so they ride the sync. NEVER run a bare `aws s3 sync .` — the repo root contains voter PII (`VoterRegistrationFile.txt`) and internal files that must not reach the public bucket.
 
 ## Architecture
 
 ### Tech Stack
-- **Frontend:** Vanilla JS (ES Modules), Leaflet.js (maps), Chart.js (charts), D3.js (data processing)
+- **Frontend:** Vanilla JS (ES Modules), Leaflet.js (maps), D3.js (data processing)
+- **Vendored libraries:** Leaflet, D3, and the Cognito SDK ship from `js/vendor/` (no CDN at runtime — the app works offline in the field). Regenerate the Cognito ESM bundle with `npx esbuild node_modules/amazon-cognito-identity-js/es/index.js --bundle --format=esm --minify --define:global=globalThis --outfile=js/vendor/amazon-cognito-identity.esm.js`.
 - **Styling:** Custom CSS with CSS Variables, no preprocessor
 - **Data pipeline:** Python 3 scripts in `data_processor/` (pandas, beautifulsoup4)
 - **Tests:** Jest 29 + jsdom (unit), Playwright 1.40 (e2e)
@@ -67,9 +68,11 @@ make deploy-site    # Sync site content to S3 + invalidate CloudFront
 
 Each HTML page is self-contained: it loads ONE orchestrator module from `js/` and shares only the library modules. No page imports another page's orchestrator. (The old `js/app/` monolith + `classic.html` were deleted June 2026 — recover from git history if ever needed.)
 
-- **`index.html`** (the front door) loads `js/commandCenter.js` — the **Command Center** dashboard (left command rail · context strip · framed low-basemap precinct map with Lean/Margin/Diversity modes · live data dock · warm "Paper Command" ⇄ dark "War Room" theme toggle). Sits behind the Cognito gate (bypassed on localhost/e2e) — needs the `amazon-cognito-identity-js` importmap in its HTML. Smoke: `e2e/command-center.spec.js`.
-- **`elections.html`** → `js/electionsPage.js` (race catalog), **`forecast.html`** → `js/forecastPage.js` (turnout scenarios), **`targets.html`** → `js/targetsPage.js` (precinct targeting), **`precinct.html`** → `js/precinctLookup.js` (lookup/report). Smoke: `e2e/new-pages.spec.js`, `e2e/targets.spec.js`.
-- **Standalone-page rule:** orchestrators must NOT import deleted-monolith modules; include the d3 script; override styles.css's html/body flex lock; add new pages to the deploy allowlist.
+**Civic-plain design (July 2026):** the app targets 60+ precinct chairs on iPads. Light theme only (the dark "War Room" and its toggle were retired). Every page loads the shared civic layer — `js/civic.css` (canonical tokens: 18px base / 20px via the header text-size toggle, `--*-aaa` inks all ≥7:1 on paper — enforced by `tests/civicTokens.test.js` — gold `:focus-visible`, 44px targets, solid `.backplate` utility, glossary popover styles) and `js/siteNav.js` (renders the one plain-language header into `<header id="site-header">`; idempotent because commandCenter's init runs twice on the deployed auth path; also owns the text-size toggle and the one-time index.html welcome panel). Plain-language jargon definitions live in `js/glossary.js` (tap-to-open popovers — never hover-only). Data encodings are never color-alone: the map pairs every fill with an SVG pattern (`js/mapPatterns.js` — Rep diagonal / Dem horizontal / other dots; density = strength or bin) and every value with the shared plain-language formatter in `js/mapBins.js` (5 named numeric bins, `describePrecinct()` — used verbatim by polygon aria-labels, the tap readout card, and the List view so they can never disagree). Never reintroduce hover-only labels, sub-16px text, translucent "glass" behind map text, or `maximum-scale` viewport locks; e2e/a11y.spec.js runs axe on all 7 pages plus the deep stateful views and fails on critical/serious violations.
+
+- **`index.html`** (the front door, nav label "Map") loads `js/commandCenter.js` — shared header · context strip (county/race pickers, Map|List view toggle, precinct jump, data-vintage note) · SVG precinct map (pattern fills, keyboard-walkable polygons, tap readout card, binned legend on a solid backplate; `?renderer=canvas` is the perf escape hatch) with Lean/Margin/Diversity modes · a "so what"-first data dock (headline sentence, ≤5 stats, one disclosure) · a fully linear List view (`js/listView.js`, `#view=list`, the skip-link target). Sits behind the Cognito gate (bypassed on localhost/e2e) — needs the `amazon-cognito-identity-js` importmap in its HTML. Smoke: `e2e/command-center.spec.js`, `e2e/list-view.spec.js`.
+- **`elections.html`** → `js/electionsPage.js` ("Election Results"), **`forecast.html`** → `js/forecastPage.js` ("Forecast"), **`targets.html`** → `js/targetsPage.js` ("Priority Precincts"), **`explore.html`** ("Browse All Data"), **`precinct.html`** → `js/precinctLookup.js` ("Find a Precinct" — the report is 5 flat tabs, Field Guide first; printing always prints the whole report; `#tab=` deep links), **`methodology.html`** ("How It Works", static). Targets leads with the ranked list (catalogue behind one "Change strategy" disclosure); Explore opens on a Summary view (flat topic tabs; "All columns" is the explicit spreadsheet). Smoke: `e2e/new-pages.spec.js`, `e2e/targets.spec.js`, `e2e/explore.spec.js`, `e2e/precinct-tabs.spec.js`.
+- **Standalone-page rule:** orchestrators must NOT import deleted-monolith modules; include the d3 script; override styles.css's html/body flex lock; add new pages to the deploy allowlist AND give them the `#site-header` placeholder + `js/siteNav.js` + `js/civic.css`.
 
 **Data Layer:**
 - `dataLoader.js` — fetches GeoJSON, CSV, demographic data; in-memory caching; boundary switching (`setActiveBoundary` for 2024 vs 2026 precincts)
@@ -86,7 +89,9 @@ Each HTML page is self-contained: it loads ONE orchestrator module from `js/` an
 - `raceGrouping.js` — group elections by race family
 - `precinctProfile.js`, `precinctExport.js`, `fieldOnePager.js` — precinct.html report features
 - `geoLookup.js` — address→precinct (Nominatim) + point-in-polygon
-- `themeManager.js`, `auth.js`/`authUI.js`/`authConfig.js`
+- `mapBins.js` (named numeric bins + the one plain-language precinct formatter) + `mapPatterns.js` (SVG pattern fills) + `countyBriefing.js` (the dock's pure "so what" model) + `listView.js` (linear precinct list; pure row model + chunked renderer)
+- `siteNav.js` (shared header + text-size toggle + welcome) + `civic.css` (shared tokens/a11y layer) + `glossary.js` (plain-language term popovers)
+- `themeManager.js` (light-only; clears stale dark prefs), `auth.js`/`authUI.js`/`authConfig.js`
 
 History note: an earlier app.js-based architecture (22 modules) was deleted June 2026, and the `js/app/` Command-Center-era monolith + many map-only libs (competitiveRanker, marginView, demographicHeatmap, mapEnhancements, mapInitializer, boundaryChangesTable, universeBuilder, reverseCalculator, exportManager/exportCSV, urlStateManager, bookmarkManager, precinctChat/chatUI) were deleted with `classic.html` — recover from git history if ever needed.
 

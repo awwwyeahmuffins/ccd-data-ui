@@ -22,7 +22,7 @@ export const STRATEGY_CATEGORIES = [
   { id: "flip", label: "Flip & Persuade", blurb: "Move the result — close races and persuadable voters." },
   { id: "turnout", label: "Mobilize & Turn Out", blurb: "Turn out existing support that stayed home." },
   { id: "demo", label: "Grow the Electorate", blurb: "Demographics, registration, and shifting turf." },
-  { id: "leverage", label: "Leverage & Efficiency", blurb: "Spend effort where it moves the most votes." },
+  { id: "leverage", label: "Where Effort Pays Most", blurb: "Spend effort where it moves the most votes." },
 ];
 
 // Build the normalized metric bundle a strategy scores. Returns null when a
@@ -58,37 +58,37 @@ export function derivePrecinctMetrics(p, turnout) {
 export const STRATEGIES = [
   // ---- A. FLIP & PERSUADE ----------------------------------------------------
   {
-    id: "flip-dem-rep", cat: "flip", icon: "flip", label: "Flip Dem → Rep", needs: [], metricLabel: "Dem margin",
+    id: "flip-dem-rep", cat: "flip", icon: "flip", label: "Flippable to Republicans", needs: [], metricLabel: "Dem margin",
     blurb: "Dem-won precincts with a thin margin and a big persuadable middle — the most realistic Republican pickups.",
     score: (m) => (m.winner === "Dem" ? (1 - m.margin) * (0.6 + 0.4 * m.modShare) : null),
     explain: (m) => `Dem +${pct(m.margin)} · ${pct(m.modShare)} moderate`,
   },
   {
-    id: "flip-rep-dem", cat: "flip", icon: "flip", label: "Flip Rep → Dem", needs: [], metricLabel: "Rep margin",
+    id: "flip-rep-dem", cat: "flip", icon: "flip", label: "Flippable to Democrats", needs: [], metricLabel: "Rep margin",
     blurb: "Rep-won precincts with a thin margin and a big persuadable middle — the most realistic Democratic pickups.",
     score: (m) => (m.winner === "Rep" ? (1 - m.margin) * (0.6 + 0.4 * m.modShare) : null),
     explain: (m) => `Rep +${pct(m.margin)} · ${pct(m.modShare)} moderate`,
   },
   {
-    id: "tossups", cat: "flip", icon: "scale", label: "Pure Tossups", needs: [], metricLabel: "Margin",
+    id: "tossups", cat: "flip", icon: "scale", label: "Closest Races", needs: [], metricLabel: "Margin",
     blurb: "The genuine battlegrounds: the smallest win margins regardless of who currently leads.",
     score: (m) => 1 - m.margin,
     explain: (m) => `${m.winner} +${pct(m.margin)} — within reach`,
   },
   {
-    id: "defend-rep", cat: "flip", icon: "shield", label: "Soft Rep — Defend", needs: [], metricLabel: "Vulnerability",
+    id: "defend-rep", cat: "flip", icon: "shield", label: "Defend Republican Leads", needs: [], metricLabel: "How winnable",
     blurb: "Rep-held but exposed: a modest margin plus a large moderate bloc that could slip. Shore these up.",
     score: (m) => (m.winner === "Rep" ? m.modShare * (1 - m.margin) : null),
     explain: (m) => `Rep +${pct(m.margin)} · ${pct(m.modShare)} persuadable`,
   },
   {
-    id: "defend-dem", cat: "flip", icon: "shield", label: "Soft Dem — Defend", needs: [], metricLabel: "Vulnerability",
+    id: "defend-dem", cat: "flip", icon: "shield", label: "Defend Democratic Leads", needs: [], metricLabel: "How winnable",
     blurb: "Dem-held but exposed: a modest margin plus a large moderate bloc that could slip. Shore these up.",
     score: (m) => (m.winner === "Dem" ? m.modShare * (1 - m.margin) : null),
     explain: (m) => `Dem +${pct(m.margin)} · ${pct(m.modShare)} persuadable`,
   },
   {
-    id: "persuasion", cat: "flip", icon: "chat", label: "Persuasion-Rich", needs: [], metricLabel: "Moderate voters",
+    id: "persuasion", cat: "flip", icon: "chat", label: "Most Persuadable Voters", needs: [], metricLabel: "Moderate voters",
     blurb: "Where the most minds are movable: the largest absolute bloc of moderate / swing voters.",
     score: (m) => m.modShare * (m.votes || 1),
     explain: (m) => `${num(m.modShare * (m.votes || 0))} moderates · ${pct(m.modShare)}`,
@@ -136,13 +136,13 @@ export const STRATEGIES = [
 
   // ---- D. LEVERAGE & EFFICIENCY ----------------------------------------------
   {
-    id: "high-leverage", cat: "leverage", icon: "weight", label: "Biggest Precincts", needs: [], metricLabel: "Voter universe",
+    id: "high-leverage", cat: "leverage", icon: "weight", label: "Biggest Precincts", needs: [], metricLabel: "Voters to contact",
     blurb: "The largest voter universes — where a small percentage swing moves the most absolute votes.",
     score: (m) => m.votes,
     explain: (m) => `${num(m.votes)} modeled voters · ${m.winner} +${pct(m.margin)}`,
   },
   {
-    id: "efficient-swing", cat: "leverage", icon: "target", label: "Efficient Swing", needs: [], metricLabel: "Swing value",
+    id: "efficient-swing", cat: "leverage", icon: "target", label: "Big, Close Precincts", needs: [], metricLabel: "Payoff score",
     blurb: "Competitive and big at once: the best return on persuasion — a close margin multiplied by precinct size.",
     score: (m) => (1 - m.margin) * m.votes,
     explain: (m) => `${num(m.votes)} voters · ${m.winner} +${pct(m.margin)}`,

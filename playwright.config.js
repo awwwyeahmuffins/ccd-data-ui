@@ -5,6 +5,14 @@ import { defineConfig, devices } from '@playwright/test';
  * Playwright configuration for Collin County Elections
  * @see https://playwright.dev/docs/test-configuration
  */
+// Sandboxed/CI environments sometimes pre-install a pinned system Chromium
+// (PLAYWRIGHT_BROWSERS_PATH) that doesn't match this @playwright/test version.
+// Set CCD_CHROMIUM_PATH to that binary to run the chromium-family projects
+// against it; leave it unset on normal machines.
+const chromiumExe = process.env.CCD_CHROMIUM_PATH
+  ? { launchOptions: { executablePath: process.env.CCD_CHROMIUM_PATH } }
+  : {};
+
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
@@ -22,7 +30,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], ...chromiumExe },
     },
     {
       name: 'firefox',
@@ -35,17 +43,24 @@ export default defineConfig({
     // Mobile viewports
     {
       name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
+      use: { ...devices['Pixel 5'], ...chromiumExe },
     },
     {
       name: 'Mobile Safari',
       use: { ...devices['iPhone 12'] },
     },
+    // iPad — the primary device of the 60+ audience; runs the a11y and
+    // orientation-critical specs.
+    {
+      name: 'iPad',
+      use: { ...devices['iPad (gen 7) landscape'] },
+      testMatch: /(a11y|command-center|onboarding)\.spec\.js/,
+    },
   ],
 
   // Run local dev server before tests
   webServer: {
-    command: 'python3 -m http.server 3000',
+    command: 'python3 serve.py 3000',
     url: 'http://localhost:3000',
     reuseExistingServer: true,
     timeout: 120 * 1000,

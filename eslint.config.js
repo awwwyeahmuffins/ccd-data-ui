@@ -23,6 +23,7 @@ const browserGlobals = {
   TextDecoder: 'readonly',
   CustomEvent: 'readonly',
   Event: 'readonly',
+  KeyboardEvent: 'readonly',
   HTMLElement: 'readonly',
   IntersectionObserver: 'readonly',
   ResizeObserver: 'readonly',

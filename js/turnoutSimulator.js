@@ -140,9 +140,6 @@ export function calculateNonVotersByParty(electionRow, candidates, dncRow) {
     return { repNonVoters: 0, demNonVoters: 0, modNonVoters: 0, totalNonVoters };
   }
 
-  // Estimate party voters who already voted
-  let partyVoters = estimatePartyVotersInPrecinct(electionRow, candidates, dncRow);
-
   // Non-voters by party = party registration - estimated party voters, clamped to >= 0
   // Also proportionally distribute based on DNC shares
   const repNonVoters = Math.max(0, Math.round(totalNonVoters * (repReg / dncTotal)));
@@ -1096,7 +1093,6 @@ export function generateSimulationResultsHTML(originalSummary, simulatedSummary,
     return '<p class="no-data">Select an election to begin simulation.</p>';
   }
   
-  function formatPct(val) { return (val * 100).toFixed(1) + '%'; }
   function formatNum(val) { return val.toLocaleString(); }
 
   // Build candidate comparison rows

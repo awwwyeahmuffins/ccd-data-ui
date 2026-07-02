@@ -12,15 +12,16 @@ import {
   getActiveCounty,
   setActiveCounty,
   loadCountyRegistry,
+  loadCountyBaselines,
 } from "./dataLoader.js";
 import { findPrecinctForAddress, findPrecinctForPoint } from "./geoLookup.js";
+import { populationOf } from "./utils.js";
 import {
   loadCensusProfiles,
   generateProfileHTML,
   renderPartyRegistration,
   renderRacialDemographics,
   renderOfficials,
-  generateTakeaways,
   renderTrendArrow,
   escapeHtml,
   formatNum,
@@ -29,23 +30,18 @@ import {
 } from "./precinctProfile.js";
 import {
   getPrecinctVotingHistory,
-  clearElectionDataCache,
   computePrecinctTrend,
   CATEGORY_ORDER,
   formatRaceName,
   calculateTurnout,
   getPrecinctCandidateData,
   getPrecinctRaceDetail,
-  computeCountyDemShare,
-  loadAllElectionDataForHistory,
+  loadPrecinctHistoryData,
   categorizeRace,
 } from "./precinctHistory.js";
 import {
   initTheme,
-  toggleTheme,
-  getCurrentTheme,
   LIGHT_TILE_URL,
-  DARK_TILE_URL,
 } from "./themeManager.js";
 import { exportAsPDF, exportAsMarkdown } from "./precinctExport.js";
 import {
@@ -82,9 +78,6 @@ let currentReportData = null;
 let currentPrecinctCode = null;
 let isSwitching = false;
 
-// Chart lifecycle
-let chartInstances = {};
-
 // County averages & precinct rankings
 let countyAverages = null;
 let precinctRankings = null;
@@ -97,21 +90,18 @@ let pviCache = {};
 
 // Comparison state
 let compareMode = false;
-let comparePrecinct = null;
 
 // ---------------------------------------------------------------------------
 // Entry point
 // ---------------------------------------------------------------------------
 
-// Brand the header + tab title to the active county instead of hardcoding
-// "Collin County". Resolves the slug → display name via the registry; falls
-// back to a clean "Texas" until that resolves (or if it can't).
+// Brand the tab title to the active county instead of hardcoding "Collin
+// County". Resolves the slug → display name via the registry. (The page header
+// itself is the shared civic header from js/siteNav.js.)
 async function applyCountyBranding() {
   const slug = getActiveCounty();
-  const label = document.getElementById("header-county-name");
   const setName = (name) => {
-    if (label) label.textContent = `${name} County`;
-    document.title = `${name} County Precinct Lookup`;
+    document.title = `Find a Precinct — ${name} County`;
   };
   // Slug like "collin" → "Collin" as an immediate, sensible default.
   setName(slug.charAt(0).toUpperCase() + slug.slice(1));
@@ -123,19 +113,8 @@ async function applyCountyBranding() {
 }
 
 export async function initPrecinctLookup() {
-  initTheme();
+  initTheme(); // clears any stale dark-theme preference (light-only since June 2026)
   applyCountyBranding();
-
-  // Theme toggle
-  let themeBtn = document.getElementById("theme-toggle");
-  if (themeBtn) {
-    updateThemeIcon(themeBtn);
-    themeBtn.addEventListener("click", function onThemeToggle() {
-      toggleTheme();
-      updateThemeIcon(themeBtn);
-      updateMiniMapTiles();
-    });
-  }
 
   // Boundary toggle pills
   let boundaryBtns = document.querySelectorAll(".boundary-pill");
@@ -254,8 +233,7 @@ async function handleBoundarySwitch(boundaryId) {
   }
 
   try {
-    setActiveBoundary(boundaryId);
-    clearElectionDataCache();
+    setActiveBoundary(boundaryId); // also clears the per-precinct history cache
     await loadBaseData();
 
     if (currentPrecinctCode) {
@@ -314,7 +292,10 @@ function computeCountyAverages() {
     let bach = p.education?.bachelors || 0;
     let grad = p.education?.graduateProfessional || 0;
     collegePcts.push({ code, value: bach + grad });
-    if (p.population != null) populations.push({ code, value: p.population });
+    // Population = racial-data total (sitewide convention), so the hero's
+    // "% vs county" and "#N of M" rank match the displayed number.
+    let pop = populationOf(racialLookup[code], p);
+    if (pop != null) populations.push({ code, value: pop });
     if (p.housing?.ownerOccupied != null) homeownerPcts.push({ code, value: p.housing.ownerOccupied });
     if (p.income?.povertyRate != null) povertyRates.push({ code, value: p.income.povertyRate });
   }
@@ -375,9 +356,11 @@ function handleSearchInput(query, dropdown) {
     return;
   }
 
-  let matches = precinctList.filter(function matchPrecinct(p) {
-    return p.code.startsWith(query);
-  }).slice(0, 20);
+  // Prefix matches first, then contains-matches — typing a middle digit
+  // (e.g. "23" for precinct 123) still finds the precinct.
+  let prefix = precinctList.filter((p) => p.code.startsWith(query));
+  let contains = precinctList.filter((p) => !p.code.startsWith(query) && p.code.includes(query));
+  let matches = prefix.concat(contains).slice(0, 20);
 
   if (matches.length === 0) {
     if (looksLikeAddress(query)) {
@@ -533,13 +516,10 @@ async function selectPrecinct(code) {
   if (!entry) {
     let configs = getBoundaryConfigs();
     let label = configs[getActiveBoundary()].label;
-    resetReport();
+    // Banner only — if a report is already on screen, leave it alone.
     showNotice(`Precinct ${code} not found in ${label}. Please search for a different precinct.`);
     return;
   }
-
-  // Destroy any existing charts before re-rendering
-  destroyAllCharts();
 
   currentPrecinctCode = String(code);
   let feature = entry.feature;
@@ -552,6 +532,7 @@ async function selectPrecinct(code) {
 
   // Show report, hide intro, show section nav
   document.getElementById("intro-message")?.classList.add("hidden");
+  clearBanner();
   let reportEl = document.getElementById("report-container");
   reportEl.classList.remove("hidden");
   showSectionNav();
@@ -571,9 +552,10 @@ async function selectPrecinct(code) {
   renderOfficialsSection(officials);
   renderCensusSection(census, code, props._meta || null, partyData, racialData);
 
-  // Update URL hash
+  // Update URL hash (keep the active report tab if one was chosen)
   let boundary = getActiveBoundary();
-  window.location.hash = `precinct=${code}&boundary=${boundary}`;
+  let tabPart = parseHash().tab ? `&tab=${encodeURIComponent(parseHash().tab)}` : "";
+  window.location.hash = `precinct=${code}&boundary=${boundary}${tabPart}`;
 
   // Setup section nav observer
   setupSectionNav();
@@ -581,12 +563,17 @@ async function selectPrecinct(code) {
   // Bind collapsible census toggles
   bindCollapsibleToggles();
 
-  // Load election history async
+  // Load election history async. allElectionData is now this precinct's rows only
+  // ({ raceFile: [oneRow] }) from the precomputed per-precinct history file — a
+  // drop-in for the old full-county map, since every consumer below only looks up
+  // this precinct. County-wide values (PVI baseline) come from countyBaselines.
   let votingHistory;
   let allElectionData;
+  let countyBaselines = {};
   try {
-    allElectionData = await loadAllElectionDataForHistory();
+    allElectionData = await loadPrecinctHistoryData(code);
     votingHistory = await getPrecinctVotingHistory(code);
+    countyBaselines = await loadCountyBaselines();
   } catch {
     votingHistory = { races: [], byCategory: {}, partyRecord: { Rep: 0, Dem: 0, Other: 0 } };
     allElectionData = {};
@@ -600,7 +587,7 @@ async function selectPrecinct(code) {
   // True registered-voter count comes from election results, not the DNC file
   updateHeroRegisteredVoters(votingHistory, manifest);
 
-  let pviResult = computePVI(code, allElectionData, manifest);
+  let pviResult = computePVI(code, allElectionData, manifest, countyBaselines);
   renderPVIBadge(pviResult);
   pviCache[code] = pviResult;
 
@@ -613,6 +600,10 @@ async function selectPrecinct(code) {
   renderTalkingPoints(code, census, partyData, racialData, votingHistory, pviResult, strategyResult);
   renderStrategicIntelligence(code);
   renderSimilarPrecincts(code, census, partyData, racialData, allElectionData, manifest);
+
+  // Hide nav pills whose section came up empty — a pill that scrolls to
+  // nothing is a dead end.
+  syncSectionPills();
 
   // Compute and inject trend arrow
   computePrecinctTrend(code).then(function onTrend(trendData) {
@@ -658,21 +649,18 @@ function extractOfficials(props) {
 }
 
 // ---------------------------------------------------------------------------
-// Chart lifecycle
-// ---------------------------------------------------------------------------
-
-function destroyAllCharts() {
-  for (let key in chartInstances) {
-    if (chartInstances[key]) {
-      chartInstances[key].destroy();
-    }
-  }
-  chartInstances = {};
-}
-
-// ---------------------------------------------------------------------------
 // Hero dashboard section
 // ---------------------------------------------------------------------------
+
+// The area-weighted ACS census is mis-apportioned for some precincts: when a
+// precinct has MORE scored voters than its census "population", the census-derived
+// figures (income, age, home value, college, density) can't be trusted here.
+// See docs/DATA_ISSUES.md item 2.
+function isCensusUnreliable(census, partyData, isArtifact) {
+  if (!census || isArtifact || !(census.population > 0) || !partyData) return false;
+  let scored = (partyData.rep || 0) + (partyData.mod || 0) + (partyData.dem || 0);
+  return scored > census.population;
+}
 
 function renderHeroSection(code, census, partyData, racialData, meta) {
   let el = document.getElementById("hero-section");
@@ -704,8 +692,11 @@ function renderHeroSection(code, census, partyData, racialData, meta) {
   // Row 2: stat cards
   let stats = [];
 
-  if (census?.population != null && !isArtifact) {
-    stats.push(heroStatCard(formatNum(census.population), "Population", census.population, "population", countyAverages?.population, true, code));
+  // "Population" sitewide = the racial-data total (voter universe), matching the
+  // Command Center map; NOT census.population (an unreliable ACS apportionment).
+  let popValue = populationOf(racialData, census);
+  if (popValue != null && !isArtifact) {
+    stats.push(heroStatCard(formatNum(popValue), "Population", popValue, "population", countyAverages?.population, true, code));
   }
 
   if (partyData) {
@@ -713,7 +704,7 @@ function renderHeroSection(code, census, partyData, racialData, meta) {
     // DNC-scored voter universe — NOT the county's registered-voter count
     // (the real count is injected later from election results; see
     // updateHeroRegisteredVoters)
-    stats.push(heroStatCard(formatNum(total), "Scored Voters", null, null, null, false, code));
+    stats.push(heroStatCard(formatNum(total), "Modeled Voters", null, null, null, false, code, "DNC-scored subset — not all voters"));
   }
 
   if (census?.income?.medianHousehold != null && !isArtifact) {
@@ -736,7 +727,7 @@ function renderHeroSection(code, census, partyData, racialData, meta) {
   // Fallback if no census data
   if (stats.length === 0 && partyData) {
     let total = (partyData.rep || 0) + (partyData.mod || 0) + (partyData.dem || 0);
-    stats.push(heroStatCard(formatNum(total), "Scored Voters", null, null, null, false, code));
+    stats.push(heroStatCard(formatNum(total), "Modeled Voters", null, null, null, false, code, "DNC-scored subset — not all voters"));
     if (partyData.winningParty) {
       stats.push(heroStatCard(partyData.winningParty, "Party Lean", null, null, null, false, code));
     }
@@ -755,6 +746,8 @@ function renderHeroSection(code, census, partyData, racialData, meta) {
     html += '<div class="new-precinct-notice">⚠️ Non-residential precinct — no party data and no voters on file (a commercial strip or an uninhabited boundary sliver, like a thin strip along a road). The county’s area-weighted census estimate assigns a “population” here from neighbouring blocks, but no one actually lives or votes in it, so those figures are suppressed. The real signal is on the map below.</div>';
   } else if (isNewOrLowConfidence) {
     html += '<div class="new-precinct-notice">⚠️ This precinct was newly created in the 2026 redistricting and has little or no voting history yet. Numbers below are estimates or may be blank.</div>';
+  } else if (isCensusUnreliable(census, partyData, isArtifact)) {
+    html += '<div class="new-precinct-notice">⚠️ Census mismatch — this precinct has more scored voters than the county’s area-weighted census population estimate, a sign the census figures here were mis-apportioned. The census-derived stats below (income, age, home value, college, density) are unreliable for this precinct; trust the voter counts and election results.</div>';
   } else if (scoredTotal != null && scoredTotal < 10) {
     html += '<div class="new-precinct-notice">⚠️ Very few scored voters in this precinct — its percentage figures and area-weighted census estimates may be misleading; trust the raw voter counts.</div>';
   }
@@ -798,7 +791,8 @@ function updateHeroRegisteredVoters(votingHistory, manifest) {
   let label = best.year ? `Registered Voters (${best.year})` : 'Registered Voters';
   card.innerHTML =
     `<div class="hero-stat-value">${escapeHtml(formatNum(best.count))}</div>` +
-    `<div class="hero-stat-label">${escapeHtml(label)}</div>`;
+    `<div class="hero-stat-label">${escapeHtml(label)}</div>` +
+    `<div class="hero-stat-sublabel">Official county count</div>`;
 
   // Place right after Population (first card) so the two official counts lead
   let first = grid.firstElementChild;
@@ -809,10 +803,13 @@ function updateHeroRegisteredVoters(votingHistory, manifest) {
   }
 }
 
-function heroStatCard(displayValue, label, rawValue, rankMetric, countyValue, higherIsBetter, code) {
+function heroStatCard(displayValue, label, rawValue, rankMetric, countyValue, higherIsBetter, code, sublabel) {
   let html = '<div class="hero-stat-card">';
   html += `<div class="hero-stat-value">${escapeHtml(displayValue)}</div>`;
   html += `<div class="hero-stat-label">${escapeHtml(label)}</div>`;
+  if (sublabel) {
+    html += `<div class="hero-stat-sublabel">${escapeHtml(sublabel)}</div>`;
+  }
 
   if (rawValue != null && countyValue != null) {
     html += comparisonBadge(rawValue, countyValue, higherIsBetter);
@@ -858,51 +855,37 @@ function hideSectionNav() {
   if (nav) nav.classList.add("hidden");
 }
 
-function setupSectionNav() {
-  // Clean up previous observer
-  if (sectionObserver) {
-    sectionObserver.disconnect();
-    sectionObserver = null;
+// The report is 5 flat tabs (Field Guide first — the "so what"); the hero and
+// print/export bar stay visible above them. One part shows at a time; printing
+// always prints everything (see the @media print rule in precinct.html).
+function setReportTab(tabId, { updateHash = true } = {}) {
+  const container = document.getElementById("report-container");
+  const nav = document.getElementById("section-nav");
+  if (!container || !nav) return;
+  container.dataset.tab = tabId;
+  nav.querySelectorAll(".section-nav-pill[data-tab-btn]").forEach((pill) => {
+    const on = pill.dataset.tabBtn === tabId;
+    pill.classList.toggle("active", on);
+    pill.setAttribute("aria-pressed", String(on));
+  });
+  if (updateHash) {
+    const params = parseHash();
+    params.tab = tabId;
+    const h = Object.entries(params).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
+    history.replaceState(null, "", `#${h}`);
   }
+}
 
-  let nav = document.getElementById("section-nav");
+function setupSectionNav() {
+  const nav = document.getElementById("section-nav");
   if (!nav) return;
-
-  let pills = nav.querySelectorAll(".section-nav-pill");
-
-  // Click handlers
-  pills.forEach(function attachNavClick(pill) {
-    pill.onclick = function onNavClick(e) {
-      e.preventDefault();
-      let targetId = pill.dataset.target;
-      let targetEl = document.getElementById(targetId);
-      if (targetEl) {
-        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    };
+  nav.querySelectorAll(".section-nav-pill[data-tab-btn]").forEach((pill) => {
+    pill.onclick = () => setReportTab(pill.dataset.tabBtn);
   });
-
-  // IntersectionObserver to track active section
-  let sections = document.querySelectorAll("[data-section]");
-  if (sections.length === 0) return;
-
-  sectionObserver = new IntersectionObserver(
-    function onIntersect(entries) {
-      for (let entry of entries) {
-        if (entry.isIntersecting) {
-          let sectionId = entry.target.dataset.section;
-          pills.forEach(function updatePill(p) {
-            p.classList.toggle("active", p.dataset.target === sectionId);
-          });
-        }
-      }
-    },
-    { rootMargin: "-100px 0px -60% 0px", threshold: 0.1 }
-  );
-
-  sections.forEach(function observeSection(sec) {
-    sectionObserver.observe(sec);
-  });
+  // honour a #tab= deep link; default to the Field Guide
+  const valid = ["guide", "overview", "history", "people", "districts"];
+  const wanted = parseHash().tab;
+  setReportTab(valid.includes(wanted) ? wanted : "guide", { updateHash: false });
 }
 
 // ---------------------------------------------------------------------------
@@ -935,11 +918,17 @@ function renderCensusSection(census, code, boundaryMeta, partyData, racialData) 
       : `No census profile is available for precinct ${escapeHtml(code)}. Party, racial, officials, and election data are still shown above.`}</div>`;
     return;
   }
-  let extraData = {};
+  let extraData = { racialData };
   if (boundaryMeta) {
     extraData.boundaryMeta = boundaryMeta;
   }
-  el.innerHTML = generateProfileHTML(census, code, extraData);
+  // Warn when the area-weighted census is mis-apportioned for this precinct
+  // (more scored voters than census population) — its demographic figures below
+  // are unreliable. See docs/DATA_ISSUES.md item 2.
+  let unreliableNote = isCensusUnreliable(census, partyData, isArtifact)
+    ? `<div class="new-precinct-notice">⚠️ This precinct has more scored voters than its area-weighted census population estimate, so the figures below were likely mis-apportioned from neighbouring blocks. Treat them as rough estimates.</div>`
+    : "";
+  el.innerHTML = unreliableNote + generateProfileHTML(census, code, extraData);
 }
 
 // ---------------------------------------------------------------------------
@@ -1012,176 +1001,6 @@ function extractYear(raceName) {
 }
 
 // ---------------------------------------------------------------------------
-// Chart.js rendering
-// ---------------------------------------------------------------------------
-
-function getChartColors() {
-  let style = getComputedStyle(document.documentElement);
-  return {
-    text: style.getPropertyValue('--text-secondary').trim() || '#717171',
-    grid: style.getPropertyValue('--border').trim() || '#DDDDDD',
-  };
-}
-
-function renderPartyChart(partyData) {
-  if (!partyData) return;
-  let canvas = document.getElementById('precinct-party-chart');
-  if (!canvas || typeof Chart === 'undefined') return;
-
-  if (chartInstances.party) chartInstances.party.destroy();
-
-  chartInstances.party = new Chart(canvas.getContext('2d'), {
-    type: 'doughnut',
-    data: {
-      labels: ['Republican', 'Moderate', 'Democrat'],
-      datasets: [{
-        data: [partyData.rep || 0, partyData.mod || 0, partyData.dem || 0],
-        backgroundColor: ['#E81B23', '#800080', '#00AEF3'],
-        borderWidth: 0,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: {
-        legend: { display: false },
-        datalabels: { display: false },
-      },
-      cutout: '60%',
-    },
-  });
-}
-
-function renderRacialChart(racialData) {
-  if (!racialData) return;
-  let canvas = document.getElementById('precinct-racial-chart');
-  if (!canvas || typeof Chart === 'undefined') return;
-
-  if (chartInstances.racial) chartInstances.racial.destroy();
-
-  chartInstances.racial = new Chart(canvas.getContext('2d'), {
-    type: 'doughnut',
-    data: {
-      labels: ['White', 'Asian', 'Hispanic', 'Black', 'Others'],
-      datasets: [{
-        data: [
-          racialData.pct_white || 0,
-          racialData.pct_asian || 0,
-          racialData.pct_hispanic || 0,
-          racialData.pct_black || 0,
-          racialData.pct_others || 0,
-        ],
-        backgroundColor: ['#9467bd', '#1f77b4', '#2ca02c', '#ff7f0e', '#d62728'],
-        borderWidth: 0,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      plugins: {
-        legend: { display: false },
-        datalabels: { display: false },
-      },
-      cutout: '60%',
-    },
-  });
-}
-
-function renderIncomeChart(census) {
-  if (!census?.income?.brackets) return;
-  let canvas = document.getElementById('precinct-income-chart');
-  if (!canvas || typeof Chart === 'undefined') return;
-
-  if (chartInstances.income) chartInstances.income.destroy();
-
-  let colors = getChartColors();
-  let brackets = census.income.brackets;
-
-  chartInstances.income = new Chart(canvas.getContext('2d'), {
-    type: 'bar',
-    data: {
-      labels: ['<$50K', '$50-100K', '$100-150K', '$150-200K', '$200K+'],
-      datasets: [{
-        data: [
-          ((brackets.under50k || 0) * 100),
-          ((brackets['50kTo100k'] || 0) * 100),
-          ((brackets['100kTo150k'] || 0) * 100),
-          ((brackets['150kTo200k'] || 0) * 100),
-          ((brackets.over200k || 0) * 100),
-        ],
-        backgroundColor: ['#66BB6A', '#4CAF50', '#43A047', '#388E3C', '#2E7D32'],
-        borderRadius: 4,
-      }],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        datalabels: { display: false },
-      },
-      scales: {
-        y: {
-          ticks: { color: colors.text, callback: function(v) { return v + '%'; } },
-          grid: { color: colors.grid },
-        },
-        x: {
-          ticks: { color: colors.text },
-          grid: { display: false },
-        },
-      },
-    },
-  });
-}
-
-function renderEducationChart(census) {
-  if (!census?.education) return;
-  let canvas = document.getElementById('precinct-education-chart');
-  if (!canvas || typeof Chart === 'undefined') return;
-
-  if (chartInstances.education) chartInstances.education.destroy();
-
-  let colors = getChartColors();
-  let edu = census.education;
-
-  chartInstances.education = new Chart(canvas.getContext('2d'), {
-    type: 'bar',
-    data: {
-      labels: ['HS or Less', 'Some College', "Bachelor's", 'Graduate+'],
-      datasets: [{
-        data: [
-          ((edu.highSchoolOrLess || 0) * 100),
-          ((edu.someCollege || 0) * 100),
-          ((edu.bachelors || 0) * 100),
-          ((edu.graduateProfessional || 0) * 100),
-        ],
-        backgroundColor: ['#64B5F6', '#42A5F5', '#2196F3', '#1565C0'],
-        borderRadius: 4,
-      }],
-    },
-    options: {
-      indexAxis: 'y',
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        datalabels: { display: false },
-      },
-      scales: {
-        x: {
-          ticks: { color: colors.text, callback: function(v) { return v + '%'; } },
-          grid: { color: colors.grid },
-        },
-        y: {
-          ticks: { color: colors.text },
-          grid: { display: false },
-        },
-      },
-    },
-  });
-}
-
-// ---------------------------------------------------------------------------
 // Mini map (enhanced — all precincts as context, interactive)
 // ---------------------------------------------------------------------------
 
@@ -1206,8 +1025,7 @@ function renderMiniMap(feature, partyData) {
       doubleClickZoom: true,
       touchZoom: true,
     });
-    let url = getCurrentTheme() === "dark" ? DARK_TILE_URL : LIGHT_TILE_URL;
-    tileLayer = L.tileLayer(url, { maxZoom: 18 }).addTo(miniMap);
+    tileLayer = L.tileLayer(LIGHT_TILE_URL, { maxZoom: 18 }).addTo(miniMap);
   }
 
   // Remove previous layers
@@ -1260,19 +1078,9 @@ function renderMiniMap(feature, partyData) {
   miniMap.fitBounds(miniMapLayer.getBounds(), { padding: [40, 40] });
 }
 
-function updateMiniMapTiles() {
-  if (!miniMap || !tileLayer) return;
-  let url = getCurrentTheme() === "dark" ? DARK_TILE_URL : LIGHT_TILE_URL;
-  tileLayer.setUrl(url);
-}
-
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
-
-function updateThemeIcon(btn) {
-  btn.textContent = getCurrentTheme() === "dark" ? "\u2600\uFE0F" : "\uD83C\uDF19";
-}
 
 function parseHash() {
   let hash = window.location.hash.slice(1);
@@ -1284,35 +1092,36 @@ function parseHash() {
   return params;
 }
 
+// MUST mirror the static structure in precinct.html (same data-tab mapping) —
+// this rebuilds the report container on boundary/county switches.
 function getReportStructureHTML() {
   return `
-    <div id="hero-section" data-section="hero-section"></div>
-    <div id="strategy-section"></div>
-    <div id="comparison-section"></div>
+    <div id="hero-section"></div>
     <div id="export-bar" class="export-bar hidden">
-      <button id="export-pdf" class="export-btn">Export PDF</button>
-      <button id="export-md" class="export-btn">Export Markdown</button>
-      <button id="export-one-pager" class="export-btn">Field One-Pager</button>
+      <button id="export-pdf" class="export-btn">Print / Save as PDF</button>
+      <button id="export-md" class="export-btn">Download as Text</button>
+      <button id="export-one-pager" class="export-btn">Print Field One-Pager</button>
     </div>
-    <div id="mini-map" class="mini-map-container"></div>
-    <div id="section-party" class="report-section" data-section="section-party" data-accent="party"></div>
-    <div id="section-racial" class="report-section" data-section="section-racial" data-accent="demographics"></div>
-    <div id="section-officials" class="report-section" data-section="section-officials" data-accent="districts"></div>
-    <div id="section-census" class="report-section" data-section="section-census" data-accent="census"></div>
-    <div id="section-elections" class="report-section" data-section="section-elections" data-accent="elections">
+    <div id="strategy-section" data-tab="guide"></div>
+    <div id="comparison-section" data-tab="overview"></div>
+    <div id="mini-map" class="mini-map-container" data-tab="overview"></div>
+    <div id="section-party" class="report-section" data-tab="overview" data-accent="party"></div>
+    <div id="section-racial" class="report-section" data-tab="people" data-accent="demographics"></div>
+    <div id="section-officials" class="report-section" data-tab="districts" data-accent="districts"></div>
+    <div id="section-census" class="report-section" data-tab="people" data-accent="census"></div>
+    <div id="section-elections" class="report-section" data-tab="history" data-accent="elections">
       <div class="report-section-title">Election History</div>
       <div id="section-election-history"></div>
     </div>
-    <div id="section-talking-points" class="report-section" data-section="section-talking-points" data-accent="census"></div>
-    <div id="section-similar" class="report-section" data-section="section-similar" data-accent="demographics"></div>
+    <div id="section-talking-points" class="report-section" data-tab="guide" data-accent="census"></div>
+    <div id="section-strategic-intel" class="report-section" data-tab="guide" data-accent="intelligence"></div>
+    <div id="section-similar" class="report-section" data-tab="people" data-accent="demographics"></div>
   `;
 }
 
 function resetReport() {
-  destroyAllCharts();
   currentReportData = null;
   compareMode = false;
-  comparePrecinct = null;
   document.getElementById("intro-message")?.classList.remove("hidden");
   document.getElementById("export-bar")?.classList.add("hidden");
   hideSectionNav();
@@ -1370,19 +1179,43 @@ function ensureReportStructure(reportEl) {
   }
 }
 
-function showError(msg) {
-  document.getElementById("intro-message")?.classList.add("hidden");
-  let el = document.getElementById("report-container");
-  el.classList.remove("hidden");
-  el.innerHTML = `<div class="error-message">${escapeHtml(msg)}</div>`;
+// Errors and notices render as a dismissible banner ABOVE the report — a bad
+// search must never wipe a report the user is reading.
+function showBanner(msg, kind) {
+  let report = document.getElementById("report-container");
+  if (!report) return;
+  let el = document.getElementById("lookup-notice");
+  if (!el) {
+    el = document.createElement("div");
+    el.id = "lookup-notice";
+    report.parentNode.insertBefore(el, report);
+  }
+  el.innerHTML = `
+    <div class="lookup-banner ${kind}" role="alert">
+      <span>${escapeHtml(msg)}</span>
+      <button type="button" class="lookup-banner-close" aria-label="Dismiss this message">×</button>
+    </div>`;
+  el.querySelector(".lookup-banner-close").addEventListener("click", () => { el.innerHTML = ""; });
+  el.scrollIntoView({ block: "nearest" });
 }
 
-function showNotice(msg) {
-  document.getElementById("intro-message")?.classList.add("hidden");
-  let el = document.getElementById("report-container");
-  el.classList.remove("hidden");
-  el.innerHTML = `<div class="census-unavailable">${escapeHtml(msg)}</div>`;
+function clearBanner() {
+  let el = document.getElementById("lookup-notice");
+  if (el) el.innerHTML = "";
 }
+
+// Hide a tab only when every section inside it rendered empty.
+function syncSectionPills() {
+  document.querySelectorAll(".section-nav-pill[data-tab-btn]").forEach((pill) => {
+    const blocks = document.querySelectorAll(`#report-container [data-tab="${pill.dataset.tabBtn}"]`);
+    const hasContent = [...blocks].some((b) => b.innerHTML.trim() !== "");
+    pill.hidden = blocks.length > 0 && !hasContent;
+  });
+}
+
+function showError(msg) { showBanner(msg, "error"); }
+
+function showNotice(msg) { showBanner(msg, "notice"); }
 
 // ---------------------------------------------------------------------------
 // Field One-Pager
@@ -1466,8 +1299,9 @@ async function handleOnePagerClick() {
 // Feature 1: PVI Competitiveness Score
 // ---------------------------------------------------------------------------
 
-function computePVI(precinctCode, allElectionData, manifest) {
+function computePVI(precinctCode, allElectionData, manifest, countyBaselines) {
   if (!allElectionData || !manifest) return { pvi: 0, label: 'N/A' };
+  countyBaselines = countyBaselines || {};
 
   // Find the 2 most recent federal races (prefer President + Senator)
   let manifestByFile = {};
@@ -1491,7 +1325,10 @@ function computePVI(precinctCode, allElectionData, manifest) {
     let precinctData = getPrecinctCandidateData(data, precinctCode);
     if (!precinctData) continue;
 
-    let countyDemShare = computeCountyDemShare(data);
+    // County-wide Dem share is the one cross-precinct value — it comes from the
+    // precomputed baseline (data has only this precinct's row now).
+    let countyDemShare = countyBaselines[filename];
+    if (countyDemShare == null) continue;
     federalRaces.push({
       year,
       filename,
@@ -1538,7 +1375,8 @@ function renderPVIBadge(pviResult) {
   if (pviResult.pvi > 0.5) cls = 'pvi-dem';
   else if (pviResult.pvi < -0.5) cls = 'pvi-rep';
 
-  container.innerHTML = `<span class="pvi-badge ${cls}">${escapeHtml(pviResult.label)}</span>`;
+  // Tappable: opens the plain-language "party lean" definition (js/glossary.js).
+  container.innerHTML = `<button type="button" class="term" data-term="pvi"><span class="pvi-badge ${cls}">Party lean: ${escapeHtml(pviResult.label)}</span> <span class="term-mark">ⓘ</span></button>`;
 }
 
 // ---------------------------------------------------------------------------
@@ -1549,9 +1387,7 @@ function classifyStrategy(precinctCode, partyData, votingHistory, pviResult) {
   if (!partyData) return null;
 
   let demShare = partyData.demShare || 0;
-  let repShare = partyData.repShare || 0;
   let modShare = partyData.modShare || 0;
-  let partyStrength = partyData.partyStrength || 0;
   let pvi = pviResult?.pvi || 0;
 
   // Compute average turnout from federal races
@@ -1572,7 +1408,7 @@ function classifyStrategy(precinctCode, partyData, votingHistory, pviResult) {
 
   if (demShare > 0.30 && avgTurnout < 55) {
     classification = 'mobilize';
-    action = 'GOTV — get Democrats to the polls';
+    action = 'Get out the vote (GOTV) — get Democrats to the polls';
     rationale = `Dem registration is ${(demShare * 100).toFixed(0)}% but avg federal turnout is only ${avgTurnout.toFixed(0)}%. Higher turnout here directly helps.`;
   } else if (modShare > 0.32 && Math.abs(pvi) < 8) {
     classification = 'persuade';
@@ -1618,7 +1454,6 @@ function renderStrategyDetail(strategy) {
     return;
   }
 
-  let icons = { mobilize: '\u{1F4E3}', persuade: '\u{1F91D}', defend: '\u{1F6E1}', grow: '\u{1F331}' };
   let titles = { mobilize: 'Mobilize Base', persuade: 'Persuade Moderates', defend: 'Defend Gains', grow: 'Grow Long-Term' };
 
   el.innerHTML = `<div class="strategy-detail">
@@ -1894,10 +1729,10 @@ function printCanvassSheet(code, audId, sig) {
     h1{font-size:22px;margin-bottom:2px;}
     .sub{color:#666;font-size:13px;margin-bottom:18px;border-bottom:2px solid #222;padding-bottom:10px;}
     .tp{margin-bottom:12px;}
-    .cat{font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:#0057B7;margin-bottom:2px;}
+    .cat{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.03em;color:#0057B7;margin-bottom:2px;}
     h2{font-size:14px;text-transform:uppercase;letter-spacing:.03em;color:#717171;margin:22px 0 8px;}
     pre{white-space:pre-wrap;background:#f6f6f6;border:1px solid #e2e2e2;border-radius:8px;padding:14px;font-size:13px;line-height:1.5;}
-    .foot{margin-top:18px;font-size:11px;color:#999;border-top:1px solid #ddd;padding-top:10px;}
+    .foot{margin-top:18px;font-size:13px;color:#999;border-top:1px solid #ddd;padding-top:10px;}
     @page{margin:0.5in;size:letter portrait;}
   </style>`;
   w.document.write(`<!DOCTYPE html><html><head><title>Precinct ${escapeHtml(code)} — Talking Points</title>${styles}</head><body>` +
@@ -2095,12 +1930,11 @@ function renderDrilldownContent(td, cd) {
 
   // Margin summary
   if (cd.demVotes > 0 || cd.repVotes > 0) {
-    let marginPts = (cd.margin * 100).toFixed(1);
     let marginLabel = cd.margin >= 0
       ? `D+${Math.abs(cd.margin * 100).toFixed(1)}`
       : `R+${Math.abs(cd.margin * 100).toFixed(1)}`;
     let color = cd.margin >= 0 ? '#0088CC' : '#E81B23';
-    html += `<div style="margin-top:8px;font-size:12px;font-weight:600;color:${color}">Margin: ${marginLabel} (${Math.abs(cd.demVotes - cd.repVotes).toLocaleString()} votes)</div>`;
+    html += `<div style="margin-top:8px;font-size:13px;font-weight:600;color:${color}">Margin: ${marginLabel} (${Math.abs(cd.demVotes - cd.repVotes).toLocaleString()} votes)</div>`;
   }
 
   html += '</div>';
@@ -2121,7 +1955,6 @@ function bindCompareButton(currentCode) {
 
     if (compareMode) {
       compareMode = false;
-      comparePrecinct = null;
       compSection.innerHTML = '';
       btn.textContent = 'Compare';
       return;
@@ -2151,7 +1984,6 @@ function bindCompareButton(currentCode) {
         }
       } else if (e.key === 'Escape') {
         compareMode = false;
-        comparePrecinct = null;
         compSection.innerHTML = '';
         btn.textContent = 'Compare';
       }
@@ -2159,7 +1991,6 @@ function bindCompareButton(currentCode) {
 
     cancelBtn.addEventListener('click', function onCancel() {
       compareMode = false;
-      comparePrecinct = null;
       compSection.innerHTML = '';
       btn.textContent = 'Compare';
     });
@@ -2202,7 +2033,7 @@ function renderComparison(code1, code2) {
     rows.push({ metric, f1, f2, cls1, cls2 });
   }
 
-  addRow('Population', c1?.population, c2?.population, formatNum, true);
+  addRow('Population', populationOf(r1, c1), populationOf(r2, c2), formatNum, true);
   addRow('Median Income', c1?.income?.medianHousehold, c2?.income?.medianHousehold, formatCurrency, true);
   addRow('Home Value', c1?.housing?.medianHomeValue, c2?.housing?.medianHomeValue, formatCurrency, undefined);
   addRow('Median Age', c1?.age?.medianAge, c2?.age?.medianAge, v => v != null ? String(v) : 'N/A', undefined);
@@ -2264,8 +2095,8 @@ function renderStrategicIntelligence(code) {
     .join("");
 
   el.innerHTML = `
-    <h3 class="report-section-title">Strategic Intelligence</h3>
-    <div class="strategic-intel-badge">AI-Generated Analysis</div>
+    <h3 class="report-section-title">Strategy Notes</h3>
+    <div class="strategic-intel-badge">Computer-written summary of this precinct's data</div>
     <div class="strategic-intel-content">${paragraphs}</div>
   `;
 }
@@ -2274,7 +2105,7 @@ function renderStrategicIntelligence(code) {
 // Feature 6: Similar Precincts
 // ---------------------------------------------------------------------------
 
-function renderSimilarPrecincts(code, census, partyData, racialData, allElectionData, manifest) {
+function renderSimilarPrecincts(code, census, partyData, racialData, _allElectionData, _manifest) {
   let el = document.getElementById('section-similar');
   if (!el) return;
 

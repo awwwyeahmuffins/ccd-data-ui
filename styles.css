@@ -21,6 +21,9 @@
   --color-mod: #800080;
   --color-mod-light: #DDCCFF;
   --color-mod-dark: #5E2A7E;
+  /* AA-safe party variants: ≥4.5:1 as text on paper AND with white text on top */
+  --color-rep-text: #C0161D;
+  --color-dem-text: #0077A8;
   
   /* Semantic Colors */
   --color-success: #28a745;
@@ -86,12 +89,11 @@
    ============================================================================= */
 html,
 body {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;     /* header on top, main-container below */
-  overflow: hidden;           /* prevent accidental page‐level scrolling */
+  /* The old full-viewport flex lock (display:flex + overflow:hidden) broke
+     browser-zoom reflow (WCAG 1.4.10) and is gone. Pages that need an app
+     shell manage overflow on their own inner panes. */
   font-family: var(--font-body);
+  font-size: 17px; /* legacy floor — js/civic.css raises to 18px (1rem) after this sheet */
   color: var(--color-text-primary);
   background-color: var(--color-bg-tertiary);
 }
@@ -402,7 +404,7 @@ body.dem-view #mod-to-dem-val {
 
 /* Compact tooltip for dense views */
 .compact-tooltip {
-  font-size: 0.9em;
+  font-size: 0.95rem;
   padding: 8px 12px;
   max-width: 240px;
 }
@@ -436,7 +438,7 @@ body.dem-view #mod-to-dem-val {
   padding: 3px 8px;
   background: rgba(255, 215, 0, 0.9);
   color: var(--color-text-primary);
-  font-size: 0.8em;
+  font-size: 0.889rem;
   font-weight: 700;
   border-radius: 4px;
   margin-top: 6px;
@@ -551,13 +553,13 @@ body.dem-view #mod-to-dem-val {
 /* Comparison arrow icons (optional enhancement) */
 .leaflet-tooltip .positive::before {
   content: '▲ ';
-  font-size: 0.7em;
+  font-size: 0.889rem;
   vertical-align: middle;
 }
 
 .leaflet-tooltip .negative::before {
   content: '▼ ';
-  font-size: 0.7em;
+  font-size: 0.889rem;
   vertical-align: middle;
 }
 
@@ -582,7 +584,7 @@ body.dem-view #mod-to-dem-val {
 .leaflet-tooltip .tooltip-label {
   color: rgba(255, 255, 255, 0.75);
   font-weight: 400;
-  font-size: 0.9em;
+  font-size: 0.95rem;
 }
 
 .leaflet-tooltip .tooltip-value {
@@ -806,7 +808,7 @@ body.dem-view #mod-to-dem-val {
   min-width: 20px;
   height: 20px;
   padding: 0 6px;
-  font-size: 0.8em;
+  font-size: 0.889rem;
   font-weight: 600;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -819,7 +821,7 @@ body.dem-view #mod-to-dem-val {
 
 /* Results count text */
 .filter-results-count {
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
   margin-bottom: 8px;
   padding: 8px 12px;
@@ -840,7 +842,7 @@ body.dem-view #mod-to-dem-val {
 }
 
 .election-select-row label {
-  font-size: 0.9em;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--color-text-primary);
   display: block;
@@ -855,12 +857,12 @@ body.dem-view #mod-to-dem-val {
 .election-select-controls #election-select {
   flex: 1;
   min-width: 0;
-  min-height: 38px;
+  min-height: 44px;
 }
 
 .election-select-controls .export-dropdown-btn {
   flex-shrink: 0;
-  min-height: 38px;
+  min-height: 44px;
   box-sizing: border-box;
 }
 
@@ -890,7 +892,7 @@ body.dem-view #mod-to-dem-val {
 
 .no-results-message p {
   margin: 0;
-  font-size: 0.9em;
+  font-size: 0.95rem;
 }
 
 /* TRENDS: Compare block styles */
@@ -959,7 +961,7 @@ body.dem-view #mod-to-dem-val {
 }
 
 .trend-toggle-text {
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: var(--color-text-primary);
   font-weight: 500;
 }
@@ -971,19 +973,19 @@ body.dem-view #mod-to-dem-val {
 }
 
 .trend-compare-controls label {
-  font-size: 0.9em;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--color-text-primary);
 }
 
 .trend-second-select {
   width: 100%;
-  min-height: 38px;
+  min-height: 44px;
   padding: 8px 12px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   background-color: white;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: var(--color-text-primary);
 }
 
@@ -1005,7 +1007,7 @@ body.dem-view #mod-to-dem-val {
 }
 
 .trend-legend-title {
-  font-size: 0.85em;
+  font-size: 0.889rem;
   font-weight: 600;
   color: var(--color-text-primary);
   margin-bottom: 8px;
@@ -1021,7 +1023,7 @@ body.dem-view #mod-to-dem-val {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.85em;
+  font-size: 0.889rem;
   color: #555;
 }
 
@@ -1048,7 +1050,7 @@ body.dem-view #mod-to-dem-val {
   border: 1px solid #fcc;
   border-radius: 6px;
   color: #c33;
-  font-size: 0.85em;
+  font-size: 0.889rem;
 }
 
 .trend-error.hidden {
@@ -1096,7 +1098,7 @@ body.dem-view #mod-to-dem-val {
 
 .trend-year-column p {
   margin: 6px 0;
-  font-size: 0.85em;
+  font-size: 0.889rem;
   color: #555;
 }
 
@@ -1133,7 +1135,7 @@ body.dem-view #mod-to-dem-val {
   background-color: #FFD700;
   color: var(--color-text-primary);
   border-radius: 4px;
-  font-size: 0.75em;
+  font-size: 0.889rem;
   font-weight: 600;
   margin-left: 8px;
 }
@@ -1141,14 +1143,14 @@ body.dem-view #mod-to-dem-val {
 .trend-flipped-text {
   display: block;
   margin-top: 4px;
-  font-size: 0.85em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   font-style: italic;
 }
 
 .trend-no-data {
   color: var(--color-text-muted);
-  font-size: 0.9em;
+  font-size: 0.95rem;
   text-align: center;
   padding: 12px;
   background-color: white;
@@ -1170,14 +1172,14 @@ body.dem-view #mod-to-dem-val {
   }
   
   .category-tab {
-    font-size: 0.8em;
+    font-size: 0.889rem;
     padding: 5px 10px;
   }
   
   .tab-count {
     min-width: 18px;
     height: 18px;
-    font-size: 0.75em;
+    font-size: 0.889rem;
   }
 }
 
@@ -1189,7 +1191,7 @@ body.dem-view #mod-to-dem-val {
   
   .category-tab {
     padding: 4px 8px;
-    font-size: 0.75em;
+    font-size: 0.889rem;
   }
 }
 
@@ -1235,7 +1237,7 @@ body.dem-view #mod-to-dem-val {
   font-weight: 600;
   padding: 2px 8px;
   border-radius: 4px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
 }
 
 .slider-group .party-label.rep {
@@ -1335,7 +1337,7 @@ body.dem-view #mod-to-dem-val {
 .turnout-simulator .reset-btn {
   width: 100%;
   padding: 8px 12px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   background: #6c757d;
   margin-top: 8px;
 }
@@ -1401,7 +1403,7 @@ body.dem-view #mod-to-dem-val {
 .comparison-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   margin-bottom: 16px;
 }
 
@@ -1416,7 +1418,7 @@ body.dem-view #mod-to-dem-val {
   background-color: #f5f5f5;
   font-weight: 600;
   color: var(--color-text-primary);
-  font-size: 0.85em;
+  font-size: 0.889rem;
   text-transform: uppercase;
 }
 
@@ -1458,20 +1460,20 @@ body.dem-view #mod-to-dem-val {
   background-color: #004aad;
   color: #fff;
   border-radius: 12px;
-  font-size: 0.85em;
+  font-size: 0.889rem;
   font-weight: 600;
 }
 
 .flipped-precincts .flip-list {
   margin: 8px 0 0 0;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: #555;
   line-height: 1.5;
 }
 
 .flipped-precincts .no-flips {
   margin: 8px 0 0 0;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
   font-style: italic;
 }
@@ -1481,7 +1483,7 @@ body.dem-view #mod-to-dem-val {
   display: inline-block;
   background-color: #FFD700;
   color: var(--color-text-primary);
-  font-size: 0.7em;
+  font-size: 0.889rem;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 4px;
@@ -1500,12 +1502,12 @@ body.dem-view #mod-to-dem-val {
 /* Candidate results positive/negative indicators */
 .candidate-results .positive {
   color: #28a745;
-  font-size: 0.9em;
+  font-size: 0.95rem;
 }
 
 .candidate-results .negative {
   color: #dc3545;
-  font-size: 0.9em;
+  font-size: 0.95rem;
 }
 
 /* No data state */
@@ -1581,7 +1583,7 @@ body.dem-view #mod-to-dem-val {
 
 .simulator-section .section-hint {
   margin: 0 0 12px 0;
-  font-size: 0.8em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   font-style: italic;
 }
@@ -1590,7 +1592,7 @@ body.dem-view #mod-to-dem-val {
 .slider-markers {
   display: flex;
   justify-content: space-between;
-  font-size: 0.7em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   margin-top: 2px;
   padding: 0 2px;
@@ -1672,7 +1674,7 @@ body.dem-view #mod-to-dem-val {
 }
 
 .voter-flip-section .section-badge {
-  font-size: 0.7em;
+  font-size: 0.889rem;
   font-weight: 600;
   padding: 2px 8px;
   background-color: #ffc107;
@@ -1702,7 +1704,7 @@ body.dem-view #mod-to-dem-val {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 6px;
-  font-size: 0.85em;
+  font-size: 0.889rem;
 }
 
 .flip-control .flip-label {
@@ -1771,7 +1773,7 @@ body.dem-view #mod-to-dem-val {
 /* Assumptions section */
 .simulator-assumptions {
   margin-top: 16px;
-  font-size: 0.85em;
+  font-size: 0.889rem;
 }
 
 .simulator-assumptions details {
@@ -1795,7 +1797,7 @@ body.dem-view #mod-to-dem-val {
 .simulator-assumptions ul {
   margin: 8px 0 0 16px;
   padding: 0;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: #555;
   line-height: 1.6;
 }
@@ -1818,12 +1820,12 @@ body.dem-view #mod-to-dem-val {
   }
   
   .slider-group .party-label {
-    font-size: 0.85em;
+    font-size: 0.889rem;
     padding: 2px 6px;
   }
   
   .comparison-table {
-    font-size: 0.85em;
+    font-size: 0.889rem;
   }
   
   .comparison-table th,
@@ -1843,7 +1845,7 @@ body.dem-view #mod-to-dem-val {
 
 @media (max-width: 500px) {
   .slider-markers {
-    font-size: 0.65em;
+    font-size: 0.889rem;
   }
   
   .flip-control {
@@ -1851,7 +1853,7 @@ body.dem-view #mod-to-dem-val {
   }
   
   .flip-control label {
-    font-size: 0.8em;
+    font-size: 0.889rem;
   }
 }
 
@@ -1901,7 +1903,7 @@ body.dem-view #mod-to-dem-val {
 }
 
 .stat-label {
-  font-size: 0.75em;
+  font-size: 0.889rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -2026,7 +2028,7 @@ body.dem-view #mod-to-dem-val {
 }
 
 .toggle-hint {
-  font-size: 0.8em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   margin-left: auto;
 }
@@ -2157,7 +2159,7 @@ body.dem-view #mod-to-dem-val {
 }
 
 .instruction-text {
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
   font-style: italic;
   margin: 8px 0;
@@ -2223,7 +2225,7 @@ body.dem-view #mod-to-dem-val {
   align-items: center;
   gap: 6px;
   padding: 8px 12px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   font-weight: 500;
   color: #ffffff;
   background: rgba(255, 255, 255, 0.15);
@@ -2335,7 +2337,7 @@ body.dem-view #mod-to-dem-val {
   gap: 10px;
   width: 100%;
   padding: 12px 16px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: var(--color-text-primary);
   background: transparent;
   border: none;
@@ -2491,7 +2493,7 @@ body.dem-view #mod-to-dem-val {
 .mobile-toggle {
   display: none;
   padding: 8px 14px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   font-weight: 500;
   color: #ffffff;
   background: rgba(255, 255, 255, 0.15);
@@ -2591,7 +2593,7 @@ body.dem-view #mod-to-dem-val {
   
   .view-btn {
     padding: 6px 10px;
-    font-size: 0.85em;
+    font-size: 0.889rem;
   }
 }
 
@@ -2609,7 +2611,7 @@ body.dem-view #mod-to-dem-val {
 
 .precinct-detail-tab {
   padding: 10px 16px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-text-muted);
   background: transparent;
@@ -2663,7 +2665,7 @@ body.dem-view #mod-to-dem-val {
   display: inline-flex;
   align-items: center;
   padding: 6px 12px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   font-weight: 600;
   border-radius: 20px;
 }
@@ -2749,19 +2751,19 @@ body.dem-view #mod-to-dem-val {
 }
 
 .race-item .race-name {
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: var(--color-text-primary);
   font-weight: 500;
 }
 
 .race-item .race-winner {
-  font-size: 0.85em;
+  font-size: 0.889rem;
   color: #555;
   font-weight: 600;
 }
 
 .race-item .race-turnout {
-  font-size: 0.8em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
 }
 
@@ -2775,7 +2777,7 @@ body.dem-view #mod-to-dem-val {
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   font-weight: 500;
   color: #004aad;
   background: rgba(0, 74, 173, 0.1);
@@ -2817,7 +2819,7 @@ body.dem-view #mod-to-dem-val {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   font-weight: 500;
   color: #856404;
 }
@@ -2830,7 +2832,7 @@ body.dem-view #mod-to-dem-val {
 
 .cancel-compare-btn {
   padding: 6px 12px;
-  font-size: 0.85em;
+  font-size: 0.889rem;
   font-weight: 500;
   color: #856404;
   background: rgba(255, 193, 7, 0.3);
@@ -2880,7 +2882,7 @@ body.dem-view #mod-to-dem-val {
 
 /* Comparison table (reuse existing but extend) */
 .comparison-panel .comparison-table {
-  font-size: 0.85em;
+  font-size: 0.889rem;
   margin-bottom: 12px;
   background: #fff;
   border-radius: 6px;
@@ -2903,7 +2905,7 @@ body.dem-view #mod-to-dem-val {
 .same-winner-indicator {
   margin: 12px 0 0 0;
   padding: 10px 14px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   font-weight: 600;
   border-radius: 6px;
   text-align: center;
@@ -2957,7 +2959,7 @@ body.dem-view #mod-to-dem-val {
     min-width: 100px;
     text-align: center;
     padding: 8px 12px;
-    font-size: 0.85em;
+    font-size: 0.889rem;
   }
   
   .race-item {
@@ -2967,7 +2969,7 @@ body.dem-view #mod-to-dem-val {
   
   .race-item .race-winner,
   .race-item .race-turnout {
-    font-size: 0.8em;
+    font-size: 0.889rem;
   }
   
   .party-record {
@@ -2981,17 +2983,17 @@ body.dem-view #mod-to-dem-val {
 
 @media (max-width: 500px) {
   .precinct-detail-tab {
-    font-size: 0.8em;
+    font-size: 0.889rem;
     padding: 6px 10px;
   }
   
   .party-win {
     padding: 4px 10px;
-    font-size: 0.85em;
+    font-size: 0.889rem;
   }
   
   .history-category .category-header {
-    font-size: 0.9em;
+    font-size: 0.95rem;
     padding: 6px 10px;
   }
 }
@@ -3041,7 +3043,7 @@ body.dem-view #mod-to-dem-val {
 
 /* Legend subtitle for simulation section */
 .legend-subtitle {
-  font-size: 0.8em;
+  font-size: 0.889rem;
   font-weight: 600;
   color: #856404;
   margin: 0 0 8px 0;
@@ -3129,7 +3131,7 @@ body.dem-view #mod-to-dem-val {
 
 /* Legend label text */
 .legend-label {
-  font-size: 0.85em;
+  font-size: 0.889rem;
   color: var(--color-text-secondary);
   font-weight: 500;
   flex: 1;
@@ -3145,7 +3147,7 @@ body.dem-view #mod-to-dem-val {
   padding: 0 6px;
   background: #004aad;
   color: #fff;
-  font-size: 0.75em;
+  font-size: 0.889rem;
   font-weight: 700;
   border-radius: 11px;
 }
@@ -3153,7 +3155,7 @@ body.dem-view #mod-to-dem-val {
 /* Legend note text */
 .legend-note {
   margin: 10px 0 0 0;
-  font-size: 0.75em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   font-style: italic;
   line-height: 1.4;
@@ -3203,7 +3205,7 @@ body.dem-view #mod-to-dem-val {
   display: flex;
   justify-content: space-between;
   margin-top: 6px;
-  font-size: 0.72em;
+  font-size: 0.889rem;
   font-weight: 600;
   color: var(--color-text-muted);
 }
@@ -3226,7 +3228,7 @@ body.dem-view #mod-to-dem-val {
   display: flex;
   justify-content: space-between;
   margin-top: 4px;
-  font-size: 0.7em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
 }
 
@@ -3245,7 +3247,7 @@ body.dem-view #mod-to-dem-val {
   }
   
   .legend-title {
-    font-size: 0.9em;
+    font-size: 0.95rem;
     margin-bottom: 10px;
   }
   
@@ -3255,7 +3257,7 @@ body.dem-view #mod-to-dem-val {
   }
   
   .legend-label {
-    font-size: 0.8em;
+    font-size: 0.889rem;
   }
   
   .legend-gradient-bar {
@@ -3286,7 +3288,7 @@ body.dem-view #mod-to-dem-val {
   }
   
   .legend-label {
-    font-size: 0.75em;
+    font-size: 0.889rem;
   }
 }
 
@@ -3379,7 +3381,7 @@ body.dem-view #mod-to-dem-val {
 
 .data-card-subtitle {
   margin: 0;
-  font-size: 0.85em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
 }
 
@@ -3411,7 +3413,7 @@ body.dem-view #mod-to-dem-val {
 
 .summary-label {
   display: block;
-  font-size: 0.75em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   margin-top: 4px;
   text-transform: uppercase;
@@ -3425,7 +3427,7 @@ body.dem-view #mod-to-dem-val {
   padding: 10px 12px;
   background: #f0f4f8;
   border-radius: 6px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
 }
 
 .range-label {
@@ -3453,7 +3455,7 @@ body.dem-view #mod-to-dem-val {
 .toggle-btn {
   flex: 1;
   padding: 8px 12px;
-  font-size: 0.85em;
+  font-size: 0.889rem;
   font-weight: 500;
   color: var(--color-text-muted);
   background: transparent;
@@ -3501,7 +3503,7 @@ body.dem-view #mod-to-dem-val {
 }
 
 .leaderboard-rank {
-  font-size: 0.85em;
+  font-size: 0.889rem;
   font-weight: 600;
   color: var(--color-text-muted);
   min-width: 32px;
@@ -3509,7 +3511,7 @@ body.dem-view #mod-to-dem-val {
 
 .leaderboard-name {
   flex: 1;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: var(--color-text-primary);
   white-space: nowrap;
   overflow: hidden;
@@ -3551,7 +3553,7 @@ body.dem-view #mod-to-dem-val {
 }
 
 .turnout-label {
-  font-size: 0.85em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   margin-top: 6px;
   text-transform: uppercase;
@@ -3581,7 +3583,7 @@ body.dem-view #mod-to-dem-val {
 
 .precinct-stat .stat-label {
   display: block;
-  font-size: 0.7em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   margin-top: 4px;
   text-transform: uppercase;
@@ -3592,7 +3594,7 @@ body.dem-view #mod-to-dem-val {
   background: #f8f9fa;
   border-radius: 8px;
   border-left: 4px solid #004aad;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   line-height: 1.5;
   color: var(--color-text-secondary);
 }
@@ -3763,7 +3765,7 @@ body.dem-view #mod-to-dem-val {
   align-items: center;
   gap: 8px;
   color: var(--color-text-muted);
-  font-size: 0.9em;
+  font-size: 0.95rem;
 }
 
 .loading-text .loading-spinner {
@@ -3798,7 +3800,7 @@ body.dem-view #mod-to-dem-val {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9em;
+  font-size: 0.95rem;
 }
 
 .retry-btn:hover {
@@ -3839,7 +3841,7 @@ body.dem-view #mod-to-dem-val {
 
 .stat-card .stat-label {
   display: block;
-  font-size: 0.85em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   margin-top: 4px;
   text-transform: uppercase;
@@ -3882,7 +3884,7 @@ body.dem-view #mod-to-dem-val {
 
 .initial-state p {
   margin: 0;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
   line-height: 1.5;
 }
@@ -3902,7 +3904,7 @@ body.dem-view #mod-to-dem-val {
   background: #f8f9fa;
   border-radius: 6px;
   margin-bottom: 6px;
-  font-size: 0.9em;
+  font-size: 0.95rem;
 }
 
 /* =============================================================================
@@ -4004,7 +4006,7 @@ body.dem-view #mod-to-dem-val {
 
 .ui-card-subtitle {
   margin: 4px 0 0 0;
-  font-size: 0.85em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   line-height: 1.4;
 }
@@ -4047,7 +4049,7 @@ body.dem-view #mod-to-dem-val {
 
 .stat-grid .stat-label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -4112,7 +4114,7 @@ body.dem-view #mod-to-dem-val {
 
 .ui-divider-label {
   padding: 0 12px;
-  font-size: 0.8em;
+  font-size: 0.889rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -4169,7 +4171,7 @@ body.dem-view #mod-to-dem-val {
   }
   
   .stat-grid .stat-label {
-    font-size: 0.7rem;
+    font-size: 0.889rem;
   }
 }
 
@@ -4236,7 +4238,7 @@ body.dem-view #mod-to-dem-val {
 
 .empty-illustration p {
   margin: 0;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
   line-height: 1.5;
   max-width: 280px;
@@ -4245,7 +4247,7 @@ body.dem-view #mod-to-dem-val {
 .empty-illustration .retry-btn {
   margin-top: var(--space-lg);
   padding: var(--space-sm) var(--space-lg);
-  font-size: 0.9em;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--color-bg-primary);
   background: var(--color-error);
@@ -4283,7 +4285,7 @@ body.dem-view #mod-to-dem-val {
   }
   
   .empty-illustration p {
-    font-size: 0.85em;
+    font-size: 0.889rem;
     max-width: 240px;
   }
 }
@@ -4305,7 +4307,7 @@ body.dem-view #mod-to-dem-val {
   }
   
   .empty-illustration p {
-    font-size: 0.8em;
+    font-size: 0.889rem;
     max-width: 200px;
   }
 }
@@ -5260,7 +5262,7 @@ input[type="range"]:focus-visible {
   /* Show URLs for links */
   a[href^="http"]::after {
     content: " (" attr(href) ")";
-    font-size: 0.8em;
+    font-size: 0.889rem;
     color: var(--color-text-muted);
     word-break: break-all;
   }
@@ -5640,7 +5642,7 @@ input:focus-visible {
 
 .modal-hint {
   margin: 0;
-  font-size: 0.85em;
+  font-size: 0.889rem;
   color: var(--color-text-muted);
   text-align: center;
 }
@@ -5663,7 +5665,7 @@ input:focus-visible {
 }
 
 .shortcut-item span {
-  font-size: 0.9em;
+  font-size: 0.95rem;
   color: var(--color-text-secondary);
 }
 
@@ -5678,7 +5680,7 @@ kbd {
   justify-content: center;
   padding: 4px 10px;
   font-family: monospace;
-  font-size: 0.85em;
+  font-size: 0.889rem;
   font-weight: 600;
   background: #f0f4f8;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -5693,7 +5695,7 @@ kbd {
 .modal-hint kbd {
   padding: 2px 6px;
   min-width: auto;
-  font-size: 0.9em;
+  font-size: 0.95rem;
   background: rgba(0, 0, 0, 0.08);
   border-color: rgba(0, 0, 0, 0.12);
 }
@@ -5726,7 +5728,7 @@ kbd {
   kbd {
     padding: 3px 8px;
     min-width: 28px;
-    font-size: 0.8em;
+    font-size: 0.889rem;
   }
 }
 
@@ -5762,411 +5764,4 @@ kbd {
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-}
-
-/* =============================================================================
-   RESPONSIVE FIX: Header & Layout at Various Breakpoints
-   ============================================================================= */
-
-/* ---------------------------------------------------------------------------
-   Issue 7: ~1366px Laptop — Forecast button clipped at right edge
-   Give the header a bit more breathing room and allow items to shrink.
-   --------------------------------------------------------------------------- */
-@media (max-width: 1500px) {
-  .header-content {
-    gap: 12px;
-    padding: 12px 14px;
-  }
-
-  .header-actions {
-    gap: 6px;
-    flex-shrink: 1;
-    min-width: 0;
-  }
-
-  /* Shrink the search trigger so it doesn't hog space */
-  #cmd-k-trigger {
-    min-width: auto !important;
-    padding: 8px 12px !important;
-  }
-
-  #cmd-k-trigger kbd {
-    display: none !important;
-  }
-
-  /* The collapse-header chevron is the least-used control — drop it first */
-  #toggle-header {
-    display: none !important;
-  }
-
-  /* Collin shows county select + boundary select + View Changes at once —
-     cap the selects so Browse/Forecast never render past the viewport edge */
-  .boundary-selector {
-    min-width: 0;
-    flex-shrink: 1;
-  }
-
-  .boundary-selector select {
-    max-width: 165px !important;
-    text-overflow: ellipsis;
-  }
-
-  .boundary-changes-trigger {
-    padding: 8px 10px !important;
-    font-size: 12px !important;
-    white-space: nowrap;
-  }
-
-  .header-btn {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-
-  /* Prevent brand text from wrapping */
-  .header-brand-text {
-    white-space: nowrap !important;
-  }
-
-  /* Hide Forecast button text at laptop size — icon only */
-  .forecast-btn-text {
-    display: none !important;
-  }
-
-  .header-btn.forecast-btn {
-    padding: 8px 10px !important;
-  }
-
-  /* Smaller view mode button labels */
-  .view-mode-btn .view-label {
-    font-size: 12px !important;
-  }
-}
-
-/* ---------------------------------------------------------------------------
-   Issue 1 & 2: 768px iPad — Header cramped; too many visible items.
-   Hide search bar, shrink buttons, abbreviate brand text.
-   --------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  .header-content {
-    gap: 6px 8px !important;
-    padding: 10px 10px !important;
-  }
-
-  /* Abbreviate the title to "CC Elections" */
-  .header-brand-text {
-    font-size: 0 !important;
-    line-height: 0 !important;
-    overflow: hidden;
-  }
-
-  .header-brand-text::after {
-    content: 'TX Elections';
-    font-size: 15px;
-    line-height: normal;
-    white-space: nowrap;
-  }
-
-  .header-brand {
-    gap: 6px !important;
-    flex-shrink: 0;
-  }
-
-  /* Hide the search trigger — users can still use Cmd+K */
-  #cmd-k-trigger {
-    display: none !important;
-  }
-
-  /* Hide the "Hide" header toggle button */
-  #toggle-header {
-    display: none !important;
-  }
-
-  /* Compact header buttons */
-  .header-actions .header-btn {
-    padding: 7px 10px !important;
-    font-size: 12px !important;
-  }
-
-  .header-actions {
-    gap: 6px !important;
-    flex-shrink: 1;
-    min-width: 0;
-  }
-
-  /* Smaller theme toggle */
-  .theme-toggle {
-    padding: 5px 7px !important;
-    font-size: 13px !important;
-  }
-
-  /* Hide Cmd+K hint on tablet — irrelevant without keyboard */
-  #welcome-overlay .welcome-shortcut {
-    display: none !important;
-  }
-
-  /* Hide view-mode text labels, show icons only */
-  .view-mode-btn .view-label {
-    display: none !important;
-  }
-
-  .view-mode-btn {
-    padding: 8px 10px !important;
-  }
-}
-
-/* ---------------------------------------------------------------------------
-   Issue 3, 5, 6: Phones (<=600px) — Title too long, dark mode toggle awkward,
-   welcome card text too large.
-   --------------------------------------------------------------------------- */
-@media (max-width: 600px) {
-  /* Explicitly hide brand text */
-  .header-brand-text {
-    display: none !important;
-  }
-
-  .header-brand-text::after {
-    content: none !important;
-  }
-
-  .header-content {
-    gap: 4px 6px !important;
-    padding: 8px 8px !important;
-  }
-
-  .header-brand {
-    gap: 4px !important;
-    flex-shrink: 0;
-  }
-
-  .header-brand-icon {
-    width: 28px !important;
-    height: 28px !important;
-    font-size: 14px !important;
-  }
-
-  /* Hide search trigger and header toggle on phones */
-  #cmd-k-trigger,
-  #toggle-header {
-    display: none !important;
-  }
-
-  /* Make dark mode toggle smaller and ensure it doesn't clip */
-  .theme-toggle {
-    padding: 4px 5px !important;
-    font-size: 12px !important;
-    flex-shrink: 0;
-  }
-
-  /* Compact Browse and Forecast buttons */
-  .header-actions .header-btn {
-    padding: 6px 8px !important;
-    font-size: 11px !important;
-    white-space: nowrap;
-  }
-
-  .header-actions {
-    gap: 4px !important;
-    flex-shrink: 1;
-    min-width: 0;
-    flex-wrap: nowrap;
-  }
-
-  /* Forecast icon-only on phone */
-  .forecast-btn-text {
-    display: none !important;
-  }
-
-  .header-btn.forecast-btn {
-    padding: 6px 8px !important;
-  }
-
-  /* Boundary selector — smaller on mobile */
-  .boundary-selector select {
-    font-size: 11px !important;
-    padding: 6px 24px 6px 8px !important;
-  }
-
-  /* Welcome card — reduce text size and padding */
-  #welcome-overlay {
-    padding: 24px 20px !important;
-    max-width: 300px !important;
-    margin: 0 auto;
-  }
-
-  #welcome-overlay h2 {
-    font-size: 17px !important;
-    margin-bottom: 6px !important;
-  }
-
-  #welcome-overlay p {
-    font-size: 12px !important;
-    margin-bottom: 16px !important;
-    line-height: 1.4;
-  }
-
-  #welcome-overlay .welcome-btn {
-    padding: 10px 22px !important;
-    font-size: 13px !important;
-    white-space: nowrap !important;
-  }
-
-  /* Hide "Cmd + K to search" hint — irrelevant on touch devices */
-  #welcome-overlay .welcome-shortcut {
-    display: none !important;
-  }
-}
-
-/* ---------------------------------------------------------------------------
-   Issue 3 (continued) & 4: Very small phones (<=400px) — Title wraps 3 lines,
-   bottom nav "Browse" truncated.
-   --------------------------------------------------------------------------- */
-@media (max-width: 400px) {
-  .header-content {
-    gap: 4px !important;
-    padding: 6px 6px !important;
-  }
-
-  .header-brand-icon {
-    width: 26px !important;
-    height: 26px !important;
-    font-size: 13px !important;
-  }
-
-  /* Even smaller buttons */
-  .header-actions .header-btn {
-    padding: 5px 6px !important;
-    font-size: 10px !important;
-  }
-
-  /* Theme toggle — minimal */
-  .theme-toggle {
-    padding: 3px 4px !important;
-    font-size: 11px !important;
-  }
-
-  /* Boundary selector — compact */
-  .boundary-selector select {
-    font-size: 10px !important;
-    padding: 5px 20px 5px 6px !important;
-  }
-
-  /* Welcome card — even more compact */
-  #welcome-overlay {
-    padding: 20px 16px !important;
-    max-width: 280px !important;
-  }
-
-  #welcome-overlay h2 {
-    font-size: 15px !important;
-  }
-
-  #welcome-overlay p {
-    font-size: 11px !important;
-  }
-}
-
-/* ---------------------------------------------------------------------------
-   Issue 4: Bottom nav bar "Browse" text truncated on small phones.
-   Improve spacing and allow text to fit. Show at 600px (matches existing
-   inline breakpoint) with better layout.
-   --------------------------------------------------------------------------- */
-@media (max-width: 600px) {
-  #mobile-tab-bar .tab-bar-inner {
-    padding: 0 4px;
-  }
-
-  #mobile-tab-bar .tab-btn {
-    min-width: 44px;
-    padding: 4px 4px;
-    flex: 1;
-  }
-
-  #mobile-tab-bar .tab-label {
-    font-size: 9px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-  }
-
-  #mobile-tab-bar .tab-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-@media (max-width: 360px) {
-  /* On the smallest phones, use icon-only mode for bottom nav */
-  #mobile-tab-bar .tab-label {
-    font-size: 8px;
-  }
-
-  #mobile-tab-bar .tab-btn {
-    padding: 4px 2px;
-    gap: 1px;
-  }
-
-  #mobile-tab-bar .tab-btn svg {
-    width: 18px;
-    height: 18px;
-  }
-}
-
-/* ---------------------------------------------------------------------------
-   Map UI Pattern Improvements (mapuipatterns.com audit)
-   --------------------------------------------------------------------------- */
-
-/* M3: Filter chips horizontal scroll on mobile */
-@media (max-width: 768px) {
-  .filter-chips {
-    flex-wrap: nowrap !important;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 4px;
-  }
-
-  .filter-chips::-webkit-scrollbar {
-    display: none;
-  }
-
-  .filter-chip {
-    flex-shrink: 0;
-    font-size: 12px !important;
-    padding: 6px 12px !important;
-  }
-}
-
-/* H1: Legend toggle — collapsed on mobile by default */
-@media (max-width: 600px) {
-  .legend-body {
-    max-height: 0 !important;
-    padding: 0 14px !important;
-    opacity: 0 !important;
-  }
-
-  .legend-body:not(.collapsed) {
-    max-height: 300px !important;
-    padding: 0 14px 12px !important;
-    opacity: 1 !important;
-  }
-
-  /* (Expand/collapse "+" indicator is handled in JS — addMapLegend() —
-     so no ::after here; doubling it produced "Legend + +".) */
-}
-
-/* H2: Progressive disclosure — forecast section collapsible */
-.forecast-section .forecast-header {
-  cursor: pointer;
-}
-
-.forecast-section .forecast-section-collapsible {
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-/* Single active panel constraint — ensure panels don't overlap */
-#election-panel.active ~ #precinct-profile-panel.active,
-#election-panel.active ~ #competitive-ranker-panel.active {
-  z-index: 9999;
 }

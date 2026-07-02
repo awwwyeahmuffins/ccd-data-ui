@@ -5,6 +5,7 @@
 import { loadAllData } from "./dataLoader.js";
 import { loadCensusProfiles } from "./precinctProfile.js";
 import { getPrecinctVotingHistory, computePrecinctTrend, calculateTurnout } from "./precinctHistory.js";
+import { populationOf } from "./utils.js";
 
 // ---------------------------------------------------------------------------
 // Data loading
@@ -93,8 +94,9 @@ export async function loadOnePagerData(precinctCode) {
 export function generateFieldOnePagerHTML(precinctCode, census, party, racial, officials, recentElections, trend) {
   let code = esc(String(precinctCode));
 
-  // ROW 1: Header
-  let popBadge = census?.population != null ? `<span class="header-badge">Pop. ${fmtNum(census.population)}</span>` : "";
+  // ROW 1: Header — "Population" = racial-data total (sitewide convention)
+  let popVal = populationOf(racial, census);
+  let popBadge = popVal != null ? `<span class="header-badge">Pop. ${fmtNum(popVal)}</span>` : "";
   let partyBadge = "";
   if (party?.winningParty) {
     let cls = party.winningParty.toLowerCase();
@@ -243,9 +245,10 @@ export function generateFieldOnePagerText(precinctCode, census, party, racial, o
   lines.push(`PRECINCT ${code} - Field Brief`);
   lines.push("============================");
 
-  // Population and party lean
+  // Population and party lean — "Population" = racial-data total (sitewide)
   let parts = [];
-  if (census?.population != null) parts.push(`Population: ${fmtNum(census.population)}`);
+  let popVal = populationOf(racial, census);
+  if (popVal != null) parts.push(`Population: ${fmtNum(popVal)}`);
   if (party?.winningParty) parts.push(`Party Lean: ${party.winningParty}`);
   if (trend) {
     let dir = trend.direction === "dem" ? "Dem" : trend.direction === "rep" ? "Rep" : "Stable";
@@ -328,11 +331,12 @@ export function generateFieldOnePagerText(precinctCode, census, party, racial, o
 // ---------------------------------------------------------------------------
 
 /**
- * Open a print-friendly window with the one-pager HTML.
+ * Open a print-friendly window with the one-pager HTML. If the browser blocks
+ * the pop-up, fall back to printing through a hidden iframe so the user still
+ * gets their printout (and never a silent nothing).
  */
 export function printOnePager(html, precinctCode) {
   let printWindow = window.open("", "_blank");
-  if (!printWindow) return;
 
   let printStyles = `
     <style>
@@ -342,7 +346,7 @@ export function printOnePager(html, precinctCode) {
       .one-pager-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #222; }
       .precinct-code { font-size: 28px; font-weight: 800; }
       .header-badges { display: flex; gap: 8px; flex-wrap: wrap; }
-      .header-badge { font-size: 12px; padding: 3px 8px; border-radius: 4px; background: #f0f0f0; }
+      .header-badge { font-size: 13px; padding: 3px 8px; border-radius: 4px; background: #f0f0f0; }
       .party-badge-republican, .party-badge-rep { background: rgba(232,27,35,0.12); color: #E81B23; }
       .party-badge-democrat, .party-badge-dem { background: rgba(0,174,243,0.12); color: #0088CC; }
       .party-badge-moderate, .party-badge-mod { background: rgba(128,0,128,0.12); color: #800080; }
@@ -351,27 +355,52 @@ export function printOnePager(html, precinctCode) {
       .one-pager-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
       .one-pager-stat { text-align: center; padding: 12px 8px; background: #f7f7f7; border-radius: 6px; }
       .stat-value { font-size: 20px; font-weight: 700; }
-      .stat-label { font-size: 11px; color: #717171; }
+      .stat-label { font-size: 13px; color: #717171; }
       .one-pager-bar { margin-bottom: 16px; }
-      .one-pager-bar-label { font-size: 12px; font-weight: 600; margin-bottom: 6px; }
+      .one-pager-bar-label { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
       .one-pager-bar-container { height: 24px; border-radius: 6px; overflow: hidden; display: flex; width: 100%; }
-      .one-pager-bar-segment { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: white; min-width: 20px; }
+      .one-pager-bar-segment { height: 100%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; color: white; min-width: 20px; }
       .one-pager-elections { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
-      .one-pager-elections th { text-align: left; padding: 6px 8px; border-bottom: 2px solid #222; font-size: 11px; text-transform: uppercase; }
+      .one-pager-elections th { text-align: left; padding: 6px 8px; border-bottom: 2px solid #222; font-size: 13px; text-transform: uppercase; }
       .one-pager-elections td { padding: 6px 8px; border-bottom: 1px solid #ddd; }
       .one-pager-districts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
-      .one-pager-district { padding: 8px; background: #f7f7f7; border-radius: 6px; font-size: 12px; }
-      .district-type { font-weight: 600; font-size: 11px; color: #717171; }
+      .one-pager-district { padding: 8px; background: #f7f7f7; border-radius: 6px; font-size: 13px; }
+      .district-type { font-weight: 600; font-size: 13px; color: #717171; }
       .district-value { font-size: 14px; font-weight: 600; }
-      .one-pager-footer { text-align: center; font-size: 11px; color: #999; padding-top: 12px; border-top: 1px solid #ddd; }
+      .one-pager-footer { text-align: center; font-size: 13px; color: #999; padding-top: 12px; border-top: 1px solid #ddd; }
       .one-pager-actions { display: none !important; }
       @page { margin: 0.5in; size: letter portrait; }
     </style>`;
 
-  printWindow.document.write(`<!DOCTYPE html><html><head><title>Precinct ${esc(String(precinctCode))} - Field Brief</title>${printStyles}</head><body>${html}</body></html>`);
-  printWindow.document.close();
-  printWindow.addEventListener("load", function onLoad() {
-    printWindow.print();
+  let doc = `<!DOCTYPE html><html><head><title>Precinct ${esc(String(precinctCode))} - Field Brief</title>${printStyles}</head><body>${html}</body></html>`;
+
+  if (printWindow) {
+    printWindow.document.write(doc);
+    printWindow.document.close();
+    printWindow.addEventListener("load", function onLoad() {
+      printWindow.print();
+    });
+    return;
+  }
+
+  // Pop-up blocked: print via a hidden iframe instead.
+  let frame = document.createElement("iframe");
+  frame.style.position = "fixed";
+  frame.style.right = "0";
+  frame.style.bottom = "0";
+  frame.style.width = "0";
+  frame.style.height = "0";
+  frame.style.border = "0";
+  document.body.appendChild(frame);
+  frame.srcdoc = doc;
+  frame.addEventListener("load", function onFrameLoad() {
+    try {
+      frame.contentWindow.focus();
+      frame.contentWindow.print();
+    } finally {
+      // Leave time for the print dialog to grab the document before cleanup.
+      setTimeout(() => frame.remove(), 60000);
+    }
   });
 }
 

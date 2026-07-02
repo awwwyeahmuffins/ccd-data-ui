@@ -1,0 +1,347 @@
+/* ============================================================================
+   civic.css — the canonical civic-plain token + accessibility layer.
+   Loaded by every page (AFTER styles.css where both are present, so these
+   rules win by source order — do not reorder the <link> tags).
+
+   Audience: precinct chairs 60+ on iPads. Non-negotiables encoded here:
+   - 18px body floor (20px with the text-size toggle), 1.5 line-height;
+   - 7:1 (WCAG AAA) contrast for text tokens — enforced by
+     tests/civicTokens.test.js, do not eyeball changes;
+   - gold 3px :focus-visible everywhere;
+   - 44px touch targets on interactive chrome;
+   - solid backplates behind text that sits over the map (no glass/blur);
+   - glossary terms open on tap, never hover.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------------------
+   1) TOKENS
+   --------------------------------------------------------------------------- */
+:root {
+  /* Warm-paper surfaces (shared with styles.css / page inlines) */
+  --civic-paper: #fffdf9;
+  --civic-paper-shade: #f4f1ea;
+  --civic-paper-inset: #e7e2d7;
+  --civic-line: #d8d2c6;
+
+  /* Text inks — every *-aaa token is >= 7:1 on --civic-paper */
+  --ink-aaa: #1c2733; /* 12.9:1 primary text */
+  --ink-dim-aaa: #44505c; /* 8.1:1  secondary text — use instead of #5F6B76 */
+  --accent-aaa: #0b4da2; /* 8.1:1  civic blue as text; white on it is 8.1:1 */
+  --rep-text-aaa: #a01218; /* 8.0:1  Republican as text (party fill stays #E81B23) */
+  --dem-text-aaa: #005c82; /* 7.3:1  Democratic as text (party fill stays #00AEF3) */
+
+  --focus-gold: #ffc800;
+
+  /* Type scale (rem so the text-size toggle scales everything) */
+  --fs-small: 0.889rem; /* 16px — the floor; nothing renders smaller */
+  --fs-body: 1rem; /* 18px */
+  --fs-big: 1.167rem; /* 21px */
+  --fs-h2: 1.5rem;
+  --fs-h1: 1.889rem;
+
+  --civic-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --civic-body: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --civic-shadow: 0 1px 3px rgba(28, 39, 51, 0.1), 0 8px 24px rgba(28, 39, 51, 0.12);
+  --tap: 44px;
+}
+
+/* ---------------------------------------------------------------------------
+   2) BASE ENFORCEMENT — wins over styles.css by source order
+   --------------------------------------------------------------------------- */
+html {
+  font-size: 112.5%; /* 18px large-print floor */
+}
+html.text-large {
+  font-size: 125%; /* 20px via the header Text size toggle */
+}
+body {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Visible keyboard focus, everywhere, on gold (never color-only) */
+:focus-visible {
+  outline: 3px solid var(--focus-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Solid backplate for anything textual floating over the map */
+.backplate {
+  background: var(--civic-paper);
+  border: 1px solid var(--civic-line);
+  box-shadow: var(--civic-shadow);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -100px;
+  z-index: 100;
+  padding: 12px 18px;
+  min-height: var(--tap);
+  background: var(--civic-paper);
+  border: 2px solid var(--accent-aaa);
+  border-radius: 10px;
+  color: var(--accent-aaa);
+  font-family: var(--civic-body);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus-visible {
+  top: 12px;
+}
+
+/* ---------------------------------------------------------------------------
+   3) SHARED HEADER (rendered by js/siteNav.js)
+   --------------------------------------------------------------------------- */
+.site-header-bar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 24px;
+  background: var(--civic-paper);
+  border-bottom: 1px solid var(--civic-line);
+  font-family: var(--civic-body);
+}
+.site-brand {
+  font-family: var(--civic-display);
+  font-weight: 700;
+  font-size: var(--fs-big);
+  color: var(--ink-aaa);
+  white-space: nowrap;
+}
+.site-nav {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  overflow-x: auto;
+  flex: 1;
+  min-width: 0;
+  -webkit-overflow-scrolling: touch;
+}
+.site-nav a {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 8px 14px;
+  border-radius: 10px;
+  border-bottom: 3px solid transparent;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--ink-dim-aaa);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--ink-aaa);
+  background: var(--civic-paper-shade);
+}
+/* Open page: color + weight + a solid underline bar (not color alone) */
+.site-nav a[aria-current="page"] {
+  color: var(--accent-aaa);
+  font-weight: 700;
+  border-bottom-color: var(--accent-aaa);
+  border-radius: 10px 10px 0 0;
+}
+#nav-text-size {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--tap);
+  padding: 8px 16px;
+  border: 2px solid var(--civic-line);
+  border-radius: 10px;
+  background: var(--civic-paper);
+  color: var(--ink-aaa);
+  font-family: var(--civic-body);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+#nav-text-size span[aria-hidden] {
+  font-family: var(--civic-display);
+  font-size: var(--fs-big);
+  line-height: 1;
+}
+#nav-text-size[aria-pressed="true"] {
+  background: var(--accent-aaa);
+  border-color: var(--accent-aaa);
+  color: #ffffff;
+}
+
+/* ---------------------------------------------------------------------------
+   4) GLOSSARY — tappable terms + the definition popover
+   --------------------------------------------------------------------------- */
+button.term {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 4px 2px; /* inline in prose: comfortable without breaking flow */
+  margin: -4px 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.term-mark {
+  color: var(--accent-aaa);
+  font-size: var(--fs-small);
+}
+.glossary-pop {
+  position: fixed;
+  z-index: 200;
+  max-width: min(360px, calc(100vw - 24px));
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: var(--civic-paper);
+  border: 1px solid var(--civic-line);
+  box-shadow: 0 18px 44px rgba(28, 39, 51, 0.2);
+  font-family: var(--civic-body);
+  color: var(--ink-aaa);
+}
+.glossary-pop-title {
+  font-family: var(--civic-display);
+  font-weight: 700;
+  font-size: var(--fs-big);
+  margin-bottom: 8px;
+}
+.glossary-pop-body {
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  color: var(--ink-dim-aaa);
+  margin: 0 0 14px;
+}
+.glossary-pop-close {
+  width: 100%;
+  min-height: var(--tap);
+  border: none;
+  border-radius: 10px;
+  background: var(--accent-aaa);
+  color: #ffffff;
+  font-family: var(--civic-body);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------------
+   5) WELCOME PANEL (first visit only; js/siteNav.js)
+   --------------------------------------------------------------------------- */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(28, 39, 51, 0.45);
+}
+.welcome-card {
+  max-width: 560px;
+  padding: 28px 30px;
+  border-radius: 14px;
+  background: var(--civic-paper);
+  border: 1px solid var(--civic-line);
+  box-shadow: 0 18px 44px rgba(28, 39, 51, 0.3);
+  font-family: var(--civic-body);
+  color: var(--ink-aaa);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+}
+.welcome-card h2 {
+  font-family: var(--civic-display);
+  font-size: var(--fs-h2);
+  margin: 0 0 10px;
+}
+.welcome-card p,
+.welcome-card ul {
+  margin: 0 0 12px;
+  color: var(--ink-dim-aaa);
+}
+.welcome-card ul {
+  padding-left: 22px;
+}
+.welcome-card li {
+  margin-bottom: 6px;
+}
+.welcome-dismiss {
+  width: 100%;
+  min-height: var(--tap);
+  margin-top: 6px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent-aaa);
+  color: #ffffff;
+  font-family: var(--civic-body);
+  font-size: var(--fs-big);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------------
+   6) SYSTEM PREFERENCES
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (prefers-contrast: more) {
+  :root {
+    --ink-dim-aaa: #1c2733;
+    --civic-line: #44505c;
+  }
+}
+@media (pointer: coarse) {
+  .site-nav a,
+  #nav-text-size,
+  .glossary-pop-close,
+  .welcome-dismiss {
+    min-height: 48px;
+  }
+}
+
+/* Narrow screens: the text-size toggle must NEVER scroll off the edge behind
+   the nav tabs. Brand + toggle share the first row; the nav gets its own
+   full-width scrollable row below. */
+@media (max-width: 760px) {
+  .site-header-bar {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 8px 12px;
+  }
+  #nav-text-size {
+    order: 2;
+    margin-left: auto;
+  }
+  .site-nav {
+    order: 3;
+    flex-basis: 100%;
+  }
+}

@@ -4,3 +4,5 @@ requests>=2.28.0
 lxml>=4.9.0
 pyshp>=2.3      # VTD shapefile reading (fetch_vtd_geojson.py)
 pyproj>=3.6     # Lambert Conformal Conic -> WGS84 reprojection
+scikit-learn>=1.4   # ethnicity_infer/ name-origin classifier (CPU-only)
+joblib>=1.3         # ethnicity_infer/ model persistence

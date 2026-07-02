@@ -4,7 +4,7 @@
 // Feature 4A: Precinct Voting History
 // Feature 4B: Precinct Comparison
 
-import { loadElectionData, listElectionCSVs } from "./dataLoader.js";
+import { loadElectionData, listElectionCSVs, loadPrecinctRaces } from "./dataLoader.js";
 import { getRaceKey } from "./electionTrends.js";
 
 // ============================================================================
@@ -121,8 +121,6 @@ export function getPrecinctResult(electionData, precinctCode) {
   if (candidateVotes === 0) {
     return null;
   }
-
-  const ballotsCast = Number(record['BALLOTS CAST TOTAL']) || 0;
 
   return {
     precinctCode: codeStr,
@@ -469,41 +467,17 @@ export function generateComparisonHTML(demographics, electionComparison, raceNam
 // ============================================================================
 
 // Cache for loaded election data
-let electionDataCache = {};
-
 /**
- * Load all election data for a precinct's history
- * @returns {Promise<Object>} - Map of filename -> election data array
+ * Load this precinct's election data in the legacy `allElectionData` shape
+ * ({ raceFile: [oneRow] }). Backed by the precomputed per-precinct history file
+ * (data_processor/build_precinct_history.py) — one small fetch, no client-side
+ * pivoting. Replaces the old loadAllElectionDataForHistory() 587-file bulk load;
+ * every precinct-page consumer only ever looks up this precinct's own row.
+ * @param {string} precinctCode - Precinct code
+ * @returns {Promise<Object>} - Map of raceFile -> [row]
  */
-export async function loadAllElectionDataForHistory() {
-  // Return cache if populated
-  if (Object.keys(electionDataCache).length > 0) {
-    return electionDataCache;
-  }
-  
-  let files = await listElectionCSVs();
-  let loadPromises = files.map(async function loadSingleElection(entry) {
-    let filename = typeof entry === 'string' ? entry : entry.filename;
-    try {
-      let data = await loadElectionData(entry);
-      return [filename, data];
-    } catch (err) {
-      console.warn(`Failed to load ${filename}:`, err);
-      return [filename, []];
-    }
-  });
-  
-  let results = await Promise.all(loadPromises);
-  electionDataCache = Object.fromEntries(results);
-  
-  return electionDataCache;
-}
-
-/**
- * Clear the election data cache
- */
-export function clearElectionDataCache() {
-  electionDataCache = {};
+export async function loadPrecinctHistoryData(precinctCode) {
+  return loadPrecinctRaces(precinctCode);
 }
 
 /**
@@ -512,7 +486,7 @@ export function clearElectionDataCache() {
  * @returns {Promise<Object>} - Voting history
  */
 export async function getPrecinctVotingHistory(precinctCode) {
-  let allData = await loadAllElectionDataForHistory();
+  let allData = await loadPrecinctRaces(precinctCode);
   return buildVotingHistory(precinctCode, allData);
 }
 
@@ -529,7 +503,7 @@ export async function getPrecinctVotingHistory(precinctCode) {
 export async function computePrecinctTrend(precinctCode) {
   if (!precinctCode) return null;
 
-  let allData = await loadAllElectionDataForHistory();
+  let allData = await loadPrecinctRaces(precinctCode);
   let manifest = await listElectionCSVs();
 
   // Build a lookup from filename to manifest entry for year/category info
@@ -586,7 +560,7 @@ export async function computePrecinctTrend(precinctCode) {
   // Find the family with the two most recent elections
   let bestFamily = null;
   let bestRecent = 0;
-  for (let [key, races] of Object.entries(byFamily)) {
+  for (let [, races] of Object.entries(byFamily)) {
     if (races.length < 2) continue;
     races.sort((a, b) => b.year - a.year);
     let mostRecent = races[0].year;

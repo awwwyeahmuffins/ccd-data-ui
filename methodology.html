@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works — Collin County Elections</title>
+  <meta name="description" content="Where the election data comes from, what the maps mean, what the site cannot tell you, and how your privacy is handled." />
+  <meta name="theme-color" content="#EFEBE2" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="js/civic.css" />
+
+  <style>
+    /* Single-column reading page. Everything inherits the civic.css 18px/1.5
+       floor; this block is layout only. */
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: #efebe2;
+      color: var(--ink-aaa);
+      font-family: var(--civic-body);
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+    h1.page-title {
+      font-family: var(--civic-display);
+      font-size: var(--fs-h1);
+      line-height: 1.15;
+      margin: 0 0 8px;
+    }
+    .page-lede {
+      font-size: var(--fs-big);
+      color: var(--ink-dim-aaa);
+      margin: 0 0 32px;
+    }
+    section {
+      background: var(--civic-paper);
+      border: 1px solid var(--civic-line);
+      border-radius: 14px;
+      padding: 26px 28px;
+      margin-bottom: 22px;
+    }
+    h2 {
+      font-family: var(--civic-display);
+      font-size: var(--fs-h2);
+      margin: 0 0 12px;
+    }
+    p, li { color: var(--ink-dim-aaa); }
+    p { margin: 0 0 14px; }
+    ul { margin: 0 0 14px; padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    strong { color: var(--ink-aaa); }
+    a { color: var(--accent-aaa); }
+  </style>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <h1 class="page-title">How It Works</h1>
+    <p class="page-lede">Where the numbers come from, what the maps mean, and what this site can and cannot tell you — in plain language.</p>
+
+    <section id="sources">
+      <h2>Where the data comes from</h2>
+      <p>Every result on this site is a <strong>real, officially reported election result</strong>. Nothing is estimated after the fact, and nothing is ever made up. The numbers arrive by two routes:</p>
+      <ul>
+        <li><strong>Full-ballot counties (175):</strong> precinct results from OpenElections are checked, race by race, against the official state canvass before they are allowed in. If a county's numbers do not match the official record exactly, they are rejected.</li>
+        <li><strong>Statewide-race counties (79):</strong> where the full ballot could not be verified, the site carries the ten statewide 2020 races from VEST, a university dataset built directly from official precinct returns.</li>
+      </ul>
+      <p>Precinct borders come from the Texas Legislative Council and are matched to the year of each election, because borders get redrawn over time.</p>
+    </section>
+
+    <section id="reading">
+      <h2>How to read the map</h2>
+      <ul>
+        <li><strong>Lean</strong> shows which party each precinct usually favors, based on several past elections together.</li>
+        <li><strong>Margin</strong> shows how close the vote was — the gap between first and second place.</li>
+        <li><strong>Diversity</strong> shows the share of residents who are not non-Hispanic white, from Census data.</li>
+      </ul>
+      <p>Past results describe habits, not guarantees. A precinct that leaned one way last time can vote differently next time — that is exactly why close precincts are worth attention.</p>
+    </section>
+
+    <section id="limits">
+      <h2>What this site cannot tell you</h2>
+      <ul>
+        <li><strong>Some counties show fewer races.</strong> The 79 statewide-race counties carry only the ten 2020 statewide contests. Local races there are simply not shown rather than guessed at.</li>
+        <li><strong>Blank means blank.</strong> When a number is not in the official record — for example, ballots cast in some counties — the site shows <strong>N/A</strong> instead of an estimate.</li>
+        <li><strong>Demographics are area estimates.</strong> Census figures are matched to precinct shapes by area, so small precincts can inherit slightly blurred numbers.</li>
+        <li><strong>Nothing here predicts individual people.</strong> Everything is about places — precincts — never about how any one person voted, which is secret by law.</li>
+      </ul>
+    </section>
+
+    <section id="privacy">
+      <h2>Your privacy</h2>
+      <ul>
+        <li>The site keeps <strong>no account of what you look at</strong>. There is no analytics tracker and no advertising.</li>
+        <li>Your two on-device settings — text size and the “welcome seen” flag — are stored only in your browser.</li>
+        <li>If you type an address to find its precinct, that one address is sent to OpenStreetMap's public geocoder to get map coordinates. Type only an address you are comfortable looking up — a nearby cross-street works just as well.</li>
+        <li>“Use my location” asks your permission first, and your position is used once, on your device, to find the precinct you are standing in.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script type="module" src="js/siteNav.js"></script>
+</body>
+</html>

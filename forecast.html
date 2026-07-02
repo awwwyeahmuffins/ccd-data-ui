@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Forecast — Texas Elections</title>
+  <title>Forecast — Collin County Elections</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- civic.css loads AFTER styles.css so the a11y layer wins by source order -->
+  <link rel="stylesheet" href="js/civic.css" />
   <style>
     /* styles.css pins html/body to a flex full-viewport layout for the map
        app (overflow hidden, no document scroll) — restore normal page flow */
@@ -25,28 +27,7 @@
       color: var(--color-text-primary);
       font-size: 17px;
     }
-    .page-header {
-      background: var(--color-bg-primary);
-      border-bottom: 1px solid var(--color-border);
-      padding: 14px 24px;
-      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-    }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
-    .brand-icon {
-      background: linear-gradient(150deg, #1560C4, #0B4DA2); color: #FFFFFF; font-weight: 800;
-      border-radius: 10px; width: 34px; height: 34px; display: grid; place-items: center; font-size: 15px;
-      font-family: var(--font-body); letter-spacing: -.5px;
-    }
-    .brand-text { font-family: var(--font-display); font-weight: 700; font-size: 20px; }
-    .site-nav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
-    .site-nav a {
-      display: inline-flex; align-items: center; gap: 7px;
-      text-decoration: none; color: var(--color-text-secondary);
-      padding: 8px 14px; border-radius: 8px; font-weight: 600; font-size: 15px;
-    }
-    .site-nav a svg { width: 16px; height: 16px; stroke-width: 1.8; }
-    .site-nav a:hover { background: var(--color-bg-tertiary); }
-    .site-nav a.active { background: var(--color-primary); color: #fff; }
+    /* Header: the shared civic header (js/siteNav.js + js/civic.css) */
 
     .page-main { max-width: 1060px; margin: 0 auto; padding: 28px 20px 80px; }
     .page-title { font-family: var(--font-display); font-size: 32px; margin: 0 0 6px; }
@@ -111,20 +92,7 @@
   </style>
 </head>
 <body>
-  <header class="page-header">
-    <a class="brand" href="index.html">
-      <span class="brand-icon">TX</span>
-      <span class="brand-text">Texas Elections</span>
-    </a>
-    <nav class="site-nav" aria-label="Site">
-      <a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="3 7 9 4 15 7 21 4 21 17 15 20 9 17 3 20 3 7"/><line x1="9" y1="4" x2="9" y2="17"/><line x1="15" y1="7" x2="15" y2="20"/></svg>Map</a>
-      <a href="elections.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>Elections</a>
-      <a href="forecast.html" class="active" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 17l6-6 4 4 8-8"/><polyline points="14 7 21 7 21 14"/></svg>Forecast</a>
-      <a href="targets.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/></svg>Targets</a>
-      <a href="explore.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/><circle cx="8" cy="6" r="1.6" fill="currentColor"/><circle cx="16" cy="12" r="1.6" fill="currentColor"/><circle cx="11" cy="18" r="1.6" fill="currentColor"/></svg>Explore</a>
-      <a href="precinct.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>Lookup</a>
-    </nav>
-  </header>
+  <header id="site-header"></header>
 
   <main class="page-main">
     <h1 class="page-title">Forecast a scenario</h1>
@@ -162,7 +130,8 @@
     </section>
   </main>
 
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/vendor/d3.v7.min.js"></script>
   <script type="module" src="js/forecastPage.js"></script>
+  <script type="module" src="js/siteNav.js"></script>
 </body>
 </html>

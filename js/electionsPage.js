@@ -123,14 +123,14 @@ function renderList() {
     byYear.get(y).push(e);
   }
   const catOrder = [...CATEGORY_ORDER, 'Other'].filter(c => byCategory.has(c));
-  // Searching or filtering means the user is hunting — expand everything.
-  const expandAll = Boolean(pg.search) || pg.category !== 'All';
 
-  $('el-list').innerHTML = catOrder.map((cat, i) => {
+  // Flat architecture: every category renders open under a plain heading —
+  // the category chips above and the always-visible search do the narrowing.
+  // (The old collapsed accordion hid most of the catalog behind extra taps.)
+  $('el-list').innerHTML = catOrder.map(cat => {
     const byYear = byCategory.get(cat);
     const years = [...byYear.keys()].sort((a, b) => (b === 'Undated' ? -1 : b) - (a === 'Undated' ? -1 : a));
     const total = [...byYear.values()].reduce((s, v) => s + v.length, 0);
-    const open = expandAll || i === 0;
     const body = years.map(y => `
       <div class="year-heading">${escapeHtml(String(y))}</div>
       ${byYear.get(y)
@@ -138,23 +138,14 @@ function renderList() {
         .sort((a, b) => (a.displayName || a.filename).localeCompare(b.displayName || b.filename))
         .map(raceRow).join('')}`).join('');
     return `
-      <div class="family-group">
-        <button type="button" class="family-header" aria-expanded="${open}">
+      <section class="family-group">
+        <h2 class="family-header">
           <span>${escapeHtml(cat)}</span>
           <span class="family-count">${total} race${total === 1 ? '' : 's'}</span>
-        </button>
-        <div class="family-body" ${open ? '' : 'hidden'}>${body}</div>
-      </div>`;
+        </h2>
+        <div class="family-body">${body}</div>
+      </section>`;
   }).join('');
-
-  $('el-list').querySelectorAll('.family-header').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const body = btn.nextElementSibling;
-      const open = !body.hidden;
-      body.hidden = open;
-      btn.setAttribute('aria-expanded', String(!open));
-    });
-  });
 }
 
 function raceRow(e) {

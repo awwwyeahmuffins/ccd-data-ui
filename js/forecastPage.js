@@ -38,9 +38,9 @@ const PRESETS = [
 ];
 
 const SLIDER_GROUPS = [
-  { key: 'Rep', label: 'Republican-leaning voters', color: 'var(--color-rep)' },
+  { key: 'Rep', label: 'Republican-leaning voters', color: 'var(--color-rep-text)' },
   { key: 'Mod', label: 'Moderate / swing voters',   color: 'var(--color-mod)' },
-  { key: 'Dem', label: 'Democratic-leaning voters', color: 'var(--color-dem)' },
+  { key: 'Dem', label: 'Democratic-leaning voters', color: 'var(--color-dem-text)' },
 ];
 
 const $ = id => document.getElementById(id);
@@ -115,7 +115,7 @@ async function loadCounty() {
       renderOutcome();
     }
   } catch (err) {
-    status.textContent = 'Could not load this county’s data.';
+    status.innerHTML = 'We couldn’t load this county’s data. Check your internet connection, then <button type="button" class="retry-link" onclick="location.reload()">try again</button>.';
     console.error(err);
   }
 }

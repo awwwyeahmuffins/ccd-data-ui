@@ -28,6 +28,9 @@ import { escapeHtml } from "./utils.js";
 
 const DEFAULT_COLUMNS = ["winner", "demShare", "registered", "population", "medianIncome", "medianHomeValue", "medianAge", "pctFamily", "nonWhite", "turnoutRate"];
 
+// The Summary view: the eight numbers that matter most, no horizontal scroll.
+const SUMMARY_COLUMNS = ["winner", "demShare", "registered", "population", "medianIncome", "nonWhite", "turnoutRate"];
+
 // Electorates this small make every percentage noise (e.g. "100% Dem" off 2
 // voters) and mean the area-weighted census figures wildly overstate who really
 // lives there (commercial strips, new developments) — flag the row so the real
@@ -37,6 +40,7 @@ const TINY_ELECTORATE = 50;
 const pg = {
   county: "collin",
   boundary: "original",   // "original" (2024) ⇄ "2026" where available
+  view: "summary",        // "summary" | a METRIC_CATEGORIES id | "all" (spreadsheet)
   sortKey: "medianIncome",
   sortDir: "desc",
   party: "all",
@@ -127,12 +131,14 @@ async function loadCounty() {
     if (!pg.columns.length) pg.columns = DEFAULT_COLUMNS.filter((id) => pg.available.has(id));
     if (!pg.available.has(pg.sortKey)) pg.sortKey = pg.available.has("demShare") ? "demShare" : pg.columns[0] || "population";
     if (!pg.columns.includes(pg.sortKey)) pg.columns.unshift(pg.sortKey);
+    if (pg.view !== "summary" && pg.view !== "all" && !METRIC_CATEGORIES.some((c) => c.id === pg.view)) pg.view = "summary";
     populateMetricSelects();
+    renderViewTabs();
     renderColumnsPicker();
     render();
   } catch (err) {
     console.error("[Explore] load failed:", err);
-    $("ex-body").innerHTML = '<tr><td class="empty-note">Could not load this county’s data.</td></tr>';
+    $("ex-body").innerHTML = '<tr><td class="empty-note">We couldn’t load this county’s data. Check your internet connection, then <button type="button" class="retry-link" onclick="location.reload()">try again</button>.</td></tr>';
   }
 }
 
@@ -151,7 +157,7 @@ function populateMetricSelects() {
   $("ex-sort").value = pg.sortKey;
   // filter metric: numeric only (winner is handled by the party control)
   $("ex-fmetric").innerHTML = metricOptgroups((m) => m.fmt !== "text");
-  $("ex-dir").textContent = pg.sortDir === "desc" ? "↓" : "↑";
+  applyDirLabel();
 }
 
 // ---- columns picker ---------------------------------------------------------
@@ -174,15 +180,48 @@ function renderColumnsPicker() {
   });
 }
 
+// ---- flat view tabs: Summary · one tab per topic · All columns --------------
+function renderViewTabs() {
+  const cats = METRIC_CATEGORIES.filter((cat) => METRICS.some((m) => m.cat === cat.id && pg.available.has(m.id)));
+  const tab = (id, label) =>
+    `<button type="button" data-view="${escapeHtml(id)}" aria-pressed="${String(pg.view === id)}">${escapeHtml(label)}</button>`;
+  $("ex-views").innerHTML =
+    tab("summary", "Summary") +
+    cats.map((c) => tab(c.id, c.label)).join("") +
+    tab("all", "All columns (spreadsheet)");
+  $("ex-views").querySelectorAll("button[data-view]").forEach((b) => {
+    b.addEventListener("click", () => {
+      pg.view = b.dataset.view;
+      updateURL();
+      renderViewTabs();
+      render();
+    });
+  });
+  // the checkbox column picker only applies to the full spreadsheet
+  document.querySelector("details.cols").style.display = pg.view === "all" ? "" : "none";
+}
+
+// Which columns the active view shows. The sorted metric always stays visible.
+function displayColumns() {
+  let cols;
+  if (pg.view === "summary") cols = SUMMARY_COLUMNS.filter((id) => pg.available.has(id));
+  else if (pg.view === "all") cols = pg.columns.slice();
+  else cols = METRICS.filter((m) => m.cat === pg.view && pg.available.has(m.id)).map((m) => m.id);
+  if (!cols.length) cols = DEFAULT_COLUMNS.filter((id) => pg.available.has(id));
+  if (!cols.includes(pg.sortKey) && pg.available.has(pg.sortKey)) cols.push(pg.sortKey);
+  return cols;
+}
+
 // ---- render table -----------------------------------------------------------
 function render() {
   const filtered = filterRecords(pg.records, { party: pg.party, conditions: pg.conditions });
   const sorted = sortRecords(filtered, pg.sortKey, pg.sortDir);
 
+  const cols = displayColumns();
   // header
   const arrow = pg.sortDir === "desc" ? " ↓" : " ↑";
   let head = `<th class="pcell-precinct" data-col="precinct">Precinct</th>`;
-  head += pg.columns.map((id) => {
+  head += cols.map((id) => {
     const m = getMetric(id);
     const isSorted = id === pg.sortKey;
     return `<th data-col="${id}" class="${isSorted ? "sorted" : ""}">${escapeHtml(m ? m.label : id)}${isSorted ? arrow : ""}</th>`;
@@ -195,11 +234,11 @@ function render() {
 
   // body
   if (!sorted.length) {
-    $("ex-body").innerHTML = '<tr><td class="empty-note" colspan="' + (pg.columns.length + 1) + '">No precincts match these filters.</td></tr>';
+    $("ex-body").innerHTML = '<tr><td class="empty-note" colspan="' + (cols.length + 1) + '">No precincts match these filters.</td></tr>';
   } else {
     const cParam = encodeURIComponent(pg.county);
     $("ex-body").innerHTML = sorted.map((r) => {
-      const cells = pg.columns.map((id) => {
+      const cells = cols.map((id) => {
         const m = getMetric(id);
         const v = r[id];
         if (id === "winner") {
@@ -212,9 +251,11 @@ function render() {
       const tiny = elect != null && elect < TINY_ELECTORATE;
       let flag = "";
       if (r.artifact) {
-        flag = ` <span class="tiny-flag" title="Non-residential sliver — ${elect} registered voters. Its census &quot;population&quot; was an area-weighted apportionment artifact (a thin sliver can't hold thousands of residents) and is suppressed here; the voter counts are the only real data.">⚠</span>`;
+        const msg = `Non-residential sliver — ${elect} registered voters. Its census population figure was unreliable and is hidden; the voter counts are the only real data.`;
+        flag = ` <span class="tiny-flag" role="img" tabindex="0" aria-label="${msg}" title="${msg}">⚠</span>`;
       } else if (tiny) {
-        flag = ` <span class="tiny-flag" title="Only ${elect} registered voter${elect === 1 ? "" : "s"} — a small, low-turnout precinct, so the percentages are noisy; its census figures are area-weighted estimates.">⚠</span>`;
+        const msg = `Only ${elect} registered voter${elect === 1 ? "" : "s"} — a very small precinct, so the percentages are noisy.`;
+        flag = ` <span class="tiny-flag" role="img" tabindex="0" aria-label="${msg}" title="${msg}">⚠</span>`;
       }
       return `<tr class="${tiny || r.artifact ? "tiny-row" : ""}"><td class="pcell-precinct"><a href="precinct.html#county=${cParam}&precinct=${encodeURIComponent(r.precinct)}">${escapeHtml(r.precinct)}</a>${flag}</td>${cells}</tr>`;
     }).join("");
@@ -227,10 +268,14 @@ function setSort(key) {
   else { pg.sortKey = key; pg.sortDir = "desc"; }
   if (!pg.columns.includes(key)) pg.columns.push(key);
   $("ex-sort").value = pg.sortKey;
-  $("ex-dir").textContent = pg.sortDir === "desc" ? "↓" : "↑";
+  applyDirLabel();
   renderColumnsPicker();
   updateURL();
   render();
+}
+
+function applyDirLabel() {
+  $("ex-dir").textContent = pg.sortDir === "desc" ? "High → low" : "Low → high";
 }
 
 // ---- filters ----------------------------------------------------------------
@@ -251,7 +296,7 @@ function renderChips() {
 
 // ---- URL sync ---------------------------------------------------------------
 function updateURL() {
-  history.replaceState(null, "", `#county=${encodeURIComponent(pg.county)}&boundary=${encodeURIComponent(pg.boundary)}&sort=${encodeURIComponent(pg.sortKey)}&dir=${pg.sortDir}`);
+  history.replaceState(null, "", `#county=${encodeURIComponent(pg.county)}&boundary=${encodeURIComponent(pg.boundary)}&view=${encodeURIComponent(pg.view)}&sort=${encodeURIComponent(pg.sortKey)}&dir=${pg.sortDir}`);
 }
 function readURL() {
   const params = {};
@@ -261,6 +306,7 @@ function readURL() {
   }
   if (params.county) pg.county = params.county;
   if (params.boundary) pg.boundary = params.boundary;
+  if (params.view) pg.view = params.view;
   if (params.sort && getMetric(params.sort)) pg.sortKey = params.sort;
   if (params.dir === "asc" || params.dir === "desc") pg.sortDir = params.dir;
 }
@@ -269,7 +315,7 @@ function readURL() {
 async function init() {
   readURL();
   $("ex-sort").addEventListener("change", (e) => { pg.sortKey = e.target.value; if (!pg.columns.includes(pg.sortKey)) pg.columns.push(pg.sortKey); renderColumnsPicker(); updateURL(); render(); });
-  $("ex-dir").addEventListener("click", () => { pg.sortDir = pg.sortDir === "desc" ? "asc" : "desc"; $("ex-dir").textContent = pg.sortDir === "desc" ? "↓" : "↑"; updateURL(); render(); });
+  $("ex-dir").addEventListener("click", () => { pg.sortDir = pg.sortDir === "desc" ? "asc" : "desc"; applyDirLabel(); updateURL(); render(); });
   $("ex-party").addEventListener("change", (e) => { pg.party = e.target.value; renderChips(); render(); });
   $("ex-boundary").addEventListener("change", (e) => { pg.boundary = e.target.value; updateURL(); loadCounty(); });
   $("ex-addfilter").addEventListener("click", () => {

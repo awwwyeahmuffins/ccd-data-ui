@@ -5,24 +5,37 @@ test.setTimeout(60000);
 
 async function load(page) {
   await page.goto('/targets.html');
-  await expect(page.locator('.strat-card').first()).toBeVisible({ timeout: 30000 });
-  // wait until the ranked list has populated
+  // results-first IA: the ranked list renders immediately (default strategy)
   await expect(page.locator('.tg-precinct').first()).toBeVisible({ timeout: 30000 });
 }
 
+// The 15-strategy catalogue sits behind one "Change strategy" disclosure.
+async function openCatalog(page) {
+  if (await page.locator('#tg-catalog-wrap').isHidden()) {
+    await page.click('#tg-strategy-btn');
+  }
+  await expect(page.locator('.strat-card').first()).toBeVisible();
+}
+
 test.describe('Targets view', () => {
-  test('renders the full strategy catalogue and a ranked list', async ({ page }) => {
+  test('leads with a ranked list, catalogue behind one disclosure', async ({ page }) => {
     await load(page);
+    // start-here default: closest races are already ranked, no choice required
+    await expect(page.locator('#tg-results-title')).toHaveText('Closest Races');
+    expect(await page.locator('.tg-precinct').count()).toBeGreaterThan(0);
+    // the catalogue is one labelled disclosure away, never a wall of 15 cards
+    await expect(page.locator('#tg-strategy-btn')).toHaveAttribute('aria-expanded', 'false');
+    await expect(page.locator('#tg-strategy-btn')).toContainText('Closest Races');
+    await openCatalog(page);
     expect(await page.locator('.strat-card').count()).toBeGreaterThanOrEqual(12);
     expect(await page.locator('.strat-cat').count()).toBe(4);
-    await expect(page.locator('#tg-results-title')).toHaveText('Pure Tossups');
-    expect(await page.locator('.tg-precinct').count()).toBeGreaterThan(0);
   });
 
   test('selecting a strategy re-ranks the list', async ({ page }) => {
     await load(page);
+    await openCatalog(page);
     await page.click('.strat-card[data-strat="flip-rep-dem"]');
-    await expect(page.locator('#tg-results-title')).toHaveText('Flip Rep → Dem');
+    await expect(page.locator('#tg-results-title')).toHaveText('Flippable to Democrats');
     await expect(page.locator('.strat-card[data-strat="flip-rep-dem"]')).toHaveClass(/active/);
     await expect(page.locator('.tg-precinct').first()).toBeVisible();
   });
@@ -35,6 +48,7 @@ test.describe('Targets view', () => {
 
   test('turnout strategies are available where turnout data exists (Collin)', async ({ page }) => {
     await load(page);
+    await openCatalog(page);
     await expect(page.locator('.strat-card[data-strat="turnout-gap"]')).not.toBeDisabled();
     await page.click('.strat-card[data-strat="turnout-gap"]');
     await expect(page.locator('#tg-results-title')).toHaveText('Turnout Opportunity');

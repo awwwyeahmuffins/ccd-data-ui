@@ -73,3 +73,29 @@ test.describe('Forecast scenario page', () => {
     await expect(page.locator('#fc-race')).toHaveValue(/[Gg]overnor/);
   });
 });
+
+test.describe('Methodology page', () => {
+  test('loads with title and active nav tab', async ({ page }) => {
+    await page.goto('/methodology.html');
+    await expect(page.locator('h1.page-title')).toBeVisible();
+    await expect(page.locator('h1.page-title')).toHaveText('How It Works');
+    // Methodology nav link is the active one on this page
+    await expect(page.locator('.site-nav a[href="methodology.html"]')).toHaveAttribute('aria-current', 'page');
+    // Key sections are present
+    await expect(page.locator('#limits')).toBeVisible();
+    await expect(page.locator('#privacy')).toBeVisible();
+  });
+
+  test('nav links out to a sibling page', async ({ page }) => {
+    await page.goto('/methodology.html');
+    await page.locator('.site-nav a[href="elections.html"]').click();
+    await page.waitForSelector('.family-group', { timeout: 30000 });
+    await expect(page).toHaveURL(/elections\.html/);
+  });
+
+  test('sibling pages expose the Methodology tab', async ({ page }) => {
+    await page.goto('/elections.html');
+    await page.waitForSelector('.family-group', { timeout: 30000 });
+    await expect(page.locator('.site-nav a[href="methodology.html"]')).toBeVisible();
+  });
+});

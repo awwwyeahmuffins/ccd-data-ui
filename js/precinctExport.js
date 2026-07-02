@@ -2,7 +2,8 @@
 // --------------------------------------------------------------------------------
 // Export precinct report as PDF (via print) or Markdown download.
 
-import { CATEGORY_ORDER, formatRaceName, calculateTurnout } from "./precinctHistory.js";
+import { CATEGORY_ORDER, calculateTurnout } from "./precinctHistory.js";
+import { populationOf } from "./utils.js";
 
 /**
  * Export the current report as PDF via the browser print dialog.
@@ -42,8 +43,10 @@ export function exportAsMarkdown(data) {
     lines.push("");
     lines.push("| Metric | Value |");
     lines.push("|--------|-------|");
-    if (data.census?.population != null) {
-      lines.push(`| Population | ${Number(data.census.population).toLocaleString()} |`);
+    // "Population" = racial-data total (sitewide convention), not census.population
+    let popVal = populationOf(data.racialData, data.census);
+    if (popVal != null) {
+      lines.push(`| Population | ${Number(popVal).toLocaleString()} |`);
     }
     if (data.census?.households?.total != null) {
       lines.push(`| Households | ${Number(data.census.households.total).toLocaleString()} |`);

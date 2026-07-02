@@ -49,3 +49,8 @@ source_material/
 test-results/
 playwright-report/
 collin_elections_master/
+
+# ethnicity_infer generated artifacts — contain voter PII / derived labels
+data_processor/ethnicity_infer/training_data.csv
+data_processor/ethnicity_infer/model.joblib
+data_processor/ethnicity_infer/*_flagged.csv

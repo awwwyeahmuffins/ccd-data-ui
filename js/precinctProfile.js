@@ -3,6 +3,7 @@
 // Census profile panel UI — renders detailed demographic/economic data for a precinct.
 
 import { getActiveBoundary, getBoundaryConfigs } from "./dataLoader.js";
+import { populationOf } from "./utils.js";
 
 let cachedProfiles = null;
 let cachedBoundary = null;
@@ -365,7 +366,7 @@ export function renderBoundaryChanges(metadata) {
 
   switch (type) {
     case "unchanged":
-      badgeColor = "#4CAF50";
+      badgeColor = "#145239";
       badgeText = `Unchanged from Precinct ${sources[0]?.old || "?"}`;
       break;
     case "split":
@@ -434,7 +435,7 @@ function renderProjections(p) {
     const projected = m.fmt(d.projected);
     const cagr = d.cagr || 0;
     const arrow = cagr > 0 ? "\u2191" : cagr < 0 ? "\u2193" : "\u2192";
-    const arrowColor = cagr > 0 ? "#4CAF50" : cagr < 0 ? "#F44336" : "#9E9E9E";
+    const arrowColor = cagr > 0 ? "#145239" : cagr < 0 ? "#A01218" : "#44505C";
     const changePct = (Math.abs(cagr) * 100).toFixed(1) + "%/yr";
 
     rows += `<div class="profile-bar-item" style="align-items:center">`;
@@ -475,7 +476,10 @@ export function generateProfileHTML(profile, precinctCode, extraData = {}) {
   if (p.populationDensity != null) {
     popDensity = ` &middot; ${escapeHtml(formatNum(Math.round(p.populationDensity)))} per sq mi`;
   }
-  html += `<div class="profile-pop">Pop. ${escapeHtml(formatNum(p.population))} &middot; ${escapeHtml(formatNum(p.households?.total))} households${popDensity}</div>`;
+  // "Pop." = racial-data total (sitewide convention); other census fields below
+  // remain census. Falls back to census.population only if no racial row exists.
+  let popVal = populationOf(extraData.racialData, p);
+  html += `<div class="profile-pop">Pop. ${escapeHtml(formatNum(popVal))} &middot; ${escapeHtml(formatNum(p.households?.total))} households${popDensity}</div>`;
   html += `</div>`;
 
   html += `<div class="profile-disclaimer">`;

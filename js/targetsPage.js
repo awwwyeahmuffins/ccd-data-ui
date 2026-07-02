@@ -22,6 +22,23 @@ import {
 } from "./targeting.js";
 import { ELECTION_META_KEYS } from "./constants.js";
 import { escapeHtml } from "./utils.js";
+import { initGlossary, termButton } from "./glossary.js";
+
+// Metric labels that have a plain-language glossary entry render as tappable
+// term buttons (never hover-only tooltips — the audience is 60+ on iPads).
+const METRIC_TERMS = {
+  // keys must match headlineFor()'s labels exactly
+  "Win margin": "margin",
+  "Moderate bloc": "moderate",
+  "Moderates": "moderate",
+  "Turnout": "turnout",
+  "Non-voters": "turnout",
+  "Voters": "voter-universe",
+};
+function metricLabelHTML(label) {
+  const term = METRIC_TERMS[label];
+  return term ? termButton(term, escapeHtml(label)) : escapeHtml(label);
+}
 
 const pg = {
   county: "collin",
@@ -223,7 +240,7 @@ async function loadCounty() {
     renderResults();
   } catch (err) {
     console.error("[Targets] load failed:", err);
-    $("tg-list").innerHTML = '<div class="empty-note">Could not load this county’s data.</div>';
+    $("tg-list").innerHTML = '<div class="empty-note">We couldn’t load this county’s data. Check your internet connection, then <button type="button" class="retry-link" onclick="location.reload()">try again</button>.</div>';
   }
 }
 
@@ -258,8 +275,25 @@ function renderCatalog() {
       updateURL();
       renderCatalog();
       renderResults();
+      setCatalogOpen(false); // back to the ranked list — the payoff
+      const title = $("tg-results-title");
+      title.setAttribute("tabindex", "-1");
+      title.focus();
     });
   });
+}
+
+// ---- "Change strategy" disclosure (single-level, results-first IA) ----------
+function setCatalogOpen(open) {
+  $("tg-catalog-wrap").hidden = !open;
+  const btn = $("tg-strategy-btn");
+  btn.setAttribute("aria-expanded", String(open));
+  btn.querySelector(".tg-disclose-mark").textContent = open ? "▴" : "▾";
+}
+
+function updateStrategyButton() {
+  const strat = getStrategy(pg.strategy);
+  $("tg-strategy-current").textContent = strat ? `— now: ${strat.label}` : "";
 }
 
 // ---- results ----------------------------------------------------------------
@@ -267,6 +301,7 @@ function renderResults() {
   const strat = getStrategy(pg.strategy);
   if (!strat) return;
   $("tg-results-title").textContent = strat.label;
+  updateStrategyButton();
   const elLabel = activeElectionLabel();
   $("tg-results-sub").textContent = elLabel ? `${strat.blurb} · Scored on ${elLabel}` : strat.blurb;
 
@@ -291,7 +326,7 @@ function renderResults() {
 }
 
 function seg(cls, v) {
-  return `<span class="tg-seg-${cls}" style="flex:${v}">${v > 8 ? v + "%" : ""}</span>`;
+  return v > 0 ? `<span class="tg-seg-${cls}" style="flex:${v}"></span>` : "";
 }
 
 // the headline number for a row depends on the strategy's job
@@ -330,11 +365,11 @@ function precinctCard(rank, row, strat) {
     <div class="tg-rank">${rank}</div>
     <div>
       <div class="tg-pcode">Precinct ${escapeHtml(m.code)}</div>
-      <div class="tg-leanbar">${seg("rep", r)}${seg("mod", mo)}${seg("dem", d)}</div>
+      <div class="tg-leanbar" role="img" aria-label="${r}% Republican, ${mo}% moderate or other, ${d}% Democratic">${seg("rep", r)}${seg("mod", mo)}${seg("dem", d)}</div>
       <div class="tg-why">${escapeHtml(row.explain)}</div>
     </div>
     <div class="tg-pmeta">
-      <div><div class="tg-metric-val">${escapeHtml(head.val)}</div><div class="tg-metric-label">${escapeHtml(head.label)}</div></div>
+      <div><div class="tg-metric-val">${escapeHtml(head.val)}</div><div class="tg-metric-label">${metricLabelHTML(head.label)}</div></div>
       <div class="tg-links">
         <a class="tg-link-report" href="precinct.html#county=${cParam}&precinct=${pParam}">Report</a>
         <a class="tg-link-map" href="index.html#county=${cParam}${pg.electionId ? `&race=${encodeURIComponent(pg.electionId)}` : ""}&precinct=${pParam}">Map</a>
@@ -364,6 +399,10 @@ function readURL() {
 // ---- boot -------------------------------------------------------------------
 async function init() {
   readURL();
+  initGlossary(); // tap-to-define popovers on metric labels
+  $("tg-strategy-btn").addEventListener("click", () => {
+    setCatalogOpen($("tg-catalog-wrap").hidden);
+  });
   $("tg-limit").value = String(pg.limit);
   $("tg-limit").addEventListener("change", (e) => {
     pg.limit = +e.target.value;

@@ -27,6 +27,11 @@ Usage:
 
 Outputs data/tx/AUDIT_REPORT.json (per-county gates, cells compared,
 mismatches) and updates data/tx/counties.json for counties passing all gates.
+
+When a county flips live, its boundary GeoJSON is shrunk (optimize_geojson) and a
+per-precinct voting-history index is precomputed (build_precinct_history) so
+precinct.html loads one small file per click instead of every race CSV. Both are
+also runnable standalone via `make optimize-data`.
 """
 
 import argparse
@@ -42,6 +47,8 @@ from pyproj import CRS, Transformer
 
 sys.path.insert(0, str(Path(__file__).parent))
 import tx_etl  # noqa: E402
+import optimize_geojson  # noqa: E402
+import build_precinct_history  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
 REGISTRY_PATH = ROOT / "data/tx/counties.json"
@@ -653,6 +660,16 @@ def main():
             with out.open("w") as f:
                 json.dump({"type": "FeatureCollection", "features": features},
                           f, separators=(",", ":"))
+
+            # Post-process for fast loading: strip/minify the boundary GeoJSON and
+            # precompute the per-precinct voting-history index precinct.html loads
+            # on click (see data_processor/build_precinct_history.py). Non-fatal —
+            # a hiccup here must not un-flip a county that passed all three gates.
+            try:
+                optimize_geojson.optimize(str(out))
+                build_precinct_history.process_boundary_set(str(set_path))
+            except Exception as opt_err:  # noqa: BLE001
+                print(f"    WARN: post-process optimize skipped: {opt_err}")
 
             entry["status"] = "live"
             entry["dataRoot"] = f"data/tx/{slug}"

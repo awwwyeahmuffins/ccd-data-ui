@@ -48,6 +48,18 @@ export class CcdAuthChatStack extends cdk.Stack {
       },
     });
 
+    // TEMPORARY: skip the email verification-code step. This Pre-Sign-up
+    // trigger auto-confirms every new user, so sign-up logs them straight in.
+    // To re-enable verification, delete this trigger wiring and redeploy.
+    const preSignUpFn = new lambda.Function(this, 'PreSignUpHandler', {
+      runtime: lambda.Runtime.PYTHON_3_12,
+      handler: 'presignup.handler',
+      code: lambda.Code.fromAsset(path.join(__dirname, '..', 'lambda-presignup')),
+      timeout: cdk.Duration.seconds(5),
+      memorySize: 128,
+    });
+    userPool.addTrigger(cognito.UserPoolOperation.PRE_SIGN_UP, preSignUpFn);
+
     // -----------------------------------------------------------------------
     // Lambda — Bedrock Chat Handler
     // -----------------------------------------------------------------------
@@ -154,6 +166,9 @@ export class CcdAuthChatStack extends cdk.Stack {
         origin: origins.S3BucketOrigin.withOriginAccessControl(siteBucket),
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
+        // gzip/brotli the GeoJSON + JSON payloads. Defaults true in CDK, but
+        // pinned explicitly so a future default change can't silently disable it.
+        compress: true,
       },
       domainNames: [domainName, `www.${domainName}`],
       certificate,

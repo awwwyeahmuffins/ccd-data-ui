@@ -71,6 +71,18 @@ export function formatNumber(value) {
   return num.toLocaleString();
 }
 
+// 6b) The one "Population" number used sitewide: the racial-data total (the
+// voter universe), NOT census.population (an unreliable ACS apportionment).
+// Both the map and the precinct report read this so the two views agree. Falls
+// back to census.population only when a precinct has no racial row; returns null
+// (→ "N/A") when neither is available. `census` is optional (the map omits it).
+export function populationOf(racial, census) {
+  const total = racial && Number(racial.total);
+  if (total > 0) return total;
+  const cp = census && Number(census.population);
+  return cp > 0 ? cp : null;
+}
+
 // 7) Debounce utility for performance-sensitive operations
 export function debounce(fn, delay = 100) {
   let timeoutId;

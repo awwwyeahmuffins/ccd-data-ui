@@ -3,36 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Targets — Texas Elections</title>
+  <title>Priority Precincts — Collin County Elections</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
   <meta name="description" content="Targetable precincts ranked by campaign strategy — flips, turnout opportunity, persuasion, registration, and leverage — for any Texas county." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- civic.css loads AFTER styles.css so the a11y layer wins by source order -->
+  <link rel="stylesheet" href="js/civic.css" />
   <style>
     /* styles.css pins html/body to the full-viewport map layout; restore flow */
     html, body { display: block; height: auto; width: auto; overflow: auto; }
-    body { margin: 0; font-family: var(--font-body); background: var(--color-bg-secondary); color: var(--color-text-primary); font-size: 17px; }
+    body { margin: 0; font-family: var(--font-body); background: var(--color-bg-secondary); color: var(--color-text-primary); font-size: 1rem; }
 
-    .page-header {
-      background: var(--color-bg-primary); border-bottom: 1px solid var(--color-border);
-      padding: 14px 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-    }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
-    .brand-icon {
-      background: linear-gradient(150deg, #1560C4, #0B4DA2); color: #FFFFFF; font-weight: 800;
-      border-radius: 10px; width: 34px; height: 34px; display: grid; place-items: center; font-size: 15px; letter-spacing: -.5px;
-    }
-    .brand-text { font-family: var(--font-display); font-weight: 700; font-size: 20px; }
-    .site-nav { display: flex; gap: 4px; margin-left: auto; flex-wrap: wrap; }
-    .site-nav a {
-      display: inline-flex; align-items: center; gap: 7px; text-decoration: none; color: var(--color-text-secondary);
-      padding: 8px 14px; border-radius: 8px; font-weight: 600; font-size: 15px;
-    }
-    .site-nav a svg { width: 16px; height: 16px; stroke-width: 1.8; }
-    .site-nav a:hover { background: var(--color-bg-tertiary); }
-    .site-nav a.active { background: var(--color-primary); color: #fff; }
+    /* Header: the shared civic header (js/siteNav.js + js/civic.css) */
 
     .page-main { max-width: 1180px; margin: 0 auto; padding: 28px 20px 80px; }
     .page-title { font-family: var(--font-display); font-size: 32px; margin: 0 0 6px; }
@@ -42,11 +27,24 @@
       background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: 14px;
       padding: 16px 20px; margin-bottom: 22px; display: flex; gap: 18px; flex-wrap: wrap; align-items: flex-end;
     }
-    .controls label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; color: var(--color-text-secondary); }
+    .controls label { display: block; font-weight: 600; font-size: 0.889rem; margin-bottom: 6px; color: var(--color-text-secondary); }
     .controls select {
-      font-size: 16px; padding: 10px 12px; border-radius: 8px; min-height: 44px;
+      font-size: 1rem; padding: 10px 12px; border-radius: 8px; min-height: 44px;
       border: 1px solid var(--color-border); background: #fff; color: var(--color-text-primary);
     }
+
+    /* ---- "Change strategy" disclosure — one single-level toggle ---- */
+    .tg-disclose {
+      display: flex; align-items: center; justify-content: space-between; width: 100%;
+      min-height: 52px; background: var(--color-bg-primary); border: 1px solid var(--color-border);
+      border-radius: 12px; padding: 14px 18px; margin-bottom: 16px;
+      font-family: var(--font-body); font-size: 1rem; font-weight: 700; color: var(--color-text-primary);
+      cursor: pointer;
+    }
+    .tg-disclose:hover, .tg-disclose:focus-visible { border-color: var(--color-primary); }
+    .tg-current { font-weight: 600; color: var(--color-text-secondary); }
+    .tg-disclose-mark { color: var(--color-primary); }
+    #tg-catalog-wrap { margin-bottom: 10px; }
 
     /* ---- strategy catalogue ---- */
     .strat-cat { margin-bottom: 22px; }
@@ -57,7 +55,7 @@
     }
     .strat-cat-ic svg { width: 19px; height: 19px; stroke-width: 1.8; }
     .strat-cat-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; }
-    .strat-cat-blurb { font-size: 13px; color: var(--color-text-muted); margin-top: 1px; }
+    .strat-cat-blurb { font-size: 0.889rem; color: var(--color-text-secondary); margin-top: 1px; }
     .strat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
     .strat-card {
       text-align: left; background: var(--color-bg-primary); border: 1.5px solid var(--color-border);
@@ -67,9 +65,9 @@
     .strat-card:hover:not(:disabled) { border-color: var(--color-primary); }
     .strat-card.active { border-color: var(--color-primary); background: #eef4fc; box-shadow: 0 0 0 1px var(--color-primary) inset; }
     .strat-card:disabled { opacity: .5; cursor: not-allowed; }
-    .strat-card-name { font-weight: 700; font-size: 16px; margin-bottom: 3px; }
-    .strat-card-blurb { font-size: 13px; color: var(--color-text-secondary); line-height: 1.4; }
-    .strat-card-na { font-size: 11.5px; color: var(--color-text-muted); font-weight: 600; margin-top: 6px; text-transform: uppercase; letter-spacing: .04em; }
+    .strat-card-name { font-weight: 700; font-size: 1rem; margin-bottom: 3px; }
+    .strat-card-blurb { font-size: 0.889rem; color: var(--color-text-secondary); line-height: 1.45; }
+    .strat-card-na { font-size: 0.889rem; color: var(--color-text-secondary); font-weight: 600; margin-top: 6px; }
 
     /* ---- results ---- */
     .results-head {
@@ -77,8 +75,8 @@
       margin: 30px 0 14px; padding-bottom: 12px; border-bottom: 2px solid var(--color-border);
     }
     .results-title { font-family: var(--font-display); font-size: 24px; font-weight: 700; }
-    .results-sub { color: var(--color-text-secondary); font-size: 14px; margin-top: 3px; max-width: 640px; }
-    .results-count { font-family: var(--font-body); font-size: 14px; color: var(--color-text-muted); font-weight: 600; white-space: nowrap; }
+    .results-sub { color: var(--color-text-secondary); font-size: 0.889rem; margin-top: 3px; max-width: 640px; }
+    .results-count { font-family: var(--font-body); font-size: 0.889rem; color: var(--color-text-secondary); font-weight: 600; white-space: nowrap; }
 
     .tg-precinct {
       display: grid; grid-template-columns: 48px 1fr auto; gap: 16px; align-items: center;
@@ -86,23 +84,24 @@
       padding: 14px 18px; margin-bottom: 10px;
     }
     .tg-rank { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--color-primary); text-align: center; }
-    .tg-pcode { font-weight: 700; font-size: 17px; margin-bottom: 7px; }
-    .tg-why { font-size: 14px; color: var(--color-text-secondary); margin-top: 7px; }
+    .tg-pcode { font-weight: 700; font-size: 1rem; margin-bottom: 7px; }
+    .tg-why { font-size: 1rem; color: var(--color-text-secondary); margin-top: 7px; line-height: 1.45; }
     .tg-why b { color: var(--color-text-primary); font-variant-numeric: tabular-nums; }
 
-    .tg-leanbar { height: 22px; border-radius: 6px; overflow: hidden; display: flex; border: 1px solid var(--color-border); max-width: 360px; }
-    .tg-leanbar span { display: grid; place-items: center; font-size: 11px; font-weight: 700; color: #fff; min-width: 0; }
+    /* thin stacked mark; the values live in the "why" text, never inside paint */
+    .tg-leanbar { height: 12px; border-radius: 4px; display: flex; gap: 2px; max-width: 360px; }
+    .tg-leanbar span { min-width: 0; border-radius: 3px; }
     .tg-seg-rep { background: var(--color-rep); }
     .tg-seg-mod { background: var(--color-mod); }
     .tg-seg-dem { background: var(--color-dem); }
 
     .tg-pmeta { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
     .tg-metric-val { font-family: var(--font-display); font-size: 22px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
-    .tg-metric-label { font-size: 11px; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: .05em; font-weight: 600; }
+    .tg-metric-label { font-size: 0.889rem; color: var(--color-text-secondary); font-weight: 600; }
     .tg-links { display: flex; gap: 8px; margin-top: 2px; }
     .tg-links a {
-      text-decoration: none; font-weight: 600; font-size: 13px; padding: 7px 12px; border-radius: 8px;
-      min-height: 36px; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
+      text-decoration: none; font-weight: 600; font-size: 1rem; padding: 8px 14px; border-radius: 8px;
+      min-height: 44px; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
     }
     .tg-link-report { background: var(--color-primary); color: #fff; }
     .tg-link-map { border: 1.5px solid var(--color-border); color: var(--color-text-secondary); background: #fff; }
@@ -110,8 +109,8 @@
 
     .empty-note { color: var(--color-text-muted); padding: 28px 4px; }
     .na-banner {
-      background: #fff8e1; border: 1px solid #e8c84a; border-radius: 10px; padding: 12px 16px;
-      font-size: 14px; color: #715c10; margin-bottom: 16px;
+      background: #fff8e1; border: 1px solid #b8973a; border-radius: 10px; padding: 12px 16px;
+      font-size: 1rem; color: #5c4a0d; margin-bottom: 16px;
     }
 
     @media (max-width: 680px) {
@@ -122,24 +121,11 @@
   </style>
 </head>
 <body>
-  <header class="page-header">
-    <a class="brand" href="index.html">
-      <span class="brand-icon">TX</span>
-      <span class="brand-text">Texas Elections</span>
-    </a>
-    <nav class="site-nav" aria-label="Site">
-      <a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="3 7 9 4 15 7 21 4 21 17 15 20 9 17 3 20 3 7"/><line x1="9" y1="4" x2="9" y2="17"/><line x1="15" y1="7" x2="15" y2="20"/></svg>Map</a>
-      <a href="elections.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>Elections</a>
-      <a href="forecast.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 17l6-6 4 4 8-8"/><polyline points="14 7 21 7 21 14"/></svg>Forecast</a>
-      <a href="targets.html" class="active" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/></svg>Targets</a>
-      <a href="explore.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/><circle cx="8" cy="6" r="1.6" fill="currentColor"/><circle cx="16" cy="12" r="1.6" fill="currentColor"/><circle cx="11" cy="18" r="1.6" fill="currentColor"/></svg>Explore</a>
-      <a href="precinct.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>Lookup</a>
-    </nav>
-  </header>
+  <header id="site-header"></header>
 
   <main class="page-main">
-    <h1 class="page-title">Target precincts</h1>
-    <p class="page-sub">Rank a county's precincts by the job you're trying to do — flip a close race, turn out the base, persuade the middle, register new voters, or spend effort where it moves the most votes. Pick a strategy below; every number comes from the precinct's real modeled-vote, turnout, and demographic data.</p>
+    <h1 class="page-title">Priority precincts</h1>
+    <p class="page-sub">The precincts most worth your time, ranked. We start with the closest races — change the strategy any time. Every number comes from the precinct's real modeled-vote, turnout, and demographic data.</p>
 
     <div class="controls">
       <div>
@@ -163,11 +149,17 @@
       </div>
     </div>
 
-    <div id="tg-catalog"></div>
+    <button type="button" class="tg-disclose" id="tg-strategy-btn" aria-expanded="false" aria-controls="tg-catalog-wrap">
+      <span>Change strategy <span class="tg-current" id="tg-strategy-current"></span></span>
+      <span class="tg-disclose-mark" aria-hidden="true">▾</span>
+    </button>
+    <div id="tg-catalog-wrap" hidden>
+      <div id="tg-catalog"></div>
+    </div>
 
     <div class="results-head">
       <div>
-        <div class="results-title" id="tg-results-title">Pick a strategy</div>
+        <div class="results-title" id="tg-results-title">Closest Races</div>
         <div class="results-sub" id="tg-results-sub"></div>
       </div>
       <div class="results-count" id="tg-results-count"></div>
@@ -176,7 +168,8 @@
     <div id="tg-list"><div class="empty-note">Loading…</div></div>
   </main>
 
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/vendor/d3.v7.min.js"></script>
   <script type="module" src="js/targetsPage.js"></script>
+  <script type="module" src="js/siteNav.js"></script>
 </body>
 </html>
