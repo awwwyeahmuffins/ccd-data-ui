@@ -9,7 +9,17 @@
 // colors, and the county registry — so it never invents data and stays in sync.
 // Sits behind the Cognito sign-in gate on deployment (bypassed on localhost / e2e).
 
-import { loadAllData, setActiveCounty, loadCountyRegistry, getActiveCounty, listElectionCSVs, loadElectionData, setActiveBoundary, getActiveBoundary, getBoundaryConfigs, loadPrimaryTurnout } from "./dataLoader.js";
+import { boundary } from "./data/dataService.js";
+import {
+  DISTRICT_LIST,
+  precinctsInDistrict,
+  districtSlugFor,
+  listDistrictRaces,
+  loadDistrictAggregates,
+  loadDistrictOutlines,
+  loadDistrictPrecinctGeo,
+} from "./data/districts.js";
+import { pivotRace, computeWinners } from "./v3Pivot.js";
 import { PARTY_STRENGTH_COLORS, PARTY_COLORS, ELECTION_META_KEYS, MAP_CONFIG } from "./constants.js";
 import { escapeHtml } from "./lib/dom.js";
 import { formatPctWhole, formatNumberOrNA } from "./lib/format.js";
@@ -26,6 +36,10 @@ import { buildRows, sortRows, renderRows, countLine, SORTS } from "./listView.js
 import { termButton } from "./glossary.js";
 
 // ---- module state (this page's own; no shared singleton) --------------------
+// The one data handle: Collin on the current (2026) precincts. Districts are
+// a SCOPE on this map (REDESIGN §5.2), never a different data subject.
+const svc = boundary();
+
 const cc = {
   map: null,
   tiles: null,
@@ -39,6 +53,8 @@ const cc = {
   otherLayer: null,      // non-Collin county outlines (shown during district races)
   otherPrecinctLayer: null, // non-Collin PRECINCT polygons (where sourced, e.g. Hunt CD-3)
   geojson: null,
+  district: null,        // district scope slug (cd-3 …) or null = whole county
+  districtCodes: null,   // Set of Collin precinct codes inside the scoped district
   mode: "lean",          // lean | margin | diversity | primary (demographic modes)
   selectedCode: null,
   primary: null,         // party-primary ballots lookup { code: { year: {dem,rep} } }, null = N/A
@@ -412,12 +428,11 @@ function wireDisclosure(id) {
 
 function renderCountyBriefing() {
   if (cc.raceId && cc.race) return renderRaceBriefing();
-  const features = cc.geojson.features;
-  const entry = registryCache?.find((x) => x.slug === getActiveCounty());
-  const b = buildCountyBriefing(features, { countyName: cc.countyName, isDistrict: entry?.kind === "district" });
+  const features = visibleFeatures();
+  const b = buildCountyBriefing(features, { countyName: scopeName(), isDistrict: !!cc.district });
 
-  $("cc-dock-eyebrow").textContent = "County Briefing";
-  $("cc-dock-title").textContent = `${cc.countyName} County`;
+  $("cc-dock-eyebrow").textContent = cc.district ? "District Briefing" : "County Briefing";
+  $("cc-dock-title").textContent = cc.district ? `${scopeName()} — Collin precincts` : `${cc.countyName} County`;
   $("cc-dock-sub").textContent = b.sub;
 
   const leanBlock = b.lean
@@ -555,7 +570,7 @@ function renderRaceBriefing() {
     </button>
 
     <div class="cc-section-label">Act on this race</div>
-    ${deeplink(`targets.html#county=${encodeURIComponent(getActiveCounty())}&race=${encodeURIComponent(cc.raceId)}&strategy=tossups`, "target", "Find flip targets", "Rank these precincts by flip / defend — pre-filtered to this race")}
+    ${deeplink(`targets.html#race=${encodeURIComponent(cc.raceId)}&strategy=tossups${cc.district ? `&district=${encodeURIComponent(cc.district)}` : ""}`, "target", "Find flip targets", "Rank these precincts by flip / defend — pre-filtered to this race")}
     ${deeplink("elections.html", "search", "Elections Catalog", "Browse & open another race")}
 
     <p style="font-size:13px;color:var(--ink-dim);line-height:1.55;margin-top:12px">
@@ -736,7 +751,6 @@ async function setMode(mode) {
   cc.mode = mode;
   if (wasRace) {
     cc.raceId = null; cc.race = null; removeOtherLayer(); applyRaceLabel(); updateHash(); // picking a demo mode exits the race
-    await setMapBoundary(preferredDemographicBoundary()); // back to current precincts
   }
   document.querySelectorAll(".cc-mode-btn").forEach((b) => b.classList.toggle("active", b.dataset.mode === mode));
   restyle();
@@ -833,43 +847,66 @@ function clearLegacyTheme() {
 }
 
 // =============================================================================
-// COUNTY SWITCHING
+// DISTRICT SCOPE — the county picker is gone (Collin-only, REDESIGN Phase 3).
+// Districts limit the Collin map to their precincts (geojson CONG/SEN/SHR
+// props); the scope also adds that district's tree-only races to the picker.
 // =============================================================================
-let registryCache = null;
 
-async function populateCountyMenu() {
-  const registry = await loadCountyRegistry();
-  // Collin plus the Collin-touching districts (CD/SD/HD). District entries lack a
-  // FIPS code; they're valid map subjects, so list them as switchable too.
-  registryCache = registry.filter((c) => c.status === "live");
-  renderCountyList("");
+function visibleFeatures() {
+  if (!cc.district || !cc.geojson) return cc.geojson ? cc.geojson.features : [];
+  return cc.geojson.features.filter((f) => cc.districtCodes.has(String(f.properties.PRECINCT)));
 }
 
-function renderCountyList(filter) {
-  const list = $("cc-county-list");
-  const active = getActiveCounty();
-  const f = filter.toLowerCase();
-  const items = registryCache
-    .filter((c) => c.name.toLowerCase().includes(f))
-    .slice(0, 60)
-    .map(
-      (c) => `
-      <div class="cc-county-opt ${c.slug === active ? "active" : ""}" data-slug="${c.slug}">
-        <span>${escapeHtml(c.name)}</span><small>${escapeHtml(c.fips || c.group || "District")}</small>
-      </div>`
-    )
-    .join("");
-  list.innerHTML = items || `<div class="cc-county-opt" style="cursor:default;color:var(--ink-faint)">No match</div>`;
+function scopeName() {
+  if (!cc.district) return "Collin";
+  const d = DISTRICT_LIST.find((x) => x.slug === cc.district);
+  return d ? d.name : cc.district;
 }
 
-// One source of truth for "what county am I looking at" — drives the topbar
-// label AND the browser tab title, so branding follows the active county
-// instead of being hardcoded to Collin.
-function applyCountyBranding(name, isDistrict = false) {
-  cc.countyName = name;
-  const label = isDistrict ? name : `${name} County`;
-  $("cc-county-name").textContent = label;
-  document.title = `${label} — Elections Map`;
+function populateDistrictSelect() {
+  const sel = $("cc-district");
+  if (!sel) return;
+  const groups = {};
+  for (const d of DISTRICT_LIST) (groups[d.group || "Districts"] ||= []).push(d);
+  let html = `<option value="">All precincts</option>`;
+  for (const [label, items] of Object.entries(groups)) {
+    html += `<optgroup label="${escapeHtml(label)}">` +
+      items.map((d) => `<option value="${escapeHtml(d.slug)}">${escapeHtml(d.name)}</option>`).join("") +
+      `</optgroup>`;
+  }
+  sel.innerHTML = html;
+}
+
+async function setDistrictScope(slug) {
+  cc.district = slug || null;
+  cc.districtCodes = cc.district
+    ? new Set(precinctsInDistrict(cc.district, cc.geojson.features).map(String))
+    : null;
+  const sel = $("cc-district");
+  if (sel) sel.value = cc.district || "";
+  // A selection outside the new scope clears (its polygon is gone).
+  if (cc.selectedCode && cc.district && !cc.districtCodes.has(String(cc.selectedCode))) {
+    cc.selectedCode = null;
+    hideReadout();
+  }
+  rebuildLayer();
+  fitMap();
+  await populateRaceMenu(); // the scope adds the district's tree-only races
+  updateHash();
+  if (cc.selectedCode) renderPrecinctDetail(cc.selectedCode);
+  else renderCountyBriefing();
+  if (cc.view === "list") renderListView();
+}
+
+// Rebuild the precinct layer from the current scope (full county or district).
+function rebuildLayer() {
+  if (cc.layer) cc.layer.remove();
+  cc.layer = L.geoJSON(
+    { type: "FeatureCollection", features: visibleFeatures() },
+    { style: baseStyle, onEachFeature: attachFeature }
+  ).addTo(cc.map);
+  decorateMapPaths();
+  updatePrecinctLabels();
 }
 
 // Honest data-vintage note in the topbar (replaces the old "Live Data" badge —
@@ -884,55 +921,18 @@ function renderDataNote() {
 }
 
 // =============================================================================
-// BOUNDARY VINTAGE — the demographic map (lean/margin/diversity) shows the
-// CURRENT precincts (2026 redistricting); real election results are shown on the
-// precincts they were actually cast under (2024). The map swaps boundary set as
-// you enter/leave a race.
+// PRIMARY TURNOUT (optional profile extra)
 // =============================================================================
-
-// The boundary the demographic view should sit on: prefer 2026 where the county
-// has it (Collin), else whatever the registry default is (every other county has
-// just one set, so this is a no-op for them).
-function preferredDemographicBoundary() {
-  const configs = getBoundaryConfigs();
-  return configs["2026"] ? "2026" : getActiveBoundary();
-}
 
 // Load the optional party-primary turnout extra and show/hide the Primary map
 // mode accordingly. Counties without the file just never show the button.
 async function refreshPrimaryTurnout() {
-  cc.primary = await loadPrimaryTurnout();
+  cc.primary = await svc.loadPrimaryTurnout();
   const btn = document.querySelector('.cc-mode-btn[data-mode="primary"]');
   if (btn) btn.style.display = cc.primary ? "" : "none";
   if (!cc.primary && cc.mode === "primary") { await setMode("lean"); return; }
   // The layer may have been built before this data arrived — repaint if showing.
   if (cc.mode === "primary") { restyle(); decorateMapPaths(); renderLegend(); }
-}
-
-// Set the active boundary before the FIRST data load (no layer to rebuild yet).
-// Safe to call when nothing is loaded — setActiveBoundary clears the cache.
-function setInitialBoundary(boundaryId) {
-  if (getBoundaryConfigs()[boundaryId] && getActiveBoundary() !== boundaryId) {
-    setActiveBoundary(boundaryId);
-  }
-}
-
-// Switch the LIVE map to a different boundary set: reload that set's geojson +
-// demographic data and rebuild the precinct layer in place (keeps the current
-// view — no refit, since a county's two boundary sets share an extent).
-async function setMapBoundary(boundaryId) {
-  if (!getBoundaryConfigs()[boundaryId] || getActiveBoundary() === boundaryId) return;
-  setActiveBoundary(boundaryId); // clears the data cache
-  const { geojson } = await loadAllData();
-  cc.geojson = geojson;
-  // A precinct selected on the old set may not exist on the new one (252 ↔ 273).
-  if (cc.selectedCode && !geojson.features.some((f) => String(f.properties.PRECINCT) === cc.selectedCode)) {
-    cc.selectedCode = null;
-  }
-  if (cc.layer) cc.layer.remove();
-  cc.layer = L.geoJSON(geojson, { style: baseStyle, onEachFeature: attachFeature }).addTo(cc.map);
-  decorateMapPaths();
-  updatePrecinctLabels();
 }
 
 // True only for genuine Rep-vs-Dem contests (both parties present). Single-party
@@ -950,43 +950,6 @@ function isPartisanRace(rows) {
   return hasRep && hasDem;
 }
 
-async function switchCounty(slug, name) {
-  showLoading(true);
-  closeCountyMenu();
-  try {
-    await setActiveCounty(slug);
-    setInitialBoundary(preferredDemographicBoundary()); // open on current precincts
-    const { geojson } = await loadAllData();
-    cc.geojson = geojson;
-    cc.selectedCode = null;
-    cc.raceId = null; cc.race = null; // races are county-specific
-    removeOtherLayer();
-    // Districts brand without the "County" suffix (e.g. "Congressional District 3").
-    const entry = registryCache?.find((c) => c.slug === slug);
-    applyCountyBranding(name, entry?.kind === "district");
-    applyRaceLabel();
-    // rebuild map layer
-    if (cc.layer) { cc.layer.remove(); }
-    cc.layer = L.geoJSON(geojson, { style: baseStyle, onEachFeature: attachFeature }).addTo(cc.map);
-    decorateMapPaths();
-    updatePrecinctLabels();
-    hideReadout();
-    fitMap();
-    renderLegend();
-    await refreshPrimaryTurnout();
-    await populateRaceMenu();
-    renderCountyBriefing();
-    if (cc.view === "list") renderListView();
-  } catch (err) {
-    console.error("[Command] county switch failed:", err);
-    $("cc-dock-sub").textContent = "Failed to load this county's data.";
-  } finally {
-    showLoading(false);
-  }
-}
-
-function openCountyMenu() { $("cc-county-menu").classList.add("open"); $("cc-county-search").focus(); }
-function closeCountyMenu() { $("cc-county-menu").classList.remove("open"); }
 
 // =============================================================================
 // RACE OVERLAY — show a specific election's results on the map
@@ -1014,95 +977,46 @@ function precinctRaceResult(row) {
 
 async function populateRaceMenu() {
   try {
-    cc.races = await listElectionCSVs();
+    const collinRaces = await svc.listRaces();
+    let races = collinRaces;
+    if (cc.district) {
+      // The scope adds the district's tree-only races (e.g. the 2020 statewide
+      // set) — Collin's own manifest entries win on any overlap.
+      try {
+        const treeRaces = await listDistrictRaces(cc.district);
+        const have = new Set(collinRaces.map((e) => e.raceKey || e.filename));
+        const extras = treeRaces
+          .filter((e) => !have.has(e.raceKey || e.filename))
+          .map((e) => ({ ...e, _districtTree: cc.district }));
+        races = [...collinRaces, ...extras];
+      } catch (_) { /* scope extras are optional */ }
+    }
+    cc.races = races;
   } catch (_) { cc.races = []; }
   if (cc.racePicker) cc.racePicker.refresh();
 }
 
-// The 12 Collin-touching districts we keep data for.
-const KEPT_DISTRICTS = new Set(["cd-3", "cd-32", "cd-4", "hd-33", "hd-61", "hd-66", "hd-67", "hd-70", "hd-89", "sd-2", "sd-30", "sd-8"]);
-
-// Federal / state DISTRICT races span multiple counties. Map a Collin race to
-// its district slug so we can pull in the non-Collin counties' results.
-function districtSlugFor(entry) {
-  const office = (entry.office || "").toLowerCase();
-  const d = entry.district;
-  if (d == null || d === "") return null;
-  let slug = null;
-  if (office.includes("representative") && (office.includes("united states") || office.includes("u.s") || office.includes("u s") || office.includes("congress"))) slug = `cd-${d}`;
-  else if (office.includes("senator") || office.includes("senate")) slug = `sd-${d}`;
-  else if (office.includes("representative")) slug = `hd-${d}`; // state house (after US handled)
-  return slug && KEPT_DISTRICTS.has(slug) ? slug : null;
-}
-
 const titleCase = (s) => String(s).charAt(0).toUpperCase() + String(s).slice(1);
 
-// Load the non-Collin counties' aggregate results for a district race. The
-// district data keeps Collin at precinct level and every other county collapsed
-// to "<county>:ALL" rows — exactly the multi-county info to fold back in.
-async function loadDistrictAggregates(slug, raceFile) {
-  try {
-    const txt = await fetch(`data/tx/districts/${slug}/data/${raceFile}`).then((r) => (r.ok ? r.text() : null));
-    if (!txt) return { byCounty: [], byPrecinct: {} };
-    const lines = txt.trim().split("\n");
-    const agg = {};       // countySlug -> running county total
-    const pre = {};       // full code "hunt:101" -> { rep, dem, total }
-    for (let i = 1; i < lines.length; i++) {
-      const c = lines[i].split(",");
-      const pc = c[0];
-      // Fold in every non-Collin row — whether a collapsed "<county>:ALL" total
-      // or real "<county>:<precinct>" rows (e.g. Hunt's official Clarity data) —
-      // so the county outline/dock total is correct at any granularity.
-      if (!pc || !pc.includes(":")) continue;
-      const county = pc.split(":")[0];
-      if (county === "collin") continue;
-      const party = (c[1] || "").toUpperCase();
-      if (!party) continue; // skip Over/Under/Write-in
-      const votes = +c[3] || 0;
-      const a = agg[county] || (agg[county] = { county, rep: 0, dem: 0, total: 0 });
-      a.total += votes;
-      if (party === "REP") a.rep += votes;
-      else if (party === "DEM") a.dem += votes;
-      if (!pc.endsWith(":ALL")) { // real precinct row → keep per-precinct result too
-        const p = pre[pc] || (pre[pc] = { rep: 0, dem: 0, total: 0 });
-        p.total += votes;
-        if (party === "REP") p.rep += votes;
-        else if (party === "DEM") p.dem += votes;
-      }
-    }
-    const byCounty = Object.values(agg).filter((a) => a.total > 0).map((a) => ({ ...a, winner: a.rep >= a.dem ? "Rep" : "Dem" }));
-    const byPrecinct = {};
-    for (const code in pre) {
-      const p = pre[code];
-      if (p.total <= 0) continue;
-      byPrecinct[code] = { ...p, winner: p.rep >= p.dem ? "Rep" : "Dem", margin: Math.abs(p.rep - p.dem) / p.total };
-    }
-    return { byCounty, byPrecinct };
-  } catch (_) {
-    return { byCounty: [], byPrecinct: {} };
+// Load a district-tree-only race (a scope extra, e.g. the 2020 statewide set)
+// for the COLLIN precincts on this map: tree rows key precincts as
+// "collin:<code>" — strip the prefix and pivot to the legacy row shape. The
+// other counties' rows fold in via loadDistrictAggregates as with any
+// district race.
+async function loadTreeRaceRows(slug, entry) {
+  const base = `data/tx/districts/${slug}/data`;
+  const stripCollin = (rows) =>
+    rows
+      .filter((r) => String(r.precinct).startsWith("collin:"))
+      .map((r) => ({ ...r, precinct: String(r.precinct).slice("collin:".length) }));
+  const longRows = await d3.csv(`${base}/${entry.raceFile}`);
+  let turnoutRows = null;
+  if (entry.turnoutFile) {
+    try {
+      turnoutRows = stripCollin(await d3.csv(`${base}/${entry.turnoutFile}`));
+    } catch (_) { turnoutRows = null; }
   }
-}
-
-// Real precinct geometry for non-Collin counties we've sourced (Hunt CD-3 so far,
-// data_processor/fetch_district_county_precincts.py). Absent → those counties
-// fall back to a county outline.
-async function loadDistrictPrecinctGeo(slug) {
-  try {
-    return await fetch(`data/tx/districts/${slug}/boundaries/other_precincts.geojson`).then((r) => (r.ok ? r.json() : null));
-  } catch (_) {
-    return null;
-  }
-}
-
-// Dissolved outline of each non-Collin county's portion of the district (built
-// from the pre-reduction precinct geometry — data_processor/build_district_county_outlines.py).
-// One feature per county, keyed "<county-slug>:ALL" to join the aggregate result.
-async function loadDistrictOutlines(slug) {
-  try {
-    return await fetch(`data/tx/districts/${slug}/boundaries/county_outlines.geojson`).then((r) => (r.ok ? r.json() : null));
-  } catch (_) {
-    return null;
-  }
+  return computeWinners(pivotRace(stripCollin(longRows), turnoutRows));
 }
 
 // Race-picker groups, in display order. The marquee contests come first and
@@ -1131,7 +1045,11 @@ async function loadRace(raceIdOrEntry) {
   try {
     // 2026-only app: every race renders on the current (2026) precincts. Older
     // races use the official results carefully re-drawn onto the new boundaries.
-    const rows = await loadElectionData(entry);
+    // Tree-only races (a district scope's extras, e.g. 2020 statewide) load
+    // from the district tree with their Collin rows unprefixed.
+    const rows = entry._districtTree
+      ? await loadTreeRaceRows(entry._districtTree, entry)
+      : await svc.loadRace(entry);
     const byPrecinct = {};
     for (const row of rows) byPrecinct[String(row["PRECINCT CODE"])] = precinctRaceResult(row);
     cc.raceId = entry.raceKey || entry.filename;
@@ -1185,8 +1103,6 @@ async function clearRace() {
   removeOtherLayer();
   applyRaceLabel();
   updateHash();
-  // Return the map to the current-precinct demographic view (2026 where available).
-  await setMapBoundary(preferredDemographicBoundary());
   restyle();
   decorateMapPaths();
   refreshReadout();
@@ -1444,18 +1360,17 @@ function setView(view) {
 function renderListView() {
   if (cc.view !== "list" || !cc.geojson) return;
   const ctx = describeCtx();
-  const entry = registryCache?.find((x) => x.slug === getActiveCounty());
 
-  // headline: race label when a race is showing, county "so what" otherwise
+  // headline: race label when a race is showing, area "so what" otherwise
   const headline = cc.raceId && cc.race
     ? `${cc.race.label} — precinct by precinct.`
-    : buildCountyBriefing(cc.geojson.features, { countyName: cc.countyName, isDistrict: entry?.kind === "district" }).headline;
+    : buildCountyBriefing(visibleFeatures(), { countyName: scopeName(), isDistrict: !!cc.district }).headline;
   $("cc-list-headline").textContent = headline;
 
-  const rows = sortRows(buildRows(cc.geojson.features, ctx), cc.listSort);
+  const rows = sortRows(buildRows(visibleFeatures(), ctx), cc.listSort);
   $("cc-list-count").textContent = countLine(rows, cc.listSort);
   if (cc.cancelListRender) cc.cancelListRender();
-  cc.cancelListRender = renderRows($("cc-list-body"), rows, getActiveCounty());
+  cc.cancelListRender = renderRows($("cc-list-body"), rows);
 }
 
 function wireListView() {
@@ -1501,33 +1416,8 @@ function wireUI() {
     if (btn) setMode(btn.dataset.mode);
   });
 
-  // county menu
-  $("cc-county-btn").addEventListener("click", (e) => {
-    e.stopPropagation();
-    const menu = $("cc-county-menu");
-    menu.classList.contains("open") ? closeCountyMenu() : openCountyMenu();
-  });
-  $("cc-county-search").addEventListener("input", (e) => renderCountyList(e.target.value));
-  // Keyboard path: Enter selects the first matching county (no mouse needed).
-  $("cc-county-search").addEventListener("keydown", (e) => {
-    if (e.key !== "Enter") return;
-    const first = $("cc-county-list").querySelector(".cc-county-opt[data-slug]");
-    if (!first) return;
-    const entry = registryCache.find((c) => c.slug === first.dataset.slug);
-    switchCounty(first.dataset.slug, entry ? entry.name : first.dataset.slug);
-  });
-  $("cc-county-list").addEventListener("click", (e) => {
-    const opt = e.target.closest(".cc-county-opt");
-    if (!opt || !opt.dataset.slug) return;
-    // Resolve the display name from the registry — never scrape it off the
-    // option text (which concatenates the FIPS code badge).
-    const entry = registryCache.find((c) => c.slug === opt.dataset.slug);
-    switchCounty(opt.dataset.slug, entry ? entry.name : opt.dataset.slug);
-  });
-  document.addEventListener("click", (e) => {
-    const sel = document.querySelector(".cc-county-select");
-    if (sel && !sel.contains(e.target)) closeCountyMenu();
-  });
+  // district scope — a native select; districts filter the Collin map
+  $("cc-district").addEventListener("change", (e) => setDistrictScope(e.target.value || null));
 
   // race menu — the shared searchable picker (ui/racePicker.js)
   cc.racePicker = createRacePicker({
@@ -1584,7 +1474,7 @@ function wireUI() {
 
   // Escape closes menus / mobile dock
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { closeCountyMenu(); closeRaceMenu(); $("cc-dock").classList.remove("open"); }
+    if (e.key === "Escape") { closeRaceMenu(); $("cc-dock").classList.remove("open"); }
   });
 }
 
@@ -1604,10 +1494,10 @@ function readHashParams() {
 }
 function updateHash() {
   writeParams({
-    county: getActiveCounty(),
     race: cc.raceId || null,
     precinct: cc.selectedCode || null,
     view: cc.view === "list" ? "list" : null,
+    district: cc.district || null,
   });
 }
 
@@ -1623,24 +1513,20 @@ async function init() {
   showLoading(true);
   try {
     const params = readHashParams();
-    await populateCountyMenu();
-    // Honour a #county= deep link — including a district slug (e.g. hd-89 from
-    // Targets), which isn't in the county menu but is a valid map subject.
-    const fullRegistry = await loadCountyRegistry();
-    if (params.county && fullRegistry.find((c) => c.slug === params.county && c.status === "live")) {
-      try { await setActiveCounty(params.county); } catch (_) { /* keep default */ }
-    } else {
-      // Load the default county's registry entry now so getBoundaryConfigs() is
-      // populated before we choose the demographic boundary below (otherwise the
-      // entry isn't cached until loadAllData and the 2026 default is missed).
-      try { await setActiveCounty(getActiveCounty()); } catch (_) { /* keep default */ }
-    }
-    const activeEntry = fullRegistry.find((c) => c.slug === getActiveCounty());
-    applyCountyBranding(activeEntry ? activeEntry.name : "Collin", activeEntry && activeEntry.kind === "district");
-    setInitialBoundary(preferredDemographicBoundary()); // open on current (2026) precincts
-    const { geojson } = await loadAllData();
+    document.title = "Collin County — Elections Map";
+    const { geojson } = await svc.loadAll();
     cc.geojson = geojson;
-    buildMap(geojson);
+    populateDistrictSelect();
+    // District scope: a #district= deep link, with legacy #county=<district
+    // slug> read-tolerated for old bookmarks (never written back — §3.5).
+    const wanted = params.district || params.county;
+    if (wanted && DISTRICT_LIST.some((d) => d.slug === wanted)) {
+      cc.district = wanted;
+      cc.districtCodes = new Set(precinctsInDistrict(wanted, geojson.features).map(String));
+      $("cc-district").value = wanted;
+    }
+    buildMap({ type: "FeatureCollection", features: visibleFeatures() });
+    if (cc.district) fitMap();
     await refreshPrimaryTurnout();
     await populateRaceMenu();
     renderDataNote();
@@ -1648,11 +1534,13 @@ async function init() {
     if (params.race) await loadRace(params.race);
     else renderCountyBriefing();
     // A #precinct= deep link (e.g. from Targets' "Map" link) jumps to + selects it.
-    if (params.precinct && cc.geojson.features.some((f) => String(f.properties.PRECINCT) === params.precinct)) {
+    if (params.precinct && visibleFeatures().some((f) => String(f.properties.PRECINCT) === params.precinct)) {
       selectPrecinct(params.precinct);
     }
     // A #view=list deep link opens the linear view directly.
     if (params.view === "list") setView("list");
+    // Normalize the hash to the current vocabulary (drops any legacy county=).
+    updateHash();
   } catch (err) {
     console.error("[Command] boot failed:", err);
     $("cc-dock-sub").textContent = "We couldn't load the election data.";

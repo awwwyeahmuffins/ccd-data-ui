@@ -40,10 +40,10 @@ test.describe('Targets view', () => {
     await expect(page.locator('.tg-precinct').first()).toBeVisible();
   });
 
-  test('precinct rows deep-link to the report with county + precinct', async ({ page }) => {
+  test('precinct rows deep-link straight to the report', async ({ page }) => {
     await load(page);
     const href = await page.locator('.tg-link-report').first().getAttribute('href');
-    expect(href).toMatch(/precinct\.html#county=[^&]+&precinct=/);
+    expect(href).toMatch(/precinct\.html#precinct=/);
   });
 
   test('turnout strategies are available where turnout data exists (Collin)', async ({ page }) => {
@@ -55,12 +55,18 @@ test.describe('Targets view', () => {
     await expect(page.locator('.tg-precinct').first()).toBeVisible();
   });
 
-  test('switching county reloads the ranking', async ({ page }) => {
+  test('the district scope limits the ranking to its Collin precincts', async ({ page }) => {
     await load(page);
-    await page.selectOption('#tg-county', 'cd-32');
+    await page.selectOption('#tg-district', 'cd-32');
     await expect(page.locator('.tg-precinct').first()).toBeVisible({ timeout: 30000 });
-    // report links now point at the new county
-    await expect(page.locator('.tg-link-report').first()).toHaveAttribute('href', /county=cd-32/);
+    // CD-32 touches only 8 Collin precincts — the ranking can't exceed that.
+    expect(await page.locator('.tg-precinct').count()).toBeLessThanOrEqual(8);
+    // the scope is named in the results header and carried in the hash
+    await expect(page.locator('#tg-results-title')).toContainText('Congressional District 32');
+    expect(page.url()).toMatch(/district=cd-32/);
+    expect(page.url()).not.toMatch(/county=/);
+    // the Map link carries the scope forward
+    await expect(page.locator('.tg-link-map').first()).toHaveAttribute('href', /district=cd-32/);
   });
 
   test('scoring on a specific election filters to that ballot and re-ranks', async ({ page }) => {

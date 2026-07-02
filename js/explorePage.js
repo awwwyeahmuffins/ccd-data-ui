@@ -5,15 +5,7 @@
 // housing, education, commute, turnout). Pure data + metric logic lives in
 // precinctMetrics.js. Must not import js/app/* modules.
 
-import {
-  loadCountyRegistry,
-  setActiveCounty,
-  setActiveBoundary,
-  loadAllData,
-  getBoundaryConfigs,
-  getActiveBoundary,
-} from "./dataLoader.js";
-import { loadCensusProfiles } from "./precinctProfile.js";
+import { boundary } from "./data/dataService.js";
 import {
   buildRecords,
   METRICS,
@@ -40,7 +32,6 @@ const SUMMARY_COLUMNS = ["winner", "demShare", "registered", "population", "medi
 const TINY_ELECTORATE = 50;
 
 const pg = {
-  county: "collin",
   view: "summary",        // "summary" | a METRIC_CATEGORIES id | "all" (spreadsheet)
   sortKey: "medianIncome",
   sortDir: "desc",
@@ -53,37 +44,19 @@ const pg = {
 
 const $ = (id) => document.getElementById(id);
 
-// ---- county selector (mirrors the other standalone pages) -------------------
-async function initCountySelect() {
-  const registry = await loadCountyRegistry();
-  const sel = $("ex-county");
-  const counties = registry.filter((c) => c.kind !== "district" && c.status === "live" && c.fips);
-  const districts = registry.filter((c) => c.kind === "district" && c.status === "live");
-  let html = counties.map((c) => `<option value="${escapeHtml(c.slug)}">${escapeHtml(c.name)}</option>`).join("");
-  const groups = {};
-  for (const d of districts) (groups[d.group || "Districts"] ||= []).push(d);
-  for (const [label, items] of Object.entries(groups)) {
-    html += `<optgroup label="${escapeHtml(label)}">` +
-      items.map((d) => `<option value="${escapeHtml(d.slug)}">${escapeHtml(d.name)}</option>`).join("") + "</optgroup>";
-  }
-  sel.innerHTML = html;
-  sel.value = pg.county;
-  if (sel.value !== pg.county) pg.county = sel.value;
-  sel.addEventListener("change", () => { pg.county = sel.value; updateURL(); loadCounty(); });
-}
+// The one boundary handle this page uses — the app is pinned to the 2026 set.
+const svc = boundary();
 
 // ---- marquee turnout: highest-turnout election on file ----------------------
 async function loadMarqueeTurnout() {
   try {
-    const cfg = getBoundaryConfigs()[getActiveBoundary()];
-    if (!cfg) return null;
-    const manifest = await fetch(`${cfg.dataDir}/elections.json`).then((r) => (r.ok ? r.json() : null));
-    const files = [...new Set((manifest?.elections || []).map((e) => e.turnoutFile).filter(Boolean))];
+    const races = await svc.listRaces();
+    const files = [...new Set(races.map((e) => e.turnoutFile).filter(Boolean))];
     if (!files.length) return null;
     let best = null, bestBallots = -1;
     for (const f of files) {
       try {
-        const rows = await d3.csv(`${cfg.dataDir}/${f}`, (d) => ({ precinct: d.precinct, registered: +d.registered, ballots: +d.ballots_cast }));
+        const rows = await d3.csv(`${svc.config.dataDir}/${f}`, (d) => ({ precinct: d.precinct, registered: +d.registered, ballots: +d.ballots_cast }));
         const sum = rows.reduce((s, r) => s + (isNaN(r.ballots) ? 0 : r.ballots), 0);
         if (sum > bestBallots) { bestBallots = sum; best = rows; }
       } catch (_) { /* skip */ }
@@ -98,19 +71,24 @@ async function loadMarqueeTurnout() {
   } catch (_) { return null; }
 }
 
-// ---- load a county ----------------------------------------------------------
-async function loadCounty() {
+// ---- census profiles (profile extra — optional, absent renders N/A) ---------
+// Fetched directly off this page's boundary handle: precinctProfile.js's
+// loadCensusProfiles still reads dataLoader's active boundary, which this page
+// no longer sets (it would silently resolve the 2024 profiles).
+async function loadCensusProfiles() {
+  const resp = await fetch(`${svc.config.profileDir}/census_profiles.json`);
+  if (!resp.ok) throw new Error(`Failed to load census profiles: ${resp.status}`);
+  return resp.json();
+}
+
+// ---- load the data ------------------------------------------------------------
+async function loadData() {
   $("ex-body").innerHTML = '<tr><td class="empty-note">Loading…</td></tr>';
   try {
-    await setActiveCounty(pg.county);
-    // 2026-only app: always the current boundary set where the county has it.
-    const boundary = getBoundaryConfigs()["2026"] ? "2026" : getActiveBoundary();
-    setActiveBoundary(boundary);
-    const bwrap = $("ex-boundary-wrap");
-    if (bwrap) bwrap.style.display = "none";
-    $("ex-boundary-note").style.display = boundary === "2026" ? "" : "none";
+    // Always the 2026 boundary set — the note about re-drawn estimates applies.
+    $("ex-boundary-note").style.display = "";
     let census = null;
-    const [{ geojson }, turnout] = await Promise.all([loadAllData(), loadMarqueeTurnout()]);
+    const [{ geojson }, turnout] = await Promise.all([svc.loadAll(), loadMarqueeTurnout()]);
     try { census = await loadCensusProfiles(); } catch (_) { census = null; }
     pg.records = buildRecords(geojson.features || [], census, turnout);
     pg.available = availableMetricIds(pg.records);
@@ -126,7 +104,7 @@ async function loadCounty() {
     render();
   } catch (err) {
     console.error("[Explore] load failed:", err);
-    $("ex-body").innerHTML = '<tr><td class="empty-note">We couldn’t load this county’s data. Check your internet connection, then <button type="button" class="retry-link" onclick="location.reload()">try again</button>.</td></tr>';
+    $("ex-body").innerHTML = '<tr><td class="empty-note">We couldn’t load the precinct data. Check your internet connection, then <button type="button" class="retry-link" onclick="location.reload()">try again</button>.</td></tr>';
   }
 }
 
@@ -223,14 +201,13 @@ function tinyFlagHTML(r) {
 // dataTable column model for the current view: the sticky precinct-link column
 // plus one column per visible metric.
 function tableColumns(cols) {
-  const cParam = encodeURIComponent(pg.county);
   const precinctCol = {
     id: "precinct",
     label: "Precinct",
     headerClass: "pcell-precinct",
     sortable: false,
     cellHTML: (r) =>
-      `<td class="pcell-precinct"><a href="precinct.html#county=${cParam}&precinct=${encodeURIComponent(r.precinct)}">${escapeHtml(r.precinct)}</a>${tinyFlagHTML(r)}</td>`,
+      `<td class="pcell-precinct"><a href="precinct.html#precinct=${encodeURIComponent(r.precinct)}">${escapeHtml(r.precinct)}</a>${tinyFlagHTML(r)}</td>`,
   };
   const metricCols = cols.map((id) => {
     const m = getMetric(id);
@@ -298,11 +275,11 @@ function renderChips() {
 
 // ---- URL sync — via the one urlState vocabulary (§5.3) -----------------------
 function updateURL() {
-  writeParams({ county: pg.county, view: pg.view, sort: pg.sortKey, dir: pg.sortDir });
+  writeParams({ view: pg.view, sort: pg.sortKey, dir: pg.sortDir });
 }
 function readURL() {
   const params = readParams();
-  if (params.county) pg.county = params.county;
+  // Legacy `county=` is read-tolerated and ignored — old links must not crash.
   if (params.view) pg.view = params.view;
   if (params.sort && getMetric(params.sort)) pg.sortKey = params.sort;
   if (params.dir === "asc" || params.dir === "desc") pg.sortDir = params.dir;
@@ -328,10 +305,7 @@ async function init() {
       render();
     }
   });
-  await initCountySelect();
-  $("ex-county").value = pg.county;
-  if ($("ex-county").value !== pg.county) pg.county = $("ex-county").value;
-  await loadCounty();
+  await loadData();
 }
 
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

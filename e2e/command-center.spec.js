@@ -27,18 +27,21 @@ test.describe('Command Center', () => {
     await expect(page).toHaveTitle(/County — Elections Map/);
   });
 
-  test('the subject menu offers Collin plus the districts, and can switch', async ({ page }) => {
+  test('the district scope limits the Collin map, and clears back to the whole county', async ({ page }) => {
     await waitForLoaded(page);
     await expect(page.locator('#cc-county-name')).toHaveText('Collin County');
-    await page.click('#cc-county-btn');
-    // The menu lists Collin and the 12 Collin-touching districts.
-    await expect(page.locator('.cc-county-opt[data-slug="collin"]')).toHaveCount(1);
-    await expect(page.locator('.cc-county-opt[data-slug="cd-3"]')).toHaveCount(1);
-    await expect(page.locator('.cc-county-opt[data-slug]')).toHaveCount(13);
-    // Switching to a district re-brands without the "County" suffix.
-    await page.click('.cc-county-opt[data-slug="cd-3"]');
-    await expect(page.locator('#cc-county-name')).toHaveText('Congressional District 3', { timeout: 15000 });
-    await expect(page.locator('#cc-map svg path.leaflet-interactive').first()).toBeVisible();
+    // The scope select offers the whole county plus the 12 Collin-touching districts.
+    await expect(page.locator('#cc-district option')).toHaveCount(13);
+    // Scoping to CD-3 filters the map to that district's Collin precincts.
+    await page.selectOption('#cc-district', 'cd-3');
+    await expect(page.locator('#cc-map svg path.leaflet-interactive')).toHaveCount(164, { timeout: 15000 });
+    await expect(page.locator('#cc-dock-title')).toContainText('Congressional District 3', { timeout: 15000 });
+    // The scope is a deep-linkable param, and county= is never written (§3.5).
+    expect(page.url()).toMatch(/district=cd-3/);
+    expect(page.url()).not.toMatch(/county=/);
+    // Back to the whole county.
+    await page.selectOption('#cc-district', '');
+    await expect(page.locator('#cc-map svg path.leaflet-interactive')).toHaveCount(273, { timeout: 15000 });
   });
 
   test('the three analytic modes switch', async ({ page }) => {

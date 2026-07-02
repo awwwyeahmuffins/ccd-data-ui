@@ -77,8 +77,10 @@ export function countLine(rows, sortId) {
 // ---------------------------------------------------------------------------
 // Rendering (chunked — district views can reach ~1,500 rows)
 // ---------------------------------------------------------------------------
-function cardHTML(row, countySlug) {
-  const report = `precinct.html#county=${encodeURIComponent(countySlug)}&precinct=${encodeURIComponent(row.code)}`;
+function cardHTML(row) {
+  // County params are dead (REDESIGN §3.5 rule 4) — the report link carries
+  // only the precinct.
+  const report = `precinct.html#precinct=${encodeURIComponent(row.code)}`;
   const lean = row.lean
     ? `<div class="cc-leanbar cc-leanbar-slim" role="img" aria-label="${row.lean.rep}% Republican, ${row.lean.mod}% moderate or other, ${row.lean.dem}% Democratic">
          ${row.lean.rep > 0 ? `<span class="seg-rep" style="flex:${row.lean.rep}"></span>` : ""}
@@ -98,14 +100,14 @@ function cardHTML(row, countySlug) {
 }
 
 // Render rows into `container` in animation-frame batches. Returns a cancel fn.
-export function renderRows(container, rows, countySlug, { batch = 80 } = {}) {
+export function renderRows(container, rows, { batch = 80 } = {}) {
   container.innerHTML = "";
   let i = 0;
   let cancelled = false;
   function step() {
     if (cancelled || i >= rows.length) return;
     const slice = rows.slice(i, i + batch);
-    container.insertAdjacentHTML("beforeend", slice.map((r) => cardHTML(r, countySlug)).join(""));
+    container.insertAdjacentHTML("beforeend", slice.map((r) => cardHTML(r)).join(""));
     i += batch;
     if (i < rows.length) requestAnimationFrame(step);
   }

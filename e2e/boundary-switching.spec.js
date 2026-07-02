@@ -27,19 +27,14 @@ test.describe('Map boundary vintages', () => {
     await expect(paths(page)).toHaveCount(273, { timeout: 30000 });
   });
 
-  test('district subject uses its own boundary set; back to Collin restores 2026', async ({ page }) => {
+  test('district scope filters the 2026 set; clearing it restores every precinct', async ({ page }) => {
+    // Districts are a SCOPE on the Collin map (REDESIGN §5.2), not a separate
+    // boundary set — the vintage never changes on a scope round-trip.
     await page.goto('/index.html');
     await mapLoaded(page);
-    // → CD-3: the members.geojson set (173 units), not a Collin vintage.
-    await page.click('#cc-county-btn');
-    await page.click('.cc-county-opt[data-slug="cd-3"]');
-    await expect(page.locator('#cc-county-name')).toHaveText('Congressional District 3', { timeout: 30000 });
-    await expect(paths(page)).toHaveCount(173, { timeout: 30000 });
-    // → back to Collin: the 2026 set again (the round-trip must not strand the
-    // map on a stale vintage).
-    await page.click('#cc-county-btn');
-    await page.click('.cc-county-opt[data-slug="collin"]');
-    await expect(page.locator('#cc-county-name')).toHaveText('Collin County', { timeout: 30000 });
+    await page.selectOption('#cc-district', 'cd-3');
+    await expect(paths(page)).toHaveCount(164, { timeout: 30000 });
+    await page.selectOption('#cc-district', '');
     await expect(paths(page)).toHaveCount(273, { timeout: 30000 });
   });
 

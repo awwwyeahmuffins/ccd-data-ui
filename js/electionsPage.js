@@ -1,16 +1,15 @@
 // electionsPage.js
 // --------------------------------------------------------------------------------
 // Orchestrator for elections.html — the full-page race catalog. Browse/search
-// every race for a county or district; each race links to the map view and to
-// the forecast page. Must not import js/app/* modules (index.html-coupled).
+// every race on file; each race links to the map view and to the forecast
+// page. Must not import js/app/* modules (index.html-coupled).
 
-import { loadCountyRegistry, setActiveCounty, setActiveBoundary, getBoundaryConfigs, getActiveBoundary, listElectionCSVs } from "./dataLoader.js";
+import { boundary } from "./data/dataService.js";
 import { CATEGORY_ORDER, searchElections, filterByCategory } from "./electionFilters.js";
 import { escapeHtml } from "./lib/dom.js";
-import { readParams, writeParams } from "./lib/urlState.js";
+import { readParams } from "./lib/urlState.js";
 
 const pg = {
-  county: 'collin',
   elections: [],
   search: '',
   category: 'All',
@@ -18,46 +17,17 @@ const pg = {
 
 const $ = id => document.getElementById(id);
 
-async function initCountySelect() {
-  const registry = await loadCountyRegistry();
-  const sel = $('el-county');
-  const counties = registry.filter(c => c.kind !== 'district' && c.status === 'live');
-  const districts = registry.filter(c => c.kind === 'district' && c.status === 'live');
-
-  let html = counties.map(c =>
-    `<option value="${escapeHtml(c.slug)}">${escapeHtml(c.name)}</option>`).join('');
-  const groups = {};
-  for (const d of districts) (groups[d.group || 'Districts'] ||= []).push(d);
-  for (const [label, items] of Object.entries(groups)) {
-    html += `<optgroup label="${escapeHtml(label)}">` + items.map(d =>
-      `<option value="${escapeHtml(d.slug)}">${escapeHtml(d.name)}</option>`).join('') + '</optgroup>';
-  }
-  sel.innerHTML = html;
-  sel.value = pg.county;
-  if (sel.value !== pg.county) pg.county = sel.value;
-  sel.addEventListener('change', () => {
-    pg.county = sel.value;
-    updateURL();
-    loadCounty();
-  });
-}
-
-async function loadCounty() {
+async function loadRaces() {
   $('el-list').innerHTML = '<div class="empty-note">Loading…</div>';
   try {
-    await setActiveCounty(pg.county);
-    // 2026-only app: always the current boundary set where the county has it.
-    const boundary = getBoundaryConfigs()['2026'] ? '2026' : getActiveBoundary();
-    setActiveBoundary(boundary);
-    const wrap = $('el-boundary-wrap');
-    if (wrap) wrap.style.display = 'none';
+    // The app is pinned to the 2026 boundary set; the estimates note always applies.
     const note = $('el-boundary-note');
-    if (note) note.style.display = boundary === '2026' ? '' : 'none';
-    pg.elections = await listElectionCSVs();
+    if (note) note.style.display = '';
+    pg.elections = await boundary().listRaces();
     renderChips();
     renderList();
   } catch (err) {
-    $('el-list').innerHTML = '<div class="empty-note">Could not load this county’s races.</div>';
+    $('el-list').innerHTML = '<div class="empty-note">Could not load the race catalog.</div>';
     console.error(err);
   }
 }
@@ -152,33 +122,27 @@ function renderList() {
 
 function raceRow(e) {
   const raceParam = encodeURIComponent(e.raceKey || e.filename);
-  const county = encodeURIComponent(pg.county);
   // The year already heads the section — drop a duplicated "(2022)" suffix
   const name = (e.displayName || e.filename).replace(/\s*\(\d{4}\)\s*$/, '');
   return `
     <div class="race-row">
       <span class="race-name">${escapeHtml(name)}</span>
       <span class="race-actions">
-        <a class="act-map" href="index.html#county=${county}&race=${raceParam}">View on map</a>
-        <a class="act-forecast" href="forecast.html#county=${county}&race=${raceParam}">Forecast</a>
+        <a class="act-map" href="index.html#race=${raceParam}">View on map</a>
+        <a class="act-forecast" href="forecast.html#race=${raceParam}">Forecast</a>
       </span>
     </div>`;
 }
 
-// URL state: #county=X (race links carry their own state) — via urlState (§5.3)
+// URL state: this page has none of its own (race links carry their state).
+// Legacy #county= links are read-tolerated by simply ignoring the hash.
 function parseURL() {
-  const params = readParams();
-  if (params.county) pg.county = params.county;
-}
-
-function updateURL() {
-  writeParams({ county: pg.county !== 'collin' ? pg.county : null });
+  readParams(); // tolerate any legacy hash without crashing; nothing to consume
 }
 
 let searchTimer = null;
 async function init() {
   parseURL();
-  await initCountySelect();
   $('el-search').addEventListener('input', e => {
     clearTimeout(searchTimer);
     searchTimer = setTimeout(() => {
@@ -186,7 +150,7 @@ async function init() {
       renderList();
     }, 150);
   });
-  await loadCounty();
+  await loadRaces();
 }
 
 init();

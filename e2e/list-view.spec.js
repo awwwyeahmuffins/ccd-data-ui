@@ -48,12 +48,12 @@ test.describe('List view', () => {
     await expect(page.locator('#cc-readout')).toBeVisible();
   });
 
-  test('"Full report" deep-links to the precinct page with county context', async ({ page }) => {
+  test('"Full report" deep-links straight to the precinct report', async ({ page }) => {
     await waitForLoaded(page);
     await page.click('#cc-view-list');
     await expect(page.locator('.cc-card').first()).toBeVisible({ timeout: 15000 });
     const href = await page.locator('.cc-card-report').first().getAttribute('href');
-    expect(href).toMatch(/^precinct\.html#county=collin&precinct=/);
+    expect(href).toMatch(/^precinct\.html#precinct=/);
   });
 
   test('deep link #view=list opens the list directly', async ({ page }) => {

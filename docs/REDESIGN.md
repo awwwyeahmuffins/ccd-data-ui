@@ -1,7 +1,20 @@
 # REDESIGN.md — Collin County Elections Viewer: Simplification Redesign
 
 **Last Updated**: July 2, 2026
-**Status**: In implementation. Phases 0–2 are done; Phases 3–6 are pending.
+**Status**: In implementation. Phases 0–3 are done; Phases 4–6 are pending.
+
+- **Phase 3** (data service, Collin-only): done. `js/data/` landed (frozen
+  catalog, per-boundary memoized handles — switching is repointing, nothing is
+  wiped; districts.js owns membership + tree loading). All five county pickers
+  are gone; the Map and Priority Precincts gained the `district=` scope
+  (legacy `county=` deep links read-tolerated everywhere, written nowhere).
+  A district scope also surfaces that district's tree-only races (the 2020
+  statewide trio) with Collin rows joined to the 2026 map. Three latent
+  dataLoader bugs died with the service: cached rejections, the
+  string-before-manifest wrong-shape fallback, and the RFC-4180 quote bug.
+  dataLoader.js is now the §5.1 compat shim for the library modules that still
+  import it (precinctLookup, precinctHistory, precinctProfile, fieldOnePager,
+  precinctExport — they migrate fully when Phases 4–5 touch them).
 
 - **Phase 1** (js/lib/ extraction, urlState adoption, real-module tests, deep-links + boundary-switching specs, themeManager/chatEndpoint deletion): done.
 - **Phase 2** (shared components + domain/view splits): done, with three documented deviations from the letter of the plan:

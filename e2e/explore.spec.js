@@ -79,6 +79,6 @@ test.describe('Explore view', () => {
   test('precinct cells deep-link to the report', async ({ page }) => {
     await load(page);
     const href = await page.locator('#ex-body .pcell-precinct a').first().getAttribute('href');
-    expect(href).toMatch(/precinct\.html#county=[^&]+&precinct=/);
+    expect(href).toMatch(/precinct\.html#precinct=/);
   });
 });

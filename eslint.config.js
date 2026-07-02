@@ -62,6 +62,19 @@ export default [
     },
   },
   {
+    // Layering rule (REDESIGN.md §4.2): data/ fetches + caches — it may import
+    // js/lib/ and its own directory only. The two root-level keepers it needs
+    // (electionSchema.js, v3Pivot.js) are allowlisted at their legacy paths
+    // until they move into js/data/ per the Phase-3 move policy.
+    files: ['js/data/**/*.js'],
+    rules: {
+      'no-restricted-imports': ['error', { patterns: [{
+        group: ['../*', '!../lib', '!../lib/*', '!../electionSchema.js', '!../v3Pivot.js'],
+        message: 'js/data/ imports js/lib/ and js/data/ only (REDESIGN.md §4.2).',
+      }] }],
+    },
+  },
+  {
     // Layering rule (REDESIGN.md §4.2): domain/ is pure computation — it may
     // import lib/ only (never data, ui, map, or legacy root modules).
     files: ['js/domain/**/*.js'],

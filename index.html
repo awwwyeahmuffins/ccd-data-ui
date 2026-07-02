@@ -135,6 +135,22 @@
     }
     .cc-county-btn:hover { border-color: var(--accent); box-shadow: var(--shadow); }
     .cc-county-btn .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-fill); box-shadow: 0 0 8px var(--accent-fill); }
+    /* District scope control (Phase 3): branding + a native select */
+    .cc-scope { display: flex; align-items: center; gap: 10px; }
+    .cc-scope .cc-brand {
+      display: flex; align-items: center; gap: 9px;
+      font-family: var(--body); font-weight: 700; font-size: 1rem; color: var(--ink);
+      white-space: nowrap;
+    }
+    .cc-scope .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-fill); box-shadow: 0 0 8px var(--accent-fill); }
+    .cc-scope select {
+      min-height: 44px; padding: 8px 10px;
+      border: 1px solid var(--line); border-radius: 10px;
+      background: var(--bg-raise); color: var(--ink);
+      font-family: var(--body); font-weight: 600; font-size: 1rem;
+      max-width: 240px;
+    }
+    .cc-scope select:hover { border-color: var(--accent); }
     .cc-county-menu {
       position: absolute; top: calc(100% + 8px); left: 0;
       width: 300px; max-height: 52vh; overflow-y: auto;
@@ -541,16 +557,13 @@
 
     <!-- TOP CONTEXT BAR -->
     <div class="cc-topbar">
-      <div class="cc-county-select">
-        <button class="cc-county-btn" id="cc-county-btn">
-          <span class="dot"></span>
-          <span id="cc-county-name">Collin County</span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div class="cc-county-menu" id="cc-county-menu">
-          <input type="text" class="cc-county-search" id="cc-county-search" aria-label="Search for a county or district" placeholder="Search Collin or a district…" />
-          <div id="cc-county-list"></div>
-        </div>
+      <!-- Collin-only (REDESIGN Phase 3): the county picker is gone; districts
+           are a SCOPE on the Collin map, not separate map subjects. -->
+      <div class="cc-scope">
+        <span class="cc-brand"><span class="dot"></span><span id="cc-county-name">Collin County</span></span>
+        <select id="cc-district" aria-label="Limit the map to a district">
+          <option value="">All precincts</option>
+        </select>
       </div>
 
       <div class="cc-county-select" id="cc-race-select">

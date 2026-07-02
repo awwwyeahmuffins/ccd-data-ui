@@ -5,10 +5,7 @@
 // actual vs simulated outcome. Reuses the root turnout-simulation engine; this
 // page must not import js/app/* modules (those are coupled to index.html DOM).
 
-import {
-  loadCountyRegistry, setActiveCounty, loadAllData,
-  listElectionCSVs, loadElectionData
-} from "./dataLoader.js";
+import { boundary } from "./data/dataService.js";
 import { getCandidateColumns } from "./electionSchema.js";
 import { runFullSimulation } from "./turnoutSimulator.js";
 import { PARTY_COLORS } from "./constants.js";
@@ -21,7 +18,6 @@ import { createRacePicker } from "./ui/racePicker.js";
 // Page state
 // ---------------------------------------------------------------------------
 const pg = {
-  county: 'collin',
   elections: [],
   entry: null,            // selected manifest entry
   electionData: null,
@@ -48,34 +44,8 @@ const SLIDER_GROUPS = [
 
 const $ = id => document.getElementById(id);
 
-// ---------------------------------------------------------------------------
-// Step 1: county + race pickers
-// ---------------------------------------------------------------------------
-async function initCountySelect() {
-  const registry = await loadCountyRegistry();
-  const sel = $('fc-county');
-  const counties = registry.filter(c => c.kind !== 'district' && c.status === 'live');
-  const districts = registry.filter(c => c.kind === 'district' && c.status === 'live');
-
-  let html = counties.map(c =>
-    `<option value="${escapeHtml(c.slug)}">${escapeHtml(c.name)}</option>`).join('');
-  const groups = {};
-  for (const d of districts) {
-    (groups[d.group || 'Districts'] ||= []).push(d);
-  }
-  for (const [label, items] of Object.entries(groups)) {
-    html += `<optgroup label="${escapeHtml(label)}">` + items.map(d =>
-      `<option value="${escapeHtml(d.slug)}">${escapeHtml(d.name)}</option>`).join('') + '</optgroup>';
-  }
-  sel.innerHTML = html;
-  sel.value = pg.county;
-  if (sel.value !== pg.county) { pg.county = sel.value; } // slug from URL not in list
-  sel.addEventListener('change', () => {
-    pg.county = sel.value;
-    pg.entry = null;
-    loadCounty();
-  });
-}
+// The one boundary handle this page uses — the app is pinned to the 2026 set.
+const svc = boundary();
 
 // Major statewide/federal contests make the most sense to forecast; list them
 // first, the rest after a divider.
@@ -92,18 +62,17 @@ function orderRaces(elections) {
   return { major, rest };
 }
 
-async function loadCounty() {
+async function loadRaceCatalog() {
   const status = $('fc-load-status');
   status.textContent = 'Loading races…';
   try {
-    await setActiveCounty(pg.county);
-    const [, elections] = await Promise.all([loadAllData(), listElectionCSVs()]);
+    const [, elections] = await Promise.all([svc.loadAll(), svc.listRaces()]);
     pg.elections = elections;
 
     const { major } = orderRaces(elections);
     pg.picker.refresh();
 
-    status.textContent = elections.length ? '' : 'No election data for this county yet.';
+    status.textContent = elections.length ? '' : 'No election data on file yet.';
     if (elections.length) {
       const requested = pg.entry?.filename;
       const first = elections.find(e => e.filename === requested || e.raceKey === requested)
@@ -114,7 +83,7 @@ async function loadCounty() {
       renderOutcome();
     }
   } catch (err) {
-    status.innerHTML = 'We couldn’t load this county’s data. Check your internet connection, then <button type="button" class="retry-link" onclick="location.reload()">try again</button>.';
+    status.innerHTML = 'We couldn’t load the election data. Check your internet connection, then <button type="button" class="retry-link" onclick="location.reload()">try again</button>.';
     console.error(err);
   }
 }
@@ -129,7 +98,7 @@ async function selectRace(filename) {
   pg.picker.refresh();
   status.textContent = 'Loading results…';
   try {
-    const data = await loadElectionData(entry);
+    const data = await svc.loadRace(entry);
     pg.electionData = data;
     const headers = data[0] ? Object.keys(data[0]) : [];
     pg.candidates = getCandidateColumns(headers).filter(col => {
@@ -138,7 +107,7 @@ async function selectRace(filename) {
     });
 
     // Reshape DNC lookup into the precinct-keyed form the simulator consumes
-    const { dncLookup } = await loadAllData();
+    const { dncLookup } = await svc.loadAll();
     pg.dncByPrecinct = {};
     Object.entries(dncLookup || {}).forEach(([code, row]) => {
       pg.dncByPrecinct[code] = {
@@ -285,23 +254,21 @@ function renderOutcome() {
     ${flippedPrecincts.length && !isBaseline ? `<div class="flip-chips">${chips}</div>` : ''}
     <div class="muted-note">${simulatedCount} of ${totalPrecincts} precincts simulated
       (precincts without partisan-makeup data are left at their actual result).</div>
-    <a class="map-link" href="index.html#county=${encodeURIComponent(pg.county)}&race=${encodeURIComponent(raceParam)}">
+    <a class="map-link" href="index.html#race=${encodeURIComponent(raceParam)}">
       View this race on the map →</a>
   `;
 }
 
 // ---------------------------------------------------------------------------
-// URL state (#county=X&race=Y) — shareable, and accepts links from other pages
+// URL state (#race=Y) — shareable; legacy #county= links are read-tolerated
 // ---------------------------------------------------------------------------
 function parseURL() {
   const params = readParams();
-  if (params.county) pg.county = params.county;
   if (params.race) pg.entry = { filename: params.race };
 }
 
 function updateURL() {
   writeParams({
-    county: pg.county !== 'collin' ? pg.county : null,
     race: pg.entry ? pg.entry.raceKey || pg.entry.filename : null,
   });
 }
@@ -311,7 +278,6 @@ async function init() {
   parseURL();
   renderPresets();
   renderSliders();
-  await initCountySelect();
   // The shared searchable race picker (ui/racePicker.js) — same component as
   // the Map; no Overview row here because the forecast always needs a race.
   pg.picker = createRacePicker({
@@ -330,7 +296,7 @@ async function init() {
     },
     showOverview: false,
   });
-  await loadCounty();
+  await loadRaceCatalog();
 }
 
 init();

@@ -4,16 +4,8 @@
 // a campaign strategy; see its precincts ranked with the real numbers behind the
 // ranking. Pure scoring lives in targeting.js. Must not import js/app/* modules.
 
-import {
-  loadCountyRegistry,
-  setActiveCounty,
-  loadAllData,
-  getBoundaryConfigs,
-  getActiveBoundary,
-  listElectionCSVs,
-  loadElectionData,
-  loadPrimaryTurnout,
-} from "./dataLoader.js";
+import { boundary } from "./data/dataService.js";
+import { DISTRICT_LIST, precinctsInDistrict } from "./data/districts.js";
 import {
   STRATEGIES,
   STRATEGY_CATEGORIES,
@@ -42,8 +34,10 @@ function metricLabelHTML(label) {
   return term ? termButton(term, escapeHtml(label)) : escapeHtml(label);
 }
 
+const svc = boundary();
+
 const pg = {
-  county: "collin",
+  district: null,
   strategy: "tossups",
   limit: 25,
   electionId: "",        // "" = overall partisan lean; else a specific race
@@ -67,48 +61,45 @@ const CAT_ICON = {
   leverage: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/></svg>`,
 };
 
-// ---- county / district selector (mirrors elections.html) --------------------
-async function initCountySelect() {
-  const registry = await loadCountyRegistry();
-  const sel = $("tg-county");
-  const counties = registry.filter((c) => c.kind !== "district" && c.status === "live" && c.fips);
-  const districts = registry.filter((c) => c.kind === "district" && c.status === "live");
-
-  let html = counties
-    .map((c) => `<option value="${escapeHtml(c.slug)}">${escapeHtml(c.name)}</option>`)
-    .join("");
+// ---- district scope (REDESIGN §5.2: districts filter Collin, no county picker)
+function initDistrictSelect() {
+  const sel = $("tg-district");
   const groups = {};
-  for (const d of districts) (groups[d.group || "Districts"] ||= []).push(d);
+  for (const d of DISTRICT_LIST) (groups[d.group || "Districts"] ||= []).push(d);
+  let html = `<option value="">All of Collin County</option>`;
   for (const [label, items] of Object.entries(groups)) {
     html += `<optgroup label="${escapeHtml(label)}">` +
       items.map((d) => `<option value="${escapeHtml(d.slug)}">${escapeHtml(d.name)}</option>`).join("") +
       "</optgroup>";
   }
   sel.innerHTML = html;
-  sel.value = pg.county;
-  if (sel.value !== pg.county) pg.county = sel.value;
+  sel.value = pg.district || "";
   sel.addEventListener("change", () => {
-    pg.county = sel.value;
+    pg.district = sel.value || null;
     updateURL();
-    loadCounty();
+    renderResults();
   });
+}
+
+function scopeName() {
+  if (!pg.district) return null;
+  const d = DISTRICT_LIST.find((x) => x.slug === pg.district);
+  return d ? d.name : pg.district;
 }
 
 // ---- marquee turnout: the highest-turnout election on file -------------------
 // Returns { [precinctCode]: { registered, ballots } } or null when unavailable.
 async function loadMarqueeTurnout() {
   try {
-    const cfg = getBoundaryConfigs()[getActiveBoundary()];
-    if (!cfg) return null;
-    const manifest = await fetch(`${cfg.dataDir}/elections.json`).then((r) => (r.ok ? r.json() : null));
-    const files = [...new Set((manifest?.elections || []).map((e) => e.turnoutFile).filter(Boolean))];
+    const races = await svc.listRaces();
+    const files = [...new Set(races.map((e) => e.turnoutFile).filter(Boolean))];
     if (!files.length) return null;
 
     let best = null;
     let bestBallots = -1;
     for (const f of files) {
       try {
-        const rows = await d3.csv(`${cfg.dataDir}/${f}`, (d) => ({
+        const rows = await d3.csv(`${svc.config.dataDir}/${f}`, (d) => ({
           precinct: d.precinct,
           registered: +d.registered,
           ballots: +d.ballots_cast,
@@ -140,7 +131,7 @@ async function loadMarqueeTurnout() {
 async function populateElectionSelect() {
   const sel = $("tg-election");
   try {
-    pg.elections = await listElectionCSVs();
+    pg.elections = await svc.listRaces();
   } catch (_) { pg.elections = []; }
   let html = `<option value="">Overall partisan lean</option>`;
   html += pg.elections
@@ -159,7 +150,7 @@ async function populateElectionSelect() {
 // Aggregate one race CSV to per-precinct {rep, dem, total}. Candidate columns are
 // every column not in the metadata set; party is the column's first token.
 async function loadElectionResults(entry) {
-  const rows = await loadElectionData(entry);
+  const rows = await svc.loadRace(entry);
   const byCode = {};
   for (const row of rows) {
     let total = 0, rep = 0, dem = 0;
@@ -222,13 +213,12 @@ function activeElectionLabel() {
 }
 
 // ---- load a county + recompute everything -----------------------------------
-async function loadCounty() {
+async function loadData() {
   $("tg-list").innerHTML = '<div class="empty-note">Loading…</div>';
   $("tg-catalog").innerHTML = "";
   $("tg-na").innerHTML = "";
   try {
-    await setActiveCounty(pg.county);
-    const [{ geojson }, turnout, primary] = await Promise.all([loadAllData(), loadMarqueeTurnout(), loadPrimaryTurnout()]);
+    const [{ geojson }, turnout, primary] = await Promise.all([svc.loadAll(), loadMarqueeTurnout(), svc.loadPrimaryTurnout()]);
     pg.features = geojson.features || [];
     pg.turnout = turnout;
     pg.primary = primary;
@@ -245,7 +235,7 @@ async function loadCounty() {
     renderResults();
   } catch (err) {
     console.error("[Targets] load failed:", err);
-    $("tg-list").innerHTML = '<div class="empty-note">We couldn’t load this county’s data. Check your internet connection, then <button type="button" class="retry-link" onclick="location.reload()">try again</button>.</div>';
+    $("tg-list").innerHTML = '<div class="empty-note">We couldn’t load the precinct data. Check your internet connection, then <button type="button" class="retry-link" onclick="location.reload()">try again</button>.</div>';
   }
 }
 
@@ -305,7 +295,7 @@ function updateStrategyButton() {
 function renderResults() {
   const strat = getStrategy(pg.strategy);
   if (!strat) return;
-  $("tg-results-title").textContent = strat.label;
+  $("tg-results-title").textContent = pg.district ? `${strat.label} — ${scopeName()}` : strat.label;
   updateStrategyButton();
   const elLabel = activeElectionLabel();
   $("tg-results-sub").textContent = elLabel ? `${strat.blurb} · Scored on ${elLabel}` : strat.blurb;
@@ -318,7 +308,13 @@ function renderResults() {
   }
   $("tg-na").innerHTML = "";
 
-  const feats = pg.electionId ? pg.electionFeatures : pg.features;
+  const base = pg.electionId ? pg.electionFeatures : pg.features;
+  // District scope: rank only the scoped district's Collin precincts.
+  let feats = base;
+  if (pg.district) {
+    const codes = new Set(precinctsInDistrict(pg.district, pg.features).map(String));
+    feats = base.filter((f) => codes.has(String(f.properties.PRECINCT)));
+  }
   const ranked = rankPrecincts(feats, pg.strategy, { turnoutLookup: pg.turnout, primaryLookup: pg.primary, limit: pg.limit });
   $("tg-results-count").textContent = ranked.length ? `Top ${ranked.length}` : "";
   if (!ranked.length) {
@@ -364,8 +360,8 @@ function precinctCard(rank, row, strat) {
   const d = Math.round(m.demShare * 100);
   const mo = Math.max(0, 100 - r - d);
   const head = headlineFor(strat.id, m);
-  const cParam = encodeURIComponent(pg.county);
   const pParam = encodeURIComponent(m.code);
+  const dParam = pg.district ? `district=${encodeURIComponent(pg.district)}&` : "";
   return `<div class="tg-precinct">
     <div class="tg-rank">${rank}</div>
     <div>
@@ -376,8 +372,8 @@ function precinctCard(rank, row, strat) {
     <div class="tg-pmeta">
       <div><div class="tg-metric-val">${escapeHtml(head.val)}</div><div class="tg-metric-label">${metricLabelHTML(head.label)}</div></div>
       <div class="tg-links">
-        <a class="tg-link-report" href="precinct.html#county=${cParam}&precinct=${pParam}">Report</a>
-        <a class="tg-link-map" href="index.html#county=${cParam}${pg.electionId ? `&race=${encodeURIComponent(pg.electionId)}` : ""}&precinct=${pParam}">Map</a>
+        <a class="tg-link-report" href="precinct.html#precinct=${pParam}">Report</a>
+        <a class="tg-link-map" href="index.html#${dParam}${pg.electionId ? `race=${encodeURIComponent(pg.electionId)}&` : ""}precinct=${pParam}">Map</a>
       </div>
     </div>
   </div>`;
@@ -386,15 +382,18 @@ function precinctCard(rank, row, strat) {
 // ---- URL sync (deep-linkable) — via the one urlState vocabulary (§5.3) ------
 function updateURL() {
   writeParams({
-    county: pg.county,
     strategy: pg.strategy,
     top: pg.limit,
     race: pg.electionId || null,
+    district: pg.district || null,
   });
 }
 function readURL() {
   const params = readParams();
-  if (params.county) pg.county = params.county;
+  // district= scopes the ranking; legacy county=<district slug> is read-
+  // tolerated for old bookmarks (county=collin is simply ignored).
+  const wanted = params.district || params.county;
+  if (wanted && DISTRICT_LIST.some((d) => d.slug === wanted)) pg.district = wanted;
   if (params.strategy && getStrategy(params.strategy)) pg.strategy = params.strategy;
   if (params.top && [15, 25, 50, 100].includes(+params.top)) pg.limit = +params.top;
   if (params.race) pg.electionId = params.race; // validated against the manifest after load
@@ -419,10 +418,8 @@ async function init() {
     await applyElection();
     renderResults();
   });
-  await initCountySelect();
-  $("tg-county").value = pg.county;
-  if ($("tg-county").value !== pg.county) pg.county = $("tg-county").value; // unknown slug → first option
-  await loadCounty();
+  initDistrictSelect();
+  await loadData();
   $("tg-election").value = pg.electionId; // reflect a deep-linked race once the manifest is in
 }
 

@@ -29,14 +29,7 @@ test.describe('Elections catalog page', () => {
     await page.locator('#el-search').fill('president');
     await page.waitForTimeout(500);
     const href = await page.locator('.race-row .act-map').first().getAttribute('href');
-    expect(href).toMatch(/^index\.html#county=collin&race=/);
-  });
-
-  test('county switch reloads the catalog', async ({ page }) => {
-    await page.selectOption('#el-county', 'cd-3');
-    await page.waitForSelector('.family-group', { timeout: 30000 });
-    const count = await page.locator('#el-count').textContent();
-    expect(count).toMatch(/^\d+ races?/);
+    expect(href).toMatch(/^index\.html#race=/);
   });
 });
 
@@ -65,11 +58,11 @@ test.describe('Forecast scenario page', () => {
     await expect(page.locator('[data-preset="custom"]')).toHaveClass(/active/);
   });
 
-  test('deep link selects county and race', async ({ page }) => {
+  test('a legacy county deep link still resolves its race', async ({ page }) => {
+    // Old bookmarks carried #county= — read-tolerated, never written (§3.5).
     await page.goto('/forecast.html?dl#county=cd-3&race=governor-2022');
     await page.waitForFunction(
       () => document.querySelector('#fc-outcome .outcome-grid'), null, { timeout: 30000 });
-    await expect(page.locator('#fc-county')).toHaveValue('cd-3');
     await expect(page.locator('#fc-race-name')).toContainText(/[Gg]overnor/);
   });
 });

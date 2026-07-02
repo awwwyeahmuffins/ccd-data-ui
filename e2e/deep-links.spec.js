@@ -40,6 +40,18 @@ test.describe('Map (index.html) deep links', () => {
     await expect(page.locator('#cc-race-name')).not.toHaveText('Choose a race');
   });
 
+  test('#district= scopes the map on a cold load; legacy #county=cd-3 still works', async ({ page }) => {
+    await page.goto('/index.html#district=cd-3');
+    await expect(page.locator('#cc-district')).toHaveValue('cd-3', { timeout: 30000 });
+    await expect(page.locator('#cc-map svg path.leaflet-interactive')).toHaveCount(164, { timeout: 30000 });
+    // Old bookmarks that treated the district as a county keep working —
+    // read-tolerated, never written back (§3.5 rule 4).
+    await page.goto('about:blank');
+    await page.goto('/index.html#county=cd-3');
+    await expect(page.locator('#cc-district')).toHaveValue('cd-3', { timeout: 30000 });
+    await expect(page).not.toHaveURL(/county=/, { timeout: 15000 });
+  });
+
   test('#view=list opens the linear List view directly', async ({ page }) => {
     await page.goto('/index.html#county=collin&view=list');
     await expect(page.locator('#cc-list')).toBeVisible({ timeout: 30000 });
@@ -131,13 +143,13 @@ test.describe('Forecast (forecast.html) deep links', () => {
 });
 
 test.describe('Election Results (elections.html) deep links', () => {
-  test('#county= is consumed; the collin default is omitted from writes', async ({ page }) => {
-    // Consume a district-scope link.
+  test('legacy #county= links do not break the catalog; the page writes no hash', async ({ page }) => {
+    // The county picker is gone (Collin-only) — old district bookmarks must
+    // still load the catalog rather than erroring.
     await page.goto('/elections.html#county=cd-3');
-    await expect(page.locator('#el-county')).toHaveValue('cd-3', { timeout: 30000 });
-    // Default scope writes no hash at all.
+    await expect(page.locator('.family-group').first()).toBeVisible({ timeout: 30000 });
     await page.goto('/elections.html');
-    await expect(page.locator('#el-county')).toHaveValue('collin', { timeout: 30000 });
+    await expect(page.locator('.family-group').first()).toBeVisible({ timeout: 30000 });
     expect(new URL(page.url()).hash).toBe('');
   });
 });
