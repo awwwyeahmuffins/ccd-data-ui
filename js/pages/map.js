@@ -1305,7 +1305,7 @@ async function init() {
   showLoading(true);
   try {
     const params = readHashParams();
-    document.title = "Collin County — Elections Map";
+    document.title = "Map — Collin County Elections";
     const { geojson } = await svc.loadAll();
     cc.geojson = geojson;
     populateDistrictSelect();

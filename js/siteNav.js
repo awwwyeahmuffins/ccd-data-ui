@@ -83,7 +83,7 @@ function renderHeader(header) {
   const signedIn = hasCognitoSession();
   header.innerHTML =
     `<div class="site-header-bar">` +
-    `<span class="site-brand">Texas Elections</span>` +
+    `<span class="site-brand">Collin County Elections</span>` +
     `<nav class="site-nav" aria-label="Main">${links}</nav>` +
     `<button type="button" id="nav-text-size" aria-pressed="${storedTextLarge()}">` +
     `<span aria-hidden="true">A</span> Text size</button>` +

@@ -126,7 +126,7 @@ export async function initPrecinctLookup() {
   }
   bindOnePagerButton();
 
-  document.title = "My Precinct — Collin County";
+  document.title = "My Precinct — Collin County Elections";
 
   // Load data
   await loadBaseData();

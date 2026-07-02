@@ -24,7 +24,7 @@ test.describe('Command Center', () => {
     await expect(page.locator('#cc-map svg path.leaflet-interactive').first()).toBeVisible();
     await expect(page.locator('#cc-dock-title')).toContainText('County');
     // brand to the active county in the tab title
-    await expect(page).toHaveTitle(/County — Elections Map/);
+    await expect(page).toHaveTitle(/Map — Collin County Elections/);
   });
 
   test('the district scope limits the Collin map, and clears back to the whole county', async ({ page }) => {
