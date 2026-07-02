@@ -50,7 +50,11 @@ test-results/
 playwright-report/
 collin_elections_master/
 
-# ethnicity_infer generated artifacts — contain voter PII / derived labels
+# ethnicity_infer generated artifacts — contain voter PII / derived labels.
+# ALL csv output in this dir is voter-derived; only code/config/seed lists
+# (.py/.json/.md/seeds/*.txt) may be committed.
+data_processor/ethnicity_infer/*.csv
+data_processor/ethnicity_infer/*.csv.bak
 data_processor/ethnicity_infer/training_data.csv
 data_processor/ethnicity_infer/model.joblib
 data_processor/ethnicity_infer/*_flagged.csv

@@ -9,9 +9,37 @@
 //  - idempotent: commandCenter's init runs twice on the deployed auth path.
 
 import { initGlossary } from "./glossary.js";
+import { initHelpPanel } from "./helpPanel.js";
 
 const TEXT_SIZE_KEY = "ccd_text_large";
 const WELCOME_KEY = "ccd_welcome_seen";
+// The Cognito SDK persists its session under keys with this prefix; scanning
+// for them lets every page offer Sign out without importing the SDK.
+const COGNITO_PREFIX = "CognitoIdentityServiceProvider.";
+
+function hasCognitoSession() {
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      if (localStorage.key(i)?.startsWith(COGNITO_PREFIX)) return true;
+    }
+  } catch {
+    /* storage unavailable */
+  }
+  return false;
+}
+
+function clearCognitoSession() {
+  try {
+    const doomed = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k?.startsWith(COGNITO_PREFIX)) doomed.push(k);
+    }
+    doomed.forEach((k) => localStorage.removeItem(k));
+  } catch {
+    /* storage unavailable */
+  }
+}
 
 // Nav order mirrors the volunteer's workflow: see the map, look up results,
 // plan, then reference material last.
@@ -52,12 +80,16 @@ function renderHeader(header) {
     return `<a href="${p.href}"${current}>${p.label}</a>`;
   }).join("");
 
+  const signedIn = hasCognitoSession();
   header.innerHTML =
     `<div class="site-header-bar">` +
     `<span class="site-brand">Texas Elections</span>` +
     `<nav class="site-nav" aria-label="Main">${links}</nav>` +
     `<button type="button" id="nav-text-size" aria-pressed="${storedTextLarge()}">` +
     `<span aria-hidden="true">A</span> Text size</button>` +
+    `<button type="button" id="nav-help" aria-haspopup="dialog">` +
+    `<span aria-hidden="true">?</span> Help</button>` +
+    (signedIn ? `<button type="button" id="nav-signout">Sign out</button>` : "") +
     `</div>`;
 
   header.querySelector("#nav-text-size").addEventListener("click", (e) => {
@@ -70,6 +102,14 @@ function renderHeader(header) {
       /* private mode: size still applies for this page view */
     }
   });
+
+  const signout = header.querySelector("#nav-signout");
+  if (signout) {
+    signout.addEventListener("click", () => {
+      clearCognitoSession();
+      location.href = "index.html"; // the gate re-appears there on deployment
+    });
+  }
 }
 
 // First visit: one welcome card, plain language, one big dismiss button.
@@ -121,6 +161,7 @@ export function initSiteNav() {
   header.dataset.navRendered = "1";
   renderHeader(header);
   initGlossary();
+  initHelpPanel();
   maybeShowWelcome();
 }
 

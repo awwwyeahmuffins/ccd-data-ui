@@ -161,7 +161,9 @@ body {
   border-bottom-color: var(--accent-aaa);
   border-radius: 10px 10px 0 0;
 }
-#nav-text-size {
+#nav-text-size,
+#nav-help,
+#nav-signout {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -177,7 +179,8 @@ body {
   cursor: pointer;
   white-space: nowrap;
 }
-#nav-text-size span[aria-hidden] {
+#nav-text-size span[aria-hidden],
+#nav-help span[aria-hidden] {
   font-family: var(--civic-display);
   font-size: var(--fs-big);
   line-height: 1;
@@ -299,6 +302,30 @@ button.term {
   cursor: pointer;
 }
 
+/* Help panel (js/helpPanel.js) reuses the welcome card; these are its extras */
+.help-card {
+  max-height: 84vh;
+  overflow-y: auto;
+}
+.help-card h3 {
+  font-family: var(--civic-display);
+  font-size: var(--fs-big);
+  margin: 16px 0 8px;
+  color: var(--ink-aaa);
+}
+.help-card a {
+  color: var(--accent-aaa);
+  font-weight: 600;
+}
+.help-glossary {
+  margin: 0 0 12px;
+  padding-left: 22px;
+  color: var(--ink-dim-aaa);
+}
+.help-glossary li {
+  margin-bottom: 8px;
+}
+
 /* ---------------------------------------------------------------------------
    6) SYSTEM PREFERENCES
    --------------------------------------------------------------------------- */
@@ -321,6 +348,8 @@ button.term {
 @media (pointer: coarse) {
   .site-nav a,
   #nav-text-size,
+  #nav-help,
+  #nav-signout,
   .glossary-pop-close,
   .welcome-dismiss {
     min-height: 48px;
@@ -339,6 +368,10 @@ button.term {
   #nav-text-size {
     order: 2;
     margin-left: auto;
+  }
+  #nav-help,
+  #nav-signout {
+    order: 2;
   }
   .site-nav {
     order: 3;

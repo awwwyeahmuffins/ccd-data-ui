@@ -50,3 +50,27 @@ test.describe('First-visit welcome', () => {
     await expect(page.locator('.welcome-card')).toHaveCount(0);
   });
 });
+
+test.describe('Help panel', () => {
+  test('the header Help button explains the current page and defines the jargon', async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem('ccd_welcome_seen', '1'));
+    await page.goto('/forecast.html');
+    await expect(page.locator('#nav-help')).toBeVisible();
+    await page.click('#nav-help');
+    const panel = page.locator('#help-panel .help-card');
+    await expect(panel).toBeVisible();
+    await expect(panel).toContainText('what if');
+    await expect(panel).toContainText('What the words mean');
+    await page.keyboard.press('Escape');
+    await expect(panel).toHaveCount(0);
+  });
+
+  test('Help is reachable on the front door too, after the welcome', async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem('ccd_welcome_seen', '1'));
+    await page.goto('/index.html');
+    await page.click('#nav-help');
+    await expect(page.locator('#help-panel .help-card')).toContainText('The Map');
+    await page.click('#help-panel .welcome-dismiss');
+    await expect(page.locator('#help-panel')).toHaveCount(0);
+  });
+});

@@ -1,0 +1,27 @@
+{
+  "_comment": "Add a new ethnicity by copying the nepalese block, dropping a distinctive-surname seed file + a hard-negative list, and setting 'target' to its key. No code changes needed.",
+  "target": "nepalese",
+  "voter_file": "VoterRegistrationFile.txt",
+  "columns": {
+    "id": "VoterID",
+    "last": "Last_Name",
+    "first": "First_Name",
+    "address": "Formatted_Address",
+    "city": "City_Name",
+    "zip": "Zip_Code",
+    "precinct": "Precinct"
+  },
+  "ethnicities": {
+    "nepalese": {
+      "seed_surnames": "seeds/nepali_surnames.txt",
+      "hard_negatives": [
+        {"file": "seeds/indian_surnames.txt", "label": "indian"},
+        {"file": "seeds/pakistani_surnames.txt", "label": "pakistani"},
+        {"file": "seeds/bangladeshi_surnames.txt", "label": "bangladeshi"},
+        {"file": "seeds/muslim_arabic_surnames.txt", "label": "muslim_arabic"}
+      ]
+    }
+  },
+  "easy_negative_ratio": 4,
+  "random_seed": 42
+}
