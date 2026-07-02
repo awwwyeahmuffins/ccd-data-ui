@@ -1,4 +1,4 @@
-// commandCenter.js
+// pages/map.js
 // --------------------------------------------------------------------------------
 // Orchestrator for index.html — the Map page, the app's front door. A low-basemap
 // civic map of precinct polygons with three analytic color modes (Lean / Margin /
@@ -9,7 +9,7 @@
 // colors, and the county registry — so it never invents data and stays in sync.
 // Sits behind the Cognito sign-in gate on deployment (bypassed on localhost / e2e).
 
-import { boundary } from "./data/dataService.js";
+import { boundary } from "../data/dataService.js";
 import {
   DISTRICT_LIST,
   precinctsInDistrict,
@@ -18,22 +18,31 @@ import {
   loadDistrictAggregates,
   loadDistrictOutlines,
   loadDistrictPrecinctGeo,
-} from "./data/districts.js";
-import { pivotRace, computeWinners } from "./v3Pivot.js";
-import { PARTY_STRENGTH_COLORS, PARTY_COLORS, ELECTION_META_KEYS, MAP_CONFIG } from "./constants.js";
-import { escapeHtml } from "./lib/dom.js";
-import { formatPctWhole, formatNumberOrNA } from "./lib/format.js";
-import { readParams, writeParams } from "./lib/urlState.js";
-import { createRacePicker } from "./ui/racePicker.js";
-import { createPrecinctFinder } from "./ui/precinctFinder.js";
-import { initAuth, isAuthenticated, signOut, onAuthStateChange } from "./auth.js";
-import { showAuthOverlay, hideAuthOverlay } from "./authUI.js";
-import { findPrecinctForAddress, findPrecinctForPoint, TEXAS_VIEWBOX } from "./geoLookup.js";
-import { RAMPS, marginBin, diversityBin, describePrecinct, partyName, legendBins } from "./mapBins.js";
-import { patternFill, partyKind, swatchSVG } from "./mapPatterns.js";
-import { buildCountyBriefing } from "./countyBriefing.js";
-import { buildRows, sortRows, renderRows, countLine, SORTS } from "./listView.js";
-import { termButton } from "./glossary.js";
+} from "../data/districts.js";
+import { pivotRace, computeWinners } from "../v3Pivot.js";
+import { MAP_COSMETICS, PRIMARY_YEAR, fillFor, notOnBallotFill } from "../map/mapStyles.js";
+import { legendHTML } from "../map/legend.js";
+import {
+  createMapView,
+  fitToLayer,
+  decoratePrecinctPaths,
+  wirePrecinctKeyboard,
+  updatePrecinctLabels as refreshLabelChips,
+} from "../map/mapView.js";
+import { PARTY_COLORS, ELECTION_META_KEYS } from "../constants.js";
+import { escapeHtml } from "../lib/dom.js";
+import { formatPctWhole, formatNumberOrNA } from "../lib/format.js";
+import { readParams, writeParams } from "../lib/urlState.js";
+import { createRacePicker } from "../ui/racePicker.js";
+import { createPrecinctFinder } from "../ui/precinctFinder.js";
+import { initAuth, isAuthenticated, signOut, onAuthStateChange } from "../auth.js";
+import { showAuthOverlay, hideAuthOverlay } from "../authUI.js";
+import { findPrecinctForAddress, findPrecinctForPoint, TEXAS_VIEWBOX } from "../geoLookup.js";
+import { describePrecinct, partyName } from "../map/mapBins.js";
+import { patternFill, partyKind } from "../map/mapPatterns.js";
+import { buildCountyBriefing } from "../countyBriefing.js";
+import { buildRows, sortRows, renderRows, countLine, SORTS } from "../listView.js";
+import { termButton } from "../glossary.js";
 
 // ---- module state (this page's own; no shared singleton) --------------------
 // The one data handle: Collin on the current (2026) precincts. Districts are
@@ -64,14 +73,6 @@ const cc = {
   race: null,            // { id, label, partisan, byPrecinct: { code: {winner,total,margin,...} } }
 };
 
-// Subtle CartoDB basemap for geographic grounding (precinct chairs orienting
-// to their turf). Kept low-opacity in CSS so the choropleth dominates.
-const BASEMAP = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
-const BASEMAP_ATTR =
-  '&copy; <a href="https://carto.com/">CARTO</a> · &copy; OpenStreetMap';
-
-// Map cosmetics that can't come from CSS variables (vector fills).
-const MAP_COSMETICS = { noData: "#DAD3C6", stroke: "#FFFDF9", hover: "#1560C4", sel: "#0B4DA2", notBallot: "#EFEBE2" };
 const tm = () => MAP_COSMETICS;
 
 // The map renders SVG so every precinct is a real, focusable, pattern-fillable
@@ -80,98 +81,18 @@ const tm = () => MAP_COSMETICS;
 const useCanvasRenderer = new URLSearchParams(location.search).get("renderer") === "canvas";
 // The overlay SVG that hosts the pattern <defs> (null on the canvas fallback).
 function svgRoot() {
-  return useCanvasRenderer ? null : (cc.renderer && cc.renderer._container) || null;
+  return cc.mapView ? cc.mapView.svgRoot() : null;
+}
+
+// Style env handed to the extracted fill engines / legend (js/map/).
+function styleEnv() {
+  return { svg: svgRoot(), mode: cc.mode, raceId: cc.raceId, race: cc.race, primary: cc.primary };
 }
 
 // ---- tiny DOM helpers -------------------------------------------------------
 const $ = (id) => document.getElementById(id);
 const fmtPct = formatPctWhole;
 const fmtNum = formatNumberOrNA;
-
-// =============================================================================
-// FILL ENGINES — one per mode. Each takes a feature's merged properties and
-// returns an SVG fill: a pattern url (color + party geometry + bin density,
-// never color alone) or a plain color on the canvas fallback / no-data case.
-// Bin edges and ramp colors live in mapBins.js — shared with the legend,
-// aria-labels, readout card, and List View so they can never disagree.
-// =============================================================================
-
-// Lean: fill = locked PARTY_STRENGTH_COLORS tint; pattern geometry by party
-// (Rep diagonal / Dem horizontal / other dots); density = strength 1..3.
-function leanFill(p) {
-  const party = p.winningParty;
-  const strength = p.partyStrength;
-  if (!party || !PARTY_STRENGTH_COLORS[party]) return tm().noData;
-  const ramp = PARTY_STRENGTH_COLORS[party];
-  const bg = ramp[strength] || ramp.default;
-  const level = Math.max(1, Math.min(3, +strength || 1));
-  return patternFill(svgRoot(), partyKind(party), level, bg);
-}
-
-// Margin: 5 named numeric bins (mapBins.MARGIN_BINS); dot density rises with
-// the bin. Bin 0 (very close) stays solid pale so close races pop as "clean".
-function marginFill(p) {
-  if (p.demShare == null || p.repShare == null || isNaN(p.demShare)) return tm().noData;
-  const bin = marginBin(Math.abs(p.demShare - p.repShare));
-  return patternFill(svgRoot(), "dots", bin, RAMPS.margin[bin]);
-}
-
-// Diversity: 5 fixed 20-point bins of non-white share.
-function diversityFill(p) {
-  if (p.pct_white == null || isNaN(p.pct_white)) return tm().noData;
-  const bin = diversityBin(1 - p.pct_white);
-  return patternFill(svgRoot(), "dots", bin, RAMPS.diversity[bin]);
-}
-
-// Race results: fill by the winning party — but ONLY for precincts that
-// actually participated (candidate votes > 0). computeWinners() assigns a
-// "winner" to every precinct via an alphabetical-first-max rule even when a
-// precinct had 0 votes (it wasn't on that ballot), so a sub-county race like
-// CD-3 would otherwise light up the whole county. Non-participants → the
-// distinct "not on this ballot" cross-hatch (see baseStyle), never plain gray.
-function raceFill(p) {
-  if (!cc.race) return tm().noData;
-  const r = cc.race.byPrecinct[String(p.PRECINCT)];
-  if (!r || r.total === 0 || !r.winner) return tm().noData;
-  // Non-partisan / single-party race: "Winning Party" is a candidate-name
-  // fragment, not Rep/Dem, so PARTY_COLORS would fall through to gray. Fill by
-  // the winner's margin on a neutral ramp instead (decisiveness, not party).
-  if (cc.race.partisan === false) {
-    const bin = marginBin(r.margin || 0);
-    return patternFill(svgRoot(), "dots", bin, RAMPS.nonpartisan[bin]);
-  }
-  const bg = PARTY_COLORS[r.winner] || PARTY_COLORS.default;
-  return patternFill(svgRoot(), partyKind(r.winner), 2, bg);
-}
-
-// The distinct texture for "was part of the map but not on this ballot" —
-// readable (unlike the old 0.06 opacity ghost) and different from no-data gray.
-function notOnBallotFill() {
-  return patternFill(svgRoot(), "cross", 2, tm().notBallot);
-}
-
-// Primary energy: which party's primary drew more ballots, in the exact lean
-// visual language (party pattern, denser = more one-sided). Official county
-// reports via data/…/profile/primary_turnout.csv; absent → no-data gray.
-const PRIMARY_YEAR = 2026;
-function primaryFill(p) {
-  const rec = cc.primary?.[String(p.PRECINCT)]?.[PRIMARY_YEAR];
-  if (!rec || rec.dem + rec.rep === 0) return tm().noData;
-  const share = rec.dem / (rec.dem + rec.rep);
-  const party = share >= 0.5 ? "Dem" : "Rep";
-  const diff = Math.abs(share - 0.5);
-  const level = diff < 0.05 ? 1 : diff < 0.15 ? 2 : 3;
-  const ramp = PARTY_STRENGTH_COLORS[party];
-  return patternFill(svgRoot(), partyKind(party), level, ramp[level] || ramp.default);
-}
-
-function fillFor(p) {
-  if (cc.raceId) return raceFill(p);
-  if (cc.mode === "margin") return marginFill(p);
-  if (cc.mode === "diversity") return diversityFill(p);
-  if (cc.mode === "primary") return primaryFill(p);
-  return leanFill(p);
-}
 
 // Context passed to the shared describePrecinct() formatter (mapBins.js).
 function describeCtx() {
@@ -196,7 +117,7 @@ function baseStyle(feature) {
   // clearly different from the solid no-data gray.
   const offBallot = cc.raceId && !inActiveRace(code);
   return {
-    fillColor: offBallot ? notOnBallotFill() : fillFor(feature.properties),
+    fillColor: offBallot ? notOnBallotFill(styleEnv()) : fillFor(feature.properties, styleEnv()),
     fillOpacity: offBallot ? 0.45 : 0.74,
     color: isSel ? tm().sel : tm().stroke,
     weight: isSel ? 2.8 : 0.7,
@@ -210,31 +131,10 @@ function restyle() {
 }
 
 function buildMap(geojson) {
-  cc.renderer = useCanvasRenderer ? L.canvas() : L.svg({ padding: 0.3 });
-  cc.map = L.map("cc-map", {
-    zoomControl: false, // added below at top-right so it never collides with the Lean/Margin/Diversity switch (top-left)
-    attributionControl: true,
-    renderer: cc.renderer,
-    zoomSnap: 0,
-    minZoom: 6,
-    maxZoom: 16,
-  });
-  L.control.zoom({ position: "topright" }).addTo(cc.map);
-
-  // The map region announces how to drive it without a pointer.
-  const mapEl = $("cc-map");
-  mapEl.setAttribute("role", "application");
-  mapEl.setAttribute(
-    "aria-label",
-    "Precinct map. Press Tab to enter the precincts, arrow keys to move between them, Enter to open a precinct's details."
-  );
-
-  // Subtle basemap underlay (geographic grounding) — swaps with theme.
-  cc.tiles = L.tileLayer(BASEMAP, {
-    attribution: BASEMAP_ATTR,
-    subdomains: "abcd",
-    maxZoom: 19,
-  }).addTo(cc.map);
+  cc.mapView = createMapView({ containerId: "cc-map", useCanvas: useCanvasRenderer });
+  cc.map = cc.mapView.map;
+  cc.renderer = cc.mapView.renderer;
+  cc.tiles = cc.mapView.tiles;
 
   cc.layer = L.geoJSON(geojson, { style: baseStyle, onEachFeature: attachFeature }).addTo(cc.map);
 
@@ -270,18 +170,9 @@ function attachFeature(feature, layer) {
 // (no DOM) — the List View remains the fully keyboard/AT path there.
 // ---------------------------------------------------------------------------
 function decorateMapPaths() {
-  cc.kb = [];
-  if (!cc.layer || useCanvasRenderer) return;
-  cc.layer.eachLayer((l) => { if (l._path) cc.kb.push(l); });
-  cc.kb.sort((a, b) => {
-    const ca = String(a.feature.properties.PRECINCT), cb = String(b.feature.properties.PRECINCT);
-    return (parseInt(ca, 10) || 0) - (parseInt(cb, 10) || 0) || ca.localeCompare(cb);
-  });
-  cc.kb.forEach((l, i) => {
-    const path = l._path;
-    path.setAttribute("role", "button");
-    path.setAttribute("tabindex", i === 0 ? "0" : "-1");
-    path.setAttribute("aria-label", describePrecinct(l.feature.properties, describeCtx()));
+  cc.kb = decoratePrecinctPaths(cc.layer, {
+    useCanvas: useCanvasRenderer,
+    describe: (props) => describePrecinct(props, describeCtx()),
   });
   // other layers (district views) are pointer/dock driven; still label them
   decorateOtherPaths();
@@ -303,62 +194,19 @@ function decorateOtherPaths() {
 }
 
 function wireMapKeyboard() {
-  if (useCanvasRenderer) return;
-  $("cc-map").addEventListener("keydown", (e) => {
-    const idx = cc.kb.findIndex((l) => l._path === e.target);
-    if (idx === -1) return;
-    const move = (to) => {
-      const next = cc.kb[Math.max(0, Math.min(cc.kb.length - 1, to))];
-      if (!next) return;
-      cc.kb.forEach((l) => l._path.setAttribute("tabindex", l === next ? "0" : "-1"));
-      next._path.focus();
-      next._path.scrollIntoView?.({ block: "nearest" });
-    };
-    switch (e.key) {
-      case "ArrowRight": case "ArrowDown": e.preventDefault(); move(idx + 1); break;
-      case "ArrowLeft": case "ArrowUp": e.preventDefault(); move(idx - 1); break;
-      case "Home": e.preventDefault(); move(0); break;
-      case "End": e.preventDefault(); move(cc.kb.length - 1); break;
-      case "Enter": case " ": e.preventDefault(); selectPrecinct(String(cc.kb[idx].feature.properties.PRECINCT)); break;
-    }
+  wirePrecinctKeyboard($("cc-map"), {
+    useCanvas: useCanvasRenderer,
+    getKb: () => cc.kb,
+    onPick: selectPrecinct,
   });
 }
 
-// ---------------------------------------------------------------------------
-// Precinct-number chips: at close zoom every big-enough polygon carries its
-// number on a solid backplate — the number is on the map itself, not hidden
-// behind a hover. Small polygons stay unlabelled (declutter); their number is
-// one tap away in the readout.
-// ---------------------------------------------------------------------------
 function updatePrecinctLabels() {
-  if (cc.labelLayer) { cc.labelLayer.remove(); cc.labelLayer = null; }
-  if (!cc.map || !cc.layer || cc.map.getZoom() < 11) return;
-  const markers = [];
-  cc.layer.eachLayer((l) => {
-    let b;
-    try { b = l.getBounds(); } catch (_) { return; }
-    if (!b || !b.isValid()) return;
-    const p1 = cc.map.latLngToContainerPoint(b.getNorthWest());
-    const p2 = cc.map.latLngToContainerPoint(b.getSouthEast());
-    if (Math.abs(p2.x - p1.x) < 62 || Math.abs(p2.y - p1.y) < 36) return; // too small for a chip
-    const code = String(l.feature.properties.PRECINCT).split(":").pop();
-    markers.push(
-      L.marker(b.getCenter(), {
-        icon: L.divIcon({ className: "cc-plabel-wrap", html: `<span class="cc-plabel">${escapeHtml(code)}</span>` }),
-        interactive: false,
-        keyboard: false,
-      })
-    );
-  });
-  if (markers.length) cc.labelLayer = L.layerGroup(markers).addTo(cc.map);
+  cc.labelLayer = refreshLabelChips(cc.map, cc.layer, cc.labelLayer);
 }
 
 function fitMap() {
-  try {
-    const b = cc.layer.getBounds();
-    if (b.isValid()) { cc.map.fitBounds(b, { padding: [30, 30] }); return; }
-  } catch (_) { /* fall through */ }
-  cc.map.setView(MAP_CONFIG.center, MAP_CONFIG.zoom);
+  fitToLayer(cc.map, cc.layer);
 }
 
 // =============================================================================
@@ -765,78 +613,13 @@ async function setMode(mode) {
 // Legend rows are discrete named bins with pattern-bearing swatches — the
 // EXACT fills the map uses (same pattern defs via url(#…)), with numeric
 // ranges written out. Never a gradient bar a 60+ eye has to interpolate.
-function legendRow(fill, label) {
-  return `<div class="cc-legend-row">${swatchSVG(fill)}<span>${label}</span></div>`;
-}
-
-function binRows(kind, ramp) {
-  return legendBins(kind)
-    .map((b) => legendRow(patternFill(svgRoot(), "dots", b.index, ramp[b.index]), `${escapeHtml(b.name)} — ${escapeHtml(b.range)}`))
-    .join("");
-}
-
 function renderLegend() {
   const el = $("cc-legend");
-  const notBallotRow = legendRow(notOnBallotFill(), "Not on this ballot");
-  const noDataRow = legendRow(tm().noData, "No data (N/A)");
-
-  if (cc.raceId && cc.race) {
-    // Non-partisan / single-party race: neutral decisiveness bins, not Rep/Dem.
-    if (cc.race.partisan === false) {
-      el.innerHTML = `
-        <div class="cc-legend-title">${escapeHtml(cc.race.label)}</div>
-        <p class="cc-legend-desc">How decisively the leading candidate won each precinct.</p>
-        ${binRows("margin", RAMPS.nonpartisan)}
-        ${notBallotRow}
-        <p class="cc-legend-desc">Showing one race — tap Lean, Margin, or Diversity above to go back to the county overview.</p>`;
-      return;
-    }
-    el.innerHTML = `
-      <div class="cc-legend-title">${escapeHtml(cc.race.label)}</div>
-      <p class="cc-legend-desc">Which party won each precinct in this race. Stripes lean with the party: Republican ↗, Democratic —.</p>
-      ${legendRow(patternFill(svgRoot(), "diag", 2, PARTY_COLORS.Rep), "Republican win")}
-      ${legendRow(patternFill(svgRoot(), "horiz", 2, PARTY_COLORS.Dem), "Democratic win")}
-      ${legendRow(patternFill(svgRoot(), "dots", 2, PARTY_COLORS.Mod || "#800080"), "Other / Moderate win")}
-      ${notBallotRow}
-      ${cc.otherPrecinctLayer ? legendRow(patternFill(svgRoot(), "diag", 2, PARTY_COLORS.Rep), "Other county · precinct-level") : ""}
-      ${cc.otherLayer ? `<div class="cc-legend-row"><span class="cc-legend-sw cc-sw-dash"></span><span>County total (dashed outline)</span></div>` : ""}
-      <p class="cc-legend-desc">Showing one race — tap Lean, Margin, or Diversity above to go back to the county overview.</p>`;
-    return;
-  }
-  if (cc.mode === "lean") {
-    const P = PARTY_STRENGTH_COLORS;
-    el.innerHTML = `
-      <div class="cc-legend-title">Party Lean</div>
-      <p class="cc-legend-desc">Which party each precinct usually favors. Denser stripes = stronger habit.</p>
-      ${legendRow(patternFill(svgRoot(), "diag", 3, P.Rep[3]), "Strong Republican")}
-      ${legendRow(patternFill(svgRoot(), "diag", 1, P.Rep[1]), "Slight Republican")}
-      ${legendRow(patternFill(svgRoot(), "horiz", 1, P.Dem[1]), "Slight Democratic")}
-      ${legendRow(patternFill(svgRoot(), "horiz", 3, P.Dem[3]), "Strong Democratic")}
-      ${legendRow(patternFill(svgRoot(), "dots", 2, P.Mod ? P.Mod[2] : "#B19CD9"), "Moderate / mixed")}
-      ${noDataRow}`;
-  } else if (cc.mode === "margin") {
-    el.innerHTML = `
-      <div class="cc-legend-title">Victory Margin</div>
-      <p class="cc-legend-desc">How close the vote was, in percentage points. Denser dots = more lopsided.</p>
-      ${binRows("margin", RAMPS.margin)}
-      ${noDataRow}`;
-  } else if (cc.mode === "primary") {
-    const P = PARTY_STRENGTH_COLORS;
-    el.innerHTML = `
-      <div class="cc-legend-title">${PRIMARY_YEAR} Primary Ballots</div>
-      <p class="cc-legend-desc">Which party's ${PRIMARY_YEAR} primary drew more voters here. Denser stripes = more one-sided. Source: official county reports.</p>
-      ${legendRow(patternFill(svgRoot(), "diag", 3, P.Rep[3]), "Strongly Republican primary")}
-      ${legendRow(patternFill(svgRoot(), "diag", 1, P.Rep[1]), "Slightly Republican primary")}
-      ${legendRow(patternFill(svgRoot(), "horiz", 1, P.Dem[1]), "Slightly Democratic primary")}
-      ${legendRow(patternFill(svgRoot(), "horiz", 3, P.Dem[3]), "Strongly Democratic primary")}
-      ${noDataRow}`;
-  } else {
-    el.innerHTML = `
-      <div class="cc-legend-title">Non-White Share</div>
-      <p class="cc-legend-desc">Share of residents who are not non-Hispanic white (Census).</p>
-      ${binRows("diversity", RAMPS.diversity)}
-      ${noDataRow}`;
-  }
+  el.innerHTML = legendHTML({
+    ...styleEnv(),
+    hasOtherLayer: !!cc.otherLayer,
+    hasOtherPrecinctLayer: !!cc.otherPrecinctLayer,
+  });
 }
 
 // The dark "War Room" theme was retired (June 2026 civic-plain redesign).
@@ -1126,7 +909,7 @@ function otherStyle(feature) {
   const r = otherCountyResult(feature.properties.countySlug);
   const fill = r && r.winner
     ? patternFill(svgRoot(), partyKind(r.winner), 1, PARTY_COLORS[r.winner] || PARTY_COLORS.default)
-    : notOnBallotFill();
+    : notOnBallotFill(styleEnv());
   return {
     fillColor: fill,
     fillOpacity: r ? 0.5 : 0.3,
@@ -1187,7 +970,7 @@ function otherPrecinctStyle(feature) {
   const r = otherPrecinctResult(String(feature.properties.PRECINCT));
   const fill = r && r.winner
     ? patternFill(svgRoot(), partyKind(r.winner), 2, PARTY_COLORS[r.winner] || PARTY_COLORS.default)
-    : notOnBallotFill();
+    : notOnBallotFill(styleEnv());
   return {
     fillColor: fill,
     fillOpacity: r ? 0.74 : 0.45,

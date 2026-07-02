@@ -43,7 +43,7 @@ import {
   loadPrecinctHistoryData,
   categorizeRace,
 } from "./precinctHistory.js";
-import { LIGHT_TILE_URL } from "./lib/constants.js";
+import { createMiniMap } from "./map/mapView.js";
 import { readParams, writeParams } from "./lib/urlState.js";
 import { exportAsPDF, exportAsMarkdown } from "./precinctExport.js";
 import {
@@ -76,7 +76,6 @@ let precinctList = []; // [{code, feature, party}]
 let miniMap = null;
 let miniMapLayer = null;
 let contextLayer = null;
-let tileLayer = null;
 let currentReportData = null;
 let currentPrecinctCode = null;
 
@@ -1019,15 +1018,9 @@ function renderMiniMap(feature, partyData) {
   }
 
   if (!miniMap) {
-    miniMap = L.map(container, {
-      zoomControl: true,
-      attributionControl: false,
-      dragging: true,
-      scrollWheelZoom: true,
-      doubleClickZoom: true,
-      touchZoom: true,
-    });
-    tileLayer = L.tileLayer(LIGHT_TILE_URL, { maxZoom: 18 }).addTo(miniMap);
+    // The shared Leaflet shell (js/map/mapView.js) — this page keeps its own
+    // selected-precinct + context layers and reuses the instance.
+    miniMap = createMiniMap(container);
   }
 
   // Remove previous layers
@@ -1137,7 +1130,6 @@ function resetReport() {
     miniMap = null;
     miniMapLayer = null;
     contextLayer = null;
-    tileLayer = null;
   }
 
   // Re-bind export buttons
@@ -1161,8 +1153,7 @@ function ensureReportStructure(reportEl) {
       miniMap = null;
       miniMapLayer = null;
       contextLayer = null;
-      tileLayer = null;
-    }
+      }
 
     let pdfBtn = document.getElementById("export-pdf");
     let mdBtn = document.getElementById("export-md");

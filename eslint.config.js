@@ -86,6 +86,17 @@ export default [
     },
   },
   {
+    // Layering rule (REDESIGN.md §4.2): map/ is the ONE Leaflet stack — it may
+    // import lib/ and domain/ only; data comes in as arguments.
+    files: ['js/map/**/*.js'],
+    rules: {
+      'no-restricted-imports': ['error', { patterns: [{
+        group: ['../*', '!../lib', '!../lib/*', '!../domain', '!../domain/*'],
+        message: 'js/map/ imports js/lib/ and js/domain/ only — never fetches (REDESIGN.md §4.2).',
+      }] }],
+    },
+  },
+  {
     // Layering rule (REDESIGN.md §4.2): ui/ renders what it is handed — it may
     // import lib/ and domain/ but never fetch or reach into data/pages.
     files: ['js/ui/**/*.js'],

@@ -1,7 +1,19 @@
 # REDESIGN.md — Collin County Elections Viewer: Simplification Redesign
 
 **Last Updated**: July 2, 2026
-**Status**: In implementation. Phases 0–3 are done; Phases 4–6 are pending.
+**Status**: In implementation. Phases 0–4 are done; Phases 5–6 are pending.
+
+- **Phase 4** (map extraction): done. `js/map/` owns the ONE Leaflet stack:
+  `mapView.js` (map/renderer/basemap creation, keyboard layer, precinct-number
+  chips, fitting, and the precinct.html mini-map shell — the second consumer),
+  `mapStyles.js` (the fill engines, env-arg pure), `legend.js` (legendHTML),
+  plus `mapBins.js`/`mapPatterns.js` moved in (root shims remain until Phase
+  6). `commandCenter.js` became `js/pages/map.js` (1,379 lines, wiring +
+  race/dock orchestration; index.html loads it directly). One deviation: the
+  precinct mini-map kept its page-local context/selected layers — the shared
+  seam is map+tiles creation (`createMiniMap`), because the report's mini-map
+  is interactive-with-context, not a plain highlight, and forcing it through a
+  generic interface would have changed behavior.
 
 - **Phase 3** (data service, Collin-only): done. `js/data/` landed (frozen
   catalog, per-boundary memoized handles — switching is repointing, nothing is
