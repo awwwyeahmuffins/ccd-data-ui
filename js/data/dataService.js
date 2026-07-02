@@ -339,6 +339,19 @@ function makeHandle(id) {
   }
 
   /**
+   * Census profile extras (profile/census_profiles.json — optional; absent
+   * throws and callers render N/A). Moved here from the dissolved
+   * precinctProfile.js: fetch + per-boundary caching is this layer's job.
+   */
+  function loadCensusProfiles() {
+    return memoize(memo, "censusProfiles", async () => {
+      const resp = await fetch(`${config.profileDir}/census_profiles.json`);
+      if (!resp.ok) throw new Error(`Failed to load census profiles: ${resp.status}`);
+      return resp.json();
+    });
+  }
+
+  /**
    * County-wide Dem-share baselines ({ raceFile: share }), used by computePVI.
    * Missing file -> {}.
    */
@@ -387,6 +400,7 @@ function makeHandle(id) {
     listRaces,
     loadRace,
     loadPrecinctRaces,
+    loadCensusProfiles,
     loadCountyBaselines,
     loadPrimaryTurnout,
   };

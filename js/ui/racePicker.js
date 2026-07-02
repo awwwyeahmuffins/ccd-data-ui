@@ -2,8 +2,8 @@
 // --------------------------------------------------------------------------------
 // The ONE searchable race picker (REDESIGN.md §4.1): category groups, type-to-
 // search across every race, keyboard/Escape handling by the host page. Used by
-// the Map (index.html) and the Forecast; the elections.html catalog folds into
-// this component in Phase 5. UI layer: imports lib only; races come in via
+// the Map (index.html) and the Forecast (the old elections.html catalog folded
+// into this component in Phase 5). UI layer: imports lib only; races come in via
 // getRaces() — this module never fetches.
 //
 // Markup contract (host page provides the shell; styles in js/civic.css):

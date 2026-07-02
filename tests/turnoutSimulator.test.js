@@ -22,7 +22,7 @@ import {
   simulatePrecinctWithTargetTurnout,
   applyVoterFlip,
   simulatePrecinctCombined
-} from './turnoutSimulator.js';
+} from '../js/domain/simulator.js';
 
 // HTML generators live in the UI layer (js/ui/simulatorControls.js)
 import {

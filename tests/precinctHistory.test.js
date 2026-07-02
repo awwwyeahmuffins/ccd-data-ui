@@ -12,7 +12,7 @@ import {
   comparePrecincts,
   compareDemographics,
   calculateTurnout,
-} from './precinctHistory.js';
+} from '../js/domain/history.js';
 // The HTML generators moved to ui/reportSections.js (REDESIGN Phase 2) —
 // test the real module, not the shim. generateVotingHistoryHTML receives the
 // turnout computation as an argument (it stays pure of precinctHistory).

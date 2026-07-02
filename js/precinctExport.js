@@ -2,7 +2,8 @@
 // --------------------------------------------------------------------------------
 // Export precinct report as PDF (via print) or Markdown download.
 
-import { CATEGORY_ORDER, calculateTurnout } from "./precinctHistory.js";
+import { CATEGORY_ORDER } from "./domain/races.js";
+import { calculateTurnout } from "./domain/history.js";
 import { populationOf } from "./lib/format.js";
 
 /**

@@ -1,4 +1,4 @@
-// js/electionTrends.js
+// domain/trends.js
 // ====================
 // Module for election trends and comparison functionality
 // Supports comparing elections across years and computing margin deltas

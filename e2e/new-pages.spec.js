@@ -1,20 +1,10 @@
 // new-pages.spec.js
-// elections.html (race catalog) and forecast.html (scenario builder):
-// standalone pages that reuse the root js/ libraries, no js/app/* imports.
+// forecast.html (scenario builder) + methodology: standalone pages that reuse
+// the shared libraries.
 
 import { test, expect } from '@playwright/test';
 
 test.setTimeout(60000);
-
-test.describe('Elections redirect stub (Phase 5)', () => {
-  test('elections.html forwards to the Map, carrying a race deep link', async ({ page }) => {
-    // The race catalog folded into the shared race picker; old bookmarks land
-    // on the Map with their #race= intact (stub removed entirely in Phase 6).
-    await page.goto('/elections.html#race=governor-2022');
-    await expect(page).toHaveURL(/index\.html#race=governor-2022/, { timeout: 15000 });
-    await expect(page.locator('.cc-app')).toBeVisible();
-  });
-});
 
 test.describe('Forecast scenario page', () => {
   test.beforeEach(async ({ page }) => {

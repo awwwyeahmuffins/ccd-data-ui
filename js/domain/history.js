@@ -1,18 +1,14 @@
-// precinctHistory.js
+// domain/history.js
 // ===================
-// Precinct Deep Dive Feature (Workstream 4)
-// Feature 4A: Precinct Voting History
-// Feature 4B: Precinct Comparison
+// Per-precinct voting history: results, candidate breakdowns, cross-election
+// comparison, and the federal-trend computation (REDESIGN.md §4.1). PURE —
+// no fetch, no DOM; election data comes in as arguments (pages compose these
+// with the data service). The old fetch-coupled wrappers
+// (getPrecinctVotingHistory/computePrecinctTrend/…) became one-line
+// compositions in their consumers when precinctHistory.js was dissolved.
 
-import { boundary } from "./data/dataService.js";
-
-// The one boundary handle (the app is pinned to the 2026 set).
-const svc = boundary();
-import { getRaceFamilyKey } from "./electionTrends.js";
-// The one taxonomy home (Phase 2): the history-policy categorizer + full
-// category order live in domain/races.js. Re-exported because precinctLookup
-// and precinctExport import them from here until Phase 6.
-import { categorizeRace, CATEGORY_ORDER } from "./domain/races.js";
+import { getRaceFamilyKey } from "./trends.js";
+import { categorizeRace, CATEGORY_ORDER } from "./races.js";
 export { categorizeRace, CATEGORY_ORDER };
 
 /**
@@ -151,18 +147,6 @@ export function getPrecinctCandidateData(electionData, precinctCode) {
     winner: record['Winning Candidate'] || 'N/A',
     winningParty: record['Winning Party'] || 'N/A',
   };
-}
-
-/**
- * Load a specific race CSV and return detailed candidate data for a precinct.
- * @param {string} precinctCode - Precinct code
- * @param {string|Object} filenameOrEntry - Filename or manifest entry
- * @returns {Promise<Object|null>} - Candidate data or null
- */
-export async function getPrecinctRaceDetail(precinctCode, filenameOrEntry) {
-  let data = await svc.loadRace(filenameOrEntry);
-  if (!data) return null;
-  return getPrecinctCandidateData(data, precinctCode);
 }
 
 /**
@@ -323,60 +307,11 @@ export function calculateTurnout(ballotsCast, registeredVoters) {
 }
 
 // ============================================================================
-// HTML GENERATION FOR UI — moved to js/ui/reportSections.js (REDESIGN Phase 2)
-// ============================================================================
-// One-line re-export shims until Phase 6 deletes them. New code should import
-// from ui/reportSections.js directly.
-
-import { generateVotingHistoryHTML as buildVotingHistoryHTML } from "./ui/reportSections.js";
-export { generateComparisonHTML } from "./ui/reportSections.js";
-
-// Legacy signature: binds this module's calculateTurnout (ui/ can't import it).
-export const generateVotingHistoryHTML = (history) => buildVotingHistoryHTML(history, calculateTurnout);
-
-// ============================================================================
-// DATA LOADING UTILITIES
+// FEDERAL TREND
 // ============================================================================
 
-// Cache for loaded election data
-/**
- * Load this precinct's election data in the legacy `allElectionData` shape
- * ({ raceFile: [oneRow] }). Backed by the precomputed per-precinct history file
- * (data_processor/build_precinct_history.py) — one small fetch, no client-side
- * pivoting. Replaces the old loadAllElectionDataForHistory() 587-file bulk load;
- * every precinct-page consumer only ever looks up this precinct's own row.
- * @param {string} precinctCode - Precinct code
- * @returns {Promise<Object>} - Map of raceFile -> [row]
- */
-export async function loadPrecinctHistoryData(precinctCode) {
-  return svc.loadPrecinctRaces(precinctCode);
-}
-
-/**
- * Get voting history for a precinct (convenience async function)
- * @param {string} precinctCode - Precinct code
- * @returns {Promise<Object>} - Voting history
- */
-export async function getPrecinctVotingHistory(precinctCode) {
-  let allData = await svc.loadPrecinctRaces(precinctCode);
-  return buildVotingHistory(precinctCode, allData);
-}
-
-// ============================================================================
-// PRECINCT TREND COMPUTATION
-// ============================================================================
-
-/**
- * Compute the partisan trend for a precinct across its most recent Federal races.
- * @param {string} precinctCode - Precinct code
- * @returns {Promise<Object|null>} Trend data or null if insufficient history
- *   { direction: 'dem'|'rep'|'stable', delta, raceName, year1, year2 }
- */
-export async function computePrecinctTrend(precinctCode) {
-  if (!precinctCode) return null;
-
-  let allData = await svc.loadPrecinctRaces(precinctCode);
-  let manifest = await svc.listRaces();
+export function buildPrecinctTrend(precinctCode, allData, manifest) {
+  if (!precinctCode || !allData || !manifest) return null;
 
   // Build a lookup from filename to manifest entry for year/category info
   let manifestByFile = {};

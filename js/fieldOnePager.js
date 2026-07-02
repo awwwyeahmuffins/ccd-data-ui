@@ -3,8 +3,8 @@
 // Printable one-page field brief for a precinct — compact layout for canvassers.
 
 import { boundary } from "./data/dataService.js";
-import { loadCensusProfiles } from "./precinctProfile.js";
-import { getPrecinctVotingHistory, computePrecinctTrend, calculateTurnout } from "./precinctHistory.js";
+
+import { buildVotingHistory, buildPrecinctTrend, calculateTurnout } from "./domain/history.js";
 import { populationOf } from "./lib/format.js";
 
 // ---------------------------------------------------------------------------
@@ -52,7 +52,7 @@ export async function loadOnePagerData(precinctCode) {
 
   // Load census profiles
   try {
-    let profiles = await loadCensusProfiles();
+    let profiles = await boundary().loadCensusProfiles();
     census = profiles[code] || null;
   } catch {
     census = null;
@@ -60,7 +60,7 @@ export async function loadOnePagerData(precinctCode) {
 
   // Load voting history
   try {
-    let history = await getPrecinctVotingHistory(code);
+    let history = buildVotingHistory(code, await boundary().loadPrecinctRaces(code));
     if (history && history.races) {
       // Sort by most recent first, take last 3
       let sorted = [...history.races].sort((a, b) => {
@@ -76,7 +76,7 @@ export async function loadOnePagerData(precinctCode) {
 
   // Compute trend
   try {
-    trend = await computePrecinctTrend(code);
+    trend = buildPrecinctTrend(code, await boundary().loadPrecinctRaces(code), await boundary().listRaces());
   } catch {
     trend = null;
   }

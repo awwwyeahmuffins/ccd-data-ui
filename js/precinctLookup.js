@@ -7,13 +7,12 @@ import { boundary } from "./data/dataService.js";
 import { findPrecinctForAddress, findPrecinctForPoint, TEXAS_VIEWBOX } from "./geoLookup.js";
 import { createPrecinctFinder, isAddressQuery } from "./ui/precinctFinder.js";
 import { populationOf } from "./lib/format.js";
+import { escapeHtml } from "./lib/dom.js";
 import {
-  loadCensusProfiles,
-  escapeHtml,
-  formatNum,
   formatCurrency,
-  formatPct,
-} from "./precinctProfile.js";
+  formatPctCompact as formatPct,
+  formatNumberOrNA as formatNum,
+} from "./lib/format.js";
 import {
   generateProfileHTML,
   renderPartyRegistration,
@@ -22,16 +21,14 @@ import {
   renderTrendArrow,
 } from "./ui/reportSections.js";
 import {
-  getPrecinctVotingHistory,
-  computePrecinctTrend,
+  buildVotingHistory,
+  buildPrecinctTrend,
   CATEGORY_ORDER,
   formatRaceName,
   calculateTurnout,
   getPrecinctCandidateData,
-  getPrecinctRaceDetail,
-  loadPrecinctHistoryData,
   categorizeRace,
-} from "./precinctHistory.js";
+} from "./domain/history.js";
 import { createMiniMap } from "./map/mapView.js";
 import { readParams, writeParams } from "./lib/urlState.js";
 import { exportAsPDF, exportAsMarkdown } from "./precinctExport.js";
@@ -153,7 +150,7 @@ async function loadBaseData() {
   racialLookup = result.racialLookup;
 
   try {
-    censusProfiles = await loadCensusProfiles();
+    censusProfiles = await svc.loadCensusProfiles();
   } catch {
     censusProfiles = null;
   }
@@ -485,8 +482,8 @@ async function selectPrecinct(code) {
   let allElectionData;
   let countyBaselines = {};
   try {
-    allElectionData = await loadPrecinctHistoryData(code);
-    votingHistory = await getPrecinctVotingHistory(code);
+    allElectionData = await svc.loadPrecinctRaces(code);
+    votingHistory = buildVotingHistory(code, allElectionData);
     countyBaselines = await svc.loadCountyBaselines();
   } catch {
     votingHistory = { races: [], byCategory: {}, partyRecord: { Rep: 0, Dem: 0, Other: 0 } };
@@ -520,7 +517,9 @@ async function selectPrecinct(code) {
   syncSectionPills();
 
   // Compute and inject trend arrow
-  computePrecinctTrend(code).then(function onTrend(trendData) {
+  Promise.all([svc.loadPrecinctRaces(code), svc.listRaces()])
+    .then(([allData, manifest]) => buildPrecinctTrend(code, allData, manifest))
+    .then(function onTrend(trendData) {
     let arrow = renderTrendArrow(trendData);
     if (arrow) {
       let heroEl = document.getElementById("hero-section");
@@ -1850,7 +1849,7 @@ function renderElectionTableWithDrilldown(votingHistory, filterCategories, preci
         if (!elData) {
           td.innerHTML = '<div class="drilldown-panel">Loading...</div>';
           drilldownRow.style.display = '';
-          getPrecinctRaceDetail(precinctCode, filename).then(function onData(cd) {
+          svc.loadRace(filename).then((rows) => getPrecinctCandidateData(rows, precinctCode)).then(function onData(cd) {
             renderDrilldownContent(td, cd);
           }).catch(function onError(err) {
             console.error('Failed to load race detail:', err);

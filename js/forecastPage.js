@@ -7,7 +7,7 @@
 
 import { boundary } from "./data/dataService.js";
 import { getCandidateColumns } from "./electionSchema.js";
-import { runFullSimulation } from "./turnoutSimulator.js";
+import { runFullSimulation } from "./domain/simulator.js";
 import { PARTY_COLORS } from "./lib/constants.js";
 import { escapeHtml } from "./lib/dom.js";
 import { formatPrecinctLabel } from "./lib/format.js";

@@ -1,4 +1,4 @@
-// turnoutSimulator.js
+// domain/simulator.js
 // ===================
 // Turnout simulation engine for election forecasting.
 // Allows users to model how different turnout scenarios affect race outcomes.
@@ -879,10 +879,4 @@ export function runFullSimulation(electionData, dncDataByPrecinct, candidates, t
   };
 }
 
-// ============================================================================
-// COMPATIBILITY RE-EXPORTS (REDESIGN move policy — delete in Phase 6)
-// ============================================================================
-// The HTML generators moved to the UI layer; no runtime consumer should import
-// them from here anymore.
 
-export { generateSimulatorControlsHTML, generateSimulationResultsHTML } from "./ui/simulatorControls.js";

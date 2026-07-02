@@ -1,7 +1,19 @@
 # REDESIGN.md — Collin County Elections Viewer: Simplification Redesign
 
 **Last Updated**: July 2, 2026
-**Status**: COMPLETE — all phases (0–6) executed, July 2, 2026.
+**Status**: COMPLETE — all phases (0–6) executed July 2, 2026, plus both
+post-Phase-6 follow-ups (same day): the elections.html redirect stub is now
+DELETED (old bookmarks 404 — accepted by the owner in favor of finishing the
+cleanup in one release), and the four surviving modules were rehomed:
+`domain/trends.js`, `domain/simulator.js`, `domain/history.js` (pure — the
+fetch-coupled wrappers became one-line svc compositions in their consumers,
+and `buildPrecinctTrend` now takes data as arguments), while precinctProfile
+dissolved entirely (census-profile loading moved into the dataService handle
+as `loadCensusProfiles()`; its render helper had no consumers). The layered
+tree is now complete: NO first-party module lives at the js/ root except the
+page-shared library keepers (siteNav, glossary, helpPanel, listView,
+countyBriefing, geoLookup, electionSchema, v3Pivot, auth*, and the five page
+orchestrators pending their pages/ move).
 
 - **Phase 6** (deletions + deploy): done, with three documented judgment calls:
   1. **Deleted outright**: `dataLoader.js`, `utils.js`, `constants.js`,

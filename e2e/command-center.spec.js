@@ -63,8 +63,7 @@ test.describe('Command Center', () => {
 
   test('the shared header links out to every page with plain-language labels', async ({ page }) => {
     await waitForLoaded(page);
-    // The five-tab nav (REDESIGN §3.3) — Forecast lives outside it, linked in
-    // context; elections.html is a redirect stub.
+    // The five-tab nav (REDESIGN §3.3) — Forecast lives outside it, linked in context.
     for (const dest of ['precinct.html', 'targets.html', 'explore.html', 'methodology.html']) {
       await expect(page.locator(`.site-nav a[href="${dest}"]`)).toHaveCount(1);
     }

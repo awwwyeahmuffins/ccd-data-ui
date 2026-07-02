@@ -45,8 +45,7 @@ function clearCognitoSession() {
 // plan, then reference material last.
 const PAGES = [
   // The five-tab nav (REDESIGN §3.3). forecast.html lives OUTSIDE the nav —
-  // linked in context from Priority Precincts and How It Works; elections.html
-  // is a redirect stub (deleted in Phase 6).
+  // linked in context from Priority Precincts and How It Works.
   { href: "index.html", label: "Map" },
   { href: "precinct.html", label: "My Precinct" },
   { href: "targets.html", label: "Priority Precincts" },

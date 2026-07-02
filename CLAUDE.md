@@ -8,7 +8,7 @@ Collin County (TX) Elections Data Viewer — a vanilla JavaScript (ES Modules) w
 
 **Geo scope: Collin County only.** The registry (`data/tx/counties.json`) contains exactly one entry (Collin, 2024 + 2026 boundary sets). `data/tx/districts.json` + `data/tx/districts/` hold 12 overlapping CD/SD/HD districts whose race data includes out-of-county precinct rows found nowhere else — today they masquerade as extra "counties" in the registry; the approved redesign (`docs/REDESIGN.md`) turns them into district *scoping* instead. The Python pipeline in `data_processor/` is county-agnostic and can bring other counties live, but no other county's data ships in this repo. NEVER fabricate data — unknown values stay empty and render N/A.
 
-**The simplification redesign in `docs/REDESIGN.md` is fully executed (phases 0–6, July 2026).** Consult its Status block for the small set of documented deviations and the one-release elections.html stub. New work follows the layered architecture: `pages → (ui | map | reporting…) → domain → data → lib`, ESLint-enforced.
+**The simplification redesign in `docs/REDESIGN.md` is fully executed (phases 0–6, July 2026).** Consult its Status block for the small set of documented deviations (the elections.html stub is now deleted; the pure modules live in js/domain/). New work follows the layered architecture: `pages → (ui | map | reporting…) → domain → data → lib`, ESLint-enforced.
 
 ## Common Commands
 
@@ -91,6 +91,9 @@ Each HTML page is self-contained: it loads ONE orchestrator module from `js/` an
 
 **Domain layer (`js/domain/` — pure computation, no fetch/DOM; imports lib only, ESLint-enforced):**
 - `domain/races.js` — the taxonomy home: BOTH categorization policies (`categorizeElection` catalog policy, `categorizeRace` history policy — different outputs on purpose, see REDESIGN.md status), filter/search/count/format helpers, race-family grouping
+- `domain/history.js` — per-precinct voting history/comparison + `buildPrecinctTrend` (data comes in as arguments; pages compose with the data service)
+- `domain/trends.js` — cross-year race-family normalization (`getRaceFamilyKey`) + margin deltas
+- `domain/simulator.js` — the turnout simulation engine (forecast page; HTML lives in `ui/simulatorControls.js`)
 
 **Shared UI components (`js/ui/` — render what they're handed, never fetch; imports lib+domain only, ESLint-enforced):**
 - `ui/racePicker.js` — the ONE searchable race picker (category groups + search); used by Map and Forecast; styles in civic.css
@@ -100,11 +103,10 @@ Each HTML page is self-contained: it loads ONE orchestrator module from `js/` an
 - `ui/simulatorControls.js` — the simulator's HTML generators (from turnoutSimulator)
 
 **Library Modules (root js/, consumed by the page orchestrators):**
-- `turnoutSimulator.js` — turnout prediction/simulation engine (forecast page; pure since Phase 2 — its HTML generators live in `ui/simulatorControls.js`)
+
 - `targeting.js` — precinct-targeting strategy engine (targets page, pure/tested)
 - `talkingPointsBuilder.js` — precinct-chair talking points (precinct page, pure/tested)
-- `precinctHistory.js` (+ `electionTrends.js`) — per-precinct voting history (pure half; HTML renderers moved to `ui/reportSections.js`)
-- `precinctProfile.js`, `precinctExport.js`, `fieldOnePager.js` — precinct.html report features (profile's HTML half lives in `ui/reportSections.js`)
+- `precinctExport.js`, `fieldOnePager.js` — precinct.html report features (HTML renderers live in `ui/reportSections.js`)
 - `geoLookup.js` — address→precinct (Nominatim) + point-in-polygon
 - `countyBriefing.js` (the dock's pure "so what" model) + `listView.js` (linear precinct list; pure row model + chunked renderer)
 

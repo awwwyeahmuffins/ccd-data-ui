@@ -19,7 +19,7 @@ export default {
   // Module name mapper for path resolution
   moduleNameMapper: {
     // Map ./moduleName.js to ../js/moduleName.js for tests
-    '^\\./(precinctHistory|turnoutSimulator|precinctProfile|electionTrends|fieldOnePager|v3Pivot|talkingPointsBuilder|targeting|precinctMetrics|siteNav|glossary|countyBriefing|listView)\\.js$': '<rootDir>/js/$1.js',
+    '^\\./(fieldOnePager|v3Pivot|talkingPointsBuilder|targeting|precinctMetrics|siteNav|glossary|countyBriefing|listView)\\.js$': '<rootDir>/js/$1.js',
     // mapBins/mapPatterns live in js/map/ since Phase 4
     '^\\./(mapBins|mapPatterns)\\.js$': '<rootDir>/js/map/$1.js',
     // Map test-helpers
