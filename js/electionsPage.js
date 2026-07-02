@@ -10,7 +10,6 @@ import { escapeHtml } from "./utils.js";
 
 const pg = {
   county: 'collin',
-  boundary: 'original',
   elections: [],
   search: '',
   category: 'All',
@@ -40,34 +39,19 @@ async function initCountySelect() {
     updateURL();
     loadCounty();
   });
-  const bsel = $('el-boundary');
-  if (bsel) bsel.addEventListener('change', () => { pg.boundary = bsel.value; updateURL(); loadCounty(); });
-}
-
-// Show the 2024⇄2026 boundary toggle only when the county offers >1 set —
-// this is how the real March-2026 primary races become browsable.
-function renderBoundaryToggle() {
-  const configs = getBoundaryConfigs();
-  const ids = Object.keys(configs);
-  const wrap = $('el-boundary-wrap');
-  const sel = $('el-boundary');
-  if (!wrap || !sel) return;
-  if (ids.length < 2) { wrap.style.display = 'none'; return; }
-  wrap.style.display = '';
-  sel.innerHTML = ids.map(id => `<option value="${id}">${escapeHtml(configs[id].label || id)}</option>`).join('');
-  sel.value = pg.boundary;
 }
 
 async function loadCounty() {
   $('el-list').innerHTML = '<div class="empty-note">Loading…</div>';
   try {
     await setActiveCounty(pg.county);
-    const ids = Object.keys(getBoundaryConfigs());
-    if (!ids.includes(pg.boundary)) pg.boundary = getActiveBoundary();
-    setActiveBoundary(pg.boundary);
-    renderBoundaryToggle();
+    // 2026-only app: always the current boundary set where the county has it.
+    const boundary = getBoundaryConfigs()['2026'] ? '2026' : getActiveBoundary();
+    setActiveBoundary(boundary);
+    const wrap = $('el-boundary-wrap');
+    if (wrap) wrap.style.display = 'none';
     const note = $('el-boundary-note');
-    if (note) note.style.display = pg.boundary === '2026' ? '' : 'none';
+    if (note) note.style.display = boundary === '2026' ? '' : 'none';
     pg.elections = await listElectionCSVs();
     renderChips();
     renderList();
@@ -77,11 +61,17 @@ async function loadCounty() {
   }
 }
 
+// Plain-language names for the two abbreviation categories.
+const CATEGORY_LABELS = { ISD: 'School (ISD)', MUD: 'Utility (MUD)' };
+const catLabel = c => CATEGORY_LABELS[c] || c;
+// The marquee contests; the hyper-local categories start collapsed under "All".
+const MAJOR_CATS = new Set(['Federal', 'State', 'County']);
+
 function renderChips() {
   const present = new Set(pg.elections.map(e => e.category).filter(Boolean));
   const cats = ['All', ...CATEGORY_ORDER.filter(c => present.has(c))];
   $('el-chips').innerHTML = cats.map(c =>
-    `<button type="button" class="chip${pg.category === c ? ' active' : ''}" data-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>`
+    `<button type="button" class="chip${pg.category === c ? ' active' : ''}" data-cat="${escapeHtml(c)}">${escapeHtml(catLabel(c))}</button>`
   ).join('');
   $('el-chips').querySelectorAll('.chip').forEach(chip => {
     chip.addEventListener('click', () => {
@@ -124,9 +114,9 @@ function renderList() {
   }
   const catOrder = [...CATEGORY_ORDER, 'Other'].filter(c => byCategory.has(c));
 
-  // Flat architecture: every category renders open under a plain heading —
-  // the category chips above and the always-visible search do the narrowing.
-  // (The old collapsed accordion hid most of the catalog behind extra taps.)
+  // Federal / State / County render open — those are the races a precinct
+  // chair actually comes for. The hundreds of City/ISD/MUD one-offs collapse
+  // behind a tap when browsing "All"; picking their chip or searching opens them.
   $('el-list').innerHTML = catOrder.map(cat => {
     const byYear = byCategory.get(cat);
     const years = [...byYear.keys()].sort((a, b) => (b === 'Undated' ? -1 : b) - (a === 'Undated' ? -1 : a));
@@ -137,10 +127,21 @@ function renderList() {
         .slice()
         .sort((a, b) => (a.displayName || a.filename).localeCompare(b.displayName || b.filename))
         .map(raceRow).join('')}`).join('');
+    const collapsible = !MAJOR_CATS.has(cat) && pg.category === 'All' && !pg.search;
+    if (collapsible) {
+      return `
+      <details class="family-group">
+        <summary class="family-header">
+          <span>${escapeHtml(catLabel(cat))}</span>
+          <span class="family-count">${total} race${total === 1 ? '' : 's'} — tap to show</span>
+        </summary>
+        <div class="family-body">${body}</div>
+      </details>`;
+    }
     return `
       <section class="family-group">
         <h2 class="family-header">
-          <span>${escapeHtml(cat)}</span>
+          <span>${escapeHtml(catLabel(cat))}</span>
           <span class="family-count">${total} race${total === 1 ? '' : 's'}</span>
         </h2>
         <div class="family-body">${body}</div>
@@ -167,13 +168,11 @@ function raceRow(e) {
 function parseURL() {
   const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
   if (params.get('county')) pg.county = params.get('county');
-  if (params.get('boundary')) pg.boundary = params.get('boundary');
 }
 
 function updateURL() {
   const params = new URLSearchParams();
   if (pg.county !== 'collin') params.set('county', pg.county);
-  if (pg.boundary !== 'original') params.set('boundary', pg.boundary);
   const hash = params.toString();
   history.replaceState(null, '', hash ? `#${hash}` : window.location.pathname);
 }

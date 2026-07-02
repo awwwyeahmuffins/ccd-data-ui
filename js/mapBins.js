@@ -74,7 +74,9 @@ const pct = (v) => `${Math.round(v * 100)}%`;
 // text, and the List View card line.
 //   p:   merged feature properties (winningParty, partyStrength, demShare,
 //        repShare, pct_white, PRECINCT)
-//   ctx: { mode: "lean"|"margin"|"diversity", race?: {partisan, byPrecinct} }
+//   ctx: { mode: "lean"|"margin"|"diversity"|"primary",
+//          race?: {partisan, byPrecinct},
+//          primary?: { code: { year: {dem,rep} } }, primaryYear?: number }
 // ---------------------------------------------------------------------------
 export function describePrecinct(p, ctx = {}) {
   const code = String(p.PRECINCT ?? "?");
@@ -99,6 +101,13 @@ export function describePrecinct(p, ctx = {}) {
     if (p.pct_white == null || isNaN(p.pct_white)) return `${prefix} — no Census data (N/A)`;
     const nw = 1 - p.pct_white;
     return `${prefix} — ${pct(nw)} of residents are not white`;
+  }
+
+  if (ctx.mode === "primary") {
+    const rec = ctx.primary?.[code]?.[ctx.primaryYear];
+    if (!rec || rec.dem + rec.rep === 0) return `${prefix} — no primary turnout data (N/A)`;
+    const share = rec.dem / (rec.dem + rec.rep);
+    return `${prefix} — ${Number(rec.dem).toLocaleString()} Democratic vs ${Number(rec.rep).toLocaleString()} Republican primary ballots (${pct(share)} Dem)`;
   }
 
   // lean (default)

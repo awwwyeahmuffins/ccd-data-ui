@@ -603,11 +603,19 @@
       transition: width 0.3s;
     }
     .bar-value {
-      width: 40px;
+      min-width: 3.2em; /* fits "28.6%" at any text-size setting */
       flex-shrink: 0;
       font-weight: 500;
       color: var(--text-primary);
+      white-space: nowrap;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
     }
+    .primary-intro { color: var(--text-secondary); margin: 0 0 12px; }
+    .primary-year { margin-bottom: 14px; }
+    .primary-year-label { font-weight: 700; margin-bottom: 4px; }
+    .primary-trend { color: var(--text-secondary); margin: 10px 0 0; }
+
     .profile-officials-grid {
       display: flex;
       flex-direction: column;
@@ -1307,6 +1315,16 @@
       font-size: 0.889rem;
       color: var(--text-muted);
     }
+    .strategy-detail-link {
+      margin-top: 10px;
+      font-size: 0.944rem;
+    }
+    .strategy-detail-link a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-weight: 600;
+    }
 
     /* =============================================================================
        MARGIN TREND (diverging bar chart)
@@ -1806,11 +1824,6 @@
     <h1 class="search-heading">Look Up Your Precinct</h1>
     <p class="search-subheading">Enter a precinct number to see the full report — demographics, party data, election history, and census details.</p>
 
-    <div class="boundary-pills">
-      <button class="boundary-pill active" data-boundary="original">2024 Boundaries</button>
-      <button class="boundary-pill" data-boundary="2026">2026 Boundaries</button>
-    </div>
-
     <div class="search-wrapper">
       <label class="search-label" for="precinct-search">Precinct number or street address</label>
       <input
@@ -1887,6 +1900,9 @@
 
     <!-- Census Details -->
     <div id="section-census" class="report-section" data-tab="people" data-accent="census"></div>
+
+    <!-- Primary Turnout -->
+    <div id="section-primary" class="report-section" data-tab="history" data-accent="party"></div>
 
     <!-- Election History -->
     <div id="section-elections" class="report-section" data-tab="history" data-accent="elections">

@@ -13,6 +13,7 @@ import {
   setActiveCounty,
   loadCountyRegistry,
   loadCountyBaselines,
+  loadPrimaryTurnout,
 } from "./dataLoader.js";
 import { findPrecinctForAddress, findPrecinctForPoint } from "./geoLookup.js";
 import { populationOf } from "./utils.js";
@@ -69,6 +70,7 @@ let dncLookup = null;
 let racialLookup = null;
 let censusProfiles = null;
 let strategicIntel = null;
+let primaryTurnout = null; // { [precinct]: { [year]: { dem, rep } } } — official primary ballots
 let precinctList = []; // [{code, feature, party}]
 let miniMap = null;
 let miniMapLayer = null;
@@ -76,7 +78,6 @@ let contextLayer = null;
 let tileLayer = null;
 let currentReportData = null;
 let currentPrecinctCode = null;
-let isSwitching = false;
 
 // County averages & precinct rankings
 let countyAverages = null;
@@ -115,18 +116,6 @@ async function applyCountyBranding() {
 export async function initPrecinctLookup() {
   initTheme(); // clears any stale dark-theme preference (light-only since June 2026)
   applyCountyBranding();
-
-  // Boundary toggle pills
-  let boundaryBtns = document.querySelectorAll(".boundary-pill");
-  boundaryBtns.forEach(function attachBoundary(btn) {
-    btn.addEventListener("click", async function onBoundary() {
-      let id = btn.dataset.boundary;
-      if (id === getActiveBoundary() || isSwitching) return;
-      boundaryBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      await handleBoundarySwitch(id);
-    });
-  });
 
   // Search input
   let searchInput = document.getElementById("precinct-search");
@@ -167,6 +156,16 @@ export async function initPrecinctLookup() {
       await setActiveCounty(preHash.county);
       applyCountyBranding();
     } catch (_) { /* unknown slug — fall back to the default county */ }
+  } else {
+    // Cache the registry entry and apply the county's default boundary set —
+    // without this, the module-level "original" default sticks on direct visits.
+    try { await setActiveCounty(getActiveCounty()); } catch (_) { /* offline — keep defaults */ }
+  }
+
+  // Always the current (2026) precincts where the county has them; stale
+  // #boundary= params in old links are ignored.
+  if (getBoundaryConfigs()["2026"] && getActiveBoundary() !== "2026") {
+    setActiveBoundary("2026");
   }
 
   // Load data
@@ -175,12 +174,6 @@ export async function initPrecinctLookup() {
   // Check URL hash for deep link
   let hash = parseHash();
   if (hash.precinct) {
-    if (hash.boundary && hash.boundary !== getActiveBoundary()) {
-      boundaryBtns.forEach((b) => {
-        b.classList.toggle("active", b.dataset.boundary === hash.boundary);
-      });
-      await handleBoundarySwitch(hash.boundary);
-    }
     await selectPrecinct(hash.precinct);
     if (searchInput) searchInput.value = hash.precinct;
   }
@@ -211,6 +204,8 @@ async function loadBaseData() {
     strategicIntel = null;
   }
 
+  primaryTurnout = await loadPrimaryTurnout(); // optional — null when not on file
+
   // Build precinct list from GeoJSON features
   precinctList = geojsonData.features.map(function extractPrecinct(f) {
     let code = String(f.properties.PRECINCT);
@@ -223,44 +218,6 @@ async function loadBaseData() {
   computeCountyAverages();
 }
 
-async function handleBoundarySwitch(boundaryId) {
-  isSwitching = true;
-
-  let searchInput = document.getElementById("precinct-search");
-  if (searchInput) {
-    searchInput.disabled = true;
-    searchInput.placeholder = "Loading boundary data...";
-  }
-
-  try {
-    setActiveBoundary(boundaryId); // also clears the per-precinct history cache
-    await loadBaseData();
-
-    if (currentPrecinctCode) {
-      let exists = precinctList.find((p) => p.code === currentPrecinctCode);
-      if (exists) {
-        await selectPrecinct(currentPrecinctCode);
-      } else {
-        resetReport();
-        let configs = getBoundaryConfigs();
-        let label = configs[boundaryId].label;
-        showNotice(`Precinct ${currentPrecinctCode} does not exist in ${label}. Please search for a different precinct.`);
-        currentPrecinctCode = null;
-        window.location.hash = "";
-        if (searchInput) searchInput.value = "";
-      }
-    }
-  } catch (err) {
-    console.error("Boundary switch failed:", err);
-    showError("Failed to load boundary data. Please try again.");
-  } finally {
-    isSwitching = false;
-    if (searchInput) {
-      searchInput.disabled = false;
-      searchInput.placeholder = "Enter precinct number (e.g. 100)";
-    }
-  }
-}
 
 // ---------------------------------------------------------------------------
 // County averages & rankings
@@ -548,14 +505,14 @@ async function selectPrecinct(code) {
   bindCompareButton(code);
   renderMiniMap(feature, partyData);
   renderPartySection(partyData);
+  renderPrimarySection(code);
   renderRacialSection(racialData);
   renderOfficialsSection(officials);
   renderCensusSection(census, code, props._meta || null, partyData, racialData);
 
   // Update URL hash (keep the active report tab if one was chosen)
-  let boundary = getActiveBoundary();
   let tabPart = parseHash().tab ? `&tab=${encodeURIComponent(parseHash().tab)}` : "";
-  window.location.hash = `precinct=${code}&boundary=${boundary}${tabPart}`;
+  window.location.hash = `precinct=${code}${tabPart}`;
 
   // Setup section nav observer
   setupSectionNav();
@@ -623,7 +580,7 @@ async function selectPrecinct(code) {
   let configs = getBoundaryConfigs();
   currentReportData = {
     code,
-    boundaryLabel: configs[boundary].label,
+    boundaryLabel: configs[getActiveBoundary()].label,
     partyData,
     racialData,
     officials,
@@ -868,6 +825,15 @@ function setReportTab(tabId, { updateHash = true } = {}) {
     pill.classList.toggle("active", on);
     pill.setAttribute("aria-pressed", String(on));
   });
+  // The mini map initializes while its tab is hidden (the report opens on the
+  // Field Guide), so Leaflet measures a 0-size container and paints gray.
+  // Remeasure once the Overview tab is actually visible.
+  if (tabId === "overview" && miniMap) {
+    requestAnimationFrame(() => {
+      miniMap.invalidateSize();
+      if (miniMapLayer) miniMap.fitBounds(miniMapLayer.getBounds(), { padding: [40, 40] });
+    });
+  }
   if (updateHash) {
     const params = parseHash();
     params.tab = tabId;
@@ -895,6 +861,53 @@ function setupSectionNav() {
 function renderPartySection(partyData) {
   let el = document.getElementById("section-party");
   el.innerHTML = renderPartyRegistration(partyData);
+}
+
+// Party-primary turnout: official ballots cast in each party's primary, the
+// clearest read on which side's voters are energized. Absent data renders
+// nothing (N/A rule — the section simply doesn't appear).
+function renderPrimarySection(code) {
+  let el = document.getElementById("section-primary");
+  if (!el) return;
+  let years = primaryTurnout?.[String(code)];
+  // hidden, not just emptied — .report-section carries a border either way
+  el.hidden = !years;
+  if (!years) { el.innerHTML = ""; return; }
+
+  const sorted = Object.keys(years).map(Number).sort((a, b) => a - b);
+  const maxBallots = Math.max(1, ...sorted.flatMap((y) => [years[y].dem, years[y].rep]));
+
+  let rows = "";
+  for (const y of sorted) {
+    const { dem, rep } = years[y];
+    rows += `<div class="primary-year">
+      <div class="primary-year-label">${y} primary</div>
+      <div class="profile-bar-item"><span class="bar-label">Democratic</span>
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.round((dem / maxBallots) * 100)}%;background:#00AEF3"></div></div>
+        <span class="bar-value">${escapeHtml(formatNum(dem))}</span></div>
+      <div class="profile-bar-item"><span class="bar-label">Republican</span>
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.round((rep / maxBallots) * 100)}%;background:#E81B23"></div></div>
+        <span class="bar-value">${escapeHtml(formatNum(rep))}</span></div>
+    </div>`;
+  }
+
+  // Plain-language trend sentence comparing the earliest and latest cycles.
+  let trend = "";
+  if (sorted.length >= 2) {
+    const first = sorted[0], last = sorted[sorted.length - 1];
+    const describe = (from, to) =>
+      from > 0 ? (to >= from ? `up ${Math.round(((to - from) / from) * 100)}%` : `down ${Math.round(((from - to) / from) * 100)}%`) : "new";
+    trend = `<p class="primary-trend">Since ${first}: Democratic primary ballots ${describe(years[first].dem, years[last].dem)} ` +
+      `(${formatNum(years[first].dem)} → ${formatNum(years[last].dem)}), Republican ballots ${describe(years[first].rep, years[last].rep)} ` +
+      `(${formatNum(years[first].rep)} → ${formatNum(years[last].rep)}).</p>`;
+  }
+
+  el.innerHTML = `
+    <div class="report-section-title">Primary Turnout</div>
+    <p class="primary-intro">How many voters cast a ballot in each party's primary here — a direct read on which side is energized.</p>
+    ${rows}
+    ${trend}
+    <div class="profile-disclaimer" style="margin-top:6px;font-size:0.75em;color:#888">Source: Collin County Elections official reports (primary ballots by precinct).</div>`;
 }
 
 function renderRacialSection(racialData) {
@@ -1109,6 +1122,7 @@ function getReportStructureHTML() {
     <div id="section-racial" class="report-section" data-tab="people" data-accent="demographics"></div>
     <div id="section-officials" class="report-section" data-tab="districts" data-accent="districts"></div>
     <div id="section-census" class="report-section" data-tab="people" data-accent="census"></div>
+    <div id="section-primary" class="report-section" data-tab="history" data-accent="party"></div>
     <div id="section-elections" class="report-section" data-tab="history" data-accent="elections">
       <div class="report-section-title">Election History</div>
       <div id="section-election-history"></div>
@@ -1442,10 +1456,18 @@ function renderStrategyBadge(strategy) {
     return;
   }
 
-  let labels = { mobilize: 'Mobilize', persuade: 'Persuade', defend: 'Defend', grow: 'Grow' };
-  let label = labels[strategy.classification] || strategy.classification;
+  let label = STRATEGY_NAMES[strategy.classification]?.badge || strategy.classification;
   container.innerHTML = `<span class="strategy-badge ${strategy.classification}">${escapeHtml(label)}</span>`;
 }
+
+// One vocabulary everywhere: these names and ids match the Priority Precincts
+// page (js/targeting.js) so the report and the ranked list speak the same words.
+const STRATEGY_NAMES = {
+  mobilize: { badge: 'Mobilize', title: 'Mobilize Dem Base', targetsId: 'mobilize-dem' },
+  persuade: { badge: 'Persuade', title: 'Most Persuadable Voters', targetsId: 'persuasion' },
+  defend: { badge: 'Defend', title: 'Defend Democratic Leads', targetsId: 'defend-dem' },
+  grow: { badge: 'Grow', title: 'Registration Opportunity', targetsId: 'register' },
+};
 
 function renderStrategyDetail(strategy) {
   let el = document.getElementById('strategy-section');
@@ -1454,12 +1476,15 @@ function renderStrategyDetail(strategy) {
     return;
   }
 
-  let titles = { mobilize: 'Mobilize Base', persuade: 'Persuade Moderates', defend: 'Defend Gains', grow: 'Grow Long-Term' };
-
+  const names = STRATEGY_NAMES[strategy.classification];
+  const targetsHref = names
+    ? `targets.html#county=${encodeURIComponent(getActiveCounty())}&strategy=${names.targetsId}`
+    : null;
   el.innerHTML = `<div class="strategy-detail">
-    <div class="strategy-detail-title"><span class="strategy-badge ${strategy.classification}">${escapeHtml(titles[strategy.classification] || strategy.classification)}</span></div>
+    <div class="strategy-detail-title"><span class="strategy-badge ${strategy.classification}">${escapeHtml(names?.title || strategy.classification)}</span></div>
     <div class="strategy-detail-action">${escapeHtml(strategy.action)}</div>
     <div class="strategy-detail-rationale">${escapeHtml(strategy.rationale)}</div>
+    ${targetsHref ? `<div class="strategy-detail-link"><a href="${targetsHref}">See every "${escapeHtml(names.title)}" precinct on Priority Precincts →</a></div>` : ''}
   </div>`;
 }
 

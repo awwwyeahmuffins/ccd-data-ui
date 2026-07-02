@@ -111,7 +111,8 @@ let dataCache = {
   electionsList: null,
   turnout: {},
   precinctHistory: {}, // per-precinct pivoted rows, keyed by "<dataDir>/<safe>"
-  baselines: {}        // county Dem-share baselines, keyed by dataDir
+  baselines: {},       // county Dem-share baselines, keyed by dataDir
+  primaryTurnout: undefined // party-primary ballots lookup (null = not on file)
 };
 
 /**
@@ -145,6 +146,33 @@ export function clearDataCache() {
   dataCache.turnout = {};
   dataCache.precinctHistory = {};
   dataCache.baselines = {};
+  dataCache.primaryTurnout = undefined;
+}
+
+/**
+ * Party-primary turnout by precinct (profile extra — optional, N/A when absent).
+ * Source: official county reports imported by data_processor/import_primary_turnout.py.
+ * @returns {Promise<object|null>} { [precinct]: { [year]: { dem, rep } } } or null
+ */
+export async function loadPrimaryTurnout() {
+  if (dataCache.primaryTurnout !== undefined) return dataCache.primaryTurnout;
+  try {
+    const rows = await d3.csv(`${activeConfig().profileDir}/primary_turnout.csv`, (d) => ({
+      precinct: String(d.precinct),
+      year: +d.year,
+      dem: +d.dem_ballots,
+      rep: +d.rep_ballots,
+    }));
+    const lookup = {};
+    for (const r of rows) {
+      if (!r.precinct || !r.year) continue;
+      (lookup[r.precinct] ||= {})[r.year] = { dem: r.dem, rep: r.rep };
+    }
+    dataCache.primaryTurnout = Object.keys(lookup).length ? lookup : null;
+  } catch (_) {
+    dataCache.primaryTurnout = null; // not on file for this county/boundary
+  }
+  return dataCache.primaryTurnout;
 }
 
 /**

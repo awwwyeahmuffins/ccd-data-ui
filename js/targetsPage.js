@@ -12,6 +12,7 @@ import {
   getActiveBoundary,
   listElectionCSVs,
   loadElectionData,
+  loadPrimaryTurnout,
 } from "./dataLoader.js";
 import {
   STRATEGIES,
@@ -49,7 +50,8 @@ const pg = {
   electionFeatures: [],  // features re-scored on the selected election (subset on that ballot)
   elections: [],         // race manifest for the active county/district
   turnout: null,
-  ctx: { hasTurnout: false, hasRacial: false },
+  primary: null,   // party-primary ballots lookup (official county reports), null = N/A
+  ctx: { hasTurnout: false, hasRacial: false, hasPrimary: false },
 };
 
 const $ = (id) => document.getElementById(id);
@@ -225,12 +227,14 @@ async function loadCounty() {
   $("tg-na").innerHTML = "";
   try {
     await setActiveCounty(pg.county);
-    const [{ geojson }, turnout] = await Promise.all([loadAllData(), loadMarqueeTurnout()]);
+    const [{ geojson }, turnout, primary] = await Promise.all([loadAllData(), loadMarqueeTurnout(), loadPrimaryTurnout()]);
     pg.features = geojson.features || [];
     pg.turnout = turnout;
+    pg.primary = primary;
     pg.ctx = {
       hasTurnout: !!turnout,
       hasRacial: pg.features.some((f) => f.properties && f.properties.pct_white != null && !isNaN(f.properties.pct_white)),
+      hasPrimary: !!primary,
     };
     // if the chosen strategy isn't supported here, fall back to a universal one
     if (!strategyAvailable(getStrategy(pg.strategy), pg.ctx)) pg.strategy = "tossups";
@@ -314,7 +318,7 @@ function renderResults() {
   $("tg-na").innerHTML = "";
 
   const feats = pg.electionId ? pg.electionFeatures : pg.features;
-  const ranked = rankPrecincts(feats, pg.strategy, { turnoutLookup: pg.turnout, limit: pg.limit });
+  const ranked = rankPrecincts(feats, pg.strategy, { turnoutLookup: pg.turnout, primaryLookup: pg.primary, limit: pg.limit });
   $("tg-results-count").textContent = ranked.length ? `Top ${ranked.length}` : "";
   if (!ranked.length) {
     $("tg-list").innerHTML = pg.electionId

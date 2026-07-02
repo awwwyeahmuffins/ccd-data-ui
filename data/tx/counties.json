@@ -6,7 +6,7 @@
     "status": "live",
     "dataRoot": "data/tx/collin",
     "notes": null,
-    "defaultBoundarySet": "original",
+    "defaultBoundarySet": "2026",
     "boundarySets": {
       "original": {
         "label": "2024 Boundaries (252)",

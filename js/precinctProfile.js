@@ -453,7 +453,7 @@ function renderProjections(p) {
   content += rows;
   content += '</div>';
   content += '<div class="profile-disclaimer" style="margin-top:6px;font-size:0.75em;color:#888">';
-  content += 'Projected from 5-year ACS trend (2018\u21922023)';
+  content += 'Rough estimate from the 5-year ACS trend (2018\u21922023). Growth rates are capped, so fast-changing precincts may outpace these numbers.';
   content += '</div>';
 
   return collapsibleSection(`${proj.targetYear} Projections`, content, false);

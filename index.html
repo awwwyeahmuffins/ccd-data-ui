@@ -162,6 +162,15 @@
     .cc-county-opt:hover { background: var(--bg-raise); color: var(--ink); }
     .cc-county-opt.active { color: var(--accent); font-weight: 600; }
     .cc-county-opt small { font-family: var(--mono); font-size: 0.889rem; color: var(--ink-faint); }
+    .cc-race-group {
+      width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 8px;
+      padding: 10px 12px; margin-top: 4px; min-height: 44px;
+      border: 0; border-radius: 8px;
+      background: var(--bg-inset); color: var(--ink);
+      font: inherit; font-weight: 700; text-align: left; cursor: pointer;
+    }
+    .cc-race-group:hover { background: var(--bg-raise); }
+    .cc-race-group small { font-family: var(--mono); font-size: 0.889rem; color: var(--ink-faint); white-space: nowrap; }
 
     .cc-topbar-spacer { flex: 1; }
 
@@ -548,7 +557,7 @@
         <button class="cc-county-btn" id="cc-race-btn">
           <span class="visually-hidden">Election shown on the map: </span>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 4h16v16H4z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>
-          <span id="cc-race-name">Demographics</span>
+          <span id="cc-race-name">Choose a race</span>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="cc-county-menu" id="cc-race-menu">
@@ -585,6 +594,7 @@
         <button class="cc-mode-btn active" data-mode="lean">Lean</button>
         <button class="cc-mode-btn" data-mode="margin">Margin</button>
         <button class="cc-mode-btn" data-mode="diversity">Diversity</button>
+        <button class="cc-mode-btn" data-mode="primary" style="display:none">Primary</button>
       </div>
 
       <div id="cc-map"></div>

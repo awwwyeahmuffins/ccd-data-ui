@@ -9,7 +9,7 @@
 // colors, and the county registry — so it never invents data and stays in sync.
 // Sits behind the Cognito sign-in gate on deployment (bypassed on localhost / e2e).
 
-import { loadAllData, setActiveCounty, loadCountyRegistry, getActiveCounty, listElectionCSVs, loadElectionData, setActiveBoundary, getActiveBoundary, getBoundaryConfigs } from "./dataLoader.js";
+import { loadAllData, setActiveCounty, loadCountyRegistry, getActiveCounty, listElectionCSVs, loadElectionData, setActiveBoundary, getActiveBoundary, getBoundaryConfigs, loadPrimaryTurnout } from "./dataLoader.js";
 import { PARTY_STRENGTH_COLORS, PARTY_COLORS, ELECTION_META_KEYS, MAP_CONFIG } from "./constants.js";
 import { escapeHtml } from "./utils.js";
 import { initAuth, isAuthenticated, signOut, onAuthStateChange } from "./auth.js";
@@ -19,6 +19,7 @@ import { RAMPS, marginBin, diversityBin, describePrecinct, partyName, legendBins
 import { patternFill, partyKind, swatchSVG } from "./mapPatterns.js";
 import { buildCountyBriefing } from "./countyBriefing.js";
 import { buildRows, sortRows, renderRows, countLine, SORTS } from "./listView.js";
+import { termButton } from "./glossary.js";
 
 // ---- module state (this page's own; no shared singleton) --------------------
 const cc = {
@@ -34,13 +35,13 @@ const cc = {
   otherLayer: null,      // non-Collin county outlines (shown during district races)
   otherPrecinctLayer: null, // non-Collin PRECINCT polygons (where sourced, e.g. Hunt CD-3)
   geojson: null,
-  mode: "lean",          // lean | margin | diversity (demographic modes)
+  mode: "lean",          // lean | margin | diversity | primary (demographic modes)
   selectedCode: null,
+  primary: null,         // party-primary ballots lookup { code: { year: {dem,rep} } }, null = N/A
   countyName: "Collin",
   races: [],             // this county's race manifest (for the picker)
   raceId: null,          // active race id, or null for demographics
   race: null,            // { id, label, partisan, byPrecinct: { code: {winner,total,margin,...} } }
-  originalRaceFiles: null, // Set of raceFile names that have real 2024-boundary results
 };
 
 // Subtle CartoDB basemap for geographic grounding (precinct chairs orienting
@@ -129,16 +130,32 @@ function notOnBallotFill() {
   return patternFill(svgRoot(), "cross", 2, tm().notBallot);
 }
 
+// Primary energy: which party's primary drew more ballots, in the exact lean
+// visual language (party pattern, denser = more one-sided). Official county
+// reports via data/…/profile/primary_turnout.csv; absent → no-data gray.
+const PRIMARY_YEAR = 2026;
+function primaryFill(p) {
+  const rec = cc.primary?.[String(p.PRECINCT)]?.[PRIMARY_YEAR];
+  if (!rec || rec.dem + rec.rep === 0) return tm().noData;
+  const share = rec.dem / (rec.dem + rec.rep);
+  const party = share >= 0.5 ? "Dem" : "Rep";
+  const diff = Math.abs(share - 0.5);
+  const level = diff < 0.05 ? 1 : diff < 0.15 ? 2 : 3;
+  const ramp = PARTY_STRENGTH_COLORS[party];
+  return patternFill(svgRoot(), partyKind(party), level, ramp[level] || ramp.default);
+}
+
 function fillFor(p) {
   if (cc.raceId) return raceFill(p);
   if (cc.mode === "margin") return marginFill(p);
   if (cc.mode === "diversity") return diversityFill(p);
+  if (cc.mode === "primary") return primaryFill(p);
   return leanFill(p);
 }
 
 // Context passed to the shared describePrecinct() formatter (mapBins.js).
 function describeCtx() {
-  return { mode: cc.mode, race: cc.raceId ? cc.race : null };
+  return { mode: cc.mode, race: cc.raceId ? cc.race : null, primary: cc.primary, primaryYear: PRIMARY_YEAR };
 }
 
 // A precinct is "in" the active race only if it cast candidate votes.
@@ -415,7 +432,7 @@ function renderCountyBriefing() {
         .map(
           (s) => `
       <div class="cc-stat">
-        <div class="cc-stat-label">${escapeHtml(s.label)}</div>
+        <div class="cc-stat-label">${s.term ? termButton(s.term, escapeHtml(s.label)) : escapeHtml(s.label)}</div>
         <div class="cc-stat-value">${escapeHtml(s.value)}${s.suffix ? `<small>${escapeHtml(s.suffix)}</small>` : ""}</div>
       </div>`
         )
@@ -529,7 +546,7 @@ function renderRaceBriefing() {
     ${multi ? `<div class="cc-section-label">By county</div>${countyRows}` : ""}
 
     <button class="cc-deeplink" id="cc-clear-race" style="margin-top:14px">
-      <span class="dl-l"><span class="dl-ic">${ICON.back}</span><span><span class="dl-t">Back to Demographics</span><span class="dl-s">Clear this race</span></span></span>
+      <span class="dl-l"><span class="dl-ic">${ICON.back}</span><span><span class="dl-t">Back to the overview</span><span class="dl-s">Clear this race</span></span></span>
       <span class="dl-arrow">↺</span>
     </button>
 
@@ -752,7 +769,8 @@ function renderLegend() {
         <div class="cc-legend-title">${escapeHtml(cc.race.label)}</div>
         <p class="cc-legend-desc">How decisively the leading candidate won each precinct.</p>
         ${binRows("margin", RAMPS.nonpartisan)}
-        ${notBallotRow}`;
+        ${notBallotRow}
+        <p class="cc-legend-desc">Showing one race — tap Lean, Margin, or Diversity above to go back to the county overview.</p>`;
       return;
     }
     el.innerHTML = `
@@ -763,7 +781,8 @@ function renderLegend() {
       ${legendRow(patternFill(svgRoot(), "dots", 2, PARTY_COLORS.Mod || "#800080"), "Other / Moderate win")}
       ${notBallotRow}
       ${cc.otherPrecinctLayer ? legendRow(patternFill(svgRoot(), "diag", 2, PARTY_COLORS.Rep), "Other county · precinct-level") : ""}
-      ${cc.otherLayer ? `<div class="cc-legend-row"><span class="cc-legend-sw cc-sw-dash"></span><span>County total (dashed outline)</span></div>` : ""}`;
+      ${cc.otherLayer ? `<div class="cc-legend-row"><span class="cc-legend-sw cc-sw-dash"></span><span>County total (dashed outline)</span></div>` : ""}
+      <p class="cc-legend-desc">Showing one race — tap Lean, Margin, or Diversity above to go back to the county overview.</p>`;
     return;
   }
   if (cc.mode === "lean") {
@@ -782,6 +801,16 @@ function renderLegend() {
       <div class="cc-legend-title">Victory Margin</div>
       <p class="cc-legend-desc">How close the vote was, in percentage points. Denser dots = more lopsided.</p>
       ${binRows("margin", RAMPS.margin)}
+      ${noDataRow}`;
+  } else if (cc.mode === "primary") {
+    const P = PARTY_STRENGTH_COLORS;
+    el.innerHTML = `
+      <div class="cc-legend-title">${PRIMARY_YEAR} Primary Ballots</div>
+      <p class="cc-legend-desc">Which party's ${PRIMARY_YEAR} primary drew more voters here. Denser stripes = more one-sided. Source: official county reports.</p>
+      ${legendRow(patternFill(svgRoot(), "diag", 3, P.Rep[3]), "Strongly Republican primary")}
+      ${legendRow(patternFill(svgRoot(), "diag", 1, P.Rep[1]), "Slightly Republican primary")}
+      ${legendRow(patternFill(svgRoot(), "horiz", 1, P.Dem[1]), "Slightly Democratic primary")}
+      ${legendRow(patternFill(svgRoot(), "horiz", 3, P.Dem[3]), "Strongly Democratic primary")}
       ${noDataRow}`;
   } else {
     el.innerHTML = `
@@ -846,7 +875,7 @@ function renderDataNote() {
   if (!el) return;
   const years = cc.races.map((r) => r.year).filter(Boolean);
   el.textContent = years.length
-    ? `Official results through ${Math.max(...years)}`
+    ? `Latest results: ${Math.max(...years)} election`
     : "Official election data";
 }
 
@@ -863,6 +892,17 @@ function renderDataNote() {
 function preferredDemographicBoundary() {
   const configs = getBoundaryConfigs();
   return configs["2026"] ? "2026" : getActiveBoundary();
+}
+
+// Load the optional party-primary turnout extra and show/hide the Primary map
+// mode accordingly. Counties without the file just never show the button.
+async function refreshPrimaryTurnout() {
+  cc.primary = await loadPrimaryTurnout();
+  const btn = document.querySelector('.cc-mode-btn[data-mode="primary"]');
+  if (btn) btn.style.display = cc.primary ? "" : "none";
+  if (!cc.primary && cc.mode === "primary") { await setMode("lean"); return; }
+  // The layer may have been built before this data arrived — repaint if showing.
+  if (cc.mode === "primary") { restyle(); decorateMapPaths(); renderLegend(); }
 }
 
 // Set the active boundary before the FIRST data load (no layer to rebuild yet).
@@ -889,19 +929,6 @@ async function setMapBoundary(boundaryId) {
   cc.layer = L.geoJSON(geojson, { style: baseStyle, onEachFeature: attachFeature }).addTo(cc.map);
   decorateMapPaths();
   updatePrecinctLabels();
-}
-
-// Cache the set of raceFiles that have real results on the 2024 (original) set,
-// so loadRace knows whether to swap to 2024 or leave a 2026-only race in place.
-async function loadOriginalRaceFiles() {
-  cc.originalRaceFiles = new Set();
-  const orig = getBoundaryConfigs()["original"];
-  if (!orig) return;
-  try {
-    const m = await fetch(`${orig.dataDir}/elections.json`).then((r) => (r.ok ? r.json() : null));
-    const els = m && (Array.isArray(m) ? m : m.elections);
-    for (const e of els || []) if (e.raceFile) cc.originalRaceFiles.add(e.raceFile);
-  } catch (_) { /* leave empty — races will just stay on the current set */ }
 }
 
 // True only for genuine Rep-vs-Dem contests (both parties present). Single-party
@@ -942,7 +969,7 @@ async function switchCounty(slug, name) {
     hideReadout();
     fitMap();
     renderLegend();
-    await loadOriginalRaceFiles();
+    await refreshPrimaryTurnout();
     await populateRaceMenu();
     renderCountyBriefing();
     if (cc.view === "list") renderListView();
@@ -1074,28 +1101,68 @@ async function loadDistrictOutlines(slug) {
   }
 }
 
+// Race-picker groups, in display order. The marquee contests come first and
+// open by default; the hundreds of city/school/utility races stay behind
+// closed headers so the list starts at a readable size.
+const RACE_GROUP_DEFS = [
+  { key: "Federal", label: "Federal — President & Congress" },
+  { key: "State", label: "State — Governor & Legislature" },
+  { key: "County", label: "County offices" },
+  { key: "City", label: "City councils & mayors" },
+  { key: "ISD", label: "School districts (ISD)" },
+  { key: "MUD", label: "Utility districts (MUD)" },
+];
+const openRaceGroups = new Set(["Federal"]);
+
+function raceOptHTML(e) {
+  const id = e.raceKey || e.filename;
+  const label = String(e.displayName || e.office || id);
+  const year = String(e.year || "");
+  const badge = year && !label.includes(year) ? year : "";
+  return `<div class="cc-county-opt ${id === cc.raceId ? "active" : ""}" data-race="${escapeHtml(id)}">
+    <span>${escapeHtml(label)}</span>${badge ? `<small>${escapeHtml(badge)}</small>` : ""}</div>`;
+}
+
 function renderRaceList(filter) {
   const list = $("cc-race-list");
   if (!list) return;
-  const f = filter.toLowerCase();
+  const f = filter.toLowerCase().trim();
   let html = `<div class="cc-county-opt ${cc.raceId ? "" : "active"}" data-race="">
-      <span>Demographics (lean / margin / diversity)</span></div>`;
-  html += cc.races
-    .filter((e) => (e.displayName || e.office || e.filename || "").toLowerCase().includes(f))
-    .slice(0, 80)
-    .map((e) => {
-      const id = e.raceKey || e.filename;
-      const label = e.displayName || e.office || id;
-      return `<div class="cc-county-opt ${id === cc.raceId ? "active" : ""}" data-race="${escapeHtml(id)}">
-        <span>${escapeHtml(label)}</span><small>${escapeHtml(String(e.year || e.category || ""))}</small></div>`;
-    })
-    .join("");
+      <span>Overview — no race selected</span></div>`;
+  if (f) {
+    // Typing searches every race, flat.
+    html += cc.races
+      .filter((e) => (e.displayName || e.office || e.filename || "").toLowerCase().includes(f))
+      .slice(0, 80)
+      .map(raceOptHTML)
+      .join("");
+    list.innerHTML = html;
+    return;
+  }
+  const byYearDesc = (a, b) =>
+    (+b.year || 0) - (+a.year || 0) ||
+    String(a.displayName || a.office || "").localeCompare(String(b.displayName || b.office || ""));
+  const grouped = new Map(RACE_GROUP_DEFS.map((g) => [g.key, []]));
+  const other = [];
+  for (const e of cc.races) (grouped.get(e.category) || other).push(e);
+  const groups = other.length
+    ? [...RACE_GROUP_DEFS, { key: "Other", label: "Other races" }]
+    : RACE_GROUP_DEFS;
+  for (const g of groups) {
+    const entries = g.key === "Other" ? other : grouped.get(g.key);
+    if (!entries.length) continue;
+    entries.sort(byYearDesc);
+    const open = openRaceGroups.has(g.key);
+    html += `<button type="button" class="cc-race-group" data-group="${g.key}" aria-expanded="${open}">
+      <span>${escapeHtml(g.label)}</span><small>${entries.length} race${entries.length === 1 ? "" : "s"} ${open ? "▴" : "▾"}</small></button>`;
+    if (open) html += entries.map(raceOptHTML).join("");
+  }
   list.innerHTML = html;
 }
 
 function applyRaceLabel() {
   const el = $("cc-race-name");
-  if (el) el.textContent = cc.race ? cc.race.label : "Demographics";
+  if (el) el.textContent = cc.race ? cc.race.label : "Choose a race";
   // While a race is showing the demographic modes are inactive: mute them
   // visually AND semantically (picking one still exits the race — allowed).
   const modes = $("cc-modes");
@@ -1115,14 +1182,14 @@ async function loadRace(raceIdOrEntry) {
   if (!entry) return;
   showLoading(true);
   try {
-    // Real results live on the 2024 (original) precincts — swap the map there.
-    // Races that exist only on 2026 codes (the March 2026 primary) stay put.
-    const target = cc.originalRaceFiles?.has(entry.raceFile) ? "original" : getActiveBoundary();
-    await setMapBoundary(target);
+    // 2026-only app: every race renders on the current (2026) precincts. Older
+    // races use the official results carefully re-drawn onto the new boundaries.
     const rows = await loadElectionData(entry);
     const byPrecinct = {};
     for (const row of rows) byPrecinct[String(row["PRECINCT CODE"])] = precinctRaceResult(row);
     cc.raceId = entry.raceKey || entry.filename;
+    // Keep this race's group open so reopening the picker shows the selection.
+    openRaceGroups.add(RACE_GROUP_DEFS.some((g) => g.key === entry.category) ? entry.category : "Other");
     cc.race = { id: cc.raceId, label: entry.displayName || entry.office || cc.raceId, byPrecinct,
       partisan: isPartisanRace(rows),
       otherCounties: [], otherByCounty: {}, otherPrecincts: {}, otherGeojson: null, precinctGeo: null, precinctCounties: new Set() };
@@ -1523,6 +1590,13 @@ function wireUI() {
   });
   $("cc-race-search").addEventListener("input", (e) => renderRaceList(e.target.value));
   $("cc-race-list").addEventListener("click", (e) => {
+    const group = e.target.closest(".cc-race-group");
+    if (group) {
+      const key = group.dataset.group;
+      openRaceGroups.has(key) ? openRaceGroups.delete(key) : openRaceGroups.add(key);
+      renderRaceList($("cc-race-search").value || "");
+      return;
+    }
     const opt = e.target.closest(".cc-county-opt[data-race]");
     if (!opt) return;
     closeRaceMenu();
@@ -1671,7 +1745,7 @@ async function init() {
     const { geojson } = await loadAllData();
     cc.geojson = geojson;
     buildMap(geojson);
-    await loadOriginalRaceFiles();
+    await refreshPrimaryTurnout();
     await populateRaceMenu();
     renderDataNote();
     // A #race= deep link (e.g. from the Elections catalog) shows that race.

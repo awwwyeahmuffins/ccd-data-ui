@@ -101,7 +101,7 @@ test.describe('Command Center', () => {
     if (await dockToggle.isVisible()) await dockToggle.click();
     await page.click('#cc-clear-race');
     await expect(page.locator('#cc-dock-eyebrow')).toContainText('County Briefing');
-    await expect(page.locator('#cc-race-name')).toHaveText('Demographics');
+    await expect(page.locator('#cc-race-name')).toHaveText('Choose a race');
   });
 
   test('folds non-Collin counties into a multi-county district race', async ({ page }) => {

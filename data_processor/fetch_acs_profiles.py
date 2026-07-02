@@ -1009,11 +1009,28 @@ def aggregate_historical_to_precincts(hist_bg_data, crosswalk):
     return profiles
 
 
+# Small-area ACS trends are noisy (a precinct's median income can look like it
+# "grew 12%/yr" purely from sampling error or new construction). Raw CAGR
+# compounded 7 years produces absurd numbers, so projections are damped:
+# the annual rate is capped per metric and continued LINEARLY, never compounded.
+PROJECTION_RATE_CAPS = {
+    "population": 0.08,     # fast-growth exurbs really do add ~8%/yr
+    "medianIncome": 0.05,
+    "medianHomeValue": 0.05,
+}
+OWNER_PTS_PER_YEAR_CAP = 0.02   # percentage-point drift cap
+AGE_YEARS_PER_YEAR_CAP = 0.5    # median-age drift cap
+
+
 def compute_projections(current_profiles, historical_profiles):
-    """Compute 5-year CAGR and project key metrics to 2030."""
+    """Project key metrics to 2030 from the 5-year ACS trend (damped, linear)."""
     logger.info("Computing 2030 projections from ACS trend data...")
     projection_years = 7  # 2023 midpoint → 2030
     trend_years = 5       # 2018 → 2023
+
+    def damped_rate(cur, hist, cap):
+        cagr = (cur / hist) ** (1 / trend_years) - 1
+        return max(-cap, min(cap, cagr))
 
     count = 0
     for pct_id, profile in current_profiles.items():
@@ -1023,66 +1040,47 @@ def compute_projections(current_profiles, historical_profiles):
 
         projections = {"targetYear": 2030}
 
-        # Population
-        cur_pop = profile.get("population", 0)
-        hist_pop = hist.get("population", 0)
-        if cur_pop > 0 and hist_pop > 0:
-            cagr = (cur_pop / hist_pop) ** (1 / trend_years) - 1
-            projected = cur_pop * (1 + cagr) ** projection_years
-            projections["population"] = {
-                "current": cur_pop,
-                "projected": round(max(0, projected)),
-                "cagr": round(cagr, 4),
-            }
+        # Population / Median Income / Median Home Value: capped rate, linear
+        for key, cur, hist_v in (
+            ("population", profile.get("population", 0), hist.get("population", 0)),
+            ("medianIncome", profile.get("income", {}).get("medianHousehold"), hist.get("medianIncome")),
+            ("medianHomeValue", profile.get("housing", {}).get("medianHomeValue"), hist.get("medianHomeValue")),
+        ):
+            if cur and hist_v and cur > 0 and hist_v > 0:
+                rate = damped_rate(cur, hist_v, PROJECTION_RATE_CAPS[key])
+                projected = cur * (1 + rate * projection_years)
+                projections[key] = {
+                    "current": cur,
+                    "projected": round(max(0, projected)),
+                    "cagr": round(rate, 4),
+                }
 
-        # Median Income
-        cur_inc = profile.get("income", {}).get("medianHousehold")
-        hist_inc = hist.get("medianIncome")
-        if cur_inc and hist_inc and cur_inc > 0 and hist_inc > 0:
-            cagr = (cur_inc / hist_inc) ** (1 / trend_years) - 1
-            projected = cur_inc * (1 + cagr) ** projection_years
-            projections["medianIncome"] = {
-                "current": cur_inc,
-                "projected": round(max(0, projected)),
-                "cagr": round(cagr, 4),
-            }
-
-        # Median Home Value
-        cur_home = profile.get("housing", {}).get("medianHomeValue")
-        hist_home = hist.get("medianHomeValue")
-        if cur_home and hist_home and cur_home > 0 and hist_home > 0:
-            cagr = (cur_home / hist_home) ** (1 / trend_years) - 1
-            projected = cur_home * (1 + cagr) ** projection_years
-            projections["medianHomeValue"] = {
-                "current": cur_home,
-                "projected": round(max(0, projected)),
-                "cagr": round(cagr, 4),
-            }
-
-        # Owner-Occupied Rate
+        # Owner-Occupied Rate: percentage-point drift, capped and clamped
         cur_owner = profile.get("housing", {}).get("ownerOccupied")
         hist_owner = hist.get("ownerOccupied")
         if cur_owner is not None and hist_owner is not None and hist_owner > 0:
-            cagr = (cur_owner / hist_owner) ** (1 / trend_years) - 1
-            projected = cur_owner * (1 + cagr) ** projection_years
-            projected = max(0, min(1, projected))  # clamp to [0, 1]
+            pts_per_year = (cur_owner - hist_owner) / trend_years
+            pts_per_year = max(-OWNER_PTS_PER_YEAR_CAP, min(OWNER_PTS_PER_YEAR_CAP, pts_per_year))
+            projected = max(0, min(1, cur_owner + pts_per_year * projection_years))
+            rate = pts_per_year / cur_owner if cur_owner > 0 else 0
             projections["ownerOccupied"] = {
                 "current": round(cur_owner, 4),
                 "projected": round(projected, 4),
-                "cagr": round(cagr, 4),
+                "cagr": round(rate, 4),
             }
 
-        # Median Age
+        # Median Age: absolute drift in years, capped
         cur_age = profile.get("age", {}).get("medianAge")
         hist_age = hist.get("medianAge")
         if cur_age and hist_age and cur_age > 0 and hist_age > 0:
-            cagr = (cur_age / hist_age) ** (1 / trend_years) - 1
-            projected = cur_age * (1 + cagr) ** projection_years
-            projected = max(0, projected)
+            yrs_per_year = (cur_age - hist_age) / trend_years
+            yrs_per_year = max(-AGE_YEARS_PER_YEAR_CAP, min(AGE_YEARS_PER_YEAR_CAP, yrs_per_year))
+            projected = max(0, cur_age + yrs_per_year * projection_years)
+            rate = yrs_per_year / cur_age if cur_age > 0 else 0
             projections["medianAge"] = {
                 "current": cur_age,
                 "projected": round(projected, 1),
-                "cagr": round(cagr, 4),
+                "cagr": round(rate, 4),
             }
 
         if len(projections) > 1:  # more than just targetYear

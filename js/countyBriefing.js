@@ -77,8 +77,8 @@ export function buildCountyBriefing(features, { countyName = "This county", isDi
   const stats = [
     { label: "Republican precincts", value: `${c.rep}`, suffix: ` / ${c.total}`, party: "Rep" },
     { label: "Democratic precincts", value: `${c.dem}`, suffix: ` / ${c.total}`, party: "Dem" },
-    { label: "Decided by under 10 pts", value: avgR == null ? "N/A" : `${competitive}` },
-    { label: "Non-white residents", value: avgNonWhite == null ? "N/A" : `${Math.round(avgNonWhite * 100)}%` },
+    { label: "Decided by under 10 pts", value: avgR == null ? "N/A" : `${competitive}`, term: "margin" },
+    { label: "Non-white residents", value: avgNonWhite == null ? "N/A" : `${Math.round(avgNonWhite * 100)}%`, term: "diversity" },
   ];
 
   return {

@@ -27,7 +27,7 @@ export const STRATEGY_CATEGORIES = [
 
 // Build the normalized metric bundle a strategy scores. Returns null when a
 // precinct has no modeled party data (can't be targeted on partisan terms).
-export function derivePrecinctMetrics(p, turnout) {
+export function derivePrecinctMetrics(p, turnout, primary) {
   if (p == null || p.repShare == null || isNaN(p.repShare) || !p.winningParty) return null;
   const repShare = +p.repShare;
   const demShare = +p.demShare;
@@ -51,6 +51,30 @@ export function derivePrecinctMetrics(p, turnout) {
     ballots: bal,
     rate: reg && reg > 0 && bal != null ? bal / reg : null,
     dropoff: reg != null && bal != null ? Math.max(0, reg - bal) : null,
+    ...derivePrimaryMetrics(primary),
+  };
+}
+
+// Party-primary ballots (official county reports): earliest vs latest cycle on
+// file. Growth fields are null unless the precinct has 2+ cycles of history —
+// new precincts never fabricate a trend.
+function derivePrimaryMetrics(primary) {
+  const years = primary ? Object.keys(primary).map(Number).sort((a, b) => a - b) : [];
+  if (!years.length) {
+    return { primaryDemNow: null, primaryRepNow: null, primaryDemFirst: null, primaryRepFirst: null, primaryDemGrowth: null, primaryRepGrowth: null, primaryFirstYear: null, primaryLastYear: null };
+  }
+  const first = primary[years[0]];
+  const last = primary[years[years.length - 1]];
+  const multi = years.length >= 2;
+  return {
+    primaryDemNow: last.dem,
+    primaryRepNow: last.rep,
+    primaryDemFirst: multi ? first.dem : null,
+    primaryRepFirst: multi ? first.rep : null,
+    primaryDemGrowth: multi ? last.dem - first.dem : null,
+    primaryRepGrowth: multi ? last.rep - first.rep : null,
+    primaryFirstYear: years[0],
+    primaryLastYear: years[years.length - 1],
   };
 }
 
@@ -119,6 +143,18 @@ export const STRATEGIES = [
     score: (m) => (m.rate != null ? 1 - m.rate : null),
     explain: (m) => `${pct(m.rate)} turnout · ${num(m.dropoff)} non-voters`,
   },
+  {
+    id: "primary-energy-dem", cat: "turnout", icon: "dem", label: "Dem Primary Energy", needs: ["primary"], metricLabel: "New Dem primary voters",
+    blurb: "Where Democratic primary turnout grew the most — the most newly energized Democratic voters to organize (official county primary ballots).",
+    score: (m) => m.primaryDemGrowth,
+    explain: (m) => `${num(m.primaryDemFirst)} → ${num(m.primaryDemNow)} Dem primary ballots (${m.primaryFirstYear}→${m.primaryLastYear})`,
+  },
+  {
+    id: "primary-energy-rep", cat: "turnout", icon: "rep", label: "Rep Primary Energy", needs: ["primary"], metricLabel: "New Rep primary voters",
+    blurb: "Where Republican primary turnout grew the most — the most newly energized Republican voters to organize (official county primary ballots).",
+    score: (m) => m.primaryRepGrowth,
+    explain: (m) => `${num(m.primaryRepFirst)} → ${num(m.primaryRepNow)} Rep primary ballots (${m.primaryFirstYear}→${m.primaryLastYear})`,
+  },
 
   // ---- C. GROW THE ELECTORATE ------------------------------------------------
   {
@@ -159,6 +195,7 @@ export function strategyAvailable(strategy, ctx) {
   const needs = strategy.needs || [];
   if (needs.includes("turnout") && !ctx.hasTurnout) return false;
   if (needs.includes("racial") && !ctx.hasRacial) return false;
+  if (needs.includes("primary") && !ctx.hasPrimary) return false;
   return true;
 }
 
@@ -168,14 +205,14 @@ export function strategyAvailable(strategy, ctx) {
 //   turnoutLookup — { [precinctCode]: { registered, ballots } } (optional)
 //   limit         — max rows (default 50)
 // Returns [{ code, score, explain, metrics }] sorted strongest-first.
-export function rankPrecincts(features, strategyId, { turnoutLookup = null, limit = 50 } = {}) {
+export function rankPrecincts(features, strategyId, { turnoutLookup = null, primaryLookup = null, limit = 50 } = {}) {
   const strat = getStrategy(strategyId);
   if (!strat) return [];
   const rows = [];
   for (const f of features || []) {
     const p = f.properties || f; // accept raw props too (tests)
     const t = turnoutLookup ? turnoutLookup[String(p.PRECINCT)] : null;
-    const m = derivePrecinctMetrics(p, t);
+    const m = derivePrecinctMetrics(p, t, primaryLookup ? primaryLookup[String(p.PRECINCT)] : null);
     if (!m) continue;
     const score = strat.score(m);
     if (score == null || isNaN(score)) continue;

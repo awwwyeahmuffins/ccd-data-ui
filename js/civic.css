@@ -130,11 +130,18 @@ body {
 .site-nav {
   display: flex;
   align-items: stretch;
+  flex-wrap: wrap;
   gap: 4px;
-  overflow-x: auto;
   flex: 1;
   min-width: 0;
-  -webkit-overflow-scrolling: touch;
+}
+/* Phones only: single scrollable row beats a four-row stack of tabs */
+@media (max-width: 480px) {
+  .site-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 .site-nav a {
   display: flex;

@@ -64,6 +64,11 @@
       display: flex; justify-content: space-between; align-items: center; color: inherit;
     }
     .family-count { font-family: var(--font-body); font-size: 0.889rem; color: var(--color-text-secondary); font-weight: 600; }
+    summary.family-header { cursor: pointer; list-style: none; }
+    summary.family-header::-webkit-details-marker { display: none; }
+    summary.family-header::after { content: "▾"; margin-left: 10px; color: var(--color-text-secondary); }
+    details[open] > summary.family-header::after { content: "▴"; }
+    summary.family-header:hover { background: var(--color-bg-secondary, #f5f2ec); }
     .family-body { border-top: 1px solid var(--color-border-light); }
     .race-row {
       display: flex; align-items: center; gap: 12px; padding: 12px 20px;

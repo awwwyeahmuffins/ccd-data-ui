@@ -49,6 +49,18 @@ export const TERMS = {
     title: "Boundary year",
     body: "Precinct borders get redrawn every few years. Results are shown on the borders that were in force for that election, so an old race can use slightly different precinct shapes than today's.",
   },
+  isd: {
+    title: "ISD — school district",
+    body: "Independent School District. ISD races elect school board trustees and decide school bond measures. Each district runs its own elections, which is why there are so many of them.",
+  },
+  mud: {
+    title: "MUD — utility district",
+    body: "Municipal Utility District — a small local body that manages water, sewer, and drainage for a neighborhood. MUD races elect its board. They affect only the homes inside that district.",
+  },
+  diversity: {
+    title: "Diversity (non-white share)",
+    body: "The share of residents who are not non-Hispanic white, from the Census. A higher number means a more racially and ethnically mixed precinct. It says nothing about how anyone votes.",
+  },
 };
 
 // Render a tappable marked term. `labelHtml` is trusted HTML (callers escape

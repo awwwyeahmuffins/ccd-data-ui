@@ -39,7 +39,6 @@ const TINY_ELECTORATE = 50;
 
 const pg = {
   county: "collin",
-  boundary: "original",   // "original" (2024) ⇄ "2026" where available
   view: "summary",        // "summary" | a METRIC_CATEGORIES id | "all" (spreadsheet)
   sortKey: "medianIncome",
   sortDir: "desc",
@@ -69,17 +68,6 @@ async function initCountySelect() {
   sel.value = pg.county;
   if (sel.value !== pg.county) pg.county = sel.value;
   sel.addEventListener("change", () => { pg.county = sel.value; updateURL(); loadCounty(); });
-}
-
-// Show the 2024⇄2026 boundary toggle only when the county offers >1 set.
-function renderBoundaryToggle(configs) {
-  const wrap = $("ex-boundary-wrap");
-  const sel = $("ex-boundary");
-  const ids = Object.keys(configs);
-  if (ids.length < 2) { wrap.style.display = "none"; return; }
-  wrap.style.display = "";
-  sel.innerHTML = ids.map((id) => `<option value="${id}">${escapeHtml(configs[id].label || id)}</option>`).join("");
-  sel.value = pg.boundary;
 }
 
 // ---- marquee turnout: highest-turnout election on file ----------------------
@@ -113,14 +101,12 @@ async function loadCounty() {
   $("ex-body").innerHTML = '<tr><td class="empty-note">Loading…</td></tr>';
   try {
     await setActiveCounty(pg.county);
-    // Boundary set (e.g. Collin's 2024 vs 2026 precincts). setActiveCounty reset
-    // it to the county default; keep the user's pick if this county offers it.
-    const configs = getBoundaryConfigs();
-    const bids = Object.keys(configs);
-    if (!bids.includes(pg.boundary)) pg.boundary = getActiveBoundary();
-    setActiveBoundary(pg.boundary);
-    renderBoundaryToggle(configs);
-    $("ex-boundary-note").style.display = pg.boundary === "2026" ? "" : "none";
+    // 2026-only app: always the current boundary set where the county has it.
+    const boundary = getBoundaryConfigs()["2026"] ? "2026" : getActiveBoundary();
+    setActiveBoundary(boundary);
+    const bwrap = $("ex-boundary-wrap");
+    if (bwrap) bwrap.style.display = "none";
+    $("ex-boundary-note").style.display = boundary === "2026" ? "" : "none";
     let census = null;
     const [{ geojson }, turnout] = await Promise.all([loadAllData(), loadMarqueeTurnout()]);
     try { census = await loadCensusProfiles(); } catch (_) { census = null; }
@@ -296,7 +282,7 @@ function renderChips() {
 
 // ---- URL sync ---------------------------------------------------------------
 function updateURL() {
-  history.replaceState(null, "", `#county=${encodeURIComponent(pg.county)}&boundary=${encodeURIComponent(pg.boundary)}&view=${encodeURIComponent(pg.view)}&sort=${encodeURIComponent(pg.sortKey)}&dir=${pg.sortDir}`);
+  history.replaceState(null, "", `#county=${encodeURIComponent(pg.county)}&view=${encodeURIComponent(pg.view)}&sort=${encodeURIComponent(pg.sortKey)}&dir=${pg.sortDir}`);
 }
 function readURL() {
   const params = {};
@@ -305,7 +291,6 @@ function readURL() {
     if (k && v) params[k] = decodeURIComponent(v);
   }
   if (params.county) pg.county = params.county;
-  if (params.boundary) pg.boundary = params.boundary;
   if (params.view) pg.view = params.view;
   if (params.sort && getMetric(params.sort)) pg.sortKey = params.sort;
   if (params.dir === "asc" || params.dir === "desc") pg.sortDir = params.dir;
@@ -317,7 +302,6 @@ async function init() {
   $("ex-sort").addEventListener("change", (e) => { pg.sortKey = e.target.value; if (!pg.columns.includes(pg.sortKey)) pg.columns.push(pg.sortKey); renderColumnsPicker(); updateURL(); render(); });
   $("ex-dir").addEventListener("click", () => { pg.sortDir = pg.sortDir === "desc" ? "asc" : "desc"; applyDirLabel(); updateURL(); render(); });
   $("ex-party").addEventListener("change", (e) => { pg.party = e.target.value; renderChips(); render(); });
-  $("ex-boundary").addEventListener("change", (e) => { pg.boundary = e.target.value; updateURL(); loadCounty(); });
   $("ex-addfilter").addEventListener("click", () => {
     const key = $("ex-fmetric").value;
     const op = $("ex-fop").value;
