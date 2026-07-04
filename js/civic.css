@@ -197,6 +197,34 @@ body {
   border-color: var(--accent-aaa);
   color: #ffffff;
 }
+/* Persona plumbing (js/lib/persona.js + js/ui/personaLayouts.js). The active
+   persona is stamped as html[data-persona="public|chair|campaign"] — that
+   attribute is the scoping hook future persona-specific styling hangs off;
+   nothing styles it yet. The badge names the non-public view in plain words;
+   the select is the developer toggle (rendered only when dev tools are on). */
+.site-persona-badge {
+  padding: 4px 12px;
+  border: 2px solid var(--accent-aaa);
+  border-radius: 10px;
+  background: var(--civic-paper);
+  color: var(--accent-aaa);
+  font-family: var(--civic-body);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  white-space: nowrap;
+}
+#nav-persona {
+  min-height: var(--tap);
+  padding: 8px 12px;
+  border: 2px solid var(--civic-line);
+  border-radius: 10px;
+  background: var(--civic-paper);
+  color: var(--ink-aaa);
+  font-family: var(--civic-body);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  cursor: pointer;
+}
 
 /* ---------------------------------------------------------------------------
    4) GLOSSARY — tappable terms + the definition popover
@@ -386,6 +414,7 @@ button.term {
   #nav-text-size,
   #nav-help,
   #nav-signout,
+  #nav-persona,
   .glossary-pop-close,
   .welcome-dismiss {
     min-height: 48px;
@@ -406,7 +435,8 @@ button.term {
     margin-left: auto;
   }
   #nav-help,
-  #nav-signout {
+  #nav-signout,
+  #nav-persona {
     order: 2;
   }
   .site-nav {

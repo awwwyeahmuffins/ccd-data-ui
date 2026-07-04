@@ -127,6 +127,39 @@ page. If a new page is truly warranted:
 5. Add an e2e smoke spec and include the page in `e2e/a11y.spec.js`'s page
    list.
 
+## Recipe E — Persona-aware chrome (plumbing, July 2026)
+
+The app is growing toward three personas — `public` (default), `chair`
+("Simple View"), `campaign` ("Detailed View"). Only the plumbing exists so
+far; every persona still gets the identical public app.
+
+- **State** lives in `js/lib/persona.js`: resolution is URL `#persona=` >
+  localStorage `ccd_persona` > `"public"`. The URL param is an ENTRY
+  param — consumed once at load, persisted, **never written back** (pages'
+  `updateURL()` calls rebuild the whole hash, so it couldn't survive anyway;
+  same rule as legacy `county=`). Don't "fix" `writeParams` to preserve it.
+- **The resolved persona** is stamped as `html[data-persona="…"]` by
+  `js/siteNav.js` at module load, before paint (same pattern as
+  `html.text-large`). Scope future persona CSS off that attribute.
+- **Layout wrappers** live in `js/ui/personaLayouts.js` — an id-keyed
+  registry, one entry per persona, with `navPages(pages)` (which tabs) and
+  `renderChromeExtras(headerEl)` (extra header chrome) hooks that siteNav
+  consults. Both are identity/no-op today; when a persona's chrome truly
+  diverges, grow its entry (or split it into its own module) rather than
+  branching inside siteNav.
+- **Switching personas reloads the page.** Orchestrators render once at
+  `init()` and never subscribe to hash changes; a reload is the honest way to
+  re-enter with different chrome. (A future live switch would adopt
+  `urlState.onChange`, which exists and is unused.)
+- **The dev toggle** (`#nav-persona` select in the header) renders only when
+  dev tools are armed: visit any page with `#dev=1` (persists `ccd_dev_tools`),
+  disarm with `#dev=0`. It must keep meeting the civic-plain rules — it ships
+  to production, just hidden behind the flag.
+- **Tests**: `tests/persona.test.js` (resolution), the persona describes in
+  `tests/siteNav.test.js` (chrome), `e2e/persona.spec.js` (toggle, persistence,
+  its own axe pass — `a11y.spec.js` never sees dev-only chrome), and the
+  `persona=` describe in `e2e/deep-links.spec.js`.
+
 ---
 
 ## Conventions (apply to every recipe)

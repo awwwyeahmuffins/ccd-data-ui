@@ -10,6 +10,13 @@
 
 import { initGlossary } from "./glossary.js";
 import { initHelpPanel } from "./helpPanel.js";
+import { readParams, writeParams } from "./lib/urlState.js";
+import {
+  initActivePersona,
+  setActivePersona,
+  devToolsEnabled,
+} from "./lib/persona.js";
+import { PERSONA_LAYOUTS, layoutFor } from "./ui/personaLayouts.js";
 
 const TEXT_SIZE_KEY = "ccd_text_large";
 const WELCOME_KEY = "ccd_welcome_seen";
@@ -68,6 +75,18 @@ function applyTextSize(on) {
 }
 applyTextSize(storedTextLarge());
 
+// Resolve the persona (URL override > stored > public) and stamp it on <html>
+// at module load, before paint — same pattern as the text-size class above.
+// Plumbing only: nothing styles or branches on data-persona yet; it is the
+// scoping hook future persona views will use. renderHeader re-resolves so a
+// fresh initSiteNav (tests, auth double-boot) always reflects current state.
+function applyPersona() {
+  const persona = initActivePersona();
+  document.documentElement.dataset.persona = persona;
+  return persona;
+}
+applyPersona();
+
 function currentPage() {
   const file = (location.pathname.split("/").pop() || "").toLowerCase();
   return file === "" ? "index.html" : file;
@@ -75,16 +94,39 @@ function currentPage() {
 
 function renderHeader(header) {
   const page = currentPage();
-  const links = PAGES.map((p) => {
-    const current = p.href === page ? ' aria-current="page"' : "";
-    return `<a href="${p.href}"${current}>${p.label}</a>`;
-  }).join("");
+  const activePersona = applyPersona();
+  const layout = layoutFor(activePersona);
+  const links = layout
+    .navPages(PAGES)
+    .map((p) => {
+      const current = p.href === page ? ' aria-current="page"' : "";
+      return `<a href="${p.href}"${current}>${p.label}</a>`;
+    })
+    .join("");
+
+  const badge = layout.badge
+    ? `<span class="site-persona-badge">${layout.badge}</span>`
+    : "";
+  // The persona switch is developer plumbing (armed with #dev=1) until real
+  // persona views exist — rendered only when enabled, never hidden-but-present.
+  const personaSelect = devToolsEnabled()
+    ? `<select id="nav-persona" aria-label="View mode (developer)">` +
+      Object.values(PERSONA_LAYOUTS)
+        .map(
+          (l) =>
+            `<option value="${l.id}"${l.id === activePersona ? " selected" : ""}>${l.label}</option>`
+        )
+        .join("") +
+      `</select>`
+    : "";
 
   const signedIn = hasCognitoSession();
   header.innerHTML =
     `<div class="site-header-bar">` +
     `<span class="site-brand">Collin County Elections</span>` +
+    badge +
     `<nav class="site-nav" aria-label="Main">${links}</nav>` +
+    personaSelect +
     `<button type="button" id="nav-text-size" aria-pressed="${storedTextLarge()}">` +
     `<span aria-hidden="true">A</span> Text size</button>` +
     `<button type="button" id="nav-help" aria-haspopup="dialog">` +
@@ -103,6 +145,19 @@ function renderHeader(header) {
     }
   });
 
+  const persona = header.querySelector("#nav-persona");
+  if (persona) {
+    persona.addEventListener("change", (e) => {
+      // Strip any #persona= before reloading: on pages that never rewrite the
+      // hash (e.g. methodology.html) a lingering override would re-impose the
+      // old persona over the choice we just persisted.
+      const { persona: _p, ...rest } = readParams();
+      writeParams(rest);
+      setActivePersona(e.currentTarget.value);
+      location.reload();
+    });
+  }
+
   const signout = header.querySelector("#nav-signout");
   if (signout) {
     signout.addEventListener("click", () => {
@@ -110,6 +165,8 @@ function renderHeader(header) {
       location.href = "index.html"; // the gate re-appears there on deployment
     });
   }
+
+  layout.renderChromeExtras(header);
 }
 
 // The precinct page remembers the last precincts viewed (max 3) — no accounts,

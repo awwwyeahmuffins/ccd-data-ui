@@ -14,11 +14,14 @@ const ALL_PAGES = [
   'methodology.html',
 ];
 
-function freshInit({ welcomeSeen = true } = {}) {
+function freshInit({ welcomeSeen = true, seed = {} } = {}) {
   localStorage.clear();
   if (welcomeSeen) localStorage.setItem('ccd_welcome_seen', '1');
+  for (const [k, v] of Object.entries(seed)) localStorage.setItem(k, v);
+  window.location.hash = '';
   document.body.innerHTML = '<header id="site-header"></header>';
   document.documentElement.classList.remove('text-large');
+  delete document.documentElement.dataset.persona;
   initSiteNav();
 }
 
@@ -72,6 +75,64 @@ describe('text-size toggle', () => {
     initSiteNav();
     expect(saved).toBe('1');
     expect(document.getElementById('nav-text-size').getAttribute('aria-pressed')).toBe('true');
+  });
+});
+
+describe('persona plumbing', () => {
+  it('stamps html[data-persona="public"] by default — no badge, no toggle', () => {
+    freshInit();
+    expect(document.documentElement.dataset.persona).toBe('public');
+    expect(document.querySelector('.site-persona-badge')).toBeNull();
+    expect(document.querySelector('#nav-persona')).toBeNull();
+  });
+
+  it('honors a stored persona and shows its plain-language badge', () => {
+    freshInit({ seed: { ccd_persona: 'chair' } });
+    expect(document.documentElement.dataset.persona).toBe('chair');
+    expect(document.querySelector('.site-persona-badge').textContent).toBe('Simple View');
+  });
+
+  it('every persona keeps the same five-tab public nav (plumbing phase)', () => {
+    for (const persona of ['public', 'chair', 'campaign']) {
+      freshInit({ seed: { ccd_persona: persona } });
+      expect(document.querySelectorAll('.site-nav a').length).toBe(ALL_PAGES.length);
+    }
+  });
+
+  it('an invalid stored persona falls back to public', () => {
+    freshInit({ seed: { ccd_persona: 'admin' } });
+    expect(document.documentElement.dataset.persona).toBe('public');
+    expect(document.querySelector('.site-persona-badge')).toBeNull();
+  });
+
+  it('renders the dev toggle only when dev tools are armed', () => {
+    freshInit({ seed: { ccd_dev_tools: '1' } });
+    const select = document.querySelector('#nav-persona');
+    expect(select).not.toBeNull();
+    expect(select.value).toBe('public');
+    expect(select.querySelectorAll('option').length).toBe(3);
+  });
+
+  it('changing the toggle persists the persona (reload picks it up)', () => {
+    freshInit({ seed: { ccd_dev_tools: '1' } });
+    const select = document.querySelector('#nav-persona');
+    select.value = 'campaign';
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(localStorage.getItem('ccd_persona')).toBe('campaign');
+    // simulate the reload: fresh header, persisted choice intact
+    document.body.innerHTML = '<header id="site-header"></header>';
+    initSiteNav();
+    expect(document.documentElement.dataset.persona).toBe('campaign');
+    expect(document.querySelector('.site-persona-badge').textContent).toBe('Detailed View');
+    expect(document.querySelector('#nav-persona').value).toBe('campaign');
+  });
+
+  it('a second init never duplicates badge or toggle', () => {
+    freshInit({ seed: { ccd_persona: 'chair', ccd_dev_tools: '1' } });
+    initSiteNav();
+    initSiteNav();
+    expect(document.querySelectorAll('.site-persona-badge').length).toBe(1);
+    expect(document.querySelectorAll('#nav-persona').length).toBe(1);
   });
 });
 

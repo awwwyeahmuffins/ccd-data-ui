@@ -15,6 +15,18 @@ page-shared library keepers (siteNav, glossary, helpPanel, listView,
 countyBriefing, geoLookup, electionSchema, v3Pivot, auth*, and the five page
 orchestrators pending their pages/ move).
 
+**Post-redesign addition (July 4, 2026, not a deviation):** persona (view
+mode) plumbing landed as a NET-NEW axis this plan never anticipated — the
+platform is growing toward three personas (public default / precinct chair
+"Simple View" / campaign "Detailed View", per the UX-research audiences).
+State: `js/lib/persona.js` (URL `#persona=` entry param > `ccd_persona` >
+public, stamped as `html[data-persona]` by siteNav before paint); layout
+seam: `js/ui/personaLayouts.js` registry consulted by siteNav; a dev-only
+header toggle (`#dev=1` arms `ccd_dev_tools`) switches personas via reload.
+Plumbing only — every persona still renders the identical five-tab public
+app, so nothing in this document's IA changes. See ADDING_FEATURES.md
+Recipe E.
+
 - **Phase 6** (deletions + deploy): done, with three documented judgment calls:
   1. **Deleted outright**: `dataLoader.js`, `utils.js`, `constants.js`,
      `electionFilters.js`, `raceGrouping.js`, root `mapBins.js`/`mapPatterns.js`

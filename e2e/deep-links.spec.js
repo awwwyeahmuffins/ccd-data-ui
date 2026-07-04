@@ -120,6 +120,21 @@ test.describe('Browse All Data (explore.html) deep links', () => {
   });
 });
 
+test.describe('persona= entry param (all pages)', () => {
+  // persona= is the one param that is consumed but never written back
+  // (js/lib/persona.js): siteNav resolves it at module load, stamps
+  // html[data-persona], and persists it to ccd_persona. targets.html is the
+  // worst-case script order (the page module loads before siteNav).
+  test('#persona= is consumed on a cold load and never re-written', async ({ page }) => {
+    await page.goto('/targets.html#persona=chair');
+    await expect(page.locator('html')).toHaveAttribute('data-persona', 'chair', { timeout: 30000 });
+    await expect(page.locator('.tg-precinct').first()).toBeVisible({ timeout: 30000 });
+    // The page's own URL sync rebuilds the hash without persona= — by design.
+    const stored = await page.evaluate(() => localStorage.getItem('ccd_persona'));
+    expect(stored).toBe('chair');
+  });
+});
+
 test.describe('Forecast (forecast.html) deep links', () => {
   test('the chosen race round-trips through the hash', async ({ page }) => {
     await page.goto('/forecast.html');

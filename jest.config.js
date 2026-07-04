@@ -22,6 +22,8 @@ export default {
     '^\\./(fieldOnePager|v3Pivot|talkingPointsBuilder|targeting|precinctMetrics|siteNav|glossary|countyBriefing|listView)\\.js$': '<rootDir>/js/$1.js',
     // mapBins/mapPatterns live in js/map/ since Phase 4
     '^\\./(mapBins|mapPatterns)\\.js$': '<rootDir>/js/map/$1.js',
+    // persona state lives in js/lib/
+    '^\\./(persona)\\.js$': '<rootDir>/js/lib/$1.js',
     // Map test-helpers
     '^\\./(test-helpers)\\.js$': '<rootDir>/tests/$1.js'
   },

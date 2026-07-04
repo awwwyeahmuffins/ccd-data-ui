@@ -81,6 +81,7 @@ Each HTML page is self-contained: it loads ONE orchestrator module from `js/` an
 - `lib/dom.js` — `escapeHtml`/`csvEscape` (use for any innerHTML/CSV output) + `debounce`
 - `lib/urlState.js` — the one hash-state module (`readParams`/`writeParams`/`onChange`); all six pages use it. Params: `race, precinct, view, tab, strategy, boundary, district` (+ legacy `county`)
 - `lib/constants.js` — frozen literals (`PARTY_COLORS` — data encodings, do not change — `PARTY_STRENGTH_COLORS`, `MAP_CONFIG`, `LIGHT_TILE_URL`)
+- `lib/persona.js` — persona (view mode) state, plumbing only (July 2026): `public` (default) / `chair` ("Simple View") / `campaign` ("Detailed View"). Resolution: URL `#persona=` (an ENTRY param — consumed at load, persisted, NEVER written back; pages' hash rewrites would destroy it) > localStorage `ccd_persona` > public. siteNav stamps the result as `html[data-persona]` before paint; switching (via the dev-only `#nav-persona` header select, armed with `#dev=1` → `ccd_dev_tools`) reloads the page. Layout registry: `ui/personaLayouts.js`. No persona-specific views exist yet — every persona gets the identical public app
 
 **Data Layer (`js/data/` — Phase 3; imports lib only, ESLint-enforced):**
 - `data/catalog.js` — frozen Collin config (BOUNDARY_SETS with full paths, DEFAULT_BOUNDARY "2026"); replaces the counties.json fetch on the frontend
@@ -101,6 +102,7 @@ Each HTML page is self-contained: it loads ONE orchestrator module from `js/` an
 - `ui/dataTable.js` — column-model table renderer (generalizes listView's row-model pattern); used by explore
 - `ui/reportSections.js` — the precinct report's HTML generators (from precinctProfile/precinctHistory)
 - `ui/simulatorControls.js` — the simulator's HTML generators (from turnoutSimulator)
+- `ui/personaLayouts.js` — the persona layout registry (`layoutFor(id)`): per-persona `badge`, `navPages(pages)`, `renderChromeExtras(headerEl)` hooks consulted by siteNav — all identity/no-op while personas are plumbing-only
 
 **Library Modules (root js/, consumed by the page orchestrators):**
 
