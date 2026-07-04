@@ -68,6 +68,7 @@ const cc = {
   districtCodes: null,   // Set of Collin precinct codes inside the scoped district
   mode: "lean",          // lean | margin | diversity | primary (demographic modes)
   selectedCode: null,
+  readoutDismissed: null, // precinct code whose readout card the user ✕-closed
   primary: null,         // party-primary ballots lookup { code: { year: {dem,rep} } }, null = N/A
   countyName: "Collin",
   races: [],             // this county's race manifest (for the picker)
@@ -228,7 +229,7 @@ function hideReadout() {
   if (card) card.hidden = true;
 }
 function refreshReadout() {
-  if (!cc.selectedCode) { hideReadout(); return; }
+  if (!cc.selectedCode || cc.readoutDismissed === cc.selectedCode) { hideReadout(); return; }
   const f = cc.geojson.features.find((x) => String(x.properties.PRECINCT) === cc.selectedCode);
   if (f) showReadout(describePrecinct(f.properties, describeCtx()));
 }
@@ -575,6 +576,7 @@ function deeplink(href, icon, title, sub) {
 // =============================================================================
 function selectPrecinct(code) {
   cc.selectedCode = code;
+  cc.readoutDismissed = null; // a fresh selection always re-shows the card
   updateHash();
   restyle();
   if (code == null) {
@@ -1253,12 +1255,25 @@ function wireUI() {
     legendToggle.setAttribute("aria-expanded", String(!collapsed));
   });
 
-  // readout card: "Full details" opens/focuses the dock briefing
+  // readout card: "Full details" opens/focuses the dock briefing. On desktop
+  // the dock is already visible, so pulse it — the click must always produce
+  // a visible response.
   $("cc-readout-more").addEventListener("click", () => {
     openDockMobile();
+    const dock = $("cc-dock");
+    $("cc-dock-body").scrollTop = 0;
+    dock.classList.remove("flash");
+    void dock.offsetWidth; // restart the animation on repeat clicks
+    dock.classList.add("flash");
     const title = $("cc-dock-title");
     title.setAttribute("tabindex", "-1");
     title.focus();
+  });
+
+  // readout card: ✕ dismisses the card (selection + dock detail stay)
+  $("cc-readout-close").addEventListener("click", () => {
+    cc.readoutDismissed = cc.selectedCode;
+    hideReadout();
   });
 
   // tablet/phone: the details dock is a slide-over — give it a visible toggle

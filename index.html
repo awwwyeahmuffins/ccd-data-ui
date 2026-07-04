@@ -508,8 +508,21 @@
       background: var(--accent); color: #fff; border: none; border-radius: 9px;
       font-family: var(--body); font-size: 1rem; font-weight: 600; cursor: pointer;
     }
+    .cc-readout .cc-readout-close {
+      min-width: 44px; padding: 8px;
+      background: var(--bg-raise); color: var(--ink);
+      border: 1px solid var(--line); font-size: 1.2rem; line-height: 1;
+    }
     @media (max-width: 900px) {
       .cc-readout { max-width: calc(100% - 36px); flex-wrap: wrap; }
+    }
+
+    /* "Full details" pulses the dock so desktop users (dock already open)
+       see where the answer landed */
+    .cc-dock.flash { animation: cc-dock-flash 1s ease; }
+    @keyframes cc-dock-flash {
+      0%, 55% { box-shadow: inset 0 0 0 3px var(--focus-gold); }
+      100% { box-shadow: inset 0 0 0 3px transparent; }
     }
 
     /* precinct-number chips (close zoom) — solid backplates, never bare text */
@@ -620,6 +633,7 @@
       <div class="cc-readout" id="cc-readout" aria-live="polite" hidden>
         <span class="cc-readout-text" id="cc-readout-text"></span>
         <button type="button" id="cc-readout-more">Full details</button>
+        <button type="button" class="cc-readout-close" id="cc-readout-close" aria-label="Close this precinct summary">✕</button>
       </div>
 
       <!-- LIST VIEW — the linear, no-pointer alternative to the map -->
