@@ -61,6 +61,30 @@ export const TERMS = {
     title: "Diversity (non-white share)",
     body: "The share of residents who are not non-Hispanic white, from the Census. A higher number means a more racially and ethnically mixed precinct. It says nothing about how anyone votes.",
   },
+  universe: {
+    title: "Universe",
+    body: "A canvassing “universe” is the group of voters a campaign plans to contact — for example, likely supporters who skip some elections. The grid on this page splits the precinct into nine such groups by party lean and voting habit.",
+  },
+  gotv: {
+    title: "GOTV — Get Out The Vote",
+    body: "Reminding your own likely supporters to actually go vote. GOTV work is aimed at people who already agree with you but skip some elections — a knock, a call, or a ride to the polls, not an argument.",
+  },
+  persuasion: {
+    title: "Persuasion",
+    body: "Conversations with voters who could go either way. Persuasion work matters most where the parties are close and moderate voters decide the outcome.",
+  },
+  suspense: {
+    title: "Suspense list",
+    body: "Voters whose county registration record is out of date — usually an old address. They can still vote, but with extra steps. Updating the address online takes about two minutes and keeps their ballot smooth.",
+  },
+  "modeled-estimate": {
+    title: "Modeled estimate",
+    body: "A best estimate built from the precinct's overall totals, not a count of actual individual people. Use it to size the work, not as an exact list of names.",
+  },
+  "vote-center": {
+    title: "Vote center",
+    body: "In Collin County, any registered voter can vote at ANY vote center in the county — you are not tied to one polling place. Pick whichever location is convenient.",
+  },
 };
 
 // Render a tappable marked term. `labelHtml` is trusted HTML (callers escape

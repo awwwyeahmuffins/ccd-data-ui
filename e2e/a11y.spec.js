@@ -1,4 +1,4 @@
-// a11y.spec.js — axe accessibility scan of all 7 pages.
+// a11y.spec.js — axe accessibility scan of all 8 pages.
 //
 // The audience is 60+ precinct chairs on iPads: any *critical* or *serious*
 // axe violation fails the build. Also asserts the civic-plain invariants that
@@ -23,6 +23,7 @@ const PAGES = [
   { url: '/explore.html', ready: (page) => expect(page.locator('#ex-body .pcell-precinct').first()).toBeVisible({ timeout: 30000 }) },
   { url: '/precinct.html', ready: (page) => expect(page.locator('#precinct-search')).toBeVisible({ timeout: 30000 }) },
   { url: '/methodology.html', ready: (page) => expect(page.locator('h1.page-title')).toBeVisible({ timeout: 30000 }) },
+  { url: '/chair.html', ready: (page) => expect(page.locator('#chair-precinct-select')).toBeVisible({ timeout: 30000 }) },
 ];
 
 for (const { url, ready } of PAGES) {
@@ -83,6 +84,13 @@ test.describe('stateful views', () => {
     await page.waitForSelector('#report-container:not(.hidden)', { timeout: 30000 });
     await expect(page.locator('#section-talking-points')).not.toBeEmpty({ timeout: 30000 });
     await expectNoBlocking(page, 'precinct field guide');
+  });
+
+  test('chair dashboard with a precinct selected', async ({ page }) => {
+    await page.goto('/chair.html#precinct=3');
+    await expect(page.locator('#chair-content')).toBeVisible({ timeout: 30000 });
+    await expect(page.locator('.chair-matrix')).toBeVisible({ timeout: 30000 });
+    await expectNoBlocking(page, 'chair dashboard');
   });
 
   test('targets with the strategy catalogue open', async ({ page }) => {

@@ -64,8 +64,9 @@ test.describe('dev toggle', () => {
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'chair', { timeout: 30000 });
     await expect(page.locator('.site-persona-badge')).toHaveText('Simple View');
     await expect(page.locator('#nav-persona')).toHaveValue('chair');
-    // Plumbing invariant: the nav is still the five public tabs.
-    await expect(page.locator('.site-nav a')).toHaveCount(5);
+    // The chair persona's one nav divergence: My Dashboard leads the tabs.
+    await expect(page.locator('.site-nav a')).toHaveCount(6);
+    await expect(page.locator('.site-nav a[href="chair.html"]')).toHaveText('My Dashboard');
 
     // A real nav click drops the hash — localStorage carries the persona.
     await page.click('.site-nav a[href="targets.html"]');
@@ -84,6 +85,9 @@ test.describe('dev toggle', () => {
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'public', { timeout: 30000 });
     expect(page.url()).not.toMatch(/persona=/);
     await expect(page.locator('.site-persona-badge')).toHaveCount(0);
+    // Back to public means back to the five tabs — no dashboard entry.
+    await expect(page.locator('.site-nav a')).toHaveCount(5);
+    await expect(page.locator('.site-nav a[href="chair.html"]')).toHaveCount(0);
   });
 });
 

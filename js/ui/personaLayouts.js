@@ -7,8 +7,9 @@
 //
 // Each layout is consulted by siteNav when it renders the shared header:
 //  - navPages(pages): given the default five-tab list, return the tabs this
-//    persona sees. Identity for every persona today — e2e and unit tests pin
-//    the five-tab nav until real persona views exist.
+//    persona sees. Identity for public/campaign; the chair persona prepends
+//    its dashboard (chair.html) — the first real persona divergence
+//    (July 2026). e2e and unit tests pin both shapes.
 //  - badge: a short label rendered next to the brand so a non-public persona
 //    is visibly active (null = no badge).
 //  - renderChromeExtras(headerEl): hook for persona-specific header chrome
@@ -18,6 +19,13 @@
 
 const noop = () => {};
 const identity = (pages) => pages;
+
+// The chair persona's dashboard tab (chair.html works standalone for anyone;
+// only the nav entry is persona-gated). Exported so tests pin one literal.
+export const CHAIR_DASHBOARD = Object.freeze({
+  href: "chair.html",
+  label: "My Dashboard",
+});
 
 export const PERSONA_LAYOUTS = Object.freeze({
   public: Object.freeze({
@@ -31,7 +39,7 @@ export const PERSONA_LAYOUTS = Object.freeze({
     id: "chair",
     label: "Precinct Chair",
     badge: "Simple View",
-    navPages: identity,
+    navPages: (pages) => [CHAIR_DASHBOARD, ...pages],
     renderChromeExtras: noop,
   }),
   campaign: Object.freeze({

@@ -1,0 +1,23 @@
+{
+  "notes": "HAND-MAINTAINED, county-level (Collin runs countywide vote centers, so this is boundary-independent). Update each election cycle. Dates below are the statutory Texas windows confirmed against the SOS election calendar (sos.state.tx.us/elections/voter/important-election-dates.shtml). Vote centers: add entries with verified name/address; include lat/lng ONLY when the coordinates are verified — entries without lat/lng still list on the handout, just without a distance. Never guess a date or coordinate: the app renders honest fallbacks (vote411.org) for anything missing.",
+  "updated": "2026-07-04",
+  "election": {
+    "name": "November 2026 General Election",
+    "electionDay": "2026-11-03",
+    "earlyVoting": { "start": "2026-10-19", "end": "2026-10-30" },
+    "mailBallotApplicationDeadline": "2026-10-23"
+  },
+  "voteCenters": [
+    {
+      "name": "Collin County Elections Office",
+      "address": "2010 Redbud Blvd, Suite 102, McKinney, TX 75069",
+      "earlyVoting": true,
+      "electionDay": true
+    }
+  ],
+  "links": {
+    "vote411": "https://www.vote411.org",
+    "sosAddressChange": "https://txapps.texas.gov/tolapp/sos/SOSACManager",
+    "countyElections": "https://www.collincountytx.gov/elections"
+  }
+}

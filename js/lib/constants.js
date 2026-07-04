@@ -79,3 +79,9 @@ export const MAP_CONFIG = deepFreeze({
 // The one basemap (light-only since the June 2026 civic-plain redesign).
 export const LIGHT_TILE_URL =
   "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+
+// Texas Secretary of State online address-change portal (SOSACManager) — the
+// door-knock quick-share target for voters in suspense status. One frozen
+// literal shared by the chair dashboard, its print packet, and the domain math.
+export const SOS_ADDRESS_CHANGE_URL =
+  "https://txapps.texas.gov/tolapp/sos/SOSACManager";

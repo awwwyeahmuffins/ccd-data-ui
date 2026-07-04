@@ -11,6 +11,9 @@ export const COUNTY = Object.freeze({
   name: "Collin",
   fips: "48085",
   dataRoot: "data/tx/collin",
+  // Hand-maintained county-level voting info (election dates, early-voting
+  // window, countywide vote centers) — optional; absent renders N/A.
+  votingInfo: "data/tx/collin/voting_info.json",
 });
 
 export const BOUNDARY_SETS = Object.freeze({

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard — Collin County Elections</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
+  <meta name="description" content="The precinct chair's dashboard — your precinct's canvassing universes, priority counts, suspense-voter tracker, and a printable meeting summary + voting-information handout." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- civic.css loads AFTER styles.css so the a11y layer wins by source order -->
+  <link rel="stylesheet" href="js/civic.css" />
+  <style>
+    /* styles.css pins html/body to the map's full-viewport flex layout — restore flow */
+    html, body { display: block; height: auto; width: auto; overflow: auto; }
+    body { margin: 0; font-family: var(--font-body); background: var(--color-bg-secondary); color: var(--color-text-primary); font-size: 1rem; }
+
+    .page-main { max-width: 1080px; margin: 0 auto; padding: 28px 20px 80px; }
+    .page-title { font-family: var(--font-display); font-size: 32px; margin: 0 0 6px; }
+    .page-sub { color: var(--color-text-secondary); margin: 0 0 24px; max-width: 760px; }
+
+    /* ---- precinct context bar ---- */
+    .chair-context {
+      background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: 14px;
+      padding: 16px 20px; margin-bottom: 22px; display: flex; gap: 18px; flex-wrap: wrap; align-items: flex-end;
+    }
+    .chair-context label { display: block; font-weight: 600; font-size: 0.889rem; margin-bottom: 6px; color: var(--color-text-secondary); }
+    .chair-context select {
+      font-size: 1rem; padding: 10px 12px; border-radius: 8px; min-height: 44px; min-width: 220px;
+      border: 1px solid var(--color-border); background: #fff; color: var(--color-text-primary);
+    }
+    .chair-context-actions { margin-left: auto; display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
+    .chair-btn {
+      font-family: var(--font-body); font-size: 1rem; font-weight: 600; min-height: 44px;
+      padding: 10px 16px; border-radius: 8px; cursor: pointer;
+      border: 1.5px solid var(--color-border); background: #fff; color: var(--color-text-primary);
+    }
+    .chair-btn:hover, .chair-btn:focus-visible { border-color: var(--color-primary); color: var(--color-primary); }
+    .chair-btn-primary { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+    .chair-btn-primary:hover, .chair-btn-primary:focus-visible { color: #fff; opacity: 0.92; }
+
+    /* ---- precinct header + focus badge ---- */
+    .chair-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 0 0 6px; }
+    .chair-head h2 { font-family: var(--font-display); font-size: 26px; margin: 0; }
+    .chair-focus-badge {
+      display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: 1rem;
+      padding: 8px 14px; border-radius: 999px; border: 2px solid; background: var(--color-bg-primary);
+    }
+    .chair-focus-badge[data-focus="turnout"] { border-color: #27408B; color: #27408B; }
+    .chair-focus-badge[data-focus="persuasion"] { border-color: #5E2A7E; color: #5E2A7E; }
+    .chair-focus-badge[data-focus="build"] { border-color: #5c4a0d; color: #5c4a0d; }
+    .chair-focus-why { color: var(--color-text-secondary); margin: 0 0 22px; max-width: 820px; }
+
+    /* ---- cards ---- */
+    .chair-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 22px; }
+    .chair-card {
+      background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: 14px;
+      padding: 18px 20px;
+    }
+    .chair-card h3 { font-family: var(--font-display); font-size: 20px; margin: 0 0 4px; }
+    .chair-card-sub { font-size: 0.889rem; color: var(--color-text-secondary); margin: 0 0 14px; }
+    .chair-stat { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .chair-stat-val { font-family: var(--font-display); font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .chair-stat-label { font-size: 1rem; color: var(--color-text-secondary); font-weight: 600; }
+    .chair-tag {
+      display: inline-block; font-size: 0.889rem; font-weight: 600; color: #5c4a0d;
+      background: #fff8e1; border: 1px solid #b8973a; border-radius: 6px; padding: 2px 8px;
+    }
+    .chair-method { font-size: 0.889rem; color: var(--color-text-secondary); margin: 6px 0 0; }
+    .na-note { color: var(--color-text-muted); font-size: 1rem; }
+
+    /* ---- universe matrix ---- */
+    .chair-matrix-wrap { overflow-x: auto; }
+    .chair-matrix { border-collapse: collapse; width: 100%; min-width: 560px; }
+    .chair-matrix caption { text-align: left; font-size: 0.889rem; color: var(--color-text-secondary); padding-bottom: 10px; }
+    .chair-matrix th, .chair-matrix td { border: 1px solid var(--color-border); padding: 10px 12px; text-align: left; }
+    .chair-matrix th { background: var(--color-bg-tertiary); font-size: 0.889rem; }
+    .chair-matrix th .muted { display: block; font-weight: 400; color: var(--color-text-secondary); }
+    .chair-cell-count { font-family: var(--font-display); font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; display: block; }
+    .chair-cell-role {
+      display: inline-block; margin-top: 6px; font-size: 0.889rem; font-weight: 700;
+      padding: 2px 9px; border-radius: 999px; border: 2px solid;
+    }
+    /* Role encodings: text chip + distinct border STYLE + tint — never color alone */
+    td.role-base { background: #eaf6fd; border: 2px solid #27408B; }
+    td.role-gotv { background: #eef4fc; border: 2px dashed #27408B; }
+    td.role-persuasion { background: #f4edfa; border: 2px dotted #5E2A7E; }
+    .chair-cell-role.role-base { border-color: #27408B; color: #27408B; border-style: solid; }
+    .chair-cell-role.role-gotv { border-color: #27408B; color: #27408B; border-style: dashed; }
+    .chair-cell-role.role-persuasion { border-color: #5E2A7E; color: #5E2A7E; border-style: dotted; }
+    .chair-matrix-totals { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; }
+    .chair-matrix-totals .chair-stat { margin-bottom: 0; }
+
+    /* ---- suspense share block ---- */
+    .chair-share-box {
+      background: var(--color-bg-tertiary); border: 1px solid var(--color-border); border-radius: 10px;
+      padding: 12px 14px; margin-top: 12px;
+    }
+    .chair-share-box pre {
+      white-space: pre-wrap; word-break: break-word; font-family: var(--font-body); font-size: 0.889rem;
+      margin: 0 0 10px; color: var(--color-text-primary);
+    }
+    .copy-status { font-size: 0.889rem; font-weight: 600; color: var(--color-text-secondary); margin-left: 10px; }
+
+    /* ---- voting info ---- */
+    .chair-vc-list { list-style: none; margin: 0; padding: 0; }
+    .chair-vc-list li { padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+    .chair-vc-list li:last-child { border-bottom: none; }
+    .chair-vc-name { font-weight: 700; }
+    .chair-vc-addr { color: var(--color-text-secondary); font-size: 0.889rem; }
+
+    .chair-empty {
+      background: var(--color-bg-primary); border: 1px solid var(--color-border); border-radius: 14px;
+      padding: 34px 24px; text-align: center; color: var(--color-text-secondary); font-size: 1.05rem;
+    }
+    .chair-fineprint { font-size: 0.889rem; color: var(--color-text-secondary); margin-top: 26px; max-width: 820px; }
+
+    @media (max-width: 680px) {
+      .chair-context-actions { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="page-main">
+    <h1 class="page-title">My precinct dashboard</h1>
+    <p class="page-sub">Your precinct's door-knocking numbers on one page: who to contact, who to turn out, and a printable summary + voting-information handout. Every number comes from the precinct's real data — anything we don't have shows as N/A, never a guess.</p>
+
+    <div class="chair-context">
+      <div>
+        <label for="chair-precinct-select">Your precinct</label>
+        <select id="chair-precinct-select" aria-label="Choose your precinct">
+          <option value="">Choose a precinct…</option>
+        </select>
+      </div>
+      <div class="chair-context-actions">
+        <button type="button" class="chair-btn chair-btn-primary" id="chair-print-btn" hidden>Print summary + handout</button>
+        <a class="chair-btn" id="chair-report-link" href="precinct.html" hidden>Full precinct report</a>
+      </div>
+    </div>
+
+    <div id="chair-empty" class="chair-empty">
+      Choose your precinct above to see its dashboard.
+      Your choice is remembered on this device.
+    </div>
+
+    <div id="chair-content" hidden>
+      <div class="chair-head">
+        <h2 id="chair-precinct-title"></h2>
+        <span id="chair-focus-badge" class="chair-focus-badge" hidden></span>
+      </div>
+      <p id="chair-focus-why" class="chair-focus-why"></p>
+
+      <section class="chair-card" aria-labelledby="chair-matrix-title" style="margin-bottom:16px;">
+        <h3 id="chair-matrix-title">Canvassing universes</h3>
+        <p class="chair-card-sub" id="chair-matrix-sub"></p>
+        <div id="chair-matrix" class="chair-matrix-wrap"></div>
+      </section>
+
+      <div class="chair-grid">
+        <section class="chair-card" aria-labelledby="chair-targets-title">
+          <h3 id="chair-targets-title">Target counts</h3>
+          <p class="chair-card-sub">Who's here to work with.</p>
+          <div id="chair-targets"></div>
+        </section>
+
+        <section class="chair-card" aria-labelledby="chair-suspense-title">
+          <h3 id="chair-suspense-title">Suspense voters</h3>
+          <p class="chair-card-sub" id="chair-suspense-sub"></p>
+          <div id="chair-suspense"></div>
+        </section>
+
+        <section class="chair-card" aria-labelledby="chair-voting-title">
+          <h3 id="chair-voting-title">Voting information</h3>
+          <p class="chair-card-sub">What goes on the door handout.</p>
+          <div id="chair-voting"></div>
+        </section>
+      </div>
+
+      <p class="chair-fineprint" id="chair-fineprint"></p>
+    </div>
+  </main>
+
+  <script src="js/vendor/d3.v7.min.js"></script>
+  <script type="module" src="js/chairPage.js"></script>
+  <script type="module" src="js/siteNav.js"></script>
+</body>
+</html>

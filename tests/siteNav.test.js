@@ -92,10 +92,22 @@ describe('persona plumbing', () => {
     expect(document.querySelector('.site-persona-badge').textContent).toBe('Simple View');
   });
 
-  it('every persona keeps the same five-tab public nav (plumbing phase)', () => {
-    for (const persona of ['public', 'chair', 'campaign']) {
+  it('public and campaign keep the five-tab public nav', () => {
+    for (const persona of ['public', 'campaign']) {
       freshInit({ seed: { ccd_persona: persona } });
       expect(document.querySelectorAll('.site-nav a').length).toBe(ALL_PAGES.length);
+      expect(document.querySelector('.site-nav a[href="chair.html"]')).toBeNull();
+    }
+  });
+
+  it('the chair persona gets My Dashboard first, then the five public tabs', () => {
+    freshInit({ seed: { ccd_persona: 'chair' } });
+    const links = document.querySelectorAll('.site-nav a');
+    expect(links.length).toBe(ALL_PAGES.length + 1);
+    expect(links[0].getAttribute('href')).toBe('chair.html');
+    expect(links[0].textContent.trim()).toBe('My Dashboard');
+    for (const href of ALL_PAGES) {
+      expect(document.querySelectorAll(`.site-nav a[href="${href}"]`).length).toBe(1);
     }
   });
 
