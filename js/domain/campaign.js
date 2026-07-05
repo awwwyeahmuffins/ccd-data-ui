@@ -63,7 +63,9 @@ function cnt(v) {
 //            tBase drives expected ballots (the win-number baseline)
 //   party    "Dem" | "Rep" — whose win number / margin sign / classification
 //   medianRate  county median 2024 turnout rate; computed from the rows when omitted
-export function buildCampaignRows(records, raw, { t2024, t2022, tBase, party = "Dem", medianRate } = {}) {
+//   canvass  { code: {demVoters, share, canvassed} } — door-knock coverage of
+//            the precinct's Dem universe (profile extra; absent codes → null)
+export function buildCampaignRows(records, raw, { t2024, t2022, tBase, party = "Dem", medianRate, canvass } = {}) {
   const prepped = (records || []).map((r) => {
     const code = r.precinct;
     const counts = raw ? raw[code] : null;
@@ -71,12 +73,13 @@ export function buildCampaignRows(records, raw, { t2024, t2022, tBase, party = "
     const rateMidterm = rateOf(t2022 && t2022[code]);
     const tb = tBase ? tBase[code] : null;
     const expectedBallots = tb && tb.ballots != null && !isNaN(tb.ballots) ? +tb.ballots : null;
-    return { r, code, counts, rate2024, rateMidterm, expectedBallots };
+    const cv = canvass ? canvass[code] : null;
+    return { r, code, counts, rate2024, rateMidterm, expectedBallots, cv };
   });
 
   const mr = medianRate != null ? medianRate : median(prepped.map((p) => p.rate2024));
 
-  return prepped.map(({ r, code, counts, rate2024, rateMidterm, expectedBallots }) => {
+  return prepped.map(({ r, code, counts, rate2024, rateMidterm, expectedBallots, cv }) => {
     const win = winNumber(expectedBallots);
     const partyVotes = counts ? cnt(party === "Rep" ? counts.rep : counts.dem) : null;
     const voteGap = win != null && partyVotes != null ? win - partyVotes : null;
@@ -105,6 +108,8 @@ export function buildCampaignRows(records, raw, { t2024, t2022, tBase, party = "
       rateMidterm,
       turnoutDropoff,
       classification,
+      canvassShare: cv && cv.share != null ? cv.share : null,
+      canvassed: cv && cv.canvassed != null ? cv.canvassed : null,
       _raw: {
         rep: counts ? cnt(counts.rep) : null,
         mod: counts ? cnt(counts.mod) : null,
@@ -116,6 +121,8 @@ export function buildCampaignRows(records, raw, { t2024, t2022, tBase, party = "
         reg2022: t22 ? cnt(t22.registered) : null,
         ball2022: t22 ? cnt(t22.ballots) : null,
         expected: expectedBallots,
+        canvassDem: cv ? cnt(cv.demVoters) : null,
+        canvassed: cv ? cnt(cv.canvassed) : null,
       },
     };
   });
@@ -175,6 +182,8 @@ export function aggregateByDistrict(rows, memberOf, labels, { party = "Dem", med
     const reg2022 = sumField(members, "reg2022");
     const ball2022 = sumField(members, "ball2022");
     const expected = sumField(members, "expected");
+    const canvassDem = sumField(members, "canvassDem");
+    const canvassed = sumField(members, "canvassed");
 
     const votes = (dem || 0) + (mod || 0) + (rep || 0);
     const hasParty = dem != null && rep != null && votes > 0;
@@ -196,6 +205,8 @@ export function aggregateByDistrict(rows, memberOf, labels, { party = "Dem", med
     const win = winNumber(expected);
     const partyVotes = party === "Rep" ? rep : dem;
     const voteGap = win != null && partyVotes != null ? win - partyVotes : null;
+    const canvassShare =
+      canvassDem != null && canvassDem > 0 && canvassed != null ? canvassed / canvassDem : null;
 
     out.push({
       precinct: String(key),
@@ -220,6 +231,8 @@ export function aggregateByDistrict(rows, memberOf, labels, { party = "Dem", med
       winNumber: win,
       partyVotes,
       voteGap,
+      canvassShare,
+      canvassed,
       classification: classifyPrecinct(
         { winner, margin, modShare, rate: rate2024 },
         { party, medianRate }
@@ -274,6 +287,8 @@ export const TARGET_CSV_COLUMNS = Object.freeze([
   "Classification",
   "Turnout_Dropoff",
   "Pct_NonWhite",
+  "Canvass_Share",
+  "Canvassed_Dem_Voters",
   "District",
 ]);
 
@@ -302,6 +317,8 @@ export function buildTargetCSV(rows, { districtLabels = null } = {}) {
         csvEscape(r.classification || ""),
         csvEscape(dec4Cell(r.turnoutDropoff)),
         csvEscape(dec4Cell(r.nonWhite)),
+        csvEscape(dec4Cell(r.canvassShare)),
+        csvEscape(intCell(r.canvassed)),
         csvEscape((districtLabels && districtLabels[r.precinct]) || ""),
       ].join(",")
     );

@@ -98,7 +98,7 @@ test('Download Target List exports the filtered rows as a VAN-ready CSV', async 
   const text = fs.readFileSync(path, 'utf8');
   const lines = text.trim().split('\r\n');
   expect(lines[0]).toBe(
-    'Precinct_ID,Total_Registered,Expected_Ballots,Target_Win_Number,Modeled_Party_Votes,Vote_Gap,Partisan_Margin,Classification,Turnout_Dropoff,Pct_NonWhite,District'
+    'Precinct_ID,Total_Registered,Expected_Ballots,Target_Win_Number,Modeled_Party_Votes,Vote_Gap,Partisan_Margin,Classification,Turnout_Dropoff,Pct_NonWhite,Canvass_Share,Canvassed_Dem_Voters,District'
   );
   expect(lines.length - 1).toBe(counts.shown); // exactly the filtered rows
   // Raw payload: no % signs, no thousands separators in the numeric cells.

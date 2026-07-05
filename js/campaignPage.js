@@ -45,6 +45,7 @@ const FILTERS = [
   { id: "margin", key: "margin", label: "Partisan margin", lo: 0, hi: 1 },
   { id: "drop", key: "turnoutDropoff", label: "Turnout drop-off (2024 → 2022)", lo: -0.5, hi: 0.75 },
   { id: "nw", key: "nonWhite", label: "Non-white population share", lo: 0, hi: 1 },
+  { id: "canvass", key: "canvassShare", label: "Canvass coverage (Dem)", lo: 0, hi: 1 },
 ];
 const STEP = 0.01;
 
@@ -62,6 +63,7 @@ const camp = {
   bounds: {},                 // id -> [lo, hi] (full range; filter active only when narrowed)
   records: [],                // precinctMetrics records
   rows: [],                   // campaign rows (records + win number/dropoff/classification)
+  canvass: null,              // code -> {demVoters, share, canvassed} (optional profile extra)
   raw: {},                    // code -> {rep,mod,dem,white,total} for roll-up sums
   memberOf: {},               // kind -> { code: districtKey }
   labels: {},                 // kind -> { districtKey: label }
@@ -93,15 +95,17 @@ const fmtSignedPct = (v) =>
 // DATA LOAD (once)
 // =============================================================================
 async function loadData() {
-  const [{ geojson }, census, t2024, t2022] = await Promise.all([
+  const [{ geojson }, census, t2024, t2022, canvass] = await Promise.all([
     svc.loadAll(),
     svc.loadCensusProfiles().catch(() => null),
     svc.loadTurnoutLookup(TURNOUT_BASELINES["2024"].file),
     svc.loadTurnoutLookup(TURNOUT_BASELINES["2022"].file),
+    svc.loadCanvass().catch(() => null),
   ]);
   const features = geojson.features || [];
   camp.t2024 = t2024;
   camp.t2022 = t2022;
+  camp.canvass = canvass;
   // Records keyed off the 2024 general (registered voters, turnout rate).
   camp.records = buildRecords(features, census, t2024);
 
@@ -138,6 +142,7 @@ function rebuildRows() {
     t2022: camp.t2022,
     tBase,
     party: camp.party,
+    canvass: camp.canvass,
   });
   camp.medianRate = median(camp.rows.map((r) => r.rate2024));
   camp.aggCache.clear();
@@ -334,6 +339,7 @@ function tableColumns() {
     { id: "signedMargin", label: "Margin", cellClass: "num", format: fmtSignedPct },
     { id: "turnoutDropoff", label: "Drop-off", cellClass: "num", format: fmtSignedPct },
     { id: "nonWhite", label: "Non-white", cellClass: "num", format: fmtPct },
+    { id: "canvassShare", label: "Canvassed", cellClass: "num", format: fmtPct },
     { id: "registered", label: "Registered", cellClass: "num", format: fmtNum },
     { id: "expectedBallots", label: "Expected ballots", cellClass: "num", format: fmtNum },
     { id: "modShare", label: "Moderate share", cellClass: "num", format: fmtPct },
@@ -530,6 +536,7 @@ function updateURL() {
     margin: rangeParam("margin"),
     drop: rangeParam("drop"),
     nw: rangeParam("nw"),
+    canvass: rangeParam("canvass"),
   });
 }
 
@@ -551,7 +558,7 @@ function readURL() {
       .filter(Boolean);
     if (sorts.length) camp.sorts = sorts;
   }
-  for (const id of ["margin", "drop", "nw"]) {
+  for (const id of ["margin", "drop", "nw", "canvass"]) {
     if (!p[id]) continue;
     const [lo, hi] = String(p[id]).split(":").map(Number);
     if (!isNaN(lo) && !isNaN(hi) && lo <= hi) pendingRanges[id] = [lo, hi];

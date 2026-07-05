@@ -148,6 +148,41 @@ describe('buildCampaignRows', () => {
   });
 });
 
+describe('canvass coverage', () => {
+  const { records, raw, t2024, t2022, tBase } = fixtures();
+  // Precinct 3 absent → its canvass share must stay null (never fabricated).
+  const canvass = {
+    1: { demVoters: 550, share: 0.8, canvassed: 440 },
+    2: { demVoters: 200, share: 0.5, canvassed: 100 },
+  };
+  const rows = buildCampaignRows(records, raw, { t2024, t2022, tBase, party: 'Dem', canvass });
+  const byCode = Object.fromEntries(rows.map((r) => [r.precinct, r]));
+
+  it('attaches canvass share + canvassed count per precinct, null where absent', () => {
+    expect(byCode['1'].canvassShare).toBeCloseTo(0.8);
+    expect(byCode['1'].canvassed).toBe(440);
+    expect(byCode['3'].canvassShare).toBeNull();
+    expect(byCode['3'].canvassed).toBeNull();
+  });
+
+  it('is null everywhere when no canvass lookup is provided', () => {
+    const bare = buildCampaignRows(records, raw, { t2024, t2022, tBase, party: 'Dem' });
+    expect(bare.every((r) => r.canvassShare == null && r.canvassed == null)).toBe(true);
+  });
+
+  it('rolls up by summing counts and recomputing the share (never averaging)', () => {
+    const memberOf = { 1: 'comm-1', 2: 'comm-1', 3: 'comm-2' };
+    const districts = aggregateByDistrict(rows, memberOf, null, { party: 'Dem' });
+    const d1 = districts.find((d) => d.precinct === 'comm-1');
+    // canvassed 440+100=540 over dem universe 550+200=750 → 0.72, NOT mean(0.8,0.5)=0.65
+    expect(d1.canvassed).toBe(540);
+    expect(d1.canvassShare).toBeCloseTo(540 / 750);
+    expect(d1.canvassShare).not.toBeCloseTo(0.65, 10);
+    // comm-2 (precinct 3) has no canvass data → share stays null
+    expect(districts.find((d) => d.precinct === 'comm-2').canvassShare).toBeNull();
+  });
+});
+
 describe('aggregateByDistrict', () => {
   const { records, raw, t2024, t2022, tBase } = fixtures();
   const rows = buildCampaignRows(records, raw, { t2024, t2022, tBase, party: 'Dem' });
@@ -241,21 +276,21 @@ describe('buildTargetCSV', () => {
   it('emits the exact VAN header', () => {
     const csv = buildTargetCSV([]);
     expect(csv.split('\r\n')[0]).toBe(
-      'Precinct_ID,Total_Registered,Expected_Ballots,Target_Win_Number,Modeled_Party_Votes,Vote_Gap,Partisan_Margin,Classification,Turnout_Dropoff,Pct_NonWhite,District'
+      'Precinct_ID,Total_Registered,Expected_Ballots,Target_Win_Number,Modeled_Party_Votes,Vote_Gap,Partisan_Margin,Classification,Turnout_Dropoff,Pct_NonWhite,Canvass_Share,Canvassed_Dem_Voters,District'
     );
-    expect(TARGET_CSV_COLUMNS).toHaveLength(11);
+    expect(TARGET_CSV_COLUMNS).toHaveLength(13);
   });
 
   it('emits raw values: bare integers, 4-dp decimals, no % or thousands separators', () => {
-    const csv = buildTargetCSV([row]);
+    const csv = buildTargetCSV([{ ...row, canvassShare: 0.7714, canvassed: 643 }]);
     const line = csv.split('\r\n')[1];
-    expect(line).toBe('42,1234,1001,501,450,51,-0.1235,Persuasion,0.25,0.4,');
+    expect(line).toBe('42,1234,1001,501,450,51,-0.1235,Persuasion,0.25,0.4,0.7714,643,');
     expect(line).not.toContain('%');
   });
 
   it('null values become empty cells, never fabricated zeros', () => {
     const csv = buildTargetCSV([{ precinct: '7' }]);
-    expect(csv.split('\r\n')[1]).toBe('7,,,,,,,,,,');
+    expect(csv.split('\r\n')[1]).toBe('7,,,,,,,,,,,,');
   });
 
   it('guards formula injection in string cells', () => {
