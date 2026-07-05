@@ -18,12 +18,34 @@ import { escapeHtml } from "../lib/dom.js";
 //     headerClass?,        // extra class(es) on the <th>
 //     headerAttrs?,        // extra attributes on the <th> ({ name: value }, escaped)
 //     sortable?,           // false opts the column out of click-to-sort (default true)
+//     pinned?,             // true adds `pin-col pin-col-<i>` classes (i = index among
+//                          // pinned columns) to the <th> and default-path <td>s; the
+//                          // page's CSS supplies the sticky positioning. Columns with
+//                          // cellHTML own their markup and add the classes themselves.
 //     cellHTML?(row),      // full trusted `<td>…</td>` HTML — the CALLER escapes.
 //                          // When absent, the safe accessor/format path is used:
 //     accessor?(row),      // value getter (default: row[id])
 //     format?(value, row), // value → display string (default: String; null/undef → "")
 //     cellClass?,          // class on default-path cells (string or fn(row))
 //   }
+//
+// Sort model
+// ----------
+// `sort` is either the single-column shape { key, dir: "asc"|"desc" } (the
+// original contract — output is unchanged for it) or an ordered array
+// [{ key, dir }, …] for multi-column sorting: the primary key renders the
+// plain ↑/↓ + aria-sort, secondary keys render a superscript rank (↓² …) and
+// the `sorted-secondary` class. Click handlers receive (columnId, event) so
+// callers can treat shift-click as "add a secondary key".
+
+// Normalize the sort argument to an ordered array of { key, dir }.
+function normalizeSort(sort) {
+  if (!sort) return [];
+  return Array.isArray(sort) ? sort.filter(Boolean) : [sort];
+}
+
+// Superscript rank markers for secondary sort keys (index 1 → ², 2 → ³ …).
+const SORT_RANKS = ["", "²", "³", "⁴", "⁵", "⁶"];
 
 function attrString(attrs) {
   if (!attrs) return "";
@@ -32,15 +54,22 @@ function attrString(attrs) {
     .join("");
 }
 
-// One <th scope="col"> header cell. `sort` = { key, dir } or null; the active
-// column gets the `sorted` class, an ↑/↓ indicator, and aria-sort.
+// One <th scope="col"> header cell. `sort` = { key, dir }, [{ key, dir }, …],
+// or null. The primary sorted column gets the `sorted` class, an ↑/↓
+// indicator, and aria-sort; secondary keys get a superscript rank and
+// `sorted-secondary` (aria-sort stays on the primary only).
 export function headerCellHTML(col, sort = null) {
-  const isSorted = !!sort && sort.key === col.id;
-  const arrow = isSorted ? (sort.dir === "desc" ? " ↓" : " ↑") : "";
-  const ariaSort = isSorted
-    ? ` aria-sort="${sort.dir === "desc" ? "descending" : "ascending"}"`
-    : "";
-  const cls = [col.headerClass, isSorted ? "sorted" : ""].filter(Boolean).join(" ");
+  const sorts = normalizeSort(sort);
+  const idx = sorts.findIndex((s) => s && s.key === col.id);
+  const isSorted = idx !== -1;
+  const dir = isSorted ? sorts[idx].dir : null;
+  const rank = idx > 0 ? SORT_RANKS[idx] || `(${idx + 1})` : "";
+  const arrow = isSorted ? `${dir === "desc" ? " ↓" : " ↑"}${rank}` : "";
+  const ariaSort =
+    idx === 0 ? ` aria-sort="${dir === "desc" ? "descending" : "ascending"}"` : "";
+  const cls = [col.headerClass, isSorted ? "sorted" : "", idx > 0 ? "sorted-secondary" : ""]
+    .filter(Boolean)
+    .join(" ");
   return `<th scope="col" data-col="${escapeHtml(col.id)}" class="${escapeHtml(cls)}"${ariaSort}${attrString(col.headerAttrs)}>${escapeHtml(col.label)}${arrow}</th>`;
 }
 
@@ -60,13 +89,38 @@ export function rowHTML(columns, row, rowAttrs = null) {
   return `<tr${attrString(attrs)}>${columns.map((c) => bodyCellHTML(c, row)).join("")}</tr>`;
 }
 
+// Append the pin classes to a column list: each `pinned: true` column gets
+// `pin-col pin-col-<i>` on its <th> and (default-path) <td>s so the page's
+// CSS can make them sticky. cellHTML columns own their markup — they add the
+// classes themselves.
+function applyPinning(columns) {
+  let pinIndex = 0;
+  return columns.map((col) => {
+    if (!col.pinned) return col;
+    const pinCls = `pin-col pin-col-${pinIndex++}`;
+    const orig = col.cellClass;
+    return {
+      ...col,
+      headerClass: [col.headerClass, pinCls].filter(Boolean).join(" "),
+      cellClass: col.cellHTML
+        ? col.cellClass
+        : (row) => {
+            const c = typeof orig === "function" ? orig(row) : orig;
+            return [c, pinCls].filter(Boolean).join(" ");
+          },
+    };
+  });
+}
+
 // Render a full table into existing containers.
 //   head         the header <tr> element (inside <thead>) — optional
 //   body         the <tbody> element — required
-//   columns      column model array (above)
+//   columns      column model array (above; `pinned` columns get pin classes)
 //   rows         data rows
-//   sort         { key, dir: "asc"|"desc" } — drives the header indicator
-//   onSort(id)   click-to-sort handler, attached to every sortable header
+//   sort         { key, dir: "asc"|"desc" } or [{ key, dir }, …] — drives the
+//                header indicators (see the sort model note above)
+//   onSort(id, event)  click-to-sort handler, attached to every sortable
+//                header; `event` lets callers treat shift-click specially
 //   rowAttrs(r)  per-row attributes (e.g. conditional classes)
 //   emptyMessage empty-state text (escaped), rendered as a single
 //                `<td class="empty-note" colspan=N>` row
@@ -76,7 +130,7 @@ export function rowHTML(columns, row, rowAttrs = null) {
 export function renderDataTable({
   head = null,
   body,
-  columns,
+  columns: rawColumns,
   rows,
   sort = null,
   onSort = null,
@@ -84,13 +138,14 @@ export function renderDataTable({
   emptyMessage = "No rows to show.",
   batch = 0,
 } = {}) {
+  const columns = applyPinning(rawColumns);
   if (head) {
     head.innerHTML = columns.map((c) => headerCellHTML(c, sort)).join("");
     if (onSort) {
       head.querySelectorAll("th[data-col]").forEach((th) => {
         const col = columns.find((c) => c.id === th.dataset.col);
         if (!col || col.sortable === false) return;
-        th.addEventListener("click", () => onSort(col.id));
+        th.addEventListener("click", (event) => onSort(col.id, event));
       });
     }
   }

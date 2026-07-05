@@ -122,15 +122,80 @@ describe('sort indicator + click-to-sort', () => {
     expect(html).toContain('aria-sort="ascending"');
   });
 
-  it('fires onSort with the column id for sortable columns only', () => {
+  it('fires onSort with the column id + click event for sortable columns only', () => {
     const { head, body } = makeTable();
     const onSort = jest.fn();
     renderDataTable({ head, body, columns: COLUMNS, rows: ROWS, onSort });
 
     head.querySelector('th[data-col="votes"]').click();
-    expect(onSort).toHaveBeenCalledWith('votes');
+    expect(onSort).toHaveBeenCalledWith('votes', expect.any(Object));
     head.querySelector('th[data-col="name"]').click(); // sortable: false
     expect(onSort).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('multi-column sort (array sort model)', () => {
+  it('a one-element array renders identically to the single-sort object', () => {
+    const obj = headerCellHTML({ id: 'v', label: 'V' }, { key: 'v', dir: 'desc' });
+    const arr = headerCellHTML({ id: 'v', label: 'V' }, [{ key: 'v', dir: 'desc' }]);
+    expect(arr).toBe(obj);
+  });
+
+  it('marks the primary with aria-sort and secondaries with rank + sorted-secondary', () => {
+    const { head, body } = makeTable();
+    renderDataTable({
+      head,
+      body,
+      columns: COLUMNS,
+      rows: ROWS,
+      sort: [
+        { key: 'votes', dir: 'desc' },
+        { key: 'share', dir: 'asc' },
+      ],
+    });
+
+    const primary = head.querySelector('th[data-col="votes"]');
+    expect(primary.textContent).toBe('Votes ↓');
+    expect(primary.getAttribute('aria-sort')).toBe('descending');
+    expect(primary.className).not.toContain('sorted-secondary');
+
+    const secondary = head.querySelector('th[data-col="share"]');
+    expect(secondary.textContent).toBe('Share ↑²');
+    expect(secondary.className).toContain('sorted');
+    expect(secondary.className).toContain('sorted-secondary');
+    expect(secondary.getAttribute('aria-sort')).toBeNull(); // primary only
+  });
+});
+
+describe('pinned columns', () => {
+  const PINNED = [
+    { id: 'name', label: 'Name', pinned: true, headerClass: 'pcell-precinct' },
+    { id: 'votes', label: 'Votes', pinned: true, cellClass: 'num' },
+    { id: 'share', label: 'Share' },
+  ];
+
+  it('adds pin-col pin-col-<i> to pinned <th>s and default-path <td>s', () => {
+    const { head, body } = makeTable();
+    renderDataTable({ head, body, columns: PINNED, rows: ROWS });
+
+    expect(head.querySelector('th[data-col="name"]').className).toBe('pcell-precinct pin-col pin-col-0');
+    expect(head.querySelector('th[data-col="votes"]').className).toBe('pin-col pin-col-1');
+    expect(head.querySelector('th[data-col="share"]').className).toBe('');
+
+    const cells = body.querySelector('tr').querySelectorAll('td');
+    expect(cells[0].className).toBe('pin-col pin-col-0');
+    expect(cells[1].className).toBe('num pin-col pin-col-1');
+    expect(cells[2].className).toBe('');
+  });
+
+  it('does not touch cellHTML column markup (caller owns pin classes there)', () => {
+    const { head, body } = makeTable();
+    const cols = [
+      { id: 'link', label: 'Link', pinned: true, cellHTML: (r) => `<td class="mine">${r.name}</td>` },
+    ];
+    renderDataTable({ head, body, columns: cols, rows: ROWS });
+    expect(head.querySelector('th').className).toBe('pin-col pin-col-0'); // header still pinned
+    expect(body.querySelector('td').className).toBe('mine'); // cell untouched
   });
 });
 
