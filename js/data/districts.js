@@ -38,13 +38,28 @@ export const KEPT_DISTRICTS = new Set(DISTRICT_LIST.map((d) => d.slug));
 
 // Boundary GeoJSON property per district kind. Values are district numbers
 // (numbers in today's files; zero-padded strings normalize the same way).
-const KIND_PROP = Object.freeze({ cd: "CONG", sd: "SEN", hd: "SHR" });
+// comm = County Commissioner precincts (COMMISH 1–4) — membership/roll-up
+// scoping only; there is NO data/tx/districts/comm-* race tree, so comm slugs
+// must never reach the district tree loaders below.
+const KIND_PROP = Object.freeze({ cd: "CONG", sd: "SEN", hd: "SHR", comm: "COMMISH" });
+
+/**
+ * The district kinds the campaign dashboard can roll precincts up by.
+ * `prop` is the boundary GeoJSON property; `prefix` builds display labels
+ * (e.g. "Commissioner Precinct 3").
+ */
+export const ROLLUP_KINDS = Object.freeze([
+  { id: "hd", label: "State House", prop: "SHR", prefix: "State House District" },
+  { id: "sd", label: "State Senate", prop: "SEN", prefix: "State Senate District" },
+  { id: "cd", label: "Congressional", prop: "CONG", prefix: "Congressional District" },
+  { id: "comm", label: "County Commissioner", prop: "COMMISH", prefix: "Commissioner Precinct" },
+].map(Object.freeze));
 
 /**
  * The district slug a precinct feature belongs to, for one district kind.
- * @param {object} feature - GeoJSON precinct feature (CONG/SEN/SHR props)
- * @param {"cd"|"sd"|"hd"} kind
- * @returns {string|null} e.g. "cd-3", or null when unknown/absent
+ * @param {object} feature - GeoJSON precinct feature (CONG/SEN/SHR/COMMISH props)
+ * @param {"cd"|"sd"|"hd"|"comm"} kind
+ * @returns {string|null} e.g. "cd-3" / "comm-2", or null when unknown/absent
  */
 export function districtOfFeature(feature, kind) {
   const prop = KIND_PROP[kind];
@@ -58,12 +73,12 @@ export function districtOfFeature(feature, kind) {
 
 /**
  * Precinct codes (as strings) of the features inside a district.
- * @param {string} slug - e.g. "cd-3", "sd-8", "hd-67"
+ * @param {string} slug - e.g. "cd-3", "sd-8", "hd-67", "comm-2"
  * @param {Array<object>} geojsonFeatures - boundary GeoJSON features
  * @returns {string[]} precinct codes; [] for an unparseable slug
  */
 export function precinctsInDistrict(slug, geojsonFeatures) {
-  const m = /^(cd|sd|hd)-(\d+)$/.exec(String(slug ?? ""));
+  const m = /^(cd|sd|hd|comm)-(\d+)$/.exec(String(slug ?? ""));
   if (!m) return [];
   const want = `${m[1]}-${Number(m[2])}`;
   const out = [];

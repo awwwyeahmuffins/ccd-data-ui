@@ -16,10 +16,10 @@ import { describe, it, expect, beforeEach, afterEach, jest } from '@jest/globals
 // CONG/SEN/SHR are plain district numbers (verified: numbers in today's
 // files; one fixture uses a zero-padded string to prove normalization).
 const FEATURES = [
-  { type: 'Feature', properties: { PRECINCT: 1, CONG: 3, SEN: 8, SHR: 67 }, geometry: null },
-  { type: 'Feature', properties: { PRECINCT: '2', CONG: '03', SEN: 30, SHR: 33 }, geometry: null },
-  { type: 'Feature', properties: { PRECINCT: 3, CONG: 4, SEN: 2, SHR: 61 }, geometry: null },
-  { type: 'Feature', properties: { PRECINCT: 4, CONG: 32, SEN: 8, SHR: 89 }, geometry: null },
+  { type: 'Feature', properties: { PRECINCT: 1, CONG: 3, SEN: 8, SHR: 67, COMMISH: 1 }, geometry: null },
+  { type: 'Feature', properties: { PRECINCT: '2', CONG: '03', SEN: 30, SHR: 33, COMMISH: 1 }, geometry: null },
+  { type: 'Feature', properties: { PRECINCT: 3, CONG: 4, SEN: 2, SHR: 61, COMMISH: 4 }, geometry: null },
+  { type: 'Feature', properties: { PRECINCT: 4, CONG: 32, SEN: 8, SHR: 89 }, geometry: null }, // no COMMISH prop
 ];
 
 // District race CSV in the long v3 layout (precinct,party,candidate,votes)
@@ -154,6 +154,12 @@ describe('districtOfFeature', () => {
     expect(districts.districtOfFeature(FEATURES[1], 'cd')).toBe('cd-3'); // CONG: '03'
   });
 
+  it('reads COMMISH for the comm kind (roll-up scoping)', () => {
+    expect(districts.districtOfFeature(FEATURES[0], 'comm')).toBe('comm-1');
+    expect(districts.districtOfFeature(FEATURES[2], 'comm')).toBe('comm-4');
+    expect(districts.districtOfFeature(FEATURES[3], 'comm')).toBeNull(); // prop absent
+  });
+
   it('returns null for unknown kinds and missing props', () => {
     expect(districts.districtOfFeature(FEATURES[0], 'sed')).toBeNull();
     expect(districts.districtOfFeature({ properties: {} }, 'cd')).toBeNull();
@@ -177,6 +183,29 @@ describe('precinctsInDistrict', () => {
     expect(districts.precinctsInDistrict('cd-99', FEATURES)).toEqual([]);
     expect(districts.precinctsInDistrict('nonsense', FEATURES)).toEqual([]);
     expect(districts.precinctsInDistrict('cd-3', null)).toEqual([]);
+  });
+
+  it('resolves comm slugs from COMMISH props', () => {
+    expect(districts.precinctsInDistrict('comm-1', FEATURES)).toEqual(['1', '2']);
+    expect(districts.precinctsInDistrict('comm-4', FEATURES)).toEqual(['3']);
+  });
+});
+
+describe('ROLLUP_KINDS', () => {
+  it('lists the four roll-up kinds with their GeoJSON props, frozen', () => {
+    expect(districts.ROLLUP_KINDS.map((k) => k.id)).toEqual(['hd', 'sd', 'cd', 'comm']);
+    expect(districts.ROLLUP_KINDS.find((k) => k.id === 'comm').prop).toBe('COMMISH');
+    expect(Object.isFrozen(districts.ROLLUP_KINDS)).toBe(true);
+    expect(Object.isFrozen(districts.ROLLUP_KINDS[0])).toBe(true);
+  });
+
+  it('comm stays out of the district data trees (no race tree exists for it)', () => {
+    // districtSlugFor gates on KEPT_DISTRICTS, which never contains comm slugs —
+    // a commissioner race entry must not route to data/tx/districts/comm-*.
+    expect(districts.KEPT_DISTRICTS.has('comm-1')).toBe(false);
+    expect(
+      districts.districtSlugFor({ office: 'County Commissioner Precinct 1', district: '1' })
+    ).toBeNull();
   });
 });
 
