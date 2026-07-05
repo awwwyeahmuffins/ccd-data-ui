@@ -77,6 +77,15 @@ const LEGACY_CSV = [
   '102,Uptown,250',
 ].join('\r\n');
 
+// Edge cases for the numeric turnout lookup: quoted thousands separator,
+// missing ballots value, and a blank precinct that must be skipped.
+const TURNOUT_2022_CSV = [
+  'precinct,registered,ballots_cast,blank',
+  '1,"1,000",700,5',
+  '2,800,,1',
+  ',100,50,0',
+].join('\n');
+
 const GEOJSON = {
   type: 'FeatureCollection',
   features: [
@@ -133,6 +142,7 @@ function baseFetchRoutes() {
     'collin/2024/races/2024-11-05/governor.csv': GOV_RACE_CSV,
     'races/2024-11-05/attorney_general.csv': AG_RACE_CSV,
     'turnout/2024-11-05.csv': TURNOUT_CSV,
+    'turnout/2022.csv': TURNOUT_2022_CSV,
     'Governor_Legacy.csv': LEGACY_CSV,
     'Empty.csv': 'PRECINCT CODE,VOTES',
     'boundaries/2026.geojson': GEOJSON,
@@ -529,6 +539,47 @@ describe('loadPrimaryTurnout', () => {
     global.d3.csv.mockClear();
     expect(await h.loadPrimaryTurnout()).toBeNull();
     expect(global.d3.csv).not.toHaveBeenCalled();
+  });
+});
+
+// ============================================================================
+// TURNOUT LOOKUP (campaign dashboard baselines)
+// ============================================================================
+
+describe('loadTurnoutLookup', () => {
+  it('builds a numeric {registered, ballots} lookup keyed by precinct string', async () => {
+    const lookup = await svc.boundary().loadTurnoutLookup('turnout/2024-11-05.csv');
+    expect(lookup).toEqual({
+      1: { registered: 1000, ballots: 700 },
+      2: { registered: 800, ballots: 450 },
+    });
+  });
+
+  it('parses quoted thousands separators, keeps blanks null, skips blank precincts', async () => {
+    const lookup = await svc.boundary().loadTurnoutLookup('turnout/2022.csv');
+    expect(lookup['1']).toEqual({ registered: 1000, ballots: 700 });
+    expect(lookup['2']).toEqual({ registered: 800, ballots: null }); // honest null, not 0
+    expect(Object.keys(lookup)).toEqual(['1', '2']); // blank precinct row skipped
+  });
+
+  it('caches per file (two calls → one fetch)', async () => {
+    const h = svc.boundary();
+    await h.loadTurnoutLookup('turnout/2022.csv');
+    await h.loadTurnoutLookup('turnout/2022.csv');
+    expect(fetchCalls('turnout/2022.csv')).toBe(1);
+  });
+
+  it('shares the raw turnout cache with loadRace (same file → one fetch)', async () => {
+    const h = svc.boundary();
+    await h.loadRace(govEntry()); // fetches turnout/2024-11-05.csv
+    await h.loadTurnoutLookup('turnout/2024-11-05.csv');
+    expect(fetchCalls('turnout/2024-11-05.csv')).toBe(1);
+  });
+
+  it('resolves null for a missing file and for no filename', async () => {
+    fetchRoutes['turnout/2022.csv'] = null;
+    expect(await svc.boundary().loadTurnoutLookup('turnout/2022.csv')).toBeNull();
+    expect(await svc.boundary().loadTurnoutLookup(null)).toBeNull();
   });
 });
 

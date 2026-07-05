@@ -276,6 +276,33 @@ function makeHandle(id) {
   }
 
   /**
+   * One election's turnout as a numeric { [precinct]: {registered, ballots} }
+   * lookup (the shape targeting.js and the campaign dashboard consume).
+   * Wraps loadTurnoutFile, so the raw rows stay cached per path. Missing or
+   * empty file resolves null — an honest gap, not a failure.
+   * @param {string} turnoutFile - path relative to the data dir, e.g. "turnout/2022.csv"
+   */
+  function loadTurnoutLookup(turnoutFile) {
+    if (!turnoutFile) return Promise.resolve(null);
+    return memoize(memo, `turnoutLookup:${turnoutFile}`, async () => {
+      const rows = await loadTurnoutFile(turnoutFile);
+      if (!rows || !rows.length) return null;
+      const toNum = (v) => {
+        if (v == null || v === "") return null;
+        const n = +String(v).replace(/,/g, "");
+        return isNaN(n) ? null : n;
+      };
+      const lookup = {};
+      for (const r of rows) {
+        const code = String(r.precinct ?? "").trim();
+        if (!code) continue;
+        lookup[code] = { registered: toNum(r.registered), ballots: toNum(r.ballots_cast) };
+      }
+      return Object.keys(lookup).length ? lookup : null;
+    });
+  }
+
+  /**
    * Load one race's results as pivoted legacy rows (one object per precinct
    * with "<PARTY> <Candidate>" columns + winners). Cached per race file.
    *
@@ -460,5 +487,6 @@ function makeHandle(id) {
     loadPrimaryTurnout,
     loadFieldOps,
     loadVotingInfo,
+    loadTurnoutLookup,
   };
 }

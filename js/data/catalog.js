@@ -32,3 +32,13 @@ export const BOUNDARY_SETS = Object.freeze({
 });
 
 export const DEFAULT_BOUNDARY = "2026";
+
+// Turnout baseline elections for cross-election comparisons (campaign
+// dashboard win numbers + presidential-to-midterm drop-off). An explicit
+// frozen map — never a "latest file" heuristic: turnout/2026.csv is the March
+// PRIMARY, and picking it up as a general would silently poison drop-off.
+export const TURNOUT_BASELINES = Object.freeze({
+  2022: Object.freeze({ id: "2022", label: "2022 midterm general", file: "turnout/2022.csv" }),
+  2024: Object.freeze({ id: "2024", label: "2024 presidential general", file: "turnout/2024.csv" }),
+});
+export const DEFAULT_WIN_BASELINE = "2022";
