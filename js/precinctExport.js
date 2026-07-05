@@ -5,6 +5,7 @@
 import { CATEGORY_ORDER } from "./domain/races.js";
 import { calculateTurnout } from "./domain/history.js";
 import { populationOf } from "./lib/format.js";
+import { downloadFile } from "./lib/download.js";
 
 /**
  * Export the current report as PDF via the browser print dialog.
@@ -220,16 +221,4 @@ function buildOfficialsRows(officials) {
     rows.push({ label: "Constable", value: String(officials.CONST_N) });
   }
   return rows;
-}
-
-function downloadFile(content, filename, mimeType) {
-  let blob = new Blob([content], { type: mimeType + ";charset=utf-8;" });
-  let url = URL.createObjectURL(blob);
-  let a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
 }
