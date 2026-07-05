@@ -11,11 +11,7 @@
 import { initGlossary } from "./glossary.js";
 import { initHelpPanel } from "./helpPanel.js";
 import { readParams, writeParams } from "./lib/urlState.js";
-import {
-  initActivePersona,
-  setActivePersona,
-  devToolsEnabled,
-} from "./lib/persona.js";
+import { initActivePersona, setActivePersona } from "./lib/persona.js";
 import { PERSONA_LAYOUTS, layoutFor } from "./ui/personaLayouts.js";
 
 const TEXT_SIZE_KEY = "ccd_text_large";
@@ -107,18 +103,20 @@ function renderHeader(header) {
   const badge = layout.badge
     ? `<span class="site-persona-badge">${layout.badge}</span>`
     : "";
-  // The persona switch is developer plumbing (armed with #dev=1) until real
-  // persona views exist — rendered only when enabled, never hidden-but-present.
-  const personaSelect = devToolsEnabled()
-    ? `<select id="nav-persona" aria-label="View mode (developer)">` +
-      Object.values(PERSONA_LAYOUTS)
-        .map(
-          (l) =>
-            `<option value="${l.id}"${l.id === activePersona ? " selected" : ""}>${l.label}</option>`
-        )
-        .join("") +
-      `</select>`
-    : "";
+  // The View switcher is the ONE discoverable path to the persona dashboards
+  // (Simple View adds My Dashboard, Detailed View adds the Campaign Dashboard —
+  // they have no other nav entry). Always visible; the wrapping <label> gives
+  // the select its accessible name ("View").
+  const viewSwitch =
+    `<label class="site-view-switch"><span class="site-view-label">View</span>` +
+    `<select id="nav-persona">` +
+    Object.values(PERSONA_LAYOUTS)
+      .map(
+        (l) =>
+          `<option value="${l.id}"${l.id === activePersona ? " selected" : ""}>${l.menuLabel}</option>`
+      )
+      .join("") +
+    `</select></label>`;
 
   const signedIn = hasCognitoSession();
   header.innerHTML =
@@ -126,7 +124,7 @@ function renderHeader(header) {
     `<span class="site-brand">Collin County Elections</span>` +
     badge +
     `<nav class="site-nav" aria-label="Main">${links}</nav>` +
-    personaSelect +
+    viewSwitch +
     `<button type="button" id="nav-text-size" aria-pressed="${storedTextLarge()}">` +
     `<span aria-hidden="true">A</span> Text size</button>` +
     `<button type="button" id="nav-help" aria-haspopup="dialog">` +

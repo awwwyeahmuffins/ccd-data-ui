@@ -29,10 +29,14 @@ export const CHAIR_DASHBOARD = Object.freeze({
   label: "My Dashboard",
 });
 
+// `menuLabel` is the plain-language option text in the header View switcher
+// (siteNav): what a real visitor reads to pick a mode. `label` stays the short
+// internal id-ish name; `badge` is the chip shown next to the brand.
 export const PERSONA_LAYOUTS = Object.freeze({
   public: Object.freeze({
     id: "public",
     label: "Public",
+    menuLabel: "Public view",
     badge: null,
     navPages: identity,
     renderChromeExtras: noop,
@@ -40,6 +44,7 @@ export const PERSONA_LAYOUTS = Object.freeze({
   chair: Object.freeze({
     id: "chair",
     label: "Precinct Chair",
+    menuLabel: "Simple view (chair)",
     badge: "Simple View",
     navPages: (pages) => [CHAIR_DASHBOARD, ...pages],
     renderChromeExtras: noop,
@@ -47,6 +52,7 @@ export const PERSONA_LAYOUTS = Object.freeze({
   campaign: Object.freeze({
     id: "campaign",
     label: "Campaign",
+    menuLabel: "Detailed view (campaign)",
     badge: "Detailed View",
     navPages: (pages) => [...pages, { href: "campaign.html", label: "Campaign Dashboard" }],
     renderChromeExtras: noop,

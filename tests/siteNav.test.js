@@ -79,11 +79,14 @@ describe('text-size toggle', () => {
 });
 
 describe('persona plumbing', () => {
-  it('stamps html[data-persona="public"] by default — no badge, no toggle', () => {
+  it('is public by default: no badge, View switcher present at Public', () => {
     freshInit();
     expect(document.documentElement.dataset.persona).toBe('public');
     expect(document.querySelector('.site-persona-badge')).toBeNull();
-    expect(document.querySelector('#nav-persona')).toBeNull();
+    const sel = document.querySelector('#nav-persona');
+    expect(sel).not.toBeNull();
+    expect(sel.value).toBe('public');
+    expect(sel.querySelectorAll('option').length).toBe(3);
   });
 
   it('honors a stored persona and shows its plain-language badge', () => {
@@ -126,16 +129,22 @@ describe('persona plumbing', () => {
     expect(document.querySelector('.site-persona-badge')).toBeNull();
   });
 
-  it('renders the dev toggle only when dev tools are armed', () => {
-    freshInit({ seed: { ccd_dev_tools: '1' } });
+  it('always renders the View switcher (no dev gate) with plain-language options', () => {
+    freshInit();
     const select = document.querySelector('#nav-persona');
     expect(select).not.toBeNull();
-    expect(select.value).toBe('public');
     expect(select.querySelectorAll('option').length).toBe(3);
+    expect([...select.options].map((o) => o.textContent)).toEqual([
+      'Public view',
+      'Simple view (chair)',
+      'Detailed view (campaign)',
+    ]);
+    // The wrapping label gives it an accessible name of "View".
+    expect(select.closest('.site-view-switch').textContent).toContain('View');
   });
 
-  it('changing the toggle persists the persona (reload picks it up)', () => {
-    freshInit({ seed: { ccd_dev_tools: '1' } });
+  it('changing the View switcher persists the persona (reload picks it up)', () => {
+    freshInit();
     const select = document.querySelector('#nav-persona');
     select.value = 'campaign';
     select.dispatchEvent(new Event('change', { bubbles: true }));
@@ -148,8 +157,8 @@ describe('persona plumbing', () => {
     expect(document.querySelector('#nav-persona').value).toBe('campaign');
   });
 
-  it('a second init never duplicates badge or toggle', () => {
-    freshInit({ seed: { ccd_persona: 'chair', ccd_dev_tools: '1' } });
+  it('a second init never duplicates badge or switcher', () => {
+    freshInit({ seed: { ccd_persona: 'chair' } });
     initSiteNav();
     initSiteNav();
     expect(document.querySelectorAll('.site-persona-badge').length).toBe(1);

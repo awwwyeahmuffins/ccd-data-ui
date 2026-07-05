@@ -197,11 +197,12 @@ body {
   border-color: var(--accent-aaa);
   color: #ffffff;
 }
-/* Persona plumbing (js/lib/persona.js + js/ui/personaLayouts.js). The active
-   persona is stamped as html[data-persona="public|chair|campaign"] — that
-   attribute is the scoping hook future persona-specific styling hangs off;
-   nothing styles it yet. The badge names the non-public view in plain words;
-   the select is the developer toggle (rendered only when dev tools are on). */
+/* Persona (view mode) chrome (js/lib/persona.js + js/ui/personaLayouts.js). The
+   active persona is stamped as html[data-persona="public|chair|campaign"]. The
+   badge names the non-public view in plain words next to the brand; the View
+   switcher (.site-view-switch) is the always-visible control that lets anyone
+   move between Public, Simple (chair), and Detailed (campaign) — the only
+   discoverable path to those dashboards. */
 .site-persona-badge {
   padding: 4px 12px;
   border: 2px solid var(--accent-aaa);
@@ -212,6 +213,18 @@ body {
   font-size: var(--fs-body);
   font-weight: 700;
   white-space: nowrap;
+}
+.site-view-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.site-view-label {
+  font-family: var(--civic-body);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--ink-dim-aaa);
 }
 #nav-persona {
   min-height: var(--tap);
@@ -415,6 +428,7 @@ button.term {
   #nav-help,
   #nav-signout,
   #nav-persona,
+  .site-view-switch,
   .glossary-pop-close,
   .welcome-dismiss {
     min-height: 48px;
@@ -436,7 +450,7 @@ button.term {
   }
   #nav-help,
   #nav-signout,
-  #nav-persona {
+  .site-view-switch {
     order: 2;
   }
   .site-nav {

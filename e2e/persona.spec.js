@@ -1,11 +1,11 @@
-// persona.spec.js — the persona (view mode) plumbing: html[data-persona],
-// the ccd_persona carrier, the #persona= entry param, and the dev-only toggle
-// (armed with #dev=1 / ccd_dev_tools). Public and chair keep the identical
-// five-tab public chrome; the campaign persona adds its Campaign Dashboard
-// tab (campaign.html — the first real persona view).
-// The dev toggle never appears for real visitors, so a11y.spec.js can't see
-// it — this spec runs its own axe pass with the toggle and badge visible
-// (onboarding.spec.js is the precedent for state-owning specs).
+// persona.spec.js — the persona (view mode) chrome: html[data-persona], the
+// ccd_persona carrier, the #persona= entry param, and the always-visible View
+// switcher (#nav-persona) that lets anyone move between Public, Simple (chair),
+// and Detailed (campaign). Public keeps the five-tab chrome; chair prepends My
+// Dashboard; campaign appends the Campaign Dashboard tab.
+// The badge only shows for a non-public persona, so this spec runs its own axe
+// pass with the badge visible (onboarding.spec.js is the precedent for
+// state-owning specs).
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
@@ -23,12 +23,13 @@ async function methodologyLoaded(page) {
 }
 
 test.describe('public default', () => {
-  test('loads as public with no badge, no toggle, and the five-tab nav', async ({ page }) => {
+  test('loads as public with no badge, the View switcher at Public, and five tabs', async ({ page }) => {
     await page.goto('/methodology.html');
     await methodologyLoaded(page);
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'public');
     await expect(page.locator('.site-persona-badge')).toHaveCount(0);
-    await expect(page.locator('#nav-persona')).toHaveCount(0);
+    await expect(page.locator('#nav-persona')).toBeVisible();
+    await expect(page.locator('#nav-persona')).toHaveValue('public');
     await expect(page.locator('.site-nav a')).toHaveCount(5);
   });
 
@@ -40,22 +41,18 @@ test.describe('public default', () => {
   });
 });
 
-test.describe('dev toggle', () => {
-  test('#dev=1 arms the toggle without pre-seeding; #dev=0 disarms it', async ({ page }) => {
-    await page.goto('/methodology.html#dev=1');
+test.describe('View switcher', () => {
+  test('is visible for real visitors on every page, no dev flag needed', async ({ page }) => {
+    await page.goto('/methodology.html');
     await methodologyLoaded(page);
     await expect(page.locator('#nav-persona')).toBeVisible();
-    // The flag persists (nav clicks drop the hash), so a plain load keeps it…
+    await expect(page.locator('#nav-persona option')).toHaveCount(3);
+    // Persists across a plain nav (localStorage carries it, hash is dropped).
     await page.goto('/targets.html');
     await expect(page.locator('#nav-persona')).toBeVisible({ timeout: 30000 });
-    // …and #dev=0 turns it back off.
-    await page.goto('/methodology.html#dev=0');
-    await methodologyLoaded(page);
-    await expect(page.locator('#nav-persona')).toHaveCount(0);
   });
 
   test('switching persona reloads with the badge and survives cross-page nav', async ({ page }) => {
-    await page.addInitScript(() => localStorage.setItem('ccd_dev_tools', '1'));
     await page.goto('/methodology.html');
     await methodologyLoaded(page);
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'public');
@@ -78,7 +75,6 @@ test.describe('dev toggle', () => {
   });
 
   test('switching strips a lingering #persona= so the new choice wins', async ({ page }) => {
-    await page.addInitScript(() => localStorage.setItem('ccd_dev_tools', '1'));
     // methodology.html never rewrites its hash — the worst case for staleness.
     await page.goto('/methodology.html#persona=chair');
     await methodologyLoaded(page);
@@ -96,7 +92,6 @@ test.describe('dev toggle', () => {
 
 test.describe('campaign persona nav', () => {
   test('campaign gets the Campaign Dashboard tab; switching back to public removes it', async ({ page }) => {
-    await page.addInitScript(() => localStorage.setItem('ccd_dev_tools', '1'));
     await page.goto('/methodology.html#persona=campaign');
     await methodologyLoaded(page);
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'campaign');
@@ -140,9 +135,8 @@ test.describe('#persona= entry param', () => {
 });
 
 test.describe('accessibility', () => {
-  test('badge + dev toggle pass axe (critical/serious)', async ({ page }) => {
+  test('badge + View switcher pass axe (critical/serious)', async ({ page }) => {
     await page.addInitScript(() => {
-      localStorage.setItem('ccd_dev_tools', '1');
       localStorage.setItem('ccd_persona', 'campaign');
     });
     await page.goto('/methodology.html');
