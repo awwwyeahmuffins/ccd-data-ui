@@ -1,14 +1,14 @@
 """
-Build per-precinct field-ops aggregates (suspense counts) from the local
-voter registration file.
+Build per-precinct field-ops aggregates (inactive-voter counts) from the
+local voter registration file.
 
 Reads the gitignored Collin County voter file (VoterRegistrationFile.txt at
 the repo root — PII, never deployed, never committed) and emits ONLY
 aggregate integer counts per base precinct to
 data/tx/collin/<set>/profile/field_ops.csv, which the chair dashboard
-(chair.html) reads for its Suspense Priority Tracker. When the voter file is
-absent (every machine but the maintainer's), this prints a note and exits 0
-without writing anything — the frontend renders N/A.
+(chair.html) reads for its Inactive-voter Priority Tracker. When the voter
+file is absent (every machine but the maintainer's), this prints a note and
+exits 0 without writing anything — the frontend renders N/A.
 
 PII SAFETY CONTRACT (do not weaken):
   * The output contains ONLY aggregate integer counts and shares per
@@ -16,15 +16,16 @@ PII SAFETY CONTRACT (do not weaken):
     per-voter field may ever be written.
   * The voter file is streamed row-by-row and never copied.
   * Small-cell suppression: precincts with fewer than MIN_CELL voters total
-    get a blank suspense count (the frontend treats blank as N/A, never 0).
+    get a blank inactive count (the frontend treats blank as N/A, never 0).
   * The output lives under data/ and is safe to commit and deploy.
 
-Status coding: only "ACT" is confirmed in this file's vintage (see
-build_voter_crosswalk.py). Suspense is expected as "SUS"; because that is an
-assumption, this script always prints every distinct Voter Status value it
-saw with its count, and FAILS (exit 1) if it finds statuses outside the
-expected set without --allow-unknown-status — surprises must be inspected,
-not guessed at.
+Status coding: this file's vintage uses "ACT" (active) and "INA" (inactive);
+there is NO separate "suspense" code, so the dashboard's tracker counts
+INACTIVE voters — the cohort the county mailed a confirmation notice to,
+usually because of a possible address change. This script always prints
+every distinct Voter Status value it saw with its count, and FAILS (exit 1)
+if it finds statuses outside the expected set without --allow-unknown-status
+— surprises must be inspected, not guessed at.
 
 Usage:
     python3 data_processor/build_field_ops.py [--set 2026] [--dry-run]
@@ -42,9 +43,9 @@ REPO = Path(__file__).resolve().parent.parent
 VOTER_FILE = REPO / "VoterRegistrationFile.txt"
 
 ACTIVE_STATUS = "ACT"
-SUSPENSE_STATUS = "SUS"
-EXPECTED_STATUSES = {ACTIVE_STATUS, SUSPENSE_STATUS}
-MIN_CELL = 10  # small-cell suppression threshold (active + suspense)
+INACTIVE_STATUS = "INA"
+EXPECTED_STATUSES = {ACTIVE_STATUS, INACTIVE_STATUS}
+MIN_CELL = 10  # small-cell suppression threshold (active + inactive)
 
 
 def base_precinct(raw):
@@ -81,19 +82,19 @@ def build_rows(per_precinct, today):
     for pct in sorted(per_precinct):
         counts = per_precinct[pct]
         active = counts.get(ACTIVE_STATUS, 0)
-        suspense = counts.get(SUSPENSE_STATUS, 0)
-        total = active + suspense
+        inactive = counts.get(INACTIVE_STATUS, 0)
+        total = active + inactive
         if total < MIN_CELL:
-            suspense_out = ""
+            inactive_out = ""
             share_out = ""
         else:
-            suspense_out = suspense
-            share_out = f"{suspense / total:.4f}" if total else ""
+            inactive_out = inactive
+            share_out = f"{inactive / total:.4f}" if total else ""
         rows.append({
             "precinct": pct,
             "active_voters": active,
-            "suspense_voters": suspense_out,
-            "suspense_share": share_out,
+            "inactive_voters": inactive_out,
+            "inactive_share": share_out,
             "generated_on": today,
         })
     return rows
@@ -138,19 +139,19 @@ def main():
 
     rows = build_rows(per_precinct, date.today().isoformat())
     total_active = sum(r["active_voters"] for r in rows)
-    total_suspense = sum(r["suspense_voters"] for r in rows
-                         if r["suspense_voters"] != "")
-    suppressed = sum(1 for r in rows if r["suspense_voters"] == "")
+    total_inactive = sum(r["inactive_voters"] for r in rows
+                         if r["inactive_voters"] != "")
+    suppressed = sum(1 for r in rows if r["inactive_voters"] == "")
     print(f"\n{len(rows)} precincts | active: {total_active:,} | "
-          f"suspense: {total_suspense:,} | "
+          f"inactive: {total_inactive:,} | "
           f"small-cell suppressed: {suppressed}")
 
-    top = sorted((r for r in rows if r["suspense_voters"] != ""),
-                 key=lambda r: r["suspense_voters"], reverse=True)[:5]
-    print("Top suspense precincts:")
+    top = sorted((r for r in rows if r["inactive_voters"] != ""),
+                 key=lambda r: r["inactive_voters"], reverse=True)[:5]
+    print("Top inactive precincts:")
     for r in top:
-        print(f"  precinct {r['precinct']:>4}: {r['suspense_voters']:,} "
-              f"({float(r['suspense_share']):.1%})")
+        print(f"  precinct {r['precinct']:>4}: {r['inactive_voters']:,} "
+              f"({float(r['inactive_share']):.1%})")
 
     if args.dry_run:
         print("\n--dry-run: nothing written.")
@@ -158,8 +159,8 @@ def main():
 
     with open(output_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=[
-            "precinct", "active_voters", "suspense_voters",
-            "suspense_share", "generated_on",
+            "precinct", "active_voters", "inactive_voters",
+            "inactive_share", "generated_on",
         ])
         writer.writeheader()
         writer.writerows(rows)

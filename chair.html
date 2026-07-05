@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Dashboard — Collin County Elections</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
-  <meta name="description" content="The precinct chair's dashboard — your precinct's canvassing universes, priority counts, suspense-voter tracker, and a printable meeting summary + voting-information handout." />
+  <meta name="description" content="The precinct chair's dashboard — your precinct's canvassing universes, priority counts, inactive-voter tracker, and a printable meeting summary + voting-information handout." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -93,7 +93,7 @@
     .chair-matrix-totals { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; }
     .chair-matrix-totals .chair-stat { margin-bottom: 0; }
 
-    /* ---- suspense share block ---- */
+    /* ---- inactive share block ---- */
     .chair-share-box {
       background: var(--color-bg-tertiary); border: 1px solid var(--color-border); border-radius: 10px;
       padding: 12px 14px; margin-top: 12px;
@@ -167,10 +167,10 @@
           <div id="chair-targets"></div>
         </section>
 
-        <section class="chair-card" aria-labelledby="chair-suspense-title">
-          <h3 id="chair-suspense-title">Suspense voters</h3>
-          <p class="chair-card-sub" id="chair-suspense-sub"></p>
-          <div id="chair-suspense"></div>
+        <section class="chair-card" aria-labelledby="chair-inactive-title">
+          <h3 id="chair-inactive-title">Inactive voters</h3>
+          <p class="chair-card-sub" id="chair-inactive-sub"></p>
+          <div id="chair-inactive"></div>
         </section>
 
         <section class="chair-card" aria-labelledby="chair-voting-title">

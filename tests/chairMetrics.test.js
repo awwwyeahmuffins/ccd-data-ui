@@ -2,7 +2,7 @@
  * @jest-environment node
  *
  * chairMetrics.test.js — the chair dashboard's pure math: turnout bands,
- * the 3x3 universe matrix, the focus badge, the volunteer proxy, suspense
+ * the 3x3 universe matrix, the focus badge, the volunteer proxy, inactive
  * summaries/snippets, and vote-center geometry. Imports the REAL module.
  */
 import { describe, it, expect } from '@jest/globals';
@@ -11,8 +11,8 @@ import {
   buildUniverseMatrix,
   classifyChairFocus,
   estimateVolunteerPool,
-  summarizeSuspense,
-  suspenseDoorSnippet,
+  summarizeInactive,
+  inactiveDoorSnippet,
   featureCentroid,
   haversineMiles,
   nearestVoteCenters,
@@ -190,26 +190,26 @@ describe('estimateVolunteerPool', () => {
 });
 
 // ---------------------------------------------------------------------------
-// suspense
+// inactive voters
 // ---------------------------------------------------------------------------
-describe('summarizeSuspense', () => {
+describe('summarizeInactive', () => {
   it('summarizes a field_ops row', () => {
-    const s = summarizeSuspense({ active: 900, suspense: 100 });
+    const s = summarizeInactive({ active: 900, inactive: 100 });
     expect(s.count).toBe(100);
     expect(s.activeCount).toBe(900);
     expect(s.share).toBeCloseTo(0.1, 5);
   });
 
-  it('returns null when the suspense count is absent (suppressed cell or no file)', () => {
-    expect(summarizeSuspense({ active: 900, suspense: '' })).toBeNull();
-    expect(summarizeSuspense({ active: 900 })).toBeNull();
-    expect(summarizeSuspense(null)).toBeNull();
+  it('returns null when the inactive count is absent (suppressed cell or no file)', () => {
+    expect(summarizeInactive({ active: 900, inactive: '' })).toBeNull();
+    expect(summarizeInactive({ active: 900 })).toBeNull();
+    expect(summarizeInactive(null)).toBeNull();
   });
 });
 
-describe('suspenseDoorSnippet', () => {
+describe('inactiveDoorSnippet', () => {
   it('includes the SOS portal URL and the precinct count when known', () => {
-    const text = suspenseDoorSnippet({
+    const text = inactiveDoorSnippet({
       code: '42',
       count: 1234,
       sosUrl: SOS_ADDRESS_CHANGE_URL,
@@ -220,14 +220,14 @@ describe('suspenseDoorSnippet', () => {
   });
 
   it('omits the count line when the count is unknown — never fabricates', () => {
-    const text = suspenseDoorSnippet({ code: '42', count: null, sosUrl: SOS_ADDRESS_CHANGE_URL });
+    const text = inactiveDoorSnippet({ code: '42', count: null, sosUrl: SOS_ADDRESS_CHANGE_URL });
     expect(text).toContain(SOS_ADDRESS_CHANGE_URL);
     expect(text).not.toMatch(/About .* voters in this precinct/);
-    expect(text).toMatch(/suspense/i);
+    expect(text).toMatch(/inactive/i);
   });
 
   it('returns null without a URL', () => {
-    expect(suspenseDoorSnippet({ code: '42', count: 5 })).toBeNull();
+    expect(inactiveDoorSnippet({ code: '42', count: 5 })).toBeNull();
   });
 });
 

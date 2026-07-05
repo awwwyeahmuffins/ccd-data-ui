@@ -22,7 +22,7 @@ const BAND_LABELS = { high: "Usually votes", mid: "Sometimes", low: "Rarely" };
 const ROLE_LABELS = { base: "Base", gotv: "GOTV", persuasion: "Persuade" };
 
 export function generateChairSummaryHTML(bundle) {
-  const { code, label, boundaryLabel, matrix, focus, party, volunteers, suspense } = bundle || {};
+  const { code, label, boundaryLabel, matrix, focus, party, volunteers, inactive } = bundle || {};
 
   const focusHtml = focus
     ? `<span class="packet-badge">${escapeHtml(focus.label)}</span>`
@@ -58,9 +58,9 @@ export function generateChairSummaryHTML(bundle) {
     ["Strong Democratic voters", formatNumberOrNA(party?.dem), party?.dem != null ? "modeled party scores" : "not on file"],
     ["Likely volunteers", volunteers ? formatNumberOrNA(volunteers.pool) : "N/A", "modeled estimate"],
     [
-      "Voters in suspense",
-      suspense ? formatNumberOrNA(suspense.count) : "N/A",
-      suspense?.share != null ? `${formatPctWhole(suspense.share)} of the roll` : "voter-file data " + (suspense ? "" : "not on file"),
+      "Inactive voters",
+      inactive ? formatNumberOrNA(inactive.count) : "N/A",
+      inactive?.share != null ? `${formatPctWhole(inactive.share)} of the roll` : "voter-file data " + (inactive ? "" : "not on file"),
     ],
     ["Base / GOTV / Persuasion", matrix ? `${formatNumberOrNA(matrix.roles.base)} / ${formatNumberOrNA(matrix.roles.gotv)} / ${formatNumberOrNA(matrix.roles.persuasion)}` : "N/A", "modeled estimates"],
   ]

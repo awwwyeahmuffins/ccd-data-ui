@@ -73,9 +73,9 @@ export const TERMS = {
     title: "Persuasion",
     body: "Conversations with voters who could go either way. Persuasion work matters most where the parties are close and moderate voters decide the outcome.",
   },
-  suspense: {
-    title: "Suspense list",
-    body: "Voters whose county registration record is out of date — usually an old address. They can still vote, but with extra steps. Updating the address online takes about two minutes and keeps their ballot smooth.",
+  inactive: {
+    title: "Inactive voters",
+    body: "Voters the county has marked inactive — usually after mailing a confirmation notice because their address may be out of date. They can still vote, but with extra steps. Updating the address online takes about two minutes and keeps their ballot smooth.",
   },
   "modeled-estimate": {
     title: "Modeled estimate",

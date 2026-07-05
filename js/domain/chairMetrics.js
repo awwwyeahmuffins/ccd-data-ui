@@ -2,7 +2,7 @@
 // --------------------------------------------------------------------------------
 // Pure math for the Precinct Chair dashboard (chair.html): turnout-propensity
 // bands, the 3x3 universe matrix, the chair's focus badge, the volunteer-pool
-// proxy, suspense summaries, and vote-center geometry. No fetch, no DOM — the
+// proxy, inactive-voter summaries, and vote-center geometry. No fetch, no DOM — the
 // page orchestrator (js/chairPage.js) supplies loaded data as arguments.
 //
 // Data honesty (repo rule: never fabricate): every function returns null (or
@@ -172,14 +172,14 @@ export function estimateVolunteerPool({ party, bands } = {}) {
 }
 
 // ============================================================================
-// Suspense
+// Inactive voters
 // ============================================================================
 
-// row = a field_ops.csv row as loaded: { active, suspense, share }.
-// suspense may be blank in the CSV (small-cell suppression) — that's null,
+// row = a field_ops.csv row as loaded: { active, inactive, share }.
+// inactive may be blank in the CSV (small-cell suppression) — that's null,
 // not zero.
-export function summarizeSuspense(row) {
-  const count = toCount(row?.suspense);
+export function summarizeInactive(row) {
+  const count = toCount(row?.inactive);
   if (count == null) return null;
   const activeCount = toCount(row?.active);
   const share =
@@ -191,7 +191,7 @@ export function summarizeSuspense(row) {
 
 // Plain-text snippet a chair can paste into a text message at the door. The
 // count line is omitted when no count is on file — never fabricate.
-export function suspenseDoorSnippet({ code, count, sosUrl } = {}) {
+export function inactiveDoorSnippet({ code, count, sosUrl } = {}) {
   if (!sosUrl) return null;
   const lines = [];
   if (code != null && code !== "") {
@@ -199,11 +199,11 @@ export function suspenseDoorSnippet({ code, count, sosUrl } = {}) {
   }
   if (toCount(count) != null) {
     lines.push(
-      `About ${formatNumber(count)} voters in this precinct are on the "suspense" list, usually because the county has an old address for them.`
+      `About ${formatNumber(count)} voters in this precinct are marked "inactive," usually because the county has an old address for them.`
     );
   } else {
     lines.push(
-      `If you've moved since you last voted, the county may have an old address for you ("suspense" status).`
+      `If you've moved since you last voted, the county may have an old address for you ("inactive" status).`
     );
   }
   lines.push(

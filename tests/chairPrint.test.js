@@ -86,7 +86,7 @@ describe('generateChairSummaryHTML (page 1 — internal)', () => {
     party: { dem: 400, mod: 300, rep: 300 },
     focus: { id: 'persuasion', label: 'Persuasion Focus', rationale: 'The two parties are about 3 points apart.' },
     volunteers: { pool: 120, method: 'Strong Democratic voters who vote in nearly every election' },
-    suspense: { count: 88, activeCount: 900, share: 88 / 988 },
+    inactive: { count: 88, activeCount: 900, share: 88 / 988 },
     matrix: {
       cells: ['dem', 'mod', 'rep'].flatMap((party) =>
         ['high', 'mid', 'low'].map((band) => ({

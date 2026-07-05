@@ -1,10 +1,10 @@
 // chair.spec.js — the precinct chair dashboard (chair.html): precinct
 // selection + persistence, the universe matrix (modeled estimates, never
-// color-alone), honest N/A states, the suspense quick-share, and the two-page
+// color-alone), honest N/A states, the inactive-voter quick-share, and the two-page
 // print packet whose handout page must stay apolitical.
 //
 // Both-worlds rule: profile/field_ops.csv is generated from the local voter
-// file and may or may not be committed — the suspense assertions accept a
+// file and may or may not be committed — the inactive-voter assertions accept a
 // count OR N/A, never assume one.
 import { test, expect } from '@playwright/test';
 
@@ -92,17 +92,17 @@ test.describe('dashboard widgets', () => {
     }
   });
 
-  test('suspense tracker shows a count or honest N/A, plus the SOS quick-share', async ({ page }) => {
-    const card = page.locator('#chair-suspense');
-    await expect(card).toContainText(/voters in suspense/);
+  test('inactive tracker shows a count or honest N/A, plus the SOS quick-share', async ({ page }) => {
+    const card = page.locator('#chair-inactive');
+    await expect(card).toContainText(/inactive voters/);
     await expect(card.locator('.chair-stat-val')).toHaveText(/^[\d,]+$|^N\/A$/);
     // The door snippet always carries the Texas SOS address-change portal.
     await expect(page.locator('#chair-snippet')).toContainText('txapps.texas.gov/tolapp/sos/SOSACManager');
     await expect(page.locator('#chair-copy-btn')).toBeVisible();
   });
 
-  test('the suspense glossary term opens a tap popover', async ({ page }) => {
-    await page.click('button.term[data-term="suspense"]');
+  test('the inactive glossary term opens a tap popover', async ({ page }) => {
+    await page.click('button.term[data-term="inactive"]');
     await expect(page.locator('.glossary-pop')).toBeVisible();
     await expect(page.locator('.glossary-pop')).toContainText(/address/i);
     await page.keyboard.press('Escape');

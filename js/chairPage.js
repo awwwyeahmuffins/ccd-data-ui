@@ -3,7 +3,7 @@
 // Orchestrator for chair.html — the precinct chair's "Simple View" dashboard.
 // Pick your precinct; see its canvassing universes (a 3x3 party-lean × voting-
 // habit grid of MODELED estimates), the counts worth working (strong Dems,
-// likely volunteers, suspense voters), and print a two-page packet: a meeting
+// likely volunteers, inactive voters), and print a two-page packet: a meeting
 // summary plus a strictly apolitical voting-information handout.
 //
 // Pure math lives in domain/chairMetrics.js; print HTML in chairPrint.js.
@@ -21,8 +21,8 @@ import {
   buildUniverseMatrix,
   classifyChairFocus,
   estimateVolunteerPool,
-  summarizeSuspense,
-  suspenseDoorSnippet,
+  summarizeInactive,
+  inactiveDoorSnippet,
   featureCentroid,
   nearestVoteCenters,
   MATRIX_PARTIES,
@@ -42,7 +42,7 @@ const ch = {
   byCode: {},          // precinct code -> geojson feature
   codes: [],           // sorted precinct codes
   dncLookup: null,     // code -> dnc_scores row (may be null — profile extra)
-  fieldOps: null,      // code -> { active, suspense, share } | null
+  fieldOps: null,      // code -> { active, inactive, share } | null
   votingInfo: null,    // county voting_info.json | null
   turnout: null,       // { marquee, marqueeLabel, low, lowLabel } lookups | null
   current: null,       // last computed bundle (for the print packet)
@@ -208,17 +208,17 @@ function render() {
   const matrix = buildUniverseMatrix({ party, bands });
   const focus = classifyChairFocus({ party, bands });
   const volunteers = estimateVolunteerPool({ party, bands });
-  const suspense = summarizeSuspense(ch.fieldOps ? ch.fieldOps[code] : null);
+  const inactive = summarizeInactive(ch.fieldOps ? ch.fieldOps[code] : null);
   const centroid = featureCentroid(feature.geometry);
   const centers = ch.votingInfo?.voteCenters || [];
   const nearest = nearestVoteCenters(centroid, centers);
-  const snippet = suspenseDoorSnippet({
+  const snippet = inactiveDoorSnippet({
     code,
-    count: suspense?.count ?? null,
+    count: inactive?.count ?? null,
     sosUrl: SOS_ADDRESS_CHANGE_URL,
   });
 
-  ch.current = { code, party, bands, matrix, focus, volunteers, suspense, nearest, snippet };
+  ch.current = { code, party, bands, matrix, focus, volunteers, inactive, nearest, snippet };
 
   $("chair-empty").hidden = true;
   $("chair-content").hidden = false;
@@ -231,7 +231,7 @@ function render() {
   renderFocus(focus);
   renderMatrix(matrix, bands);
   renderTargets(party, volunteers);
-  renderSuspense(suspense, snippet);
+  renderInactive(inactive, snippet);
   renderVoting(nearest, centers);
   renderFineprint(bands);
 }
@@ -335,15 +335,15 @@ function renderTargets(party, volunteers) {
   el.innerHTML = strongDem + "<hr style=\"border:none;border-top:1px solid var(--color-border);margin:14px 0;\">" + vols;
 }
 
-function renderSuspense(suspense, snippet) {
-  const sub = $("chair-suspense-sub");
-  const el = $("chair-suspense");
-  sub.innerHTML = `Voters on the ${termButton("suspense", "suspense list")} usually just need an address update — an easy, high-value door.`;
+function renderInactive(inactive, snippet) {
+  const sub = $("chair-inactive-sub");
+  const el = $("chair-inactive");
+  sub.innerHTML = `Voters marked ${termButton("inactive", "inactive")} usually just need an address update — an easy, high-value door.`;
 
-  const stat = suspense
-    ? `<div class="chair-stat"><span class="chair-stat-val">${formatNumberOrNA(suspense.count)}</span>` +
-      `<span class="chair-stat-label">voters in suspense${suspense.share != null ? ` (${formatPctWhole(suspense.share)} of the roll)` : ""}</span></div>`
-    : `<div class="chair-stat"><span class="chair-stat-val">N/A</span><span class="chair-stat-label">voters in suspense</span></div>` +
+  const stat = inactive
+    ? `<div class="chair-stat"><span class="chair-stat-val">${formatNumberOrNA(inactive.count)}</span>` +
+      `<span class="chair-stat-label">inactive voters${inactive.share != null ? ` (${formatPctWhole(inactive.share)} of the roll)` : ""}</span></div>`
+    : `<div class="chair-stat"><span class="chair-stat-val">N/A</span><span class="chair-stat-label">inactive voters</span></div>` +
       `<p class="na-note">Voter-file data not on file. A maintainer can generate it with data_processor/build_field_ops.py.</p>`;
 
   el.innerHTML =
