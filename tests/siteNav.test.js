@@ -92,12 +92,11 @@ describe('persona plumbing', () => {
     expect(document.querySelector('.site-persona-badge').textContent).toBe('Simple View');
   });
 
-  it('public and campaign keep the five-tab public nav', () => {
-    for (const persona of ['public', 'campaign']) {
-      freshInit({ seed: { ccd_persona: persona } });
-      expect(document.querySelectorAll('.site-nav a').length).toBe(ALL_PAGES.length);
-      expect(document.querySelector('.site-nav a[href="chair.html"]')).toBeNull();
-    }
+  it('public keeps the five-tab public nav with no persona tabs', () => {
+    freshInit({ seed: { ccd_persona: 'public' } });
+    expect(document.querySelectorAll('.site-nav a').length).toBe(ALL_PAGES.length);
+    expect(document.querySelector('.site-nav a[href="chair.html"]')).toBeNull();
+    expect(document.querySelector('.site-nav a[href="campaign.html"]')).toBeNull();
   });
 
   it('the chair persona gets My Dashboard first, then the five public tabs', () => {
@@ -106,9 +105,19 @@ describe('persona plumbing', () => {
     expect(links.length).toBe(ALL_PAGES.length + 1);
     expect(links[0].getAttribute('href')).toBe('chair.html');
     expect(links[0].textContent.trim()).toBe('My Dashboard');
+    expect(document.querySelector('.site-nav a[href="campaign.html"]')).toBeNull();
     for (const href of ALL_PAGES) {
       expect(document.querySelectorAll(`.site-nav a[href="${href}"]`).length).toBe(1);
     }
+  });
+
+  it('the campaign persona appends its dashboard tab after the five public tabs', () => {
+    freshInit({ seed: { ccd_persona: 'campaign' } });
+    expect(document.querySelectorAll('.site-nav a').length).toBe(ALL_PAGES.length + 1);
+    expect(document.querySelector('.site-nav a[href="chair.html"]')).toBeNull();
+    const extra = document.querySelector('.site-nav a[href="campaign.html"]');
+    expect(extra).not.toBeNull();
+    expect(extra.textContent).toBe('Campaign Dashboard');
   });
 
   it('an invalid stored persona falls back to public', () => {

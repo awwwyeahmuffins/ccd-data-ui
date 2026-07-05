@@ -1,7 +1,8 @@
 // persona.spec.js — the persona (view mode) plumbing: html[data-persona],
 // the ccd_persona carrier, the #persona= entry param, and the dev-only toggle
-// (armed with #dev=1 / ccd_dev_tools). Plumbing phase: every persona keeps the
-// identical five-tab public chrome; only the badge and the attribute change.
+// (armed with #dev=1 / ccd_dev_tools). Public and chair keep the identical
+// five-tab public chrome; the campaign persona adds its Campaign Dashboard
+// tab (campaign.html — the first real persona view).
 // The dev toggle never appears for real visitors, so a11y.spec.js can't see
 // it — this spec runs its own axe pass with the toggle and badge visible
 // (onboarding.spec.js is the precedent for state-owning specs).
@@ -64,9 +65,11 @@ test.describe('dev toggle', () => {
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'chair', { timeout: 30000 });
     await expect(page.locator('.site-persona-badge')).toHaveText('Simple View');
     await expect(page.locator('#nav-persona')).toHaveValue('chair');
-    // The chair persona's one nav divergence: My Dashboard leads the tabs.
+    // The chair persona's one nav divergence: My Dashboard leads the tabs —
+    // and the campaign dashboard is not among them.
     await expect(page.locator('.site-nav a')).toHaveCount(6);
     await expect(page.locator('.site-nav a[href="chair.html"]')).toHaveText('My Dashboard');
+    await expect(page.locator('.site-nav a[href="campaign.html"]')).toHaveCount(0);
 
     // A real nav click drops the hash — localStorage carries the persona.
     await page.click('.site-nav a[href="targets.html"]');
@@ -88,6 +91,29 @@ test.describe('dev toggle', () => {
     // Back to public means back to the five tabs — no dashboard entry.
     await expect(page.locator('.site-nav a')).toHaveCount(5);
     await expect(page.locator('.site-nav a[href="chair.html"]')).toHaveCount(0);
+  });
+});
+
+test.describe('campaign persona nav', () => {
+  test('campaign gets the Campaign Dashboard tab; switching back to public removes it', async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem('ccd_dev_tools', '1'));
+    await page.goto('/methodology.html#persona=campaign');
+    await methodologyLoaded(page);
+    await expect(page.locator('html')).toHaveAttribute('data-persona', 'campaign');
+    await expect(page.locator('.site-nav a')).toHaveCount(6);
+    const tab = page.locator('.site-nav a[href="campaign.html"]');
+    await expect(tab).toHaveText('Campaign Dashboard');
+
+    // The tab is a real link into the dashboard.
+    await tab.click();
+    await expect(page.locator('h1.page-title')).toHaveText('Campaign dashboard', { timeout: 30000 });
+    await expect(page.locator('.site-nav a[href="campaign.html"]')).toHaveAttribute('aria-current', 'page', { timeout: 30000 });
+
+    // Back to public: the extra tab disappears with the persona.
+    await page.selectOption('#nav-persona', 'public');
+    await expect(page.locator('html')).toHaveAttribute('data-persona', 'public', { timeout: 30000 });
+    await expect(page.locator('.site-nav a')).toHaveCount(5, { timeout: 30000 });
+    await expect(page.locator('.site-nav a[href="campaign.html"]')).toHaveCount(0);
   });
 });
 

@@ -1,15 +1,17 @@
 // ui/personaLayouts.js
 // --------------------------------------------------------------------------------
 // The persona layout registry — the seam where the three personas' chrome
-// diverges. One registry rather than three layout files while everything is
-// still plumbing; when chair/campaign chrome actually diverges, splitting an
-// entry into its own module is mechanical.
+// diverges. One registry rather than three layout files; when an entry's
+// chrome grows beyond a hook or two, splitting it into its own module is
+// mechanical.
 //
 // Each layout is consulted by siteNav when it renders the shared header:
 //  - navPages(pages): given the default five-tab list, return the tabs this
-//    persona sees. Identity for public/campaign; the chair persona prepends
-//    its dashboard (chair.html) — the first real persona divergence
-//    (July 2026). e2e and unit tests pin both shapes.
+//    persona sees. Identity for public; the chair persona prepends its
+//    dashboard (chair.html), the campaign persona appends its Campaign
+//    Dashboard tab (campaign.html). The pages themselves never gate on
+//    persona: a direct URL works for anyone, the tab is just
+//    discoverability. e2e and unit tests pin all three shapes.
 //  - badge: a short label rendered next to the brand so a non-public persona
 //    is visibly active (null = no badge).
 //  - renderChromeExtras(headerEl): hook for persona-specific header chrome
@@ -46,7 +48,7 @@ export const PERSONA_LAYOUTS = Object.freeze({
     id: "campaign",
     label: "Campaign",
     badge: "Detailed View",
-    navPages: identity,
+    navPages: (pages) => [...pages, { href: "campaign.html", label: "Campaign Dashboard" }],
     renderChromeExtras: noop,
   }),
 });
