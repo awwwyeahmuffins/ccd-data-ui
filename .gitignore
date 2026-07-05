@@ -42,6 +42,9 @@ cdk-outputs.json
 # Voter PII — never commit or deploy
 VoterRegistrationFile.txt
 
+# Operational field-data source workbooks (aggregate CSV outputs are committed)
+canvass_source.xlsx
+
 # Generated caches and local artifacts
 data/cache/
 screenshots/
