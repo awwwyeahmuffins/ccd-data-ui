@@ -127,11 +127,14 @@ page. If a new page is truly warranted:
 5. Add an e2e smoke spec and include the page in `e2e/a11y.spec.js`'s page
    list.
 
-## Recipe E — Persona-aware chrome (plumbing, July 2026)
+## Recipe E — Persona-aware chrome (July 2026)
 
 The app is growing toward three personas — `public` (default), `chair`
-("Simple View"), `campaign` ("Detailed View"). Only the plumbing exists so
-far; every persona still gets the identical public app.
+("Simple View"), `campaign` ("Detailed View"). Public and chair still get the
+identical public app; the campaign persona has the first real persona view —
+the Campaign Dashboard (`campaign.html` → `js/campaignPage.js`), surfaced as a
+sixth nav tab via its `navPages` hook. The page never gates on persona: a
+direct URL works for anyone, the tab is just discoverability.
 
 - **State** lives in `js/lib/persona.js`: resolution is URL `#persona=` >
   localStorage `ccd_persona` > `"public"`. The URL param is an ENTRY
@@ -144,9 +147,10 @@ far; every persona still gets the identical public app.
 - **Layout wrappers** live in `js/ui/personaLayouts.js` — an id-keyed
   registry, one entry per persona, with `navPages(pages)` (which tabs) and
   `renderChromeExtras(headerEl)` (extra header chrome) hooks that siteNav
-  consults. Both are identity/no-op today; when a persona's chrome truly
-  diverges, grow its entry (or split it into its own module) rather than
-  branching inside siteNav.
+  consults. `campaign.navPages` appends the Campaign Dashboard tab; everything
+  else is identity/no-op. When a persona's chrome truly diverges further, grow
+  its entry (or split it into its own module) rather than branching inside
+  siteNav.
 - **Switching personas reloads the page.** Orchestrators render once at
   `init()` and never subscribe to hash changes; a reload is the honest way to
   re-enter with different chrome. (A future live switch would adopt

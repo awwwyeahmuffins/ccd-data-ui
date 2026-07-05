@@ -21,6 +21,7 @@ const PAGES = [
   { url: '/forecast.html', ready: (page) => page.waitForFunction(() => document.querySelector('#fc-outcome .outcome-grid'), null, { timeout: 30000 }) },
   { url: '/targets.html', ready: (page) => expect(page.locator('.tg-precinct').first()).toBeVisible({ timeout: 30000 }) },
   { url: '/explore.html', ready: (page) => expect(page.locator('#ex-body .pcell-precinct').first()).toBeVisible({ timeout: 30000 }) },
+  { url: '/campaign.html', ready: (page) => expect(page.locator('#cp-body .pcell-precinct').first()).toBeVisible({ timeout: 30000 }) },
   { url: '/precinct.html', ready: (page) => expect(page.locator('#precinct-search')).toBeVisible({ timeout: 30000 }) },
   { url: '/methodology.html', ready: (page) => expect(page.locator('h1.page-title')).toBeVisible({ timeout: 30000 }) },
   { url: '/chair.html', ready: (page) => expect(page.locator('#chair-precinct-select')).toBeVisible({ timeout: 30000 }) },
