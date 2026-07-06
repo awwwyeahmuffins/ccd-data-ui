@@ -517,6 +517,27 @@
       .cc-readout { max-width: calc(100% - 36px); flex-wrap: wrap; }
     }
 
+    /* On phones the readout becomes an opaque, drag-handled bottom SHEET —
+       full-width, rounded top, map still visible behind (never a blurred glass
+       overlay, never a FAB). Drag the handle up for full details, down to
+       dismiss (js/pages/map.js wireReadoutSheet). Desktop keeps the small card. */
+    .cc-readout-handle { display: none; }
+    @media (max-width: 760px) {
+      .cc-readout {
+        left: 0; right: 0; max-width: none; transform: none;
+        flex-wrap: wrap; border-radius: 16px 16px 0 0; padding-top: 6px; gap: 10px 12px;
+      }
+      .cc-readout-handle {
+        display: block; flex-basis: 100%; height: 22px; margin: 0; padding: 0;
+        border: none; background: none; cursor: grab; touch-action: none;
+      }
+      .cc-readout-handle::before {
+        content: ""; display: block; width: 42px; height: 5px; border-radius: 3px;
+        background: var(--line); margin: 3px auto 2px;
+      }
+      .cc-readout-text { flex-basis: 100%; }
+    }
+
     /* "Full details" pulses the dock so desktop users (dock already open)
        see where the answer landed */
     .cc-dock.flash { animation: cc-dock-flash 1s ease; }
@@ -560,6 +581,39 @@
       .cc-county-menu { width: 250px; }
       .cc-data-note { display: none; }
       .cc-topbar { gap: 10px; padding: 0 12px; }
+    }
+
+    /* ===========================================================
+       MOBILE THUMB ZONE — the frequent map actions move to a fixed
+       bottom bar on phones (built by setupThumbBar() in map.js,
+       ≤760px only; desktop + iPad keep the top layout).
+       =========================================================== */
+    .cc-thumbbar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 25;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 10px;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+      background: var(--bg-panel); border-top: 1px solid var(--line);
+      box-shadow: 0 -4px 16px rgba(0,0,0,.12);
+    }
+    /* the mode switch drops its floating-over-the-map position inside the bar */
+    .cc-thumbbar #cc-modes {
+      position: static; top: auto; left: auto;
+      background: none; border: none; box-shadow: none; padding: 0;
+    }
+    /* thumb targets get the 48px coarse-pointer bump (map controls are 44px by
+       default; civic.css's coarse bump covers only shared header chrome) */
+    .cc-thumbbar .cc-view-toggle button,
+    .cc-thumbbar .cc-mode-btn,
+    .cc-thumbbar #cc-locate-btn { min-height: 48px; }
+
+    @media (max-width: 760px) {
+      /* lift the floating overlays above the bar (var set by the ResizeObserver;
+         64px fallback before first measure). Scoped to the body flag so these
+         win over the base .cc-legend / .cc-readout bottom rules. */
+      body.cc-has-thumbbar .cc-readout { bottom: calc(var(--cc-thumbbar-h, 64px) + 14px); }
+      body.cc-has-thumbbar .cc-legend,
+      body.cc-has-thumbbar .cc-legend-toggle { bottom: calc(var(--cc-thumbbar-h, 64px) + 20px); }
     }
   </style>
 </head>
@@ -631,6 +685,7 @@
       <div class="cc-legend" id="cc-legend"></div>
 
       <div class="cc-readout" id="cc-readout" aria-live="polite" hidden>
+        <button type="button" class="cc-readout-handle" id="cc-readout-handle" aria-label="Drag up for full details, down to dismiss"></button>
         <span class="cc-readout-text" id="cc-readout-text"></span>
         <button type="button" id="cc-readout-more">Full details</button>
         <button type="button" class="cc-readout-close" id="cc-readout-close" aria-label="Close this precinct summary">✕</button>

@@ -172,6 +172,55 @@ export function estimateVolunteerPool({ party, bands } = {}) {
 }
 
 // ============================================================================
+// Strategic ROI verdicts for the 3x3 grid
+// ============================================================================
+
+// One prescriptive line per highlighted role — turns the modeled counts into a
+// "what to do" plan (the Base/GOTV/Persuasion doctrine). `roles` is the totals
+// object from buildUniverseMatrix; a role with a null/zero total is omitted.
+// Returns [] when there is no matrix. Copy is plain-language for 60+ chairs.
+const ROLE_ADVICE = Object.freeze({
+  base: {
+    title: "The Base — recruit, don't persuade",
+    body: "Strong Democrats who vote in almost every election. Spend $0 persuading them — instead pull your block captains, poll greeters, and volunteers from this group.",
+  },
+  gotv: {
+    title: "GOTV — your highest-return doors",
+    body: "Strong Democrats who vote sometimes, not always. These are the best door-knocks in the final 30 days: they already agree with you, they just need a reminder and a plan to vote.",
+  },
+  persuasion: {
+    title: "Persuasion — start early, talk issues",
+    body: "Persuadable voters who do turn out. Reach them year-round with issue conversations and deep canvassing — a last-minute knock won't move them.",
+  },
+});
+export function matrixRoleAdvice(roles) {
+  if (!roles) return [];
+  const order = ["gotv", "persuasion", "base"]; // highest-ROI first
+  return order
+    .filter((role) => toCount(roles[role]) != null && roles[role] > 0)
+    .map((role) => ({ role, count: roles[role], ...ROLE_ADVICE[role] }));
+}
+
+// ============================================================================
+// Registration growth / churn advisory (the Static-Universe fix)
+// ============================================================================
+
+// growth = (regLast − regFirst) / regFirst across the turnout years on file.
+// A fast-growing roll means new subdivisions and turnover, so last election's
+// partisan read decays quickly — registration/address work comes first. Returns
+// null (no banner) when growth is unknown or the roll is stable/shrinking.
+export const CHURN_THRESHOLD = 0.1; // +10% roll growth across cycles = "fast-growing"
+export function churnAdvisory(growth) {
+  if (growth == null || isNaN(growth) || growth < CHURN_THRESHOLD) return null;
+  return {
+    growth,
+    growthPct: Math.round(growth * 100),
+    title: "Fast-growing precinct — register and update addresses first",
+    body: "This precinct's voter roll has grown a lot across recent cycles. New residents and movers mean the last election's read goes stale fast, so registration drives and address updates pay off more here than standard get-out-the-vote work.",
+  };
+}
+
+// ============================================================================
 // Inactive voters
 // ============================================================================
 

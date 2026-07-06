@@ -28,6 +28,9 @@ const METRIC_TERMS = {
   "Turnout": "turnout",
   "Non-voters": "turnout",
   "Voters": "voter-universe",
+  "Untapped supporters": "net-vote-opportunity",
+  "Turnout swing": "elasticity",
+  "Roll growth": "churn",
 };
 function metricLabelHTML(label) {
   const term = METRIC_TERMS[label];
@@ -87,16 +90,24 @@ function scopeName() {
   return d ? d.name : pg.district;
 }
 
-// ---- marquee turnout: the highest-turnout election on file -------------------
-// Returns { [precinctCode]: { registered, ballots } } or null when unavailable.
-async function loadMarqueeTurnout() {
+// ---- turnout signals: marquee + cross-election elasticity & roll growth ------
+// Loads every turnout file on file and returns, per precinct:
+//   { registered, ballots }  from the marquee (highest-turnout) election, plus
+//   { highRate, lowRate }    the precinct's best & worst turnout rate across all
+//                            files (feeds Turnout Elasticity), and
+//   { regFirst, regLast }    registered totals in the earliest & latest turnout
+//                            years (feeds registration growth / churn).
+// Null when no turnout files exist. Every field degrades to null when a precinct
+// is absent from a file — nothing is fabricated.
+async function loadTurnoutSignals() {
   try {
     const races = await svc.listRaces();
     const files = [...new Set(races.map((e) => e.turnoutFile).filter(Boolean))];
     if (!files.length) return null;
 
-    let best = null;
-    let bestBallots = -1;
+    // Load each file with its election year parsed from the filename (for
+    // ordering the roll-growth endpoints). County-agnostic: no year is hardcoded.
+    const loaded = [];
     for (const f of files) {
       try {
         const rows = await d3.csv(`${svc.config.dataDir}/${f}`, (d) => ({
@@ -104,19 +115,59 @@ async function loadMarqueeTurnout() {
           registered: +d.registered,
           ballots: +d.ballots_cast,
         }));
-        const sum = rows.reduce((s, r) => s + (isNaN(r.ballots) ? 0 : r.ballots), 0);
-        if (sum > bestBallots) { bestBallots = sum; best = rows; }
+        const yearMatch = f.match(/(\d{4})/g);
+        const year = yearMatch ? +yearMatch[yearMatch.length - 1] : null;
+        const totalBallots = rows.reduce((s, r) => s + (isNaN(r.ballots) ? 0 : r.ballots), 0);
+        loaded.push({ year, rows, totalBallots });
       } catch (_) { /* skip a bad turnout file */ }
     }
-    if (!best || bestBallots <= 0) return null;
+    if (!loaded.length) return null;
+
+    const marquee = loaded.reduce((best, cur) => (cur.totalBallots > (best?.totalBallots ?? -1) ? cur : best), null);
+    if (!marquee || marquee.totalBallots <= 0) return null;
+
+    const withYear = loaded.filter((l) => l.year != null).sort((a, b) => a.year - b.year);
+    const earliest = withYear[0] || null;
+    const latest = withYear[withYear.length - 1] || null;
 
     const lookup = {};
-    for (const r of best) {
-      if (r.precinct == null || r.precinct === "") continue;
-      lookup[String(r.precinct)] = {
+    // seed from the marquee so every marquee precinct has registered/ballots
+    for (const r of marquee.rows) {
+      const code = r.precinct == null ? "" : String(r.precinct);
+      if (code === "") continue;
+      lookup[code] = {
         registered: isNaN(r.registered) ? null : r.registered,
         ballots: isNaN(r.ballots) ? null : r.ballots,
+        highRate: null,
+        lowRate: null,
+        regFirst: null,
+        regLast: null,
       };
+    }
+    // best/worst turnout rate across all files → elasticity
+    for (const file of loaded) {
+      for (const r of file.rows) {
+        const code = r.precinct == null ? "" : String(r.precinct);
+        if (code === "" || !(code in lookup)) continue;
+        if (isNaN(r.registered) || r.registered <= 0 || isNaN(r.ballots)) continue;
+        const rate = r.ballots / r.registered;
+        const e = lookup[code];
+        e.highRate = e.highRate == null ? rate : Math.max(e.highRate, rate);
+        e.lowRate = e.lowRate == null ? rate : Math.min(e.lowRate, rate);
+      }
+    }
+    // registration endpoints (earliest vs latest year) → roll growth / churn
+    const stampReg = (file, key) => {
+      if (!file) return;
+      for (const r of file.rows) {
+        const code = r.precinct == null ? "" : String(r.precinct);
+        if (code === "" || !(code in lookup)) continue;
+        lookup[code][key] = isNaN(r.registered) ? null : r.registered;
+      }
+    };
+    if (earliest && latest && earliest !== latest) {
+      stampReg(earliest, "regFirst");
+      stampReg(latest, "regLast");
     }
     return Object.keys(lookup).length ? lookup : null;
   } catch (_) {
@@ -218,7 +269,7 @@ async function loadData() {
   $("tg-catalog").innerHTML = "";
   $("tg-na").innerHTML = "";
   try {
-    const [{ geojson }, turnout, primary] = await Promise.all([svc.loadAll(), loadMarqueeTurnout(), svc.loadPrimaryTurnout()]);
+    const [{ geojson }, turnout, primary] = await Promise.all([svc.loadAll(), loadTurnoutSignals(), svc.loadPrimaryTurnout()]);
     pg.features = geojson.features || [];
     pg.turnout = turnout;
     pg.primary = primary;
@@ -343,6 +394,12 @@ function headlineFor(id, m) {
       return { val: num(m.dropoff), label: "Non-voters" };
     case "mobilize-rep": case "mobilize-dem": case "low-turnout":
       return { val: pct(m.rate), label: "Turnout" };
+    case "net-vote-opportunity":
+      return { val: num(m.nvo), label: "Untapped supporters" };
+    case "elastic-gotv-dem": case "elastic-gotv-rep": case "winnable-elastic":
+      return { val: pct(m.elasticity), label: "Turnout swing" };
+    case "high-growth-register":
+      return { val: pct(m.regGrowth), label: "Roll growth" };
     case "diversifying":
       return { val: pct(m.nonWhite), label: "Non-white" };
     case "register":

@@ -134,6 +134,13 @@ describe('buildCampaignRows', () => {
     expect(byCode['3'].turnoutDropoff).toBeNull(); // no 2022 file row
   });
 
+  it('computes Net Vote Opportunity: party universe still home at the 2024 rate', () => {
+    expect(byCode['1'].nvo).toBe(Math.round(550 * (1 - 0.75))); // 138
+    expect(byCode['3'].nvo).toBe(Math.round(600 * (1 - 0.25))); // 450
+    const repRows = buildCampaignRows(records, raw, { t2024, t2022, tBase, party: 'Rep' });
+    expect(repRows.find((r) => r.precinct === '2').nvo).toBe(Math.round(240 * (1 - 0.5))); // 120
+  });
+
   it('classifies with the computed county median rate when none is given', () => {
     // rates .75/.50/.25 → median .50; precinct 3 (Dem, rate .25 < .50) → Turnout
     expect(byCode['3'].classification).toBe('Turnout');

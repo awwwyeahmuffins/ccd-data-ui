@@ -77,6 +77,18 @@ export const TERMS = {
     title: "Inactive voters",
     body: "Voters the county has marked inactive — usually after mailing a confirmation notice because their address may be out of date. They can still vote, but with extra steps. Updating the address online takes about two minutes and keeps their ballot smooth.",
   },
+  elasticity: {
+    title: "Turnout elasticity",
+    body: "How much a precinct's turnout swings between big elections (like a presidential year) and quiet ones (like a city or off-year election). A big swing means the voters are there — they just skip the small elections, so a reminder brings them out. A small swing means turnout is steady no matter what, so winning takes persuasion, not reminders.",
+  },
+  "net-vote-opportunity": {
+    title: "Net vote opportunity",
+    body: "Your own likely supporters who stayed home, not the raw number of supporters. A precinct with 800 supporters where 300 stay home is a better place to knock than one with 2,000 supporters who almost all vote already — the gap is where new votes come from.",
+  },
+  churn: {
+    title: "Roll growth / churn",
+    body: "How fast a precinct's voter list is changing — new subdivisions, apartments, and move-ins. Where the list is growing fast, last election's read goes stale quickly, and the first job is registering new residents and fixing addresses before any get-out-the-vote work.",
+  },
   "modeled-estimate": {
     title: "Modeled estimate",
     body: "A best estimate built from the precinct's overall totals, not a count of actual individual people. Use it to size the work, not as an exact list of names.",

@@ -1138,11 +1138,6 @@
       align-items: flex-start;
       margin-bottom: 12px;
     }
-    .chart-canvas-wrap {
-      width: 200px;
-      flex-shrink: 0;
-    }
-    .chart-canvas-wrap canvas { max-width: 100%; }
     .chart-stats-wrap {
       flex: 1;
       min-width: 0;
@@ -1332,6 +1327,34 @@
 
     .margin-trend {
       margin-top: 16px;
+    }
+    /* Turnout-over-cycles bars (time-series viz — CSS only, never a chart lib) */
+    .turnout-trend { margin-top: 20px; }
+    .turnout-trend-title {
+      font-size: 0.889rem; font-weight: 700; margin-bottom: 8px;
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .turnout-trend-swing {
+      font-size: 0.889rem; font-weight: 500; padding: 3px 10px;
+      border-radius: var(--radius-full); background: var(--bg-secondary); color: var(--text-secondary);
+    }
+    .turnout-trend-reg { font-size: 0.889rem; color: var(--text-secondary); margin: 0 0 10px; }
+    .turnout-trend-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .turnout-trend-label {
+      width: 92px; flex-shrink: 0; font-size: 0.889rem; color: var(--text-secondary); text-align: right;
+    }
+    .turnout-trend-track {
+      flex: 1; height: 22px; background: var(--bg-secondary); border-radius: 5px; overflow: hidden;
+    }
+    .turnout-trend-fill { height: 100%; background: var(--primary); border-radius: 5px; min-width: 2px; }
+    .turnout-trend-value {
+      width: 200px; flex-shrink: 0; font-size: 0.889rem; color: var(--text-primary);
+      text-align: right; font-variant-numeric: tabular-nums;
+    }
+    .turnout-trend-note { font-size: 0.8rem; color: var(--text-muted); margin: 8px 0 0; line-height: 1.45; }
+    @media (max-width: 768px) {
+      .turnout-trend-label { width: 60px; }
+      .turnout-trend-value { width: 128px; font-size: 0.8rem; }
     }
     .margin-trend-title {
       font-size: 0.889rem;
@@ -1801,7 +1824,6 @@
       .hero-precinct-code { font-size: 24px; }
       .hero-stat-value { font-size: 20px; }
       .chart-layout { flex-direction: column; }
-      .chart-canvas-wrap { width: 100%; max-width: 200px; margin: 0 auto; }
       .section-nav { padding: 0 16px; }
       .election-tab-bar { flex-wrap: nowrap; }
       .margin-trend-label { width: 100px; font-size: 0.889rem; }

@@ -39,11 +39,15 @@ import { fillFor, MAP_COSMETICS } from "./map/mapStyles.js";
 import { legendHTML } from "./map/legend.js";
 import { describePrecinct } from "./map/mapBins.js";
 
-// The three stackable range filters. Bounds for drop-off are widened to the
-// data's actual range at load (computeDropBounds) so narrowing is never lossy.
+// The stackable range filters. Fractional filters use STEP; `data:true` widens a
+// filter's bounds to the data's actual range at load (computeDataBounds) so
+// narrowing is never lossy. `count:true` marks an integer-count filter (its own
+// step + plain-number formatting + a 0 floor) — Net Vote Opportunity is a count,
+// not a share, so it can't share the fractional slider defaults.
 const FILTERS = [
   { id: "margin", key: "margin", label: "Partisan margin", lo: 0, hi: 1 },
-  { id: "drop", key: "turnoutDropoff", label: "Turnout drop-off (2024 → 2022)", lo: -0.5, hi: 0.75 },
+  { id: "drop", key: "turnoutDropoff", label: "Turnout drop-off (2024 → 2022)", lo: -0.5, hi: 0.75, data: true },
+  { id: "nvo", key: "nvo", label: "Net vote opportunity (untapped supporters)", lo: 0, hi: 1000, data: true, count: true, step: 10 },
   { id: "nw", key: "nonWhite", label: "Non-white population share", lo: 0, hi: 1 },
   { id: "canvass", key: "canvassShare", label: "Canvass coverage (Dem)", lo: 0, hi: 1 },
 ];
@@ -148,15 +152,19 @@ function rebuildRows() {
   camp.aggCache.clear();
 }
 
-// Widen the drop-off slider to the data's real range (rounded out to the step).
+// Widen every data-derived filter (drop-off, NVO) to the data's real range
+// (rounded out to that filter's step); count filters keep a 0 floor. Then seed
+// bounds + initial filter values for ALL specs.
 function computeDropBounds() {
-  const vals = camp.rows.map((r) => r.turnoutDropoff).filter((v) => v != null && !isNaN(v));
-  const f = FILTERS.find((x) => x.id === "drop");
-  if (vals.length) {
-    f.lo = Math.floor(Math.min(...vals) / STEP) * STEP;
-    f.hi = Math.ceil(Math.max(...vals) / STEP) * STEP;
-  }
   for (const spec of FILTERS) {
+    if (spec.data) {
+      const step = spec.step || STEP;
+      const vals = camp.rows.map((r) => r[spec.key]).filter((v) => v != null && !isNaN(v));
+      if (vals.length) {
+        spec.lo = spec.count ? 0 : Math.floor(Math.min(...vals) / step) * step;
+        spec.hi = Math.ceil(Math.max(...vals) / step) * step;
+      }
+    }
     camp.bounds[spec.id] = [spec.lo, spec.hi];
     if (!camp.filters[spec.id]) camp.filters[spec.id] = [spec.lo, spec.hi];
   }
@@ -335,6 +343,7 @@ function tableColumns() {
     first,
     { id: "winNumber", label: "Win number", pinned: true, cellClass: "num", format: fmtNum },
     { id: "voteGap", label: "Vote gap", cellClass: "num", format: fmtNum },
+    { id: "nvo", label: "Net vote opp.", cellClass: "num", format: fmtNum },
     { id: "classification", label: "Play", cellHTML: classificationCell },
     { id: "signedMargin", label: "Margin", cellClass: "num", format: fmtSignedPct },
     { id: "turnoutDropoff", label: "Drop-off", cellClass: "num", format: fmtSignedPct },
@@ -437,12 +446,12 @@ function renderFilters() {
         <legend>${escapeHtml(spec.label)} — <span class="fvals" id="cp-fval-${spec.id}"></span></legend>
         <div class="fpair">
           <label for="cp-${spec.id}-min">Min</label>
-          <input type="range" id="cp-${spec.id}-min" min="${blo}" max="${bhi}" step="${STEP}" value="${lo}"
+          <input type="range" id="cp-${spec.id}-min" min="${blo}" max="${bhi}" step="${spec.step || STEP}" value="${lo}"
                  aria-label="${escapeHtml(spec.label)} minimum" />
         </div>
         <div class="fpair">
           <label for="cp-${spec.id}-max">Max</label>
-          <input type="range" id="cp-${spec.id}-max" min="${blo}" max="${bhi}" step="${STEP}" value="${hi}"
+          <input type="range" id="cp-${spec.id}-max" min="${blo}" max="${bhi}" step="${spec.step || STEP}" value="${hi}"
                  aria-label="${escapeHtml(spec.label)} maximum" />
         </div>
       </fieldset>`;
@@ -476,6 +485,7 @@ function updateFilterReadout(spec) {
 }
 
 function fmtSignedRange(spec, v) {
+  if (spec.count) return fmtNum(v);
   return spec.id === "drop" ? fmtSignedPct(v) : fmtPct(v);
 }
 
@@ -535,6 +545,7 @@ function updateURL() {
         : camp.sorts.map((s) => `${s.key}:${s.dir}`).join(","),
     margin: rangeParam("margin"),
     drop: rangeParam("drop"),
+    nvo: rangeParam("nvo"),
     nw: rangeParam("nw"),
     canvass: rangeParam("canvass"),
   });
@@ -558,7 +569,7 @@ function readURL() {
       .filter(Boolean);
     if (sorts.length) camp.sorts = sorts;
   }
-  for (const id of ["margin", "drop", "nw", "canvass"]) {
+  for (const id of ["margin", "drop", "nvo", "nw", "canvass"]) {
     if (!p[id]) continue;
     const [lo, hi] = String(p[id]).split(":").map(Number);
     if (!isNaN(lo) && !isNaN(hi) && lo <= hi) pendingRanges[id] = [lo, hi];

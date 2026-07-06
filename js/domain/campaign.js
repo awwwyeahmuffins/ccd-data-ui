@@ -83,6 +83,9 @@ export function buildCampaignRows(records, raw, { t2024, t2022, tBase, party = "
     const win = winNumber(expectedBallots);
     const partyVotes = counts ? cnt(party === "Rep" ? counts.rep : counts.dem) : null;
     const voteGap = win != null && partyVotes != null ? win - partyVotes : null;
+    // Net Vote Opportunity: the selected party's modeled supporters still sitting
+    // home at the marquee turnout rate — the GOTV gap, not the raw supporter count.
+    const nvo = partyVotes != null && rate2024 != null ? Math.round(partyVotes * (1 - rate2024)) : null;
     const signedMargin =
       r.demShare != null && r.repShare != null
         ? party === "Rep"
@@ -103,6 +106,7 @@ export function buildCampaignRows(records, raw, { t2024, t2022, tBase, party = "
       winNumber: win,
       partyVotes,
       voteGap,
+      nvo,
       signedMargin,
       rate2024,
       rateMidterm,
@@ -205,6 +209,7 @@ export function aggregateByDistrict(rows, memberOf, labels, { party = "Dem", med
     const win = winNumber(expected);
     const partyVotes = party === "Rep" ? rep : dem;
     const voteGap = win != null && partyVotes != null ? win - partyVotes : null;
+    const nvo = partyVotes != null && rate2024 != null ? Math.round(partyVotes * (1 - rate2024)) : null;
     const canvassShare =
       canvassDem != null && canvassDem > 0 && canvassed != null ? canvassed / canvassDem : null;
 
@@ -231,6 +236,7 @@ export function aggregateByDistrict(rows, memberOf, labels, { party = "Dem", med
       winNumber: win,
       partyVotes,
       voteGap,
+      nvo,
       canvassShare,
       canvassed,
       classification: classifyPrecinct(

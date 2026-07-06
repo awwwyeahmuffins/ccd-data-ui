@@ -19,6 +19,8 @@ import { SOS_ADDRESS_CHANGE_URL } from "./lib/constants.js";
 import {
   turnoutBands,
   buildUniverseMatrix,
+  matrixRoleAdvice,
+  churnAdvisory,
   classifyChairFocus,
   estimateVolunteerPool,
   summarizeInactive,
@@ -93,6 +95,10 @@ async function loadTurnoutPair() {
       } catch { /* skip a bad turnout file */ }
     }
     if (!loaded.length) return null;
+    // Registration growth / churn: registered totals in the earliest vs latest
+    // turnout YEAR on file (parsed from the filename; county-agnostic). Built
+    // before the by-ballots sort so ordering here doesn't matter.
+    const growth = buildGrowthLookup(loaded);
     loaded.sort((a, b) => b.sum - a.sum);
     const toLookup = (rows) => {
       const lookup = {};
@@ -112,6 +118,7 @@ async function loadTurnoutPair() {
       marqueeLabel: turnoutFileLabel(marquee.file),
       low: low ? toLookup(low.rows) : null,
       lowLabel: low ? turnoutFileLabel(low.file) : null,
+      growth,
     };
   } catch {
     return null;
@@ -120,6 +127,38 @@ async function loadTurnoutPair() {
 function turnoutFileLabel(file) {
   const m = String(file).match(/(\d{4}(?:-\d+)?)/);
   return m ? `the ${m[1]} election` : "an election on file";
+}
+
+// Per-precinct roll growth: (regLast − regFirst) / regFirst between the earliest
+// and latest turnout years on file. Null per precinct when either endpoint is
+// missing — never fabricated. Returns null when fewer than two years exist.
+function buildGrowthLookup(loaded) {
+  const withYear = loaded
+    .map((l) => ({ ...l, year: yearOf(l.file) }))
+    .filter((l) => l.year != null)
+    .sort((a, b) => a.year - b.year);
+  if (withYear.length < 2) return null;
+  const first = withYear[0];
+  const last = withYear[withYear.length - 1];
+  if (first.year === last.year) return null;
+  const regAt = (file) => {
+    const m = {};
+    for (const r of file.rows) if (r.precinct && !isNaN(r.registered)) m[r.precinct] = r.registered;
+    return m;
+  };
+  const regFirst = regAt(first);
+  const regLast = regAt(last);
+  const growth = {};
+  for (const code of Object.keys(regLast)) {
+    const a = regFirst[code];
+    const b = regLast[code];
+    growth[code] = a != null && a > 0 && b != null ? (b - a) / a : null;
+  }
+  return growth;
+}
+function yearOf(file) {
+  const m = String(file).match(/(\d{4})/g);
+  return m ? +m[m.length - 1] : null;
 }
 
 // ---- URL / init ---------------------------------------------------------------
@@ -206,6 +245,7 @@ function render() {
     : null;
 
   const matrix = buildUniverseMatrix({ party, bands });
+  const churn = churnAdvisory(ch.turnout?.growth ? ch.turnout.growth[code] : null);
   const focus = classifyChairFocus({ party, bands });
   const volunteers = estimateVolunteerPool({ party, bands });
   const inactive = summarizeInactive(ch.fieldOps ? ch.fieldOps[code] : null);
@@ -229,7 +269,9 @@ function render() {
 
   $("chair-precinct-title").textContent = formatPrecinctLabel(feature.properties);
   renderFocus(focus);
+  renderChurn(churn);
   renderMatrix(matrix, bands);
+  renderMatrixActions(matrix);
   renderTargets(party, volunteers);
   renderInactive(inactive, snippet);
   renderVoting(nearest, centers);
@@ -318,6 +360,33 @@ function turnoutCaption(bands) {
   return `${ch.turnout.marqueeLabel} vs ${ch.turnout.lowLabel}`;
 }
 
+// The Static-Universe advisory: only shown for fast-growing precincts.
+function renderChurn(churn) {
+  const el = $("chair-churn");
+  if (!churn) { el.hidden = true; el.innerHTML = ""; return; }
+  el.hidden = false;
+  el.innerHTML =
+    `<b>${escapeHtml(churn.title)} (roll grew ~${churn.growthPct}%)</b>` +
+    `<span>${escapeHtml(churn.body)} <button type="button" class="term" data-term="churn" aria-haspopup="dialog">What's this?<span class="term-mark" aria-hidden="true">ⓘ</span></button></span>`;
+}
+
+// The 3x3 grid's "what to do" plan — one prescriptive card per highlighted role,
+// highest-ROI (GOTV) first. Modeled counts; the grid's own caveats still apply.
+function renderMatrixActions(matrix) {
+  const el = $("chair-matrix-actions");
+  const advice = matrixRoleAdvice(matrix ? matrix.roles : null);
+  if (!advice.length) { el.innerHTML = ""; return; }
+  el.innerHTML = advice
+    .map(
+      (a) =>
+        `<div class="chair-action role-${a.role}">` +
+        `<div class="chair-action-count">${formatNumberOrNA(a.count)}</div>` +
+        `<div class="chair-action-body"><b>${escapeHtml(a.title)}</b><span>${escapeHtml(a.body)}</span></div>` +
+        `</div>`
+    )
+    .join("");
+}
+
 function renderTargets(party, volunteers) {
   const el = $("chair-targets");
   const strongDem =
@@ -338,7 +407,7 @@ function renderTargets(party, volunteers) {
 function renderInactive(inactive, snippet) {
   const sub = $("chair-inactive-sub");
   const el = $("chair-inactive");
-  sub.innerHTML = `Voters marked ${termButton("inactive", "inactive")} usually just need an address update — an easy, high-value door.`;
+  sub.innerHTML = `Voters marked ${termButton("inactive", "inactive")} usually just need an address update — an easy, high-value door. (Collin County has no separate “suspense” list; this is the county's inactive-voter count.)`;
 
   const stat = inactive
     ? `<div class="chair-stat"><span class="chair-stat-val">${formatNumberOrNA(inactive.count)}</span>` +

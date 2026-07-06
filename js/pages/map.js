@@ -1283,6 +1283,73 @@ function wireUI() {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") { closeRaceMenu(); $("cc-dock").classList.remove("open"); }
   });
+
+  setupThumbBar();
+  wireReadoutSheet();
+}
+
+// Mobile "thumb zone": on a phone the frequent map actions (Map|List toggle,
+// the Lean/Margin/Diversity mode switch, and 📍 My location) sit at the TOP of
+// the screen — out of reach one-handed. Relocate those three control NODES into
+// a fixed bottom bar so they land under the thumb. Desktop and iPad (≥761px) are
+// untouched. Decided ONCE at init, mirroring the legend-collapse idiom above —
+// the page never re-flows on resize; a resize/orientation re-home is a possible
+// follow-up. Safe because every control is wired by id or delegated on the whole
+// #cc-modes node (see wireUI): moving the nodes keeps all listeners live, and
+// the mode buttons stay inside #cc-modes. The bar's measured height feeds the
+// --cc-thumbbar-h CSS var so the floating legend/readout clear it when it wraps.
+function setupThumbBar() {
+  if (!window.matchMedia || !window.matchMedia("(max-width: 760px)").matches) return;
+  const topbar = document.querySelector(".cc-topbar");
+  const viewToggle = document.querySelector(".cc-view-toggle");
+  const modes = $("cc-modes");
+  const locate = $("cc-locate-btn");
+  if (!topbar || !viewToggle || !modes || !locate) return;
+
+  const bar = document.createElement("div");
+  bar.className = "cc-thumbbar backplate";
+  bar.id = "cc-thumbbar";
+  // Insert right after the top strip so keyboard/tab order stays
+  // header → top strip → thumb actions → map → legend.
+  topbar.insertAdjacentElement("afterend", bar);
+  // Order in the bar: view switch, map-layer switch, locate.
+  bar.append(viewToggle, modes, locate);
+  document.body.classList.add("cc-has-thumbbar");
+
+  // Keep --cc-thumbbar-h current as the bar wraps/unwraps.
+  const setH = () =>
+    document.documentElement.style.setProperty("--cc-thumbbar-h", `${bar.offsetHeight}px`);
+  setH();
+  if (window.ResizeObserver) new ResizeObserver(setH).observe(bar);
+}
+
+// On phones the readout is a bottom sheet with a grab handle: drag it UP to open
+// the full detail dock, DOWN to dismiss — the natural bottom-sheet gesture, with
+// the map staying visible behind. The handle is a real button, so keyboard users
+// get the same "full details" action via Enter/Space. No-op on desktop (the
+// handle is display:none and the card keeps its compact form).
+function wireReadoutSheet() {
+  const handle = $("cc-readout-handle");
+  if (!handle) return;
+  const THRESH = 36; // px of intentional drag before we act
+  let startY = null;
+  const begin = (y) => { startY = y; };
+  const finish = (y) => {
+    if (startY == null || y == null) { startY = null; return; }
+    const dy = y - startY;
+    startY = null;
+    if (dy > THRESH) { cc.readoutDismissed = cc.selectedCode; hideReadout(); }
+    else if (dy < -THRESH) { $("cc-readout-more").click(); }
+  };
+  handle.addEventListener("touchstart", (e) => begin(e.touches[0]?.clientY), { passive: true });
+  handle.addEventListener("touchend", (e) => finish(e.changedTouches[0]?.clientY), { passive: true });
+  // Mouse/trackpad drag (non-touch pointers only, so touch isn't double-counted).
+  handle.addEventListener("pointerdown", (e) => { if (e.pointerType !== "touch") begin(e.clientY); });
+  handle.addEventListener("pointerup", (e) => { if (e.pointerType !== "touch") finish(e.clientY); });
+  // Keyboard: the handle opens full details (drag-down dismiss has the ✕ button).
+  handle.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $("cc-readout-more").click(); }
+  });
 }
 
 // =============================================================================

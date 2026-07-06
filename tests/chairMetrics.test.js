@@ -9,6 +9,8 @@ import { describe, it, expect } from '@jest/globals';
 import {
   turnoutBands,
   buildUniverseMatrix,
+  matrixRoleAdvice,
+  churnAdvisory,
   classifyChairFocus,
   estimateVolunteerPool,
   summarizeInactive,
@@ -62,6 +64,44 @@ describe('turnoutBands', () => {
     expect(turnoutBands({ marquee: { registered: 0, ballots: 0 } })).toBeNull();
     expect(turnoutBands({ marquee: { registered: 500 } })).toBeNull();
     expect(turnoutBands()).toBeNull();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// matrixRoleAdvice — the strategic ROI verdicts
+// ---------------------------------------------------------------------------
+describe('matrixRoleAdvice', () => {
+  it('returns a verdict per non-empty role, GOTV first, base last', () => {
+    const advice = matrixRoleAdvice({ base: 100, gotv: 250, persuasion: 40 });
+    expect(advice.map((a) => a.role)).toEqual(['gotv', 'persuasion', 'base']);
+    expect(advice[0].count).toBe(250);
+    expect(typeof advice[0].title).toBe('string');
+    expect(typeof advice[0].body).toBe('string');
+  });
+  it('omits roles with a null or zero total', () => {
+    const advice = matrixRoleAdvice({ base: 0, gotv: 250, persuasion: null });
+    expect(advice.map((a) => a.role)).toEqual(['gotv']);
+  });
+  it('returns [] when there is no roles object', () => {
+    expect(matrixRoleAdvice(null)).toEqual([]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// churnAdvisory — the Static-Universe banner
+// ---------------------------------------------------------------------------
+describe('churnAdvisory', () => {
+  it('flags fast-growing rolls at or above the threshold', () => {
+    const a = churnAdvisory(0.18);
+    expect(a).not.toBeNull();
+    expect(a.growthPct).toBe(18);
+    expect(a.title).toMatch(/register/i);
+  });
+  it('stays quiet for stable, shrinking, or unknown rolls', () => {
+    expect(churnAdvisory(0.05)).toBeNull();
+    expect(churnAdvisory(-0.2)).toBeNull();
+    expect(churnAdvisory(null)).toBeNull();
+    expect(churnAdvisory(NaN)).toBeNull();
   });
 });
 

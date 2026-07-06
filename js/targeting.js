@@ -27,32 +27,79 @@ export const STRATEGY_CATEGORIES = [
 
 // Build the normalized metric bundle a strategy scores. Returns null when a
 // precinct has no modeled party data (can't be targeted on partisan terms).
+//
+// `turnout` is the precinct's marquee row `{ registered, ballots }` and MAY
+// carry optional cross-election signals the targets loader fills in:
+//   highRate / lowRate — the precinct's best & worst turnout rate across the
+//     turnout files on file (drives Turnout Elasticity — how much a precinct's
+//     turnout fluctuates between high- and low-propensity elections).
+//   regFirst / regLast — registered totals in the earliest & latest turnout
+//     years on file (drives registration growth / churn).
+// All are optional: absent → the derived field is null (never fabricated).
 export function derivePrecinctMetrics(p, turnout, primary) {
   if (p == null || p.repShare == null || isNaN(p.repShare) || !p.winningParty) return null;
   const repShare = +p.repShare;
   const demShare = +p.demShare;
   const modShare = +(p.modShare || 0);
-  const votes = (+p.rep || 0) + (+p.mod || 0) + (+p.dem || 0);
+  const demCount = +p.dem || 0;
+  const repCount = +p.rep || 0;
+  const votes = repCount + (+p.mod || 0) + demCount;
   const reg = turnout && turnout.registered != null && !isNaN(turnout.registered) ? +turnout.registered : null;
   const bal = turnout && turnout.ballots != null && !isNaN(turnout.ballots) ? +turnout.ballots : null;
+  const rate = reg && reg > 0 && bal != null ? bal / reg : null;
+
+  // Turnout elasticity: the spread between the precinct's best and worst turnout
+  // rate on file. High = "the voters exist, they just skip low-salience
+  // elections" → prime GOTV. Low (inelastic) = turnout is rock-solid every year
+  // → winning here needs persuasion, not reminders. Null unless BOTH rates known.
+  const highRate = numOrNull(turnout?.highRate);
+  const lowRate = numOrNull(turnout?.lowRate);
+  const elasticity = highRate != null && lowRate != null ? Math.max(0, highRate - lowRate) : null;
+
+  // Net Vote Opportunity: modeled party universe still sitting home at the
+  // marquee turnout rate — the gap campaigns actually target, not raw registration.
+  const nvoDem = rate != null ? Math.round(demCount * (1 - rate)) : null;
+  const nvoRep = rate != null ? Math.round(repCount * (1 - rate)) : null;
+  const lean = repShare - demShare;
+  const nvo = lean < 0 ? nvoDem : lean > 0 ? nvoRep : (nvoDem != null && nvoRep != null ? Math.max(nvoDem, nvoRep) : null);
+
+  // Registration growth / churn: how much the roll has changed across cycles.
+  // High growth in booming suburbs means the 2024 partisan snapshot decays fast
+  // — register/address-update work must come before standard GOTV. Null unless
+  // two registration snapshots exist.
+  const regFirst = numOrNull(turnout?.regFirst);
+  const regLast = numOrNull(turnout?.regLast);
+  const regGrowth = regFirst != null && regFirst > 0 && regLast != null ? (regLast - regFirst) / regFirst : null;
+
   return {
     code: String(p.PRECINCT),
     winner: p.winningParty,
     repShare,
     demShare,
     modShare,
-    lean: repShare - demShare,           // >0 Rep, <0 Dem
+    lean,                                // >0 Rep, <0 Dem
     margin: Math.abs(repShare - demShare), // 0 = tossup, 1 = landslide
     strength: +p.partyStrength || 0,
     votes,
+    demCount,
+    repCount,
     pop: p.total != null && !isNaN(p.total) ? +p.total : null,
     nonWhite: p.pct_white != null && !isNaN(p.pct_white) ? 1 - +p.pct_white : null,
     registered: reg,
     ballots: bal,
-    rate: reg && reg > 0 && bal != null ? bal / reg : null,
+    rate,
     dropoff: reg != null && bal != null ? Math.max(0, reg - bal) : null,
+    elasticity,
+    nvoDem,
+    nvoRep,
+    nvo,
+    regGrowth,
     ...derivePrimaryMetrics(primary),
   };
+}
+
+function numOrNull(v) {
+  return v == null || isNaN(v) ? null : +v;
 }
 
 // Party-primary ballots (official county reports): earliest vs latest cycle on
@@ -117,6 +164,12 @@ export const STRATEGIES = [
     score: (m) => m.modShare * (m.votes || 1),
     explain: (m) => `${num(m.modShare * (m.votes || 0))} moderates · ${pct(m.modShare)}`,
   },
+  {
+    id: "winnable-elastic", cat: "flip", icon: "target", label: "Winnable & Not Maxed Out", needs: ["turnout"], metricLabel: "Room to move",
+    blurb: "The tight-margin fix: close races where turnout still has room to grow — a thin margin multiplied by turnout elasticity. Skips the maxed-out trench wars where every mind is made up.",
+    score: (m) => (m.elasticity != null ? (1 - m.margin) * m.elasticity : null),
+    explain: (m) => `${m.winner} +${pct(m.margin)} · turnout swings ${pct(m.elasticity)} between elections`,
+  },
 
   // ---- B. MOBILIZE & TURN OUT (need turnout) ---------------------------------
   {
@@ -155,6 +208,24 @@ export const STRATEGIES = [
     score: (m) => m.primaryRepGrowth,
     explain: (m) => `${num(m.primaryRepFirst)} → ${num(m.primaryRepNow)} Rep primary ballots (${m.primaryFirstYear}→${m.primaryLastYear})`,
   },
+  {
+    id: "net-vote-opportunity", cat: "turnout", icon: "trend", label: "Net Vote Opportunity", needs: ["turnout"], metricLabel: "Untapped supporters",
+    blurb: "The Big-Blue-Block fix: the leading party's modeled supporters who still sat home — targets the GAP between your voters and your turnout, not the raw registration count. A precinct with fewer supporters but a bigger gap beats a big block that already all votes.",
+    score: (m) => m.nvo,
+    explain: (m) => `${num(m.nvo)} ${m.lean < 0 ? "Dem" : "Rep"} supporters home · ${pct(m.rate)} turnout`,
+  },
+  {
+    id: "elastic-gotv-dem", cat: "turnout", icon: "dem", label: "Elastic Dem GOTV", needs: ["turnout"], metricLabel: "Elastic Dem voters",
+    blurb: "Dem-leaning precincts whose turnout swings hardest between big and small elections — the voters exist, they just skip the off-years. The highest-ROI door-knocks in the final 30 days.",
+    score: (m) => (m.lean < 0 && m.elasticity != null ? m.elasticity * m.demShare * (m.registered || m.votes || 0) : null),
+    explain: (m) => `Dem ${pct(m.demShare)} · turnout swings ${pct(m.elasticity)} between elections`,
+  },
+  {
+    id: "elastic-gotv-rep", cat: "turnout", icon: "rep", label: "Elastic Rep GOTV", needs: ["turnout"], metricLabel: "Elastic Rep voters",
+    blurb: "Rep-leaning precincts whose turnout swings hardest between big and small elections — untapped base that shows up for presidentials but skips the off-years.",
+    score: (m) => (m.lean > 0 && m.elasticity != null ? m.elasticity * m.repShare * (m.registered || m.votes || 0) : null),
+    explain: (m) => `Rep ${pct(m.repShare)} · turnout swings ${pct(m.elasticity)} between elections`,
+  },
 
   // ---- C. GROW THE ELECTORATE ------------------------------------------------
   {
@@ -168,6 +239,12 @@ export const STRATEGIES = [
     blurb: "The largest gap between residents and registered voters — the most room to register new voters.",
     score: (m) => (m.pop != null && m.registered != null ? Math.max(0, m.pop - m.registered) : null),
     explain: (m) => `~${num(Math.max(0, (m.pop || 0) - (m.registered || 0)))} unregistered residents`,
+  },
+  {
+    id: "high-growth-register", cat: "demo", icon: "pen", label: "Fast-Growing Turf", needs: ["turnout"], metricLabel: "Roll growth",
+    blurb: "The Static-Universe fix: precincts whose voter roll grew the most across cycles. New subdivisions and high turnover mean the old partisan read decays fast — run registration and address-update work here before standard GOTV.",
+    score: (m) => (m.regGrowth != null && m.regGrowth > 0 ? m.regGrowth : null),
+    explain: (m) => `Roll grew ${pct(m.regGrowth)} across cycles · verify addresses first`,
   },
 
   // ---- D. LEVERAGE & EFFICIENCY ----------------------------------------------

@@ -93,6 +93,27 @@
     .chair-matrix-totals { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 14px; }
     .chair-matrix-totals .chair-stat { margin-bottom: 0; }
 
+    /* ---- ROI action plan (per role) ---- */
+    .chair-actions { display: grid; gap: 10px; margin-top: 16px; }
+    .chair-action {
+      display: flex; gap: 12px; align-items: flex-start;
+      border: 1px solid var(--color-border); border-left-width: 6px; border-radius: 8px; padding: 12px 14px;
+      background: var(--color-bg-tertiary);
+    }
+    .chair-action.role-base { border-left-color: #27408B; }
+    .chair-action.role-gotv { border-left-color: #27408B; }
+    .chair-action.role-persuasion { border-left-color: #5E2A7E; }
+    .chair-action-count { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; min-width: 92px; }
+    .chair-action-body b { display: block; }
+    .chair-action-body span { color: var(--color-text-secondary); }
+
+    /* ---- churn / fast-growth advisory banner ---- */
+    .chair-churn {
+      border: 1px solid #8a6d1a; border-left-width: 6px; border-radius: 8px;
+      background: #fbf5e3; color: #4a3c0d; padding: 12px 16px; margin: 0 0 22px; max-width: 900px;
+    }
+    .chair-churn b { display: block; margin-bottom: 2px; }
+
     /* ---- inactive share block ---- */
     .chair-share-box {
       background: var(--color-bg-tertiary); border: 1px solid var(--color-border); border-radius: 10px;
@@ -154,10 +175,13 @@
       </div>
       <p id="chair-focus-why" class="chair-focus-why"></p>
 
+      <div id="chair-churn" class="chair-churn" role="note" hidden></div>
+
       <section class="chair-card" aria-labelledby="chair-matrix-title" style="margin-bottom:16px;">
         <h3 id="chair-matrix-title">Canvassing universes</h3>
         <p class="chair-card-sub" id="chair-matrix-sub"></p>
-        <div id="chair-matrix" class="chair-matrix-wrap"></div>
+        <div id="chair-matrix" class="chair-matrix-wrap" tabindex="0" role="group" aria-label="Canvassing universes grid — scroll sideways to see all voting-habit columns"></div>
+        <div id="chair-matrix-actions" class="chair-actions"></div>
       </section>
 
       <div class="chair-grid">

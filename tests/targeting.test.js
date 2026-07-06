@@ -60,6 +60,52 @@ describe("derivePrecinctMetrics", () => {
     expect(m.rate).toBeCloseTo(0.6, 5);
     expect(m.dropoff).toBe(800);
   });
+  test("elasticity is the high/low turnout-rate spread, null without both rates", () => {
+    expect(derivePrecinctMetrics(p(), { registered: 2000, ballots: 1200 }).elasticity).toBeNull();
+    const m = derivePrecinctMetrics(p(), { registered: 2000, ballots: 1200, highRate: 0.7, lowRate: 0.3 });
+    expect(m.elasticity).toBeCloseTo(0.4, 5);
+    // never negative even if the loader crosses them
+    expect(derivePrecinctMetrics(p(), { highRate: 0.2, lowRate: 0.5 }).elasticity).toBe(0);
+  });
+  test("NVO is party universe still home at the marquee rate, from the leading party", () => {
+    // dem 800 leads (demShare .35 vs repShare .43 → Rep leads here), rate .6
+    const m = derivePrecinctMetrics(p(), { registered: 2000, ballots: 1200 });
+    expect(m.nvoDem).toBe(Math.round(800 * 0.4)); // 320
+    expect(m.nvoRep).toBe(Math.round(1000 * 0.4)); // 400
+    expect(m.nvo).toBe(m.nvoRep); // Rep leads (lean > 0) → Rep NVO
+    expect(derivePrecinctMetrics(p(), null).nvo).toBeNull(); // no rate → null
+  });
+  test("regGrowth is the registration delta across years, null without both endpoints", () => {
+    expect(derivePrecinctMetrics(p(), { registered: 2000, ballots: 1200 }).regGrowth).toBeNull();
+    const m = derivePrecinctMetrics(p(), { regFirst: 1000, regLast: 1200 });
+    expect(m.regGrowth).toBeCloseTo(0.2, 5);
+  });
+});
+
+describe("elasticity / NVO / churn strategies", () => {
+  const withSignals = (over) =>
+    derivePrecinctMetrics(
+      p({ repShare: 0.30, demShare: 0.55, winningParty: "Dem", ...over }),
+      { registered: 2000, ballots: 1000, highRate: 0.7, lowRate: 0.3, regFirst: 1000, regLast: 1300 }
+    );
+  test("winnable-elastic scores close + elastic, null without elasticity", () => {
+    const s = getStrategy("winnable-elastic");
+    expect(s.score(withSignals())).toBeGreaterThan(0);
+    expect(s.score(derivePrecinctMetrics(p(), { registered: 2000, ballots: 1000 }))).toBeNull();
+  });
+  test("elastic-gotv-dem only scores Dem-leaning precincts with elasticity", () => {
+    expect(getStrategy("elastic-gotv-dem").score(withSignals())).toBeGreaterThan(0);
+    expect(getStrategy("elastic-gotv-dem").score(withSignals({ repShare: 0.6, demShare: 0.3, winningParty: "Rep" }))).toBeNull();
+  });
+  test("net-vote-opportunity scores the leading party's untapped supporters", () => {
+    expect(getStrategy("net-vote-opportunity").score(withSignals())).toBeGreaterThan(0);
+  });
+  test("high-growth-register scores positive roll growth only", () => {
+    expect(getStrategy("high-growth-register").score(withSignals())).toBeCloseTo(0.3, 5);
+    expect(getStrategy("high-growth-register").score(withSignals({}))).toBeGreaterThan(0);
+    const flat = derivePrecinctMetrics(p(), { regFirst: 1000, regLast: 1000 });
+    expect(getStrategy("high-growth-register").score(flat)).toBeNull();
+  });
 });
 
 describe("flip strategies respect the current winner", () => {

@@ -101,6 +101,10 @@ async function loadData() {
     populateMetricSelects();
     renderViewTabs();
     renderColumnsPicker();
+    // Reflect any URL-restored party + filter conditions before first paint.
+    pg.conditions = pg.conditions.filter((c) => pg.available.has(c.key));
+    $("ex-party").value = pg.party;
+    renderChips();
     render();
   } catch (err) {
     console.error("[Explore] load failed:", err);
@@ -278,14 +282,36 @@ function renderChips() {
   }).join("");
   $("ex-chips").innerHTML = partyChip + condChips;
   $("ex-chips").querySelectorAll("button[data-cond]").forEach((b) =>
-    b.addEventListener("click", () => { pg.conditions.splice(+b.dataset.cond, 1); renderChips(); render(); }));
+    b.addEventListener("click", () => { pg.conditions.splice(+b.dataset.cond, 1); renderChips(); updateURL(); render(); }));
   const pc = $("ex-chips").querySelector("button[data-clear='party']");
-  if (pc) pc.addEventListener("click", () => { pg.party = "all"; $("ex-party").value = "all"; renderChips(); render(); });
+  if (pc) pc.addEventListener("click", () => { pg.party = "all"; $("ex-party").value = "all"; renderChips(); updateURL(); render(); });
 }
 
 // ---- URL sync — via the one urlState vocabulary (§5.3) -----------------------
+// Party + stacked filter conditions are encoded too, so a filtered Data Table
+// view is a shareable/bookmarkable link (parity with the campaign dashboard).
+// Conditions serialize as `key:op:value` tokens joined by commas.
+function encodeConditions(conds) {
+  return conds.map((c) => `${c.key}:${c.op}:${c.value}`).join(",");
+}
+function decodeConditions(str) {
+  return String(str)
+    .split(",")
+    .map((tok) => {
+      const [key, op, value] = tok.split(":");
+      if (!getMetric(key) || (op !== "gte" && op !== "lte") || value === "" || isNaN(+value)) return null;
+      return { key, op, value: +value };
+    })
+    .filter(Boolean);
+}
 function updateURL() {
-  writeParams({ view: pg.view, sort: pg.sortKey, dir: pg.sortDir });
+  writeParams({
+    view: pg.view,
+    sort: pg.sortKey,
+    dir: pg.sortDir,
+    party: pg.party !== "all" ? pg.party : null,
+    filters: pg.conditions.length ? encodeConditions(pg.conditions) : null,
+  });
 }
 function readURL() {
   const params = readParams();
@@ -294,6 +320,8 @@ function readURL() {
   if (params.view) pg.view = params.view;
   if (params.sort && getMetric(params.sort)) pg.sortKey = params.sort;
   if (params.dir === "asc" || params.dir === "desc") pg.sortDir = params.dir;
+  if (params.party) pg.party = params.party;
+  if (params.filters) pg.conditions = decodeConditions(params.filters);
 }
 
 // ---- boot -------------------------------------------------------------------
@@ -301,7 +329,7 @@ async function init() {
   readURL();
   $("ex-sort").addEventListener("change", (e) => { pg.sortKey = e.target.value; if (!pg.columns.includes(pg.sortKey)) pg.columns.push(pg.sortKey); renderColumnsPicker(); updateURL(); render(); });
   $("ex-dir").addEventListener("click", () => { pg.sortDir = pg.sortDir === "desc" ? "asc" : "desc"; applyDirLabel(); updateURL(); render(); });
-  $("ex-party").addEventListener("change", (e) => { pg.party = e.target.value; renderChips(); render(); });
+  $("ex-party").addEventListener("change", (e) => { pg.party = e.target.value; renderChips(); updateURL(); render(); });
   $("ex-addfilter").addEventListener("click", () => {
     const key = $("ex-fmetric").value;
     const op = $("ex-fop").value;
@@ -313,6 +341,7 @@ async function init() {
       pg.conditions.push({ key, op, value });
       $("ex-fval").value = "";
       renderChips();
+      updateURL();
       render();
     }
   });

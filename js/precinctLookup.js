@@ -1,7 +1,8 @@
 // precinctLookup.js
 // --------------------------------------------------------------------------------
 // Precinct Lookup page orchestration — search, report rendering, mini map,
-// Chart.js charts, county comparisons, section navigation.
+// CSS-bar visualizations (margin trend, turnout gap), county comparisons,
+// section navigation. No charting library — every viz is hand-rolled HTML/CSS.
 
 import { boundary } from "./data/dataService.js";
 import { findPrecinctForAddress, findPrecinctForPoint, TEXAS_VIEWBOX } from "./geoLookup.js";
@@ -507,6 +508,7 @@ async function selectPrecinct(code) {
   renderStrategyDetail(strategyResult);
 
   renderMarginTrend(code, allElectionData, manifest);
+  renderTurnoutTrend(code);
   renderTurnoutGap(code, votingHistory, partyData, allElectionData, manifest);
   renderTalkingPoints(code, census, partyData, racialData, votingHistory, pviResult, strategyResult);
   renderStrategicIntelligence(code);
@@ -1508,6 +1510,73 @@ function renderMarginTrend(precinctCode, allElectionData, manifest) {
   let existingTrend = el.parentElement.querySelector('.margin-trend');
   if (existingTrend) existingTrend.remove();
   el.insertAdjacentHTML('beforebegin', html);
+}
+
+// ---------------------------------------------------------------------------
+// Turnout over cycles — real ballots/registered per election on file, drawn as
+// horizontal CSS bars (no chart library). Visualizes the precinct's turnout
+// elasticity (how far turnout swings between high-salience presidential and
+// low-salience municipal/primary elections) and its registration growth/churn.
+// ---------------------------------------------------------------------------
+async function renderTurnoutTrend(precinctCode) {
+  const host = document.getElementById('section-election-history');
+  if (!host) return;
+  let races;
+  try { races = await svc.listRaces(); } catch { return; }
+  const files = [...new Set((races || []).map((e) => e.turnoutFile).filter(Boolean))];
+  if (files.length < 2) return; // need at least two cycles to show a trend
+
+  const points = [];
+  for (const f of files) {
+    let lookup;
+    try { lookup = await svc.loadTurnoutLookup(f); } catch { continue; }
+    const row = lookup && lookup[String(precinctCode)];
+    if (!row || !(row.registered > 0) || row.ballots == null) continue; // never fabricate
+    const m = String(f).match(/(\d{4})(?:-(\d+))?/);
+    const year = m ? parseInt(m[1], 10) : 0;
+    const sub = m && m[2] ? parseInt(m[2], 10) : 0;
+    points.push({
+      key: year * 10 + sub,
+      label: m ? (m[2] ? `${m[1]} · #${m[2]}` : m[1]) : String(f),
+      rate: row.ballots / row.registered,
+      ballots: row.ballots,
+      registered: row.registered,
+    });
+  }
+  if (points.length < 2) return;
+  points.sort((a, b) => a.key - b.key);
+
+  const rates = points.map((p) => p.rate);
+  const swingPts = Math.round((Math.max(...rates) - Math.min(...rates)) * 100);
+  const first = points[0];
+  const last = points[points.length - 1];
+  const regDelta = last.registered - first.registered;
+  const regPct = first.registered > 0 ? Math.round((regDelta / first.registered) * 100) : null;
+
+  let html = '<div class="turnout-trend">';
+  html += `<div class="turnout-trend-title"><span>Turnout by election</span>` +
+    `<span class="turnout-trend-swing">Swings ${swingPts} pts between elections</span></div>`;
+  if (regPct != null && Math.abs(regPct) >= 1) {
+    const dir = regDelta > 0 ? 'grew' : 'shrank';
+    html += `<p class="turnout-trend-reg">Registered voters ${dir} ${Math.abs(regPct)}% since ${escapeHtml(first.label)} ` +
+      `(${formatNum(first.registered)} → ${formatNum(last.registered)}).</p>`;
+  }
+  for (const p of points) {
+    const pct = Math.round(p.rate * 100);
+    html += '<div class="turnout-trend-row">';
+    html += `<div class="turnout-trend-label">${escapeHtml(p.label)}</div>`;
+    html += `<div class="turnout-trend-track"><div class="turnout-trend-fill" style="width:${Math.min(100, pct)}%"></div></div>`;
+    html += `<div class="turnout-trend-value">${pct}% · ${formatNum(p.ballots)} of ${formatNum(p.registered)}</div>`;
+    html += '</div>';
+  }
+  html += '<p class="turnout-trend-note">Real ballots cast ÷ registered voters, per election on file. ' +
+    'Big swings mean the voters exist but skip low-turnout elections (get-out-the-vote turf); ' +
+    'steady turnout means winning takes persuasion.</p>';
+  html += '</div>';
+
+  const existing = host.parentElement.querySelector('.turnout-trend');
+  if (existing) existing.remove();
+  host.insertAdjacentHTML('beforebegin', html);
 }
 
 // ---------------------------------------------------------------------------

@@ -49,12 +49,70 @@ export function createMapView({ containerId, useCanvas = false }) {
     maxZoom: 19,
   }).addTo(map);
 
+  enableTwoFingerPan(map, mapEl);
+
   return {
     map,
     renderer,
     tiles,
     svgRoot: () => (useCanvas ? null : renderer._container || null),
   };
+}
+
+/**
+ * Solve the mobile "scroll trap": on touch devices a one-finger drag over a
+ * full-bleed map hijacks the page scroll. We require TWO fingers to pan (pinch-
+ * zoom already needs two), so a one-finger swipe scrolls the page as expected,
+ * and flash an opaque hint the first time someone tries to drag with one finger.
+ * Mouse/trackpad users are unaffected (they never fire touch events). The
+ * keyboard/List paths are untouched. No-op where touch isn't present.
+ */
+function enableTwoFingerPan(map, mapEl) {
+  if (typeof window === "undefined") return;
+  const touchCapable =
+    "ontouchstart" in window ||
+    (navigator.maxTouchPoints || 0) > 0 ||
+    (window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+  if (!touchCapable || !map.dragging) return;
+
+  // Let the browser scroll the page on a vertical one-finger gesture.
+  mapEl.style.touchAction = "pan-y";
+
+  const hint = document.createElement("div");
+  hint.className = "map-pan-hint backplate";
+  hint.setAttribute("aria-hidden", "true");
+  hint.textContent = "Use two fingers to move the map";
+  mapEl.appendChild(hint);
+  let hintTimer = null;
+  const flashHint = () => {
+    hint.classList.add("show");
+    if (hintTimer) clearTimeout(hintTimer);
+    hintTimer = setTimeout(() => hint.classList.remove("show"), 1600);
+  };
+
+  // Capture phase so we set the drag state BEFORE Leaflet's own touch handler
+  // reads it. Two fingers → pan; one finger → let the page scroll + hint.
+  mapEl.addEventListener(
+    "touchstart",
+    (e) => {
+      if (e.touches.length >= 2) {
+        map.dragging.enable();
+        hint.classList.remove("show");
+      } else {
+        map.dragging.disable();
+      }
+    },
+    { capture: true, passive: true }
+  );
+  mapEl.addEventListener(
+    "touchmove",
+    (e) => { if (e.touches.length < 2) flashHint(); },
+    { capture: true, passive: true }
+  );
+  // Reset so a subsequent mouse drag (touch laptops) still works.
+  mapEl.addEventListener("touchend", (e) => {
+    if (e.touches.length === 0) map.dragging.enable();
+  });
 }
 
 /** Fit the view to a layer's bounds, falling back to the county default. */
