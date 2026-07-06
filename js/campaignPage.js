@@ -58,8 +58,42 @@ const TINY_ELECTORATE = 50;
 
 const DEFAULT_SORTS = [{ key: "winNumber", dir: "desc" }];
 
+// Guided "start here" goals — the plain-language entry to the dashboard. Each
+// preset is just a filter + sort configuration over the SAME engine the sliders
+// drive (a goal = "set these filters, sort this way, explain the result"), so
+// the advanced controls stay the single source of truth. `filters` values are
+// [lo, hi] narrowings where null = keep that end at its data bound. `explain`
+// gets (count, partyWord, noun) and returns one plain sentence about the result.
+const GOALS = {
+  flip: {
+    sorts: [{ key: "margin", dir: "asc" }],
+    filters: { margin: [null, 0.1] },
+    explain: (n) =>
+      `The ${n} closest races — decided by about 10 points or less, tightest first. These are your best persuasion targets: winnable if you change minds.`,
+  },
+  gotv: {
+    sorts: [{ key: "nvo", dir: "desc" }],
+    filters: {},
+    explain: (n, party) =>
+      `All ${n} precincts, ranked by ${party} supporters who stayed home last election (net vote opportunity). Work the top of the list to turn out votes you already have.`,
+  },
+  knock: {
+    sorts: [{ key: "nvo", dir: "desc" }],
+    filters: { canvass: [null, 0.5] },
+    explain: (n) =>
+      `${n} precincts where fewer than half your modeled voters have been door-knocked, most untapped supporters first. (Precincts with no canvass data are set aside.)`,
+  },
+  all: {
+    sorts: DEFAULT_SORTS.slice(),
+    filters: {},
+    explain: (n, party, noun) =>
+      `Showing all ${n} ${noun}, ranked by win number. Fine-tune the filters below to narrow the list.`,
+  },
+};
+
 const camp = {
   party: "Dem",
+  activeGoal: null,           // which GOALS preset is active (null = custom/default)
   base: DEFAULT_WIN_BASELINE, // "2022" | "2024" (TURNOUT_BASELINES key)
   rollup: "",                 // "" | "hd" | "sd" | "cd" | "comm"
   sorts: DEFAULT_SORTS.slice(),
@@ -411,12 +445,64 @@ function deriveAndRender() {
   renderCount();
   restyle();
   updateURL();
+  updateGoalExplain();
+}
+
+// =============================================================================
+// GUIDED GOALS — preset the filters + sort, then explain the result in plain
+// words. Any manual slider/sort/reset clears the active goal (see below).
+// =============================================================================
+function applyGoalConfig(id) {
+  const g = GOALS[id];
+  if (!g) return false;
+  camp.activeGoal = id;
+  // Start from a clean slate, then apply this goal's narrowings.
+  for (const spec of FILTERS) camp.filters[spec.id] = camp.bounds[spec.id].slice();
+  for (const [fid, range] of Object.entries(g.filters)) {
+    if (!camp.bounds[fid]) continue;
+    const [blo, bhi] = camp.bounds[fid];
+    camp.filters[fid] = [
+      range[0] == null ? blo : Math.max(blo, range[0]),
+      range[1] == null ? bhi : Math.min(bhi, range[1]),
+    ];
+  }
+  camp.sorts = g.sorts.map((s) => ({ ...s }));
+  return true;
+}
+
+function applyGoal(id) {
+  if (!applyGoalConfig(id)) return;
+  renderFilters(); // reflect the preset slider positions
+  deriveAndRender();
+}
+
+// Reflect the active goal in the button row + the plain-language result line.
+function updateGoalExplain() {
+  const box = $("cp-goals");
+  if (box) {
+    box.querySelectorAll(".cp-goal").forEach((b) =>
+      b.classList.toggle("is-active", b.dataset.goal === camp.activeGoal)
+    );
+  }
+  const el = $("cp-goal-explain");
+  if (!el) return;
+  const n = camp.derived ? camp.derived.rows.length : 0;
+  const total = camp.derived ? camp.derived.total : 0;
+  const party = camp.party === "Rep" ? "Republican" : "Democratic";
+  const noun = camp.rollup ? "districts" : "precincts";
+  if (camp.activeGoal && GOALS[camp.activeGoal]) {
+    el.textContent = GOALS[camp.activeGoal].explain(n, party, noun);
+  } else {
+    const lead = n === total ? `all ${n}` : `${n} of ${total}`;
+    el.textContent = `Showing ${lead} ${noun}. Pick a goal above to build a targeted list, or fine-tune the filters below.`;
+  }
 }
 
 // =============================================================================
 // SORTING (multi-key: click = primary toggle, shift-click = add secondary)
 // =============================================================================
 function setSort(key, event) {
+  camp.activeGoal = null; // a manual sort means the user has left the preset
   const idx = camp.sorts.findIndex((s) => s.key === key);
   if (event && event.shiftKey && camp.sorts.length && idx !== 0) {
     if (idx === -1) camp.sorts = [...camp.sorts, { key, dir: "desc" }];
@@ -462,6 +548,7 @@ function renderFilters() {
     const min = $(`cp-${spec.id}-min`);
     const max = $(`cp-${spec.id}-max`);
     const onInput = () => {
+      camp.activeGoal = null; // hand-tuning a slider leaves the preset
       let lo = +min.value;
       let hi = +max.value;
       if (lo > hi) [lo, hi] = [hi, lo]; // crossed thumbs: treat as a valid range
@@ -490,6 +577,7 @@ function fmtSignedRange(spec, v) {
 }
 
 function resetFilters() {
+  camp.activeGoal = null;
   for (const spec of FILTERS) camp.filters[spec.id] = camp.bounds[spec.id].slice();
   renderFilters();
   deriveAndRender();
@@ -617,6 +705,13 @@ function wireControls() {
   });
   $("cp-reset").addEventListener("click", resetFilters);
   $("cp-export").addEventListener("click", exportCSV);
+  const goals = $("cp-goals");
+  if (goals) {
+    goals.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-goal]");
+      if (btn) applyGoal(btn.dataset.goal);
+    });
+  }
 }
 
 async function init() {
@@ -632,6 +727,7 @@ async function init() {
     buildMap(features);
     renderTable();
     renderCount();
+    updateGoalExplain();
     updateURL();
   } catch (err) {
     console.error("[Campaign] load failed:", err);
