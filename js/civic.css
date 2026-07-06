@@ -159,6 +159,27 @@ body {
   flex: 1;
   min-width: 0;
 }
+/* The tab row gets its OWN full-width line under the brand + controls at every
+   width above the phone breakpoint. A single flex row can't hold brand + badge +
+   up to six tabs + the View switcher + Text size/Help/Sign out on a laptop, and
+   the nav (the only shrinkable item) collapses into an ugly multi-row stack.
+   Dropping it to its own row keeps the tabs on one clean line for every persona.
+   (≤760px has its own reflow below; ultrawide keeps the two rows too — cleaner
+   and consistent than a width-dependent single row.) */
+@media (min-width: 761px) {
+  .site-header-bar {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  .site-view-switch {
+    margin-left: auto;
+  }
+  .site-nav {
+    order: 3;
+    flex-basis: 100%;
+    flex-grow: 0;
+  }
+}
 /* Phones only: single scrollable row beats a four-row stack of tabs */
 @media (max-width: 480px) {
   .site-nav {
