@@ -71,6 +71,38 @@ test('county-commissioner roll-up shows exactly the four commissioner precincts'
   await expect(rows.first().locator('td').first()).toContainText(/COMM-\d/);
 });
 
+test('scoping to a congressional district shrinks the table, dims the rest, and stamps the hash', async ({ page }) => {
+  await page.goto('/campaign.html');
+  await loaded(page);
+  const before = await shownCount(page);
+
+  await page.locator('#cp-district').selectOption('cd-3');
+  await expect.poll(async () => (await shownCount(page)).total, { timeout: 15000 }).toBeLessThan(before.total);
+
+  const after = await shownCount(page);
+  expect(after.total).toBeGreaterThan(0);
+  expect(after.shown).toBe(after.total); // no range filters active, all in-scope precincts show
+  await expect(page.locator('#cp-count')).toContainText('Congressional District 3');
+  expect(page.url()).toMatch(/district=cd-3/);
+
+  // Out-of-scope precincts stay on the map, dimmed as "filtered out".
+  const dimmed = await page.locator('#cp-map path.leaflet-interactive[fill-opacity="0.35"]').count();
+  expect(dimmed).toBe(before.total - after.total);
+
+  // Clearing scope restores the full county.
+  await page.locator('#cp-district').selectOption('');
+  await expect.poll(async () => (await shownCount(page)).total, { timeout: 15000 }).toBe(before.total);
+});
+
+test('a deep link opens already scoped to a congressional district', async ({ page }) => {
+  await page.goto('/campaign.html#district=cd-4');
+  await loaded(page);
+  await expect(page.locator('#cp-district')).toHaveValue('cd-4');
+  await expect(page.locator('#cp-count')).toContainText('Congressional District 4');
+  const counts = await shownCount(page);
+  expect(counts.total).toBeGreaterThan(0);
+});
+
 test('shift-click adds a secondary sort key', async ({ page }) => {
   await page.goto('/campaign.html');
   await loaded(page);

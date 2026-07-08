@@ -15,7 +15,7 @@
 
 import { boundary } from "./data/dataService.js";
 import { TURNOUT_BASELINES, DEFAULT_WIN_BASELINE } from "./data/catalog.js";
-import { ROLLUP_KINDS, districtOfFeature } from "./data/districts.js";
+import { ROLLUP_KINDS, districtOfFeature, DISTRICT_LIST, precinctsInDistrict } from "./data/districts.js";
 import { buildRecords, filterRecords } from "./precinctMetrics.js";
 import {
   buildCampaignRows,
@@ -52,6 +52,11 @@ const FILTERS = [
   { id: "canvass", key: "canvassShare", label: "Canvass coverage (Dem)", lo: 0, hi: 1 },
 ];
 const STEP = 0.01;
+
+// Congressional districts are the one scope lens on this page (CD-3, CD-4, CD-32
+// — the three that overlap Collin). Scoping subsets the precinct universe that
+// feeds derive(); it is orthogonal to the "Group by" roll-up.
+const CONGRESSIONAL_DISTRICTS = DISTRICT_LIST.filter((d) => d.group === "Congressional Districts");
 
 // Same tiny-electorate threshold as explore: percentages off <50 voters are noise.
 const TINY_ELECTORATE = 50;
@@ -96,6 +101,9 @@ const camp = {
   activeGoal: null,           // which GOALS preset is active (null = custom/default)
   base: DEFAULT_WIN_BASELINE, // "2022" | "2024" (TURNOUT_BASELINES key)
   rollup: "",                 // "" | "hd" | "sd" | "cd" | "comm"
+  district: null,             // congressional scope slug ("cd-3") or null = all precincts
+  districtCodes: null,        // Set<string> of in-scope precinct codes (null = all)
+  features: [],               // boundary features (kept for precinctsInDistrict)
   sorts: DEFAULT_SORTS.slice(),
   filters: {},                // id -> [lo, hi] (current slider values)
   bounds: {},                 // id -> [lo, hi] (full range; filter active only when narrowed)
@@ -141,6 +149,7 @@ async function loadData() {
     svc.loadCanvass().catch(() => null),
   ]);
   const features = geojson.features || [];
+  camp.features = features;
   camp.t2024 = t2024;
   camp.t2022 = t2022;
   camp.canvass = canvass;
@@ -228,12 +237,21 @@ function countMissing(rows, conditions) {
   return rows.filter((r) => keys.some((k) => r[k] == null)).length;
 }
 
+// The precinct universe feeding derive(), narrowed to the congressional scope
+// when one is set. The single choke point (mirrors the Map page's
+// visibleFeatures()); everything downstream — filters, sort, roll-up, count,
+// CSV — composes with the scope automatically.
+function scopedRows() {
+  if (!camp.districtCodes) return camp.rows;
+  return camp.rows.filter((r) => camp.districtCodes.has(String(r.precinct)));
+}
+
 function districtRows() {
-  const key = `${camp.rollup}|${camp.party}|${camp.base}`;
+  const key = `${camp.rollup}|${camp.party}|${camp.base}|${camp.district || ""}`;
   if (!camp.aggCache.has(key)) {
     camp.aggCache.set(
       key,
-      aggregateByDistrict(camp.rows, camp.memberOf[camp.rollup], camp.labels[camp.rollup], {
+      aggregateByDistrict(scopedRows(), camp.memberOf[camp.rollup], camp.labels[camp.rollup], {
         party: camp.party,
         medianRate: camp.medianRate,
       })
@@ -251,12 +269,13 @@ function derive() {
     for (const d of rows) for (const c of d.memberCodes) passSet.add(c);
     camp.derived = { rows, passSet, total: all.length, missing: countMissing(all, conditions) };
   } else {
-    const rows = sortRowsMulti(filterRecords(camp.rows, { conditions }), camp.sorts);
+    const base = scopedRows();
+    const rows = sortRowsMulti(filterRecords(base, { conditions }), camp.sorts);
     camp.derived = {
       rows,
       passSet: new Set(rows.map((r) => r.precinct)),
-      total: camp.rows.length,
-      missing: countMissing(camp.rows, conditions),
+      total: base.length,
+      missing: countMissing(base, conditions),
     };
   }
 }
@@ -298,6 +317,22 @@ function restyle() {
     l.setStyle(baseStyle(l.feature));
     if (l._path) l._path.setAttribute("aria-label", describeFeature(l.feature.properties));
   });
+}
+
+// Zoom the map to the scoped district's precincts (or back to the whole county
+// when scope is cleared). The layer itself is never rebuilt — out-of-scope
+// precincts stay on the map, dimmed as "filtered out" by baseStyle.
+function fitToScope() {
+  if (!camp.layer || !camp.map) return;
+  if (!camp.districtCodes) {
+    fitToLayer(camp.map, camp.layer);
+    return;
+  }
+  const group = [];
+  camp.layer.eachLayer((l) => {
+    if (camp.districtCodes.has(String(l.feature.properties.PRECINCT))) group.push(l);
+  });
+  if (group.length) camp.map.fitBounds(L.featureGroup(group).getBounds(), { padding: [16, 16] });
 }
 
 function buildMap(features) {
@@ -430,6 +465,8 @@ function renderCount() {
   if (camp.rollup) {
     text += ` (${d.passSet.size} precincts)`;
   }
+  const scope = scopeName();
+  if (scope) text += ` in ${scope}`;
   if (d.missing > 0) {
     text += ` · ${d.missing} ${noun} lack data for an active filter and are excluded`;
   }
@@ -584,6 +621,27 @@ function resetFilters() {
 }
 
 // =============================================================================
+// DISTRICT SCOPE — narrow the whole dashboard to one congressional district
+// =============================================================================
+function setDistrictScope(slug) {
+  camp.district = slug || null;
+  camp.districtCodes = camp.district
+    ? new Set(precinctsInDistrict(camp.district, camp.features).map(String))
+    : null;
+  camp.highlight = null;
+  camp.aggCache.clear(); // cache key now includes scope; drop stale entries
+  const sel = $("cp-district");
+  if (sel) sel.value = camp.district || "";
+  deriveAndRender();
+  fitToScope(); // restyle already ran inside deriveAndRender; now zoom to it
+}
+
+function scopeName() {
+  const d = CONGRESSIONAL_DISTRICTS.find((x) => x.slug === camp.district);
+  return d ? d.name : null;
+}
+
+// =============================================================================
 // CSV EXPORT — always precinct-level (VAN joins on the bare precinct number)
 // =============================================================================
 function exportCSV() {
@@ -625,6 +683,7 @@ function updateURL() {
     party: camp.party === "Dem" ? null : camp.party,
     base: camp.base === DEFAULT_WIN_BASELINE ? null : camp.base,
     rollup: camp.rollup || null,
+    district: camp.district || null,
     sort:
       camp.sorts.length === 1 &&
       camp.sorts[0].key === DEFAULT_SORTS[0].key &&
@@ -647,6 +706,10 @@ function readURL() {
   if (p.party === "Rep" || p.party === "Dem") camp.party = p.party;
   if (p.base && TURNOUT_BASELINES[p.base]) camp.base = p.base;
   if (p.rollup && ROLLUP_KINDS.some((k) => k.id === p.rollup)) camp.rollup = p.rollup;
+  const wantDistrict = p.district || p.county; // legacy county= deep links tolerated
+  if (wantDistrict && CONGRESSIONAL_DISTRICTS.some((d) => d.slug === wantDistrict)) {
+    camp.district = wantDistrict;
+  }
   if (p.sort) {
     const sorts = p.sort
       .split(",")
@@ -685,6 +748,10 @@ function populateControls() {
     `<option value="">Precincts (no grouping)</option>` +
     ROLLUP_KINDS.map((k) => `<option value="${k.id}">${escapeHtml(k.label)} districts</option>`).join("");
   $("cp-rollup").value = camp.rollup;
+  $("cp-district").innerHTML =
+    `<option value="">All precincts</option>` +
+    CONGRESSIONAL_DISTRICTS.map((d) => `<option value="${d.slug}">${escapeHtml(d.name)}</option>`).join("");
+  $("cp-district").value = camp.district || "";
 }
 
 function wireControls() {
@@ -703,6 +770,7 @@ function wireControls() {
     camp.highlight = null;
     deriveAndRender();
   });
+  $("cp-district").addEventListener("change", (e) => setDistrictScope(e.target.value || null));
   $("cp-reset").addEventListener("click", resetFilters);
   $("cp-export").addEventListener("click", exportCSV);
   const goals = $("cp-goals");
@@ -722,9 +790,14 @@ async function init() {
     const features = await loadData();
     computeDropBounds();
     applyURLRanges();
+    // Scope may have been set from the URL; resolve its codes before first derive.
+    if (camp.district) {
+      camp.districtCodes = new Set(precinctsInDistrict(camp.district, camp.features).map(String));
+    }
     renderFilters();
     derive();
     buildMap(features);
+    if (camp.district) fitToScope(); // shared links open already zoomed to the district
     renderTable();
     renderCount();
     updateGoalExplain();
