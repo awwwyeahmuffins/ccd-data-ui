@@ -389,13 +389,325 @@ collin:250,REP,Dawn Buckingham,74
 collin:250,,Write-in,0
 collin:250,,Over Votes,0
 collin:250,,Under Votes,3
-bowie:ALL,,Over Votes,0
-bowie:ALL,,Under Votes,43
-bowie:ALL,,Write-in,2
-bowie:ALL,DEM,Jay Kleberg,494
-bowie:ALL,GRN,"Alfred Molison, Jr.",16
-bowie:ALL,REP,Dawn Buckingham,2822
-rockwall:ALL,,Write-in,33
-rockwall:ALL,DEM,Jay Kleberg,11308
-rockwall:ALL,GRN,"Alfred Molison, Jr.",471
-rockwall:ALL,REP,Dawn Buckingham,30911
+bowie:11,,Over Votes,0
+bowie:11,,Under Votes,6
+bowie:11,,Write-in,1
+bowie:11,DEM,Jay Kleberg,50
+bowie:11,GRN,"Alfred Molison, Jr.",0
+bowie:11,REP,Dawn Buckingham,492
+bowie:12A,,Over Votes,0
+bowie:12A,,Under Votes,0
+bowie:12A,,Write-in,0
+bowie:12A,DEM,Jay Kleberg,0
+bowie:12A,GRN,"Alfred Molison, Jr.",0
+bowie:12A,REP,Dawn Buckingham,40
+bowie:13,,Over Votes,0
+bowie:13,,Under Votes,0
+bowie:13,,Write-in,0
+bowie:13,DEM,Jay Kleberg,0
+bowie:13,GRN,"Alfred Molison, Jr.",0
+bowie:13,REP,Dawn Buckingham,2
+bowie:14,,Over Votes,0
+bowie:14,,Under Votes,6
+bowie:14,,Write-in,0
+bowie:14,DEM,Jay Kleberg,80
+bowie:14,GRN,"Alfred Molison, Jr.",2
+bowie:14,REP,Dawn Buckingham,493
+bowie:15,,Over Votes,0
+bowie:15,,Under Votes,3
+bowie:15,,Write-in,0
+bowie:15,DEM,Jay Kleberg,29
+bowie:15,GRN,"Alfred Molison, Jr.",3
+bowie:15,REP,Dawn Buckingham,303
+bowie:16A,,Over Votes,0
+bowie:16A,,Under Votes,1
+bowie:16A,,Write-in,0
+bowie:16A,DEM,Jay Kleberg,5
+bowie:16A,GRN,"Alfred Molison, Jr.",0
+bowie:16A,REP,Dawn Buckingham,31
+bowie:18A,,Over Votes,0
+bowie:18A,,Under Votes,0
+bowie:18A,,Write-in,0
+bowie:18A,DEM,Jay Kleberg,6
+bowie:18A,GRN,"Alfred Molison, Jr.",1
+bowie:18A,REP,Dawn Buckingham,42
+bowie:20,,Over Votes,0
+bowie:20,,Under Votes,7
+bowie:20,,Write-in,0
+bowie:20,DEM,Jay Kleberg,26
+bowie:20,GRN,"Alfred Molison, Jr.",1
+bowie:20,REP,Dawn Buckingham,142
+bowie:21,,Over Votes,0
+bowie:21,,Under Votes,2
+bowie:21,,Write-in,0
+bowie:21,DEM,Jay Kleberg,23
+bowie:21,GRN,"Alfred Molison, Jr.",0
+bowie:21,REP,Dawn Buckingham,120
+bowie:22A,,Over Votes,0
+bowie:22A,,Under Votes,3
+bowie:22A,,Write-in,0
+bowie:22A,DEM,Jay Kleberg,4
+bowie:22A,GRN,"Alfred Molison, Jr.",0
+bowie:22A,REP,Dawn Buckingham,69
+bowie:30,,Over Votes,0
+bowie:30,,Under Votes,13
+bowie:30,,Write-in,1
+bowie:30,DEM,Jay Kleberg,253
+bowie:30,GRN,"Alfred Molison, Jr.",9
+bowie:30,REP,Dawn Buckingham,963
+bowie:9A,,Over Votes,0
+bowie:9A,,Under Votes,2
+bowie:9A,,Write-in,0
+bowie:9A,DEM,Jay Kleberg,18
+bowie:9A,GRN,"Alfred Molison, Jr.",0
+bowie:9A,REP,Dawn Buckingham,125
+fannin:1,,CARRIE EVELYN MENGER,0
+fannin:1,DEM,JAY KLEBERG,125
+fannin:1,GRN,"ALFRED MOLISON, JR.",10
+fannin:1,REP,DAWN BUCKINGHAM,561
+fannin:10,,CARRIE EVELYN MENGER,1
+fannin:10,DEM,JAY KLEBERG,214
+fannin:10,GRN,"ALFRED MOLISON, JR.",13
+fannin:10,REP,DAWN BUCKINGHAM,1297
+fannin:11,,CARRIE EVELYN MENGER,1
+fannin:11,DEM,JAY KLEBERG,185
+fannin:11,GRN,"ALFRED MOLISON, JR.",5
+fannin:11,REP,DAWN BUCKINGHAM,1212
+fannin:12,,CARRIE EVELYN MENGER,0
+fannin:12,DEM,JAY KLEBERG,68
+fannin:12,GRN,"ALFRED MOLISON, JR.",2
+fannin:12,REP,DAWN BUCKINGHAM,595
+fannin:13,,CARRIE EVELYN MENGER,0
+fannin:13,DEM,JAY KLEBERG,39
+fannin:13,GRN,"ALFRED MOLISON, JR.",0
+fannin:13,REP,DAWN BUCKINGHAM,195
+fannin:15,,CARRIE EVELYN MENGER,1
+fannin:15,DEM,JAY KLEBERG,56
+fannin:15,GRN,"ALFRED MOLISON, JR.",4
+fannin:15,REP,DAWN BUCKINGHAM,455
+fannin:16,,CARRIE EVELYN MENGER,1
+fannin:16,DEM,JAY KLEBERG,18
+fannin:16,GRN,"ALFRED MOLISON, JR.",2
+fannin:16,REP,DAWN BUCKINGHAM,181
+fannin:17,,CARRIE EVELYN MENGER,0
+fannin:17,DEM,JAY KLEBERG,56
+fannin:17,GRN,"ALFRED MOLISON, JR.",6
+fannin:17,REP,DAWN BUCKINGHAM,412
+fannin:18,,CARRIE EVELYN MENGER,0
+fannin:18,DEM,JAY KLEBERG,250
+fannin:18,GRN,"ALFRED MOLISON, JR.",13
+fannin:18,REP,DAWN BUCKINGHAM,1050
+fannin:19,,CARRIE EVELYN MENGER,0
+fannin:19,DEM,JAY KLEBERG,207
+fannin:19,GRN,"ALFRED MOLISON, JR.",10
+fannin:19,REP,DAWN BUCKINGHAM,747
+fannin:2,,CARRIE EVELYN MENGER,0
+fannin:2,DEM,JAY KLEBERG,82
+fannin:2,GRN,"ALFRED MOLISON, JR.",4
+fannin:2,REP,DAWN BUCKINGHAM,659
+fannin:3,,CARRIE EVELYN MENGER,0
+fannin:3,DEM,JAY KLEBERG,82
+fannin:3,GRN,"ALFRED MOLISON, JR.",4
+fannin:3,REP,DAWN BUCKINGHAM,209
+fannin:4,,CARRIE EVELYN MENGER,0
+fannin:4,DEM,JAY KLEBERG,177
+fannin:4,GRN,"ALFRED MOLISON, JR.",9
+fannin:4,REP,DAWN BUCKINGHAM,606
+fannin:5,,CARRIE EVELYN MENGER,1
+fannin:5,DEM,JAY KLEBERG,54
+fannin:5,GRN,"ALFRED MOLISON, JR.",0
+fannin:5,REP,DAWN BUCKINGHAM,326
+fannin:6,,CARRIE EVELYN MENGER,0
+fannin:6,DEM,JAY KLEBERG,62
+fannin:6,GRN,"ALFRED MOLISON, JR.",2
+fannin:6,REP,DAWN BUCKINGHAM,380
+fannin:7,,CARRIE EVELYN MENGER,0
+fannin:7,DEM,JAY KLEBERG,38
+fannin:7,GRN,"ALFRED MOLISON, JR.",4
+fannin:7,REP,DAWN BUCKINGHAM,235
+fannin:9,,CARRIE EVELYN MENGER,0
+fannin:9,DEM,JAY KLEBERG,58
+fannin:9,GRN,"ALFRED MOLISON, JR.",1
+fannin:9,REP,DAWN BUCKINGHAM,513
+lamar:1A3B,DEM,Jay Kleberg,390
+lamar:1A3B,GRN,"Alfred Molison, Jr.",21
+lamar:1A3B,REP,Dawn Buckingham,1440
+lamar:1A5A,DEM,Jay Kleberg,95
+lamar:1A5A,GRN,"Alfred Molison, Jr.",4
+lamar:1A5A,REP,Dawn Buckingham,161
+lamar:1C,DEM,Jay Kleberg,17
+lamar:1C,GRN,"Alfred Molison, Jr.",4
+lamar:1C,REP,Dawn Buckingham,178
+lamar:1E,DEM,Jay Kleberg,48
+lamar:1E,GRN,"Alfred Molison, Jr.",4
+lamar:1E,REP,Dawn Buckingham,402
+lamar:1F,DEM,Jay Kleberg,60
+lamar:1F,GRN,"Alfred Molison, Jr.",4
+lamar:1F,REP,Dawn Buckingham,626
+lamar:1H,DEM,Jay Kleberg,24
+lamar:1H,GRN,"Alfred Molison, Jr.",1
+lamar:1H,REP,Dawn Buckingham,326
+lamar:1I,DEM,Jay Kleberg,12
+lamar:1I,GRN,"Alfred Molison, Jr.",0
+lamar:1I,REP,Dawn Buckingham,193
+lamar:2A1A,DEM,Jay Kleberg,208
+lamar:2A1A,GRN,"Alfred Molison, Jr.",4
+lamar:2A1A,REP,Dawn Buckingham,103
+lamar:2C3A,DEM,Jay Kleberg,434
+lamar:2C3A,GRN,"Alfred Molison, Jr.",18
+lamar:2C3A,REP,Dawn Buckingham,557
+lamar:2D,DEM,Jay Kleberg,56
+lamar:2D,GRN,"Alfred Molison, Jr.",2
+lamar:2D,REP,Dawn Buckingham,286
+lamar:2E,DEM,Jay Kleberg,41
+lamar:2E,GRN,"Alfred Molison, Jr.",5
+lamar:2E,REP,Dawn Buckingham,297
+lamar:2F,DEM,Jay Kleberg,12
+lamar:2F,GRN,"Alfred Molison, Jr.",2
+lamar:2F,REP,Dawn Buckingham,123
+lamar:2G,DEM,Jay Kleberg,52
+lamar:2G,GRN,"Alfred Molison, Jr.",3
+lamar:2G,REP,Dawn Buckingham,293
+lamar:3C7G,DEM,Jay Kleberg,284
+lamar:3C7G,GRN,"Alfred Molison, Jr.",8
+lamar:3C7G,REP,Dawn Buckingham,642
+lamar:3D,DEM,Jay Kleberg,38
+lamar:3D,GRN,"Alfred Molison, Jr.",3
+lamar:3D,REP,Dawn Buckingham,409
+lamar:3E,DEM,Jay Kleberg,46
+lamar:3E,GRN,"Alfred Molison, Jr.",3
+lamar:3E,REP,Dawn Buckingham,713
+lamar:3F,DEM,Jay Kleberg,32
+lamar:3F,GRN,"Alfred Molison, Jr.",1
+lamar:3F,REP,Dawn Buckingham,317
+lamar:3G,DEM,Jay Kleberg,33
+lamar:3G,GRN,"Alfred Molison, Jr.",1
+lamar:3G,REP,Dawn Buckingham,297
+lamar:3H3C,DEM,Jay Kleberg,66
+lamar:3H3C,GRN,"Alfred Molison, Jr.",2
+lamar:3H3C,REP,Dawn Buckingham,234
+lamar:3I,DEM,Jay Kleberg,71
+lamar:3I,GRN,"Alfred Molison, Jr.",3
+lamar:3I,REP,Dawn Buckingham,645
+lamar:4A6E,DEM,Jay Kleberg,130
+lamar:4A6E,GRN,"Alfred Molison, Jr.",3
+lamar:4A6E,REP,Dawn Buckingham,566
+lamar:4B,DEM,Jay Kleberg,108
+lamar:4B,GRN,"Alfred Molison, Jr.",9
+lamar:4B,REP,Dawn Buckingham,827
+lamar:4D,DEM,Jay Kleberg,50
+lamar:4D,GRN,"Alfred Molison, Jr.",8
+lamar:4D,REP,Dawn Buckingham,793
+lamar:4E,DEM,Jay Kleberg,60
+lamar:4E,GRN,"Alfred Molison, Jr.",5
+lamar:4E,REP,Dawn Buckingham,536
+lamar:4F,DEM,Jay Kleberg,103
+lamar:4F,GRN,"Alfred Molison, Jr.",7
+lamar:4F,REP,Dawn Buckingham,767
+lamar:4G,DEM,Jay Kleberg,100
+lamar:4G,GRN,"Alfred Molison, Jr.",5
+lamar:4G,REP,Dawn Buckingham,696
+rockwall:1,,Write-in,1
+rockwall:1,DEM,Jay Kleberg,764
+rockwall:1,GRN,"Alfred Molison, Jr.",25
+rockwall:1,REP,Dawn Buckingham,2025
+rockwall:1A,,Write-in,1
+rockwall:1A,DEM,Jay Kleberg,513
+rockwall:1A,GRN,"Alfred Molison, Jr.",17
+rockwall:1A,REP,Dawn Buckingham,1056
+rockwall:1B,,Write-in,1
+rockwall:1B,DEM,Jay Kleberg,687
+rockwall:1B,GRN,"Alfred Molison, Jr.",28
+rockwall:1B,REP,Dawn Buckingham,2170
+rockwall:1C,,Write-in,2
+rockwall:1C,DEM,Jay Kleberg,622
+rockwall:1C,GRN,"Alfred Molison, Jr.",33
+rockwall:1C,REP,Dawn Buckingham,1915
+rockwall:1D,,Write-in,2
+rockwall:1D,DEM,Jay Kleberg,151
+rockwall:1D,GRN,"Alfred Molison, Jr.",5
+rockwall:1D,REP,Dawn Buckingham,243
+rockwall:1E,,Write-in,3
+rockwall:1E,DEM,Jay Kleberg,336
+rockwall:1E,GRN,"Alfred Molison, Jr.",11
+rockwall:1E,REP,Dawn Buckingham,1271
+rockwall:2,,Write-in,1
+rockwall:2,DEM,Jay Kleberg,706
+rockwall:2,GRN,"Alfred Molison, Jr.",22
+rockwall:2,REP,Dawn Buckingham,1746
+rockwall:2A,,Write-in,2
+rockwall:2A,DEM,Jay Kleberg,559
+rockwall:2A,GRN,"Alfred Molison, Jr.",29
+rockwall:2A,REP,Dawn Buckingham,1481
+rockwall:2B,,Write-in,2
+rockwall:2B,DEM,Jay Kleberg,360
+rockwall:2B,GRN,"Alfred Molison, Jr.",10
+rockwall:2B,REP,Dawn Buckingham,632
+rockwall:2C,,Write-in,1
+rockwall:2C,DEM,Jay Kleberg,203
+rockwall:2C,GRN,"Alfred Molison, Jr.",10
+rockwall:2C,REP,Dawn Buckingham,835
+rockwall:2D,,Write-in,1
+rockwall:2D,DEM,Jay Kleberg,499
+rockwall:2D,GRN,"Alfred Molison, Jr.",23
+rockwall:2D,REP,Dawn Buckingham,646
+rockwall:2E,,Write-in,0
+rockwall:2E,DEM,Jay Kleberg,495
+rockwall:2E,GRN,"Alfred Molison, Jr.",19
+rockwall:2E,REP,Dawn Buckingham,613
+rockwall:2F,,Write-in,0
+rockwall:2F,DEM,Jay Kleberg,164
+rockwall:2F,GRN,"Alfred Molison, Jr.",5
+rockwall:2F,REP,Dawn Buckingham,344
+rockwall:3,,Write-in,0
+rockwall:3,DEM,Jay Kleberg,292
+rockwall:3,GRN,"Alfred Molison, Jr.",18
+rockwall:3,REP,Dawn Buckingham,697
+rockwall:3A,,Write-in,0
+rockwall:3A,DEM,Jay Kleberg,357
+rockwall:3A,GRN,"Alfred Molison, Jr.",15
+rockwall:3A,REP,Dawn Buckingham,1564
+rockwall:3B,,Write-in,4
+rockwall:3B,DEM,Jay Kleberg,523
+rockwall:3B,GRN,"Alfred Molison, Jr.",22
+rockwall:3B,REP,Dawn Buckingham,1684
+rockwall:3C,,Write-in,1
+rockwall:3C,DEM,Jay Kleberg,382
+rockwall:3C,GRN,"Alfred Molison, Jr.",12
+rockwall:3C,REP,Dawn Buckingham,1932
+rockwall:3D,,Write-in,1
+rockwall:3D,DEM,Jay Kleberg,564
+rockwall:3D,GRN,"Alfred Molison, Jr.",19
+rockwall:3D,REP,Dawn Buckingham,2185
+rockwall:3E,,Write-in,3
+rockwall:3E,DEM,Jay Kleberg,436
+rockwall:3E,GRN,"Alfred Molison, Jr.",24
+rockwall:3E,REP,Dawn Buckingham,1461
+rockwall:4,,Write-in,0
+rockwall:4,DEM,Jay Kleberg,263
+rockwall:4,GRN,"Alfred Molison, Jr.",14
+rockwall:4,REP,Dawn Buckingham,703
+rockwall:4A,,Write-in,2
+rockwall:4A,DEM,Jay Kleberg,701
+rockwall:4A,GRN,"Alfred Molison, Jr.",36
+rockwall:4A,REP,Dawn Buckingham,1420
+rockwall:4B,,Write-in,1
+rockwall:4B,DEM,Jay Kleberg,498
+rockwall:4B,GRN,"Alfred Molison, Jr.",18
+rockwall:4B,REP,Dawn Buckingham,1160
+rockwall:4C,,Write-in,2
+rockwall:4C,DEM,Jay Kleberg,374
+rockwall:4C,GRN,"Alfred Molison, Jr.",12
+rockwall:4C,REP,Dawn Buckingham,1156
+rockwall:4D,,Write-in,2
+rockwall:4D,DEM,Jay Kleberg,455
+rockwall:4D,GRN,"Alfred Molison, Jr.",15
+rockwall:4D,REP,Dawn Buckingham,921
+rockwall:4E,,Write-in,0
+rockwall:4E,DEM,Jay Kleberg,356
+rockwall:4E,GRN,"Alfred Molison, Jr.",25
+rockwall:4E,REP,Dawn Buckingham,837
+rockwall:4F,,Write-in,0
+rockwall:4F,DEM,Jay Kleberg,48
+rockwall:4F,GRN,"Alfred Molison, Jr.",4
+rockwall:4F,REP,Dawn Buckingham,214

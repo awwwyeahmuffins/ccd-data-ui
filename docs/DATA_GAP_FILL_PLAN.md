@@ -1,5 +1,26 @@
 # Missing-Data Fill Plan (June 2026)
 
+> **Status update (2026-07-12) — cd-4 upgraded to precinct level.** The CD-4
+> district view's 11 non-Collin counties no longer collapse to `<county>:ALL`:
+> `data_processor/restore_district_precincts.py` reverted the Collin-focus
+> reduction from git history (exact-sum gate, 138 county×file restores, all 179
+> non-Collin polygons back as `boundaries/other_precincts.geojson`), and
+> `data_processor/upgrade_district_precincts_oe.py` gap-filled 2020/2022/2024
+> from OpenElections (pinned commit) under fail-closed gates — membership
+> proven per county from the source's own U.S. House rows (whole-county) or the
+> geometry partition (cross-checked), coarse rows refined only on exact total
+> equality, 2020 old-plan adds only when the source corroborates the repo's
+> verified statewide rows precinct-by-precinct. President 2024 county sums for
+> all six whole-county additions match an independent compilation exactly.
+> Honest gaps remaining: rains 2024 (no OE file), denton+red-river 2022/2024
+> (county renumbered precincts across vintages — needs matching-vintage TLC
+> geometry, i.e. the `tlc_ingest.py` path below, once
+> `data.capitol.texas.gov` is reachable), bowie/rockwall 2020 statewide, and
+> the old-plan `U_S_House_2020` for the counties that failed corroboration.
+> Both scripts take `--slug`, so the same recipe applies to the other 11
+> district views. Per-run outcome tables live in cd-4's
+> `profile/provenance.json` amendments.
+
 Companion to `data/tx/MISSING_DATA_REPORT.json` (regenerate with
 `python3 data_processor/audit_missing_data.py`). Every fill path below uses
 **official data only** and keeps the existing verification gates — nothing is
