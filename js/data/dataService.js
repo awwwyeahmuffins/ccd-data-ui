@@ -481,8 +481,9 @@ function makeHandle(id) {
   }
 
   /**
-   * County-level voting information (election dates, early-voting window,
-   * countywide vote centers) from the hand-maintained
+   * County-level voting information (election dates and deadlines, poll
+   * hours, the statutory voter-ID checklist, countywide vote centers) from
+   * the hand-maintained
    * data/tx/collin/voting_info.json. County-level because Collin runs
    * countywide vote centers — boundary vintage is irrelevant — but exposed on
    * the handle so pages keep a single data-service import. Absent or

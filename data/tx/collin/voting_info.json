@@ -1,11 +1,26 @@
 {
-  "notes": "HAND-MAINTAINED, county-level (Collin runs countywide vote centers, so this is boundary-independent). Update each election cycle. Dates below are the statutory Texas windows confirmed against the SOS election calendar (sos.state.tx.us/elections/voter/important-election-dates.shtml). Vote centers: add entries with verified name/address; include lat/lng ONLY when the coordinates are verified — entries without lat/lng still list on the handout, just without a distance. Never guess a date or coordinate: the app renders honest fallbacks (vote411.org) for anything missing.",
-  "updated": "2026-07-04",
+  "notes": "HAND-MAINTAINED, county-level (Collin runs countywide vote centers, so this is boundary-independent). Update each election cycle. Dates below are the statutory Texas windows confirmed against the SOS election calendar (sos.state.tx.us/elections/voter/important-election-dates.shtml) — registrationDeadline is the 30th day before election day, moved to the next business day when it falls on a weekend (Oct 4, 2026 is a Sunday, so Monday Oct 5). electionDayHours is statutory (Tex. Elec. Code 41.031); early-voting hours vary by location and day, so they are deliberately NOT listed — the app points voters at the county site instead. voterId is the statutory list (Tex. Elec. Code 63.0101) and only changes if the law does. Vote centers: add entries with verified name/address; include lat/lng ONLY when the coordinates are verified — entries without lat/lng still list on the handout, just without a distance. Never guess a date or coordinate: the app renders honest fallbacks (vote411.org) for anything missing.",
+  "updated": "2026-07-11",
   "election": {
     "name": "November 2026 General Election",
     "electionDay": "2026-11-03",
+    "electionDayHours": "7:00 a.m. to 7:00 p.m.",
     "earlyVoting": { "start": "2026-10-19", "end": "2026-10-30" },
+    "registrationDeadline": "2026-10-05",
     "mailBallotApplicationDeadline": "2026-10-23"
+  },
+  "voterId": {
+    "accepted": [
+      "Texas driver license",
+      "Texas personal ID card",
+      "Texas Election Identification Certificate",
+      "Texas handgun license",
+      "U.S. passport (book or card)",
+      "U.S. military ID card with your photo",
+      "U.S. citizenship certificate with your photo"
+    ],
+    "expirationNote": "The ID can be expired up to 4 years. If you're 70 or older, it can be expired any amount of time.",
+    "noIdNote": "No photo ID? You can still vote: sign a short form at the polls (a Reasonable Impediment Declaration) and show a document with your name and address — like a voter registration certificate, utility bill, bank statement, paycheck, or government check."
   },
   "voteCenters": [
     {

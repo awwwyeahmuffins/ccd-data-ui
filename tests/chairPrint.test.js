@@ -17,8 +17,15 @@ const VOTING_INFO = {
   election: {
     name: 'November 2026 General Election',
     electionDay: '2026-11-03',
+    electionDayHours: '7:00 a.m. to 7:00 p.m.',
     earlyVoting: { start: '2026-10-19', end: '2026-10-30' },
+    registrationDeadline: '2026-10-05',
     mailBallotApplicationDeadline: '2026-10-23',
+  },
+  voterId: {
+    accepted: ['Texas driver license', 'U.S. passport (book or card)'],
+    expirationNote: 'The ID can be expired up to 4 years.',
+    noIdNote: 'No photo ID? You can still vote: sign a short form at the polls.',
   },
   voteCenters: [],
   links: { vote411: 'https://www.vote411.org' },
@@ -50,12 +57,35 @@ describe('generateGOTVHandoutHTML (page 2 — apolitical)', () => {
     });
     expect(html).toContain('Precinct 42');
     expect(html).toContain('Tuesday, November 3, 2026');
+    expect(html).toContain('polls open 7:00 a.m. to 7:00 p.m.');
     expect(html).toContain('Monday, October 19, 2026');
     expect(html).toContain('Friday, October 30, 2026');
+    expect(html).toContain('Last day to register to vote');
+    expect(html).toContain('Monday, October 5, 2026');
     expect(html).toContain('Collin County Elections Office');
     expect(html).toContain('about 2.4 miles away');
     expect(html).toContain('vote411.org');
     expect(html).toMatch(/does not support or oppose/);
+  });
+
+  it('carries the voter-ID checklist and its honest no-ID fallback', () => {
+    const html = generateGOTVHandoutHTML({
+      code: '42',
+      votingInfo: VOTING_INFO,
+      nearestCenters: NEAREST,
+    });
+    expect(html).toContain('any ONE of these photo IDs');
+    expect(html).toContain('Texas driver license');
+    expect(html).toContain('U.S. passport (book or card)');
+    expect(html).toContain('expired up to 4 years');
+    expect(html).toContain('You can still vote');
+    // Omitting voterId omits the section — never an invented list.
+    const bare = generateGOTVHandoutHTML({
+      code: '42',
+      votingInfo: { ...VOTING_INFO, voterId: null },
+      nearestCenters: [],
+    });
+    expect(bare).not.toContain('photo ID');
   });
 
   it('renders honest fallbacks (vote411 directive, no invented dates) when voting info is absent', () => {

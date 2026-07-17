@@ -453,9 +453,14 @@ function renderVoting(nearest, centers) {
   const dates = passed
     ? `<p class="na-note">${escapeHtml(e.name || "This election")} has passed — check vote411.org for the next one.</p>`
     : `<p><b>${escapeHtml(e.name || "Next election")}</b><br>` +
-      `Election day: <b>${escapeHtml(fmtDate(e.electionDay))}</b><br>` +
+      `Election day: <b>${escapeHtml(fmtDate(e.electionDay))}</b>` +
+      (e.electionDayHours ? ` (polls open ${escapeHtml(e.electionDayHours)})` : "") +
+      `<br>` +
       (e.earlyVoting?.start && e.earlyVoting?.end
         ? `Early voting: <b>${escapeHtml(fmtDate(e.earlyVoting.start))} – ${escapeHtml(fmtDate(e.earlyVoting.end))}</b><br>`
+        : "") +
+      (e.registrationDeadline
+        ? `Last day to register to vote: <b>${escapeHtml(fmtDate(e.registrationDeadline))}</b><br>`
         : "") +
       (e.mailBallotApplicationDeadline
         ? `Mail-ballot applications due: <b>${escapeHtml(fmtDate(e.mailBallotApplicationDeadline))}</b>`
@@ -478,7 +483,34 @@ function renderVoting(nearest, centers) {
       `</ul><p class="chair-method">${termButton("vote-center", "Any Collin County vote center")} works — voters aren't tied to one location.</p>`
     : `<p class="na-note">No vote-center locations on file yet.</p>`;
 
-  el.innerHTML = dates + centersHtml + vote411Line;
+  // Voter-ID checklist — statutory, not election-specific, so it renders even
+  // after the election on file has passed. Behind a disclosure so the card
+  // stays scannable; the full list always prints on the handout.
+  const vid = info.voterId;
+  const idHtml = Array.isArray(vid?.accepted) && vid.accepted.length
+    ? `<button type="button" class="chair-btn chair-id-toggle" id="chair-id-toggle" aria-expanded="false" aria-controls="chair-id-panel">What photo ID do voters need? <span aria-hidden="true">▾</span></button>` +
+      `<div id="chair-id-panel" hidden>` +
+      `<p class="chair-method">Any ONE of these works at the polls:</p>` +
+      `<ul class="chair-id-list">` +
+      vid.accepted.map((id) => `<li>${escapeHtml(id)}</li>`).join("") +
+      `</ul>` +
+      (vid.expirationNote ? `<p class="chair-method">${escapeHtml(vid.expirationNote)}</p>` : "") +
+      (vid.noIdNote ? `<p class="chair-method">${escapeHtml(vid.noIdNote)}</p>` : "") +
+      `</div>`
+    : "";
+
+  el.innerHTML = dates + centersHtml + idHtml + vote411Line;
+
+  const toggle = $("chair-id-toggle");
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const panel = $("chair-id-panel");
+      const open = panel.hidden;
+      panel.hidden = !open;
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.querySelector("[aria-hidden]").textContent = open ? "▴" : "▾";
+    });
+  }
 }
 
 function renderFineprint(bands) {

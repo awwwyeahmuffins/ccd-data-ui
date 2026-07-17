@@ -116,6 +116,22 @@ test.describe('dashboard widgets', () => {
     // either way the card renders without fabricated content.
     await expect(card).not.toBeEmpty();
   });
+
+  test('the voter-ID disclosure opens the statutory checklist', async ({ page }) => {
+    // Statutory, not election-specific — renders even after the election on
+    // file has passed, so this assertion is stable across cycles.
+    const toggle = page.locator('#chair-id-toggle');
+    await expect(toggle).toContainText('photo ID');
+    await expect(page.locator('#chair-id-panel')).toBeHidden();
+    await toggle.click();
+    const panel = page.locator('#chair-id-panel');
+    await expect(panel).toBeVisible();
+    await expect(panel).toContainText('passport');
+    await expect(panel).toContainText(/still vote/i);
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await toggle.click();
+    await expect(panel).toBeHidden();
+  });
 });
 
 test.describe('print packet', () => {

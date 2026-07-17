@@ -99,15 +99,34 @@ export function generateGOTVHandoutHTML({ code, votingInfo, nearestCenters } = {
   const dates = e
     ? `<div class="packet-dates">` +
       (e.name ? `<h2>${escapeHtml(e.name)}</h2>` : "") +
-      (e.electionDay ? row("Election day", fmtDate(e.electionDay)) : "") +
+      (e.electionDay
+        ? row(
+            "Election day",
+            fmtDate(e.electionDay) + (e.electionDayHours ? ` (polls open ${e.electionDayHours})` : "")
+          )
+        : "") +
       (e.earlyVoting?.start && e.earlyVoting?.end
         ? row("Early voting", `${fmtDate(e.earlyVoting.start)} – ${fmtDate(e.earlyVoting.end)}`)
         : "") +
+      (e.registrationDeadline ? row("Last day to register to vote", fmtDate(e.registrationDeadline)) : "") +
       (e.mailBallotApplicationDeadline
         ? row("Mail-ballot applications due", fmtDate(e.mailBallotApplicationDeadline))
         : "") +
       `</div>`
     : `<p class="packet-note">Election dates: check vote411.org.</p>`;
+
+  // Statutory voter-ID checklist — neutral information for all voters, straight
+  // from the hand-maintained JSON (never invented here).
+  const vid = votingInfo?.voterId;
+  const idHtml =
+    Array.isArray(vid?.accepted) && vid.accepted.length
+      ? `<h2>What to bring — any ONE of these photo IDs</h2>` +
+        `<ul class="packet-ids">` +
+        vid.accepted.map((id) => `<li>${escapeHtml(id)}</li>`).join("") +
+        `</ul>` +
+        (vid.expirationNote ? `<p class="packet-note">${escapeHtml(vid.expirationNote)}</p>` : "") +
+        (vid.noIdNote ? `<p class="packet-note">${escapeHtml(vid.noIdNote)}</p>` : "")
+      : "";
 
   const centers = Array.isArray(nearestCenters) ? nearestCenters : [];
   const centersHtml = centers.length
@@ -130,6 +149,7 @@ export function generateGOTVHandoutHTML({ code, votingInfo, nearestCenters } = {
     `</header>` +
     dates +
     centersHtml +
+    idHtml +
     `<div class="packet-vote411"><h2>Everything on your ballot, explained</h2>` +
     `<p>Visit <b>${escapeHtml(vote411.replace(/^https?:\/\/(www\.)?/, ""))}</b> — enter your address to see your sample ballot, ` +
     `check your registration, and find dates and locations. Free, from the League of Women Voters.</p></div>` +
@@ -184,6 +204,8 @@ const PACKET_STYLES = `
     .packet-centers { list-style: none; }
     .packet-centers li { padding: 8px 0; border-bottom: 1px solid #ccc; font-size: 15px; }
     .packet-dist { color: #444; font-size: 13px; }
+    .packet-ids { padding-left: 20px; font-size: 14px; columns: 2; column-gap: 28px; }
+    .packet-ids li { padding: 2px 0; break-inside: avoid; }
     .packet-vote411 { border: 2px solid #222; border-radius: 10px; padding: 12px 14px; margin-top: 18px; }
     .packet-vote411 p { font-size: 15px; }
     .packet-foot { margin-top: 20px; padding-top: 10px; border-top: 1px solid #999; font-size: 12px; color: #555; text-align: center; }
