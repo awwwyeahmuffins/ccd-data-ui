@@ -122,4 +122,87 @@ check("turnout empty-vs-0 equivalence",
                  [{"precinct": "d:ALL", "registered": "0"}],
                  [], ["registered"])[0])
 
+# --- 2026 primary upgrade: PDF contest-block parsing ----------------------------
+from parse_precinct_pdf import (  # noqa: E402
+    county_sums, parse_bowie_layout, parse_grayson_layout)
+
+GRAYSON_SAMPLE = """Precinct 101
+REP US Representative, District 4
+Vote For 1
+
+                                         TOTAL        VOTE %       Absentee Early Voting
+                                                                                             Day
+
+Don Horn                                         24       13.56%           1         15               8
+
+Pat Fallon                                      153       86.44%           5         79           69
+
+Total Votes Cast                                177      100.00%           6         94           77
+
+Precinct 102
+REP US Representative, District 4
+Vote For 1
+
+Don Horn                                          6        60.00%          0          4               2
+
+Pat Fallon                                        4        40.00%          0          2               2
+
+Total Votes Cast                                 10      100.00%           0          6               4
+"""
+res, sections = parse_grayson_layout(GRAYSON_SAMPLE, "REP US Representative, District 4")
+check("grayson: both precinct sections parsed", sorted(res) == ["101", "102"])
+check("grayson: candidate totals read from TOTAL column",
+      res["101"] == [("Don Horn", 24), ("Pat Fallon", 153)])
+check("grayson: sections set covers all headers", sections == {"101", "102"})
+check("grayson: county sums accumulate",
+      county_sums(res) == {"Don Horn": 30, "Pat Fallon": 157})
+try:
+    parse_grayson_layout(GRAYSON_SAMPLE, "REP Governor")
+    check("grayson: missing contest fails closed", False)
+except ValueError:
+    check("grayson: missing contest fails closed", True)
+# a contest block that never closes must raise, not silently drop the precinct
+try:
+    parse_grayson_layout(GRAYSON_SAMPLE.replace("Total Votes Cast", "Total Vote Cast"),
+                         "REP US Representative, District 4")
+    check("grayson: unterminated block fails closed", False)
+except ValueError:
+    check("grayson: unterminated block fails closed", True)
+
+BOWIE_SAMPLE = """Summary Results Report                              OFFICIAL RESULTS Pct X Pct Republican
+TX Bowie County 260303 Primary 6110
+March 3, 2026                                                          Bowie County
+
+1A
+ STATISTICS
+
+REP US Representative, District 1
+Vote For 1
+
+Nathaniel Moran                                             20                   1         12              7
+
+Total Votes Cast                                            20                   1         12              7
+
+Summary Results Report                              OFFICIAL RESULTS Pct X Pct Republican
+TX Bowie County 260303 Primary 6110
+March 3, 2026                                                          Bowie County
+
+13
+ STATISTICS
+
+REP US Representative, District 4
+Vote For 1
+
+Pat Fallon                                                  1,204                0          0              1
+
+Don Horn                                                      1                  0          0              1
+
+Total Votes Cast                                              2                  0          0              2
+"""
+res, sections = parse_bowie_layout(BOWIE_SAMPLE, "REP US Representative, District 4")
+check("bowie: only the D4 precinct carries the contest", sorted(res) == ["13"])
+check("bowie: sections include non-D4 precincts too", sections == {"1A", "13"})
+check("bowie: comma thousands parsed",
+      res["13"] == [("Pat Fallon", 1204), ("Don Horn", 1)])
+
 print(f"OK — {passed} checks passed")

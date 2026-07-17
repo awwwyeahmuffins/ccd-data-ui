@@ -99,7 +99,7 @@ export function districtSlugFor(entry) {
   const d = entry.district;
   if (d == null || d === "") return null;
   let slug = null;
-  if (office.includes("representative") && (office.includes("united states") || office.includes("u.s") || office.includes("u s") || office.includes("congress"))) slug = `cd-${d}`;
+  if (office.includes("representative") && (office.includes("united states") || office.includes("u.s") || office.includes("u s") || office.includes("congress") || /\bus\b/.test(office))) slug = `cd-${d}`;
   else if (office.includes("senator") || office.includes("senate")) slug = `sd-${d}`;
   else if (office.includes("representative")) slug = `hd-${d}`; // state house (after US handled)
   return slug && KEPT_DISTRICTS.has(slug) ? slug : null;

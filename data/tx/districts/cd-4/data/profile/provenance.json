@@ -1,326 +1,369 @@
 {
- "package": {
-  "method": "district-partition-v1",
-  "plan": "PLANC2193",
-  "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races and the district's own race merged from member counties; counties on different data vintages contribute different races. Own-race results from years before the 2021 plans were contested under the prior plan's boundaries.",
-  "members": {
-   "bowie": 12,
-   "collin": 65,
-   "delta": 7,
-   "denton": 10,
-   "fannin": 16,
-   "grayson": 36,
-   "hopkins": 21,
-   "hunt": 4,
-   "lamar": 32,
-   "rains": 8,
-   "red-river": 10,
-   "rockwall": 23
-  },
-  "generated": "2026-06-12"
- },
- "amendments": [
-  {
-   "date": "2026-07-12",
-   "what": "Restored REAL precinct-level rows (races + turnout) and precinct polygons for non-Collin member counties, replacing the <county>:ALL aggregates the Collin-focus reduction had collapsed them into.",
-   "method": "restore_district_precincts.py from this repo's pre-reduction commit cc5c25ce7b45949f0db9c90baa009cbf8fd2341b; per (county, file) gate: precinct rows must sum exactly to the current :ALL totals (races per party+candidate, turnout per column). Non-Collin polygons from that commit's members.geojson written to boundaries/other_precincts.geojson with countySlug properties.",
-   "source": "Originally ingested from official sources: OpenElections per-county files via tx_etl.py; grayson/lamar/red-river statewide 2020 from VEST (doi:10.7910/DVN/K7760H) via vest_ingest.py.",
-   "note": "Counties restored: ['bowie', 'delta', 'denton', 'fannin', 'grayson', 'hopkins', 'hunt', 'lamar', 'rains', 'red-river', 'rockwall']. Turnout cells the reduction had summed from empty sources return to honest empty (N/A) instead of 0."
-  },
-  {
-   "date": "2026-07-12",
-   "what": "Added official precinct-level 2024 general-election results (races + turnout) for non-Collin member counties from OpenElections.",
-   "method": "upgrade_district_precincts_oe.py --year 2024; tx_etl.py parsing policy; membership resolved per county (whole-county proven by the source's own U.S. House rows, or the geometry partition with a complete House cross-check) with fail-closed gates \u2014 see script docstring. Precincts the county renumbered/consolidated since our boundary vintage carry no polygon and render as county fallback on the map; the data rows are complete.",
-   "source": "openelections/openelections-data-tx @ 6b8493e2f97aa9be4c089c611841259c39d090d9 \u2014 official county canvass transcriptions. Files: 20241105__tx__general__bowie__precinct.csv; 20241105__tx__general__delta__precinct.csv; 20241105__tx__general__denton__precinct.csv; 20241105__tx__general__fannin__precinct.csv; 20241105__tx__general__grayson__precinct.csv; 20241105__tx__general__hopkins__precinct.csv; 20241105__tx__general__hunt__precinct.csv; 20241105__tx__general__lamar__precinct.csv; 20241105__tx__general__red_river__precinct.csv; 20241105__tx__general__rockwall__precinct.csv",
-   "outcomes": {
-    "bowie": {
-     "~membership": "partition (12 precincts)",
-     "races/Justice_Supreme_Court_Place_2_2024.csv": "added (12 precincts, 48 rows)",
-     "races/Justice_Supreme_Court_Place_4_2024.csv": "added (12 precincts, 48 rows)",
-     "races/Justice_Supreme_Court_Place_6_2024.csv": "added (12 precincts, 60 rows)",
-     "races/President_Vice_President_2024.csv": "added (12 precincts, 132 rows)",
-     "races/United_States_Representative_District_4_2024.csv": "added (12 precincts, 48 rows)",
-     "races/United_States_Senator_2024.csv": "added (12 precincts, 96 rows)"
+    "package": {
+        "method": "district-partition-v1",
+        "plan": "PLANC2193",
+        "description": "Cross-county district view. Precincts assigned wholly to the district containing their representative point (split precincts are not apportioned). Statewide races and the district's own race merged from member counties; counties on different data vintages contribute different races. Own-race results from years before the 2021 plans were contested under the prior plan's boundaries.",
+        "members": {
+            "bowie": 12,
+            "collin": 65,
+            "delta": 7,
+            "denton": 10,
+            "fannin": 16,
+            "grayson": 36,
+            "hopkins": 21,
+            "hunt": 4,
+            "lamar": 32,
+            "rains": 8,
+            "red-river": 10,
+            "rockwall": 23
+        },
+        "generated": "2026-06-12"
     },
-    "delta": {
-     "~membership": "whole-county (7 precincts)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_7_2024.csv": "added (7 precincts, 28 rows)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_8_2024.csv": "added (7 precincts, 28 rows)",
-     "races/Justice_Supreme_Court_Place_2_2024.csv": "added (7 precincts, 28 rows)",
-     "races/Justice_Supreme_Court_Place_4_2024.csv": "added (7 precincts, 28 rows)",
-     "races/Justice_Supreme_Court_Place_6_2024.csv": "added (7 precincts, 35 rows)",
-     "races/President_Vice_President_2024.csv": "added (7 precincts, 42 rows)",
-     "races/Presiding_Judge_Court_of_Criminal_Appeals_2024.csv": "added (7 precincts, 28 rows)",
-     "races/United_States_Representative_District_4_2024.csv": "added (7 precincts, 28 rows)",
-     "races/United_States_Senator_2024.csv": "added (7 precincts, 35 rows)"
-    },
-    "denton": {
-     "*": "kept (membership cross-check failed: member precincts missing from the source's district-4 set (codes renumbered across vintages?): ['1029', '1030', '1031', '1040', '1049', '1050']\u2026)"
-    },
-    "fannin": {
-     "~membership": "whole-county (17 precincts)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_7_2024.csv": "added (17 precincts, 68 rows)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_8_2024.csv": "added (17 precincts, 68 rows)",
-     "races/Justice_Supreme_Court_Place_2_2024.csv": "added (17 precincts, 68 rows)",
-     "races/Justice_Supreme_Court_Place_4_2024.csv": "added (17 precincts, 68 rows)",
-     "races/Justice_Supreme_Court_Place_6_2024.csv": "added (17 precincts, 85 rows)",
-     "races/President_Vice_President_2024.csv": "added (17 precincts, 102 rows)",
-     "races/Presiding_Judge_Court_of_Criminal_Appeals_2024.csv": "added (17 precincts, 68 rows)",
-     "races/United_States_Representative_District_4_2024.csv": "added (17 precincts, 68 rows)",
-     "races/United_States_Senator_2024.csv": "added (17 precincts, 85 rows)"
-    },
-    "grayson": {
-     "~membership": "whole-county (41 precincts)",
-     "races/Justice_Supreme_Court_Place_2_2024.csv": "added (41 precincts, 82 rows)",
-     "races/Justice_Supreme_Court_Place_4_2024.csv": "added (41 precincts, 82 rows)",
-     "races/Justice_Supreme_Court_Place_6_2024.csv": "added (41 precincts, 123 rows)",
-     "races/President_Vice_President_2024.csv": "added (41 precincts, 164 rows)",
-     "races/United_States_Representative_District_4_2024.csv": "added (41 precincts, 82 rows)",
-     "races/United_States_Senator_2024.csv": "added (41 precincts, 123 rows)"
-    },
-    "hopkins": {
-     "~membership": "whole-county (21 precincts)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_7_2024.csv": "added (21 precincts, 84 rows)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_8_2024.csv": "added (21 precincts, 84 rows)",
-     "races/Justice_Supreme_Court_Place_2_2024.csv": "added (21 precincts, 84 rows)",
-     "races/Justice_Supreme_Court_Place_4_2024.csv": "added (21 precincts, 84 rows)",
-     "races/Justice_Supreme_Court_Place_6_2024.csv": "added (21 precincts, 105 rows)",
-     "races/President_Vice_President_2024.csv": "added (21 precincts, 126 rows)",
-     "races/Presiding_Judge_Court_of_Criminal_Appeals_2024.csv": "added (21 precincts, 84 rows)",
-     "races/United_States_Representative_District_4_2024.csv": "added (21 precincts, 84 rows)",
-     "races/United_States_Senator_2024.csv": "added (21 precincts, 105 rows)"
-    },
-    "hunt": {
-     "~membership": "partition (4 precincts)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_7_2024.csv": "added (4 precincts, 16 rows)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_8_2024.csv": "added (4 precincts, 16 rows)",
-     "races/Justice_Supreme_Court_Place_2_2024.csv": "added (4 precincts, 16 rows)",
-     "races/Justice_Supreme_Court_Place_4_2024.csv": "added (4 precincts, 16 rows)",
-     "races/Justice_Supreme_Court_Place_6_2024.csv": "added (4 precincts, 20 rows)",
-     "races/President_Vice_President_2024.csv": "added (4 precincts, 48 rows)",
-     "races/Presiding_Judge_Court_of_Criminal_Appeals_2024.csv": "added (4 precincts, 16 rows)",
-     "races/United_States_Representative_District_4_2024.csv": "added (4 precincts, 16 rows) (excluded non-member codes: ['214B'])",
-     "races/United_States_Senator_2024.csv": "added (4 precincts, 28 rows)"
-    },
-    "lamar": {
-     "~membership": "whole-county (26 precincts)",
-     "races/President_Vice_President_2024.csv": "added (26 precincts, 130 rows)",
-     "races/United_States_Representative_District_4_2024.csv": "added (26 precincts, 52 rows)",
-     "races/United_States_Senator_2024.csv": "added (26 precincts, 104 rows)"
-    },
-    "rains": {
-     "*": "absent (no OpenElections file for this county/year)"
-    },
-    "red-river": {
-     "*": "kept (membership cross-check failed: member precincts missing from the source's district-4 set (codes renumbered across vintages?): ['14', '18', '20', '21', '24'])"
-    },
-    "rockwall": {
-     "~membership": "whole-county (26 precincts)",
-     "races/President_Vice_President_2024.csv": "added (26 precincts, 130 rows)",
-     "races/United_States_Representative_District_4_2024.csv": "added (26 precincts, 52 rows)",
-     "races/United_States_Senator_2024.csv": "added (26 precincts, 104 rows)"
-    }
-   },
-   "note": "Counties/races not listed as added were kept unchanged (gate failure or source gap) \u2014 honest gaps render N/A. Turnout rows added per file: {'turnout/United_States_Representative_District_4_2024.csv': 154, 'turnout/Judge_Court_of_Criminal_Appeals_Place_7_2024.csv': 154, 'turnout/Judge_Court_of_Criminal_Appeals_Place_8_2024.csv': 154, 'turnout/Presiding_Judge_Court_of_Criminal_Appeals_2024.csv': 154, 'turnout/President_Vice_President_2024.csv': 154, 'turnout/Justice_Supreme_Court_Place_2_2024.csv': 154, 'turnout/Justice_Supreme_Court_Place_4_2024.csv': 154, 'turnout/Justice_Supreme_Court_Place_6_2024.csv': 154, 'turnout/United_States_Senator_2024.csv': 154}. Cross-source check (2026-07-12): President 2024 R/D county sums for all six whole-county additions (delta, fannin, grayson, hopkins, lamar, rockwall) match tonmcg/US_County_Level_Election_Results_08-24 EXACTLY."
-  },
-  {
-   "date": "2026-07-12",
-   "what": "Added official precinct-level 2022 general-election results (races + turnout) for non-Collin member counties from OpenElections.",
-   "method": "upgrade_district_precincts_oe.py --year 2022; tx_etl.py parsing policy; membership resolved per county (whole-county proven by the source's own U.S. House rows, or the geometry partition with a complete House cross-check) with fail-closed gates \u2014 see script docstring. Precincts the county renumbered/consolidated since our boundary vintage carry no polygon and render as county fallback on the map; the data rows are complete.",
-   "source": "openelections/openelections-data-tx @ 6b8493e2f97aa9be4c089c611841259c39d090d9 \u2014 official county canvass transcriptions. Files: 20221108__tx__general__bowie__precinct.csv; 20221108__tx__general__fannin__precinct.csv; 20221108__tx__general__lamar__precinct.csv; 20221108__tx__general__precinct.csv; 20221108__tx__general__red_river__precinct.csv; 20221108__tx__general__rockwall__precinct.csv",
-   "outcomes": {
-    "bowie": {
-     "*": "kept (membership cross-check failed: no U.S. House rows in source to cross-check)"
-    },
-    "delta": {
-     "*": "absent (county 'Delta' not in source file)"
-    },
-    "denton": {
-     "*": "kept (membership cross-check failed: member precincts missing from the source's district-4 set (codes renumbered across vintages?): ['1029', '1030', '1031', '1040', '1049', '1050']\u2026)"
-    },
-    "fannin": {
-     "~membership": "whole-county (17 precincts)",
-     "races/Attorney_General_2022.csv": "added (17 precincts, 51 rows)",
-     "races/Commissioner_of_Agriculture_2022.csv": "added (17 precincts, 34 rows)",
-     "races/Commissioner_of_the_General_Land_Office_2022.csv": "added (17 precincts, 68 rows)",
-     "races/Comptroller_of_Public_Accounts_2022.csv": "added (17 precincts, 51 rows)",
-     "races/Governor_2022.csv": "added (17 precincts, 102 rows)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_5_2022.csv": "added (17 precincts, 34 rows)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_6_2022.csv": "added (17 precincts, 34 rows)",
-     "races/Justice_Supreme_Court_Place_3_2022.csv": "added (17 precincts, 51 rows)",
-     "races/Justice_Supreme_Court_Place_5_2022.csv": "added (17 precincts, 34 rows)",
-     "races/Justice_Supreme_Court_Place_9_2022.csv": "added (17 precincts, 34 rows)",
-     "races/Lieutenant_Governor_2022.csv": "added (17 precincts, 51 rows)",
-     "races/Railroad_Commissioner_2022.csv": "added (17 precincts, 68 rows)",
-     "races/U_S_Representative_District_4_2022.csv": "added (17 precincts, 51 rows)"
-    },
-    "grayson": {
-     "*": "absent (county 'Grayson' not in source file)"
-    },
-    "hopkins": {
-     "*": "absent (county 'Hopkins' not in source file)"
-    },
-    "hunt": {
-     "*": "absent (county 'Hunt' not in source file)"
-    },
-    "lamar": {
-     "~membership": "whole-county (26 precincts)",
-     "races/Attorney_General_2022.csv": "added (26 precincts, 78 rows)",
-     "races/Commissioner_of_Agriculture_2022.csv": "added (26 precincts, 52 rows)",
-     "races/Commissioner_of_the_General_Land_Office_2022.csv": "added (26 precincts, 78 rows)",
-     "races/Comptroller_of_Public_Accounts_2022.csv": "added (26 precincts, 78 rows)",
-     "races/Governor_2022.csv": "added (26 precincts, 104 rows)",
-     "races/Lieutenant_Governor_2022.csv": "added (26 precincts, 78 rows)",
-     "races/Railroad_Commissioner_2022.csv": "added (26 precincts, 104 rows)",
-     "races/U_S_Representative_District_4_2022.csv": "added (26 precincts, 78 rows)"
-    },
-    "rains": {
-     "*": "absent (county 'Rains' not in source file)"
-    },
-    "red-river": {
-     "*": "kept (membership cross-check failed: member precincts missing from the source's district-4 set (codes renumbered across vintages?): ['14', '18', '20', '21', '24'])"
-    },
-    "rockwall": {
-     "~membership": "whole-county (26 precincts)",
-     "races/Attorney_General_2022.csv": "refined (26 precincts, 78 rows)",
-     "races/Commissioner_of_Agriculture_2022.csv": "refined (26 precincts, 52 rows)",
-     "races/Commissioner_of_the_General_Land_Office_2022.csv": "refined (26 precincts, 104 rows)",
-     "races/Comptroller_of_Public_Accounts_2022.csv": "refined (26 precincts, 78 rows)",
-     "races/Governor_2022.csv": "refined (26 precincts, 130 rows)",
-     "races/Lieutenant_Governor_2022.csv": "refined (26 precincts, 78 rows)",
-     "races/Railroad_Commissioner_2022.csv": "refined (26 precincts, 104 rows)",
-     "races/U_S_Representative_District_4_2022.csv": "refined (26 precincts, 78 rows)"
-    }
-   },
-   "note": "Counties/races not listed as added were kept unchanged (gate failure or source gap) \u2014 honest gaps render N/A. Turnout rows added per file: {'turnout/U_S_Representative_District_4_2022.csv': 52, 'turnout/Commissioner_of_Agriculture_2022.csv': 52, 'turnout/Attorney_General_2022.csv': 52, 'turnout/Judge_Court_of_Criminal_Appeals_Place_5_2022.csv': 52, 'turnout/Judge_Court_of_Criminal_Appeals_Place_6_2022.csv': 52, 'turnout/Comptroller_of_Public_Accounts_2022.csv': 52, 'turnout/Governor_2022.csv': 52, 'turnout/Commissioner_of_the_General_Land_Office_2022.csv': 52, 'turnout/Lieutenant_Governor_2022.csv': 52, 'turnout/Railroad_Commissioner_2022.csv': 52, 'turnout/Justice_Supreme_Court_Place_3_2022.csv': 52, 'turnout/Justice_Supreme_Court_Place_5_2022.csv': 52, 'turnout/Justice_Supreme_Court_Place_9_2022.csv': 52}."
-  },
-  {
-   "date": "2026-07-12",
-   "what": "Added official precinct-level 2020 general-election results (races + turnout) for non-Collin member counties from OpenElections.",
-   "method": "upgrade_district_precincts_oe.py --year 2020; tx_etl.py parsing policy; membership resolved per county (whole-county proven by the source's own U.S. House rows, or the geometry partition with a complete House cross-check) with fail-closed gates \u2014 see script docstring. Precincts the county renumbered/consolidated since our boundary vintage carry no polygon and render as county fallback on the map; the data rows are complete.",
-   "source": "openelections/openelections-data-tx @ 6b8493e2f97aa9be4c089c611841259c39d090d9 \u2014 official county canvass transcriptions. Files: 20201103__tx__general__bowie__precinct.csv; 20201103__tx__general__delta__precinct.csv; 20201103__tx__general__denton__precinct.csv; 20201103__tx__general__fannin__precinct.csv; 20201103__tx__general__grayson__precinct.csv; 20201103__tx__general__hopkins__precinct.csv; 20201103__tx__general__hunt__precinct.csv; 20201103__tx__general__lamar__precinct.csv; 20201103__tx__general__rains__precinct.csv; 20201103__tx__general__red_river__precinct.csv; 20201103__tx__general__rockwall__precinct.csv",
-   "outcomes": {
-    "bowie": {
-     "~membership": "partition-2020 (12 precincts)",
-     "races/Chief_Justice_Supreme_Court_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
-     "races/Justice_Supreme_Court_Place_6_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
-     "races/Justice_Supreme_Court_Place_7_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
-     "races/Justice_Supreme_Court_Place_8_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
-     "races/President_Vice_President_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
-     "races/Railroad_Commissioner_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
-     "races/U_S_House_2020.csv": "kept (2020 corroboration fail: repo has no verified 2020 statewide rows for these precincts)",
-     "races/United_States_Senator_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])"
-    },
-    "delta": {
-     "~membership": "partition-2020 (7 precincts)",
-     "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
-     "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
-     "races/U_S_House_2020.csv": "skipped (already precinct-level)",
-     "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
-    },
-    "denton": {
-     "~membership": "partition-2020 (10 precincts)",
-     "races/Chief_Justice_Supreme_Court_2020.csv": "skipped (already precinct-level)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv": "skipped (already precinct-level)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv": "skipped (already precinct-level)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv": "skipped (already precinct-level)",
-     "races/Justice_Supreme_Court_Place_6_2020.csv": "skipped (already precinct-level)",
-     "races/Justice_Supreme_Court_Place_7_2020.csv": "skipped (already precinct-level)",
-     "races/Justice_Supreme_Court_Place_8_2020.csv": "skipped (already precinct-level)",
-     "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
-     "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
-     "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
-    },
-    "fannin": {
-     "~membership": "partition-2020 (16 precincts)",
-     "races/Chief_Justice_Supreme_Court_2020.csv": "skipped (already precinct-level)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv": "skipped (already precinct-level)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv": "skipped (already precinct-level)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv": "skipped (already precinct-level)",
-     "races/Justice_Supreme_Court_Place_6_2020.csv": "skipped (already precinct-level)",
-     "races/Justice_Supreme_Court_Place_7_2020.csv": "skipped (already precinct-level)",
-     "races/Justice_Supreme_Court_Place_8_2020.csv": "skipped (already precinct-level)",
-     "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
-     "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
-     "races/U_S_House_2020.csv": "skipped (already precinct-level)",
-     "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
-    },
-    "grayson": {
-     "~membership": "partition-2020 (36 precincts)",
-     "races/Chief_Justice_Supreme_Court_2020.csv": "skipped (already precinct-level)",
-     "races/Justice_Supreme_Court_Place_6_2020.csv": "skipped (already precinct-level)",
-     "races/Justice_Supreme_Court_Place_7_2020.csv": "skipped (already precinct-level)",
-     "races/Justice_Supreme_Court_Place_8_2020.csv": "skipped (already precinct-level)",
-     "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
-     "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
-     "races/U_S_House_2020.csv": "added (36 precincts, 144 rows) (old-plan race; 36/36 member precincts had it)",
-     "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
-    },
-    "hopkins": {
-     "~membership": "partition-2020 (21 precincts)",
-     "races/Chief_Justice_Supreme_Court_2020.csv": "refined (21 precincts, 63 rows)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv": "refined (21 precincts, 42 rows)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv": "refined (21 precincts, 42 rows)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv": "refined (21 precincts, 42 rows)",
-     "races/Justice_Supreme_Court_Place_6_2020.csv": "refined (21 precincts, 42 rows)",
-     "races/Justice_Supreme_Court_Place_7_2020.csv": "refined (21 precincts, 63 rows)",
-     "races/Justice_Supreme_Court_Place_8_2020.csv": "refined (21 precincts, 63 rows)",
-     "races/President_Vice_President_2020.csv": "refined (21 precincts, 105 rows)",
-     "races/Railroad_Commissioner_2020.csv": "refined (21 precincts, 84 rows)",
-     "races/U_S_House_2020.csv": "refined (21 precincts, 84 rows) (old-plan race; 21/21 member precincts had it)",
-     "races/United_States_Senator_2020.csv": "refined (21 precincts, 84 rows)"
-    },
-    "hunt": {
-     "~membership": "partition-2020 (4 precincts)",
-     "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
-     "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
-     "races/U_S_House_2020.csv": "skipped (already precinct-level)",
-     "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
-    },
-    "lamar": {
-     "~membership": "partition-2020 (32 precincts)",
-     "races/Chief_Justice_Supreme_Court_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
-     "races/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
-     "races/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
-     "races/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
-     "races/Justice_Supreme_Court_Place_6_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
-     "races/Justice_Supreme_Court_Place_7_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
-     "races/Justice_Supreme_Court_Place_8_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
-     "races/President_Vice_President_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
-     "races/Railroad_Commissioner_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
-     "races/U_S_House_2020.csv": "kept (2020 corroboration fail: President votes disagree with the repo's verified rows, e.g. ('1A3B', 'DEM'): repo=139 source=374 (+36 more))",
-     "races/United_States_Senator_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])"
-    },
-    "rains": {
-     "~membership": "partition-2020 (8 precincts)",
-     "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
-     "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
-     "races/U_S_House_2020.csv": "skipped (already precinct-level)",
-     "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
-    },
-    "red-river": {
-     "~membership": "partition-2020 (10 precincts)",
-     "races/Chief_Justice_Supreme_Court_2020.csv": "kept (no in-district precincts in source race)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv": "kept (no in-district precincts in source race)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv": "kept (no in-district precincts in source race)",
-     "races/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv": "kept (no in-district precincts in source race)",
-     "races/Justice_Supreme_Court_Place_6_2020.csv": "kept (no in-district precincts in source race)",
-     "races/Justice_Supreme_Court_Place_7_2020.csv": "kept (no in-district precincts in source race)",
-     "races/Justice_Supreme_Court_Place_8_2020.csv": "kept (no in-district precincts in source race)",
-     "races/President_Vice_President_2020.csv": "kept (no in-district precincts in source race)",
-     "races/Railroad_Commissioner_2020.csv": "kept (no in-district precincts in source race)",
-     "races/U_S_House_2020.csv": "kept (no in-district precincts in source race)",
-     "races/United_States_Senator_2020.csv": "kept (no in-district precincts in source race)"
-    },
-    "rockwall": {
-     "~membership": "partition-2020 (23 precincts)",
-     "races/President_Vice_President_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1BA', '1BB', '1D', '1E', '2D', '2E']\u2026)",
-     "races/Railroad_Commissioner_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1BA', '1BB', '1D', '1E', '2D', '2E']\u2026)",
-     "races/U_S_House_2020.csv": "kept (2020 corroboration fail: repo has no verified 2020 statewide rows for these precincts)",
-     "races/United_States_Senator_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1BA', '1BB', '1D', '1E', '2D', '2E']\u2026)"
-    }
-   },
-   "note": "Counties/races not listed as added were kept unchanged (gate failure or source gap) \u2014 honest gaps render N/A. Turnout rows added per file: {'turnout/U_S_House_2020.csv': 36}."
-  }
- ]
+    "amendments": [
+        {
+            "date": "2026-07-12",
+            "what": "Restored REAL precinct-level rows (races + turnout) and precinct polygons for non-Collin member counties, replacing the <county>:ALL aggregates the Collin-focus reduction had collapsed them into.",
+            "method": "restore_district_precincts.py from this repo's pre-reduction commit cc5c25ce7b45949f0db9c90baa009cbf8fd2341b; per (county, file) gate: precinct rows must sum exactly to the current :ALL totals (races per party+candidate, turnout per column). Non-Collin polygons from that commit's members.geojson written to boundaries/other_precincts.geojson with countySlug properties.",
+            "source": "Originally ingested from official sources: OpenElections per-county files via tx_etl.py; grayson/lamar/red-river statewide 2020 from VEST (doi:10.7910/DVN/K7760H) via vest_ingest.py.",
+            "note": "Counties restored: ['bowie', 'delta', 'denton', 'fannin', 'grayson', 'hopkins', 'hunt', 'lamar', 'rains', 'red-river', 'rockwall']. Turnout cells the reduction had summed from empty sources return to honest empty (N/A) instead of 0."
+        },
+        {
+            "date": "2026-07-12",
+            "what": "Added official precinct-level 2024 general-election results (races + turnout) for non-Collin member counties from OpenElections.",
+            "method": "upgrade_district_precincts_oe.py --year 2024; tx_etl.py parsing policy; membership resolved per county (whole-county proven by the source's own U.S. House rows, or the geometry partition with a complete House cross-check) with fail-closed gates \u2014 see script docstring. Precincts the county renumbered/consolidated since our boundary vintage carry no polygon and render as county fallback on the map; the data rows are complete.",
+            "source": "openelections/openelections-data-tx @ 6b8493e2f97aa9be4c089c611841259c39d090d9 \u2014 official county canvass transcriptions. Files: 20241105__tx__general__bowie__precinct.csv; 20241105__tx__general__delta__precinct.csv; 20241105__tx__general__denton__precinct.csv; 20241105__tx__general__fannin__precinct.csv; 20241105__tx__general__grayson__precinct.csv; 20241105__tx__general__hopkins__precinct.csv; 20241105__tx__general__hunt__precinct.csv; 20241105__tx__general__lamar__precinct.csv; 20241105__tx__general__red_river__precinct.csv; 20241105__tx__general__rockwall__precinct.csv",
+            "outcomes": {
+                "bowie": {
+                    "~membership": "partition (12 precincts)",
+                    "races/Justice_Supreme_Court_Place_2_2024.csv": "added (12 precincts, 48 rows)",
+                    "races/Justice_Supreme_Court_Place_4_2024.csv": "added (12 precincts, 48 rows)",
+                    "races/Justice_Supreme_Court_Place_6_2024.csv": "added (12 precincts, 60 rows)",
+                    "races/President_Vice_President_2024.csv": "added (12 precincts, 132 rows)",
+                    "races/United_States_Representative_District_4_2024.csv": "added (12 precincts, 48 rows)",
+                    "races/United_States_Senator_2024.csv": "added (12 precincts, 96 rows)"
+                },
+                "delta": {
+                    "~membership": "whole-county (7 precincts)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_7_2024.csv": "added (7 precincts, 28 rows)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_8_2024.csv": "added (7 precincts, 28 rows)",
+                    "races/Justice_Supreme_Court_Place_2_2024.csv": "added (7 precincts, 28 rows)",
+                    "races/Justice_Supreme_Court_Place_4_2024.csv": "added (7 precincts, 28 rows)",
+                    "races/Justice_Supreme_Court_Place_6_2024.csv": "added (7 precincts, 35 rows)",
+                    "races/President_Vice_President_2024.csv": "added (7 precincts, 42 rows)",
+                    "races/Presiding_Judge_Court_of_Criminal_Appeals_2024.csv": "added (7 precincts, 28 rows)",
+                    "races/United_States_Representative_District_4_2024.csv": "added (7 precincts, 28 rows)",
+                    "races/United_States_Senator_2024.csv": "added (7 precincts, 35 rows)"
+                },
+                "denton": {
+                    "*": "kept (membership cross-check failed: member precincts missing from the source's district-4 set (codes renumbered across vintages?): ['1029', '1030', '1031', '1040', '1049', '1050']\u2026)"
+                },
+                "fannin": {
+                    "~membership": "whole-county (17 precincts)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_7_2024.csv": "added (17 precincts, 68 rows)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_8_2024.csv": "added (17 precincts, 68 rows)",
+                    "races/Justice_Supreme_Court_Place_2_2024.csv": "added (17 precincts, 68 rows)",
+                    "races/Justice_Supreme_Court_Place_4_2024.csv": "added (17 precincts, 68 rows)",
+                    "races/Justice_Supreme_Court_Place_6_2024.csv": "added (17 precincts, 85 rows)",
+                    "races/President_Vice_President_2024.csv": "added (17 precincts, 102 rows)",
+                    "races/Presiding_Judge_Court_of_Criminal_Appeals_2024.csv": "added (17 precincts, 68 rows)",
+                    "races/United_States_Representative_District_4_2024.csv": "added (17 precincts, 68 rows)",
+                    "races/United_States_Senator_2024.csv": "added (17 precincts, 85 rows)"
+                },
+                "grayson": {
+                    "~membership": "whole-county (41 precincts)",
+                    "races/Justice_Supreme_Court_Place_2_2024.csv": "added (41 precincts, 82 rows)",
+                    "races/Justice_Supreme_Court_Place_4_2024.csv": "added (41 precincts, 82 rows)",
+                    "races/Justice_Supreme_Court_Place_6_2024.csv": "added (41 precincts, 123 rows)",
+                    "races/President_Vice_President_2024.csv": "added (41 precincts, 164 rows)",
+                    "races/United_States_Representative_District_4_2024.csv": "added (41 precincts, 82 rows)",
+                    "races/United_States_Senator_2024.csv": "added (41 precincts, 123 rows)"
+                },
+                "hopkins": {
+                    "~membership": "whole-county (21 precincts)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_7_2024.csv": "added (21 precincts, 84 rows)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_8_2024.csv": "added (21 precincts, 84 rows)",
+                    "races/Justice_Supreme_Court_Place_2_2024.csv": "added (21 precincts, 84 rows)",
+                    "races/Justice_Supreme_Court_Place_4_2024.csv": "added (21 precincts, 84 rows)",
+                    "races/Justice_Supreme_Court_Place_6_2024.csv": "added (21 precincts, 105 rows)",
+                    "races/President_Vice_President_2024.csv": "added (21 precincts, 126 rows)",
+                    "races/Presiding_Judge_Court_of_Criminal_Appeals_2024.csv": "added (21 precincts, 84 rows)",
+                    "races/United_States_Representative_District_4_2024.csv": "added (21 precincts, 84 rows)",
+                    "races/United_States_Senator_2024.csv": "added (21 precincts, 105 rows)"
+                },
+                "hunt": {
+                    "~membership": "partition (4 precincts)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_7_2024.csv": "added (4 precincts, 16 rows)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_8_2024.csv": "added (4 precincts, 16 rows)",
+                    "races/Justice_Supreme_Court_Place_2_2024.csv": "added (4 precincts, 16 rows)",
+                    "races/Justice_Supreme_Court_Place_4_2024.csv": "added (4 precincts, 16 rows)",
+                    "races/Justice_Supreme_Court_Place_6_2024.csv": "added (4 precincts, 20 rows)",
+                    "races/President_Vice_President_2024.csv": "added (4 precincts, 48 rows)",
+                    "races/Presiding_Judge_Court_of_Criminal_Appeals_2024.csv": "added (4 precincts, 16 rows)",
+                    "races/United_States_Representative_District_4_2024.csv": "added (4 precincts, 16 rows) (excluded non-member codes: ['214B'])",
+                    "races/United_States_Senator_2024.csv": "added (4 precincts, 28 rows)"
+                },
+                "lamar": {
+                    "~membership": "whole-county (26 precincts)",
+                    "races/President_Vice_President_2024.csv": "added (26 precincts, 130 rows)",
+                    "races/United_States_Representative_District_4_2024.csv": "added (26 precincts, 52 rows)",
+                    "races/United_States_Senator_2024.csv": "added (26 precincts, 104 rows)"
+                },
+                "rains": {
+                    "*": "absent (no OpenElections file for this county/year)"
+                },
+                "red-river": {
+                    "*": "kept (membership cross-check failed: member precincts missing from the source's district-4 set (codes renumbered across vintages?): ['14', '18', '20', '21', '24'])"
+                },
+                "rockwall": {
+                    "~membership": "whole-county (26 precincts)",
+                    "races/President_Vice_President_2024.csv": "added (26 precincts, 130 rows)",
+                    "races/United_States_Representative_District_4_2024.csv": "added (26 precincts, 52 rows)",
+                    "races/United_States_Senator_2024.csv": "added (26 precincts, 104 rows)"
+                }
+            },
+            "note": "Counties/races not listed as added were kept unchanged (gate failure or source gap) \u2014 honest gaps render N/A. Turnout rows added per file: {'turnout/United_States_Representative_District_4_2024.csv': 154, 'turnout/Judge_Court_of_Criminal_Appeals_Place_7_2024.csv': 154, 'turnout/Judge_Court_of_Criminal_Appeals_Place_8_2024.csv': 154, 'turnout/Presiding_Judge_Court_of_Criminal_Appeals_2024.csv': 154, 'turnout/President_Vice_President_2024.csv': 154, 'turnout/Justice_Supreme_Court_Place_2_2024.csv': 154, 'turnout/Justice_Supreme_Court_Place_4_2024.csv': 154, 'turnout/Justice_Supreme_Court_Place_6_2024.csv': 154, 'turnout/United_States_Senator_2024.csv': 154}. Cross-source check (2026-07-12): President 2024 R/D county sums for all six whole-county additions (delta, fannin, grayson, hopkins, lamar, rockwall) match tonmcg/US_County_Level_Election_Results_08-24 EXACTLY."
+        },
+        {
+            "date": "2026-07-12",
+            "what": "Added official precinct-level 2022 general-election results (races + turnout) for non-Collin member counties from OpenElections.",
+            "method": "upgrade_district_precincts_oe.py --year 2022; tx_etl.py parsing policy; membership resolved per county (whole-county proven by the source's own U.S. House rows, or the geometry partition with a complete House cross-check) with fail-closed gates \u2014 see script docstring. Precincts the county renumbered/consolidated since our boundary vintage carry no polygon and render as county fallback on the map; the data rows are complete.",
+            "source": "openelections/openelections-data-tx @ 6b8493e2f97aa9be4c089c611841259c39d090d9 \u2014 official county canvass transcriptions. Files: 20221108__tx__general__bowie__precinct.csv; 20221108__tx__general__fannin__precinct.csv; 20221108__tx__general__lamar__precinct.csv; 20221108__tx__general__precinct.csv; 20221108__tx__general__red_river__precinct.csv; 20221108__tx__general__rockwall__precinct.csv",
+            "outcomes": {
+                "bowie": {
+                    "*": "kept (membership cross-check failed: no U.S. House rows in source to cross-check)"
+                },
+                "delta": {
+                    "*": "absent (county 'Delta' not in source file)"
+                },
+                "denton": {
+                    "*": "kept (membership cross-check failed: member precincts missing from the source's district-4 set (codes renumbered across vintages?): ['1029', '1030', '1031', '1040', '1049', '1050']\u2026)"
+                },
+                "fannin": {
+                    "~membership": "whole-county (17 precincts)",
+                    "races/Attorney_General_2022.csv": "added (17 precincts, 51 rows)",
+                    "races/Commissioner_of_Agriculture_2022.csv": "added (17 precincts, 34 rows)",
+                    "races/Commissioner_of_the_General_Land_Office_2022.csv": "added (17 precincts, 68 rows)",
+                    "races/Comptroller_of_Public_Accounts_2022.csv": "added (17 precincts, 51 rows)",
+                    "races/Governor_2022.csv": "added (17 precincts, 102 rows)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_5_2022.csv": "added (17 precincts, 34 rows)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_6_2022.csv": "added (17 precincts, 34 rows)",
+                    "races/Justice_Supreme_Court_Place_3_2022.csv": "added (17 precincts, 51 rows)",
+                    "races/Justice_Supreme_Court_Place_5_2022.csv": "added (17 precincts, 34 rows)",
+                    "races/Justice_Supreme_Court_Place_9_2022.csv": "added (17 precincts, 34 rows)",
+                    "races/Lieutenant_Governor_2022.csv": "added (17 precincts, 51 rows)",
+                    "races/Railroad_Commissioner_2022.csv": "added (17 precincts, 68 rows)",
+                    "races/U_S_Representative_District_4_2022.csv": "added (17 precincts, 51 rows)"
+                },
+                "grayson": {
+                    "*": "absent (county 'Grayson' not in source file)"
+                },
+                "hopkins": {
+                    "*": "absent (county 'Hopkins' not in source file)"
+                },
+                "hunt": {
+                    "*": "absent (county 'Hunt' not in source file)"
+                },
+                "lamar": {
+                    "~membership": "whole-county (26 precincts)",
+                    "races/Attorney_General_2022.csv": "added (26 precincts, 78 rows)",
+                    "races/Commissioner_of_Agriculture_2022.csv": "added (26 precincts, 52 rows)",
+                    "races/Commissioner_of_the_General_Land_Office_2022.csv": "added (26 precincts, 78 rows)",
+                    "races/Comptroller_of_Public_Accounts_2022.csv": "added (26 precincts, 78 rows)",
+                    "races/Governor_2022.csv": "added (26 precincts, 104 rows)",
+                    "races/Lieutenant_Governor_2022.csv": "added (26 precincts, 78 rows)",
+                    "races/Railroad_Commissioner_2022.csv": "added (26 precincts, 104 rows)",
+                    "races/U_S_Representative_District_4_2022.csv": "added (26 precincts, 78 rows)"
+                },
+                "rains": {
+                    "*": "absent (county 'Rains' not in source file)"
+                },
+                "red-river": {
+                    "*": "kept (membership cross-check failed: member precincts missing from the source's district-4 set (codes renumbered across vintages?): ['14', '18', '20', '21', '24'])"
+                },
+                "rockwall": {
+                    "~membership": "whole-county (26 precincts)",
+                    "races/Attorney_General_2022.csv": "refined (26 precincts, 78 rows)",
+                    "races/Commissioner_of_Agriculture_2022.csv": "refined (26 precincts, 52 rows)",
+                    "races/Commissioner_of_the_General_Land_Office_2022.csv": "refined (26 precincts, 104 rows)",
+                    "races/Comptroller_of_Public_Accounts_2022.csv": "refined (26 precincts, 78 rows)",
+                    "races/Governor_2022.csv": "refined (26 precincts, 130 rows)",
+                    "races/Lieutenant_Governor_2022.csv": "refined (26 precincts, 78 rows)",
+                    "races/Railroad_Commissioner_2022.csv": "refined (26 precincts, 104 rows)",
+                    "races/U_S_Representative_District_4_2022.csv": "refined (26 precincts, 78 rows)"
+                }
+            },
+            "note": "Counties/races not listed as added were kept unchanged (gate failure or source gap) \u2014 honest gaps render N/A. Turnout rows added per file: {'turnout/U_S_Representative_District_4_2022.csv': 52, 'turnout/Commissioner_of_Agriculture_2022.csv': 52, 'turnout/Attorney_General_2022.csv': 52, 'turnout/Judge_Court_of_Criminal_Appeals_Place_5_2022.csv': 52, 'turnout/Judge_Court_of_Criminal_Appeals_Place_6_2022.csv': 52, 'turnout/Comptroller_of_Public_Accounts_2022.csv': 52, 'turnout/Governor_2022.csv': 52, 'turnout/Commissioner_of_the_General_Land_Office_2022.csv': 52, 'turnout/Lieutenant_Governor_2022.csv': 52, 'turnout/Railroad_Commissioner_2022.csv': 52, 'turnout/Justice_Supreme_Court_Place_3_2022.csv': 52, 'turnout/Justice_Supreme_Court_Place_5_2022.csv': 52, 'turnout/Justice_Supreme_Court_Place_9_2022.csv': 52}."
+        },
+        {
+            "date": "2026-07-12",
+            "what": "Added official precinct-level 2020 general-election results (races + turnout) for non-Collin member counties from OpenElections.",
+            "method": "upgrade_district_precincts_oe.py --year 2020; tx_etl.py parsing policy; membership resolved per county (whole-county proven by the source's own U.S. House rows, or the geometry partition with a complete House cross-check) with fail-closed gates \u2014 see script docstring. Precincts the county renumbered/consolidated since our boundary vintage carry no polygon and render as county fallback on the map; the data rows are complete.",
+            "source": "openelections/openelections-data-tx @ 6b8493e2f97aa9be4c089c611841259c39d090d9 \u2014 official county canvass transcriptions. Files: 20201103__tx__general__bowie__precinct.csv; 20201103__tx__general__delta__precinct.csv; 20201103__tx__general__denton__precinct.csv; 20201103__tx__general__fannin__precinct.csv; 20201103__tx__general__grayson__precinct.csv; 20201103__tx__general__hopkins__precinct.csv; 20201103__tx__general__hunt__precinct.csv; 20201103__tx__general__lamar__precinct.csv; 20201103__tx__general__rains__precinct.csv; 20201103__tx__general__red_river__precinct.csv; 20201103__tx__general__rockwall__precinct.csv",
+            "outcomes": {
+                "bowie": {
+                    "~membership": "partition-2020 (12 precincts)",
+                    "races/Chief_Justice_Supreme_Court_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
+                    "races/Justice_Supreme_Court_Place_6_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
+                    "races/Justice_Supreme_Court_Place_7_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
+                    "races/Justice_Supreme_Court_Place_8_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
+                    "races/President_Vice_President_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
+                    "races/Railroad_Commissioner_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])",
+                    "races/U_S_House_2020.csv": "kept (2020 corroboration fail: repo has no verified 2020 statewide rows for these precincts)",
+                    "races/United_States_Senator_2020.csv": "kept (gate fail: in-district precincts missing from race: ['12A', '16A', '18A', '22A', '9A'])"
+                },
+                "delta": {
+                    "~membership": "partition-2020 (7 precincts)",
+                    "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
+                    "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
+                    "races/U_S_House_2020.csv": "skipped (already precinct-level)",
+                    "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
+                },
+                "denton": {
+                    "~membership": "partition-2020 (10 precincts)",
+                    "races/Chief_Justice_Supreme_Court_2020.csv": "skipped (already precinct-level)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv": "skipped (already precinct-level)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv": "skipped (already precinct-level)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv": "skipped (already precinct-level)",
+                    "races/Justice_Supreme_Court_Place_6_2020.csv": "skipped (already precinct-level)",
+                    "races/Justice_Supreme_Court_Place_7_2020.csv": "skipped (already precinct-level)",
+                    "races/Justice_Supreme_Court_Place_8_2020.csv": "skipped (already precinct-level)",
+                    "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
+                    "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
+                    "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
+                },
+                "fannin": {
+                    "~membership": "partition-2020 (16 precincts)",
+                    "races/Chief_Justice_Supreme_Court_2020.csv": "skipped (already precinct-level)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv": "skipped (already precinct-level)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv": "skipped (already precinct-level)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv": "skipped (already precinct-level)",
+                    "races/Justice_Supreme_Court_Place_6_2020.csv": "skipped (already precinct-level)",
+                    "races/Justice_Supreme_Court_Place_7_2020.csv": "skipped (already precinct-level)",
+                    "races/Justice_Supreme_Court_Place_8_2020.csv": "skipped (already precinct-level)",
+                    "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
+                    "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
+                    "races/U_S_House_2020.csv": "skipped (already precinct-level)",
+                    "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
+                },
+                "grayson": {
+                    "~membership": "partition-2020 (36 precincts)",
+                    "races/Chief_Justice_Supreme_Court_2020.csv": "skipped (already precinct-level)",
+                    "races/Justice_Supreme_Court_Place_6_2020.csv": "skipped (already precinct-level)",
+                    "races/Justice_Supreme_Court_Place_7_2020.csv": "skipped (already precinct-level)",
+                    "races/Justice_Supreme_Court_Place_8_2020.csv": "skipped (already precinct-level)",
+                    "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
+                    "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
+                    "races/U_S_House_2020.csv": "added (36 precincts, 144 rows) (old-plan race; 36/36 member precincts had it)",
+                    "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
+                },
+                "hopkins": {
+                    "~membership": "partition-2020 (21 precincts)",
+                    "races/Chief_Justice_Supreme_Court_2020.csv": "refined (21 precincts, 63 rows)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv": "refined (21 precincts, 42 rows)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv": "refined (21 precincts, 42 rows)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv": "refined (21 precincts, 42 rows)",
+                    "races/Justice_Supreme_Court_Place_6_2020.csv": "refined (21 precincts, 42 rows)",
+                    "races/Justice_Supreme_Court_Place_7_2020.csv": "refined (21 precincts, 63 rows)",
+                    "races/Justice_Supreme_Court_Place_8_2020.csv": "refined (21 precincts, 63 rows)",
+                    "races/President_Vice_President_2020.csv": "refined (21 precincts, 105 rows)",
+                    "races/Railroad_Commissioner_2020.csv": "refined (21 precincts, 84 rows)",
+                    "races/U_S_House_2020.csv": "refined (21 precincts, 84 rows) (old-plan race; 21/21 member precincts had it)",
+                    "races/United_States_Senator_2020.csv": "refined (21 precincts, 84 rows)"
+                },
+                "hunt": {
+                    "~membership": "partition-2020 (4 precincts)",
+                    "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
+                    "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
+                    "races/U_S_House_2020.csv": "skipped (already precinct-level)",
+                    "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
+                },
+                "lamar": {
+                    "~membership": "partition-2020 (32 precincts)",
+                    "races/Chief_Justice_Supreme_Court_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
+                    "races/Justice_Supreme_Court_Place_6_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
+                    "races/Justice_Supreme_Court_Place_7_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
+                    "races/Justice_Supreme_Court_Place_8_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
+                    "races/President_Vice_President_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
+                    "races/Railroad_Commissioner_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])",
+                    "races/U_S_House_2020.csv": "kept (2020 corroboration fail: President votes disagree with the repo's verified rows, e.g. ('1A3B', 'DEM'): repo=139 source=374 (+36 more))",
+                    "races/United_States_Senator_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1B', '1D', '1E7C', '1G', '2B2A', '4C'])"
+                },
+                "rains": {
+                    "~membership": "partition-2020 (8 precincts)",
+                    "races/President_Vice_President_2020.csv": "skipped (already precinct-level)",
+                    "races/Railroad_Commissioner_2020.csv": "skipped (already precinct-level)",
+                    "races/U_S_House_2020.csv": "skipped (already precinct-level)",
+                    "races/United_States_Senator_2020.csv": "skipped (already precinct-level)"
+                },
+                "red-river": {
+                    "~membership": "partition-2020 (10 precincts)",
+                    "races/Chief_Justice_Supreme_Court_2020.csv": "kept (no in-district precincts in source race)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_3_2020.csv": "kept (no in-district precincts in source race)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_4_2020.csv": "kept (no in-district precincts in source race)",
+                    "races/Judge_Court_of_Criminal_Appeals_Place_9_2020.csv": "kept (no in-district precincts in source race)",
+                    "races/Justice_Supreme_Court_Place_6_2020.csv": "kept (no in-district precincts in source race)",
+                    "races/Justice_Supreme_Court_Place_7_2020.csv": "kept (no in-district precincts in source race)",
+                    "races/Justice_Supreme_Court_Place_8_2020.csv": "kept (no in-district precincts in source race)",
+                    "races/President_Vice_President_2020.csv": "kept (no in-district precincts in source race)",
+                    "races/Railroad_Commissioner_2020.csv": "kept (no in-district precincts in source race)",
+                    "races/U_S_House_2020.csv": "kept (no in-district precincts in source race)",
+                    "races/United_States_Senator_2020.csv": "kept (no in-district precincts in source race)"
+                },
+                "rockwall": {
+                    "~membership": "partition-2020 (23 precincts)",
+                    "races/President_Vice_President_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1BA', '1BB', '1D', '1E', '2D', '2E']\u2026)",
+                    "races/Railroad_Commissioner_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1BA', '1BB', '1D', '1E', '2D', '2E']\u2026)",
+                    "races/U_S_House_2020.csv": "kept (2020 corroboration fail: repo has no verified 2020 statewide rows for these precincts)",
+                    "races/United_States_Senator_2020.csv": "kept (gate fail: in-district precincts missing from race: ['1BA', '1BB', '1D', '1E', '2D', '2E']\u2026)"
+                }
+            },
+            "note": "Counties/races not listed as added were kept unchanged (gate failure or source gap) \u2014 honest gaps render N/A. Turnout rows added per file: {'turnout/U_S_House_2020.csv': 36}."
+        },
+        {
+            "tag": "2026 primary: US Rep District 4 (PLANC2333)",
+            "date": "2026-07-12",
+            "what": "Added the March 3 2026 primary's DEM + REP U.S. Representative District 4 contests with real official out-of-county results.",
+            "plan_note": "The 2026 primary ran under PLANC2333 (HB 4 mid-decade redistricting): CD-4 = Collin/Denton/Bowie (part) + Fannin/Grayson/Lamar/Red River (whole). Delta, Hopkins, Hunt, Rains and Rockwall left CD-4 and correctly have NO 2026 rows (verified: their 2026 primaries carry no District 4 contest). This tree's boundaries/other_precincts.geojson remains PLANC2193-vintage; 2026 precinct codes that do not join old polygons render as county outlines \u2014 never fabricated geometry.",
+            "verification": "Per-candidate county sums equal the TX SOS official canvass exactly for every precinct-level county (source: https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/election/countyInfo/{53813 REP, 53814 DEM}); the 7 SOS county lines sum exactly to the SOS statewide totals (complete partition, both parties). Collin rows copy the repo's official county file; its known state-canvass delta is DEM -2/-2, REP exact (district-file delta: {'DEM': {'Andrew L Rubell': -2, 'Jason Pearce': -2}, 'REP': {'Don Horn': 0, 'Pat Fallon': 0}}).",
+            "outcomes": {
+                "denton": {
+                    "granularity": "precinct",
+                    "precincts": 23,
+                    "source": "DEM: Clarity Denton/126054 ver 369656; REP: Clarity Denton/126053 ver 369657",
+                    "gates": "membership + exact SOS canvass equality (both parties)"
+                },
+                "lamar": {
+                    "granularity": "precinct",
+                    "precincts": 26,
+                    "source": "DEM: Clarity Lamar/126018 ver 369081; REP: Clarity Lamar/126018 ver 369081",
+                    "gates": "membership + exact SOS canvass equality (both parties)"
+                },
+                "grayson": {
+                    "granularity": "precinct",
+                    "precincts": 42,
+                    "source": "DEM: official county PDF sha256:e959d1b0250dc2e1\u2026 (https://www.co.grayson.tx.us/page/open/3828/0/Official_Dem_Party_Pct_Summ_Results_Report_2026.pdf); REP: official county PDF sha256:baac8414b6cd71bc\u2026 (https://www.co.grayson.tx.us/page/open/3828/0/Official_Rep_Party_Pct_Summ_Results_Report_2026.pdf)",
+                    "gates": "membership + exact SOS canvass equality (both parties)"
+                },
+                "bowie": {
+                    "granularity": "precinct",
+                    "precincts": 19,
+                    "source": "DEM: official county PDF sha256:67983d74dcc7d3e0\u2026 (https://www.co.bowie.tx.us/upload/page/11424/2026/3326%20Joint%20Primary%20Pct%20X%20Pct%20Democratic.pdf); REP: official county PDF sha256:02af8a03bd6678ab\u2026 (https://www.co.bowie.tx.us/upload/page/11424/2026/3326%20Joint%20Primary%20Pct%20X%20Pct%20Republican.pdf)",
+                    "gates": "membership + exact SOS canvass equality (both parties)"
+                },
+                "fannin": {
+                    "granularity": "county :ALL (SOS canvass)",
+                    "source": "https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/election/countyInfo/{53813 REP, 53814 DEM}",
+                    "note": "Fannin publishes only a countywide scanned PDF; Red River's precinct report is an image-only scan (no OCR \u2014 not evidence)."
+                },
+                "red-river": {
+                    "granularity": "county :ALL (SOS canvass)",
+                    "source": "https://goelect.txelections.civixapps.com/api-ivis-system/api/s3/enr/election/countyInfo/{53813 REP, 53814 DEM}",
+                    "note": "Fannin publishes only a countywide scanned PDF; Red River's precinct report is an image-only scan (no OCR \u2014 not evidence)."
+                }
+            }
+        }
+    ]
 }

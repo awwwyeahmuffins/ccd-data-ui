@@ -221,10 +221,22 @@ describe('districtSlugFor', () => {
     expect(districts.districtSlugFor({ office: 'State Representative District 67', district: '67' })).toBe('hd-67');
   });
 
+  it('maps party-prefixed primary offices with a bare "US" token to cd-', () => {
+    // The 2026 primary races are named "DEM US Representative District 4" —
+    // no "united states"/"u.s"/"u s" substring, so they used to fall through
+    // to the state-house branch (hd-4, not kept) and lose their district data.
+    expect(districts.districtSlugFor({ office: 'DEM US Representative District 4', district: '4' })).toBe('cd-4');
+    expect(districts.districtSlugFor({ office: 'REP US Representative District 4', district: '4' })).toBe('cd-4');
+  });
+
   it('returns null for non-district races and districts we do not keep', () => {
     expect(districts.districtSlugFor({ office: 'Governor', district: null })).toBeNull();
     expect(districts.districtSlugFor({ office: 'State Representative District 1', district: '1' })).toBeNull(); // hd-1 not kept
     expect(districts.districtSlugFor({ office: 'County Judge', district: '3' })).toBeNull(); // no office match
+    // "us" must match only as a standalone token — offices merely containing
+    // the letters (Justice…) or state-house primaries stay off the cd- branch.
+    expect(districts.districtSlugFor({ office: 'DEM State Representative District 33', district: '33' })).toBe('hd-33');
+    expect(districts.districtSlugFor({ office: 'Justice, Supreme Court, Place 4', district: '4' })).toBeNull();
   });
 });
 

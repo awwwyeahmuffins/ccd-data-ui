@@ -865,8 +865,21 @@ async function loadRace(raceIdOrEntry) {
         cc.race.otherGeojson = await loadDistrictOutlines(slug);
         cc.race.precinctGeo = await loadDistrictPrecinctGeo(slug);
         if (cc.race.precinctGeo) {
+          const joined = {}; // countySlug -> Set of precinct codes with both a polygon and a result
           for (const f of cc.race.precinctGeo.features) {
-            if (ex.byPrecinct[String(f.properties.PRECINCT)]) cc.race.precinctCounties.add(f.properties.countySlug);
+            const code = String(f.properties.PRECINCT);
+            if (!ex.byPrecinct[code]) continue;
+            (joined[f.properties.countySlug] = joined[f.properties.countySlug] || new Set()).add(code);
+          }
+          // A county earns precinct-level rendering only when its joined polygons
+          // account for its entire county total — a partial join (e.g. a race whose
+          // precinct codes only sometimes match our boundary vintage) would silently
+          // hide the unmatched votes, so it falls back to the county outline.
+          for (const county in joined) {
+            let sum = 0;
+            for (const code of joined[county]) sum += ex.byPrecinct[code].total;
+            const countyRow = cc.race.otherByCounty[county];
+            if (countyRow && sum === countyRow.total) cc.race.precinctCounties.add(county);
           }
         }
       }

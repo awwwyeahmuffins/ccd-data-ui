@@ -135,6 +135,28 @@ test.describe('Command Center', () => {
     await expect.poll(() => paths.count(), { timeout: 15000 }).toBeGreaterThan(120);
   });
 
+  test('CD-4 2026 primary renders out-of-county results (PLANC2333 membership)', async ({ page }) => {
+    // The March 2026 primary ran under the mid-decade plan C2333: CD-4 keeps
+    // Bowie/Denton (part) + Fannin/Grayson/Lamar/Red River (whole) and DROPS
+    // Delta/Hopkins/Hunt/Rains/Rockwall. The dock must show exactly the six
+    // out-of-county members — precinct-level where the 2026 codes fully join
+    // our polygon vintage (Lamar), county totals elsewhere (partial joins are
+    // demoted rather than silently hiding votes) — and none of the dropped
+    // counties may leak in from the old plan.
+    await page.goto('/index.html#county=collin&race=rep-us-representative-district-4-2026');
+    await expect(page.locator('#cc-dock-eyebrow')).toContainText('Full District', { timeout: 30000 });
+    await expect(page.locator('#cc-dock-eyebrow')).toContainText('7 counties');
+    await expect(page.locator('.cc-demo-row', { hasText: 'Lamar' })).toContainText('precinct-level');
+    await expect(page.locator('.cc-demo-row', { hasText: 'Grayson' })).toContainText('county total');
+    await expect(page.locator('.cc-demo-row', { hasText: 'Fannin' })).toContainText('county total');
+    for (const dropped of ['Hunt', 'Rockwall', 'Delta', 'Hopkins', 'Rains']) {
+      await expect(page.locator('.cc-demo-row', { hasText: dropped })).toHaveCount(0);
+    }
+    // Collin's 101 CD-4 precincts + Lamar's 26 polygons + 5 county outlines.
+    const paths = page.locator('#cc-map path.leaflet-interactive');
+    await expect.poll(() => paths.count(), { timeout: 15000 }).toBeGreaterThan(120);
+  });
+
   test('typing a street address finds and selects its precinct', async ({ page }) => {
     // Mock Nominatim with a point in downtown McKinney (inside Collin).
     await page.route('**/nominatim.openstreetmap.org/**', (route) =>

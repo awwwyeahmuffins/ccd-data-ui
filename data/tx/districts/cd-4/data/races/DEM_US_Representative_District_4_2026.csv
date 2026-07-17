@@ -1,0 +1,625 @@
+precinct,party,candidate,votes
+collin:101,DEM,Andrew L Rubell,225
+collin:101,DEM,Jason Pearce,205
+collin:101,,Over Votes,0
+collin:101,,Under Votes,77
+collin:104,DEM,Andrew L Rubell,111
+collin:104,DEM,Jason Pearce,132
+collin:104,,Over Votes,0
+collin:104,,Under Votes,39
+collin:105,DEM,Andrew L Rubell,13
+collin:105,DEM,Jason Pearce,21
+collin:105,,Over Votes,0
+collin:105,,Under Votes,8
+collin:107,DEM,Andrew L Rubell,232
+collin:107,DEM,Jason Pearce,228
+collin:107,,Over Votes,0
+collin:107,,Under Votes,91
+collin:108,DEM,Andrew L Rubell,166
+collin:108,DEM,Jason Pearce,186
+collin:108,,Over Votes,0
+collin:108,,Under Votes,95
+collin:109,DEM,Andrew L Rubell,256
+collin:109,DEM,Jason Pearce,202
+collin:109,,Over Votes,0
+collin:109,,Under Votes,119
+collin:111,DEM,Andrew L Rubell,117
+collin:111,DEM,Jason Pearce,114
+collin:111,,Over Votes,0
+collin:111,,Under Votes,38
+collin:112,DEM,Andrew L Rubell,194
+collin:112,DEM,Jason Pearce,173
+collin:112,,Over Votes,0
+collin:112,,Under Votes,74
+collin:115,DEM,Andrew L Rubell,214
+collin:115,DEM,Jason Pearce,185
+collin:115,,Over Votes,0
+collin:115,,Under Votes,112
+collin:116,DEM,Andrew L Rubell,237
+collin:116,DEM,Jason Pearce,216
+collin:116,,Over Votes,0
+collin:116,,Under Votes,132
+collin:117,DEM,Andrew L Rubell,249
+collin:117,DEM,Jason Pearce,244
+collin:117,,Over Votes,0
+collin:117,,Under Votes,75
+collin:118,DEM,Andrew L Rubell,239
+collin:118,DEM,Jason Pearce,216
+collin:118,,Over Votes,1
+collin:118,,Under Votes,85
+collin:119,DEM,Andrew L Rubell,154
+collin:119,DEM,Jason Pearce,125
+collin:119,,Over Votes,0
+collin:119,,Under Votes,55
+collin:121,DEM,Andrew L Rubell,143
+collin:121,DEM,Jason Pearce,163
+collin:121,,Over Votes,0
+collin:121,,Under Votes,68
+collin:123,DEM,Andrew L Rubell,126
+collin:123,DEM,Jason Pearce,110
+collin:123,,Over Votes,0
+collin:123,,Under Votes,35
+collin:124,DEM,Andrew L Rubell,202
+collin:124,DEM,Jason Pearce,197
+collin:124,,Over Votes,0
+collin:124,,Under Votes,81
+collin:127,DEM,Andrew L Rubell,245
+collin:127,DEM,Jason Pearce,227
+collin:127,,Over Votes,0
+collin:127,,Under Votes,91
+collin:13,DEM,Andrew L Rubell,115
+collin:13,DEM,Jason Pearce,139
+collin:13,,Over Votes,0
+collin:13,,Under Votes,30
+collin:132,DEM,Andrew L Rubell,225
+collin:132,DEM,Jason Pearce,222
+collin:132,,Over Votes,0
+collin:132,,Under Votes,96
+collin:134,DEM,Andrew L Rubell,203
+collin:134,DEM,Jason Pearce,218
+collin:134,,Over Votes,0
+collin:134,,Under Votes,82
+collin:135,DEM,Andrew L Rubell,223
+collin:135,DEM,Jason Pearce,255
+collin:135,,Over Votes,0
+collin:135,,Under Votes,89
+collin:136,DEM,Andrew L Rubell,142
+collin:136,DEM,Jason Pearce,105
+collin:136,,Over Votes,0
+collin:136,,Under Votes,62
+collin:137,DEM,Andrew L Rubell,110
+collin:137,DEM,Jason Pearce,91
+collin:137,,Over Votes,1
+collin:137,,Under Votes,39
+collin:138,DEM,Andrew L Rubell,176
+collin:138,DEM,Jason Pearce,167
+collin:138,,Over Votes,0
+collin:138,,Under Votes,69
+collin:139,DEM,Andrew L Rubell,201
+collin:139,DEM,Jason Pearce,243
+collin:139,,Over Votes,0
+collin:139,,Under Votes,91
+collin:14,DEM,Andrew L Rubell,176
+collin:14,DEM,Jason Pearce,173
+collin:14,,Over Votes,0
+collin:14,,Under Votes,73
+collin:142,DEM,Andrew L Rubell,216
+collin:142,DEM,Jason Pearce,190
+collin:142,,Over Votes,0
+collin:142,,Under Votes,98
+collin:143,DEM,Andrew L Rubell,121
+collin:143,DEM,Jason Pearce,106
+collin:143,,Over Votes,0
+collin:143,,Under Votes,42
+collin:146,DEM,Andrew L Rubell,277
+collin:146,DEM,Jason Pearce,253
+collin:146,,Over Votes,0
+collin:146,,Under Votes,98
+collin:15,DEM,Andrew L Rubell,88
+collin:15,DEM,Jason Pearce,97
+collin:15,,Over Votes,0
+collin:15,,Under Votes,21
+collin:154,DEM,Andrew L Rubell,130
+collin:154,DEM,Jason Pearce,108
+collin:154,,Over Votes,0
+collin:154,,Under Votes,46
+collin:164,DEM,Andrew L Rubell,188
+collin:164,DEM,Jason Pearce,110
+collin:164,,Over Votes,0
+collin:164,,Under Votes,95
+collin:167,DEM,Andrew L Rubell,117
+collin:167,DEM,Jason Pearce,93
+collin:167,,Over Votes,0
+collin:167,,Under Votes,50
+collin:176,DEM,Andrew L Rubell,174
+collin:176,DEM,Jason Pearce,189
+collin:176,,Over Votes,1
+collin:176,,Under Votes,64
+collin:177,DEM,Andrew L Rubell,115
+collin:177,DEM,Jason Pearce,138
+collin:177,,Over Votes,0
+collin:177,,Under Votes,53
+collin:178,DEM,Andrew L Rubell,124
+collin:178,DEM,Jason Pearce,121
+collin:178,,Over Votes,0
+collin:178,,Under Votes,47
+collin:184,DEM,Andrew L Rubell,150
+collin:184,DEM,Jason Pearce,160
+collin:184,,Over Votes,1
+collin:184,,Under Votes,48
+collin:19,DEM,Andrew L Rubell,124
+collin:19,DEM,Jason Pearce,111
+collin:19,,Over Votes,0
+collin:19,,Under Votes,48
+collin:190,DEM,Andrew L Rubell,50
+collin:190,DEM,Jason Pearce,46
+collin:190,,Over Votes,0
+collin:190,,Under Votes,16
+collin:197,DEM,Andrew L Rubell,70
+collin:197,DEM,Jason Pearce,69
+collin:197,,Over Votes,0
+collin:197,,Under Votes,34
+collin:199,DEM,Andrew L Rubell,145
+collin:199,DEM,Jason Pearce,162
+collin:199,,Over Votes,0
+collin:199,,Under Votes,70
+collin:209,DEM,Andrew L Rubell,13
+collin:209,DEM,Jason Pearce,5
+collin:209,,Over Votes,0
+collin:209,,Under Votes,1
+collin:21,DEM,Andrew L Rubell,319
+collin:21,DEM,Jason Pearce,288
+collin:21,,Over Votes,0
+collin:21,,Under Votes,117
+collin:212,DEM,Andrew L Rubell,123
+collin:212,DEM,Jason Pearce,136
+collin:212,,Over Votes,0
+collin:212,,Under Votes,29
+collin:214,DEM,Andrew L Rubell,90
+collin:214,DEM,Jason Pearce,107
+collin:214,,Over Votes,0
+collin:214,,Under Votes,49
+collin:22,DEM,Andrew L Rubell,146
+collin:22,DEM,Jason Pearce,177
+collin:22,,Over Votes,1
+collin:22,,Under Votes,43
+collin:220,DEM,Andrew L Rubell,131
+collin:220,DEM,Jason Pearce,118
+collin:220,,Over Votes,0
+collin:220,,Under Votes,32
+collin:224,DEM,Andrew L Rubell,118
+collin:224,DEM,Jason Pearce,126
+collin:224,,Over Votes,0
+collin:224,,Under Votes,34
+collin:225,DEM,Andrew L Rubell,203
+collin:225,DEM,Jason Pearce,235
+collin:225,,Over Votes,0
+collin:225,,Under Votes,67
+collin:229,DEM,Andrew L Rubell,124
+collin:229,DEM,Jason Pearce,108
+collin:229,,Over Votes,0
+collin:229,,Under Votes,36
+collin:234,DEM,Andrew L Rubell,186
+collin:234,DEM,Jason Pearce,185
+collin:234,,Over Votes,0
+collin:234,,Under Votes,65
+collin:235,DEM,Andrew L Rubell,98
+collin:235,DEM,Jason Pearce,79
+collin:235,,Over Votes,0
+collin:235,,Under Votes,34
+collin:239,DEM,Andrew L Rubell,143
+collin:239,DEM,Jason Pearce,149
+collin:239,,Over Votes,0
+collin:239,,Under Votes,58
+collin:24,DEM,Andrew L Rubell,140
+collin:24,DEM,Jason Pearce,141
+collin:24,,Over Votes,0
+collin:24,,Under Votes,57
+collin:240,DEM,Andrew L Rubell,155
+collin:240,DEM,Jason Pearce,168
+collin:240,,Over Votes,0
+collin:240,,Under Votes,54
+collin:244,DEM,Andrew L Rubell,167
+collin:244,DEM,Jason Pearce,149
+collin:244,,Over Votes,0
+collin:244,,Under Votes,71
+collin:245,DEM,Andrew L Rubell,108
+collin:245,DEM,Jason Pearce,129
+collin:245,,Over Votes,1
+collin:245,,Under Votes,35
+collin:246,DEM,Andrew L Rubell,165
+collin:246,DEM,Jason Pearce,152
+collin:246,,Over Votes,0
+collin:246,,Under Votes,63
+collin:248,DEM,Andrew L Rubell,107
+collin:248,DEM,Jason Pearce,105
+collin:248,,Over Votes,0
+collin:248,,Under Votes,29
+collin:250,DEM,Andrew L Rubell,142
+collin:250,DEM,Jason Pearce,168
+collin:250,,Over Votes,0
+collin:250,,Under Votes,60
+collin:252,DEM,Andrew L Rubell,108
+collin:252,DEM,Jason Pearce,135
+collin:252,,Over Votes,0
+collin:252,,Under Votes,49
+collin:253,DEM,Andrew L Rubell,174
+collin:253,DEM,Jason Pearce,199
+collin:253,,Over Votes,0
+collin:253,,Under Votes,38
+collin:26,DEM,Andrew L Rubell,74
+collin:26,DEM,Jason Pearce,76
+collin:26,,Over Votes,0
+collin:26,,Under Votes,23
+collin:262,DEM,Andrew L Rubell,211
+collin:262,DEM,Jason Pearce,183
+collin:262,,Over Votes,0
+collin:262,,Under Votes,69
+collin:263,DEM,Andrew L Rubell,100
+collin:263,DEM,Jason Pearce,119
+collin:263,,Over Votes,0
+collin:263,,Under Votes,44
+collin:264,DEM,Andrew L Rubell,193
+collin:264,DEM,Jason Pearce,211
+collin:264,,Over Votes,0
+collin:264,,Under Votes,66
+collin:28,DEM,Andrew L Rubell,223
+collin:28,DEM,Jason Pearce,209
+collin:28,,Over Votes,0
+collin:28,,Under Votes,59
+collin:29,DEM,Andrew L Rubell,113
+collin:29,DEM,Jason Pearce,121
+collin:29,,Over Votes,0
+collin:29,,Under Votes,48
+collin:30,DEM,Andrew L Rubell,57
+collin:30,DEM,Jason Pearce,48
+collin:30,,Over Votes,0
+collin:30,,Under Votes,16
+collin:31,DEM,Andrew L Rubell,141
+collin:31,DEM,Jason Pearce,140
+collin:31,,Over Votes,0
+collin:31,,Under Votes,66
+collin:32,DEM,Andrew L Rubell,182
+collin:32,DEM,Jason Pearce,178
+collin:32,,Over Votes,0
+collin:32,,Under Votes,73
+collin:34,DEM,Andrew L Rubell,285
+collin:34,DEM,Jason Pearce,239
+collin:34,,Over Votes,0
+collin:34,,Under Votes,114
+collin:36,DEM,Andrew L Rubell,95
+collin:36,DEM,Jason Pearce,79
+collin:36,,Over Votes,0
+collin:36,,Under Votes,56
+collin:39,DEM,Andrew L Rubell,181
+collin:39,DEM,Jason Pearce,189
+collin:39,,Over Votes,0
+collin:39,,Under Votes,78
+collin:49,DEM,Andrew L Rubell,180
+collin:49,DEM,Jason Pearce,157
+collin:49,,Over Votes,0
+collin:49,,Under Votes,70
+collin:53,DEM,Andrew L Rubell,155
+collin:53,DEM,Jason Pearce,151
+collin:53,,Over Votes,0
+collin:53,,Under Votes,55
+collin:62,DEM,Andrew L Rubell,200
+collin:62,DEM,Jason Pearce,174
+collin:62,,Over Votes,0
+collin:62,,Under Votes,79
+collin:63,DEM,Andrew L Rubell,133
+collin:63,DEM,Jason Pearce,105
+collin:63,,Over Votes,0
+collin:63,,Under Votes,49
+collin:64,DEM,Andrew L Rubell,164
+collin:64,DEM,Jason Pearce,141
+collin:64,,Over Votes,0
+collin:64,,Under Votes,60
+collin:65,DEM,Andrew L Rubell,89
+collin:65,DEM,Jason Pearce,61
+collin:65,,Over Votes,0
+collin:65,,Under Votes,25
+collin:66,DEM,Andrew L Rubell,142
+collin:66,DEM,Jason Pearce,122
+collin:66,,Over Votes,0
+collin:66,,Under Votes,49
+collin:67,DEM,Andrew L Rubell,201
+collin:67,DEM,Jason Pearce,189
+collin:67,,Over Votes,0
+collin:67,,Under Votes,75
+collin:69,DEM,Andrew L Rubell,251
+collin:69,DEM,Jason Pearce,267
+collin:69,,Over Votes,0
+collin:69,,Under Votes,87
+collin:70,DEM,Andrew L Rubell,122
+collin:70,DEM,Jason Pearce,121
+collin:70,,Over Votes,0
+collin:70,,Under Votes,42
+collin:71,DEM,Andrew L Rubell,149
+collin:71,DEM,Jason Pearce,122
+collin:71,,Over Votes,0
+collin:71,,Under Votes,44
+collin:72,DEM,Andrew L Rubell,100
+collin:72,DEM,Jason Pearce,104
+collin:72,,Over Votes,0
+collin:72,,Under Votes,34
+collin:73,DEM,Andrew L Rubell,118
+collin:73,DEM,Jason Pearce,133
+collin:73,,Over Votes,0
+collin:73,,Under Votes,49
+collin:74,DEM,Andrew L Rubell,109
+collin:74,DEM,Jason Pearce,103
+collin:74,,Over Votes,0
+collin:74,,Under Votes,44
+collin:75,DEM,Andrew L Rubell,128
+collin:75,DEM,Jason Pearce,117
+collin:75,,Over Votes,0
+collin:75,,Under Votes,58
+collin:76,DEM,Andrew L Rubell,208
+collin:76,DEM,Jason Pearce,222
+collin:76,,Over Votes,0
+collin:76,,Under Votes,62
+collin:79,DEM,Andrew L Rubell,145
+collin:79,DEM,Jason Pearce,139
+collin:79,,Over Votes,0
+collin:79,,Under Votes,54
+collin:81,DEM,Andrew L Rubell,219
+collin:81,DEM,Jason Pearce,182
+collin:81,,Over Votes,0
+collin:81,,Under Votes,64
+collin:84,DEM,Andrew L Rubell,166
+collin:84,DEM,Jason Pearce,147
+collin:84,,Over Votes,0
+collin:84,,Under Votes,59
+collin:85,DEM,Andrew L Rubell,265
+collin:85,DEM,Jason Pearce,250
+collin:85,,Over Votes,0
+collin:85,,Under Votes,74
+collin:86,DEM,Andrew L Rubell,190
+collin:86,DEM,Jason Pearce,188
+collin:86,,Over Votes,0
+collin:86,,Under Votes,65
+collin:87,DEM,Andrew L Rubell,93
+collin:87,DEM,Jason Pearce,111
+collin:87,,Over Votes,0
+collin:87,,Under Votes,40
+collin:88,DEM,Andrew L Rubell,71
+collin:88,DEM,Jason Pearce,67
+collin:88,,Over Votes,0
+collin:88,,Under Votes,28
+collin:89,DEM,Andrew L Rubell,177
+collin:89,DEM,Jason Pearce,170
+collin:89,,Over Votes,0
+collin:89,,Under Votes,68
+collin:90,DEM,Andrew L Rubell,128
+collin:90,DEM,Jason Pearce,124
+collin:90,,Over Votes,0
+collin:90,,Under Votes,68
+collin:92,DEM,Andrew L Rubell,243
+collin:92,DEM,Jason Pearce,252
+collin:92,,Over Votes,0
+collin:92,,Under Votes,77
+bowie:13,DEM,Andrew L Rubell,1
+bowie:13,DEM,Jason Pearce,0
+bowie:14,DEM,Andrew L Rubell,16
+bowie:14,DEM,Jason Pearce,19
+bowie:14A,DEM,Andrew L Rubell,27
+bowie:14A,DEM,Jason Pearce,55
+bowie:15,DEM,Andrew L Rubell,4
+bowie:15,DEM,Jason Pearce,11
+bowie:16A,DEM,Andrew L Rubell,1
+bowie:16A,DEM,Jason Pearce,0
+bowie:18,DEM,Andrew L Rubell,25
+bowie:18,DEM,Jason Pearce,51
+bowie:18A,DEM,Andrew L Rubell,1
+bowie:18A,DEM,Jason Pearce,2
+bowie:19,DEM,Andrew L Rubell,8
+bowie:19,DEM,Jason Pearce,6
+bowie:20,DEM,Andrew L Rubell,3
+bowie:20,DEM,Jason Pearce,11
+bowie:20A,DEM,Andrew L Rubell,8
+bowie:20A,DEM,Jason Pearce,11
+bowie:21,DEM,Andrew L Rubell,5
+bowie:21,DEM,Jason Pearce,6
+bowie:22,DEM,Andrew L Rubell,3
+bowie:22,DEM,Jason Pearce,7
+bowie:22A,DEM,Andrew L Rubell,2
+bowie:22A,DEM,Jason Pearce,0
+bowie:24,DEM,Andrew L Rubell,1
+bowie:24,DEM,Jason Pearce,9
+bowie:25,DEM,Andrew L Rubell,10
+bowie:25,DEM,Jason Pearce,32
+bowie:27,DEM,Andrew L Rubell,2
+bowie:27,DEM,Jason Pearce,0
+bowie:28,DEM,Andrew L Rubell,1
+bowie:28,DEM,Jason Pearce,5
+bowie:29,DEM,Andrew L Rubell,5
+bowie:29,DEM,Jason Pearce,3
+bowie:30,DEM,Andrew L Rubell,40
+bowie:30,DEM,Jason Pearce,89
+denton:1017,DEM,Andrew L Rubell,99
+denton:1017,DEM,Jason Pearce,120
+denton:1018,DEM,Andrew L Rubell,93
+denton:1018,DEM,Jason Pearce,102
+denton:1019,DEM,Andrew L Rubell,169
+denton:1019,DEM,Jason Pearce,186
+denton:1020,DEM,Andrew L Rubell,121
+denton:1020,DEM,Jason Pearce,106
+denton:1021,DEM,Andrew L Rubell,155
+denton:1021,DEM,Jason Pearce,180
+denton:1022,DEM,Andrew L Rubell,199
+denton:1022,DEM,Jason Pearce,215
+denton:1023,DEM,Andrew L Rubell,127
+denton:1023,DEM,Jason Pearce,134
+denton:1024,DEM,Andrew L Rubell,177
+denton:1024,DEM,Jason Pearce,186
+denton:1025,DEM,Andrew L Rubell,48
+denton:1025,DEM,Jason Pearce,65
+denton:1026,DEM,Andrew L Rubell,262
+denton:1026,DEM,Jason Pearce,144
+denton:1032,DEM,Andrew L Rubell,223
+denton:1032,DEM,Jason Pearce,215
+denton:1033,DEM,Andrew L Rubell,113
+denton:1033,DEM,Jason Pearce,139
+denton:1036,DEM,Andrew L Rubell,221
+denton:1036,DEM,Jason Pearce,263
+denton:1037,DEM,Andrew L Rubell,99
+denton:1037,DEM,Jason Pearce,125
+denton:1039,DEM,Andrew L Rubell,33
+denton:1039,DEM,Jason Pearce,50
+denton:1172,DEM,Andrew L Rubell,235
+denton:1172,DEM,Jason Pearce,180
+denton:1227,DEM,Andrew L Rubell,131
+denton:1227,DEM,Jason Pearce,161
+denton:1234,DEM,Andrew L Rubell,4
+denton:1234,DEM,Jason Pearce,4
+denton:2080,DEM,Andrew L Rubell,152
+denton:2080,DEM,Jason Pearce,172
+denton:2081,DEM,Andrew L Rubell,175
+denton:2081,DEM,Jason Pearce,211
+denton:2082,DEM,Andrew L Rubell,93
+denton:2082,DEM,Jason Pearce,82
+denton:2083,DEM,Andrew L Rubell,100
+denton:2083,DEM,Jason Pearce,97
+denton:2089,DEM,Andrew L Rubell,122
+denton:2089,DEM,Jason Pearce,142
+fannin:ALL,DEM,Andrew L Rubell,356
+fannin:ALL,DEM,Jason Pearce,464
+grayson:101,DEM,Andrew L Rubell,69
+grayson:101,DEM,Jason Pearce,92
+grayson:102,DEM,Andrew L Rubell,77
+grayson:102,DEM,Jason Pearce,109
+grayson:103,DEM,Andrew L Rubell,61
+grayson:103,DEM,Jason Pearce,117
+grayson:104,DEM,Andrew L Rubell,18
+grayson:104,DEM,Jason Pearce,30
+grayson:105,DEM,Andrew L Rubell,27
+grayson:105,DEM,Jason Pearce,41
+grayson:106,DEM,Andrew L Rubell,36
+grayson:106,DEM,Jason Pearce,91
+grayson:107,DEM,Andrew L Rubell,16
+grayson:107,DEM,Jason Pearce,33
+grayson:108,DEM,Andrew L Rubell,37
+grayson:108,DEM,Jason Pearce,60
+grayson:109,DEM,Andrew L Rubell,63
+grayson:109,DEM,Jason Pearce,108
+grayson:110,DEM,Andrew L Rubell,55
+grayson:110,DEM,Jason Pearce,120
+grayson:201,DEM,Andrew L Rubell,69
+grayson:201,DEM,Jason Pearce,178
+grayson:202,DEM,Andrew L Rubell,126
+grayson:202,DEM,Jason Pearce,189
+grayson:203,DEM,Andrew L Rubell,34
+grayson:203,DEM,Jason Pearce,60
+grayson:204,DEM,Andrew L Rubell,0
+grayson:204,DEM,Jason Pearce,2
+grayson:205,DEM,Andrew L Rubell,44
+grayson:205,DEM,Jason Pearce,87
+grayson:206,DEM,Andrew L Rubell,51
+grayson:206,DEM,Jason Pearce,89
+grayson:207,DEM,Andrew L Rubell,22
+grayson:207,DEM,Jason Pearce,38
+grayson:208,DEM,Andrew L Rubell,27
+grayson:208,DEM,Jason Pearce,33
+grayson:209,DEM,Andrew L Rubell,27
+grayson:209,DEM,Jason Pearce,48
+grayson:210,DEM,Andrew L Rubell,18
+grayson:210,DEM,Jason Pearce,34
+grayson:301,DEM,Andrew L Rubell,71
+grayson:301,DEM,Jason Pearce,120
+grayson:302,DEM,Andrew L Rubell,89
+grayson:302,DEM,Jason Pearce,192
+grayson:303,DEM,Andrew L Rubell,7
+grayson:303,DEM,Jason Pearce,10
+grayson:304,DEM,Andrew L Rubell,104
+grayson:304,DEM,Jason Pearce,166
+grayson:305,DEM,Andrew L Rubell,12
+grayson:305,DEM,Jason Pearce,31
+grayson:306,DEM,Andrew L Rubell,42
+grayson:306,DEM,Jason Pearce,85
+grayson:307,DEM,Andrew L Rubell,26
+grayson:307,DEM,Jason Pearce,43
+grayson:308,DEM,Andrew L Rubell,18
+grayson:308,DEM,Jason Pearce,30
+grayson:309,DEM,Andrew L Rubell,10
+grayson:309,DEM,Jason Pearce,26
+grayson:310,DEM,Andrew L Rubell,4
+grayson:310,DEM,Jason Pearce,11
+grayson:401,DEM,Andrew L Rubell,62
+grayson:401,DEM,Jason Pearce,111
+grayson:402,DEM,Andrew L Rubell,66
+grayson:402,DEM,Jason Pearce,100
+grayson:403,DEM,Andrew L Rubell,49
+grayson:403,DEM,Jason Pearce,119
+grayson:404,DEM,Andrew L Rubell,67
+grayson:404,DEM,Jason Pearce,97
+grayson:405,DEM,Andrew L Rubell,12
+grayson:405,DEM,Jason Pearce,26
+grayson:406,DEM,Andrew L Rubell,29
+grayson:406,DEM,Jason Pearce,64
+grayson:407,DEM,Andrew L Rubell,7
+grayson:407,DEM,Jason Pearce,7
+grayson:408,DEM,Andrew L Rubell,18
+grayson:408,DEM,Jason Pearce,46
+grayson:409,DEM,Andrew L Rubell,64
+grayson:409,DEM,Jason Pearce,118
+grayson:410,DEM,Andrew L Rubell,43
+grayson:410,DEM,Jason Pearce,93
+grayson:411,DEM,Andrew L Rubell,4
+grayson:411,DEM,Jason Pearce,2
+grayson:412,DEM,Andrew L Rubell,32
+grayson:412,DEM,Jason Pearce,65
+lamar:1A3B,DEM,Andrew L Rubell,56
+lamar:1A3B,DEM,Jason Pearce,116
+lamar:1A5A,DEM,Andrew L Rubell,20
+lamar:1A5A,DEM,Jason Pearce,46
+lamar:1C,DEM,Andrew L Rubell,3
+lamar:1C,DEM,Jason Pearce,9
+lamar:1E,DEM,Andrew L Rubell,8
+lamar:1E,DEM,Jason Pearce,19
+lamar:1F,DEM,Andrew L Rubell,13
+lamar:1F,DEM,Jason Pearce,23
+lamar:1H,DEM,Andrew L Rubell,5
+lamar:1H,DEM,Jason Pearce,11
+lamar:1I,DEM,Andrew L Rubell,6
+lamar:1I,DEM,Jason Pearce,5
+lamar:2A1A,DEM,Andrew L Rubell,58
+lamar:2A1A,DEM,Jason Pearce,59
+lamar:2C3A,DEM,Andrew L Rubell,87
+lamar:2C3A,DEM,Jason Pearce,134
+lamar:2D,DEM,Andrew L Rubell,10
+lamar:2D,DEM,Jason Pearce,18
+lamar:2E,DEM,Andrew L Rubell,11
+lamar:2E,DEM,Jason Pearce,16
+lamar:2F,DEM,Andrew L Rubell,1
+lamar:2F,DEM,Jason Pearce,5
+lamar:2G,DEM,Andrew L Rubell,7
+lamar:2G,DEM,Jason Pearce,18
+lamar:3C7G,DEM,Andrew L Rubell,51
+lamar:3C7G,DEM,Jason Pearce,75
+lamar:3D,DEM,Andrew L Rubell,5
+lamar:3D,DEM,Jason Pearce,13
+lamar:3E,DEM,Andrew L Rubell,6
+lamar:3E,DEM,Jason Pearce,17
+lamar:3F,DEM,Andrew L Rubell,6
+lamar:3F,DEM,Jason Pearce,12
+lamar:3G,DEM,Andrew L Rubell,7
+lamar:3G,DEM,Jason Pearce,11
+lamar:3H3C,DEM,Andrew L Rubell,15
+lamar:3H3C,DEM,Jason Pearce,30
+lamar:3I,DEM,Andrew L Rubell,15
+lamar:3I,DEM,Jason Pearce,22
+lamar:4A6E,DEM,Andrew L Rubell,29
+lamar:4A6E,DEM,Jason Pearce,53
+lamar:4B,DEM,Andrew L Rubell,15
+lamar:4B,DEM,Jason Pearce,24
+lamar:4D,DEM,Andrew L Rubell,12
+lamar:4D,DEM,Jason Pearce,22
+lamar:4E,DEM,Andrew L Rubell,11
+lamar:4E,DEM,Jason Pearce,19
+lamar:4F,DEM,Andrew L Rubell,20
+lamar:4F,DEM,Jason Pearce,43
+lamar:4G,DEM,Andrew L Rubell,10
+lamar:4G,DEM,Jason Pearce,33
+red-river:ALL,DEM,Andrew L Rubell,163
+red-river:ALL,DEM,Jason Pearce,236

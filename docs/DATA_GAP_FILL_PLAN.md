@@ -21,6 +21,22 @@
 > district views. Per-run outcome tables live in cd-4's
 > `profile/provenance.json` amendments.
 
+> **Status update (2026-07-12, later) — cd-4 March 2026 primary added.** The
+> 2026 primary ran under the mid-decade plan **PLANC2333** (CD-4 = Collin/
+> Denton/Bowie part + Fannin/Grayson/Lamar/Red River whole; Delta/Hopkins/
+> Hunt/Rains/Rockwall dropped — verified from the SOS canvass partition AND
+> each source's own ballots). `data_processor/
+> upgrade_district_precincts_2026_primary.py` added both `DEM/REP US
+> Representative District 4 (2026)` contests to the cd-4 tree: precinct level
+> for Denton + Lamar (Clarity detail XML) and Grayson + Bowie (official county
+> PDFs via `parse_precinct_pdf.py`, digital text — no OCR); `<county>:ALL` SOS
+> canvass lines for Fannin + Red River (no machine-readable precinct source
+> exists). Every precinct-level county's sums equal the SOS canvass exactly;
+> the 7 county lines sum exactly to the SOS statewide totals. The tree's
+> polygons remain C2193-vintage, so only fully-joining counties render
+> precinct-by-precinct on the map (Lamar); partial joins are demoted to county
+> outlines by `js/pages/map.js` rather than hiding votes.
+
 Companion to `data/tx/MISSING_DATA_REPORT.json` (regenerate with
 `python3 data_processor/audit_missing_data.py`). Every fill path below uses
 **official data only** and keeps the existing verification gates — nothing is
