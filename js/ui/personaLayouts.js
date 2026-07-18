@@ -9,9 +9,10 @@
 //  - navPages(pages): given the default five-tab list, return the tabs this
 //    persona sees. Identity for public; the chair persona prepends its
 //    dashboard (chair.html), the campaign persona appends its Campaign
-//    Dashboard tab (campaign.html). The pages themselves never gate on
-//    persona: a direct URL works for anyone, the tab is just
-//    discoverability. e2e and unit tests pin all three shapes.
+//    Dashboard and Matchup Projector tabs (campaign.html, matchup.html).
+//    The pages themselves never gate on persona: a direct URL works for
+//    anyone, the tab is just discoverability. e2e and unit tests pin all
+//    three shapes.
 //  - badge: a short label rendered next to the brand so a non-public persona
 //    is visibly active (null = no badge).
 //  - renderChromeExtras(headerEl): hook for persona-specific header chrome
@@ -28,6 +29,13 @@ export const CHAIR_DASHBOARD = Object.freeze({
   href: "chair.html",
   label: "My Dashboard",
 });
+
+// The campaign persona's appended tabs (both pages work standalone for anyone;
+// only the nav entries are persona-gated). Exported so tests pin one literal.
+export const CAMPAIGN_PAGES = Object.freeze([
+  Object.freeze({ href: "campaign.html", label: "Campaign Dashboard" }),
+  Object.freeze({ href: "matchup.html", label: "Matchup Projector" }),
+]);
 
 // `menuLabel` is the plain-language option text in the header View switcher
 // (siteNav): what a real visitor reads to pick a mode. `label` stays the short
@@ -54,7 +62,7 @@ export const PERSONA_LAYOUTS = Object.freeze({
     label: "Campaign",
     menuLabel: "Detailed view (campaign)",
     badge: "Detailed View",
-    navPages: (pages) => [...pages, { href: "campaign.html", label: "Campaign Dashboard" }],
+    navPages: (pages) => [...pages, ...CAMPAIGN_PAGES],
     renderChromeExtras: noop,
   }),
 });

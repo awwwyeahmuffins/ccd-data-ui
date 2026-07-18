@@ -91,24 +91,29 @@ test.describe('View switcher', () => {
 });
 
 test.describe('campaign persona nav', () => {
-  test('campaign gets the Campaign Dashboard tab; switching back to public removes it', async ({ page }) => {
+  test('campaign gets the Campaign Dashboard and Matchup tabs; switching back to public removes them', async ({ page }) => {
     await page.goto('/methodology.html#persona=campaign');
     await methodologyLoaded(page);
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'campaign');
-    await expect(page.locator('.site-nav a')).toHaveCount(6);
+    await expect(page.locator('.site-nav a')).toHaveCount(7);
     const tab = page.locator('.site-nav a[href="campaign.html"]');
     await expect(tab).toHaveText('Campaign Dashboard');
+    await expect(page.locator('.site-nav a[href="matchup.html"]')).toHaveText('Matchup Projector');
 
-    // The tab is a real link into the dashboard.
+    // The tabs are real links into the dashboards.
     await tab.click();
     await expect(page.locator('h1.page-title')).toHaveText('Campaign dashboard', { timeout: 30000 });
     await expect(page.locator('.site-nav a[href="campaign.html"]')).toHaveAttribute('aria-current', 'page', { timeout: 30000 });
+    await page.click('.site-nav a[href="matchup.html"]');
+    await expect(page.locator('h1.page-title')).toHaveText('Matchup projector', { timeout: 30000 });
+    await expect(page.locator('.site-nav a[href="matchup.html"]')).toHaveAttribute('aria-current', 'page', { timeout: 30000 });
 
-    // Back to public: the extra tab disappears with the persona.
+    // Back to public: the extra tabs disappear with the persona.
     await page.selectOption('#nav-persona', 'public');
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'public', { timeout: 30000 });
     await expect(page.locator('.site-nav a')).toHaveCount(5, { timeout: 30000 });
     await expect(page.locator('.site-nav a[href="campaign.html"]')).toHaveCount(0);
+    await expect(page.locator('.site-nav a[href="matchup.html"]')).toHaveCount(0);
   });
 });
 

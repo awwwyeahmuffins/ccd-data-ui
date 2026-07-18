@@ -3,6 +3,8 @@
 // The one URL-state module (REDESIGN.md §5.3). Hash-based (S3/CloudFront-safe),
 // ~50 lines. Every page reads and writes its params through this vocabulary:
 //   race, precinct, view, tab, strategy, boundary, district
+//   (+ matchup.html's scenario params: office, dem, rep, baseline,
+//    tr/tm/td turnout percents, rd/dr/md/mr flip percents)
 // Legacy `county=` is read-tolerated (readParams returns it) and will stop
 // being written when Phase 3 lands. Pages pass writeParams the exact ordered
 // param set they mean to publish; null/undefined/"" values are omitted, which

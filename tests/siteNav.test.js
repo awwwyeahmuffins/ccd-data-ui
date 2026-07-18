@@ -100,6 +100,7 @@ describe('persona plumbing', () => {
     expect(document.querySelectorAll('.site-nav a').length).toBe(ALL_PAGES.length);
     expect(document.querySelector('.site-nav a[href="chair.html"]')).toBeNull();
     expect(document.querySelector('.site-nav a[href="campaign.html"]')).toBeNull();
+    expect(document.querySelector('.site-nav a[href="matchup.html"]')).toBeNull();
   });
 
   it('the chair persona gets My Dashboard first, then the five public tabs', () => {
@@ -109,18 +110,25 @@ describe('persona plumbing', () => {
     expect(links[0].getAttribute('href')).toBe('chair.html');
     expect(links[0].textContent.trim()).toBe('My Dashboard');
     expect(document.querySelector('.site-nav a[href="campaign.html"]')).toBeNull();
+    expect(document.querySelector('.site-nav a[href="matchup.html"]')).toBeNull();
     for (const href of ALL_PAGES) {
       expect(document.querySelectorAll(`.site-nav a[href="${href}"]`).length).toBe(1);
     }
   });
 
-  it('the campaign persona appends its dashboard tab after the five public tabs', () => {
+  it('the campaign persona appends its dashboard and matchup tabs after the five public tabs', () => {
     freshInit({ seed: { ccd_persona: 'campaign' } });
-    expect(document.querySelectorAll('.site-nav a').length).toBe(ALL_PAGES.length + 1);
+    const links = [...document.querySelectorAll('.site-nav a')];
+    expect(links.length).toBe(ALL_PAGES.length + 2);
     expect(document.querySelector('.site-nav a[href="chair.html"]')).toBeNull();
-    const extra = document.querySelector('.site-nav a[href="campaign.html"]');
-    expect(extra).not.toBeNull();
-    expect(extra.textContent).toBe('Campaign Dashboard');
+    const dashboard = document.querySelector('.site-nav a[href="campaign.html"]');
+    expect(dashboard).not.toBeNull();
+    expect(dashboard.textContent).toBe('Campaign Dashboard');
+    const matchup = document.querySelector('.site-nav a[href="matchup.html"]');
+    expect(matchup).not.toBeNull();
+    expect(matchup.textContent).toBe('Matchup Projector');
+    // Appended in order, after the public tabs.
+    expect(links.indexOf(matchup)).toBe(links.indexOf(dashboard) + 1);
   });
 
   it('an invalid stored persona falls back to public', () => {

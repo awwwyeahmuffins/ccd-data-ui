@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matchup Projector — Collin County Elections</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
+  <meta name="description" content="Project a 2026 general-election matchup between the Democratic and Republican primary winners, precinct by precinct, under configurable turnout scenarios." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="js/vendor/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- civic.css loads AFTER styles.css so the a11y layer wins by source order -->
+  <link rel="stylesheet" href="js/civic.css" />
+  <style>
+    html, body { display: block; height: auto; width: auto; overflow: auto; }
+    body { margin: 0; font-family: var(--font-body); background: var(--color-bg-secondary); color: var(--color-text-primary); font-size: 1rem; }
+
+    .page-main { max-width: 1180px; margin: 0 auto; padding: 24px 20px 80px; }
+    .page-title { font-family: var(--font-display); font-size: 32px; margin: 0 0 6px; }
+    .page-sub { color: var(--color-text-secondary); margin: 0 0 20px; max-width: 860px; }
+
+    .mp-card {
+      background: var(--color-bg-primary); border: 1px solid var(--color-border);
+      border-radius: 14px; padding: 18px; margin: 0 0 16px;
+    }
+    .mp-method {
+      border-left: 5px solid var(--color-primary); line-height: 1.5;
+    }
+    .mp-method strong { font-family: var(--font-display); }
+
+    .mp-controls { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .ctrl label { display: block; font-weight: 600; font-size: 0.889rem; margin-bottom: 5px; color: var(--color-text-secondary); }
+    .ctrl select {
+      font-size: 1rem; padding: 9px 11px; border-radius: 8px; min-height: 44px; width: 100%;
+      border: 1.5px solid var(--color-border); background: #fff; color: var(--color-text-primary);
+    }
+    .mp-leader-note { font-size: 0.889rem; color: var(--color-text-secondary); margin: 6px 0 0; }
+
+    /* Scenario presets + sliders (forecast page's visual language) */
+    .mp-scenario-title { font-family: var(--font-display); font-size: 21px; margin: 0 0 12px; }
+    .preset-row { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 16px; }
+    .preset-btn {
+      display: flex; flex-direction: column; gap: 3px; text-align: left; cursor: pointer;
+      padding: 12px 14px; border-radius: 10px; border: 2px solid var(--color-border);
+      background: #fff; color: var(--color-text-primary); font-family: var(--font-body); min-height: 44px;
+    }
+    .preset-btn:hover { border-color: var(--color-primary); }
+    .preset-btn.active { border-color: var(--color-primary); background: var(--color-primary); color: #fff; }
+    .preset-btn.active .preset-desc { color: rgba(255,255,255,.9); }
+    .preset-name { font-weight: 700; }
+    .preset-desc { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.3; }
+
+    .slider-block { margin-bottom: 14px; }
+    .slider-label { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 2px; }
+    .slider-label .who { font-weight: 700; }
+    .slider-label .meaning { color: var(--color-text-secondary); }
+    .slider-block input[type="range"] { width: 100%; min-height: 44px; accent-color: var(--color-primary); }
+
+    .mp-flip-details > summary { cursor: pointer; font-weight: 700; padding: 10px 2px; min-height: 44px; display: flex; align-items: center; }
+    .btn {
+      min-height: 44px; padding: 0 16px; border-radius: 8px; border: 1.5px solid var(--color-border);
+      background: #fff; cursor: pointer; font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: var(--color-text-secondary);
+    }
+    .btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+    /* Headline */
+    .mp-winner { font-family: var(--font-display); font-size: 26px; margin: 0 0 10px; }
+    .mp-winner .mp-party-Dem { color: var(--color-dem-text, #00506f); }
+    .mp-winner .mp-party-Rep { color: var(--color-rep-text, #8f1114); }
+    .cand-row { margin-bottom: 8px; }
+    .cand-name { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .cand-bar { height: 12px; border-radius: 6px; background: var(--color-bg-secondary); overflow: hidden; }
+    .cand-bar > div { height: 100%; border-radius: 6px; }
+    .mp-note { color: var(--color-text-secondary); font-size: 0.889rem; margin: 10px 0 0; }
+    .flip-callout { margin: 12px 0 0; padding: 12px 14px; border-radius: 8px; background: #FFF3C4; font-weight: 600; }
+    .flip-callout.no-change { background: var(--color-bg-secondary); font-weight: 400; }
+    .flip-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .flip-chip {
+      display: inline-flex; align-items: center; min-height: 44px; padding: 4px 12px; border-radius: 999px;
+      border: 1.5px solid #B8860B; background: #fff; color: var(--color-text-primary);
+      text-decoration: none; font-weight: 600; font-size: 0.889rem;
+    }
+    .flip-chip:hover { background: #FFF3C4; }
+
+    /* Map + legend */
+    .map-panel { position: relative; border: 1px solid var(--color-border); border-radius: 14px; overflow: hidden; margin-bottom: 16px; background: var(--color-bg-primary); }
+    #mp-map { height: 440px; background: #EDE8DD; }
+    .mp-legend { padding: 12px 16px; border-top: 1px solid var(--color-border); display: flex; gap: 4px 26px; flex-wrap: wrap; align-items: flex-start; }
+    .cc-legend-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; flex-basis: 100%; }
+    .cc-legend-desc { color: var(--color-text-secondary); font-size: 0.889rem; margin: 0; flex-basis: 100%; }
+    .cc-legend-row { display: flex; align-items: center; gap: 8px; font-size: 0.889rem; color: var(--color-text-secondary); padding: 2px 0; }
+    .mp-sw-flip { display: inline-block; width: 22px; height: 16px; border-radius: 4px; background: #fff; border: 3px solid #B8860B; box-sizing: border-box; }
+    .leaflet-interactive:focus { outline: none; }
+    .leaflet-interactive:focus-visible { stroke: #FFC800; stroke-width: 3.5px; }
+
+    .mp-status { color: var(--color-text-secondary); font-weight: 600; margin: 0 0 12px; min-height: 1.4em; }
+    .retry-link { background: none; border: none; color: var(--color-primary); text-decoration: underline; cursor: pointer; font-size: inherit; font-family: inherit; padding: 0; }
+  </style>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="page-main">
+    <h1 class="page-title">Matchup projector</h1>
+    <p class="page-sub">See how a November 2026 head-to-head between the two parties' primary winners could look, precinct by precinct — then stress-test it with turnout and persuasion scenarios.</p>
+
+    <section class="mp-card mp-method backplate" aria-label="How this projection works">
+      <strong>This is a projection, not a prediction.</strong>
+      It re-plays the <span id="mp-baseline-name">selected baseline election</span>'s two-party vote in every precinct with the 2026 nominees' names on it, then applies your scenario.
+      March primary leaders may not be the final nominees — Texas primaries require a majority, and close races go to a May runoff — so you can pick any candidate from each primary's field below.
+      <span id="mp-other-note"></span>
+    </section>
+
+    <section class="mp-card" aria-label="Pick the matchup">
+      <div class="mp-controls">
+        <div class="ctrl">
+          <label for="mp-office">Office</label>
+          <select id="mp-office"></select>
+        </div>
+        <div class="ctrl">
+          <label for="mp-dem">Democratic nominee</label>
+          <select id="mp-dem"></select>
+        </div>
+        <div class="ctrl">
+          <label for="mp-rep">Republican nominee</label>
+          <select id="mp-rep"></select>
+        </div>
+        <div class="ctrl">
+          <label for="mp-baseline">Baseline election (the environment)</label>
+          <select id="mp-baseline"></select>
+        </div>
+      </div>
+      <p class="mp-leader-note">Candidates are listed with their March 2026 primary votes; each party's primary leader is pre-selected.</p>
+    </section>
+
+    <section class="mp-card" aria-label="Scenario">
+      <h2 class="mp-scenario-title">Pick a scenario</h2>
+      <div class="preset-row" id="mp-presets"></div>
+      <div id="mp-sliders"></div>
+      <details class="mp-flip-details">
+        <summary>Persuasion — what if some voters switched sides?</summary>
+        <div id="mp-flips-controls"></div>
+      </details>
+      <button class="btn" id="mp-reset" type="button">Reset scenario</button>
+      <details class="mp-flip-details">
+        <summary>Assumptions</summary>
+        <ul>
+          <li><strong>Anchor:</strong> each precinct starts from the baseline election's two-party vote; third-party votes are set aside and reported below the headline.</li>
+          <li><strong>Non-voter party mix:</strong> extra turnout is drawn from each precinct's modeled party universe in proportion to registration.</li>
+          <li><strong>Persuasion:</strong> flip percentages apply uniformly across precincts.</li>
+          <li><strong>Order:</strong> turnout adjustment first, then persuasion.</li>
+        </ul>
+      </details>
+    </section>
+
+    <div class="mp-status" id="mp-status" aria-live="polite">Loading…</div>
+
+    <section class="mp-card" id="mp-headline" aria-live="polite" aria-label="Projected county-wide result"></section>
+
+    <div class="map-panel">
+      <div id="mp-map"></div>
+      <div class="mp-legend" id="mp-legend"></div>
+    </div>
+    <p class="page-sub">Tip: click or keyboard-walk a precinct to hear its projected result. Precincts outside a district office's boundary show as "not on this ballot."</p>
+  </main>
+
+  <script src="js/vendor/leaflet.js"></script>
+  <script src="js/vendor/d3.v7.min.js"></script>
+  <script type="module" src="js/matchupPage.js"></script>
+  <script type="module" src="js/siteNav.js"></script>
+</body>
+</html>
