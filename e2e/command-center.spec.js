@@ -121,14 +121,19 @@ test.describe('Command Center', () => {
 
   test('CD-4 own race renders out-of-county results at PRECINCT level', async ({ page }) => {
     // The 2024 CD-4 race spans 12 counties; the non-Collin ones now carry real
-    // precinct rows + polygons (restored from git history / OpenElections), so
-    // the dock must label them "precinct-level" and the map must draw their
-    // precinct paths, not just county blobs. Rains has no 2024 source file
+    // precinct rows + polygons (restored from git history / OpenElections).
+    // Counties whose joined polygons account for every vote render precinct-
+    // level (Bowie, Delta, Hopkins, Hunt, Lamar); counties with codes our
+    // boundary vintage can't fully join (Fannin's new precinct 17, Grayson's
+    // 5 new precincts, Rockwall's refined 26) are demoted to a county total
+    // rather than silently hiding votes. Rains has no 2024 source file
     // (honest gap) and must not appear as a fabricated row.
     await page.goto('/index.html#county=collin&race=united-states-representative-district-4-2024');
     await expect(page.locator('#cc-dock-eyebrow')).toContainText('Full District', { timeout: 30000 });
-    await expect(page.locator('.cc-demo-row', { hasText: 'Grayson' })).toContainText('precinct-level');
-    await expect(page.locator('.cc-demo-row', { hasText: 'Fannin' })).toContainText('precinct-level');
+    await expect(page.locator('.cc-demo-row', { hasText: 'Hopkins' })).toContainText('precinct-level');
+    await expect(page.locator('.cc-demo-row', { hasText: 'Lamar' })).toContainText('precinct-level');
+    await expect(page.locator('.cc-demo-row', { hasText: 'Grayson' })).toContainText('county total');
+    await expect(page.locator('.cc-demo-row', { hasText: 'Fannin' })).toContainText('county total');
     // Collin's 65 precincts + the other counties' polygons — far more paths
     // than the 65 + 11 outlines the old county-blob rendering produced.
     const paths = page.locator('#cc-map path.leaflet-interactive');
