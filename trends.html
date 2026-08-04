@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trends — Collin County Elections</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
-  <meta name="description" content="How each Collin County precinct's Democratic-versus-Republican balance moved from the 2022 election to 2024." />
+  <meta name="description" content="How each Collin County precinct's Democratic-versus-Republican balance moved from one election to the next — on a map, a swing chart, and a filterable table." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="js/vendor/leaflet.css" />
   <link rel="stylesheet" href="styles.css" />
   <!-- civic.css loads AFTER styles.css so the a11y layer wins by source order -->
   <link rel="stylesheet" href="js/civic.css" />
@@ -16,64 +17,111 @@
     html, body { display: block; height: auto; width: auto; overflow: auto; }
     body { margin: 0; font-family: var(--font-body); background: var(--color-bg-secondary); color: var(--color-text-primary); font-size: 1rem; }
 
-    .page-main { max-width: 1340px; margin: 0 auto; padding: 24px 20px 80px; }
+    .page-main { max-width: 1440px; margin: 0 auto; padding: 24px 20px 80px; }
     .page-title { font-family: var(--font-display); font-size: 32px; margin: 0 0 6px; }
-    .page-sub { color: var(--color-text-secondary); margin: 0 0 20px; max-width: 780px; }
+    .page-sub { color: var(--color-text-secondary); margin: 0 0 20px; max-width: 820px; }
 
     .na-banner {
       background: #fff8e1; border: 1px solid #b8973a; border-radius: 10px; padding: 12px 16px;
       font-size: 1rem; color: #5c4a0d; margin-bottom: 16px;
     }
-
     .card {
       background: var(--color-bg-primary); border: 1px solid var(--color-border);
       border-radius: 14px; padding: 18px 20px; margin-bottom: 18px;
     }
 
-    /* headline ------------------------------------------------------------- */
+    /* ---- metric + year pickers ------------------------------------------ */
+    .tr-controls { display: flex; flex-wrap: wrap; gap: 18px 26px; align-items: flex-end; }
+    .tr-metric { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tr-metric button {
+      font-family: var(--font-body); font-size: 1rem; font-weight: 600; min-height: 44px;
+      color: var(--color-text-secondary); background: var(--color-bg-primary);
+      border: 1.5px solid var(--color-border); border-radius: 10px; padding: 9px 16px; cursor: pointer;
+    }
+    .tr-metric button:hover { border-color: var(--color-primary); }
+    .tr-metric button[aria-pressed="true"] { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+    .ctrl label { display: block; font-weight: 600; font-size: 0.889rem; margin-bottom: 5px; color: var(--color-text-secondary); }
+    .ctrl select, .ctrl input {
+      font-size: 1rem; padding: 9px 11px; border-radius: 8px; min-height: 44px;
+      border: 1px solid var(--color-border); background: #fff; color: var(--color-text-primary);
+    }
+    .tr-blurb { color: var(--color-text-secondary); font-size: 0.889rem; margin: 12px 0 0; max-width: 900px; }
+
+    /* ---- filters --------------------------------------------------------- */
+    .tr-filters { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: flex-end; }
+    .tr-check { display: flex; align-items: center; gap: 8px; min-height: 44px; font-weight: 600; font-size: 0.944rem; }
+    .tr-check input { width: 20px; height: 20px; }
+    .tr-narrow { width: 96px; }
+    .tr-wide { width: 210px; }
+    #tr-count { font-weight: 600; color: var(--color-text-secondary); margin: 14px 0 0; }
+    #tr-count strong { color: var(--color-text-primary); font-size: 1.167rem; }
+    #tr-clear {
+      margin-left: 10px; min-height: 44px; padding: 0 14px; border-radius: 8px; cursor: pointer;
+      border: 1.5px solid var(--color-border); background: #fff; font-weight: 600; font-size: 0.944rem;
+      color: var(--color-primary);
+    }
+    #tr-clear:hover { border-color: var(--color-primary); }
+
+    /* ---- headline -------------------------------------------------------- */
     .tr-lede { font-family: var(--font-display); font-size: 1.333rem; line-height: 1.35; margin: 0 0 14px; }
     .tr-stats { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 28px; padding: 0; margin: 0 0 12px; }
-    .tr-stats li { display: flex; flex-direction: column; min-width: 150px; }
+    .tr-stats li { display: flex; flex-direction: column; min-width: 140px; }
     .tr-stat-n { font-family: var(--font-display); font-size: 1.556rem; font-weight: 700; font-variant-numeric: tabular-nums; }
     .tr-stat-l { font-size: 0.889rem; color: var(--color-text-secondary); }
     .tr-note { font-size: 0.889rem; color: var(--color-text-secondary); margin: 0; }
 
-    /* chart ---------------------------------------------------------------- */
-    .tr-layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 18px; align-items: start; }
+    /* ---- map + scatter side by side -------------------------------------- */
+    .tr-views { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+    .tr-panel h2 { font-family: var(--font-display); font-size: 1.167rem; margin: 0 0 10px; }
+    #tr-map { height: 560px; border-radius: 12px; border: 1px solid var(--color-border); background: var(--color-bg-secondary); }
+    .swing-selected { filter: drop-shadow(0 0 3px rgba(11, 77, 162, 0.9)); }
+
+    .tr-legend-list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 6px; }
+    .tr-legend-list li { display: grid; grid-template-columns: 26px 1fr auto auto; gap: 10px; align-items: center; font-size: 0.889rem; }
+    /* Legend swatches are real SVG referencing the map's own pattern defs, so
+       the key and the polygons can never disagree. */
+    .cc-sw { display: block; }
+    .tr-legend-range { color: var(--color-text-muted); }
+    .tr-legend-count { font-variant-numeric: tabular-nums; font-weight: 700; min-width: 3ch; text-align: right; }
+    .tr-arrow-mode { margin-bottom: 10px; }
+    .tr-legend-note { font-size: 0.889rem; color: var(--color-text-secondary); margin: 10px 0 0; }
+    .tr-sw-flat { width: 10px; height: 10px; border-radius: 50%; background: #888; display: block; margin: 0 auto; }
+    .tr-arrow { pointer-events: none; }
+    .tr-arrow-inner { transform: translate(-50%, -50%); }
+    .tr-arrow-svg { display: block; filter: drop-shadow(0 0 1.5px rgba(255,253,249,.95)); }
+    .tr-bases { margin: 0 0 12px; font-size: 1.056rem; line-height: 1.5; }
+    .tr-base-table { border-collapse: collapse; margin: 0 0 10px; font-size: 0.944rem; }
+    .tr-base-table caption { text-align: left; font-size: 0.889rem; color: var(--color-text-secondary); padding-bottom: 4px; }
+    .tr-base-table th, .tr-base-table td { padding: 4px 12px 4px 0; text-align: right; font-variant-numeric: tabular-nums; }
+    .tr-base-table th[scope="row"] { text-align: left; font-weight: 700; }
+
     .swing-scatter { width: 100%; height: auto; display: block; touch-action: manipulation; }
     .sc-plot-bg { fill: var(--color-bg-secondary); }
     .sc-grid { stroke: var(--color-border); stroke-width: 1; }
     .sc-axis-zero { stroke: #8a8378; stroke-width: 1.5; }
     .sc-diagonal { stroke: #44505c; stroke-width: 2; stroke-dasharray: 7 5; }
-    /* Sits on top of the mark cluster, so it needs a paper-coloured halo to
-       stay readable against whatever it overlaps. */
     .sc-diagonal-label {
       fill: #44505c; font-size: 15px; font-family: var(--font-body); font-weight: 700;
       stroke: var(--civic-paper, #fffdf9); stroke-width: 4; paint-order: stroke fill;
     }
     .sc-tick { fill: var(--color-text-secondary); font-size: 14px; font-family: var(--font-body); font-variant-numeric: tabular-nums; }
     .sc-axis-title { fill: var(--color-text-primary); font-size: 16px; font-weight: 700; font-family: var(--font-body); }
-    /* Every mark carries a dark outline so it clears 3:1 non-text contrast even
-       at the palest end of the swing ramp. */
-    /* Slight transparency so the dense band along the diagonal reads as a band
-       rather than one opaque blob; the outline keeps each mark legible. */
     .sc-mark { stroke: #1c2733; stroke-width: 1; cursor: pointer; fill-opacity: 0.85; }
     .sc-mark:hover { stroke-width: 2.5; }
     .sc-mark.is-selected { stroke: #0b4da2; stroke-width: 3.5; }
     .sc-mark:focus-visible { outline: 3px solid var(--focus-gold); outline-offset: 2px; }
 
-    .tr-legend { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.889rem; }
-    .tr-legend li { display: flex; align-items: center; gap: 8px; }
-    .tr-legend svg { flex: none; }
+    .tr-shape-key { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.889rem; }
+    .tr-shape-key li { display: flex; align-items: center; gap: 8px; }
 
-    /* readout -------------------------------------------------------------- */
-    .tr-readout { position: sticky; top: 12px; }
+    /* ---- readout --------------------------------------------------------- */
     .tr-readout-line { font-size: 1.056rem; line-height: 1.45; margin: 0 0 10px; }
     .tr-readout-empty { color: var(--color-text-secondary); margin: 0; }
+    .tr-readout-flag { color: #8a5a00; font-weight: 600; font-size: 0.944rem; margin: 0 0 8px; }
     .tr-readout-meta { font-size: 0.889rem; color: var(--color-text-secondary); margin: 0; line-height: 1.6; }
     .tr-readout-meta a { color: var(--color-primary); font-weight: 700; }
 
-    /* composition ---------------------------------------------------------- */
+    /* ---- explainer ------------------------------------------------------- */
     details.tr-what > summary {
       cursor: pointer; min-height: 44px; display: flex; align-items: center;
       font-weight: 700; font-size: 1rem; color: var(--color-primary);
@@ -83,7 +131,7 @@
     .tr-composition ul { margin: 0; padding-left: 20px; font-size: 0.889rem; line-height: 1.7; }
     .tr-cov { color: var(--color-text-muted); }
 
-    /* table ---------------------------------------------------------------- */
+    /* ---- table ----------------------------------------------------------- */
     .table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg-primary); }
     table.ptable { border-collapse: collapse; width: 100%; font-size: 1rem; }
     table.ptable th, table.ptable td { padding: 11px 14px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--color-border-light, rgba(28,39,51,.06)); }
@@ -98,7 +146,7 @@
     td.num { font-variant-numeric: tabular-nums; }
     .tr-cell-precinct a { color: var(--color-primary); text-decoration: none; font-weight: 700; }
     .tr-cell-precinct a:hover { text-decoration: underline; }
-    .tr-swing { font-weight: 700; }
+    .tr-swing, .tr-net { font-weight: 700; }
     .tr-swing-dem { color: var(--dem-text-aaa, #005c82); }
     .tr-swing-rep { color: var(--rep-text-aaa, #a01218); }
     .tr-swing-flat { color: var(--color-text-secondary); }
@@ -109,10 +157,10 @@
     table.ptable tbody tr.tiny-row td:first-child { font-style: normal; }
     .empty-note { color: var(--color-text-muted); padding: 28px 4px; }
 
-    @media (max-width: 900px) {
-      .tr-layout { grid-template-columns: 1fr; }
-      .tr-readout { position: static; }
+    @media (max-width: 1080px) {
+      .tr-views { grid-template-columns: 1fr; }
       .tr-composition { grid-template-columns: 1fr; }
+      #tr-map { height: 420px; }
     }
   </style>
 </head>
@@ -121,43 +169,122 @@
 
   <main class="page-main">
     <h1 class="page-title">Trends</h1>
-    <p class="page-sub">How each precinct's Democratic-versus-Republican balance moved from 2022 to 2024. Each mark is one precinct: its 2022 margin across the bottom, its 2024 margin up the side. The dashed diagonal is no change — above it a precinct moved toward Democrats, below it toward Republicans.</p>
+    <p class="page-sub">How each precinct's Democratic-versus-Republican balance moved from one election to the next. Pick what to measure and which two years to compare — then narrow to the precincts you care about. The map and the chart show the same precincts: on the chart, the dashed diagonal is no change, above it moved Democratic, below it moved Republican.</p>
 
-    <p class="na-banner">On the 2026 precincts, the 2022 and 2024 results are careful estimates re-drawn onto the new boundaries, so a small part of any movement shown here is re-drawing rather than real change (per-precinct quality is in each precinct's report — see <a href="methodology.html">How It Works</a>).</p>
+    <p class="na-banner">On the 2026 precincts, results from earlier years are careful estimates re-drawn onto the new boundaries, so a small part of any movement shown here is re-drawing rather than real change (see <a href="methodology.html">How It Works</a>).</p>
+
+    <section class="card">
+      <div class="tr-controls">
+        <div>
+          <label class="ctrl-label" id="tr-metric-label" style="display:block;font-weight:600;font-size:0.889rem;margin-bottom:5px;color:var(--color-text-secondary)">Measure</label>
+          <div class="tr-metric" id="tr-metric" role="group" aria-labelledby="tr-metric-label"></div>
+        </div>
+        <div class="ctrl">
+          <label for="tr-year-a">From</label>
+          <select id="tr-year-a"></select>
+        </div>
+        <div class="ctrl">
+          <label for="tr-year-b">To</label>
+          <select id="tr-year-b"></select>
+        </div>
+      </div>
+      <p class="tr-blurb" id="tr-metric-blurb"></p>
+    </section>
+
+    <section class="card">
+      <h2 style="font-family:var(--font-display);font-size:1.167rem;margin:0 0 12px">Narrow it down</h2>
+      <div class="tr-filters">
+        <div class="ctrl">
+          <label for="tr-direction">Direction</label>
+          <select id="tr-direction">
+            <option value="all">Any</option>
+            <option value="dem">Moved toward Dem</option>
+            <option value="rep">Moved toward Rep</option>
+            <option value="flat">No real change</option>
+          </select>
+        </div>
+        <div class="ctrl">
+          <label for="tr-swing-min">Swing at least</label>
+          <input type="number" id="tr-swing-min" class="tr-narrow" step="any" placeholder="−100" />
+        </div>
+        <div class="ctrl">
+          <label for="tr-swing-max">Swing at most</label>
+          <input type="number" id="tr-swing-max" class="tr-narrow" step="any" placeholder="100" />
+        </div>
+        <div class="ctrl">
+          <label for="tr-close">Close races within</label>
+          <input type="number" id="tr-close" class="tr-narrow" step="any" placeholder="pts" />
+        </div>
+        <div class="ctrl">
+          <label for="tr-min-votes">Min votes cast</label>
+          <input type="number" id="tr-min-votes" class="tr-narrow" step="1" placeholder="0" />
+        </div>
+        <div class="ctrl">
+          <label for="tr-min-net">Min impact (net votes)</label>
+          <input type="number" id="tr-min-net" class="tr-narrow" step="1" placeholder="0" />
+        </div>
+        <div class="ctrl">
+          <label for="tr-base">Vote base</label>
+          <select id="tr-base">
+            <option value="any">Any</option>
+            <option value="dem-grew">Dem base grew</option>
+            <option value="dem-shrank">Dem base shrank</option>
+            <option value="dem-grew-moved-rep">Dem base grew, still moved Rep</option>
+          </select>
+        </div>
+        <div class="ctrl">
+          <label for="tr-precincts">Precincts</label>
+          <input type="text" id="tr-precincts" class="tr-wide" placeholder="e.g. 12, 15, 40" />
+        </div>
+        <label class="tr-check"><input type="checkbox" id="tr-flipped" /> Flipped only</label>
+        <label class="tr-check"><input type="checkbox" id="tr-include-tiny" /> Include tiny electorates</label>
+      </div>
+      <p id="tr-count"></p>
+    </section>
 
     <section class="card" id="tr-headline" aria-live="polite">
       <p class="empty-note">Loading results…</p>
     </section>
 
-    <div class="tr-layout">
-      <section class="card">
-        <h2 class="visually-hidden">Precinct swing chart</h2>
-        <div id="tr-chart"><p class="empty-note">Loading chart…</p></div>
-        <ul class="tr-legend">
-          <li><svg width="18" height="18" aria-hidden="true"><polygon points="9,2 2,15 16,15" fill="#6D9EEB" stroke="#1c2733" /></svg> Moved toward Democrats</li>
-          <li><svg width="18" height="18" aria-hidden="true"><polygon points="9,16 2,3 16,3" fill="#d13636" stroke="#1c2733" /></svg> Moved toward Republicans</li>
-          <li><svg width="18" height="18" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="#888888" stroke="#1c2733" /></svg> No real change</li>
-          <li>Bigger mark = more votes cast</li>
-        </ul>
+    <div class="tr-views">
+      <section class="card tr-panel">
+        <h2>Where they moved</h2>
+        <div class="ctrl tr-arrow-mode">
+          <label for="tr-arrow-size">Arrow length shows</label>
+          <select id="tr-arrow-size">
+            <option value="impact">Impact — net votes moved</option>
+            <option value="points">Swing — percentage points</option>
+          </select>
+        </div>
+        <div id="tr-map"></div>
+        <div id="tr-legend"></div>
       </section>
 
-      <section class="card tr-readout" id="tr-readout" aria-live="polite">
-        <p class="tr-readout-empty">Select a precinct on the chart — or use the arrow keys — to see its numbers.</p>
+      <section class="card tr-panel">
+        <h2>How far they moved</h2>
+        <div id="tr-chart"><p class="empty-note">Loading chart…</p></div>
+        <ul class="tr-shape-key">
+          <li><svg width="18" height="18" aria-hidden="true"><polygon points="9,2 2,15 16,15" fill="#6D9EEB" stroke="#1c2733" /></svg> Toward Democrats</li>
+          <li><svg width="18" height="18" aria-hidden="true"><polygon points="9,16 2,3 16,3" fill="#d13636" stroke="#1c2733" /></svg> Toward Republicans</li>
+          <li><svg width="18" height="18" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="#888888" stroke="#1c2733" /></svg> No real change</li>
+          <li>Bigger mark = more votes</li>
+        </ul>
       </section>
     </div>
+
+    <section class="card" id="tr-readout" aria-live="polite">
+      <p class="tr-readout-empty">Pick a precinct on the map or the chart — or use the arrow keys — to see its numbers.</p>
+    </section>
 
     <section class="card">
       <details class="tr-what">
         <summary>What exactly is being compared?</summary>
-        <p>Texas staggers its ballot, so no office runs in both 2022 and 2024 — the midterm elects the Governor, Lieutenant Governor and Attorney General, while the presidential year elects the President and a US Senator. Even the high courts alternate seats. There is no single race to follow across the two years.</p>
-        <p>So each year's number is a <strong>composite</strong>: a precinct's average two-party margin across every contest that reached the whole county's ballot that year. Averaging the full ticket cancels the effect of any one candidate being unusually popular or unpopular, leaving the precinct's own movement. Third-party votes are left out of both sides.</p>
-        <p>Two honest caveats. 2022 was a midterm and 2024 a presidential year, and a presidential electorate is both larger and different — so part of any movement is <em>who turned out</em>, not <em>who changed their mind</em>. And because these are different offices, a precinct's composite is not a like-for-like rerun of the same contest.</p>
-        <div class="tr-composition" id="tr-composition"></div>
+        <div id="tr-what-body"></div>
       </details>
     </section>
 
     <section class="card">
-      <h2 style="font-family: var(--font-display); font-size: 1.333rem; margin: 0 0 12px;">Every precinct</h2>
+      <h2 style="font-family: var(--font-display); font-size: 1.333rem; margin: 0 0 12px;">Every precinct shown</h2>
       <div class="table-wrap">
         <table class="ptable">
           <thead><tr id="tr-head"></tr></thead>
@@ -167,6 +294,7 @@
     </section>
   </main>
 
+  <script src="js/vendor/leaflet.js"></script>
   <script src="js/vendor/d3.v7.min.js"></script>
   <script type="module" src="js/trendsPage.js"></script>
   <script type="module" src="js/siteNav.js"></script>

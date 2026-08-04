@@ -9,6 +9,12 @@ import {
   COMPOSITE_MIN_COVERAGE,
   SWING_EPSILON,
   TINY_ELECTORATE_PER_RACE,
+  SWING_BINS,
+  EMPTY_FILTERS,
+  swingBin,
+  buildPrimaryIndex,
+  primaryYearsAvailable,
+  filterSwingSeries,
   twoPartyColumns,
   twoPartyMargin,
   selectCompositeRaces,
@@ -364,5 +370,280 @@ describe('summarizeSwing', () => {
 
   it('tolerates junk input', () => {
     expect(summarizeSwing(null).comparablePrecincts).toBe(0);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Primary participation — the page's second metric and its only three-cycle
+// series. Shape must match buildPartisanIndex exactly so buildSwingSeries and
+// summarizeSwing work on either metric with no branching.
+// ---------------------------------------------------------------------------
+
+describe('buildPrimaryIndex', () => {
+  const turnout = {
+    1: { 2022: { dem: 100, rep: 300 }, 2024: { dem: 200, rep: 200 } },
+    2: { 2024: { dem: 0, rep: 0 } },
+    3: { 2026: { dem: 90, rep: 10 } },
+  };
+
+  it('reads the margin as Dem minus Rep share of primary ballots', () => {
+    // 100 D / 300 R -> (100-300)/400 = -50 points
+    expect(buildPrimaryIndex(turnout, 2022)['1'].margin).toBeCloseTo(-50, 10);
+    expect(buildPrimaryIndex(turnout, 2024)['1'].margin).toBeCloseTo(0, 10);
+    expect(buildPrimaryIndex(turnout, 2026)['3'].margin).toBeCloseTo(80, 10);
+  });
+
+  it('emits the same shape as the general-election index', () => {
+    const row = buildPrimaryIndex(turnout, 2022)['1'];
+    expect(Object.keys(row).sort()).toEqual(['demVotes', 'margin', 'raceCount', 'repVotes']);
+    // One "race" — the primary itself — so the per-race vote maths that drives
+    // the tiny-electorate test stays meaningful.
+    expect(row.raceCount).toBe(1);
+  });
+
+  it('skips a precinct that cast no primary ballots', () => {
+    expect(buildPrimaryIndex(turnout, 2024)['2']).toBeUndefined();
+  });
+
+  it('accepts the year as a string or a number', () => {
+    expect(buildPrimaryIndex(turnout, '2022')['1'].margin).toBeCloseTo(-50, 10);
+  });
+
+  it('returns empty for a year with no data, or junk input', () => {
+    expect(buildPrimaryIndex(turnout, 2030)).toEqual({});
+    expect(buildPrimaryIndex(null, 2022)).toEqual({});
+  });
+
+  it('feeds buildSwingSeries directly', () => {
+    const series = buildSwingSeries(buildPrimaryIndex(turnout, 2022), buildPrimaryIndex(turnout, 2024));
+    expect(series[0].swing).toBeCloseTo(50, 10); // -50 -> 0
+  });
+});
+
+describe('primaryYearsAvailable', () => {
+  it('lists the years present, ascending', () => {
+    expect(primaryYearsAvailable({ 1: { 2024: {}, 2022: {} }, 2: { 2026: {} } })).toEqual([2022, 2024, 2026]);
+  });
+
+  it('tolerates junk', () => {
+    expect(primaryYearsAvailable(null)).toEqual([]);
+  });
+});
+
+describe('swingBin', () => {
+  it('puts the no-change band exactly at the shared epsilon', () => {
+    // The map's middle band MUST mean what the scatter's circle and the
+    // summary's `unchanged` count mean — one threshold, three surfaces.
+    expect(SWING_BINS[swingBin(0)].key).toBe('flat');
+    expect(SWING_BINS[swingBin(SWING_EPSILON - 0.01)].key).toBe('flat');
+    expect(SWING_BINS[swingBin(-SWING_EPSILON)].key).toBe('flat');
+  });
+
+  it('separates ordinary moves from strong ones', () => {
+    expect(SWING_BINS[swingBin(5)].key).toBe('dem');
+    expect(SWING_BINS[swingBin(25)].key).toBe('dem-strong');
+    expect(SWING_BINS[swingBin(-5)].key).toBe('rep');
+    expect(SWING_BINS[swingBin(-25)].key).toBe('rep-strong');
+  });
+
+  it('refuses to bin a missing swing — unknown is not unchanged', () => {
+    expect(swingBin(null)).toBe(-1);
+    expect(swingBin(NaN)).toBe(-1);
+  });
+});
+
+describe('filterSwingSeries', () => {
+  const row = (over) => ({
+    precinct: '1', marginA: -20, marginB: -10, swing: 10, flipped: false,
+    tinyElectorate: false, votesA: 900, votesB: 1000, ...over,
+  });
+  const series = [
+    row({ precinct: '1', swing: 12, marginB: -8 }),
+    row({ precinct: '2', swing: -12, marginA: 5, marginB: -7, flipped: true }),
+    row({ precinct: '3', swing: 0.2, marginB: 40 }),
+    row({ precinct: '4', swing: 5, tinyElectorate: true, votesB: 20 }),
+    row({ precinct: '5', swing: null, marginB: null, votesB: null }),
+  ];
+  const codes = (rows) => rows.map((r) => r.precinct);
+
+  it('keeps everything by default, including tiny electorates', () => {
+    // They are flagged everywhere they appear, never deleted.
+    expect(codes(filterSwingSeries(series))).toEqual(['1', '2', '3', '4', '5']);
+    expect(EMPTY_FILTERS.includeTiny).toBe(true);
+  });
+
+  it('drops tiny electorates only when asked', () => {
+    expect(codes(filterSwingSeries(series, { includeTiny: false }))).toEqual(['1', '2', '3', '5']);
+  });
+
+  it('filters by direction using the shared epsilon', () => {
+    expect(codes(filterSwingSeries(series, { direction: 'dem' }))).toEqual(['1', '4']);
+    expect(codes(filterSwingSeries(series, { direction: 'rep' }))).toEqual(['2']);
+    expect(codes(filterSwingSeries(series, { direction: 'flat' }))).toEqual(['3']);
+  });
+
+  it('filters to flips', () => {
+    expect(codes(filterSwingSeries(series, { flippedOnly: true }))).toEqual(['2']);
+  });
+
+  it('filters by a signed swing window', () => {
+    expect(codes(filterSwingSeries(series, { swingMin: 1 }))).toEqual(['1', '4']);
+    expect(codes(filterSwingSeries(series, { swingMax: 0 }))).toEqual(['2']);
+    expect(codes(filterSwingSeries(series, { swingMin: -13, swingMax: -11 }))).toEqual(['2']);
+  });
+
+  it('filters to close races by absolute later-year margin', () => {
+    expect(codes(filterSwingSeries(series, { maxAbsMarginB: 10 }))).toEqual(['1', '2', '4']);
+  });
+
+  it('filters by minimum votes cast', () => {
+    expect(codes(filterSwingSeries(series, { minVotes: 100 }))).toEqual(['1', '2', '3']);
+  });
+
+  it('filters to an explicit precinct list, from a Set or an array', () => {
+    expect(codes(filterSwingSeries(series, { precincts: new Set(['2', '3']) }))).toEqual(['2', '3']);
+    expect(codes(filterSwingSeries(series, { precincts: [1, 4] }))).toEqual(['1', '4']);
+  });
+
+  it('drops no-comparison precincts as soon as any filter is a question about movement', () => {
+    // Precinct 5 has no swing to test, so it cannot satisfy — or refute — a
+    // movement filter. It survives only the untouched default.
+    expect(codes(filterSwingSeries(series))).toContain('5');
+    expect(codes(filterSwingSeries(series, { direction: 'dem' }))).not.toContain('5');
+    expect(codes(filterSwingSeries(series, { swingMin: -999 }))).not.toContain('5');
+    // …but the tiny toggle alone is not such a question.
+    expect(codes(filterSwingSeries(series, { includeTiny: false }))).toContain('5');
+  });
+
+  it('stacks filters', () => {
+    expect(codes(filterSwingSeries(series, { direction: 'dem', minVotes: 100 }))).toEqual(['1']);
+  });
+
+  it('preserves the original order', () => {
+    expect(codes(filterSwingSeries(series, { minVotes: 0 }))).toEqual(['1', '2', '3', '4']);
+  });
+
+  it('tolerates junk input', () => {
+    expect(filterSwingSeries(null)).toEqual([]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Impact and the two bases. Percentage swing alone is misleading — a 40-point
+// move across ten ballots and a 4-point move across four thousand look the same
+// in points and nothing alike in consequence — and a margin is a ratio, so it
+// hides a base that grew while the other grew faster.
+// ---------------------------------------------------------------------------
+
+describe('net votes and per-party bases', () => {
+  // One race per cycle keeps the arithmetic checkable by eye.
+  const idx = (dem, rep) => ({ 1: { margin: ((dem - rep) / (dem + rep)) * 100, demVotes: dem, repVotes: rep, raceCount: 1 } });
+
+  it('reports net votes as the change in the Dem-minus-Rep gap', () => {
+    // gap 100-300 = -200; gap 400-500 = -100 -> +100 net toward Dem
+    const [row] = buildSwingSeries(idx(100, 300), idx(400, 500));
+    expect(row.netVotes).toBeCloseTo(100, 10);
+  });
+
+  it('separates each base so a growing base is visible behind a losing margin', () => {
+    // Dem +300 and Rep +500: the base grew, the margin moved Republican.
+    const [row] = buildSwingSeries(idx(1000, 1000), idx(1300, 1500));
+    expect(row.demChange).toBeCloseTo(300, 10);
+    expect(row.repChange).toBeCloseTo(500, 10);
+    expect(row.swing).toBeLessThan(0);
+    expect(row.demGrewButMovedRep).toBe(true);
+    expect(row.repGrewButMovedDem).toBe(false);
+  });
+
+  it('flags the mirror image too', () => {
+    const [row] = buildSwingSeries(idx(1000, 1000), idx(1500, 1300));
+    expect(row.repChange).toBeCloseTo(300, 10);
+    expect(row.swing).toBeGreaterThan(0);
+    expect(row.repGrewButMovedDem).toBe(true);
+  });
+
+  it('averages per race so the composite and a primary stay comparable', () => {
+    // 17 races' worth of votes must not read as 17x one primary's.
+    const many = { 1: { margin: 0, demVotes: 1700, repVotes: 1700, raceCount: 17 } };
+    const one = { 1: { margin: 0, demVotes: 150, repVotes: 100, raceCount: 1 } };
+    const [row] = buildSwingSeries(many, one);
+    expect(row.demA).toBeCloseTo(100, 10); // 1700 / 17
+    expect(row.demChange).toBeCloseTo(50, 10);
+    expect(row.repChange).toBeCloseTo(0, 10);
+  });
+
+  it('leaves impact null when there is no comparison', () => {
+    const [row] = buildSwingSeries(idx(100, 100), {});
+    expect(row.netVotes).toBeNull();
+    expect(row.demChange).toBeNull();
+    expect(row.demGrewButMovedRep).toBe(false);
+  });
+
+  it('distinguishes a big percentage move from a consequential one', () => {
+    // Ten ballots swinging hard vs four thousand nudging.
+    const [tiny] = buildSwingSeries(idx(2, 8), idx(8, 2));
+    const [big] = buildSwingSeries(idx(2000, 2000), idx(2060, 1940));
+    expect(Math.abs(tiny.swing)).toBeGreaterThan(Math.abs(big.swing));
+    expect(Math.abs(tiny.netVotes)).toBeLessThan(Math.abs(big.netVotes));
+  });
+});
+
+describe('summarizeSwing — impact totals', () => {
+  const series = [
+    { precinct: '1', swing: -5, netVotes: -100, demChange: 300, repChange: 400, demGrewButMovedRep: true, repGrewButMovedDem: false, marginA: 0, marginB: -5, flipped: false, votesA: 1, votesB: 1 },
+    { precinct: '2', swing: 5, netVotes: 60, demChange: 100, repChange: 40, demGrewButMovedRep: false, repGrewButMovedDem: true, marginA: 0, marginB: 5, flipped: false, votesA: 1, votesB: 1 },
+    { precinct: '3', swing: null, netVotes: null, demChange: null, repChange: null, demGrewButMovedRep: false, repGrewButMovedDem: false, marginA: 1, marginB: null, flipped: false, votesA: 1, votesB: null },
+  ];
+
+  it('sums votes so the county total is just the sum of its precincts', () => {
+    const s = summarizeSwing(series);
+    expect(s.netVotes).toBeCloseTo(-40, 10);
+    expect(s.demChange).toBeCloseTo(400, 10);
+    expect(s.repChange).toBeCloseTo(440, 10);
+    // The decomposition that makes the measure trustworthy.
+    expect(s.demChange - s.repChange).toBeCloseTo(s.netVotes, 10);
+  });
+
+  it('counts the precincts whose base grew against the margin', () => {
+    const s = summarizeSwing(series);
+    expect(s.demGrewButMovedRep).toBe(1);
+    expect(s.repGrewButMovedDem).toBe(1);
+    expect(s.demBaseGrew).toBe(2);
+  });
+
+  it('returns zeroes, not NaN, when nothing is comparable', () => {
+    const s = summarizeSwing([series[2]]);
+    expect(s.netVotes).toBe(0);
+    expect(s.demGrewButMovedRep).toBe(0);
+  });
+});
+
+describe('filterSwingSeries — impact and base filters', () => {
+  const r = (over) => ({ precinct: '1', marginA: 0, marginB: -5, swing: -5, flipped: false, tinyElectorate: false, votesA: 100, votesB: 100, netVotes: -50, demChange: 10, repChange: 60, demGrewButMovedRep: true, repGrewButMovedDem: false, ...over });
+  const series = [
+    r({ precinct: '1' }),
+    r({ precinct: '2', netVotes: -5, demChange: -20, repChange: 10, demGrewButMovedRep: false }),
+    r({ precinct: '3', netVotes: 400, swing: 6, demChange: 500, repChange: 100, demGrewButMovedRep: false }),
+  ];
+  const codes = (rows) => rows.map((x) => x.precinct);
+
+  it('filters by impact, not by percentage', () => {
+    expect(codes(filterSwingSeries(series, { minNetVotes: 50 }))).toEqual(['1', '3']);
+  });
+
+  it('keeps big movers in BOTH directions at a given impact threshold', () => {
+    // Measured on the absolute value, so the threshold can't quietly favour a party.
+    const kept = filterSwingSeries(series, { minNetVotes: 40 });
+    expect(kept.some((x) => x.netVotes < 0)).toBe(true);
+    expect(kept.some((x) => x.netVotes > 0)).toBe(true);
+  });
+
+  it('filters to precincts whose Democratic base grew or shrank', () => {
+    expect(codes(filterSwingSeries(series, { base: 'dem-grew' }))).toEqual(['1', '3']);
+    expect(codes(filterSwingSeries(series, { base: 'dem-shrank' }))).toEqual(['2']);
+  });
+
+  it('isolates the case the margin hides: base grew, precinct still moved Rep', () => {
+    expect(codes(filterSwingSeries(series, { base: 'dem-grew-moved-rep' }))).toEqual(['1']);
   });
 });

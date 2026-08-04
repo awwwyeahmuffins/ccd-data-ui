@@ -492,6 +492,63 @@ export function buildPartisanIndex(selectedRaces) {
 }
 
 /**
+ * Build a cycle's index from PRIMARY PARTICIPATION instead of general-election
+ * results: which party's primary ballot each precinct's voters asked for.
+ *
+ * This is the page's second metric and its answer to "partisan sentiment". It
+ * is behavioural, not modelled — nobody is scored, they either walked in and
+ * took a Democratic ballot or they didn't. It is also the only measure on file
+ * with THREE cycles (2022, 2024, 2026), so it is what makes a real
+ * year-to-year picker possible; the general-election composite has exactly one
+ * comparable pair because Texas staggers its ballot.
+ *
+ * Read it for what it is: primary turnout is a fraction of a general
+ * electorate and is pushed around by whether a contested race was on either
+ * ballot that year. It measures engagement, not vote share, and the page copy
+ * has to say so.
+ *
+ * Shape matches buildPartisanIndex exactly so buildSwingSeries/summarizeSwing
+ * work on either metric with no branching.
+ *
+ * @param {Object} primaryTurnout - svc.loadPrimaryTurnout(): { [precinct]: { [year]: {dem, rep} } }
+ * @param {number|string} year
+ * @returns {Object} { [precinct]: { margin, demVotes, repVotes, raceCount } }
+ */
+export function buildPrimaryIndex(primaryTurnout, year) {
+  const index = {};
+  if (!primaryTurnout || year == null) return index;
+  for (const [code, byYear] of Object.entries(primaryTurnout)) {
+    const rec = byYear?.[year] ?? byYear?.[String(year)] ?? byYear?.[Number(year)];
+    if (!rec) continue;
+    const dem = Number(rec.dem) || 0;
+    const rep = Number(rec.rep) || 0;
+    const total = dem + rep;
+    if (total <= 0) continue;
+    index[String(code)] = {
+      margin: ((dem - rep) / total) * 100,
+      demVotes: dem,
+      repVotes: rep,
+      // One "race" — the primary itself. Keeps the per-race vote maths in
+      // buildSwingSeries (and so the tiny-electorate test) meaningful.
+      raceCount: 1,
+    };
+  }
+  return index;
+}
+
+/** Years present in a primary-turnout lookup, ascending. */
+export function primaryYearsAvailable(primaryTurnout) {
+  const years = new Set();
+  for (const byYear of Object.values(primaryTurnout || {})) {
+    for (const y of Object.keys(byYear || {})) {
+      const n = Number(y);
+      if (!isNaN(n)) years.add(n);
+    }
+  }
+  return [...years].sort((a, b) => a - b);
+}
+
+/**
  * Pair two cycles' indices into the per-precinct series the scatter plots.
  *
  * `swing` is marginB - marginA in points; positive = movement toward Democrats.
@@ -519,11 +576,52 @@ export function buildSwingSeries(indexA, indexB) {
     // raw total of 34 looks respectable while being two votes per race.
     const perRaceA = entryA && entryA.raceCount ? (entryA.demVotes + entryA.repVotes) / entryA.raceCount : 0;
     const perRaceB = entryB && entryB.raceCount ? (entryB.demVotes + entryB.repVotes) / entryB.raceCount : 0;
+
+    // IMPACT, in votes rather than points. A 40-point swing across ten ballots
+    // and a 4-point swing across four thousand look identical in percentage
+    // terms; only one of them changes an outcome. This is the change in the
+    // Dem-minus-Rep gap, averaged per race so the two metrics stay comparable
+    // (the general composite spans 17–18 races, a primary exactly one).
+    //
+    // Summed across precincts it equals the county's own margin change, so the
+    // measure decomposes exactly — that is what makes it worth trusting.
+    //
+    // It counts TURNOUT change as well as persuasion: a precinct that simply
+    // grew between a midterm and a presidential year moves real votes without
+    // anybody changing their mind. That is a true statement about impact, and
+    // the page says so rather than pretending the number is pure persuasion.
+    const gapA = entryA && entryA.raceCount ? (entryA.demVotes - entryA.repVotes) / entryA.raceCount : null;
+    const gapB = entryB && entryB.raceCount ? (entryB.demVotes - entryB.repVotes) / entryB.raceCount : null;
+    const netVotes = gapA !== null && gapB !== null ? gapB - gapA : null;
+
+    // EACH BASE ON ITS OWN. Margin is a ratio, and a ratio hides the thing
+    // organizers most need to know: a precinct can add 300 Democratic votes and
+    // still move Republican, because it added 500 Republican ones. Reporting
+    // only the swing would call that precinct a loss when the Democratic base
+    // in it actually grew. Per-race averages, so a 17-race composite and a
+    // one-race primary stay comparable.
+    const demA = entryA && entryA.raceCount ? entryA.demVotes / entryA.raceCount : null;
+    const repA = entryA && entryA.raceCount ? entryA.repVotes / entryA.raceCount : null;
+    const demB = entryB && entryB.raceCount ? entryB.demVotes / entryB.raceCount : null;
+    const repB = entryB && entryB.raceCount ? entryB.repVotes / entryB.raceCount : null;
+    const demChange = demA !== null && demB !== null ? demB - demA : null;
+    const repChange = repA !== null && repB !== null ? repB - repA : null;
     series.push({
       precinct: code,
       marginA,
       marginB,
       swing,
+      netVotes,
+      demA,
+      repA,
+      demB,
+      repB,
+      demChange,
+      repChange,
+      // The case the margin alone would hide: the Democratic base grew, yet
+      // the precinct still moved Republican (or vice versa).
+      demGrewButMovedRep: demChange > 0 && swing != null && swing < -SWING_EPSILON,
+      repGrewButMovedDem: repChange > 0 && swing != null && swing > SWING_EPSILON,
       // True when EITHER cycle is too thin to support a percentage.
       tinyElectorate:
         Math.min(entryA ? perRaceA : Infinity, entryB ? perRaceB : Infinity) < TINY_ELECTORATE_PER_RACE,
@@ -557,6 +655,8 @@ export function buildSwingSeries(indexA, indexB) {
  * @param {Array<Object>} series - buildSwingSeries output
  * @returns {Object} summary stats; nulls when nothing is comparable
  */
+const sum = (rows, key) => rows.reduce((acc, r) => acc + (Number(r[key]) || 0), 0);
+
 export function summarizeSwing(series) {
   const rows = Array.isArray(series) ? series : [];
   const comparable = rows.filter((r) => r.swing != null);
@@ -572,6 +672,13 @@ export function summarizeSwing(series) {
     unchanged: 0,
     flippedToDem: 0,
     flippedToRep: 0,
+    netVotes: 0,
+    demChange: 0,
+    repChange: 0,
+    demBaseGrew: 0,
+    repBaseGrew: 0,
+    demGrewButMovedRep: 0,
+    repGrewButMovedDem: 0,
   };
   if (!comparable.length) return empty;
 
@@ -600,7 +707,151 @@ export function summarizeSwing(series) {
     unchanged: comparable.filter((r) => Math.abs(r.swing) <= SWING_EPSILON).length,
     flippedToDem: comparable.filter((r) => r.flipped && r.marginB >= 0).length,
     flippedToRep: comparable.filter((r) => r.flipped && r.marginB < 0).length,
+    // Vote counts, not points — these sum, so the county total is just the sum
+    // of its precincts and the decomposition can be checked by hand.
+    netVotes: sum(comparable, "netVotes"),
+    demChange: sum(comparable, "demChange"),
+    repChange: sum(comparable, "repChange"),
+    demBaseGrew: comparable.filter((r) => r.demChange > 0).length,
+    repBaseGrew: comparable.filter((r) => r.repChange > 0).length,
+    // The headline the margin alone would never show.
+    demGrewButMovedRep: comparable.filter((r) => r.demGrewButMovedRep).length,
+    repGrewButMovedDem: comparable.filter((r) => r.repGrewButMovedDem).length,
   };
+}
+
+// ============================================================================
+// MAP BINS + FILTERING
+// ============================================================================
+
+// Diverging swing bins for the choropleth, in percentage points. The middle
+// band is SWING_EPSILON so the map's "no real change" means exactly what the
+// scatter's circle mark and the summary's `unchanged` count mean — three
+// surfaces, one threshold.
+export const SWING_BINS = Object.freeze([
+  { max: -10, key: "rep-strong", name: "Strong move to Rep", range: "more than 10 points" },
+  { max: -SWING_EPSILON, key: "rep", name: "Moved to Rep", range: `${SWING_EPSILON}–10 points` },
+  { max: SWING_EPSILON, key: "flat", name: "No real change", range: `within ${SWING_EPSILON} points` },
+  { max: 10, key: "dem", name: "Moved to Dem", range: `${SWING_EPSILON}–10 points` },
+  { max: Infinity, key: "dem-strong", name: "Strong move to Dem", range: "more than 10 points" },
+]);
+
+/**
+ * Swing (points) -> SWING_BINS index, or -1 when there is nothing to bin.
+ * A precinct with no comparison is NOT binned to the middle — "unknown" and
+ * "unchanged" are different answers and the map colours them differently.
+ */
+export function swingBin(swing) {
+  if (swing == null || isNaN(swing)) return -1;
+  for (let i = 0; i < SWING_BINS.length; i++) {
+    if (swing < SWING_BINS[i].max || i === SWING_BINS.length - 1) return i;
+  }
+  return SWING_BINS.length - 1;
+}
+
+// Every filter off. Spread this rather than building literals, so a new filter
+// can never be silently absent from a caller's state object.
+export const EMPTY_FILTERS = Object.freeze({
+  direction: "all", // "all" | "dem" | "rep" | "flat"
+  flippedOnly: false,
+  swingMin: null, // signed points, inclusive
+  swingMax: null,
+  marginAMin: null, // earlier-cycle margin window (competitiveness)
+  marginAMax: null,
+  marginBMin: null, // later-cycle margin window
+  marginBMax: null,
+  maxAbsMarginB: null, // |margin| in the later cycle — "close races only"
+  minVotes: null, // two-party votes in the later cycle
+  minNetVotes: null, // |net votes| — impact, so a 10-ballot precinct can't headline
+  base: "any", // "any" | "dem-grew" | "dem-shrank" | "dem-grew-moved-rep"
+  precincts: null, // Set/array of codes to keep, or null for all
+  // Tiny electorates stay IN by default — they are flagged everywhere they
+  // appear, never deleted. The scatter still declines to plot them (a position
+  // built on one ballot is not a position) and the map marks them as
+  // "too few votes to say", but they keep their row and their real counts.
+  includeTiny: true,
+});
+
+const inRange = (value, min, max) => {
+  if (value == null || isNaN(value)) return false;
+  if (min != null && value < min) return false;
+  if (max != null && value > max) return false;
+  return true;
+};
+
+/**
+ * Apply the page's filters to a swing series. Pure — no DOM, no page state.
+ *
+ * Precincts with no comparison (`swing == null`) are dropped by ANY active
+ * filter: a filter is a question about movement, and a precinct that was on
+ * only one cycle's ballot has no movement to test. They survive only the
+ * untouched default, where they are still shown as N/A.
+ *
+ * @param {Array<Object>} series - buildSwingSeries output
+ * @param {Object} filters - partial; missing keys fall back to EMPTY_FILTERS
+ * @returns {Array<Object>} the surviving rows, original order preserved
+ */
+export function filterSwingSeries(series, filters = {}) {
+  const f = { ...EMPTY_FILTERS, ...filters };
+  const rows = Array.isArray(series) ? series : [];
+  const keep = f.precincts
+    ? f.precincts instanceof Set
+      ? f.precincts
+      : new Set([...f.precincts].map(String))
+    : null;
+
+  const touched =
+    f.direction !== "all" ||
+    f.flippedOnly ||
+    f.swingMin != null ||
+    f.swingMax != null ||
+    f.marginAMin != null ||
+    f.marginAMax != null ||
+    f.marginBMin != null ||
+    f.marginBMax != null ||
+    f.maxAbsMarginB != null ||
+    f.minVotes != null ||
+    f.minNetVotes != null ||
+    f.base !== "any";
+
+  return rows.filter((r) => {
+    if (keep && !keep.has(String(r.precinct))) return false;
+    if (!f.includeTiny && r.tinyElectorate) return false;
+    if (r.swing == null) return !touched;
+
+    if (f.direction !== "all") {
+      const dir =
+        r.swing > SWING_EPSILON ? "dem" : r.swing < -SWING_EPSILON ? "rep" : "flat";
+      if (dir !== f.direction) return false;
+    }
+    if (f.flippedOnly && !r.flipped) return false;
+    if ((f.swingMin != null || f.swingMax != null) && !inRange(r.swing, f.swingMin, f.swingMax)) {
+      return false;
+    }
+    if (
+      (f.marginAMin != null || f.marginAMax != null) &&
+      !inRange(r.marginA, f.marginAMin, f.marginAMax)
+    ) {
+      return false;
+    }
+    if (
+      (f.marginBMin != null || f.marginBMax != null) &&
+      !inRange(r.marginB, f.marginBMin, f.marginBMax)
+    ) {
+      return false;
+    }
+    if (f.maxAbsMarginB != null) {
+      if (r.marginB == null || Math.abs(r.marginB) > f.maxAbsMarginB) return false;
+    }
+    if (f.minVotes != null && (r.votesB || 0) < f.minVotes) return false;
+    // Impact threshold: measured on the ABSOLUTE net-vote change, so it keeps
+    // big movers in either direction rather than quietly favouring one party.
+    if (f.minNetVotes != null && Math.abs(r.netVotes ?? 0) < f.minNetVotes) return false;
+    if (f.base === "dem-grew" && !(r.demChange > 0)) return false;
+    if (f.base === "dem-shrank" && !(r.demChange < 0)) return false;
+    if (f.base === "dem-grew-moved-rep" && !r.demGrewButMovedRep) return false;
+    return true;
+  });
 }
 
 /**
