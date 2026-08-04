@@ -23,7 +23,7 @@ State: `js/lib/persona.js` (URL `#persona=` entry param > `ccd_persona` >
 public, stamped as `html[data-persona]` by siteNav before paint); layout
 seam: `js/ui/personaLayouts.js` registry consulted by siteNav; a dev-only
 header toggle (`#dev=1` arms `ccd_dev_tools`) switches personas via reload.
-Plumbing only — every persona still renders the identical five-tab public
+Plumbing only — every persona still renders the identical six-tab public
 app, so nothing in this document's IA changes. See ADDING_FEATURES.md
 Recipe E.
 
@@ -59,7 +59,7 @@ Recipe E.
   (inbound doors: Priority Precincts footer + How It Works "Advanced tools";
   outbound: flipped-precinct chips → My Precinct, map link → Map);
   elections.html is a redirect stub carrying #race= through to the Map
-  (removed in Phase 6). The welcome panel names all five tabs with "Find your
+  (removed in Phase 6). The welcome panel names all tabs with "Find your
   precinct" as the primary action and offers the remembered precinct
   (localStorage `ccd_my_precincts`, max 3 — written by the report page, read
   by the welcome + the Map's county dock). Cross-links per §3.5: Map precinct
@@ -249,16 +249,22 @@ questions, with the forecast demoted to a linked tool.
      viewed (`localStorage: ccd_my_precincts`, max 3). The Map and the welcome
      panel show a "Your precinct: 42 — open report" card when set. No accounts,
      no server state.
-  2. **The welcome panel names all five tabs** (today it names 3 of 7) and its
+  2. **The welcome panel names every tab** (today it names 3 of 7) and its
      primary action becomes "Find your precinct" — the first thing every new
      chair does.
 
 ### 3.3 Navigation tree
 
 ```
-Map  |  My Precinct  |  Priority Precincts  |  Data Table  |  How It Works
+Map | My Precinct | Priority Precincts | Trends | Data Table | How It Works
                         (forecast.html lives outside the nav, linked in context)
 ```
+
+**Deviation (August 2026): the nav is six tabs, not five.** `trends.html` was
+added between Priority Precincts and Data Table. It answers the one question the
+original five could not — *how did a precinct MOVE between cycles?* — which is
+neither a snapshot (Map, Data Table) nor a ranking (Priority Precincts). See
+§3.4 for its row.
 
 ### 3.4 Page-by-page redesign
 
@@ -267,6 +273,7 @@ Map  |  My Precinct  |  Priority Precincts  |  Data Table  |  How It Works
 | **Map** `index.html` | "How does each precinct lean, for this race or overall?" | Chair / organizer | `race, precinct, view (map\|list), boundary, district` | Choropleth (Lean/Margin/Diversity/Primary), legend, race dock, county briefing, precinct readout | Pick race, switch boundaries, scope to a district, search address/precinct, geolocate, toggle Map/List | Readout → **My Precinct**; briefing → **Priority Precincts**; readout → **Data Table** (row highlighted); race dock → **Forecast** |
 | **My Precinct** `precinct.html` | "What do I need to know — and hand out — about precinct N?" | Chair | `precinct, tab, boundary` | Sectioned report, mini-map, talking points, canvass script, similar precincts, one-pager | Search address/number, geolocate, print, export PDF/Markdown, copy one-pager | Mini-map → **Map** centered on precinct (new back-link, closes today's dead end); similar precincts → their reports; strategy mentions → **Priority Precincts** |
 | **Priority Precincts** `targets.html` | "Which precincts should we work first, under this strategy?" | Chair / field director | `strategy, boundary, district` | Ranked list with why-ranked rationale per row | Choose strategy (keep the single-disclosure design — it's the model page), export list CSV | Row → **My Precinct** and **Map**; footer → **Forecast**, **How It Works** |
+| **Trends** `trends.html` | "How did each precinct's Dem-vs-Rep balance MOVE from one cycle to the next?" | Chair / field director / researcher | `precinct (highlight), boundary` | Swing scatter (2022 margin × 2024 margin, 45° no-change diagonal), county headline, per-precinct table | Select a precinct (click, tap, or arrow keys), sort the table | Mark/row → **My Precinct**; caveat banner → **How It Works** |
 | **Data Table** `explore.html` | "Give me the raw numbers to sort, filter, and export myself." | Researcher / journalist / power chair | `view (column set), sort, dir, party, boundary, precinct (highlight)` | One spreadsheet: column-set tabs + filter chips + count line. **The "Summary" mode is deleted** — it duplicated the Map's county briefing; two surfaces answering one question was the pages-fighting problem | Sort, filter, choose columns, export CSV | Row → **My Precinct**; header note → **How It Works** |
 | **Forecast** `forecast.html` (not in nav) | "If turnout shifts, who wins this race?" | Field director / researcher | `race, boundary` + scenario params | Simulated outcome table, flipped-precinct list | Presets, sliders, flip rates | Flipped precincts → **Map** / **My Precinct**; race picker shared with Map |
 | **How It Works** `methodology.html` | "Where do these numbers come from, and what do the words mean?" | Everyone | — | Static prose + glossary source | — | Linked from every data-quality banner and glossary popover |

@@ -30,11 +30,11 @@ test.describe('First-visit welcome', () => {
     await expect(page.locator('.welcome-card')).toHaveCount(0);
   });
 
-  test('names all five tabs and leads with "Find your precinct"', async ({ page }) => {
+  test('names all six tabs and leads with "Find your precinct"', async ({ page }) => {
     await page.goto('/index.html');
     const card = page.locator('.welcome-card');
     await expect(card).toBeVisible();
-    for (const tab of ['Map', 'My Precinct', 'Priority Precincts', 'Data Table', 'How It Works']) {
+    for (const tab of ['Map', 'My Precinct', 'Priority Precincts', 'Trends', 'Data Table', 'How It Works']) {
       await expect(card).toContainText(tab);
     }
     const primary = page.locator('.welcome-primary');

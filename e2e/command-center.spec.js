@@ -63,11 +63,11 @@ test.describe('Command Center', () => {
 
   test('the shared header links out to every page with plain-language labels', async ({ page }) => {
     await waitForLoaded(page);
-    // The five-tab nav (REDESIGN §3.3) — Forecast lives outside it, linked in context.
-    for (const dest of ['precinct.html', 'targets.html', 'explore.html', 'methodology.html']) {
+    // The six-tab nav (REDESIGN §3.3) — Forecast lives outside it, linked in context.
+    for (const dest of ['precinct.html', 'targets.html', 'trends.html', 'explore.html', 'methodology.html']) {
       await expect(page.locator(`.site-nav a[href="${dest}"]`)).toHaveCount(1);
     }
-    await expect(page.locator('.site-nav a')).toHaveCount(5);
+    await expect(page.locator('.site-nav a')).toHaveCount(6);
     // the map is the current page
     await expect(page.locator('.site-nav a[href="index.html"]')).toHaveAttribute('aria-current', 'page');
     // labels are visible text, not hover tooltips — plain-language renames

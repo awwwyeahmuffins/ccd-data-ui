@@ -3,13 +3,14 @@
 import { describe, it, expect, beforeEach } from '@jest/globals';
 import { initSiteNav } from './siteNav.js';
 
-// The five-tab nav (REDESIGN §3.3) — forecast.html lives outside the nav
+// The six-tab nav (REDESIGN §3.3) — forecast.html lives outside the nav
 // (linked in context from Priority Precincts and How It Works) and
 // elections.html is a redirect stub.
 const ALL_PAGES = [
   'index.html',
   'precinct.html',
   'targets.html',
+  'trends.html',
   'explore.html',
   'methodology.html',
 ];
@@ -95,7 +96,7 @@ describe('persona plumbing', () => {
     expect(document.querySelector('.site-persona-badge').textContent).toBe('Simple View');
   });
 
-  it('public keeps the five-tab public nav with no persona tabs', () => {
+  it('public keeps the six-tab public nav with no persona tabs', () => {
     freshInit({ seed: { ccd_persona: 'public' } });
     expect(document.querySelectorAll('.site-nav a').length).toBe(ALL_PAGES.length);
     expect(document.querySelector('.site-nav a[href="chair.html"]')).toBeNull();
@@ -103,7 +104,7 @@ describe('persona plumbing', () => {
     expect(document.querySelector('.site-nav a[href="matchup.html"]')).toBeNull();
   });
 
-  it('the chair persona gets My Dashboard first, then the five public tabs', () => {
+  it('the chair persona gets My Dashboard first, then the six public tabs', () => {
     freshInit({ seed: { ccd_persona: 'chair' } });
     const links = document.querySelectorAll('.site-nav a');
     expect(links.length).toBe(ALL_PAGES.length + 1);
@@ -116,7 +117,7 @@ describe('persona plumbing', () => {
     }
   });
 
-  it('the campaign persona appends its dashboard and matchup tabs after the five public tabs', () => {
+  it('the campaign persona appends its dashboard and matchup tabs after the six public tabs', () => {
     freshInit({ seed: { ccd_persona: 'campaign' } });
     const links = [...document.querySelectorAll('.site-nav a')];
     expect(links.length).toBe(ALL_PAGES.length + 2);

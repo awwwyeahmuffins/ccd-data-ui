@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trends — Collin County Elections</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230B4DA2'/><text x='16' y='23' font-family='Georgia,serif' font-size='16' font-weight='700' text-anchor='middle' fill='%23FFFFFF'>TX</text></svg>" />
+  <meta name="description" content="How each Collin County precinct's Democratic-versus-Republican balance moved from the 2022 election to 2024." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- civic.css loads AFTER styles.css so the a11y layer wins by source order -->
+  <link rel="stylesheet" href="js/civic.css" />
+  <style>
+    html, body { display: block; height: auto; width: auto; overflow: auto; }
+    body { margin: 0; font-family: var(--font-body); background: var(--color-bg-secondary); color: var(--color-text-primary); font-size: 1rem; }
+
+    .page-main { max-width: 1340px; margin: 0 auto; padding: 24px 20px 80px; }
+    .page-title { font-family: var(--font-display); font-size: 32px; margin: 0 0 6px; }
+    .page-sub { color: var(--color-text-secondary); margin: 0 0 20px; max-width: 780px; }
+
+    .na-banner {
+      background: #fff8e1; border: 1px solid #b8973a; border-radius: 10px; padding: 12px 16px;
+      font-size: 1rem; color: #5c4a0d; margin-bottom: 16px;
+    }
+
+    .card {
+      background: var(--color-bg-primary); border: 1px solid var(--color-border);
+      border-radius: 14px; padding: 18px 20px; margin-bottom: 18px;
+    }
+
+    /* headline ------------------------------------------------------------- */
+    .tr-lede { font-family: var(--font-display); font-size: 1.333rem; line-height: 1.35; margin: 0 0 14px; }
+    .tr-stats { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 28px; padding: 0; margin: 0 0 12px; }
+    .tr-stats li { display: flex; flex-direction: column; min-width: 150px; }
+    .tr-stat-n { font-family: var(--font-display); font-size: 1.556rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .tr-stat-l { font-size: 0.889rem; color: var(--color-text-secondary); }
+    .tr-note { font-size: 0.889rem; color: var(--color-text-secondary); margin: 0; }
+
+    /* chart ---------------------------------------------------------------- */
+    .tr-layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 18px; align-items: start; }
+    .swing-scatter { width: 100%; height: auto; display: block; touch-action: manipulation; }
+    .sc-plot-bg { fill: var(--color-bg-secondary); }
+    .sc-grid { stroke: var(--color-border); stroke-width: 1; }
+    .sc-axis-zero { stroke: #8a8378; stroke-width: 1.5; }
+    .sc-diagonal { stroke: #44505c; stroke-width: 2; stroke-dasharray: 7 5; }
+    /* Sits on top of the mark cluster, so it needs a paper-coloured halo to
+       stay readable against whatever it overlaps. */
+    .sc-diagonal-label {
+      fill: #44505c; font-size: 15px; font-family: var(--font-body); font-weight: 700;
+      stroke: var(--civic-paper, #fffdf9); stroke-width: 4; paint-order: stroke fill;
+    }
+    .sc-tick { fill: var(--color-text-secondary); font-size: 14px; font-family: var(--font-body); font-variant-numeric: tabular-nums; }
+    .sc-axis-title { fill: var(--color-text-primary); font-size: 16px; font-weight: 700; font-family: var(--font-body); }
+    /* Every mark carries a dark outline so it clears 3:1 non-text contrast even
+       at the palest end of the swing ramp. */
+    /* Slight transparency so the dense band along the diagonal reads as a band
+       rather than one opaque blob; the outline keeps each mark legible. */
+    .sc-mark { stroke: #1c2733; stroke-width: 1; cursor: pointer; fill-opacity: 0.85; }
+    .sc-mark:hover { stroke-width: 2.5; }
+    .sc-mark.is-selected { stroke: #0b4da2; stroke-width: 3.5; }
+    .sc-mark:focus-visible { outline: 3px solid var(--focus-gold); outline-offset: 2px; }
+
+    .tr-legend { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.889rem; }
+    .tr-legend li { display: flex; align-items: center; gap: 8px; }
+    .tr-legend svg { flex: none; }
+
+    /* readout -------------------------------------------------------------- */
+    .tr-readout { position: sticky; top: 12px; }
+    .tr-readout-line { font-size: 1.056rem; line-height: 1.45; margin: 0 0 10px; }
+    .tr-readout-empty { color: var(--color-text-secondary); margin: 0; }
+    .tr-readout-meta { font-size: 0.889rem; color: var(--color-text-secondary); margin: 0; line-height: 1.6; }
+    .tr-readout-meta a { color: var(--color-primary); font-weight: 700; }
+
+    /* composition ---------------------------------------------------------- */
+    details.tr-what > summary {
+      cursor: pointer; min-height: 44px; display: flex; align-items: center;
+      font-weight: 700; font-size: 1rem; color: var(--color-primary);
+    }
+    .tr-composition { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 12px; }
+    .tr-composition h3 { font-family: var(--font-display); font-size: 1rem; margin: 0 0 8px; }
+    .tr-composition ul { margin: 0; padding-left: 20px; font-size: 0.889rem; line-height: 1.7; }
+    .tr-cov { color: var(--color-text-muted); }
+
+    /* table ---------------------------------------------------------------- */
+    .table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg-primary); }
+    table.ptable { border-collapse: collapse; width: 100%; font-size: 1rem; }
+    table.ptable th, table.ptable td { padding: 11px 14px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--color-border-light, rgba(28,39,51,.06)); }
+    table.ptable th:first-child, table.ptable td:first-child { text-align: left; position: sticky; left: 0; background: var(--color-bg-primary); }
+    table.ptable thead th {
+      position: sticky; top: 0; background: var(--color-bg-tertiary); cursor: pointer; user-select: none;
+      font-weight: 700; font-size: 0.889rem; color: var(--color-text-secondary); z-index: 2;
+    }
+    table.ptable thead th:first-child { z-index: 3; background: var(--color-bg-tertiary); }
+    table.ptable thead th.sorted { color: var(--color-primary); }
+    table.ptable tbody tr:hover td { background: var(--color-bg-secondary); }
+    td.num { font-variant-numeric: tabular-nums; }
+    .tr-cell-precinct a { color: var(--color-primary); text-decoration: none; font-weight: 700; }
+    .tr-cell-precinct a:hover { text-decoration: underline; }
+    .tr-swing { font-weight: 700; }
+    .tr-swing-dem { color: var(--dem-text-aaa, #005c82); }
+    .tr-swing-rep { color: var(--rep-text-aaa, #a01218); }
+    .tr-swing-flat { color: var(--color-text-secondary); }
+    .row-highlight td { background: #FFF3C4 !important; }
+    /* Tiny electorates: the real vote counts still matter, the percentages
+       don't — same treatment the Data Table gives them. */
+    table.ptable tbody tr.tiny-row td { color: var(--color-text-muted); font-style: italic; }
+    table.ptable tbody tr.tiny-row td:first-child { font-style: normal; }
+    .empty-note { color: var(--color-text-muted); padding: 28px 4px; }
+
+    @media (max-width: 900px) {
+      .tr-layout { grid-template-columns: 1fr; }
+      .tr-readout { position: static; }
+      .tr-composition { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main class="page-main">
+    <h1 class="page-title">Trends</h1>
+    <p class="page-sub">How each precinct's Democratic-versus-Republican balance moved from 2022 to 2024. Each mark is one precinct: its 2022 margin across the bottom, its 2024 margin up the side. The dashed diagonal is no change — above it a precinct moved toward Democrats, below it toward Republicans.</p>
+
+    <p class="na-banner">On the 2026 precincts, the 2022 and 2024 results are careful estimates re-drawn onto the new boundaries, so a small part of any movement shown here is re-drawing rather than real change (per-precinct quality is in each precinct's report — see <a href="methodology.html">How It Works</a>).</p>
+
+    <section class="card" id="tr-headline" aria-live="polite">
+      <p class="empty-note">Loading results…</p>
+    </section>
+
+    <div class="tr-layout">
+      <section class="card">
+        <h2 class="visually-hidden">Precinct swing chart</h2>
+        <div id="tr-chart"><p class="empty-note">Loading chart…</p></div>
+        <ul class="tr-legend">
+          <li><svg width="18" height="18" aria-hidden="true"><polygon points="9,2 2,15 16,15" fill="#6D9EEB" stroke="#1c2733" /></svg> Moved toward Democrats</li>
+          <li><svg width="18" height="18" aria-hidden="true"><polygon points="9,16 2,3 16,3" fill="#d13636" stroke="#1c2733" /></svg> Moved toward Republicans</li>
+          <li><svg width="18" height="18" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="#888888" stroke="#1c2733" /></svg> No real change</li>
+          <li>Bigger mark = more votes cast</li>
+        </ul>
+      </section>
+
+      <section class="card tr-readout" id="tr-readout" aria-live="polite">
+        <p class="tr-readout-empty">Select a precinct on the chart — or use the arrow keys — to see its numbers.</p>
+      </section>
+    </div>
+
+    <section class="card">
+      <details class="tr-what">
+        <summary>What exactly is being compared?</summary>
+        <p>Texas staggers its ballot, so no office runs in both 2022 and 2024 — the midterm elects the Governor, Lieutenant Governor and Attorney General, while the presidential year elects the President and a US Senator. Even the high courts alternate seats. There is no single race to follow across the two years.</p>
+        <p>So each year's number is a <strong>composite</strong>: a precinct's average two-party margin across every contest that reached the whole county's ballot that year. Averaging the full ticket cancels the effect of any one candidate being unusually popular or unpopular, leaving the precinct's own movement. Third-party votes are left out of both sides.</p>
+        <p>Two honest caveats. 2022 was a midterm and 2024 a presidential year, and a presidential electorate is both larger and different — so part of any movement is <em>who turned out</em>, not <em>who changed their mind</em>. And because these are different offices, a precinct's composite is not a like-for-like rerun of the same contest.</p>
+        <div class="tr-composition" id="tr-composition"></div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2 style="font-family: var(--font-display); font-size: 1.333rem; margin: 0 0 12px;">Every precinct</h2>
+      <div class="table-wrap">
+        <table class="ptable">
+          <thead><tr id="tr-head"></tr></thead>
+          <tbody id="tr-body"><tr><td class="empty-note">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/vendor/d3.v7.min.js"></script>
+  <script type="module" src="js/trendsPage.js"></script>
+  <script type="module" src="js/siteNav.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-// a11y.spec.js — axe accessibility scan of all 9 pages.
+// a11y.spec.js — axe accessibility scan of all 10 pages.
 //
 // The audience is 60+ precinct chairs on iPads: any *critical* or *serious*
 // axe violation fails the build. Also asserts the civic-plain invariants that
@@ -20,6 +20,7 @@ const PAGES = [
   { url: '/index.html', ready: (page) => expect(page.locator('#cc-dock-sub')).toContainText('precincts', { timeout: 30000 }) },
   { url: '/forecast.html', ready: (page) => page.waitForFunction(() => document.querySelector('#fc-outcome .outcome-grid'), null, { timeout: 30000 }) },
   { url: '/targets.html', ready: (page) => expect(page.locator('.tg-precinct').first()).toBeVisible({ timeout: 30000 }) },
+  { url: '/trends.html', ready: (page) => expect(page.locator('.sc-mark').first()).toBeVisible({ timeout: 60000 }) },
   { url: '/explore.html', ready: (page) => expect(page.locator('#ex-body .pcell-precinct').first()).toBeVisible({ timeout: 30000 }) },
   { url: '/campaign.html', ready: (page) => expect(page.locator('#cp-body .pcell-precinct').first()).toBeVisible({ timeout: 30000 }) },
   { url: '/matchup.html', ready: (page) => expect(page.locator('#mp-headline .mp-winner')).toBeVisible({ timeout: 30000 }) },

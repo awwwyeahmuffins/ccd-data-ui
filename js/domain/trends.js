@@ -194,6 +194,12 @@ export function getTrendColor(delta, side = 'Dem') {
 
 /**
  * Computes precinct-level deltas between two elections
+ *
+ * NOTE ON THE METRIC: this measures `side` against EVERY other candidate, so
+ * Libertarian and Green votes count against the target party. That is not the
+ * two-party margin — for cycle-over-cycle comparison use `twoPartyMargin` /
+ * `buildPartisanIndex` below, which exclude third parties from both sides.
+ *
  * @param {Array<Object>} electionData1 - First election data (array of precinct records)
  * @param {Array<Object>} electionData2 - Second election data (array of precinct records)
  * @param {Array<string>} candidates1 - Candidate names from first election
@@ -313,6 +319,288 @@ export function computePrecinctDeltas(electionData1, electionData2, candidates1,
   }
 
   return deltas;
+}
+
+// ============================================================================
+// TWO-PARTY COMPOSITE INDEX + SWING
+// ============================================================================
+//
+// What this section exists for: the trends page compares one election CYCLE to
+// the next at precinct level. Texas staggers its ballot, so NO office appears in
+// both 2022 and 2024 — Governor/Lt Gov/AG run in the midterm, President/US
+// Senator in the presidential, and even the high courts alternate places (2022 =
+// Supreme Court Places 3/5/9, 2024 = Places 2/4/6). A strict same-race
+// comparison is therefore impossible with this data.
+//
+// The answer is a COMPOSITE: each cycle's index is a precinct's mean two-party
+// margin across every statewide partisan race on that cycle's ballot. Averaging
+// the whole ticket cancels candidate-specific noise (Beto over-performed the
+// 2022 ticket; Paxton under-performed it), so the cycle-to-cycle change reflects
+// the precinct rather than one candidate's personal appeal.
+//
+// These helpers are pure: rows, candidate columns, and precinct counts all
+// arrive as arguments. The page composes them with the data service.
+
+// A race joins the composite only if it has two-party votes in at least this
+// share of the county's precincts. This is what separates a statewide office
+// (~267 of 273 precincts) from a district-limited one (State Representative
+// District 33 covers ~18) WITHOUT hardcoding an office list that would rot the
+// next time a manifest is regenerated.
+export const COMPOSITE_MIN_COVERAGE = 0.95;
+
+// Swings smaller than this read as noise, not movement — used for the neutral
+// bucket in summaries and for the scatter's "no real change" dot shape.
+export const SWING_EPSILON = 0.5;
+
+// Below this many two-party votes PER RACE, a precinct's margin is arithmetic
+// noise rather than a measurement: Collin has precincts casting one or two
+// votes per contest, where a single ballot reads as "100% Democratic". Matches
+// the tiny-electorate threshold the Data Table already uses. Such precincts keep
+// their real vote counts everywhere — they are flagged, never deleted — but a
+// percentage built on one ballot must not be plotted as a position.
+export const TINY_ELECTORATE_PER_RACE = 50;
+
+// Party prefix off a pivoted candidate column ("DEM Beto O'Rourke" -> "DEM").
+// Upper-cased because the two cycles disagree: the 2022 files use DEM/REP and
+// the 2024 files use Dem/Rep. Never compare these raw.
+function partyOf(candidateColumn) {
+  return String(candidateColumn).split(" ")[0].toUpperCase();
+}
+
+/**
+ * Split candidate columns into their Dem and Rep buckets. Third parties
+ * (LIB/GRN/IND/write-ins) land in neither — the two-party metric excludes them
+ * from the numerator AND the denominator.
+ * @param {Array<string>} candidateCols
+ * @returns {{dem: Array<string>, rep: Array<string>}}
+ */
+export function twoPartyColumns(candidateCols) {
+  const dem = [];
+  const rep = [];
+  for (const col of candidateCols || []) {
+    const party = partyOf(col);
+    if (party === "DEM") dem.push(col);
+    else if (party === "REP") rep.push(col);
+  }
+  return { dem, rep };
+}
+
+/**
+ * One precinct's two-party margin for one race, in PERCENTAGE POINTS.
+ * Positive = Democratic advantage.
+ *
+ *   (dem - rep) / (dem + rep) * 100
+ *
+ * Third-party votes are excluded from both sides — this is deliberately NOT the
+ * same as computePrecinctDeltas' margin, which measures a side against every
+ * other candidate and so counts Libertarians against the Democrat.
+ * @param {Object} row - pivoted race row for one precinct
+ * @param {Array<string>} candidateCols - candidate column names
+ * @returns {{margin: number, demVotes: number, repVotes: number}|null}
+ *   null when the precinct cast no two-party votes (not on this ballot)
+ */
+export function twoPartyMargin(row, candidateCols) {
+  if (!row) return null;
+  const { dem, rep } = twoPartyColumns(candidateCols);
+  let demVotes = 0;
+  let repVotes = 0;
+  for (const col of dem) demVotes += Number(row[col]) || 0;
+  for (const col of rep) repVotes += Number(row[col]) || 0;
+  const total = demVotes + repVotes;
+  if (total <= 0) return null;
+  return { margin: ((demVotes - repVotes) / total) * 100, demVotes, repVotes };
+}
+
+/**
+ * Pick the races that belong in a cycle's composite index.
+ *
+ * A race qualifies when it fields BOTH major parties and reaches
+ * COMPOSITE_MIN_COVERAGE of the county's precincts. The coverage test is what
+ * keeps district-limited contests (US Rep, State Rep, State Senate, JP,
+ * Constable, county commissioner precincts) out of an index that is supposed to
+ * mean the same thing in every precinct.
+ *
+ * @param {Array<{entry: Object, rows: Array<Object>, candidateCols: Array<string>}>} races
+ * @param {number} precinctCount - precincts in the county (the coverage denominator)
+ * @param {number} [minCoverage=COMPOSITE_MIN_COVERAGE]
+ * @returns {Array<{entry, rows, candidateCols, coverage: number}>} qualifying races
+ */
+export function selectCompositeRaces(races, precinctCount, minCoverage = COMPOSITE_MIN_COVERAGE) {
+  if (!Array.isArray(races) || !precinctCount) return [];
+  const selected = [];
+  for (const race of races) {
+    if (!race || !Array.isArray(race.rows)) continue;
+    const { dem, rep } = twoPartyColumns(race.candidateCols);
+    // A one-party race has no margin to speak of — a contest, not a referendum.
+    if (!dem.length || !rep.length) continue;
+
+    let covered = 0;
+    for (const row of race.rows) {
+      if (twoPartyMargin(row, race.candidateCols)) covered += 1;
+    }
+    const coverage = covered / precinctCount;
+    if (coverage >= minCoverage) selected.push({ ...race, coverage });
+  }
+  return selected;
+}
+
+/**
+ * Build one cycle's composite partisan index, per precinct.
+ *
+ * The index is the UNWEIGHTED MEAN of the precinct's two-party margin in each
+ * selected race — deliberately not a pooled vote ratio. Equal weighting is what
+ * cancels candidate-specific noise: pooling would let the highest-turnout race
+ * (President, always) dominate the average and reintroduce exactly the
+ * single-candidate effect the composite exists to remove.
+ *
+ * A precinct is only included in the index for races it actually voted in, and
+ * `raceCount` records how many that was, so callers can disclose a thin sample
+ * rather than present it as equivalent to a full one.
+ *
+ * @param {Array<{rows, candidateCols}>} selectedRaces - output of selectCompositeRaces
+ * @returns {Object} { [precinctCode]: { margin, demVotes, repVotes, raceCount } }
+ */
+export function buildPartisanIndex(selectedRaces) {
+  const acc = {};
+  if (!Array.isArray(selectedRaces)) return acc;
+
+  for (const race of selectedRaces) {
+    if (!race || !Array.isArray(race.rows)) continue;
+    for (const row of race.rows) {
+      const code = String(row?.["PRECINCT CODE"] ?? "");
+      if (!code) continue;
+      const result = twoPartyMargin(row, race.candidateCols);
+      if (!result) continue;
+      const slot = acc[code] || (acc[code] = { marginSum: 0, demVotes: 0, repVotes: 0, raceCount: 0 });
+      slot.marginSum += result.margin;
+      slot.demVotes += result.demVotes;
+      slot.repVotes += result.repVotes;
+      slot.raceCount += 1;
+    }
+  }
+
+  const index = {};
+  for (const [code, slot] of Object.entries(acc)) {
+    index[code] = {
+      margin: slot.marginSum / slot.raceCount,
+      demVotes: slot.demVotes,
+      repVotes: slot.repVotes,
+      raceCount: slot.raceCount,
+    };
+  }
+  return index;
+}
+
+/**
+ * Pair two cycles' indices into the per-precinct series the scatter plots.
+ *
+ * `swing` is marginB - marginA in points; positive = movement toward Democrats.
+ * Precincts present in only ONE cycle keep their known margin and get
+ * `swing: null` — never dropped silently and never zero-filled, which would
+ * plant a fabricated "no change" dot on the diagonal.
+ *
+ * @param {Object} indexA - earlier cycle (buildPartisanIndex output)
+ * @param {Object} indexB - later cycle
+ * @returns {Array<Object>} sorted by precinct code (numeric where possible)
+ */
+export function buildSwingSeries(indexA, indexB) {
+  const a = indexA || {};
+  const b = indexB || {};
+  const codes = new Set([...Object.keys(a), ...Object.keys(b)]);
+  const series = [];
+
+  for (const code of codes) {
+    const entryA = a[code] || null;
+    const entryB = b[code] || null;
+    const marginA = entryA ? entryA.margin : null;
+    const marginB = entryB ? entryB.margin : null;
+    const swing = marginA !== null && marginB !== null ? marginB - marginA : null;
+    // Votes per race, not total: the composite sums across 17–18 contests, so a
+    // raw total of 34 looks respectable while being two votes per race.
+    const perRaceA = entryA && entryA.raceCount ? (entryA.demVotes + entryA.repVotes) / entryA.raceCount : 0;
+    const perRaceB = entryB && entryB.raceCount ? (entryB.demVotes + entryB.repVotes) / entryB.raceCount : 0;
+    series.push({
+      precinct: code,
+      marginA,
+      marginB,
+      swing,
+      // True when EITHER cycle is too thin to support a percentage.
+      tinyElectorate:
+        Math.min(entryA ? perRaceA : Infinity, entryB ? perRaceB : Infinity) < TINY_ELECTORATE_PER_RACE,
+      votesPerRaceA: entryA ? perRaceA : null,
+      votesPerRaceB: entryB ? perRaceB : null,
+      // A flip is a change of which party leads, not merely a big swing.
+      flipped: marginA !== null && marginB !== null && marginA >= 0 !== marginB >= 0,
+      votesA: entryA ? entryA.demVotes + entryA.repVotes : null,
+      votesB: entryB ? entryB.demVotes + entryB.repVotes : null,
+      raceCountA: entryA ? entryA.raceCount : 0,
+      raceCountB: entryB ? entryB.raceCount : 0,
+    });
+  }
+
+  return series.sort((x, y) => {
+    const nx = Number(x.precinct);
+    const ny = Number(y.precinct);
+    if (!isNaN(nx) && !isNaN(ny)) return nx - ny;
+    return String(x.precinct).localeCompare(String(y.precinct));
+  });
+}
+
+/**
+ * County-wide read on a swing series.
+ *
+ * Reports BOTH the unweighted mean (how the typical precinct moved) and the
+ * vote-weighted mean (how the county's actual electorate moved) — they answer
+ * different questions and a single number would hide the difference between a
+ * county whose small precincts moved and one whose big ones did.
+ *
+ * @param {Array<Object>} series - buildSwingSeries output
+ * @returns {Object} summary stats; nulls when nothing is comparable
+ */
+export function summarizeSwing(series) {
+  const rows = Array.isArray(series) ? series : [];
+  const comparable = rows.filter((r) => r.swing != null);
+
+  const empty = {
+    totalPrecincts: rows.length,
+    comparablePrecincts: 0,
+    meanSwing: null,
+    medianSwing: null,
+    voteWeightedSwing: null,
+    towardDem: 0,
+    towardRep: 0,
+    unchanged: 0,
+    flippedToDem: 0,
+    flippedToRep: 0,
+  };
+  if (!comparable.length) return empty;
+
+  const sorted = comparable.map((r) => r.swing).sort((p, q) => p - q);
+  const mid = Math.floor(sorted.length / 2);
+  const medianSwing =
+    sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
+
+  let weightSum = 0;
+  let weightedTotal = 0;
+  for (const r of comparable) {
+    const weight = (r.votesA || 0) + (r.votesB || 0);
+    if (weight <= 0) continue;
+    weightSum += weight;
+    weightedTotal += r.swing * weight;
+  }
+
+  return {
+    totalPrecincts: rows.length,
+    comparablePrecincts: comparable.length,
+    meanSwing: comparable.reduce((s, r) => s + r.swing, 0) / comparable.length,
+    medianSwing,
+    voteWeightedSwing: weightSum > 0 ? weightedTotal / weightSum : null,
+    towardDem: comparable.filter((r) => r.swing > SWING_EPSILON).length,
+    towardRep: comparable.filter((r) => r.swing < -SWING_EPSILON).length,
+    unchanged: comparable.filter((r) => Math.abs(r.swing) <= SWING_EPSILON).length,
+    flippedToDem: comparable.filter((r) => r.flipped && r.marginB >= 0).length,
+    flippedToRep: comparable.filter((r) => r.flipped && r.marginB < 0).length,
+  };
 }
 
 /**

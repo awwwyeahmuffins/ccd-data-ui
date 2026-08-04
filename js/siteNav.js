@@ -47,11 +47,14 @@ function clearCognitoSession() {
 // Nav order mirrors the volunteer's workflow: see the map, look up results,
 // plan, then reference material last.
 const PAGES = [
-  // The five-tab nav (REDESIGN §3.3). forecast.html lives OUTSIDE the nav —
-  // linked in context from Priority Precincts and How It Works.
+  // The six-tab nav (REDESIGN §3.3, extended August 2026 with Trends — the one
+  // question the original five could not answer: how a precinct MOVED between
+  // cycles). forecast.html still lives OUTSIDE the nav — linked in context from
+  // Priority Precincts and How It Works.
   { href: "index.html", label: "Map" },
   { href: "precinct.html", label: "My Precinct" },
   { href: "targets.html", label: "Priority Precincts" },
+  { href: "trends.html", label: "Trends" },
   { href: "explore.html", label: "Data Table" },
   { href: "methodology.html", label: "How It Works" },
 ];
@@ -203,6 +206,7 @@ function maybeShowWelcome() {
     `<li><strong>Map</strong> shows which way each precinct votes.</li>` +
     `<li><strong>My Precinct</strong> is the full report for any precinct or address.</li>` +
     `<li><strong>Priority Precincts</strong> suggests where to focus.</li>` +
+    `<li><strong>Trends</strong> shows which precincts moved, and which way, since the last election.</li>` +
     `<li><strong>Data Table</strong> is every number, sortable.</li>` +
     `<li><strong>How It Works</strong> explains the sources and the words.</li>` +
     `</ul>` +

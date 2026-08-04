@@ -1,7 +1,7 @@
 // persona.spec.js — the persona (view mode) chrome: html[data-persona], the
 // ccd_persona carrier, the #persona= entry param, and the always-visible View
 // switcher (#nav-persona) that lets anyone move between Public, Simple (chair),
-// and Detailed (campaign). Public keeps the five-tab chrome; chair prepends My
+// and Detailed (campaign). Public keeps the six-tab chrome; chair prepends My
 // Dashboard; campaign appends the Campaign Dashboard tab.
 // The badge only shows for a non-public persona, so this spec runs its own axe
 // pass with the badge visible (onboarding.spec.js is the precedent for
@@ -23,14 +23,14 @@ async function methodologyLoaded(page) {
 }
 
 test.describe('public default', () => {
-  test('loads as public with no badge, the View switcher at Public, and five tabs', async ({ page }) => {
+  test('loads as public with no badge, the View switcher at Public, and six tabs', async ({ page }) => {
     await page.goto('/methodology.html');
     await methodologyLoaded(page);
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'public');
     await expect(page.locator('.site-persona-badge')).toHaveCount(0);
     await expect(page.locator('#nav-persona')).toBeVisible();
     await expect(page.locator('#nav-persona')).toHaveValue('public');
-    await expect(page.locator('.site-nav a')).toHaveCount(5);
+    await expect(page.locator('.site-nav a')).toHaveCount(6);
   });
 
   test('an invalid #persona= falls back to public', async ({ page }) => {
@@ -63,8 +63,8 @@ test.describe('View switcher', () => {
     await expect(page.locator('.site-persona-badge')).toHaveText('Simple View');
     await expect(page.locator('#nav-persona')).toHaveValue('chair');
     // The chair persona's one nav divergence: My Dashboard leads the tabs —
-    // and the campaign dashboard is not among them.
-    await expect(page.locator('.site-nav a')).toHaveCount(6);
+    // and the campaign dashboard is not among them. Six public tabs + one.
+    await expect(page.locator('.site-nav a')).toHaveCount(7);
     await expect(page.locator('.site-nav a[href="chair.html"]')).toHaveText('My Dashboard');
     await expect(page.locator('.site-nav a[href="campaign.html"]')).toHaveCount(0);
 
@@ -84,8 +84,8 @@ test.describe('View switcher', () => {
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'public', { timeout: 30000 });
     expect(page.url()).not.toMatch(/persona=/);
     await expect(page.locator('.site-persona-badge')).toHaveCount(0);
-    // Back to public means back to the five tabs — no dashboard entry.
-    await expect(page.locator('.site-nav a')).toHaveCount(5);
+    // Back to public means back to the six tabs — no dashboard entry.
+    await expect(page.locator('.site-nav a')).toHaveCount(6);
     await expect(page.locator('.site-nav a[href="chair.html"]')).toHaveCount(0);
   });
 });
@@ -95,7 +95,8 @@ test.describe('campaign persona nav', () => {
     await page.goto('/methodology.html#persona=campaign');
     await methodologyLoaded(page);
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'campaign');
-    await expect(page.locator('.site-nav a')).toHaveCount(7);
+    // Six public tabs + Campaign Dashboard + Matchup Projector.
+    await expect(page.locator('.site-nav a')).toHaveCount(8);
     const tab = page.locator('.site-nav a[href="campaign.html"]');
     await expect(tab).toHaveText('Campaign Dashboard');
     await expect(page.locator('.site-nav a[href="matchup.html"]')).toHaveText('Matchup Projector');
@@ -111,7 +112,7 @@ test.describe('campaign persona nav', () => {
     // Back to public: the extra tabs disappear with the persona.
     await page.selectOption('#nav-persona', 'public');
     await expect(page.locator('html')).toHaveAttribute('data-persona', 'public', { timeout: 30000 });
-    await expect(page.locator('.site-nav a')).toHaveCount(5, { timeout: 30000 });
+    await expect(page.locator('.site-nav a')).toHaveCount(6, { timeout: 30000 });
     await expect(page.locator('.site-nav a[href="campaign.html"]')).toHaveCount(0);
     await expect(page.locator('.site-nav a[href="matchup.html"]')).toHaveCount(0);
   });
