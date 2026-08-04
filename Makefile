@@ -194,8 +194,20 @@ cdk-destroy:
 # Root files ship from deploy-manifest.txt (one path per line — adding a page
 # is a one-line diff there). NEVER run a bare `aws s3 sync .` — the repo root
 # contains voter PII that must not reach the public bucket.
+# js/ and the HTML ship as ONE module graph, so they must never be cached
+# independently of each other. With no Cache-Control at all (the state before
+# Aug 2026) the browser heuristic-caches each .js on its own, and a deploy can
+# leave a visitor running new ui/swingScatter.js against an old
+# domain/trends.js -- which fails as "does not provide an export named X" and
+# breaks the page until they hard-reload. `no-cache` does NOT mean "do not
+# store": the file is still cached, the browser just revalidates it first, and
+# the ETag makes that a 304 with no body. Query-string versioning cannot fix
+# this without a build step, because the stale file is a TRANSITIVE import --
+# versioning <script src> leaves every ./x.js it pulls in unversioned.
+CACHE_REVALIDATE = --cache-control "no-cache"
+
 deploy-site:
-	aws s3 sync js/ s3://$(SITE_BUCKET)/js/ --delete --profile $(DEPLOY_PROFILE)
+	aws s3 sync js/ s3://$(SITE_BUCKET)/js/ --delete $(CACHE_REVALIDATE) --profile $(DEPLOY_PROFILE)
 	aws s3 sync data/ s3://$(SITE_BUCKET)/data/ --exclude "cache/*" --exclude "*.geojson" --delete --profile $(DEPLOY_PROFILE)
 	# .geojson is unmapped by aws s3 sync -> application/octet-stream, which CloudFront
 	# does NOT compress. Re-upload it as application/json so gzip actually applies.
@@ -203,10 +215,24 @@ deploy-site:
 	@grep -v '^\#' deploy-manifest.txt | grep -v '^$$' | while read -r f; do \
 		test -f "$$f" || { echo "deploy-manifest.txt lists missing file: $$f" >&2; exit 1; }; \
 		echo "cp $$f"; \
-		aws s3 cp "$$f" "s3://$(SITE_BUCKET)/$$f" --profile $(DEPLOY_PROFILE) || exit 1; \
+		aws s3 cp "$$f" "s3://$(SITE_BUCKET)/$$f" $(CACHE_REVALIDATE) --profile $(DEPLOY_PROFILE) || exit 1; \
 	done
 	aws cloudfront create-invalidation --distribution-id $(DISTRIBUTION_ID) --paths "/*" --profile $(DEPLOY_PROFILE)
 	@echo "Site deployed and CloudFront invalidated."
+
+# One-time backfill. `aws s3 sync` compares CONTENT, so it will not re-upload an
+# unchanged file just to change its Cache-Control -- every object that shipped
+# before CACHE_REVALIDATE existed keeps no header until its bytes change. This
+# rewrites the metadata in place on the whole js/ tree. Safe to re-run.
+deploy-cache-headers:
+	aws s3 cp s3://$(SITE_BUCKET)/js/ s3://$(SITE_BUCKET)/js/ --recursive \
+		--metadata-directive REPLACE $(CACHE_REVALIDATE) \
+		--content-type text/javascript --exclude "*" --include "*.js" --profile $(DEPLOY_PROFILE)
+	aws s3 cp s3://$(SITE_BUCKET)/js/ s3://$(SITE_BUCKET)/js/ --recursive \
+		--metadata-directive REPLACE $(CACHE_REVALIDATE) \
+		--content-type text/css --exclude "*" --include "*.css" --profile $(DEPLOY_PROFILE)
+	aws cloudfront create-invalidation --distribution-id $(DISTRIBUTION_ID) --paths "/*" --profile $(DEPLOY_PROFILE)
+	@echo "Cache headers backfilled on js/."
 
 # Dry run: list exactly what deploy-site would ship from the manifest.
 deploy-dry-run:
