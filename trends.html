@@ -83,7 +83,14 @@
     .cc-sw { display: block; }
     .tr-legend-range { color: var(--color-text-muted); }
     .tr-legend-count { font-variant-numeric: tabular-nums; font-weight: 700; min-width: 3ch; text-align: right; }
-    .tr-arrow-mode { margin-bottom: 10px; }
+    .tr-map-controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: flex-end; margin-bottom: 10px; }
+    .tr-arrow-mode { margin-bottom: 0; }
+    .tr-jump input { width: 220px; }
+    .tr-jump .tr-jump-miss { color: var(--color-text-secondary); font-size: 0.889rem; margin: 4px 0 0; }
+    .tr-popup .leaflet-popup-content { margin: 12px 14px; font-size: 1rem; line-height: 1.45; }
+    .tr-pop-line { margin: 0 0 8px; }
+    .tr-pop-link { margin: 0; }
+    .tr-pop-link a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; }
     .tr-legend-note { font-size: 0.889rem; color: var(--color-text-secondary); margin: 10px 0 0; }
     .tr-sw-flat { width: 10px; height: 10px; border-radius: 50%; background: #888; display: block; margin: 0 auto; }
     .tr-arrow { pointer-events: none; }
@@ -249,12 +256,20 @@
     <div class="tr-views">
       <section class="card tr-panel">
         <h2>Where they moved</h2>
-        <div class="ctrl tr-arrow-mode">
-          <label for="tr-arrow-size">Arrow length shows</label>
-          <select id="tr-arrow-size">
-            <option value="impact">Impact — net votes moved</option>
-            <option value="points">Swing — percentage points</option>
-          </select>
+        <div class="tr-map-controls">
+          <div class="ctrl tr-arrow-mode">
+            <label for="tr-arrow-size">Arrow length shows</label>
+            <select id="tr-arrow-size">
+              <option value="impact">Impact — net votes moved</option>
+              <option value="points">Swing — percentage points</option>
+            </select>
+          </div>
+          <div class="ctrl tr-jump">
+            <label for="tr-precinct-jump">Go to precinct</label>
+            <input id="tr-precinct-jump" list="tr-precinct-options" type="text"
+                   inputmode="numeric" autocomplete="off" placeholder="Type or pick a number" />
+            <datalist id="tr-precinct-options"></datalist>
+          </div>
         </div>
         <div id="tr-map"></div>
         <div id="tr-legend"></div>

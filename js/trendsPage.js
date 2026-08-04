@@ -415,7 +415,14 @@ function initMap() {
   pg.layer = L.geoJSON(pg.geojson, {
     style: (f) => swingStyle(f, ctx),
     onEachFeature: (feature, lyr) => {
-      lyr.on("click", () => select(String(feature.properties.PRECINCT)));
+      const code = String(feature.properties.PRECINCT);
+      lyr.on("click", () => select(code));
+      // The readout card carries the same sentence and link, but it sits below
+      // BOTH panels — on a tablet that is a scroll away from the polygon you
+      // just tapped. The popup puts the way onward where the tap happened.
+      // Content is a function so it re-reads the current metric and years
+      // instead of freezing whatever was true when the layer was built.
+      lyr.bindPopup(() => precinctPopupHTML(code), { className: "tr-popup", maxWidth: 280 });
     },
   }).addTo(pg.map);
 
@@ -430,6 +437,18 @@ function initMap() {
   // patterns actually attach.
   pg.env.svg = view.svgRoot();
   if (pg.env.svg) restyleMap();
+}
+
+/** What a tapped precinct says on the map: the reading, then the way onward. */
+function precinctPopupHTML(code) {
+  const row = pg.series.find((r) => String(r.precinct) === String(code));
+  const line = row
+    ? describeSwing(row, labels())
+    : `Precinct ${code}: no results for ${pg.yearA} and ${pg.yearB}.`;
+  return (
+    `<p class="tr-pop-line">${escapeHtml(line)}</p>` +
+    `<p class="tr-pop-link"><a href="precinct.html#precinct=${encodeURIComponent(code)}">Open precinct ${escapeHtml(String(code))} report</a></p>`
+  );
 }
 
 /**
@@ -669,9 +688,55 @@ function renderTable() {
 
 // ---- state changes ---------------------------------------------------------
 
+/**
+ * The "Go to precinct" list. Offers EVERY precinct in the series, not just the
+ * filtered ones: someone who types a number they already care about should land
+ * on it rather than be told it does not exist, so a hidden pick is selected and
+ * labelled as hidden instead of refused. Each option carries its swing so the
+ * open dropdown is a readable index, not 268 bare numbers.
+ */
+function renderPrecinctOptions() {
+  const cycle = labels();
+  const rows = [...pg.series].sort(
+    (a, b) => (Number(a.precinct) || 0) - (Number(b.precinct) || 0)
+  );
+  $("tr-precinct-options").innerHTML = rows
+    .map((r) => {
+      const dir = r.swing == null ? null : swingDirection(r.swing);
+      const note =
+        r.swing == null
+          ? `only voted in ${r.marginA != null ? cycle.a : cycle.b}`
+          : dir === "flat"
+            ? "essentially unchanged"
+            : `${Math.abs(r.swing).toFixed(1)} pts toward ${dir === "dem" ? "Democrats" : "Republicans"}`;
+      return `<option value="${escapeHtml(String(r.precinct))}" label="${escapeHtml(`Precinct ${r.precinct} — ${note}`)}"></option>`;
+    })
+    .join("");
+}
+
+/** Keep the jump box showing whatever is selected, however it got selected. */
+function syncPrecinctJump() {
+  const box = $("tr-precinct-jump");
+  if (!box) return;
+  if (document.activeElement !== box) box.value = pg.selected || "";
+  const hidden =
+    pg.selected != null &&
+    pg.series.some((r) => String(r.precinct) === String(pg.selected)) &&
+    !pg.filtered.some((r) => String(r.precinct) === String(pg.selected));
+  const note = $("tr-jump-note");
+  if (note) note.remove();
+  if (hidden) {
+    box.insertAdjacentHTML(
+      "afterend",
+      `<p class="tr-jump-miss" id="tr-jump-note">Precinct ${escapeHtml(String(pg.selected))} is hidden by your filters.</p>`
+    );
+  }
+}
+
 function renderAll() {
   derive();
   renderControls();
+  renderPrecinctOptions();
   renderCount();
   renderHeadline();
   renderComposition();
@@ -680,6 +745,7 @@ function renderAll() {
   restyleMap();
   renderReadout();
   renderTable();
+  syncPrecinctJump();
 }
 
 function publish() {
@@ -708,6 +774,7 @@ function select(precinct) {
   }
   renderReadout();
   renderTable();
+  syncPrecinctJump();
 }
 
 function setMetric(metric) {
@@ -785,6 +852,20 @@ function wireControls() {
     renderArrows();
     renderLegend();
   });
+
+  // Picking from the datalist fires `input`, so a mouse pick and a fully typed
+  // number take the same path. Anything that is not yet a real precinct is left
+  // alone — mid-typing "2" on the way to "212" must not jump to precinct 2.
+  const jump = $("tr-precinct-jump");
+  const jumpTo = (raw) => {
+    const code = String(raw || "").trim();
+    if (!code) return select(null);
+    const hit = pg.series.find((r) => String(r.precinct) === code);
+    if (hit) select(hit.precinct);
+  };
+  jump.addEventListener("input", (e) => jumpTo(e.target.value));
+  jump.addEventListener("change", (e) => jumpTo(e.target.value));
+  jump.addEventListener("blur", () => syncPrecinctJump());
 }
 
 async function init() {

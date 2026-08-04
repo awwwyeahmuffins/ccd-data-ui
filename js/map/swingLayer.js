@@ -55,6 +55,14 @@ const TOO_FEW_BG = "#DCD4C4";
 // attention and make the arrowheads hard to pick out.
 const HAS_ARROW_BG = "#FBF8F2";
 
+// The other maps stroke precincts in near-white (MAP_COSMETICS.stroke): their
+// fills are saturated party colours, so a pale hairline reads as the divider.
+// Here every fill is paper, and that stroke is LIGHTER than the fill it
+// separates — the precincts stop having visible shapes at all. This map needs
+// its own boundary: a warm grey at 3.5:1 on the paper fill, dark enough to
+// draw the shape, recessive enough that the arrows still lead.
+const SWING_STROKE = "#8C8477";
+
 export function swingFill(row, env, visible = true) {
   if (!visible) return FILTERED_OUT;
   if (!row || row.swing == null) {
@@ -183,8 +191,8 @@ export function swingStyle(feature, ctx) {
   return {
     fillColor: swingFill(row, ctx.env, isVisible),
     fillOpacity: isVisible ? 0.92 : 0.5,
-    color: isSelected ? MAP_COSMETICS.sel : MAP_COSMETICS.stroke,
-    weight: isSelected ? 3.5 : 0.9,
+    color: isSelected ? MAP_COSMETICS.sel : SWING_STROKE,
+    weight: isSelected ? 3.5 : 1,
     // The selected precinct is raised above its neighbours; without this its
     // outline is drawn over by whichever polygon happens to come next.
     ...(isSelected ? { className: "swing-selected" } : {}),

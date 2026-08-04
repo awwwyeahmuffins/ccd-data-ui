@@ -168,6 +168,60 @@ test.describe('Trends map', () => {
     await expect(page).toHaveURL(/precinct=\d+/);
     await expect(page.locator('#tr-body tr.row-highlight')).toHaveCount(1);
   });
+
+  test('a tapped precinct offers its full report without leaving the map', async ({ page }) => {
+    await load(page);
+    await page.locator('#tr-map path').nth(30).click({ force: true });
+    const link = page.locator('.tr-popup .tr-pop-link a');
+    await expect(link).toBeVisible();
+    const code = new URL(page.url()).hash.match(/precinct=(\d+)/)[1];
+    await expect(link).toHaveAttribute('href', `precinct.html#precinct=${code}`);
+    await link.click();
+    await expect(page).toHaveURL(new RegExp(`precinct\\.html#precinct=${code}`));
+    await expect(page.locator('#report-container')).toContainText(`Precinct ${code}`, { timeout: 30000 });
+  });
+});
+
+test.describe('Trends precinct jump', () => {
+  test('offers every precinct in the list, labelled with its swing', async ({ page }) => {
+    await load(page);
+    const opts = page.locator('#tr-precinct-options option');
+    await expect.poll(() => opts.count(), { timeout: 20000 }).toBeGreaterThan(200);
+    await expect(opts.first()).toHaveAttribute('label', /^Precinct \d+ — /);
+  });
+
+  test('typing a precinct number selects it everywhere', async ({ page }) => {
+    await load(page);
+    await page.fill('#tr-precinct-jump', '212');
+    await expect(page).toHaveURL(/precinct=212/);
+    await expect(page.locator('.tr-readout-line')).toContainText('Precinct 212:');
+  });
+
+  test('a half-typed number never jumps to the wrong precinct', async ({ page }) => {
+    await load(page);
+    await page.fill('#tr-precinct-jump', '2');
+    await expect(page).toHaveURL(/precinct=2(?!\d)/);
+    // "21" on the way to "212" must land on 21, not stall or jump ahead.
+    await page.fill('#tr-precinct-jump', '2999');
+    await expect(page).toHaveURL(/precinct=2(?!\d)/);
+  });
+
+  test('the box follows a selection made on the map', async ({ page }) => {
+    await load(page);
+    await page.locator('#tr-map path').nth(30).click({ force: true });
+    const code = new URL(page.url()).hash.match(/precinct=(\d+)/)[1];
+    await expect(page.locator('#tr-precinct-jump')).toHaveValue(code);
+  });
+
+  test('says so when the jump lands on a precinct the filters hide', async ({ page }) => {
+    await load(page);
+    await page.selectOption('#tr-direction', 'dem');
+    const repRow = page.locator('#tr-body tr').first();
+    await expect(repRow).toBeVisible();
+    await page.fill('#tr-precincts', '1');
+    await page.fill('#tr-precinct-jump', '212');
+    await expect(page.locator('#tr-jump-note')).toContainText('hidden by your filters');
+  });
 });
 
 test.describe('Trends metrics and years', () => {
