@@ -39,8 +39,12 @@ infra/test-results/
 cdk.out/
 cdk-outputs.json
 
-# Voter PII — never commit or deploy
+# Voter PII — never commit or deploy.
+# Root-level CSVs are ad-hoc voter exports (VANIDs, names, addresses, phones);
+# they are ignored as a class so a `git add -A` cannot sweep one in. Add a
+# narrow negation below if a genuinely non-PII root CSV is ever needed.
 VoterRegistrationFile.txt
+/*.csv
 
 # Operational field-data source workbooks (aggregate CSV outputs are committed)
 canvass_source.xlsx
