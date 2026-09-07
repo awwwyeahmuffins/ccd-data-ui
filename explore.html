@@ -84,6 +84,13 @@
     }
     .add-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
 
+    .ex-export {
+      min-height: 44px; padding: 9px 16px; border-radius: 10px;
+      border: 1.5px solid var(--color-border); background: #fff;
+      font-family: inherit; font-size: 1rem; font-weight: 600;
+      color: var(--color-primary); cursor: pointer;
+    }
+    .ex-export:hover { border-color: var(--color-primary); }
     .result-count { color: var(--color-text-secondary); font-size: 0.889rem; margin-bottom: 10px; font-weight: 600; }
 
     /* table */
@@ -176,7 +183,8 @@
     <div class="chips" id="ex-chips"></div>
 
     <p class="na-banner" id="ex-boundary-note" style="display:none">On the 2026 precincts, the March 2026 primary is actual results; party lean, demographics, and pre-2026 turnout are careful estimates re-drawn onto the new boundaries (per-precinct quality is in each precinct's report — see How It Works).</p>
-    <div class="result-count" id="ex-count"></div>
+    <div class="result-count" id="ex-count" aria-live="polite" aria-atomic="true"></div>
+    <button type="button" id="ex-export" class="ex-export">Download CSV</button>
     <div class="table-wrap">
       <table class="ptable">
         <thead><tr id="ex-head"></tr></thead>

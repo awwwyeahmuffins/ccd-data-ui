@@ -84,4 +84,36 @@ test.describe('Targets view', () => {
     await expect(page.locator('.tg-precinct').first()).toBeVisible();
     expect(await page.locator('.tg-precinct').count()).toBeGreaterThan(onBallot);
   });
+
+  test('exports the ranked list it is showing, as numbers not display strings', async ({ page }) => {
+    // A field director with 25 ranked precincts had no way to get them into a
+    // spreadsheet except by retyping.
+    await page.goto('/targets.html');
+    await expect(page.locator('#tg-list .tg-precinct').first()).toBeVisible({ timeout: 30000 });
+
+    const [download] = await Promise.all([
+      page.waitForEvent('download'),
+      page.click('#tg-export'),
+    ]);
+    expect(download.suggestedFilename()).toContain('collin-priority-precincts');
+
+    const stream = await download.createReadStream();
+    let body = '';
+    for await (const chunk of stream) body += chunk;
+    const lines = body.trim().split('\r\n');
+
+    expect(lines[0]).toContain('Rank,Precinct');
+    expect(lines.length).toBeGreaterThan(1);
+
+    // The numeric columns must be raw numbers: the display formatter would
+    // render a share as "36%" (text to a spreadsheet) and a gap as an em dash.
+    // The trailing Why column is deliberately prose and is exempt.
+    const header = lines[0].split(',');
+    const cells = lines[1].split(',');
+    for (const col of ['Modeled_Margin', 'Rep_Share', 'Dem_Share', 'Turnout_Rate', 'Pct_NonWhite']) {
+      const v = cells[header.indexOf(col)];
+      if (v === '') continue; // empty = honestly missing, never a fabricated 0
+      expect(Number.isFinite(Number(v))).toBe(true);
+    }
+  });
 });

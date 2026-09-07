@@ -15,6 +15,8 @@ import {
 } from "./targeting.js";
 import { ELECTION_META_KEYS } from "./electionSchema.js";
 import { escapeHtml } from "./lib/dom.js";
+import { downloadFile } from "./lib/download.js";
+import { toCsv, exportFilename } from "./domain/exportRows.js";
 import { readParams, writeParams } from "./lib/urlState.js";
 import { initGlossary, termButton } from "./glossary.js";
 
@@ -377,6 +379,11 @@ function renderResults() {
     feats = base.filter((f) => codes.has(String(f.properties.PRECINCT)));
   }
   const ranked = rankPrecincts(feats, pg.strategy, { turnoutLookup: pg.turnout, primaryLookup: pg.primary, limit: pg.limit });
+  // The export ships exactly the ranking on screen — same strategy, same
+  // district scope, same limit — so the file and the page can never disagree.
+  pg.ranked = ranked;
+  const exportBtn = $("tg-export");
+  if (exportBtn) exportBtn.hidden = !ranked.length;
   $("tg-results-count").textContent = ranked.length ? `Top ${ranked.length}` : "";
   if (!ranked.length) {
     $("tg-list").innerHTML = pg.electionId
@@ -477,6 +484,77 @@ function readURL() {
   if (params.race) pg.electionId = params.race; // validated against the manifest after load
 }
 
+// The ranked list as a spreadsheet. Raw values, not the display strings — a
+// column of "62%" is text to a spreadsheet, and an em dash is not a number.
+const EXPORT_COLUMNS = [
+  { key: "rank", label: "Rank" },
+  { key: "precinct", label: "Precinct" },
+  { key: "headline", label: "Headline_Metric" },
+  { key: "headlineLabel", label: "Headline_Metric_Name" },
+  { key: "winner", label: "Modeled_Winner" },
+  { key: "margin", label: "Modeled_Margin" },
+  { key: "repShare", label: "Rep_Share" },
+  { key: "demShare", label: "Dem_Share" },
+  { key: "modShare", label: "Mod_Share" },
+  { key: "votes", label: "Modeled_Voters" },
+  { key: "registered", label: "Registered" },
+  { key: "ballots", label: "Ballots_Cast" },
+  { key: "rate", label: "Turnout_Rate" },
+  { key: "dropoff", label: "Non_Voters" },
+  { key: "nonWhite", label: "Pct_NonWhite" },
+  { key: "why", label: "Why" },
+];
+
+function exportRanked() {
+  const ranked = pg.ranked || [];
+  if (!ranked.length) return;
+  const rows = ranked.map((r, i) => {
+    const m = r.metrics;
+    const head = headlineFor(pg.strategy, m);
+    return {
+      rank: i + 1,
+      precinct: m.code,
+      // headlineFor returns display text ("N/A", "62%"); the CSV wants the
+      // number, so re-read the raw metric and let N/A fall through as empty.
+      headline: rawHeadline(pg.strategy, m),
+      headlineLabel: head.label,
+      winner: m.winner,
+      margin: m.margin,
+      repShare: m.repShare,
+      demShare: m.demShare,
+      modShare: m.modShare,
+      votes: m.votes,
+      registered: m.registered,
+      ballots: m.ballots,
+      rate: m.rate,
+      dropoff: m.dropoff,
+      nonWhite: m.nonWhite,
+      why: r.explain,
+    };
+  });
+  const name = exportFilename("collin-priority-precincts", [pg.strategy, pg.district]);
+  downloadFile(toCsv(EXPORT_COLUMNS, rows), name, "text/csv");
+  const sub = $("tg-results-sub");
+  if (sub) sub.textContent = `Downloaded ${name} (${rows.length} precincts).`;
+}
+
+// The raw number behind headlineFor's display string, so the CSV stays numeric.
+function rawHeadline(id, m) {
+  switch (id) {
+    case "tossups": case "flip-dem-rep": case "flip-rep-dem": return m.margin;
+    case "mobilize-rep": case "mobilize-dem": case "low-turnout": return m.rate;
+    case "net-vote-opportunity": return m.nvo;
+    case "elastic-gotv-dem": case "elastic-gotv-rep": case "winnable-elastic": return m.elasticity;
+    case "high-growth-register": return m.regGrowth;
+    case "diversifying": return m.nonWhite;
+    case "register": return Math.max(0, (m.pop || 0) - (m.registered || 0));
+    case "high-leverage": case "efficient-swing": return m.votes;
+    case "primary-energy-dem": return m.primaryDemGrowth;
+    case "primary-energy-rep": return m.primaryRepGrowth;
+    default: return null;
+  }
+}
+
 // ---- boot -------------------------------------------------------------------
 async function init() {
   readURL();
@@ -505,6 +583,7 @@ async function init() {
     }
     renderResults();
   });
+  $("tg-export").addEventListener("click", exportRanked);
   initDistrictSelect();
   await loadData();
   $("tg-election").value = pg.electionId; // reflect a deep-linked race once the manifest is in

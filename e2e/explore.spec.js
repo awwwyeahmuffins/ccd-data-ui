@@ -81,4 +81,24 @@ test.describe('Explore view', () => {
     const href = await page.locator('#ex-body .pcell-precinct a').first().getAttribute('href');
     expect(href).toMatch(/precinct\.html#precinct=/);
   });
+
+  test('exports the visible rows and columns', async ({ page }) => {
+    await page.goto('/explore.html');
+    await expect(page.locator('#ex-body tr').first()).toBeVisible({ timeout: 30000 });
+
+    const [download] = await Promise.all([
+      page.waitForEvent('download'),
+      page.click('#ex-export'),
+    ]);
+    expect(download.suggestedFilename()).toContain('collin-data-table');
+
+    const stream = await download.createReadStream();
+    let body = '';
+    for await (const chunk of stream) body += chunk;
+    const lines = body.trim().split('\r\n');
+
+    expect(lines[0]).toContain('Precinct');
+    expect(lines.length).toBe(274); // header + all 273 precincts
+    expect(lines[1]).not.toContain('%');
+  });
 });

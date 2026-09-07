@@ -19,6 +19,8 @@ import {
 import { escapeHtml } from "./lib/dom.js";
 import { readParams, writeParams } from "./lib/urlState.js";
 import { renderDataTable } from "./ui/dataTable.js";
+import { downloadFile } from "./lib/download.js";
+import { toCsv, exportFilename } from "./domain/exportRows.js";
 
 const DEFAULT_COLUMNS = ["winner", "demShare", "registered", "population", "medianIncome", "medianHomeValue", "medianAge", "pctFamily", "nonWhite", "turnoutRate"];
 
@@ -182,6 +184,24 @@ function displayColumns() {
   return cols;
 }
 
+// The visible table as a spreadsheet. RAW record values, not formatValue's
+// display strings: that formatter turns 0.62 into "62%" (losing precision),
+// 1234 into "1,234" (which a spreadsheet imports as text) and null into an em
+// dash. Numbers stay numbers; missing stays empty.
+function exportVisible() {
+  const rows = pg.sorted || [];
+  if (!rows.length) return;
+  const columns = [
+    { key: "precinct", label: "Precinct" },
+    ...displayColumns()
+      .filter((id) => id !== "precinct")
+      .map((id) => ({ key: id, label: (getMetric(id) || {}).label || id })),
+  ];
+  const name = exportFilename("collin-data-table", [pg.view, pg.party !== "all" ? pg.party : null]);
+  downloadFile(toCsv(columns, rows), name, "text/csv");
+  $("ex-count").textContent = `Downloaded ${name} (${rows.length} precincts).`;
+}
+
 // ---- render table (via ui/dataTable — the one column-model renderer) --------
 // flag near-empty precincts; artifacts (census suppressed) get a sharper note
 function electorateOf(r) {
@@ -232,6 +252,9 @@ function tableColumns(cols) {
 function render() {
   const filtered = filterRecords(pg.records, { party: pg.party, conditions: pg.conditions });
   const sorted = sortRecords(filtered, pg.sortKey, pg.sortDir);
+  // The export ships exactly the rows and columns on screen — same view, same
+  // filters, same sort — so the file cannot disagree with the page.
+  pg.sorted = sorted;
 
   renderDataTable({
     head: $("ex-head"),
@@ -311,6 +334,10 @@ function updateURL() {
     dir: pg.sortDir,
     party: pg.party !== "all" ? pg.party : null,
     filters: pg.conditions.length ? encodeConditions(pg.conditions) : null,
+    // Keep the incoming highlight. Without it the Map's "See in the Data Table"
+    // hand-off (explore.html#precinct=42) was erased by the first column click,
+    // so the URL the user then copied no longer identified the precinct.
+    precinct: pg.highlight || null,
   });
 }
 function readURL() {
@@ -330,6 +357,7 @@ async function init() {
   $("ex-sort").addEventListener("change", (e) => { pg.sortKey = e.target.value; if (!pg.columns.includes(pg.sortKey)) pg.columns.push(pg.sortKey); renderColumnsPicker(); updateURL(); render(); });
   $("ex-dir").addEventListener("click", () => { pg.sortDir = pg.sortDir === "desc" ? "asc" : "desc"; applyDirLabel(); updateURL(); render(); });
   $("ex-party").addEventListener("change", (e) => { pg.party = e.target.value; renderChips(); updateURL(); render(); });
+  $("ex-export").addEventListener("click", exportVisible);
   $("ex-addfilter").addEventListener("click", () => {
     const key = $("ex-fmetric").value;
     const op = $("ex-fop").value;

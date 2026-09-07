@@ -74,6 +74,14 @@
     }
     .results-title { font-family: var(--font-display); font-size: 24px; font-weight: 700; }
     .results-sub { color: var(--color-text-secondary); font-size: 0.889rem; margin-top: 3px; max-width: 640px; }
+    .tg-export {
+      min-height: 44px; padding: 9px 16px; border-radius: 10px;
+      border: 1.5px solid var(--color-border); background: #fff;
+      font-family: inherit; font-size: 1rem; font-weight: 600;
+      color: var(--color-primary); cursor: pointer;
+    }
+    .tg-export:hover { border-color: var(--color-primary); }
+    .tg-export[hidden] { display: none; }
     .results-count { font-family: var(--font-body); font-size: 0.889rem; color: var(--color-text-secondary); font-weight: 600; white-space: nowrap; }
 
     .tg-precinct {
@@ -160,7 +168,8 @@
         <div class="results-title" id="tg-results-title">Closest Races</div>
         <div class="results-sub" id="tg-results-sub"></div>
       </div>
-      <div class="results-count" id="tg-results-count"></div>
+      <div class="results-count" id="tg-results-count" aria-live="polite" aria-atomic="true"></div>
+      <button type="button" id="tg-export" class="tg-export">Download CSV</button>
     </div>
     <div id="tg-na"></div>
     <div id="tg-list"><div class="empty-note">Loading…</div></div>
