@@ -2,8 +2,8 @@
 // ===================
 // Turnout simulation engine for election forecasting.
 // Allows users to model how different turnout scenarios affect race outcomes.
-// Pure domain module: no DOM, no fetch, no HTML strings (Phase-3 home:
-// js/domain/simulator.js). The HTML generators live in js/ui/simulatorControls.js.
+// Pure domain module: no DOM, no fetch, no HTML strings. js/forecastPage.js
+// renders its own markup against this engine's output.
 
 // ============================================================================
 // VALID PARTY CODES

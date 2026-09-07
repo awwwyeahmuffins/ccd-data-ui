@@ -234,9 +234,9 @@ export function twoPartyColumns(candidateCols) {
  *
  *   (dem - rep) / (dem + rep) * 100
  *
- * Third-party votes are excluded from both sides — this is deliberately NOT the
- * same as computePrecinctDeltas' margin, which measures a side against every
- * other candidate and so counts Libertarians against the Democrat.
+ * Third-party votes are excluded from BOTH sides. That is deliberate, and it
+ * makes these margins non-comparable with a raw winner-minus-runner-up gap,
+ * which counts Libertarians and Greens against the leader.
  * @param {Object} row - pivoted race row for one precinct
  * @param {Array<string>} candidateCols - candidate column names
  * @returns {{margin: number, demVotes: number, repVotes: number}|null}
