@@ -351,7 +351,6 @@ js/
                      explore, then targets, then the precinct history section
     reportSections.js  precinct-report HTML renderers ← precinctProfile view half
                        + precinctHistory generate*HTML
-    simulatorControls.js  ← turnoutSimulator's two HTML generators
 
   reporting/    exports and printables               (imports: lib, domain, ui)
     export.js        print/PDF/Markdown/CSV writers  ← precinctExport.js + print/copy plumbing
@@ -533,7 +532,7 @@ Data Table (pages/explore)
 └── reporting/export (CSV)
 
 Forecast (pages/forecast)
-├── ui/racePicker · ui/simulatorControls
+├── ui/racePicker
 └── domain/simulator → outcome table (ui/dataTable)
 ```
 
@@ -566,7 +565,7 @@ Build `ui/racePicker.js`, `ui/precinctFinder.js`, `ui/boundaryToggle.js`,
 `ui/dataTable.js`; adopt one page per PR (finder into map/precinct; picker into
 map/forecast; dataTable into explore first, then targets). Split HTML
 generators out of `turnoutSimulator`/`precinctProfile`/`precinctHistory` into
-`ui/simulatorControls.js` and `ui/reportSections.js`; `electionFilters.js`
+`ui/reportSections.js`; `electionFilters.js`
 splits into `domain/races.js` (pure) + racePicker (stateful+keyboard).
 *Risk:* medium (touchpoints across pages; one page per PR).
 *Gate:* command-center, precinct-lookup, precinct-tabs, targets, explore, a11y specs.
@@ -657,8 +656,8 @@ current capability has exactly one owning module; nothing is homeless.
 | 28 | Targets CSV export | `reporting/export.js` | Priority Precincts | `lib/dom` | ranked rows |
 | 29 | Data grid: column sets, sort, filter chips | `domain/metrics.js` | Data Table | `ui/dataTable`, `urlState` | `buildRecords()` |
 | 30 | Data grid CSV export | `reporting/export.js` | Data Table | `lib/dom` | records |
-| 31 | Turnout/flip simulation | `domain/simulator.js` | Forecast | `ui/simulatorControls`, `racePicker` | `loadRace()` + lean lookup |
-| 32 | Scenario presets | `pages/forecast.js` | Forecast | `ui/simulatorControls` | static config |
+| 31 | Turnout/flip simulation | `domain/simulator.js` | Forecast | `racePicker` | `loadRace()` + lean lookup |
+| 32 | Scenario presets | `pages/forecast.js` | Forecast | (forecastPage renders its own markup) | static config |
 | 33 | Primary-turnout overlay/metrics | `data/dataService.js` | Map, Targets, My Precinct | — | `profile/primary_turnout` data |
 | 34 | Glossary popovers | `ui/glossary.js` | all | — | static terms |
 | 35 | Help panel, text-size toggle, welcome | `ui/siteNav.js`, `ui/helpPanel.js` | all | — | localStorage |
@@ -680,3 +679,36 @@ current capability has exactly one owning module; nothing is homeless.
 - **Forecast not deleted yet.** It's demoted, isolated behind
   `domain/simulator.js` + one page controller, and cheap to remove later if a
   season of usage shows nobody opens it.
+
+---
+
+## Sept 2026 audit — deferred items
+
+A full-app audit (68 verified findings) was implemented in Sept 2026. Three
+things were deliberately NOT done, because they are the repo owner's call:
+
+1. **Delete the chat/Bedrock stack.** `infra/lib/ccd-auth-chat-stack.ts` has
+   `selfSignUpEnabled: true` plus a `PRE_SIGN_UP` trigger that auto-confirms
+   every signup, fronting a Lambda that holds `bedrock:InvokeModel` — and its
+   frontend caller (`precinctChat`/`chatUI`) was deleted long ago. Anyone can
+   mint a token against the IDs published in `js/authConfig.js` and reach it.
+   Recommended: drop the handler, its policy, the API, the `/chat` route and the
+   JWT authorizer; KEEP the user pool (RETAIN, real accounts exist) but set
+   `selfSignUpEnabled: false`. Deleting deployed infrastructure is irreversible,
+   so it waits for an explicit decision.
+
+2. **Regenerate `data/tx/collin/*/history/*.json`.** The `Tie` flag was added to
+   both Python producers (`unified_parser.compute_winning_candidate`,
+   `build_precinct_history.winner_of`) but the shipped history JSONs predate it.
+   Until they are regenerated, the map says "tied" for the 239 tied
+   precinct-races while `precinct.html`'s history reads the old winner. The app
+   is correct either way — `row['Tie'] === true` is simply false when absent —
+   but the two surfaces disagree.
+
+3. **`buildPrecinctTrend` returns null for every precinct**, so the hero trend
+   arrow never renders. The root cause is upstream: the 2022 congressionals are
+   tagged `"category":"County"` in the generated manifest, and `getRaceFamilyKey`
+   drops the district number. Loosening the alias table WITHOUT a primary-race
+   filter would pair a general with a primary and print "+48% toward Dem" — a
+   primary reads as ~100% for its own party. Fix the categorizer and regenerate,
+   or remove the feature; do not patch the alias table alone.

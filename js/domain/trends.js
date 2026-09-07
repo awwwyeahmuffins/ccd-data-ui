@@ -552,6 +552,15 @@ export function summarizeSwing(series) {
     flippedToRep: comparable.filter((r) => r.flipped && r.marginB < 0).length,
     // Vote counts, not points — these sum, so the county total is just the sum
     // of its precincts and the decomposition can be checked by hand.
+    //
+    // The sum is over `comparable` — precincts with a composite in BOTH years.
+    // It therefore does NOT equal the county's full margin change: measured
+    // 2022->2024 it is -22,943 against the county's -23,875 (3.9%), almost all
+    // of it precinct 252, which has 2024 results but no 2022 composite entry.
+    // That is the honest number to report, so say "across the N precincts with
+    // results in both years" rather than renormalising — renormalising would
+    // change every precinct's displayed netVotes and every map arrow length to
+    // close a 3.9% identity.
     netVotes: sum(comparable, "netVotes"),
     demChange: sum(comparable, "demChange"),
     repChange: sum(comparable, "repChange"),
