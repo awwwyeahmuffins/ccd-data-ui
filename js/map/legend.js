@@ -69,13 +69,17 @@ export function legendHTML(env) {
     // The default view. It used to show strength 3 and 1 only, while leanFill
     // paints a distinct colour and density for level 2 as well — 46% of
     // precincts had no swatch, and Moderate had exactly one for three levels.
+    // Nine rows is too tall for one column on an iPad, so they go two-up
+    // rather than being dropped: a missing swatch is what caused the bug.
     return `
       <div class="cc-legend-title">Party Lean</div>
       <p class="cc-legend-desc">Which party each precinct usually favors, from a model of its voters — not a vote count. Denser stripes = stronger habit.</p>
-      ${strengthRows(svg, "Rep", "Republican")}
-      ${strengthRows(svg, "Dem", "Democratic")}
-      ${strengthRows(svg, "Mod", "Moderate / mixed")}
-      ${noDataRow}`;
+      <div class="cc-legend-rows">
+        ${strengthRows(svg, "Rep", "Republican")}
+        ${strengthRows(svg, "Dem", "Democratic")}
+        ${strengthRows(svg, "Mod", "Moderate")}
+        ${noDataRow}
+      </div>`;
   }
   if (env.mode === "margin") {
     return `
@@ -88,9 +92,11 @@ export function legendHTML(env) {
     return `
       <div class="cc-legend-title">${PRIMARY_YEAR} Primary Ballots</div>
       <p class="cc-legend-desc">Which party's ${PRIMARY_YEAR} primary drew more voters here. Denser stripes = more one-sided. Source: official county reports.</p>
-      ${strengthRows(svg, "Rep", "Republican primary")}
-      ${strengthRows(svg, "Dem", "Democratic primary")}
-      ${noDataRow}`;
+      <div class="cc-legend-rows">
+        ${strengthRows(svg, "Rep", "Republican primary")}
+        ${strengthRows(svg, "Dem", "Democratic primary")}
+        ${noDataRow}
+      </div>`;
   }
   return `
     <div class="cc-legend-title">Non-White Share</div>

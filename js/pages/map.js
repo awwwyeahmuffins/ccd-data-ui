@@ -609,6 +609,15 @@ async function setMode(mode) {
   const wasRace = !!cc.raceId;
   const hadOthers = !!(cc.race && (cc.race.otherGeojson || cc.race.precinctGeo));
   cc.mode = mode;
+  // Switching to a demographic mode supersedes ANY race load still in flight —
+  // including one whose cc.raceId is not set yet, which is why this bump is
+  // unconditional and not inside the wasRace branch. Without it a slow race
+  // resolves afterwards and repaints its fills and legend over the mode the
+  // user just chose. (loadRace's `finally` is guarded the same way, so the
+  // superseded load will NOT clear the spinner — which makes clearing it the
+  // superseder's job here, or it spins forever over a finished render.)
+  cc.loadToken++;
+  showLoading(false);
   if (wasRace) {
     cc.raceId = null; cc.race = null; removeOtherLayer(); applyRaceLabel(); updateHash(); // picking a demo mode exits the race
   }
@@ -636,6 +645,12 @@ function renderLegend() {
     hasOtherLayer: !!cc.otherLayer,
     hasOtherPrecinctLayer: !!cc.otherPrecinctLayer,
   });
+  // Lean and Primary list every fill the map can paint (three strengths per
+  // party), which is more rows than one column should hold on an iPad. Go
+  // two-up past a threshold rather than dropping rows — a fill with no swatch
+  // is the bug this legend exists to prevent.
+  const rows = el.querySelectorAll(".cc-legend-rows .cc-legend-row").length;
+  el.classList.toggle("cols-2", rows > 5);
 }
 
 // The dark "War Room" theme was retired (June 2026 civic-plain redesign).
@@ -943,8 +958,10 @@ async function loadRace(raceIdOrEntry) {
 async function clearRace() {
   if (!cc.raceId) return;
   // Leaving the race supersedes any load still in flight, or it would paint
-  // the race back over the demographic mode the user just switched to.
+  // the race back over the demographic mode the user just switched to. Same
+  // spinner-ownership rule as setMode: the superseded load will not clear it.
   cc.loadToken++;
+  showLoading(false);
   const hadOthers = !!(cc.race && (cc.race.otherGeojson || cc.race.precinctGeo));
   cc.raceId = null; cc.race = null;
   removeOtherLayer();

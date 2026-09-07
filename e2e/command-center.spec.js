@@ -209,6 +209,26 @@ test.describe('Command Center', () => {
     expect(bg === 'none' || bg === '').toBeTruthy();
   });
 
+  test('the legend never grows over the mode buttons', async ({ page }) => {
+    // The Lean legend lists every fill the map paints (three strengths x three
+    // parties). When it was one column those nine rows grew up the stage until
+    // they covered #cc-modes and swallowed its clicks — and the mode buttons
+    // are the only in-map way out of a loaded race.
+    await waitForLoaded(page);
+    for (const size of [{ width: 1440, height: 900 }, { width: 1024, height: 768 }, { width: 820, height: 1180 }]) {
+      await page.setViewportSize(size);
+      const legend = await page.locator('#cc-legend').boundingBox();
+      const modes = await page.locator('#cc-modes').boundingBox();
+      if (!legend || !modes) continue; // collapsed behind the toggle on phones
+      const overlaps = !(legend.y > modes.y + modes.height || legend.y + legend.height < modes.y ||
+                         legend.x > modes.x + modes.width || legend.x + legend.width < modes.x);
+      expect(overlaps, `legend overlaps the mode buttons at ${size.width}x${size.height}`).toBe(false);
+    }
+    // and the buttons are genuinely clickable, not merely un-overlapped
+    await page.click('.cc-mode-btn[data-mode="margin"]');
+    await expect(page.locator('.cc-mode-btn[data-mode="margin"]')).toHaveAttribute('aria-pressed', 'true');
+  });
+
   test('precinct polygons are keyboard operable with spoken labels', async ({ page }) => {
     await waitForLoaded(page);
     // one roving tab stop enters the map

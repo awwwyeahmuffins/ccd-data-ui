@@ -268,6 +268,22 @@
       background: var(--bg-panel); /* solid backplate over the map */
       border: 1px solid var(--line); border-radius: 12px;
       padding: 14px 16px; min-width: 220px; max-width: 340px; box-shadow: var(--shadow);
+      /* The Lean legend carries nine rows (three strengths x three parties —
+         it must show every fill the map paints). Unbounded, it grew up the
+         stage until it covered the mode buttons at top-left and swallowed
+         their clicks. Cap it against the stage and scroll inside instead: the
+         mode buttons are the only in-map exit from a race, so the legend must
+         never be able to reach them. */
+      max-height: calc(100% - 96px);
+      overflow-y: auto;
+    }
+    /* Two columns once there are more rows than a single column should hold,
+       so the common case stays short rather than scrolling. Do NOT widen the
+       legend to stop the labels wrapping: at 460px it reaches the horizontal
+       centre of the map stage and swallows precinct clicks there. Narrow and
+       two lines beats wide and over the map. */
+    .cc-legend.cols-2 .cc-legend-rows {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px;
     }
     /* On phones the legend would blanket the whole map stage — it collapses
        behind one large labelled toggle instead (List view stays the fully
