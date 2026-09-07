@@ -265,8 +265,11 @@ describe('loadDistrictAggregates', () => {
   });
 
   it('keeps votes on candidate names containing a comma (no split(",") shift)', async () => {
-    // A naive split(",") reads " III\"" as the votes field for the REP row,
-    // scoring it 0 — Ellis then reports 0 REP / 6,264 DEM and flips to Dem.
+    // Measured across the shipped district files: the naive split dropped
+    // 147,132 out-of-county votes over 38 files and reported THREE counties
+    // backwards — Cooke, Ellis and Fannin each showed a Democratic win while
+    // the Republican led by 10-16k. The mechanism: split(",") reads " III\""
+    // as the votes field, so +c[3] is 0 while c[1] still says REP.
     const { byCounty } = await districts.loadDistrictAggregates('cd-3', 'races/US_Rep_3_2024.csv');
     const ellis = byCounty.find((c) => c.county === 'ellis');
     expect(ellis.rep).toBe(16170);
