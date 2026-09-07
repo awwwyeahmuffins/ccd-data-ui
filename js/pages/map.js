@@ -845,7 +845,16 @@ async function loadRace(raceIdOrEntry) {
   const entry = typeof raceIdOrEntry === "object"
     ? raceIdOrEntry
     : cc.races.find((e) => getRaceKey(e) === raceIdOrEntry);
-  if (!entry) return;
+  if (!entry) {
+    // An unrecognised #race= (a stale bookmark, a race that left the manifest)
+    // used to return silently, leaving the dock reading "Loading…" forever with
+    // no way to tell whether it was slow or broken. Fall back to the county
+    // view and say so. Order matters: renderCountyBriefing writes #cc-dock-sub.
+    showLoading(false);
+    renderCountyBriefing();
+    $("cc-dock-sub").textContent = "That race isn't available here.";
+    return;
+  }
   // Every await below is a fetch that can outlive the click that started it.
   // Without a token, picking a race and then clicking Diversity repaints race
   // fills and the race legend after the mode switch -- leaving the Diversity
@@ -921,6 +930,10 @@ async function loadRace(raceIdOrEntry) {
     if (cc.view === "list") renderListView();
   } catch (err) {
     console.error("[Command] race load failed:", err);
+    if (token === cc.loadToken) {
+      renderCountyBriefing();
+      $("cc-dock-sub").textContent = "That race isn't available here.";
+    }
   } finally {
     // A superseded load must not clear the spinner the newest one is still using.
     if (token === cc.loadToken) showLoading(false);

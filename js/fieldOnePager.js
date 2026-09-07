@@ -3,6 +3,7 @@
 // Printable one-page field brief for a precinct — compact layout for canvassers.
 
 import { boundary } from "./data/dataService.js";
+import { printDocument } from "./lib/print.js";
 
 import { buildVotingHistory, buildPrecinctTrend, calculateTurnout } from "./domain/history.js";
 import { populationOf } from "./lib/format.js";
@@ -374,34 +375,7 @@ export function printOnePager(html, precinctCode) {
 
   let doc = `<!DOCTYPE html><html><head><title>Precinct ${esc(String(precinctCode))} - Field Brief</title>${printStyles}</head><body>${html}</body></html>`;
 
-  if (printWindow) {
-    printWindow.document.write(doc);
-    printWindow.document.close();
-    printWindow.addEventListener("load", function onLoad() {
-      printWindow.print();
-    });
-    return;
-  }
-
-  // Pop-up blocked: print via a hidden iframe instead.
-  let frame = document.createElement("iframe");
-  frame.style.position = "fixed";
-  frame.style.right = "0";
-  frame.style.bottom = "0";
-  frame.style.width = "0";
-  frame.style.height = "0";
-  frame.style.border = "0";
-  document.body.appendChild(frame);
-  frame.srcdoc = doc;
-  frame.addEventListener("load", function onFrameLoad() {
-    try {
-      frame.contentWindow.focus();
-      frame.contentWindow.print();
-    } finally {
-      // Leave time for the print dialog to grab the document before cleanup.
-      setTimeout(() => frame.remove(), 60000);
-    }
-  });
+  printDocument(doc, printWindow);
 }
 
 // ---------------------------------------------------------------------------

@@ -5,6 +5,7 @@
 // section navigation. No charting library — every viz is hand-rolled HTML/CSS.
 
 import { boundary } from "./data/dataService.js";
+import { printDocument } from "./lib/print.js";
 import { findPrecinctForAddress, findPrecinctForPoint, TEXAS_VIEWBOX } from "./geoLookup.js";
 import { createPrecinctFinder, isAddressQuery } from "./ui/precinctFinder.js";
 import { populationOf } from "./lib/format.js";
@@ -1791,8 +1792,11 @@ function printCanvassSheet(code, audId, sig) {
   let aud = AUDIENCES.find((a) => a.id === audId);
   let points = buildTargetedTalkingPoints(sig, audId);
   let script = buildCanvassScript(sig, audId, code);
+  // Opened inside the click gesture (browsers only honour it synchronously);
+  // a null result means the pop-up was blocked, and printDocument falls back to
+  // a hidden iframe. It used to `return` here, so on an iPad with Safari's
+  // default "Block Pop-ups" this button did nothing at all.
   let w = window.open('', '_blank');
-  if (!w) return;
 
   let pointsHtml = points.map((p) => `<div class="tp"><div class="cat">${escapeHtml(p.category)}</div><div>${escapeHtml(p.text)}</div></div>`).join('');
   let styles = `<style>
@@ -1807,15 +1811,14 @@ function printCanvassSheet(code, audId, sig) {
     .foot{margin-top:18px;font-size:13px;color:#999;border-top:1px solid #ddd;padding-top:10px;}
     @page{margin:0.5in;size:letter portrait;}
   </style>`;
-  w.document.write(`<!DOCTYPE html><html><head><title>Precinct ${escapeHtml(code)} — Talking Points</title>${styles}</head><body>` +
+  const doc = `<!DOCTYPE html><html><head><title>Precinct ${escapeHtml(code)} — Talking Points</title>${styles}</head><body>` +
     `<h1>Precinct ${escapeHtml(code)} — Talking Points</h1>` +
     `<div class="sub">Goal: ${escapeHtml(aud ? aud.label : '')}</div>` +
     pointsHtml +
     `<h2>Door script</h2><pre>${escapeHtml(script)}</pre>` +
     `<div class="foot">Generated from collincountyelections.com</div>` +
-    `</body></html>`);
-  w.document.close();
-  w.addEventListener('load', function onLoad() { w.print(); });
+    `</body></html>`;
+  printDocument(doc, w);
 }
 
 // ---------------------------------------------------------------------------

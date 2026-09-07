@@ -11,6 +11,7 @@
 // Do not add partisan inputs to that function.
 
 import { escapeHtml } from "./lib/dom.js";
+import { printDocument } from "./lib/print.js";
 import { formatNumberOrNA, formatPctWhole } from "./lib/format.js";
 
 // ---------------------------------------------------------------------------
@@ -217,32 +218,5 @@ export function printChairPacket(page1Html, page2Html, precinctCode) {
     `<!DOCTYPE html><html><head><title>Precinct ${escapeHtml(String(precinctCode ?? ""))} - Chair Packet</title>` +
     `${PACKET_STYLES}</head><body>${page1Html}${page2Html}</body></html>`;
 
-  const printWindow = window.open("", "_blank");
-  if (printWindow) {
-    printWindow.document.write(doc);
-    printWindow.document.close();
-    printWindow.addEventListener("load", function onLoad() {
-      printWindow.print();
-    });
-    return;
-  }
-
-  // Pop-up blocked: print via a hidden iframe instead (never a silent nothing).
-  const frame = document.createElement("iframe");
-  frame.style.position = "fixed";
-  frame.style.right = "0";
-  frame.style.bottom = "0";
-  frame.style.width = "0";
-  frame.style.height = "0";
-  frame.style.border = "0";
-  document.body.appendChild(frame);
-  frame.srcdoc = doc;
-  frame.addEventListener("load", function onFrameLoad() {
-    try {
-      frame.contentWindow.focus();
-      frame.contentWindow.print();
-    } finally {
-      setTimeout(() => frame.remove(), 60000);
-    }
-  });
+  printDocument(doc);
 }
