@@ -406,6 +406,17 @@ function headlineFor(id, m) {
       return { val: num(Math.max(0, (m.pop || 0) - (m.registered || 0))), label: "Unregistered" };
     case "high-leverage": case "efficient-swing":
       return { val: num(m.votes), label: "Voters" };
+    // Labels mirror each strategy's own metricLabel (js/targeting.js). num()
+    // maps null -> "N/A", so a precinct with only one primary cycle on file
+    // reads N/A rather than a fabricated 0. Deliberately NOT a generic
+    // `num(strat.score(m))` fallback: score() returns raw counts here but
+    // fractions elsewhere (low-turnout returns 1 - rate), so a generic
+    // fallback would print "1" for a 50%-turnout precinct -- trading a
+    // visible blank for a silently wrong number.
+    case "primary-energy-dem":
+      return { val: num(m.primaryDemGrowth), label: "New Dem primary voters" };
+    case "primary-energy-rep":
+      return { val: num(m.primaryRepGrowth), label: "New Rep primary voters" };
     default:
       return { val: "", label: "" };
   }

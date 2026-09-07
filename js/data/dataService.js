@@ -229,8 +229,22 @@ function makeHandle(id) {
         metadataPromise,
       ]);
 
-      const dncLookup = Object.fromEntries(dncData.map((d) => [String(d.precinct), d]));
-      const racialLookup = Object.fromEntries(racialData.map((d) => [String(d.precinct), d]));
+      // Zero-universe rows are ABSENCE, not data: a DNC row scoring 0 Rep /
+      // 0 Mod / 0 Dem still carries "Winning Party: Rep, Party Strength: 1",
+      // and a racial row with total 0 still carries pct_white 0.00 — merged,
+      // they render as "leans Republican" and "100% not white" for precincts
+      // with no modeled voters and no counted residents. Drop them so every
+      // consumer's existing `== null` path renders an honest N/A instead.
+      // The DNC test is on the component counts, never dnc_scores.csv's own
+      // Total column; racial keeps any precinct with at least one resident.
+      const dncLookup = Object.fromEntries(
+        dncData
+          .filter((d) => (d.rep || 0) + (d.mod || 0) + (d.dem || 0) > 0)
+          .map((d) => [String(d.precinct), d])
+      );
+      const racialLookup = Object.fromEntries(
+        racialData.filter((d) => Number(d.total) > 0).map((d) => [String(d.precinct), d])
+      );
 
       for (const feature of geojson.features) {
         const key = String(feature.properties.PRECINCT);

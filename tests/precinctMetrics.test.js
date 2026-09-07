@@ -79,6 +79,26 @@ describe("buildRecords", () => {
     expect(r.projHomeValue).toBe(1283561);
     expect(r.marriedCouples).toBe(800);
   });
+  test("an all-zero party/racial row is absence, not data (precinct 201)", () => {
+    // dnc_scores.csv ships "201,0,0,0,0,0.0,0.0,0.0,Rep,1" and racial.csv ships
+    // total 0 for the same precinct -- a presence check reads that as a real
+    // Republican precinct where 100% of residents are not white. Neither is a
+    // fact about precinct 201; it has no registered voters at all.
+    const empty = {
+      properties: {
+        PRECINCT: "1", // keyed into the census fixture, like precinct 201 is in real data
+        rep: 0, mod: 0, dem: 0,
+        repShare: 0, modShare: 0, demShare: 0,
+        winningParty: "Rep", partyStrength: 1,
+        pct_white: 0, total: 0,
+      },
+    };
+    const rec = buildRecords([empty], census, null)[0];
+    expect(rec.artifact).toBe(true);
+    expect(rec.population).toBeUndefined();
+    expect(rec.medianIncome).toBeUndefined();
+  });
+
   test("leaves missing census fields null (e.g. a district with no profile)", () => {
     const noCensus = buildRecords([feature({ PRECINCT: "9" })], null, null)[0];
     expect(noCensus.medianIncome).toBeUndefined();

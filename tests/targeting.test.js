@@ -22,6 +22,20 @@ function p(over = {}) {
   };
 }
 
+describe("empty universes are not targets", () => {
+  test("a precinct with zero modeled voters yields no metrics", () => {
+    // Such a row still carries repShare 0 / winningParty "Rep", so without the
+    // vote-count gate it ranks first under `tossups` as a perfect 0-point margin.
+    expect(derivePrecinctMetrics(p({ rep: 0, mod: 0, dem: 0, repShare: 0, modShare: 0, demShare: 0 }), null)).toBeNull();
+  });
+  test("it is excluded from the tossups ranking entirely", () => {
+    const empty = p({ PRECINCT: "201", rep: 0, mod: 0, dem: 0, repShare: 0, modShare: 0, demShare: 0 });
+    const real = p({ PRECINCT: "7", rep: 1000, mod: 0, dem: 990, repShare: 0.502, modShare: 0, demShare: 0.498 });
+    const ranked = rankPrecincts([empty, real], "tossups", {});
+    expect(ranked.map((r) => r.metrics.code)).toEqual(["7"]);
+  });
+});
+
 describe("catalogue shape", () => {
   test("every strategy has the required fields and a real category", () => {
     const cats = new Set(STRATEGY_CATEGORIES.map((c) => c.id));

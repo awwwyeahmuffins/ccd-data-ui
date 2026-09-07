@@ -122,13 +122,21 @@ def race_by_precinct(race_path):
 
 
 def winner_of(cols):
-    """(winner_col, party) via alphabetically-first strict max — mirrors computeWinners."""
-    winner, best = "", None
+    """(winner_col, party, tie) via alphabetically-first strict max — mirrors computeWinners.
+
+    First-max hands an exact tie to whichever candidate sorts first, and
+    "DEM ..." precedes "REP ...", so every Rep/Dem tie would be written into
+    the history as a Democratic win. Keep the pick, flag the tie.
+    """
+    winner, best, tie = "", None, False
     for col in sorted(cols):
         v = cols[col]
         if best is None or v > best:
-            best, winner = v, col
-    return winner, (winner.split()[0] if winner else "")
+            best, winner, tie = v, col, False
+        elif v == best:
+            tie = True
+    # Nobody voted: empty, not tied.
+    return winner, (winner.split()[0] if winner else ""), bool(tie and best)
 
 
 def process_boundary_set(data_dir):
@@ -158,7 +166,7 @@ def process_boundary_set(data_dir):
             if total <= 0:
                 continue  # did not participate — getPrecinctResult() returns null
             reg, ballots, blank = turnout.get(precinct, (0, 0, 0))
-            winner, party = winner_of(cols)
+            winner, party, tie = winner_of(cols)
             row = {
                 "PRECINCT CODE": precinct,
                 "REGISTERED VOTERS TOTAL": reg,
@@ -168,6 +176,7 @@ def process_boundary_set(data_dir):
             row.update(cols)  # candidate columns "<Party Candidate>": votes
             row["Winning Candidate"] = winner
             row["Winning Party"] = party
+            row["Tie"] = tie
             per_precinct.setdefault(precinct, {})[race_file] = row
         if county_total > 0:
             baselines[race_file] = round(county_dem / county_total, 6)

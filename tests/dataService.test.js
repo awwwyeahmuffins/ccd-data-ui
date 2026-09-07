@@ -370,6 +370,7 @@ describe('loadRace — v3 pivot path', () => {
       'REP Abbott, Greg': '500',       // quoted comma survived
       'Winning Candidate': 'DEM Beto "B" O\'Rourke',
       'Winning Party': 'DEM',
+      'Tie': false, // decided race — the flag is always present, never undefined
     });
     expect(rows[1]['Winning Candidate']).toBe('REP Abbott, Greg');
     expect(rows[1]['Write-in']).toBe('0'); // filled default when column exists

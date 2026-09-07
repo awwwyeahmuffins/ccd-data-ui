@@ -576,6 +576,22 @@ function isCensusUnreliable(census, partyData, isArtifact) {
   return scored > census.population;
 }
 
+// Presence of a party/racial row is NOT evidence of a party/racial universe.
+// A precinct with no modeled voters still ships a row scoring 0 Rep / 0 Mod /
+// 0 Dem with "Winning Party: Rep, Party Strength: 1", and a precinct with no
+// counted residents still ships pct_white 0.00 -- so an object-presence test
+// prints "Rep (1/3)" and a full census profile for precinct 201, which has
+// zero registered voters. Test the counts.
+function hasPartyUniverse(partyData) {
+  if (!partyData) return false;
+  return (+partyData.rep || 0) + (+partyData.mod || 0) + (+partyData.dem || 0) > 0;
+}
+
+function hasRacialUniverse(racialData) {
+  if (!racialData) return false;
+  return (+racialData.total || 0) > 0;
+}
+
 function renderHeroSection(code, census, partyData, racialData, meta) {
   let el = document.getElementById("hero-section");
   let boundaryLabel = svc.label;
@@ -583,7 +599,7 @@ function renderHeroSection(code, census, partyData, racialData, meta) {
   // Row 1: precinct code + badges
   let badges = '';
   badges += `<span class="boundary-label">${escapeHtml(boundaryLabel)}</span>`;
-  if (partyData?.winningParty) {
+  if (partyData?.winningParty && hasPartyUniverse(partyData)) {
     let cls = partyData.winningParty.toLowerCase();
     let strength = partyData.partyStrength != null ? ` (${partyData.partyStrength}/3)` : "";
     badges += `<span class="party-lean-badge ${cls}">${escapeHtml(partyData.winningParty)}${escapeHtml(strength)}</span>`;
@@ -600,7 +616,9 @@ function renderHeroSection(code, census, partyData, racialData, meta) {
   // uninhabited sliver precinct. The census "population" is an area-weighted
   // apportionment artifact (see precinct 201), so suppress it rather than show
   // a fake neighbourhood.
-  let isArtifact = census && census.population > 0 && !partyData && !racialData;
+  const hasParty = hasPartyUniverse(partyData);
+  const hasRacial = hasRacialUniverse(racialData);
+  let isArtifact = !!(census && census.population > 0 && !hasParty && !hasRacial);
 
   // Row 2: stat cards
   let stats = [];
@@ -877,7 +895,9 @@ function renderCensusSection(census, code, boundaryMeta, partyData, racialData) 
   let el = document.getElementById("section-census");
   // Non-residential artifact (census but no voter data at all): its profile is
   // an area-weighted apportionment artifact, not real residents — suppress it.
-  let isArtifact = census && census.population > 0 && !partyData && !racialData;
+  let isArtifact = !!(
+    census && census.population > 0 && !hasPartyUniverse(partyData) && !hasRacialUniverse(racialData)
+  );
   if (!census || isArtifact) {
     el.innerHTML = `<div class="census-unavailable">${isArtifact
       ? `This is a non-residential precinct (a commercial strip or uninhabited boundary sliver) with no voters on file. The county’s census figures here are an area-weighted estimate apportioned from neighbouring blocks — not actual residents — so the demographic profile is suppressed.`

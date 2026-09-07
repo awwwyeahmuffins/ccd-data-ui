@@ -131,12 +131,12 @@ test-ci:
 
 lint:
 	@echo "Running linter..."
-	npx eslint js/*.js e2e/*.spec.js tests/*.test.js
+	npx eslint js e2e tests
 	@echo "Lint complete."
 
 format:
 	@echo "Formatting code..."
-	npx prettier --write "js/**/*.js" "e2e/**/*.js" || true
+	npx prettier --write "js/**/*.js" "!js/vendor/**" "e2e/**/*.js" || true
 	@echo "Format complete."
 
 # ===================
@@ -207,8 +207,14 @@ cdk-destroy:
 CACHE_REVALIDATE = --cache-control "no-cache"
 
 deploy-site:
-	aws s3 sync js/ s3://$(SITE_BUCKET)/js/ --delete $(CACHE_REVALIDATE) --profile $(DEPLOY_PROFILE)
-	aws s3 sync data/ s3://$(SITE_BUCKET)/data/ --exclude "cache/*" --exclude "*.geojson" --delete --profile $(DEPLOY_PROFILE)
+	aws s3 sync js/ s3://$(SITE_BUCKET)/js/ --exclude "*.DS_Store" --delete $(CACHE_REVALIDATE) --profile $(DEPLOY_PROFILE)
+	# data/ ships as an INCLUDE-list, not a deny-list. A deny-list means every new
+	# file type in data/ is public by default and we only find out afterwards --
+	# that is how four .DS_Store files (each an index of its directory, including
+	# the entries the sync deliberately excluded) and a .zip came to match it.
+	# Filters apply in order and last match wins, so the trailing excludes still
+	# beat the *.json include.
+	aws s3 sync data/ s3://$(SITE_BUCKET)/data/ --exclude "*" --include "*.csv" --include "*.json" --exclude "cache/*" --exclude "*.geojson" --delete --profile $(DEPLOY_PROFILE)
 	# .geojson is unmapped by aws s3 sync -> application/octet-stream, which CloudFront
 	# does NOT compress. Re-upload it as application/json so gzip actually applies.
 	aws s3 sync data/ s3://$(SITE_BUCKET)/data/ --exclude "*" --include "*.geojson" --content-type application/json --profile $(DEPLOY_PROFILE)
@@ -235,8 +241,13 @@ deploy-cache-headers:
 	@echo "Cache headers backfilled on js/."
 
 # Dry run: list exactly what deploy-site would ship from the manifest.
+# Dry run: the REAL syncs with --dryrun, so what this prints is what would
+# ship. The old version echoed two hardcoded lines describing the syncs, which
+# meant it could not catch the one class of bug it existed to catch: a filter
+# that lets something through.
 deploy-dry-run:
-	@echo "js/ (tree sync)"; echo "data/ (tree sync, minus cache)"
+	aws s3 sync js/ s3://$(SITE_BUCKET)/js/ --exclude "*.DS_Store" --delete $(CACHE_REVALIDATE) --dryrun --profile $(DEPLOY_PROFILE)
+	aws s3 sync data/ s3://$(SITE_BUCKET)/data/ --exclude "*" --include "*.csv" --include "*.json" --exclude "cache/*" --exclude "*.geojson" --delete --dryrun --profile $(DEPLOY_PROFILE)
 	@grep -v '^\#' deploy-manifest.txt | grep -v '^$$' | while read -r f; do \
 		test -f "$$f" && echo "$$f" || echo "MISSING: $$f"; \
 	done

@@ -13,7 +13,7 @@
 
 import { boundary } from "./data/dataService.js";
 import { escapeHtml } from "./lib/dom.js";
-import { readParams, writeParams } from "./lib/urlState.js";
+import { readParams, writeParams, onChange } from "./lib/urlState.js";
 import { formatNumberOrNA, formatPctWhole, formatPrecinctLabel } from "./lib/format.js";
 import { SOS_ADDRESS_CHANGE_URL } from "./lib/constants.js";
 import {
@@ -78,6 +78,14 @@ function rememberedPrecinct() {
 // The classic two-election propensity split needs a marquee (highest total
 // ballots — e.g. a presidential) and a low-salience file (lowest). With only
 // one file the bands degrade to the single-rate model (chairMetrics notes it).
+//
+// The low-salience file must be a COUNTY-WIDE election. Some turnout files are
+// single-city specials that only reached a fraction of the county (Collin's
+// 2025-3 has ballots in 82 of 273 precincts): every precinct that wasn't on
+// that ballot files a 0/0 row, which would read as "nobody here votes in
+// low-turnout elections" and zero out the chair's Base universe. So a file is
+// only eligible as `low` when it covers most of the county.
+const LOW_SALIENCE_MIN_COVERAGE = 0.9; // share of precincts with any ballots cast
 async function loadTurnoutPair() {
   try {
     const races = await svc.listRaces();
@@ -91,7 +99,10 @@ async function loadTurnoutPair() {
           ballots: +d.ballots_cast,
         }));
         const sum = rows.reduce((s, r) => s + (isNaN(r.ballots) ? 0 : r.ballots), 0);
-        if (sum > 0) loaded.push({ file: f, sum, rows });
+        const coverage = rows.length
+          ? rows.filter((r) => r.ballots > 0).length / rows.length
+          : 0;
+        if (sum > 0) loaded.push({ file: f, sum, coverage, rows });
       } catch { /* skip a bad turnout file */ }
     }
     if (!loaded.length) return null;
@@ -112,7 +123,12 @@ async function loadTurnoutPair() {
       return lookup;
     };
     const marquee = loaded[0];
-    const low = loaded.length > 1 ? loaded[loaded.length - 1] : null;
+    // Lowest-ballot file that still reached the whole county (loaded is sorted
+    // by ballots descending, so the last eligible entry is the quietest one).
+    const eligible = loaded
+      .slice(1)
+      .filter((l) => l.coverage >= LOW_SALIENCE_MIN_COVERAGE);
+    const low = eligible.length ? eligible[eligible.length - 1] : null;
     return {
       marquee: toLookup(marquee.rows),
       marqueeLabel: turnoutFileLabel(marquee.file),
@@ -206,6 +222,18 @@ async function init() {
       select.value = initial;
       selectPrecinct(initial, { push: false });
     }
+
+    // Choosing a precinct pushes a real history entry, so Back has to move the
+    // page too — otherwise the URL says one precinct while the dashboard shows
+    // another, and the next write stamps the wrong code into the shareable
+    // link. Safe against re-entry: writeParams uses replaceState here, which
+    // fires no hashchange.
+    onChange(() => {
+      const code = urlPrecinct();
+      if (!code || code === ch.code) return;
+      select.value = code;
+      selectPrecinct(code, { push: false });
+    });
   } catch (err) {
     console.error("[Chair] load failed:", err);
     $("chair-empty").innerHTML =
@@ -519,7 +547,7 @@ function renderFineprint(bands) {
   ];
   if (bands?.mode === "single") {
     notes.push(
-      "Only one election's turnout file is available, so “rarely votes” can't be separated from “sometimes votes.”"
+      "Only one election's turnout is available for this precinct — either it's the only turnout file on hand, or this precinct had nothing on the low-turnout ballot — so “rarely votes” can't be separated from “sometimes votes.”"
     );
   }
   notes.push(`Boundary set: ${svc.label}.`);

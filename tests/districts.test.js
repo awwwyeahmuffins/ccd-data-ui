@@ -26,8 +26,8 @@ const FEATURES = [
 // with the district trees' "<county>:<precinct>" codes: Collin rows skipped,
 // no-colon rows skipped, empty-party (Over/Under/Write-in) rows skipped,
 // ":ALL" rows fold into county totals only, real precinct rows into both.
-// NOTE: the ported parser is the commandCenter original's naive split(",") —
-// candidate names never contain commas in the pipeline-written district CSVs.
+// NOTE: candidate names DO carry commas in the shipped district files
+// ("Jesse F. McClure, III"), so the parser must be RFC-4180, not split(",").
 const DISTRICT_RACE_CSV = [
   'precinct,party,candidate,votes',
   'collin:1,REP,Alice Smith,100', // collin → skipped entirely
@@ -38,6 +38,8 @@ const DISTRICT_RACE_CSV = [
   'rockwall:ALL,REP,Alice Smith,200',
   'rockwall:ALL,DEM,Bob Jones,300',
   'fannin:ALL,REP,Alice Smith,0', // total 0 → dropped from byCounty
+  'ellis:ALL,REP,"Jesse F. McClure, III",16170', // quoted comma in the name
+  'ellis:ALL,DEM,Bob Jones,6264',
 ].join('\n');
 
 const DISTRICT_MANIFEST = {
@@ -252,6 +254,7 @@ describe('loadDistrictAggregates', () => {
       { county: 'hunt', rep: 10, dem: 4, total: 14, winner: 'Rep' },
       { county: 'rockwall', rep: 200, dem: 300, total: 500, winner: 'Dem' },
       // fannin dropped: total 0; collin + no-colon + empty-party rows skipped
+      { county: 'ellis', rep: 16170, dem: 6264, total: 22434, winner: 'Rep' },
     ]);
 
     expect(byPrecinct).toEqual({
@@ -259,6 +262,15 @@ describe('loadDistrictAggregates', () => {
     });
     // ":ALL" aggregate rows never appear per-precinct
     expect(byPrecinct['rockwall:ALL']).toBeUndefined();
+  });
+
+  it('keeps votes on candidate names containing a comma (no split(",") shift)', async () => {
+    // A naive split(",") reads " III\"" as the votes field for the REP row,
+    // scoring it 0 — Ellis then reports 0 REP / 6,264 DEM and flips to Dem.
+    const { byCounty } = await districts.loadDistrictAggregates('cd-3', 'races/US_Rep_3_2024.csv');
+    const ellis = byCounty.find((c) => c.county === 'ellis');
+    expect(ellis.rep).toBe(16170);
+    expect(ellis.winner).toBe('Rep');
   });
 
   it('memoizes per (slug, raceFile)', async () => {

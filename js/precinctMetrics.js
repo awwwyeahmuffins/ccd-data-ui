@@ -23,8 +23,16 @@ export function buildRecords(features, census, turnout) {
     const rec = { precinct: code };
 
     const reg = t && t.registered != null && !isNaN(t.registered) ? +t.registered : null;
-    const hasParty = p.repShare != null && !isNaN(p.repShare) && !!p.winningParty;
-    const hasRacial = p.pct_white != null && !isNaN(p.pct_white);
+    // Test the CONTENT, not the presence of the field. A precinct with zero
+    // modeled voters still ships repShare 0.0 with winningParty "Rep", and a
+    // precinct with zero counted residents still ships pct_white 0.00 -- both
+    // would pass a presence check and render as real data ("leans Republican",
+    // "100% not white"). dataService drops these rows at the merge for the
+    // 2026 set; this guard is what makes the rule hold for any boundary set.
+    const hasParty =
+      (+p.rep || 0) + (+p.mod || 0) + (+p.dem || 0) > 0 &&
+      p.repShare != null && !isNaN(p.repShare) && !!p.winningParty;
+    const hasRacial = p.pct_white != null && !isNaN(p.pct_white) && (+p.total || 0) > 0;
     // Non-residential artifact: census claims a population but there's no
     // voter-file data at all (no party lean, no racial breakdown) — an
     // uninhabited sliver or commercial strip. That population is an area-weighted

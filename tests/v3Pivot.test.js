@@ -92,21 +92,35 @@ describe('computeWinners', () => {
     expect(rows[1]['Winning Party']).toBe('DEM');
   });
 
-  it('breaks ties by alphabetical column order (first maximum), like the python parser', () => {
+  it('flags an exact tie instead of silently crowning the alphabetical winner', () => {
+    // The first-max pick is kept (blanking it would repaint a real tie as "no
+    // data"), but Tie is what consumers read to say "tied" rather than "DEM won".
     const rows = computeWinners(pivotRace([
       { precinct: '1', party: 'REP', candidate: 'Zeta', votes: '10' },
       { precinct: '1', party: 'DEM', candidate: 'Alpha', votes: '10' },
     ], null));
     expect(rows[0]['Winning Candidate']).toBe('DEM Alpha');
+    expect(rows[0]['Tie']).toBe(true);
   });
 
-  it('on all-zero rows still names the first alphabetical candidate (legacy behavior)', () => {
+  it('does not flag a decided race', () => {
+    const rows = computeWinners(pivotRace([
+      { precinct: '1', party: 'REP', candidate: 'Zeta', votes: '11' },
+      { precinct: '1', party: 'DEM', candidate: 'Alpha', votes: '10' },
+    ], null));
+    expect(rows[0]['Winning Candidate']).toBe('REP Zeta');
+    expect(rows[0]['Tie']).toBe(false);
+  });
+
+  it('on all-zero rows still names the first alphabetical candidate, and is not a tie', () => {
+    // Nobody voted; that is emptiness, not a tied contest.
     const rows = computeWinners(pivotRace([
       { precinct: '1', party: 'REP', candidate: 'B', votes: '0' },
       { precinct: '1', party: 'DEM', candidate: 'A', votes: '0' },
     ], null));
     expect(rows[0]['Winning Candidate']).toBe('DEM A');
     expect(rows[0]['Winning Party']).toBe('DEM');
+    expect(rows[0]['Tie']).toBe(false);
   });
 
   it('excludes Write-in and meta columns from winner computation', () => {

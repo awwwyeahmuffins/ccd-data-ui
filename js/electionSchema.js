@@ -80,7 +80,11 @@ let CSV_SCHEMA = {
     "OVER VOTES",
     "UNDER VOTES",
     "Winning Candidate",
-    "Winning Party"
+    "Winning Party",
+    // Set beside the winner when the top vote count is shared (v3Pivot
+    // computeWinners). Metadata, not a candidate — without this entry
+    // getCandidateColumns() would treat "Tie" as a candidate named "Tie".
+    "Tie"
   ],
   
   /**

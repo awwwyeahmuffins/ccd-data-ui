@@ -44,6 +44,12 @@ export function derivePrecinctMetrics(p, turnout, primary) {
   const demCount = +p.dem || 0;
   const repCount = +p.rep || 0;
   const votes = repCount + (+p.mod || 0) + demCount;
+  // No modeled voters at all = no universe to target. Such a row still carries
+  // repShare 0.0 / winningParty "Rep", so without this it ranks as a perfect
+  // "Rep +0% -- within reach" tossup. NOTE: this is a >0 test, deliberately not
+  // the literal 50 used by explore/campaign/trends -- those floors are on
+  // ballots cast per race, `votes` here is the modeled DNC universe.
+  if (!(votes > 0)) return null;
   const reg = turnout && turnout.registered != null && !isNaN(turnout.registered) ? +turnout.registered : null;
   const bal = turnout && turnout.ballots != null && !isNaN(turnout.ballots) ? +turnout.ballots : null;
   const rate = reg && reg > 0 && bal != null ? bal / reg : null;

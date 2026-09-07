@@ -25,6 +25,7 @@ const META_COLUMNS = new Set([
   'COUNTY NUMBER', 'PRECINCT CODE', 'PRECINCT NAME',
   'REGISTERED VOTERS TOTAL', 'BALLOTS CAST TOTAL', 'BALLOTS CAST BLANK',
   'Write-in', 'OVER VOTES', 'UNDER VOTES', 'Winning Candidate', 'Winning Party',
+  'Tie',
 ]);
 
 /**
@@ -104,6 +105,14 @@ export function pivotRace(longRows, turnoutRows) {
  * (excluding metadata and Write-in) in ALPHABETICAL order, winner is the FIRST
  * maximum, party is the first whitespace token of the winning column name.
  * Mutates and returns the rows.
+ *
+ * First-max means an exact tie is silently awarded to whichever candidate sorts
+ * first — and because "DEM …" sorts before "REP …", every Rep/Dem tie in the
+ * shipped data reports as a Democratic win. There are 239 such precinct-races.
+ * We keep the first-max pick (blanking the winner would repaint a genuine
+ * 794–794 tie as "no data", a different wrong answer) and set a 'Tie' flag
+ * beside it so the map, the readout and the history record can say "tied"
+ * instead of naming a winner that does not exist.
  */
 export function computeWinners(rows) {
   if (!rows.length) return rows;
@@ -115,16 +124,21 @@ export function computeWinners(rows) {
     if (candidateCols.length === 0) {
       row['Winning Candidate'] = '';
       row['Winning Party'] = '';
+      row['Tie'] = false;
       continue;
     }
     let winner = candidateCols[0];
     let best = Number(row[winner]) || 0;
+    let tied = false;
     for (const col of candidateCols.slice(1)) {
       const v = Number(row[col]) || 0;
-      if (v > best) { best = v; winner = col; }
+      if (v > best) { best = v; winner = col; tied = false; }
+      else if (v === best) { tied = true; }
     }
     row['Winning Candidate'] = winner;
     row['Winning Party'] = winner.split(/\s+/)[0] || '';
+    // A precinct where nobody got a vote is empty, not tied.
+    row['Tie'] = tied && best > 0;
   }
   return rows;
 }

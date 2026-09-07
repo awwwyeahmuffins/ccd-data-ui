@@ -36,7 +36,7 @@ const SKIP_KEYS = new Set([
   'COUNTY NUMBER', 'PRECINCT CODE', 'PRECINCT NAME',
   'REGISTERED VOTERS TOTAL', 'BALLOTS CAST TOTAL', 'BALLOTS CAST BLANK',
   'OVER VOTES', 'UNDER VOTES', 'Write-in',
-  'Winning Candidate', 'Winning Party'
+  'Winning Candidate', 'Winning Party', 'Tie'
 ]);
 
 /**
@@ -88,6 +88,7 @@ export function getPrecinctResult(electionData, precinctCode) {
     precinctCode: codeStr,
     winner: record['Winning Candidate'] || 'N/A',
     winningParty: record['Winning Party'] || 'N/A',
+    tie: record['Tie'] === true,
     totalVotes: candidateVotes,
     registeredVoters: Number(record['REGISTERED VOTERS TOTAL']) || 0
   };
@@ -146,6 +147,7 @@ export function getPrecinctCandidateData(electionData, precinctCode) {
     registeredVoters: Number(record['REGISTERED VOTERS TOTAL']) || 0,
     winner: record['Winning Candidate'] || 'N/A',
     winningParty: record['Winning Party'] || 'N/A',
+    tie: record['Tie'] === true,
   };
 }
 
@@ -187,7 +189,7 @@ export function buildVotingHistory(precinctCode, allElectionData) {
   
   let races = [];
   let byCategory = {};
-  let partyRecord = { Rep: 0, Dem: 0, Other: 0 };
+  let partyRecord = { Rep: 0, Dem: 0, Other: 0, Tied: 0 };
   
   for (const [filename, electionData] of Object.entries(allElectionData)) {
     let result = getPrecinctResult(electionData, precinctCode);
@@ -208,12 +210,16 @@ export function buildVotingHistory(precinctCode, allElectionData) {
       }
       byCategory[category].push(raceInfo);
       
-      // Track party wins
-      const party = result.winningParty;
+      // Track party wins. An exact tie is not a win for anybody — counting it
+      // as one (first-max hands every Rep/Dem tie to DEM) would overstate the
+      // Democratic record in this precinct's history.
+      const party = result.tie ? null : result.winningParty;
       if (party === 'REP' || party === 'Rep') {
         partyRecord.Rep++;
       } else if (party === 'DEM' || party === 'Dem') {
         partyRecord.Dem++;
+      } else if (result.tie) {
+        partyRecord.Tied++;
       } else {
         partyRecord.Other++;
       }

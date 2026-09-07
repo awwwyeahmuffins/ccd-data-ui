@@ -85,6 +85,10 @@ export function describePrecinct(p, ctx = {}) {
   if (ctx.race) {
     const r = ctx.race.byPrecinct?.[code];
     if (!r || r.total === 0 || !r.winner) return `${prefix} — not on this ballot`;
+    // Exact tie: there is no winner to name. This one sentence is reused
+    // verbatim by the polygon aria-label, the tap readout and the List view,
+    // so none of them can claim a winner the others call tied.
+    if (r.tie) return `${prefix} — tied · ${Number(r.total).toLocaleString()} votes`;
     const who = ctx.race.partisan === false ? r.winnerName || r.winner : partyName(r.winner);
     const bin = MARGIN_BINS[binIndex(r.margin, MARGIN_BINS)];
     return `${prefix} — ${who} won by ${pctPts(r.margin)} (${bin.name.toLowerCase()}) · ${Number(r.total).toLocaleString()} votes`;

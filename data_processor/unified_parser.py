@@ -34,7 +34,8 @@ CANONICAL_META_COLS = [
     'OVER VOTES',
     'UNDER VOTES',
     'Winning Candidate',
-    'Winning Party'
+    'Winning Party',
+    'Tie'
 ]
 
 
@@ -548,10 +549,21 @@ def compute_winning_candidate(df: pd.DataFrame) -> pd.DataFrame:
     if not candidate_cols:
         df['Winning Candidate'] = None
         df['Winning Party'] = None
+        df['Tie'] = False
         return df
     
-    # Find winning candidate (max votes)
+    # Find winning candidate (max votes). idxmax returns the FIRST maximum, so
+    # an exact tie is silently awarded to whichever candidate column comes
+    # first -- and "DEM ..." precedes "REP ...", so every Rep/Dem tie would be
+    # recorded as a Democratic win. Keep the first-max pick (a blank winner
+    # would read downstream as "no data", a different wrong answer) and flag
+    # the tie beside it. Mirrors js/v3Pivot.computeWinners.
     df['Winning Candidate'] = df[candidate_cols].idxmax(axis=1)
+
+    row_max = df[candidate_cols].max(axis=1)
+    at_max = df[candidate_cols].eq(row_max, axis=0).sum(axis=1)
+    # A precinct where nobody got a vote is empty, not tied.
+    df['Tie'] = (at_max > 1) & (row_max > 0)
     
     # Extract party from candidate name (first token)
     def extract_party(candidate):

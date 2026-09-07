@@ -67,6 +67,9 @@ export function raceFill(p, env) {
     const bin = marginBin(r.margin || 0);
     return patternFill(env.svg, "dots", bin, RAMPS.nonpartisan[bin]);
   }
+  // An exact tie has no winning party to colour by — filling it Rep or Dem
+  // would assert a result that did not happen. Neutral, like a nonpartisan race.
+  if (r.tie) return patternFill(env.svg, "dots", 2, RAMPS.nonpartisan[2]);
   const bg = PARTY_COLORS[r.winner] || PARTY_COLORS.default;
   return patternFill(env.svg, partyKind(r.winner), 2, bg);
 }

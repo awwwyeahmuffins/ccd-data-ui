@@ -15,7 +15,7 @@
 // (the lead deletes those when migrating commandCenter). All fetches are
 // memoized with the no-cached-rejections rule (see dataService.memoize).
 
-import { memoize, normalizeManifest } from "./dataService.js";
+import { memoize, normalizeManifest, parseCSVLine } from "./dataService.js";
 
 /** The 12 Collin-touching districts we keep data for (data/tx/districts/). */
 export const DISTRICT_LIST = Object.freeze([
@@ -149,7 +149,10 @@ export function loadDistrictAggregates(slug, raceFile) {
       const agg = {};       // countySlug -> running county total
       const pre = {};       // full code "hunt:101" -> { rep, dem, total }
       for (let i = 1; i < lines.length; i++) {
-        const c = lines[i].split(",");
+        // RFC-4180 parse, not split(","): candidate names DO carry commas in
+        // the shipped district files (e.g. "Jesse F. McClure, III") and a naive
+        // split shifted votes out of c[3] — 70k votes dropped, Ellis flipped.
+        const c = parseCSVLine(lines[i]);
         const pc = c[0];
         // Fold in every non-Collin row — whether a collapsed "<county>:ALL" total
         // or real "<county>:<precinct>" rows (e.g. Hunt's official Clarity data) —

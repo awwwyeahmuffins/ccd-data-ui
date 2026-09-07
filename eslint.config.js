@@ -38,6 +38,12 @@ const browserGlobals = {
 };
 
 export default [
+  {
+    // Vendored third-party bundles (Leaflet, D3, the Cognito ESM build) are not
+    // ours to lint — without this, `make lint`'s recursive scan of js/ is
+    // permanently red on hundreds of errors from code we never edit.
+    ignores: ['js/vendor/**'],
+  },
   js.configs.recommended,
   {
     files: ['js/**/*.js'],
@@ -47,7 +53,12 @@ export default [
       globals: browserGlobals,
     },
     rules: {
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      'no-unused-vars': ['warn', {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        // `catch (_)` is the codebase's deliberate "this failure is the answer" idiom
+        caughtErrorsIgnorePattern: '^_',
+      }],
     },
   },
   {
@@ -138,7 +149,12 @@ export default [
       },
     },
     rules: {
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      'no-unused-vars': ['warn', {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        // `catch (_)` is the codebase's deliberate "this failure is the answer" idiom
+        caughtErrorsIgnorePattern: '^_',
+      }],
     },
   },
 ];

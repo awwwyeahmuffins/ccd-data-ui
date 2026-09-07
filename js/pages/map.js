@@ -766,7 +766,15 @@ function precinctRaceResult(row) {
   }
   const winner = total > 0 ? row["Winning Party"] || null : null;
   const margin = total > 0 ? (topV - Math.max(0, secondV)) / total : 0;
-  return { total, rep, dem, winner, winnerName: total > 0 ? row["Winning Candidate"] : null, margin };
+  // An exact tie still carries a "Winning Party" (first-max keeps the map from
+  // going blank), but naming a winner would be a false statement about the
+  // result — so callers check `tie` before they say who won.
+  const tie = total > 0 && row["Tie"] === true;
+  return {
+    total, rep, dem, winner,
+    winnerName: total > 0 ? row["Winning Candidate"] : null,
+    margin, tie,
+  };
 }
 
 async function populateRaceMenu() {

@@ -26,15 +26,20 @@ import { formatNumber } from "../lib/format.js";
 // The marquee's registered count is the denominator throughout (the most
 // recent snapshot); bands are clamped to [0,1] and renormalized because the
 // two files' registration snapshots come from different years.
-// With only one turnout file, degrades to the single-rate model (mode
-// "single"): high = rate, mid = 1 − rate, low = 0.
+// With only one turnout file — or when the low-salience election didn't reach
+// this precinct at all (row absent, or registered 0, which is how a partial
+// election files a precinct that had nothing on its ballot) — the low-salience
+// row is UNKNOWN, not zero, and the bands degrade to the single-rate model
+// (mode "single"): high = rate, mid = 1 − rate, low = 0. Asserting high = 0
+// from a 0/0 row would tell a chair their Base universe is empty.
 export function turnoutBands({ marquee, lowSalience } = {}) {
   const reg = toCount(marquee?.registered);
   const marqueeBallots = toCount(marquee?.ballots);
   if (reg == null || reg <= 0 || marqueeBallots == null) return null;
 
   const marqueeRate = clamp01(marqueeBallots / reg);
-  const lowBallots = toCount(lowSalience?.ballots);
+  const lowReg = toCount(lowSalience?.registered);
+  const lowBallots = lowReg != null && lowReg > 0 ? toCount(lowSalience?.ballots) : null;
 
   let high, mid, low, mode;
   if (lowBallots == null) {
