@@ -23,7 +23,9 @@ describe('buildCountyBriefing', () => {
   it('writes a plain-language headline with direction and competitiveness', () => {
     const b = buildCountyBriefing(SAMPLE, { countyName: 'Collin' });
     expect(b.headline).toContain('Collin County leans Republican by 4 points');
-    expect(b.headline).toContain('2 of 4 precincts were decided by under 10 points');
+    // Not "decided by": these are modeled partisan splits, not vote counts.
+    expect(b.headline).toContain('2 of 4 precincts are modeled within 10 points');
+    expect(b.headline).not.toContain('decided by');
   });
 
   it('keeps the e2e-locked sub format ("N precincts · M with party data")', () => {

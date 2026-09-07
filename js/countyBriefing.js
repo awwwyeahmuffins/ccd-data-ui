@@ -61,7 +61,8 @@ export function buildCountyBriefing(features, { countyName = "This county", isDi
         : gap > 0
           ? `leans Republican by ${Math.round(gap * 100)} points`
           : `leans Democratic by ${Math.round(-gap * 100)} points`;
-    headline = `${label} ${direction}. ${competitive} of ${c.total} precincts were decided by under 10 points.`;
+    // "decided by" would claim a vote; this is the modeled partisan split.
+    headline = `${label} ${direction}. ${competitive} of ${c.total} precincts are modeled within 10 points.`;
   }
 
   const lean =

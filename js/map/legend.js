@@ -10,12 +10,27 @@
 
 import { escapeHtml } from "../lib/dom.js";
 import { PARTY_COLORS, PARTY_STRENGTH_COLORS } from "../lib/constants.js";
-import { RAMPS, legendBins } from "./mapBins.js";
-import { patternFill, swatchSVG } from "./mapPatterns.js";
+import { RAMPS, legendBins, STRENGTH_WORDS } from "./mapBins.js";
+import { patternFill, swatchSVG, partyKind } from "./mapPatterns.js";
 import { MAP_COSMETICS, PRIMARY_YEAR, notOnBallotFill } from "./mapStyles.js";
 
 function legendRow(fill, label) {
   return `<div class="cc-legend-row">${swatchSVG(fill)}<span>${label}</span></div>`;
+}
+
+// One row per (party, strength) exactly as leanFill paints it — same
+// patternFill call, same colour ramp — so a level can never exist on the map
+// without a swatch. The legend receives no precinct data, so it cannot know
+// which levels occur and must show all three.
+function strengthRows(svg, party, label) {
+  const ramp = PARTY_STRENGTH_COLORS[party];
+  if (!ramp) return "";
+  return [3, 2, 1]
+    .map((lvl) => legendRow(
+      patternFill(svg, partyKind(party), lvl, ramp[lvl] || ramp.default),
+      `${escapeHtml(STRENGTH_WORDS[lvl])} ${escapeHtml(label)}`.replace(/^./, (c) => c.toUpperCase())
+    ))
+    .join("");
 }
 
 function binRows(kind, ramp, svg) {
@@ -46,38 +61,35 @@ export function legendHTML(env) {
       ${legendRow(patternFill(svg, "horiz", 2, PARTY_COLORS.Dem), "Democratic win")}
       ${legendRow(patternFill(svg, "dots", 2, PARTY_COLORS.Mod || "#800080"), "Other / Moderate win")}
       ${notBallotRow}
-      ${env.hasOtherPrecinctLayer ? legendRow(patternFill(svg, "diag", 2, PARTY_COLORS.Rep), "Other county · precinct-level") : ""}
+      ${env.hasOtherPrecinctLayer ? `<p class="cc-legend-desc">Precincts outside Collin use the same party colors as Collin's — shown at precinct-level where we have their geometry.</p>` : ""}
       ${env.hasOtherLayer ? `<div class="cc-legend-row"><span class="cc-legend-sw cc-sw-dash"></span><span>County total (dashed outline)</span></div>` : ""}
       <p class="cc-legend-desc">Showing one race — tap Lean, Margin, or Diversity above to go back to the county overview.</p>`;
   }
   if (env.mode === "lean") {
-    const P = PARTY_STRENGTH_COLORS;
+    // The default view. It used to show strength 3 and 1 only, while leanFill
+    // paints a distinct colour and density for level 2 as well — 46% of
+    // precincts had no swatch, and Moderate had exactly one for three levels.
     return `
       <div class="cc-legend-title">Party Lean</div>
-      <p class="cc-legend-desc">Which party each precinct usually favors. Denser stripes = stronger habit.</p>
-      ${legendRow(patternFill(svg, "diag", 3, P.Rep[3]), "Strong Republican")}
-      ${legendRow(patternFill(svg, "diag", 1, P.Rep[1]), "Slight Republican")}
-      ${legendRow(patternFill(svg, "horiz", 1, P.Dem[1]), "Slight Democratic")}
-      ${legendRow(patternFill(svg, "horiz", 3, P.Dem[3]), "Strong Democratic")}
-      ${legendRow(patternFill(svg, "dots", 2, P.Mod ? P.Mod[2] : "#B19CD9"), "Moderate / mixed")}
+      <p class="cc-legend-desc">Which party each precinct usually favors, from a model of its voters — not a vote count. Denser stripes = stronger habit.</p>
+      ${strengthRows(svg, "Rep", "Republican")}
+      ${strengthRows(svg, "Dem", "Democratic")}
+      ${strengthRows(svg, "Mod", "Moderate / mixed")}
       ${noDataRow}`;
   }
   if (env.mode === "margin") {
     return `
-      <div class="cc-legend-title">Victory Margin</div>
-      <p class="cc-legend-desc">How close the vote was, in percentage points. Denser dots = more lopsided.</p>
+      <div class="cc-legend-title">Modeled Party Split</div>
+      <p class="cc-legend-desc">How far apart the model puts the two parties, in percentage points — not a vote count. Pick a race above to map that race's real results. Denser dots = more lopsided.</p>
       ${binRows("margin", RAMPS.margin, svg)}
       ${noDataRow}`;
   }
   if (env.mode === "primary") {
-    const P = PARTY_STRENGTH_COLORS;
     return `
       <div class="cc-legend-title">${PRIMARY_YEAR} Primary Ballots</div>
       <p class="cc-legend-desc">Which party's ${PRIMARY_YEAR} primary drew more voters here. Denser stripes = more one-sided. Source: official county reports.</p>
-      ${legendRow(patternFill(svg, "diag", 3, P.Rep[3]), "Strongly Republican primary")}
-      ${legendRow(patternFill(svg, "diag", 1, P.Rep[1]), "Slightly Republican primary")}
-      ${legendRow(patternFill(svg, "horiz", 1, P.Dem[1]), "Slightly Democratic primary")}
-      ${legendRow(patternFill(svg, "horiz", 3, P.Dem[3]), "Strongly Democratic primary")}
+      ${strengthRows(svg, "Rep", "Republican primary")}
+      ${strengthRows(svg, "Dem", "Democratic primary")}
       ${noDataRow}`;
   }
   return `

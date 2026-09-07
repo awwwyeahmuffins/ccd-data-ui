@@ -76,6 +76,23 @@ describe('describePrecinct', () => {
     expect(s).toContain('5–15 points');
   });
 
+  it('margin mode does not claim an election result (it is a model)', () => {
+    // This mode reads dnc_scores.csv, a MODEL of partisan makeup. "decided by"
+    // described a vote that never happened.
+    const s = describePrecinct(p, { mode: 'margin' });
+    expect(s).toContain('modeled');
+    expect(s).not.toMatch(/decided by|won by/);
+  });
+
+  it('never prints a number that contradicts the bin it names', () => {
+    // 4.9 points bins as "under 5 points" but rounds to "5 points" — the fill
+    // is computed from the unrounded value, so the words would fight the map.
+    const edge = { PRECINCT: '7', demShare: 0.5245, repShare: 0.4755 }; // 4.9 pts
+    const s = describePrecinct(edge, { mode: 'margin' });
+    expect(s).toContain('4.9 points');
+    expect(s).toContain('under 5 points');
+  });
+
   it('diversity mode: percentage of residents', () => {
     expect(describePrecinct(p, { mode: 'diversity' })).toBe('Precinct 42 — 38% of residents are not white');
   });

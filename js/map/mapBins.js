@@ -65,7 +65,18 @@ export const partyName = (p) => PARTY_NAMES[p] || p || "Unknown";
 
 export const STRENGTH_WORDS = { 1: "slight", 2: "solid", 3: "strong" };
 
-const pctPts = (v) => `${Math.round(Math.abs(v) * 100)} points`;
+// Rounding to whole points can print a number that contradicts the bin the
+// FILL used: 0.049 bins as "under 5 points" but prints as "5 points". The fill
+// is computed from the unrounded value (mapStyles), so re-binning the rounded
+// number would make the map and its text disagree — show a decimal instead.
+const pctPts = (v, bins) => {
+  const abs = Math.abs(v);
+  const whole = Math.round(abs * 100);
+  if (bins && binIndex(abs, bins) !== binIndex(whole / 100, bins)) {
+    return `${(abs * 100).toFixed(1)} points`;
+  }
+  return `${whole} points`;
+};
 const pct = (v) => `${Math.round(v * 100)}%`;
 
 // ---------------------------------------------------------------------------
@@ -91,14 +102,18 @@ export function describePrecinct(p, ctx = {}) {
     if (r.tie) return `${prefix} — tied · ${Number(r.total).toLocaleString()} votes`;
     const who = ctx.race.partisan === false ? r.winnerName || r.winner : partyName(r.winner);
     const bin = MARGIN_BINS[binIndex(r.margin, MARGIN_BINS)];
-    return `${prefix} — ${who} won by ${pctPts(r.margin)} (${bin.name.toLowerCase()}) · ${Number(r.total).toLocaleString()} votes`;
+    return `${prefix} — ${who} won by ${pctPts(r.margin, MARGIN_BINS)} (${bin.name.toLowerCase()}) · ${Number(r.total).toLocaleString()} votes`;
   }
 
   if (ctx.mode === "margin") {
-    if (p.demShare == null || isNaN(p.demShare)) return `${prefix} — no margin data (N/A)`;
+    // NOT an election result. This mode reads dnc_scores.csv — a MODEL of each
+    // precinct's partisan makeup — so "decided by N points" was a false
+    // statement about a vote that never happened. Say what it is. (When a race
+    // IS selected the branch above runs instead, on real counted votes.)
+    if (p.demShare == null || isNaN(p.demShare)) return `${prefix} — no modeled party data (N/A)`;
     const m = Math.abs(p.demShare - p.repShare);
     const bin = MARGIN_BINS[marginBin(m)];
-    return `${prefix} — decided by ${pctPts(m)}: ${bin.name.toLowerCase()} (${bin.range})`;
+    return `${prefix} — modeled split ${pctPts(m, MARGIN_BINS)} apart: ${bin.name.toLowerCase()} (${bin.range})`;
   }
 
   if (ctx.mode === "diversity") {

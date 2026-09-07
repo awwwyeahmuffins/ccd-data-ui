@@ -523,7 +523,7 @@ function renderPrecinctDetail(code) {
     ${raceBlock}
     <div class="cc-pill-row" style="margin-bottom:16px">
       ${hasParty ? `<span class="cc-pill ${p.winningParty === "Rep" ? "rep" : p.winningParty === "Dem" ? "dem" : ""}">Leans ${escapeHtml(partyName(p.winningParty))}</span>` : ""}
-      ${margin != null ? `<span class="cc-pill ${margin < 0.1 ? "gold" : ""}">${margin < 0.1 ? "Competitive" : "Safe"} · decided by ${fmtPct(margin)}</span>` : ""}
+      ${margin != null ? `<span class="cc-pill ${margin < 0.1 ? "gold" : ""}">${margin < 0.1 ? "Competitive" : "Safe"} · modeled ${fmtPct(margin)} apart</span>` : ""}
     </div>
 
     <div class="cc-stat-grid">
