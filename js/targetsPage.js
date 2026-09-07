@@ -249,13 +249,20 @@ function buildElectionFeatures(results) {
 }
 
 async function applyElection() {
+  // The token must be taken and checked HERE, not by the caller: this function
+  // assigns the shared pg.electionFeatures right after its own await, so a
+  // caller that only checks once applyElection has returned is checking after
+  // the overwrite it means to prevent.
+  const token = ++pg.electionSeq;
   if (!pg.electionId) { pg.electionFeatures = []; return; }
   const entry = pg.elections.find((e) => (e.raceKey || e.filename) === pg.electionId);
   if (!entry) { pg.electionId = ""; pg.electionFeatures = []; return; }
   try {
     const results = await loadElectionResults(entry);
+    if (token !== pg.electionSeq) return; // a later pick already won
     pg.electionFeatures = buildElectionFeatures(results);
   } catch (err) {
+    if (token !== pg.electionSeq) return;
     console.error("[Targets] election scoring failed:", err);
     // Falling back to overall partisan lean is reasonable; doing it silently is
     // not. The select and the hash would still name the race, so the user reads
@@ -571,8 +578,10 @@ async function init() {
   $("tg-election").addEventListener("change", async (e) => {
     pg.electionId = e.target.value;
     updateURL();
-    // A slow earlier pick must not overwrite a later one's features.
-    const t = ++pg.electionSeq;
+    // applyElection takes and checks its own token (it is the function that
+    // writes the shared state); after it resolves, only the newest call should
+    // re-render.
+    const t = pg.electionSeq + 1;
     await applyElection();
     if (t !== pg.electionSeq) return;
     // applyElection clears electionId on failure — resync the select and the

@@ -68,11 +68,21 @@ export const STRENGTH_WORDS = { 1: "slight", 2: "solid", 3: "strong" };
 // number would make the map and its text disagree — show a decimal instead.
 const pctPts = (v, bins) => {
   const abs = Math.abs(v);
-  const whole = Math.round(abs * 100);
-  if (bins && binIndex(abs, bins) !== binIndex(whole / 100, bins)) {
-    return `${(abs * 100).toFixed(1)} points`;
+  const pts = abs * 100;
+  if (!bins) return `${Math.round(pts)} points`;
+
+  // The printed number must land in the same bin as the value the FILL was
+  // computed from, or the sentence contradicts itself ("5 points: very close
+  // (under 5 points)"). More precision alone does not fix it — 4.999 rounds to
+  // "5.0" at one decimal and "5.00" at two — so try rounding at increasing
+  // precision and, if every rounding still crosses the edge, floor toward the
+  // bin instead. Flooring can understate by <0.1pt; contradicting cannot.
+  const target = binIndex(abs, bins);
+  for (const dp of [0, 1, 2]) {
+    const shown = Number(pts.toFixed(dp));
+    if (binIndex(shown / 100, bins) === target) return `${shown} points`;
   }
-  return `${whole} points`;
+  return `${Math.floor(pts * 10) / 10} points`;
 };
 const pct = (v) => `${Math.round(v * 100)}%`;
 

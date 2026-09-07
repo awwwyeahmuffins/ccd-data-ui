@@ -151,6 +151,14 @@ export function renderDataTable({
 } = {}) {
   const columns = applyPinning(rawColumns);
   if (head) {
+    // Sorting re-renders the header, which destroys the very button the user
+    // just activated — dropping keyboard focus to <body>, so a keyboard user
+    // could sort once and then had to tab back from the top of the page. Note
+    // which column had focus and restore it after the swap.
+    const focusedCol = head.contains(document.activeElement)
+      ? document.activeElement.closest("th[data-col]")?.dataset.col
+      : null;
+
     head.innerHTML = columns.map((c) => headerCellHTML(c, sort)).join("");
     if (onSort) {
       head.querySelectorAll("th[data-col]").forEach((th) => {
@@ -158,6 +166,16 @@ export function renderDataTable({
         if (!col || col.sortable === false) return;
         th.addEventListener("click", (event) => onSort(col.id, event));
       });
+    }
+
+    if (focusedCol) {
+      // Match on dataset rather than building a selector — column ids come from
+      // callers and would need escaping to be safe in one.
+      for (const th of head.querySelectorAll("th[data-col]")) {
+        if (th.dataset.col !== focusedCol) continue;
+        th.querySelector(".th-sort")?.focus();
+        break;
+      }
     }
   }
 

@@ -60,6 +60,7 @@ export function legendHTML(env) {
       ${legendRow(patternFill(svg, "diag", 2, PARTY_COLORS.Rep), "Republican win")}
       ${legendRow(patternFill(svg, "horiz", 2, PARTY_COLORS.Dem), "Democratic win")}
       ${legendRow(patternFill(svg, "dots", 2, PARTY_COLORS.Mod || "#800080"), "Other / Moderate win")}
+      ${legendRow(patternFill(svg, "dots", 2, RAMPS.nonpartisan[2]), "Tied — no winner")}
       ${notBallotRow}
       ${env.hasOtherPrecinctLayer ? `<p class="cc-legend-desc">Precincts outside Collin use the same party colors as Collin's — shown at precinct-level where we have their geometry.</p>` : ""}
       ${env.hasOtherLayer ? `<div class="cc-legend-row"><span class="cc-legend-sw cc-sw-dash"></span><span>County total (dashed outline)</span></div>` : ""}

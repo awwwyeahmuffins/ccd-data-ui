@@ -675,6 +675,13 @@ export function generateVotingHistoryHTML(history, calcTurnout) {
   html += `<span class="party-win rep" title="Republican wins">Rep: ${history.partyRecord.Rep}</span>`;
   html += `<span class="party-win dem" title="Democrat wins">Dem: ${history.partyRecord.Dem}</span>`;
   html += `<span class="party-win other" title="Other party wins">Other: ${history.partyRecord.Other}</span>`;
+  // Ties are counted separately (an exact tie is nobody's win) but must still be
+  // SHOWN, or the record silently drops races and Rep+Dem+Other stops summing to
+  // the number of races listed below it. Hidden only when there are none, so the
+  // common precinct is unchanged.
+  if (history.partyRecord.Tied > 0) {
+    html += `<span class="party-win other" title="Races that ended in an exact tie">Tied: ${history.partyRecord.Tied}</span>`;
+  }
   html += '</div>';
 
   // Grouped by category

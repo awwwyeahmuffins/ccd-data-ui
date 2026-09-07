@@ -32,7 +32,7 @@ import {
   categorizeRace,
 } from "./domain/history.js";
 import { createMiniMap } from "./map/mapView.js";
-import { readParams, writeParams } from "./lib/urlState.js";
+import { readParams, writeParams, onChange } from "./lib/urlState.js";
 import { exportAsPDF, exportAsMarkdown } from "./precinctExport.js";
 import {
   loadOnePagerData,
@@ -103,6 +103,18 @@ export async function initPrecinctLookup() {
   // Light-only since June 2026 — clear any stale dark-theme preference
   document.documentElement.removeAttribute("data-theme");
   try { localStorage.removeItem("ccd_theme"); } catch (_) { /* ignore */ }
+
+  // Selecting a precinct pushes a real history entry (writeParams with
+  // replace:false at the end of selectPrecinct), so Back has to move the page
+  // too. Without this the URL says one precinct while the report shows another,
+  // and the next tab click stamps that wrong code into the shareable link.
+  // Re-entrancy is safe: every other write here uses replaceState, which fires
+  // no hashchange.
+  onChange(() => {
+    const code = parseHash().precinct;
+    if (!code || String(code) === String(currentPrecinctCode)) return;
+    selectPrecinct(code);
+  });
 
   // Search input
   let searchInput = document.getElementById("precinct-search");
@@ -1841,6 +1853,9 @@ function renderElectionHistory(votingHistory, precinctCode, allElectionData) {
   html += `<span class="pr-item rep">Rep: ${pr.Rep}</span>`;
   html += `<span class="pr-item dem">Dem: ${pr.Dem}</span>`;
   html += `<span class="pr-item other">Other: ${pr.Other}</span>`;
+  // An exact tie is nobody's win, but it still has to appear or the counts stop
+  // summing to the races listed beneath them.
+  if (pr.Tied > 0) html += `<span class="pr-item other">Tied: ${pr.Tied}</span>`;
 
   // Win streak badge
   let streak = computeWinStreak(votingHistory);

@@ -4,7 +4,7 @@
 // the other leaves precincts on the map with no swatch to read them by.
 import { describe, it, expect, beforeEach } from '@jest/globals';
 import { legendHTML } from '../js/map/legend.js';
-import { leanFill } from '../js/map/mapStyles.js';
+import { leanFill, raceFill } from '../js/map/mapStyles.js';
 import { PARTY_STRENGTH_COLORS } from '../js/lib/constants.js';
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -77,6 +77,15 @@ describe('legendHTML — race mode', () => {
 
   const env = (extra) => ({
     svg, raceId: 'r', race: { label: 'Governor 2022', partisan: true }, ...extra,
+  });
+
+  it('carries a swatch for the tie fill the map paints', () => {
+    // The tie fill was added to raceFill without a legend row — a colour on the
+    // map with no key, which is the exact defect the Lean legend rework removed.
+    const tied = { svg, raceId: 'r', race: { label: 'R', partisan: true,
+      byPrecinct: { 1: { total: 100, winner: 'Dem', margin: 0, tie: true } } } };
+    const fill = raceFill({ PRECINCT: '1' }, tied);
+    expect(legendHTML(tied)).toContain(fill);
   });
 
   it('does not give out-of-county precincts a swatch identical to a Rep win', () => {

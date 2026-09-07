@@ -162,6 +162,29 @@ describe('sort indicator + click-to-sort', () => {
     expect(onSort).toHaveBeenCalledWith('votes', expect.objectContaining({ shiftKey: true }));
   });
 
+  it('keeps keyboard focus on the column just sorted, across the re-render', () => {
+    // Sorting replaces head.innerHTML, destroying the button the user activated.
+    // Without restoring focus it fell to <body>, so a keyboard user could sort
+    // once and then had to tab back from the top of the page.
+    const { head, body } = makeTable();
+    const render = (sort) => renderDataTable({ head, body, columns: COLUMNS, rows: ROWS, sort, onSort: () => {} });
+    render(null);
+    const btn = head.querySelector('th[data-col="votes"] .th-sort');
+    btn.focus();
+    expect(document.activeElement).toBe(btn);
+
+    render({ key: 'votes', dir: 'desc' }); // what onSort triggers
+    const after = head.querySelector('th[data-col="votes"] .th-sort');
+    expect(after).not.toBe(btn);            // genuinely a new element
+    expect(document.activeElement).toBe(after);
+  });
+
+  it('does not steal focus when the header was not focused', () => {
+    const { head, body } = makeTable();
+    renderDataTable({ head, body, columns: COLUMNS, rows: ROWS, onSort: () => {} });
+    expect(document.activeElement).not.toBe(head.querySelector('.th-sort'));
+  });
+
   it('sizes the sort button against the padding box, so headers stay over their column', () => {
     // The app sets `* { box-sizing: border-box }`. Under it, `width: 100%` on
     // this button is the th's CONTENT width, and the negative margins then

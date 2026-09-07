@@ -85,12 +85,26 @@ describe('describePrecinct', () => {
   });
 
   it('never prints a number that contradicts the bin it names', () => {
-    // 4.9 points bins as "under 5 points" but rounds to "5 points" — the fill
-    // is computed from the unrounded value, so the words would fight the map.
-    const edge = { PRECINCT: '7', demShare: 0.5245, repShare: 0.4755 }; // 4.9 pts
-    const s = describePrecinct(edge, { mode: 'margin' });
-    expect(s).toContain('4.9 points');
-    expect(s).toContain('under 5 points');
+    // The fill is computed from the unrounded value, so a printed number that
+    // rounds across the bin edge makes the sentence fight the map. Extra
+    // precision alone does not fix it: 4.999 rounds to "5.0" at one decimal and
+    // "5.00" at two, so the formatter must floor toward the bin.
+    for (const pts of [4.9, 4.95, 4.98, 4.999, 14.97, 29.999, 49.995]) {
+      const m = pts / 100;
+      const s = describePrecinct({ PRECINCT: '7', demShare: 0.5 + m / 2, repShare: 0.5 - m / 2 }, { mode: 'margin' });
+      const shown = Number(s.match(/split ([\d.]+) points/)[1]);
+      const range = s.match(/\((.+)\)$/)[1];
+      // the printed number must satisfy the range it is labelled with
+      if (range === 'under 5 points') expect(shown).toBeLessThan(5);
+      if (range === '5–15 points') { expect(shown).toBeGreaterThanOrEqual(5); expect(shown).toBeLessThan(15); }
+      if (range === '15–30 points') { expect(shown).toBeGreaterThanOrEqual(15); expect(shown).toBeLessThan(30); }
+      if (range === '30–50 points') { expect(shown).toBeGreaterThanOrEqual(30); expect(shown).toBeLessThan(50); }
+    }
+  });
+
+  it('still prints a whole number when rounding does not cross a bin edge', () => {
+    const s = describePrecinct({ PRECINCT: '7', demShare: 0.54, repShare: 0.46 }, { mode: 'margin' });
+    expect(s).toContain('8 points');
   });
 
   it('diversity mode: percentage of residents', () => {
