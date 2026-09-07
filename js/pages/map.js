@@ -495,12 +495,18 @@ function renderPrecinctDetail(code) {
   if (cc.raceId && cc.race) {
     const rr = cc.race.byPrecinct[code];
     if (rr && rr.total > 0 && rr.winner) {
+      // An exact tie has no winner to name. The card's headline comes from
+      // describePrecinct, which says "tied" — so naming a winner here would
+      // make the same card contradict itself one line down.
+      const who = rr.tie
+        ? `Tied · ${fmtNum(rr.total)} votes`
+        : `${escapeHtml(rr.winnerName || rr.winner)} won · ${fmtNum(rr.total)} votes`;
       if (cc.race.partisan === false) {
         // No Rep/Dem split to show — lead with the winner and how decisive it was.
         raceBlock = `<div class="cc-section-label">${escapeHtml(cc.race.label)}</div>
           <div class="cc-stat wide" style="margin-bottom:14px">
-            <div class="cc-stat-label">${escapeHtml(rr.winnerName || rr.winner)} won · ${fmtNum(rr.total)} votes</div>
-            <div class="cc-stat-value" style="font-size:18px">+${fmtPct(rr.margin)} margin</div>
+            <div class="cc-stat-label">${who}</div>
+            ${rr.tie ? "" : `<div class="cc-stat-value" style="font-size:18px">+${fmtPct(rr.margin)} margin</div>`}
           </div>`;
       } else {
         const rp = Math.round((rr.rep / rr.total) * 100);
@@ -508,7 +514,7 @@ function renderPrecinctDetail(code) {
         const op = Math.max(0, 100 - rp - dp);
         raceBlock = `<div class="cc-section-label">${escapeHtml(cc.race.label)}</div>
           <div class="cc-stat wide" style="margin-bottom:14px">
-            <div class="cc-stat-label">${escapeHtml(rr.winnerName || rr.winner)} won · ${fmtNum(rr.total)} votes</div>
+            <div class="cc-stat-label">${who}</div>
             ${leanBarHTML(rp, op, dp)}
           </div>`;
       }

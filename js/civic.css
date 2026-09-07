@@ -569,6 +569,15 @@ button.term {
    from the shared gold ring below. */
 .th-sort {
   display: block;
+  /* A button sizes intrinsically even at display:block, so it needs an explicit
+     width to fill the cell. The width must resolve against the PADDING box, not
+     the border box: the app sets `* { box-sizing: border-box }`, under which
+     `width: 100%` is the th's CONTENT width — the negative left margin then
+     shifts the box out while the negative right margin cannot widen a
+     fixed-width box, leaving every right-aligned header label 28px left of its
+     own column's numbers. content-box + the negative margins makes the button
+     span exactly the th, so header text and cell text share a right edge. */
+  box-sizing: content-box;
   width: 100%;
   min-height: 44px;
   margin: -11px -14px;      /* cancel the th's padding so the target fills the cell */

@@ -1,5 +1,6 @@
 // dataTable.test.js — ui/dataTable, the one column-model table renderer.
 // jsdom: renders into real <tr>/<tbody> containers and asserts the DOM.
+import { readFileSync } from 'node:fs';
 import { describe, it, expect, jest } from '@jest/globals';
 import {
   renderDataTable,
@@ -159,6 +160,18 @@ describe('sort indicator + click-to-sort', () => {
     head.querySelector('th[data-col="votes"] button.th-sort')
       .dispatchEvent(new window.MouseEvent('click', { bubbles: true, shiftKey: true }));
     expect(onSort).toHaveBeenCalledWith('votes', expect.objectContaining({ shiftKey: true }));
+  });
+
+  it('sizes the sort button against the padding box, so headers stay over their column', () => {
+    // The app sets `* { box-sizing: border-box }`. Under it, `width: 100%` on
+    // this button is the th's CONTENT width, and the negative margins then
+    // leave every right-aligned header label 28px left of its own numbers
+    // (measured on explore/campaign/trends). content-box is load-bearing.
+    const css = readFileSync(new URL('../js/civic.css', import.meta.url), 'utf8');
+    const start = css.indexOf('.th-sort {');
+    const rule = css.slice(start, css.indexOf('\n}', start));
+    expect(rule).toContain('box-sizing: content-box');
+    expect(rule).toContain('width: 100%');
   });
 
   it('keeps aria-sort on the th, not the button (it is invalid on a button)', () => {
