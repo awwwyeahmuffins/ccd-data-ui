@@ -143,7 +143,8 @@ let CSV_SCHEMA = {
  * Get the set of metadata column names (for efficient lookup)
  * @returns {Set<string>} Set of metadata column names
  */
-export function getMetadataColumnsSet() {
+// Not exported: live only inside this module (getCandidateColumns + ELECTION_META_KEYS).
+function getMetadataColumnsSet() {
   return new Set(CSV_SCHEMA.metadataColumns);
 }
 
@@ -165,62 +166,6 @@ export function getCandidateColumns(headers) {
   }
   let metadataSet = getMetadataColumnsSet();
   return headers.filter(header => !metadataSet.has(header));
-}
-
-/**
- * Extract candidate name from candidate column name
- * Removes the party abbreviation prefix
- * 
- * @param {string} candidateColumn - Candidate column name (e.g., "REP Greg Abbott")
- * @returns {string} Candidate name without party prefix (e.g., "Greg Abbott")
- * 
- * @example
- * extractCandidateName("REP Greg Abbott") // Returns "Greg Abbott"
- * extractCandidateName("DEM Beto O'Rourke") // Returns "Beto O'Rourke"
- */
-export function extractCandidateName(candidateColumn) {
-  if (!candidateColumn || typeof candidateColumn !== 'string') {
-    return '';
-  }
-  
-  // Split by first space and return everything after the party abbreviation
-  let parts = candidateColumn.trim().split(/\s+/);
-  if (parts.length < 2) {
-    return candidateColumn; // Return as-is if no space found
-  }
-  
-  return parts.slice(1).join(' ');
-}
-
-/**
- * Validate that a manifest entry has required fields
- * 
- * @param {Object} entry - Manifest entry to validate
- * @returns {boolean} True if valid, false otherwise
- * 
- * @example
- * validateManifestEntry({ filename: "Governor_2024.csv" }) // Returns true
- * validateManifestEntry({ year: 2024 }) // Returns false (missing filename)
- * validateManifestEntry(null) // Returns false
- */
-export function validateManifestEntry(entry) {
-  if (!entry || typeof entry !== 'object') {
-    return false;
-  }
-  
-  // Check required fields
-  for (const field of ELECTION_MANIFEST_SCHEMA.requiredFields) {
-    if (!(field in entry)) {
-      return false;
-    }
-  }
-  
-  // Validate category if present
-  if (entry.category && !CSV_SCHEMA.validCategories.includes(entry.category)) {
-    return false;
-  }
-  
-  return true;
 }
 
 /**

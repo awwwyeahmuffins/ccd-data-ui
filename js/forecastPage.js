@@ -6,7 +6,7 @@
 // page must not import js/app/* modules (those are coupled to index.html DOM).
 
 import { boundary } from "./data/dataService.js";
-import { getCandidateColumns } from "./electionSchema.js";
+import { getCandidateColumns, getRaceKey } from "./electionSchema.js";
 import { runFullSimulation } from "./domain/simulator.js";
 import { PARTY_COLORS } from "./lib/constants.js";
 import { escapeHtml } from "./lib/dom.js";
@@ -236,7 +236,7 @@ function renderOutcome() {
     `<a class="flip-chip" href="precinct.html#precinct=${encodeURIComponent(code)}">${escapeHtml(formatPrecinctLabel({ PRECINCT: code }))}</a>`).join('')
     + (flippedPrecincts.length > 24 ? `<span class="flip-chip">+${flippedPrecincts.length - 24} more</span>` : '');
 
-  const raceParam = pg.entry.raceKey || pg.entry.filename;
+  const raceParam = getRaceKey(pg.entry);
   el.innerHTML = `
     <div class="outcome-grid">
       <div class="outcome-col">
@@ -269,7 +269,7 @@ function parseURL() {
 
 function updateURL() {
   writeParams({
-    race: pg.entry ? pg.entry.raceKey || pg.entry.filename : null,
+    race: getRaceKey(pg.entry),
   });
 }
 
@@ -288,10 +288,10 @@ async function init() {
     searchInput: $('fc-race-search'),
     listEl: $('fc-race-list'),
     getRaces: () => pg.elections,
-    getSelectedId: () => (pg.entry ? pg.entry.raceKey || pg.entry.filename : null),
+    getSelectedId: () => getRaceKey(pg.entry),
     onPick: (id) => {
       if (!id) return;
-      const e = pg.elections.find((x) => (x.raceKey || x.filename) === id);
+      const e = pg.elections.find((x) => getRaceKey(x) === id);
       if (e) selectRace(e.filename);
     },
     showOverview: false,

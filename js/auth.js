@@ -129,29 +129,6 @@ export function isAuthenticated() {
   });
 }
 
-export function getIdToken() {
-  return new Promise((resolve, reject) => {
-    const user = userPool.getCurrentUser();
-    if (!user) {
-      reject(new Error('No authenticated user'));
-      return;
-    }
-
-    // getSession automatically refreshes expired tokens
-    user.getSession((err, session) => {
-      if (err) {
-        reject(err);
-        return;
-      }
-      if (!session || !session.isValid()) {
-        reject(new Error('Session invalid'));
-        return;
-      }
-      resolve(session.getIdToken().getJwtToken());
-    });
-  });
-}
-
 // ---------------------------------------------------------------------------
 // Auth State Change
 // ---------------------------------------------------------------------------

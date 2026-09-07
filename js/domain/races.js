@@ -368,32 +368,6 @@ export function getCategoryCounts(elections) {
   return counts;
 }
 
-/**
- * Gets list of available years from election manifest
- * @param {Array<Object>} elections - Array of election objects with { filename, year, ... }
- * @returns {Array<number>} Sorted array of unique years (descending)
- */
-export function getAvailableYears(elections) {
-  if (!elections || !Array.isArray(elections)) {
-    return [];
-  }
-
-  let years = new Set();
-  for (let entry of elections) {
-    if (typeof entry === 'object' && entry.year != null) {
-      years.add(entry.year);
-    } else if (typeof entry === 'string') {
-      // Try to extract year from filename
-      let yearMatch = entry.match(/_(\d{4})\.csv$/);
-      if (yearMatch) {
-        years.add(parseInt(yearMatch[1], 10));
-      }
-    }
-  }
-
-  return Array.from(years).sort((a, b) => b - a); // Descending order
-}
-
 // ============================================================================
 // FORMATTING FUNCTIONS
 // ============================================================================

@@ -30,7 +30,7 @@ import {
   updatePrecinctLabels as refreshLabelChips,
 } from "../map/mapView.js";
 import { PARTY_COLORS } from "../lib/constants.js";
-import { ELECTION_META_KEYS } from "../electionSchema.js";
+import { ELECTION_META_KEYS, getRaceKey } from "../electionSchema.js";
 import { escapeHtml } from "../lib/dom.js";
 import { formatPctWhole, formatNumberOrNA } from "../lib/format.js";
 import { readParams, writeParams } from "../lib/urlState.js";
@@ -791,9 +791,9 @@ async function populateRaceMenu() {
       // set) — Collin's own manifest entries win on any overlap.
       try {
         const treeRaces = await listDistrictRaces(cc.district);
-        const have = new Set(collinRaces.map((e) => e.raceKey || e.filename));
+        const have = new Set(collinRaces.map(getRaceKey));
         const extras = treeRaces
-          .filter((e) => !have.has(e.raceKey || e.filename))
+          .filter((e) => !have.has(getRaceKey(e)))
           .map((e) => ({ ...e, _districtTree: cc.district }));
         races = [...collinRaces, ...extras];
       } catch (_) { /* scope extras are optional */ }
@@ -844,7 +844,7 @@ function applyRaceLabel() {
 async function loadRace(raceIdOrEntry) {
   const entry = typeof raceIdOrEntry === "object"
     ? raceIdOrEntry
-    : cc.races.find((e) => (e.raceKey || e.filename) === raceIdOrEntry);
+    : cc.races.find((e) => getRaceKey(e) === raceIdOrEntry);
   if (!entry) return;
   // Every await below is a fetch that can outlive the click that started it.
   // Without a token, picking a race and then clicking Diversity repaints race
@@ -864,7 +864,7 @@ async function loadRace(raceIdOrEntry) {
     if (token !== cc.loadToken) return;
     const byPrecinct = {};
     for (const row of rows) byPrecinct[String(row["PRECINCT CODE"])] = precinctRaceResult(row);
-    cc.raceId = entry.raceKey || entry.filename;
+    cc.raceId = getRaceKey(entry);
     // Keep this race's group open so reopening the picker shows the selection.
     if (cc.racePicker) cc.racePicker.ensureGroupOpen(entry.category);
     cc.race = { id: cc.raceId, label: entry.displayName || entry.office || cc.raceId, byPrecinct,
@@ -1056,11 +1056,6 @@ function renderOtherPrecinctLayer() {
     },
   }).addTo(cc.map);
   decorateOtherPaths();
-}
-
-function restyleOther() {
-  if (cc.otherLayer) cc.otherLayer.eachLayer((l) => l.setStyle(otherStyle(l.feature)));
-  if (cc.otherPrecinctLayer) cc.otherPrecinctLayer.eachLayer((l) => l.setStyle(otherPrecinctStyle(l.feature)));
 }
 
 // Fit the map to the WHOLE district (Collin precincts + the other counties) so a

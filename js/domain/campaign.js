@@ -12,8 +12,6 @@
 
 import { csvEscape } from "../lib/dom.js";
 
-export const CLASSIFICATIONS = Object.freeze(["Persuasion", "Turnout", "Base", "Watch"]);
-
 // Raw votes needed to carry a precinct (or district): 50% of expected ballots
 // plus one. Null-safe: no baseline ballots → no win number.
 export function winNumber(expectedBallots) {

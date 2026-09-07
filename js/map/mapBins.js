@@ -36,9 +36,6 @@ export const DIVERSITY_BINS = [
   { max: Infinity, name: "Over 80%", range: "over 80% non-white" },
 ];
 
-// Non-partisan race decisiveness reuses the margin ranges.
-export const NONPARTISAN_BINS = MARGIN_BINS;
-
 // value (0..1) -> bin index, or -1 for missing data. NaN never bins.
 export function binIndex(value, bins) {
   if (value == null || isNaN(value)) return -1;

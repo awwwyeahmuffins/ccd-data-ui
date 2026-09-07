@@ -152,31 +152,6 @@ export function getPrecinctCandidateData(electionData, precinctCode) {
 }
 
 /**
- * Compute county-wide Dem vote share for a given election.
- * Sums all precincts' Dem votes / total votes.
- * @param {Array} electionData - Array of all precinct records for the race
- * @returns {number} - County-wide Dem vote share (0-1)
- */
-export function computeCountyDemShare(electionData) {
-  if (!Array.isArray(electionData)) return 0;
-
-  let countyDem = 0;
-  let countyTotal = 0;
-
-  for (let record of electionData) {
-    for (let key of Object.keys(record)) {
-      if (SKIP_KEYS.has(key)) continue;
-      let votes = Number(record[key]) || 0;
-      countyTotal += votes;
-      let parsed = parseCandidateColumn(key);
-      if (parsed.party.toLowerCase() === 'dem') countyDem += votes;
-    }
-  }
-
-  return countyTotal > 0 ? countyDem / countyTotal : 0;
-}
-
-/**
  * Build voting history for a precinct across all elections
  * @param {string} precinctCode - Precinct code
  * @param {Object} allElectionData - Map of filename -> election data array
