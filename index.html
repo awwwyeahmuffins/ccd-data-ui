@@ -698,7 +698,10 @@
       <button type="button" class="cc-legend-toggle" id="cc-legend-toggle" aria-expanded="true" aria-controls="cc-legend" hidden>
         Legend <span aria-hidden="true">▸</span>
       </button>
-      <div class="cc-legend" id="cc-legend"></div>
+      <!-- tabindex + name because the legend can scroll (nine Lean rows on a
+           short stage): a scrollable region with no focusable content cannot be
+           scrolled by keyboard at all (WCAG 2.1.1, axe scrollable-region-focusable). -->
+      <div class="cc-legend" id="cc-legend" role="group" aria-label="Map legend" tabindex="0"></div>
 
       <div class="cc-readout" id="cc-readout" aria-live="polite" hidden>
         <button type="button" class="cc-readout-handle" id="cc-readout-handle" aria-label="Drag up for full details, down to dismiss"></button>
