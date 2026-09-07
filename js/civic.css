@@ -559,3 +559,25 @@ button.term {
 }
 .cc-race-group:hover { background: var(--bg-raise); }
 .cc-race-group small { font-family: var(--mono); font-size: 0.889rem; color: var(--ink-faint); white-space: nowrap; }
+
+/* Sortable table headers (js/ui/dataTable.js). The <th> keeps the sticky
+   positioning, the sorted state and aria-sort; this button exists so the sort
+   is reachable by keyboard at all — a <th> with a click listener takes no
+   focus and exposes no role. It fills its cell so the whole header stays a
+   click target, inherits the <th>'s type so nothing shifts visually, and
+   carries the 44px minimum the rest of the app uses. :focus-visible comes
+   from the shared gold ring below. */
+.th-sort {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin: -11px -14px;      /* cancel the th's padding so the target fills the cell */
+  padding: 11px 14px;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+.th-sort:hover { color: var(--color-primary); }

@@ -74,6 +74,7 @@ const cc = {
   races: [],             // this county's race manifest (for the picker)
   raceId: null,          // active race id, or null for demographics
   race: null,            // { id, label, partisan, byPrecinct: { code: {winner,total,margin,...} } }
+  loadToken: 0,          // bumped per race load; a stale load must not paint (see loadRace)
 };
 
 const tm = () => MAP_COSMETICS;
@@ -611,7 +612,11 @@ async function setMode(mode) {
   if (wasRace) {
     cc.raceId = null; cc.race = null; removeOtherLayer(); applyRaceLabel(); updateHash(); // picking a demo mode exits the race
   }
-  document.querySelectorAll(".cc-mode-btn").forEach((b) => b.classList.toggle("active", b.dataset.mode === mode));
+  document.querySelectorAll(".cc-mode-btn").forEach((b) => {
+    const on = b.dataset.mode === mode;
+    b.classList.toggle("active", on);
+    b.setAttribute("aria-pressed", String(on));
+  });
   restyle();
   decorateMapPaths(); // aria-labels follow the new mode
   refreshReadout();
@@ -826,16 +831,14 @@ async function loadTreeRaceRows(slug, entry) {
 // closed headers so the list starts at a readable size.
 function applyRaceLabel() {
   if (cc.racePicker) cc.racePicker.setLabel(cc.race ? cc.race.label : null);
-  // While a race is showing the demographic modes are inactive: mute them
-  // visually AND semantically (picking one still exits the race — allowed).
+  // While a race is showing, the demographic modes are muted VISUALLY only.
+  // They are not disabled: clicking one works and is the only in-map way out of
+  // a loaded race. Marking them aria-disabled told screen-reader users the
+  // Diversity view was unavailable while sighted users clicked it freely — a
+  // false statement about a working control, so it is gone. The buttons carry
+  // real aria-pressed state instead (set in setMode).
   const modes = $("cc-modes");
-  if (modes) {
-    modes.style.opacity = cc.raceId ? "0.45" : "1";
-    modes.querySelectorAll(".cc-mode-btn").forEach((b) => {
-      if (cc.raceId) b.setAttribute("aria-disabled", "true");
-      else b.removeAttribute("aria-disabled");
-    });
-  }
+  if (modes) modes.style.opacity = cc.raceId ? "0.7" : "1";
 }
 
 async function loadRace(raceIdOrEntry) {
@@ -843,6 +846,12 @@ async function loadRace(raceIdOrEntry) {
     ? raceIdOrEntry
     : cc.races.find((e) => (e.raceKey || e.filename) === raceIdOrEntry);
   if (!entry) return;
+  // Every await below is a fetch that can outlive the click that started it.
+  // Without a token, picking a race and then clicking Diversity repaints race
+  // fills and the race legend after the mode switch -- leaving the Diversity
+  // button active, the hash rewritten back to #race=, and the map showing the
+  // race the user just left. Only the newest load is allowed to paint.
+  const token = ++cc.loadToken;
   showLoading(true);
   try {
     // 2026-only app: every race renders on the current (2026) precincts. Older
@@ -852,6 +861,7 @@ async function loadRace(raceIdOrEntry) {
     const rows = entry._districtTree
       ? await loadTreeRaceRows(entry._districtTree, entry)
       : await svc.loadRace(entry);
+    if (token !== cc.loadToken) return;
     const byPrecinct = {};
     for (const row of rows) byPrecinct[String(row["PRECINCT CODE"])] = precinctRaceResult(row);
     cc.raceId = entry.raceKey || entry.filename;
@@ -866,12 +876,16 @@ async function loadRace(raceIdOrEntry) {
     const slug = districtSlugFor(entry);
     if (slug && entry.raceFile) {
       const ex = await loadDistrictAggregates(slug, entry.raceFile);
+      if (token !== cc.loadToken) return;
       cc.race.otherCounties = ex.byCounty;
       cc.race.otherByCounty = Object.fromEntries(ex.byCounty.map((o) => [o.county, o]));
       cc.race.otherPrecincts = ex.byPrecinct;
       if (ex.byCounty.length) {
-        cc.race.otherGeojson = await loadDistrictOutlines(slug);
-        cc.race.precinctGeo = await loadDistrictPrecinctGeo(slug);
+        const outlines = await loadDistrictOutlines(slug);
+        const precinctGeo = await loadDistrictPrecinctGeo(slug);
+        if (token !== cc.loadToken) return;
+        cc.race.otherGeojson = outlines;
+        cc.race.precinctGeo = precinctGeo;
         if (cc.race.precinctGeo) {
           const joined = {}; // countySlug -> Set of precinct codes with both a polygon and a result
           for (const f of cc.race.precinctGeo.features) {
@@ -892,6 +906,7 @@ async function loadRace(raceIdOrEntry) {
         }
       }
     }
+    if (token !== cc.loadToken) return;
     applyRaceLabel();
     updateHash();
     restyle();
@@ -907,12 +922,16 @@ async function loadRace(raceIdOrEntry) {
   } catch (err) {
     console.error("[Command] race load failed:", err);
   } finally {
-    showLoading(false);
+    // A superseded load must not clear the spinner the newest one is still using.
+    if (token === cc.loadToken) showLoading(false);
   }
 }
 
 async function clearRace() {
   if (!cc.raceId) return;
+  // Leaving the race supersedes any load still in flight, or it would paint
+  // the race back over the demographic mode the user just switched to.
+  cc.loadToken++;
   const hadOthers = !!(cc.race && (cc.race.otherGeojson || cc.race.precinctGeo));
   cc.raceId = null; cc.race = null;
   removeOtherLayer();

@@ -65,6 +65,13 @@ let miniMapLayer = null;
 let contextLayer = null;
 let currentReportData = null;
 let currentPrecinctCode = null;
+// Bumped on every precinct selection. The report is assembled across a dozen
+// awaits, so without this, picking precinct 3 and then 212 while 3 is still
+// loading leaves the hero reading 212 while Election History, PVI, strategy,
+// margin trend, turnout gap, talking points and Similar Precincts are all
+// precinct 3's -- and the export takes whichever resolved last. Only the
+// newest selection may write.
+let selectSeq = 0;
 
 // County averages & precinct rankings
 let countyAverages = null;
@@ -437,6 +444,7 @@ async function selectPrecinct(code) {
   let props = feature.properties;
 
   let partyData = dncLookup[String(code)] || null;
+  const token = ++selectSeq;
   let racialData = racialLookup[String(code)] || null;
   let officials = extractOfficials(props);
   let census = censusProfiles ? censusProfiles[String(code)] : null;
@@ -487,14 +495,16 @@ async function selectPrecinct(code) {
     votingHistory = buildVotingHistory(code, allElectionData);
     countyBaselines = await svc.loadCountyBaselines();
   } catch {
-    votingHistory = { races: [], byCategory: {}, partyRecord: { Rep: 0, Dem: 0, Other: 0 } };
+    votingHistory = { races: [], byCategory: {}, partyRecord: { Rep: 0, Dem: 0, Other: 0, Tied: 0 } };
     allElectionData = {};
   }
+  if (token !== selectSeq) return;
   renderElectionHistory(votingHistory, code, allElectionData);
 
   // Compute PVI, strategy, margin trend, turnout gap, talking points, similar precincts async
   let manifest = [];
   try { manifest = await svc.listRaces(); } catch { /* optional */ }
+  if (token !== selectSeq) return;
 
   // True registered-voter count comes from election results, not the DNC file
   updateHeroRegisteredVoters(votingHistory, manifest);
@@ -522,6 +532,7 @@ async function selectPrecinct(code) {
   Promise.all([svc.loadPrecinctRaces(code), svc.listRaces()])
     .then(([allData, manifest]) => buildPrecinctTrend(code, allData, manifest))
     .then(function onTrend(trendData) {
+    if (token !== selectSeq) return;
     let arrow = renderTrendArrow(trendData);
     if (arrow) {
       let heroEl = document.getElementById("hero-section");
@@ -1541,8 +1552,13 @@ function renderMarginTrend(precinctCode, allElectionData, manifest) {
 async function renderTurnoutTrend(precinctCode) {
   const host = document.getElementById('section-election-history');
   if (!host) return;
+  // Own await chain, own staleness check: this writes into a shared section, so
+  // a slow turnout file for the precinct the user just left would otherwise
+  // inject its trend beside the new precinct's history.
+  const token = selectSeq;
   let races;
   try { races = await svc.listRaces(); } catch { return; }
+  if (token !== selectSeq) return;
   const files = [...new Set((races || []).map((e) => e.turnoutFile).filter(Boolean))];
   if (files.length < 2) return; // need at least two cycles to show a trend
 
@@ -1594,6 +1610,7 @@ async function renderTurnoutTrend(precinctCode) {
     'steady turnout means winning takes persuasion.</p>';
   html += '</div>';
 
+  if (token !== selectSeq) return;
   const existing = host.parentElement.querySelector('.turnout-trend');
   if (existing) existing.remove();
   host.insertAdjacentHTML('beforebegin', html);

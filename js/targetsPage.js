@@ -50,6 +50,8 @@ const pg = {
   turnout: null,
   primary: null,   // party-primary ballots lookup (official county reports), null = N/A
   ctx: { hasTurnout: false, hasRacial: false, hasPrimary: false },
+  electionError: null,   // race name we failed to load, surfaced once then cleared
+  electionSeq: 0,        // bumped per election pick; a stale load must not win
 };
 
 const $ = (id) => document.getElementById(id);
@@ -253,6 +255,10 @@ async function applyElection() {
     pg.electionFeatures = buildElectionFeatures(results);
   } catch (err) {
     console.error("[Targets] election scoring failed:", err);
+    // Falling back to overall partisan lean is reasonable; doing it silently is
+    // not. The select and the hash would still name the race, so the user reads
+    // a lean ranking believing it is that race's result.
+    pg.electionError = entry.displayName || entry.office || pg.electionId;
     pg.electionId = ""; pg.electionFeatures = [];
   }
 }
@@ -358,6 +364,10 @@ function renderResults() {
     return;
   }
   $("tg-na").innerHTML = "";
+  if (pg.electionError) {
+    $("tg-na").innerHTML = `<div class="na-banner">We couldn't load ${escapeHtml(pg.electionError)} — showing overall partisan lean instead.</div>`;
+    pg.electionError = null;
+  }
 
   const base = pg.electionId ? pg.electionFeatures : pg.features;
   // District scope: rank only the scoped district's Collin precincts.
@@ -483,7 +493,16 @@ async function init() {
   $("tg-election").addEventListener("change", async (e) => {
     pg.electionId = e.target.value;
     updateURL();
+    // A slow earlier pick must not overwrite a later one's features.
+    const t = ++pg.electionSeq;
     await applyElection();
+    if (t !== pg.electionSeq) return;
+    // applyElection clears electionId on failure — resync the select and the
+    // hash so neither keeps claiming a race we are not scoring on.
+    if (pg.electionError) {
+      e.target.value = "";
+      updateURL();
+    }
     renderResults();
   });
   initDistrictSelect();

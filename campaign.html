@@ -119,10 +119,9 @@
     table.ptable { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 1rem; }
     table.ptable th, table.ptable td { padding: 11px 14px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--color-border-light, rgba(28,39,51,.06)); }
     table.ptable thead th {
-      position: sticky; top: 0; background: var(--color-bg-tertiary); cursor: pointer; user-select: none;
+      position: sticky; top: 0; background: var(--color-bg-tertiary); user-select: none;
       font-weight: 700; font-size: 0.889rem; color: var(--color-text-secondary); z-index: 2;
     }
-    table.ptable thead th:hover { color: var(--color-primary); }
     table.ptable thead th.sorted { color: var(--color-primary); }
     table.ptable thead th.sorted-secondary { color: var(--color-primary); opacity: 0.75; }
     /* pinned (sticky) columns — dataTable stamps pin-col-<i>; fixed widths keep

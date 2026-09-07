@@ -670,11 +670,11 @@
     <!-- MAP STAGE -->
     <main class="cc-stage">
       <a class="skip-link" href="#cc-list" id="cc-skip-map">Skip map — browse precincts as a list</a>
-      <div class="cc-modes" id="cc-modes">
-        <button class="cc-mode-btn active" data-mode="lean">Lean</button>
-        <button class="cc-mode-btn" data-mode="margin">Margin</button>
-        <button class="cc-mode-btn" data-mode="diversity">Diversity</button>
-        <button class="cc-mode-btn" data-mode="primary" style="display:none">Primary</button>
+      <div class="cc-modes" id="cc-modes" role="group" aria-label="Colour the map by">
+        <button class="cc-mode-btn active" data-mode="lean" aria-pressed="true">Lean</button>
+        <button class="cc-mode-btn" data-mode="margin" aria-pressed="false">Margin</button>
+        <button class="cc-mode-btn" data-mode="diversity" aria-pressed="false">Diversity</button>
+        <button class="cc-mode-btn" data-mode="primary" aria-pressed="false" style="display:none">Primary</button>
       </div>
 
       <div id="cc-map"></div>

@@ -71,6 +71,18 @@ describe('initGlossary() popover', () => {
     expect(btn.getAttribute('aria-expanded')).toBe('false');
   });
 
+  it('un-expands the previous term when a second one is opened', () => {
+    // Two terms both reading aria-expanded="true" with one popover on screen
+    // is a lie to a screen reader about what is open.
+    document.body.innerHTML = termButton('turnout', 'Turnout') + termButton('margin', 'Margin');
+    const [a, b] = document.querySelectorAll('.term[data-term]');
+    a.click();
+    expect(a.getAttribute('aria-expanded')).toBe('true');
+    b.click();
+    expect(a.getAttribute('aria-expanded')).toBe('false');
+    expect(b.getAttribute('aria-expanded')).toBe('true');
+  });
+
   it('closes from its Close button', () => {
     const pop = openIt();
     pop.querySelector('.glossary-pop-close').click();

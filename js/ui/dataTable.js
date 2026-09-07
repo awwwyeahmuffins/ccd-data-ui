@@ -70,7 +70,18 @@ export function headerCellHTML(col, sort = null) {
   const cls = [col.headerClass, isSorted ? "sorted" : "", idx > 0 ? "sorted-secondary" : ""]
     .filter(Boolean)
     .join(" ");
-  return `<th scope="col" data-col="${escapeHtml(col.id)}" class="${escapeHtml(cls)}"${ariaSort}${attrString(col.headerAttrs)}>${escapeHtml(col.label)}${arrow}</th>`;
+  // A sortable header must be operable by keyboard (WCAG 2.1.1). A bare <th>
+  // with a click listener is not: it takes no focus and exposes no role, which
+  // is also why axe cannot see the problem. Wrap the label in a real <button>
+  // and leave the listener on the <th> — the click bubbles, so existing
+  // th.click() callers and the shift-click secondary sort keep working, and a
+  // native button fires on Enter/Space carrying shiftKey, which hands keyboard
+  // users the secondary sort for free. Non-sortable columns get no button, so
+  // they add no dead focus stop. aria-sort stays on the <th> (it is invalid on
+  // a button).
+  const label = `${escapeHtml(col.label)}${arrow}`;
+  const inner = col.sortable === false ? label : `<button type="button" class="th-sort">${label}</button>`;
+  return `<th scope="col" data-col="${escapeHtml(col.id)}" class="${escapeHtml(cls)}"${ariaSort}${attrString(col.headerAttrs)}>${inner}</th>`;
 }
 
 // One <td>. Columns with cellHTML own their markup (and their escaping);

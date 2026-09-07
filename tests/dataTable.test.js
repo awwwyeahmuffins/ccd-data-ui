@@ -132,6 +132,40 @@ describe('sort indicator + click-to-sort', () => {
     head.querySelector('th[data-col="name"]').click(); // sortable: false
     expect(onSort).toHaveBeenCalledTimes(1);
   });
+
+  it('makes sortable headers keyboard-operable, and adds no dead focus stop', () => {
+    // WCAG 2.1.1: a <th> with a click listener takes no focus and exposes no
+    // role, so the sort was mouse-only — and invisible to axe for the same
+    // reason. The listener stays on the <th>; the button's click bubbles.
+    const { head, body } = makeTable();
+    const onSort = jest.fn();
+    renderDataTable({ head, body, columns: COLUMNS, rows: ROWS, onSort });
+
+    const sortable = head.querySelector('th[data-col="votes"] button.th-sort');
+    expect(sortable).not.toBeNull();
+    expect(head.querySelector('th[data-col="name"] button.th-sort')).toBeNull();
+
+    sortable.click(); // what Enter/Space fire on a native button
+    expect(onSort).toHaveBeenCalledWith('votes', expect.any(Object));
+  });
+
+  it('keeps the shift modifier reaching onSort through the button', () => {
+    // The secondary-sort gesture rides the same event; a keyboard user gets it
+    // via Shift+Enter only if shiftKey survives the bubble from the button.
+    const { head, body } = makeTable();
+    const onSort = jest.fn();
+    renderDataTable({ head, body, columns: COLUMNS, rows: ROWS, onSort });
+
+    head.querySelector('th[data-col="votes"] button.th-sort')
+      .dispatchEvent(new window.MouseEvent('click', { bubbles: true, shiftKey: true }));
+    expect(onSort).toHaveBeenCalledWith('votes', expect.objectContaining({ shiftKey: true }));
+  });
+
+  it('keeps aria-sort on the th, not the button (it is invalid on a button)', () => {
+    const html = headerCellHTML({ id: 'v', label: 'V' }, { key: 'v', dir: 'asc' });
+    expect(html).toMatch(/<th[^>]*aria-sort="ascending"/);
+    expect(html).toContain('<button type="button" class="th-sort">');
+  });
 });
 
 describe('multi-column sort (array sort model)', () => {

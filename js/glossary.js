@@ -136,6 +136,14 @@ function openPopover(button, term) {
   pop.querySelector(".glossary-pop-title").textContent = def.title;
   pop.querySelector(".glossary-pop-body").textContent = def.body;
   pop.hidden = false;
+  // Opening B while A is open moves the popover without closing A's state, so
+  // A would stay aria-expanded="true" forever — two terms both announced as
+  // expanded, only one showing. Reset the previous trigger here rather than in
+  // the delegated handler, because precinctLookup and chairPage hand-roll their
+  // own <button class="term"> markup and never go through termButton().
+  if (openedFrom && openedFrom !== button) {
+    openedFrom.setAttribute("aria-expanded", "false");
+  }
   openedFrom = button;
   button.setAttribute("aria-expanded", "true");
 
